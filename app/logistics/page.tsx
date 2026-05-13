@@ -16,13 +16,14 @@ export default function Logistics() {
       <HeroSection
         title="Logistics & Travel"
         subtitle="Everything you need to know for your journey to Skardu"
+        gradient="forest-shadow"
       />
 
       <section className="section bg-white">
         <div className="container-max">
           {/* Venue Information */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">Venue Information</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-lake-dark">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-terra-red">Venue Information</h2>
 
             <h3 className="text-xl font-bold mb-4">Khoj Resort, Skardu</h3>
             <p className="text-gray-700 mb-4 leading-relaxed max-w-[75ch]">
@@ -45,8 +46,8 @@ export default function Logistics() {
           </div>
 
           {/* Getting to Skardu */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">Getting to Skardu</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-moss-light">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-moss-light">Getting to Skardu</h2>
 
             <h3 className="text-xl font-bold mb-4">Flight Options</h3>
             <p className="text-gray-700 mb-4 leading-relaxed max-w-[75ch]">
@@ -71,8 +72,8 @@ export default function Logistics() {
           </div>
 
           {/* Accommodation & Meals */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">Accommodation & Meals</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-forest-dark">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-forest-dark">Accommodation & Meals</h2>
 
             <h3 className="text-xl font-bold mb-4">What's Included</h3>
             <p className="text-gray-700 mb-4 leading-relaxed max-w-[75ch]">
@@ -81,7 +82,7 @@ export default function Logistics() {
             <ul className="space-y-2 mb-6 pl-6">
               {logisticsData.accommodation.included.map((item, index) => (
                 <li key={index} className="text-gray-700 leading-relaxed flex items-start">
-                  <span className="mr-3 text-blue-600 font-bold">•</span>
+                  <span className="mr-3 text-terra-red font-bold">✓</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -102,8 +103,8 @@ export default function Logistics() {
           </div>
 
           {/* What to Pack & Prepare */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">What to Pack & Prepare</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-slate-warm">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-slate-warm">What to Pack & Prepare</h2>
 
             <h3 className="text-xl font-bold mb-4">Climate & Weather</h3>
             <p className="text-gray-700 mb-4 leading-relaxed max-w-[75ch]">
@@ -120,7 +121,7 @@ export default function Logistics() {
             <ul className="space-y-2 mb-6 pl-6">
               {logisticsData.packingList.map((item, index) => (
                 <li key={index} className="text-gray-700 leading-relaxed flex items-start">
-                  <span className="mr-3 text-blue-600 font-bold">•</span>
+                  <span className="mr-3 text-moss-light font-bold">✓</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -141,24 +142,24 @@ export default function Logistics() {
           </div>
 
           {/* FAQ Section */}
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+          <div className="max-w-3xl mx-auto pt-8 border-t-4 border-terra-red">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-terra-red">Frequently Asked Questions</h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {logisticsData.faq.map((item, index) => (
                 <div
                   key={index}
-                  className="border border-gray-200 rounded-lg overflow-hidden"
+                  className="border-2 border-slate-warm/20 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors"
+                    className="w-full px-6 py-4 flex items-center justify-between bg-cloud-white hover:bg-slate-warm/5 transition-colors"
                   >
-                    <div className="font-bold text-gray-900 text-left">
+                    <div className="font-bold text-lake-dark text-left">
                       {item.question}
                     </div>
                     <span
-                      className={`ml-4 text-blue-600 font-bold flex-shrink-0 transition-transform ${
+                      className={`ml-4 text-terra-red font-bold flex-shrink-0 transition-transform duration-300 ${
                         expandedFAQ === index ? 'rotate-180' : ''
                       }`}
                     >
@@ -166,7 +167,7 @@ export default function Logistics() {
                     </span>
                   </button>
                   {expandedFAQ === index && (
-                    <div className="px-6 py-4 bg-white border-t border-gray-200">
+                    <div className="px-6 py-4 bg-slate-warm/5 border-t-2 border-slate-warm/20">
                       <p className="text-gray-700 leading-relaxed">
                         {item.answer}
                       </p>
