@@ -1,122 +1,132 @@
-'use client';
-
+import HeroSection from '@/app/components/HeroSection';
+import BeforeAfterSlider from '@/app/components/BeforeAfterSlider';
 import Link from 'next/link';
-import HeroSection from './components/HeroSection';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
+      {/* Main Hero */}
       <HeroSection
         title="Skardu Scale-Up Fellowship"
-        subtitle="Transform from project-driven to scale-ready"
+        subtitle="Transforming Pakistani social enterprises from project-driven survival to scale-ready impact machines."
+        gradient="alpine-lake"
       />
 
-      {/* Overview Section */}
-      <section className="section bg-gray-50">
+      {/* Before-After Transformation */}
+      <section className="bg-cloud-white py-12 md:py-20">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-blue-600 mb-2">7</div>
-              <p className="text-gray-700 font-medium">Days of Intensive Learning</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-blue-600 mb-2">11</div>
-              <p className="text-gray-700 font-medium">Social Entrepreneurs</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-blue-600 mb-2">5</div>
-              <p className="text-gray-700 font-medium">World-Class Faculty</p>
-            </div>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6">What is the Skardu Scale-Up Fellowship?</h2>
-            <p className="text-lg text-gray-700 mb-4">
-              Pakistan is home to dozens of promising social enterprises, but few achieve true national scale. Most remain trapped in "project-driven survival mode"—securing incremental grants and reaching thousands when their models possess the potential to reach millions.
-            </p>
-            <p className="text-lg text-gray-700 mb-6">
-              Over this 7-day intensive retreat, our curated cohort of founders steps away from daily operations to answer the defining strategic questions of scale: <strong>Who is your ultimate doer (the entity that implements at scale)?</strong> And <strong>who is your ultimate payer (who funds it)?</strong>
-            </p>
-
-            <div className="flex gap-4 flex-wrap justify-center">
-              <Link href="/about" className="btn-primary">
-                Learn More
-              </Link>
-              <Link href="/schedule" className="btn-secondary">
-                View Schedule
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Navigation Cards */}
-      <section className="section">
-        <div className="container-max">
-          <h2 className="text-3xl font-bold text-center mb-12">Explore the Fellowship</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link href="/fellows" className="card hover:shadow-lg transition-all">
-              <h3 className="text-2xl font-bold text-blue-600 mb-2">11</h3>
-              <p className="font-bold text-lg mb-2">Meet the Fellows</p>
-              <p className="text-gray-600 text-sm">Discover the entrepreneurs transforming Pakistan</p>
-            </Link>
-
-            <Link href="/faculty" className="card hover:shadow-lg transition-all">
-              <h3 className="text-2xl font-bold text-purple-600 mb-2">5</h3>
-              <p className="font-bold text-lg mb-2">Faculty & Team</p>
-              <p className="text-gray-600 text-sm">Learn from world-class mentors and organizers</p>
-            </Link>
-
-            <Link href="/schedule" className="card hover:shadow-lg transition-all">
-              <h3 className="text-2xl font-bold text-green-600 mb-2">7</h3>
-              <p className="font-bold text-lg mb-2">The Schedule</p>
-              <p className="text-gray-600 text-sm">Explore the arc of the week and key themes</p>
-            </Link>
-
-            <Link href="/logistics" className="card hover:shadow-lg transition-all">
-              <h3 className="text-2xl font-bold text-orange-600 mb-2">📍</h3>
-              <p className="font-bold text-lg mb-2">Logistics</p>
-              <p className="text-gray-600 text-sm">Practical info: travel, accommodation, and more</p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Arc of the Week */}
-      <section className="section bg-blue-50">
-        <div className="container-max">
-          <h2 className="text-3xl font-bold mb-4">The Arc of the Week</h2>
-          <p className="text-gray-700 mb-8 max-w-2xl">
-            Each day builds on the previous, taking fellows through rigorous frameworks and peer learning to transform their organizations.
+          <h2 className="text-3xl md:text-4xl font-bold text-lake-dark mb-4">
+            The Fellowship Transformation
+          </h2>
+          <p className="text-lg text-slate-warm mb-12 max-w-2xl">
+            See how the Summit Fellowship helps social entrepreneurs scale from struggling to thriving.
           </p>
+          <BeforeAfterSlider />
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white p-4 rounded-lg">
-              <span className="text-sm font-bold text-blue-600">Day 1</span>
-              <p className="font-bold">Design for Impact</p>
-              <p className="text-sm text-gray-600">Mission, Big Idea, Theory, Model</p>
+      {/* Stats with Before-After */}
+      <section className="bg-cloud-white py-16 md:py-24">
+        <div className="container-max">
+          <h2 className="text-3xl md:text-4xl font-bold text-lake-dark mb-12">
+            Fellowship by the Numbers
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="bg-white border border-slate-warm/20 rounded-lg p-8 hover:shadow-lg transition-shadow">
+              <div className="text-center">
+                <p className="text-sm font-semibold text-terra-red mb-2">DURATION</p>
+                <p className="text-5xl font-bold text-lake-dark">7</p>
+                <p className="text-lg text-slate-warm mt-2">Days of intensive learning</p>
+              </div>
             </div>
-            <div className="bg-white p-4 rounded-lg">
-              <span className="text-sm font-bold text-blue-600">Day 2</span>
-              <p className="font-bold">Scale Strategy</p>
-              <p className="text-sm text-gray-600">Evidence, Impact Measurement</p>
+
+            {/* Card 2 */}
+            <div className="bg-white border border-slate-warm/20 rounded-lg p-8 hover:shadow-lg transition-shadow">
+              <div className="text-center">
+                <p className="text-sm font-semibold text-terra-red mb-2">PARTICIPANTS</p>
+                <p className="text-5xl font-bold text-lake-dark">11</p>
+                <p className="text-lg text-slate-warm mt-2">Social entrepreneurs selected</p>
+              </div>
             </div>
-            <div className="bg-white p-4 rounded-lg">
-              <span className="text-sm font-bold text-blue-600">Day 3</span>
-              <p className="font-bold">1-on-1 Clinics</p>
-              <p className="text-sm text-gray-600">Outdoor capacity sessions</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg">
-              <span className="text-sm font-bold text-blue-600">Day 4-6</span>
-              <p className="font-bold">Iteration & Demo</p>
-              <p className="text-sm text-gray-600">Communications, Pitching, Celebration</p>
+
+            {/* Card 3 */}
+            <div className="bg-white border border-slate-warm/20 rounded-lg p-8 hover:shadow-lg transition-shadow">
+              <div className="text-center">
+                <p className="text-sm font-semibold text-terra-red mb-2">FACULTY</p>
+                <p className="text-5xl font-bold text-lake-dark">5+</p>
+                <p className="text-lg text-slate-warm mt-2">Mentors and expert guides</p>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-8 text-center">
-            <Link href="/schedule" className="btn-primary">
-              View Full Schedule
+      {/* Quick Navigation - Varied Patterns */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="container-max">
+          <h2 className="text-3xl md:text-4xl font-bold text-lake-dark mb-12">
+            Explore the Program
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Card 1: Icon + Heading + Description */}
+            <Link
+              href="/fellows"
+              className="bg-cloud-white border border-slate-warm/20 rounded-lg p-8
+                        hover:shadow-lg hover:scale-[1.02] transition-all duration-200 ease-out
+                        focus:outline-none focus:ring-2 focus:ring-terra-red focus:ring-offset-2
+                        group"
+            >
+              <div className="text-5xl mb-4">👥</div>
+              <h3 className="text-2xl font-bold text-lake-dark mb-2 group-hover:text-terra-red transition-colors">
+                Meet the Fellows
+              </h3>
+              <p className="text-slate-warm">
+                Meet 11 social entrepreneurs from across Pakistan working on scale and impact.
+              </p>
+            </Link>
+
+            {/* Card 2: Quote block */}
+            <div className="bg-alpine-lake rounded-lg p-8 text-white border-l-4 border-terra-red flex flex-col justify-center">
+              <p className="text-lg mb-4 italic">
+                "The fellowship transformed how we think about scaling. It gave us frameworks,
+                mentorship, and community."
+              </p>
+              <p className="font-semibold">— A Previous Fellow</p>
+            </div>
+
+            {/* Card 3: Feature highlight with gradient */}
+            <Link
+              href="/schedule"
+              className="bg-skardu-horizon rounded-lg p-8 text-white
+                        hover:shadow-lg hover:scale-[1.02] transition-all duration-200 ease-out
+                        focus:outline-none focus:ring-2 focus:ring-terra-red focus:ring-offset-2
+                        group"
+            >
+              <div className="text-5xl mb-4">📅</div>
+              <h3 className="text-2xl font-bold mb-2 group-hover:text-cloud-white transition-colors">
+                The 7-Day Schedule
+              </h3>
+              <p className="text-cloud-white/90">
+                Design, scale strategy, evidence, iteration, communications, and demo day.
+              </p>
+            </Link>
+
+            {/* Card 4: Simple with colored border */}
+            <Link
+              href="/logistics"
+              className="bg-cloud-white border-2 border-forest-dark rounded-lg p-8
+                        hover:shadow-lg hover:scale-[1.02] transition-all duration-200 ease-out
+                        focus:outline-none focus:ring-2 focus:ring-terra-red focus:ring-offset-2
+                        group"
+            >
+              <div className="text-5xl mb-4">✈️</div>
+              <h3 className="text-2xl font-bold text-forest-dark mb-2 group-hover:text-terra-red transition-colors">
+                Logistics & Travel
+              </h3>
+              <p className="text-slate-warm">
+                Everything you need to know about getting to Skardu and the venue.
+              </p>
             </Link>
           </div>
         </div>
