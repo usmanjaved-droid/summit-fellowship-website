@@ -2,14 +2,14 @@
 
 /* Root variables */
 :root {
-  --primary: #1e40af;
-  --primary-light: #3b82f6;
-  --primary-dark: #1e3a8a;
-  --accent: #ea580c;
-  --accent-light: #fb923c;
+  --color-primary: #005C8A;        /* Deep Lake Blue */
+  --color-accent: #D62828;         /* Terracotta Red */
+  --color-secondary: #2D4F1E;      /* Lush Evergreen */
+  --color-slate: #8C847C;          /* Skardu Slate */
+  --color-moss: #7BA428;           /* Sunlit Moss */
+  --color-bg: #F4F7F6;             /* Cloud White */
   --text-dark: #1f2937;
   --text-light: #6b7280;
-  --bg-light: #f9fafb;
   --border: #e5e7eb;
 }
 
@@ -42,20 +42,20 @@ a {
 
 /* Buttons */
 .btn-primary {
-  @apply bg-orange-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-700 transition-colors;
+  @apply bg-terra-red text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-colors;
 }
 
 .btn-secondary {
-  @apply bg-gray-200 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors;
+  @apply bg-slate-warm bg-opacity-20 text-slate-warm px-6 py-3 rounded-lg font-medium hover:bg-opacity-30 transition-colors;
 }
 
 .hero-gradient {
-  @apply bg-gradient-to-br from-blue-700 to-blue-800 text-white;
+  @apply bg-alpine-lake text-white;
 }
 
 /* Cards */
 .card {
-  @apply bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+  @apply bg-cloud-white border border-slate-warm border-opacity-20 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
 }
 
 /* Section spacing */
