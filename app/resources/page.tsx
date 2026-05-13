@@ -24,21 +24,22 @@ export default function ResourcesPage() {
       <HeroSection
         title="Resources"
         subtitle="Tools, frameworks, and guides for scale"
+        gradient="alpine-lake"
       />
 
-      <div className="section container-max">
-        {/* Filter Pills */}
-        <div className="mb-12">
-          <h2 className="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Filter by Category</h2>
+      <div className="section container-max pt-8 border-t-4 border-lake-dark">
+        {/* Filter Section */}
+        <div className="mb-12 pb-8 border-b-2 border-terra-red">
+          <h2 className="text-sm font-bold text-lake-dark mb-4 uppercase tracking-widest">Filter by Category</h2>
           <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full font-medium transition-all ${
+                className={`px-4 py-2 rounded-full font-medium transition-smooth ${
                   selectedCategory === category
-                    ? 'bg-orange-600 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-terra-red text-cloud-white shadow-lg'
+                    : 'bg-cloud-white border-2 border-slate-warm/30 text-lake-dark hover:border-terra-red hover:text-terra-red'
                 }`}
               >
                 {category}
