@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import StatRow from './components/StatRow';
+import Reveal from './components/Reveal';
 
 export default function HomePage() {
   return (
@@ -90,6 +91,56 @@ export default function HomePage() {
         />
         <div className="container-max relative">
           <StatRow />
+        </div>
+      </section>
+
+      {/* ============ CURRICULUM PILLARS ============ */}
+      <section className="surface-paper section">
+        <div className="container-max">
+          <p className="eyebrow mb-5">The Curriculum</p>
+          <h2 className="font-serif font-semibold max-w-[20ch] mb-16">
+            Four pillars across seven days.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-14">
+            {[
+              {
+                num: '01',
+                title: 'Design for Impact at Scale',
+                day: 'Day 1',
+                body: `The week opens by redrawing the foundations. Fellows work through Mulago's design discipline: an eight-word mission, a Big Idea in six words or fewer, the theory linking idea to behavior to outcome, and the Doer and Payer who carry the model at scale. By the end of the day, every fellow has a one-pager that says what their organization is for, and who it is for, without hedging.`,
+              },
+              {
+                num: '02',
+                title: 'Scale Strategy and Evidence',
+                day: 'Day 2',
+                body: `With foundations in place, the work turns to scale itself. Fellows apply the Scale Screen framework to their own organization, stress test the assumptions that survive only in pilot conditions, and design an evidence plan that matches their level of certainty. The deliverable is not a polished deck. It is an honest map of what is known, what is assumed, and what to prove next.`,
+              },
+              {
+                num: '03',
+                title: 'The Iterative Organization',
+                day: 'Day 4',
+                body: `Most social enterprises ship answers. Scale-ready organizations ship better questions. This block covers the theory of iteration, the methods and data flows that make learning routine rather than heroic, and the people and culture decisions that decide whether iteration actually sticks. Fellows leave with a concrete next iteration for their own work, not a generic improvement plan.`,
+              },
+              {
+                num: '04',
+                title: 'Communications and Demo Day',
+                day: 'Days 5 to 6',
+                body: `The week closes with the conversation, not the pitch. Fellows learn to strip the jargon that funders quietly mistrust, build a narrative that survives a ten-minute conversation rather than a forty-slide deck, and rehearse with peers and faculty until the language feels true. Demo Day is the showcase, but the real outcome is fluency for every funder conversation that follows.`,
+              },
+            ].map((p) => (
+              <Reveal key={p.num} as="article">
+                <div className="flex items-baseline gap-4 mb-4">
+                  <span className="font-serif font-semibold text-terra-red text-2xl leading-none">
+                    {p.num}
+                  </span>
+                  <span className="eyebrow">{p.day}</span>
+                </div>
+                <h3 className="font-serif font-semibold mb-3">{p.title}</h3>
+                <p className="text-[color:var(--color-ink)]/85">{p.body}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </>
