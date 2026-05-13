@@ -42,20 +42,35 @@ a {
 
 /* Buttons */
 .btn-primary {
-  @apply bg-terra-red text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-colors;
+  @apply px-6 py-3 rounded-lg font-medium transition-colors;
+  background-color: #D62828;
+  color: #F4F7F6;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
 }
 
 .btn-secondary {
-  @apply bg-slate-warm bg-opacity-20 text-slate-warm px-6 py-3 rounded-lg font-medium hover:bg-opacity-30 transition-colors;
+  @apply px-6 py-3 rounded-lg font-medium transition-colors;
+  background-color: rgba(140, 132, 124, 0.2);
+  color: #8C847C;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(140, 132, 124, 0.3);
 }
 
 .hero-gradient {
-  @apply bg-alpine-lake text-white;
+  @apply text-white;
+  background: linear-gradient(135deg, #005C8A 0%, #1A7BA8 50%, #2D8FC4 100%);
 }
 
 /* Cards */
 .card {
-  @apply bg-cloud-white border border-slate-warm border-opacity-20 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+  @apply rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+  background-color: #F4F7F6;
+  border: 1px solid rgba(140, 132, 124, 0.2);
 }
 
 /* Section spacing */

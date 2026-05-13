@@ -1,56 +1,57 @@
-'use client';
-
 import Link from 'next/link';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container-max px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* About */}
-          <div>
-            <h3 className="font-bold mb-4">Summit Fellowship</h3>
-            <p className="text-gray-400 text-sm">
-              A 7-day intensive retreat transforming social entrepreneurs from project-driven organizations to scale-ready impact machines.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-bold mb-4">Pages</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
-              <li><Link href="/fellows" className="text-gray-400 hover:text-white transition-colors">Fellows</Link></li>
-              <li><Link href="/faculty" className="text-gray-400 hover:text-white transition-colors">Faculty</Link></li>
-              <li><Link href="/schedule" className="text-gray-400 hover:text-white transition-colors">Schedule</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-bold mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>Email: <a href="mailto:summit@taleemabad.com" className="text-white hover:text-blue-400">summit@taleemabad.com</a></li>
-              <li>Organizing Team: Muhammad Usman Javed</li>
-            </ul>
-          </div>
-
-          {/* Co-hosts */}
-          <div>
-            <h4 className="font-bold mb-4">Co-Hosts</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="https://taleemabad.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Taleemabad</a></li>
-              <li><a href="https://mulagofoundation.org" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Mulago Foundation</a></li>
-            </ul>
-          </div>
+    <footer className="bg-forest-dark text-cloud-white">
+      <div className="container-max py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Column 1: About */}
+        <div>
+          <h3 className="text-lg font-bold mb-4 text-moss-light">Summit Fellowship</h3>
+          <p className="text-cloud-white/80">
+            A 7-day intensive retreat for Pakistani social entrepreneurs focused on scaling impact.
+          </p>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
-          <p className="text-gray-400 text-sm text-center">
-            &copy; {currentYear} Summit Fellowship. All rights reserved. | Co-hosted by Taleemabad & Mulago Foundation
+        {/* Column 2: Quick Links */}
+        <div>
+          <h3 className="text-lg font-bold mb-4 text-moss-light">Quick Links</h3>
+          <ul className="space-y-2">
+            {['About', 'Fellows', 'Schedule', 'Logistics'].map((link) => (
+              <li key={link}>
+                <Link
+                  href={`/${link.toLowerCase()}`}
+                  className="text-cloud-white/80 hover:text-terra-red transition-colors duration-100
+                             focus:outline-none focus:ring-2 focus:ring-terra-red focus:ring-offset-2 rounded px-1"
+                >
+                  {link}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 3: Contact */}
+        <div>
+          <h3 className="text-lg font-bold mb-4 text-moss-light">Contact</h3>
+          <p className="text-cloud-white/80">
+            Email: <a href="mailto:info@summitweb.com" className="text-terra-red hover:underline">
+              info@summitweb.com
+            </a>
           </p>
+          <p className="text-cloud-white/80 mt-2">
+            Organized by Taleemabad & Mulago Foundation
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-moss-light/20 py-6">
+        <div className="container-max flex flex-col md:flex-row justify-between items-center text-cloud-white/60 text-sm">
+          <p>&copy; 2026 Summit Fellowship. All rights reserved.</p>
+          <div className="flex gap-4 mt-4 md:mt-0">
+            <a href="#" className="hover:text-terra-red transition-colors duration-100">LinkedIn</a>
+            <a href="#" className="hover:text-terra-red transition-colors duration-100">Twitter</a>
+          </div>
         </div>
       </div>
     </footer>
