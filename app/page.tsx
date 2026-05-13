@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import StatRow from './components/StatRow';
 import Reveal from './components/Reveal';
+import DuotoneImage from './components/DuotoneImage';
+import { IconArrowRight } from './components/icons';
 
 export default function HomePage() {
   return (
@@ -143,6 +145,107 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ============ EXPLORE THE PROGRAM ============ */}
+      <section className="section">
+        <div className="container-max">
+          <p className="eyebrow mb-5">Explore</p>
+          <h2 className="font-serif font-semibold max-w-[18ch] mb-14">
+            The week, the people, the place.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Card 1 — Fellows (typographic, no image) */}
+            <Link
+              href="/fellows"
+              className="group block border border-[color:var(--color-border)]
+                         surface-paper p-8 md:p-10 transition-all duration-300
+                         hover:border-terra-red focus-visible:border-terra-red
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-terra-red
+                         focus-visible:ring-offset-2"
+            >
+              <div className="aspect-[3/2] flex items-center justify-center
+                              bg-white/40 mb-6 px-6 text-center">
+                <p className="font-serif text-2xl text-[color:var(--color-ink)]/30 leading-snug">
+                  Eleven fellows.<br/>Eleven organizations.<br/>One cohort.
+                </p>
+              </div>
+              <p className="eyebrow mb-2">The Fellows</p>
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="font-serif font-semibold group-hover:text-terra-red transition-colors">
+                  Meet the Fellows
+                </h3>
+                <IconArrowRight className="mt-2 text-[color:var(--color-ink)] transition-transform
+                                           duration-200 group-hover:translate-x-1" />
+              </div>
+              <p className="mt-3 text-slate-warm">
+                Eleven social entrepreneurs working on scale across Pakistan.
+              </p>
+            </Link>
+
+            {/* Card 2 — Schedule */}
+            <NavCard
+              href="/schedule"
+              eyebrow="The Week"
+              title="The 7-Day Schedule"
+              desc="Design, scale strategy, evidence, iteration, communications, and demo day."
+              image="/images/skardu/deosai.jpg"
+              imageAlt="Deosai National Park, the high plateau above Skardu"
+            />
+
+            {/* Card 3 — Logistics */}
+            <NavCard
+              href="/logistics"
+              eyebrow="Getting There"
+              title="Logistics and Travel"
+              desc="Getting to Skardu, the venue at Khoj Resort, and what to bring."
+              image="/images/skardu/shangrila-resort.jpg"
+              imageAlt="Wooden lodge at Shangrila Resort, near the program venue"
+            />
+
+            {/* Card 4 — Resources */}
+            <NavCard
+              href="/resources"
+              eyebrow="The Toolkit"
+              title="Frameworks and Resources"
+              desc="The Mulago frameworks, reading lists, and post-fellowship resources."
+              image="/images/skardu/peaks-panorama.jpg"
+              imageAlt="Karakoram peaks above Skardu"
+            />
+          </div>
+        </div>
+      </section>
     </>
+  );
+}
+
+function NavCard({
+  href, eyebrow, title, desc, image, imageAlt,
+}: {
+  href: string; eyebrow: string; title: string; desc: string;
+  image: string; imageAlt: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group block border border-[color:var(--color-border)]
+                 surface-paper transition-all duration-300
+                 hover:border-terra-red focus-visible:border-terra-red
+                 focus:outline-none focus-visible:ring-2 focus-visible:ring-terra-red
+                 focus-visible:ring-offset-2"
+    >
+      <DuotoneImage src={image} alt={imageAlt} />
+      <div className="p-8 md:p-10">
+        <p className="eyebrow mb-2">{eyebrow}</p>
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="font-serif font-semibold group-hover:text-terra-red transition-colors">
+            {title}
+          </h3>
+          <IconArrowRight className="mt-2 text-[color:var(--color-ink)] transition-transform
+                                     duration-200 group-hover:translate-x-1" />
+        </div>
+        <p className="mt-3 text-slate-warm">{desc}</p>
+      </div>
+    </Link>
   );
 }
