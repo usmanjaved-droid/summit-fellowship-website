@@ -4,10 +4,13 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <>
-      {/* Fitzroy-style Hero Section */}
-      <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24"
-               style={{background: 'linear-gradient(135deg, #005C8A 0%, #1A7BA8 50%, #2D8FC4 100%)'}}>
-        <div className="absolute inset-0 bg-black/25"></div>
+      {/* Fitzroy-style Hero Section with Skardu Landscape */}
+      <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24 bg-cover bg-center bg-no-repeat"
+               style={{
+                 backgroundImage: 'url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80")',
+                 backgroundAttachment: 'fixed'
+               }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
 
         <div className="container-max relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
