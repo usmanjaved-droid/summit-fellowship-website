@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import StatRow from './components/StatRow';
 
 export default function HomePage() {
   return (
@@ -57,7 +58,40 @@ export default function HomePage() {
         />
       </section>
 
-      {/* Subsequent sections are added in tasks 9-12 */}
+      {/* ============ INTRO / POSITIONING ============ */}
+      <section className="surface-paper section">
+        <div className="container-max">
+          <p className="eyebrow mb-5">The Fellowship</p>
+          <p className="font-serif text-[color:var(--color-ink)] font-semibold
+                        text-[clamp(1.75rem,3.2vw,2.5rem)] leading-snug max-w-[28ch]"
+             style={{ fontVariationSettings: '"opsz" 72' }}>
+            From project-driven survival to scale-ready impact.
+          </p>
+          <p className="mt-6 max-w-[60ch] text-[color:var(--color-ink)]/90">
+            Eleven social enterprises spend seven days at Khoj Resort in Skardu working
+            through Mulago&apos;s design discipline alongside Pakistani faculty. The week is
+            built to leave each fellow with a sharper mission, a clearer scale strategy,
+            and a narrative that survives a real funder conversation.
+          </p>
+        </div>
+      </section>
+
+      {/* ============ STATS ============ */}
+      <section className="relative section">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'url("/images/skardu/katpana-desert.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.06,
+          }}
+        />
+        <div className="container-max relative">
+          <StatRow />
+        </div>
+      </section>
     </>
   );
 }
