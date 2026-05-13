@@ -46,7 +46,7 @@ export default function ScheduleDay({
               </span>
             </div>
             <p className="text-base sm:text-lg text-gray-700">
-              {theme}
+              ({theme})
             </p>
           </div>
           <div

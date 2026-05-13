@@ -50,7 +50,20 @@
       "Bash(curl -s http://localhost:3000/fellows)",
       "Bash(curl -s \"http://localhost:3000/fellows\")",
       "Bash(curl -s \"http://localhost:3000/fellows?search=Health&sector=Health\")",
-      "Bash(pkill -f \"next dev\")"
+      "Bash(pkill -f \"next dev\")",
+      "Bash(curl -s \"http://localhost:3000/fellows?search=Rubeena\")",
+      "Bash(curl -s \"http://localhost:3000/fellows?sector=Health\")",
+      "PowerShell(cd 'd:\\\\Summit Fellowship Website'; $fellows = Get-Content data/fellows.json | ConvertFrom-Json; $fellows.fellows | Measure-Object | Select-Object -ExpandProperty Count)",
+      "PowerShell(cd 'd:\\\\Summit Fellowship Website'; $fellows = Get-Content data/fellows.json | ConvertFrom-Json; $fellows.fellows | Select-Object -ExpandProperty sector | Sort-Object -Unique)",
+      "PowerShell(cd 'd:\\\\Summit Fellowship Website'; $fellows = Get-Content data/fellows.json | ConvertFrom-Json; $unique = $fellows.fellows | Select-Object -ExpandProperty sector | Sort-Object -Unique; \"Sectors: `nAll`n\" + \\($unique -join \"`n\"\\))",
+      "Bash(npx -y jq '.fellows | length' data/fellows.json)",
+      "Bash(powershell -Command \"\\(Get-Content data/fellows.json | ConvertFrom-Json\\).fellows.Count\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(powershell -Command ' *)",
+      "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\" -Force)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "Bash(curl -s http://localhost:3000/schedule)",
+      "Bash(node -e \"const data = require\\('./data/schedule.json'\\); console.log\\('Total days:', data.days.length\\); data.days.forEach\\(d => console.log\\('Day', d.dayNumber, '-', d.date, '-', d.theme, '\\(' + d.sessions.length + ' sessions\\)'\\)\\)\")"
     ],
     "additionalDirectories": [
       "d:\\"

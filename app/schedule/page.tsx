@@ -6,9 +6,9 @@ export default function SchedulePage() {
   return (
     <>
       <HeroSection
-        title="Fellowship Schedule"
+        title="7-Day Fellowship Schedule"
         subtitle="June 7-14, 2026 | Khoj Resort, Skardu"
-        description="Detailed itinerary of the intensive 8-day fellowship program designed to transform Pakistani social enterprises into scale-ready impact organizations."
+        description="Detailed itinerary of the intensive week"
       />
 
       <section className="section bg-white">
@@ -37,29 +37,6 @@ export default function SchedulePage() {
                 sessions={day.sessions}
               />
             ))}
-          </div>
-
-          {/* Footer Info */}
-          <div className="mt-12 bg-blue-50 rounded-lg p-6 sm:p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">About This Schedule</h3>
-            <div className="grid sm:grid-cols-2 gap-6 text-gray-700">
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Location</h4>
-                <p>Khoj Resort, Skardu (2,226m altitude)</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Duration</h4>
-                <p>8 days • June 7-14, 2026</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Format</h4>
-                <p>Intensive residential retreat with core learning blocks, clinics, and peer sessions</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Activities</h4>
-                <p>Workshops, 1-on-1 mentoring, Demo Day, fireside chats, and cultural experiences</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
