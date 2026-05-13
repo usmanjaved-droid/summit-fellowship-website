@@ -32,7 +32,28 @@
       "Bash(npm install *)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(sed -n '217,1200p' \"d:\\\\Summit Fellowship Website\\\\docs\\\\superpowers\\\\plans\\\\2026-05-13-summit-fellowship-website-implementation.md\")",
+      "Read(//d//**)",
+      "Bash(sed -n '217,1016p' \"d:\\\\Summit Fellowship Website\\\\docs\\\\superpowers\\\\plans\\\\2026-05-13-summit-fellowship-website-implementation.md\" > \"d:\\\\task2_content.txt\" && wc -l \"d:\\\\task2_content.txt\")",
+      "Bash(node -e \"const fs = require\\('fs'\\); const files = ['fellows.json', 'faculty.json', 'schedule.json', 'logistics.json', 'resources.json']; files.forEach\\(f => { try { JSON.parse\\(fs.readFileSync\\(\\\\`data/\\\\${f}\\\\`\\)\\); console.log\\(\\\\`✓ \\\\${f} is valid\\\\`\\); } catch\\(e\\) { console.log\\(\\\\`✗ \\\\${f} error: \\\\${e.message}\\\\`\\); } }\\);\")",
+      "Bash(node -e \"const data = require\\('./data/fellows.json'\\); console.log\\('Total fellows:', data.fellows.length\\); console.log\\('Fellow names:', data.fellows.map\\(f => f.name\\).join\\(', '\\)\\);\")",
+      "Bash(node -e \"const faculty = require\\('./data/faculty.json'\\); const schedule = require\\('./data/schedule.json'\\); const resources = require\\('./data/resources.json'\\); console.log\\('Faculty members:', faculty.faculty.length\\); console.log\\('Organizing team members:', faculty.organizingTeam.length\\); console.log\\('Schedule days:', schedule.days.length\\); console.log\\('Resources:', resources.resources.length\\);\")",
+      "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\" -Recurse -Depth 2)",
+      "Bash(Select-Object FullName)",
+      "Bash(Select-Object -First 50)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(pkill -f \"npm run dev\")",
+      "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\" -Recurse -Depth 2 -Include \"page.tsx\", \"globals.css\", \"types.ts\", \"HeroSection*\")",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\" -Recurse -Depth 3 | Where-Object {$_.Name -match \"\\(page\\\\.tsx|globals\\\\.css|types\\\\.ts|HeroSection\\)\" -or $_.Name -eq \"app\" -or $_.Name -eq \"lib\"} | Select-Object -ExpandProperty FullName | head -20)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s http://localhost:3000/fellows)",
+      "Bash(curl -s \"http://localhost:3000/fellows\")",
+      "Bash(curl -s \"http://localhost:3000/fellows?search=Health&sector=Health\")",
+      "Bash(pkill -f \"next dev\")"
+    ],
+    "additionalDirectories": [
+      "d:\\"
     ]
   }
 }
