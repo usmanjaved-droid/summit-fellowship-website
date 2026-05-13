@@ -31,9 +31,10 @@ export default function Faculty() {
                   key={member.id}
                   name={member.name}
                   title={member.title}
-                  institution={member.organization}
+                  organization={member.organization}
                   bio={member.bio}
-                  linkedIn={member.linkedin}
+                  type={member.role as 'faculty' | 'organizing'}
+                  linkedin={member.linkedin}
                   website={member.website}
                 />
               ))}
@@ -57,9 +58,10 @@ export default function Faculty() {
                   key={member.id}
                   name={member.name}
                   title={member.title}
-                  institution={member.organization}
+                  organization={member.organization}
                   bio={member.bio}
-                  linkedIn={member.linkedin}
+                  type={member.role as 'faculty' | 'organizing'}
+                  linkedin={member.linkedin}
                   website={member.website}
                 />
               ))}
