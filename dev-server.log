@@ -1,0 +1,13 @@
+
+> summit-fellowship@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.10.20.179:3000
+✓ Ready in 370ms
+
+ GET /faculty 200 in 2.7s (next.js: 2.4s, application-code: 324ms)
+ GET /faculty 200 in 96ms (next.js: 4ms, application-code: 91ms)
+ GET /faculty 200 in 68ms (next.js: 3ms, application-code: 65ms)
+ GET /faculty 200 in 113ms (next.js: 3ms, application-code: 110ms)

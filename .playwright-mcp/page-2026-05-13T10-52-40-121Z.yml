@@ -1,0 +1,602 @@
+- generic [active] [ref=e1]:
+  - link "Back to top" [ref=e2] [cursor=pointer]:
+    - /url: "#hero"
+    - text: ↑
+  - navigation [ref=e3]:
+    - generic [ref=e4]: Summit Fellowship
+    - generic [ref=e5]:
+      - link "The Opportunity" [ref=e6] [cursor=pointer]:
+        - /url: "#challenge"
+      - link "Program" [ref=e7] [cursor=pointer]:
+        - /url: "#program"
+      - link "People" [ref=e8] [cursor=pointer]:
+        - /url: "#behind"
+      - link "Funders" [ref=e9] [cursor=pointer]:
+        - /url: "#funders"
+      - link "The Setting" [ref=e10] [cursor=pointer]:
+        - /url: "#skardu"
+    - button "Join Us" [ref=e11] [cursor=pointer]
+  - generic [ref=e12]:
+    - generic:
+      - img
+    - img [ref=e14]
+    - generic [ref=e19]:
+      - generic [ref=e20]: For Pakistani social innovators designing for scale
+      - heading "Summit Fellowship" [level=1] [ref=e21]:
+        - text: Summit
+        - text: Fellowship
+      - paragraph [ref=e22]: Curating Pakistan's finest impact companies and matching them with strategy mentoring and capital to scale.
+      - generic [ref=e23]:
+        - link "Express Interest" [ref=e24] [cursor=pointer]:
+          - /url: "#cta"
+        - link "Learn More" [ref=e25] [cursor=pointer]:
+          - /url: "#about"
+    - generic [ref=e27]: Scroll
+  - generic [ref=e30]:
+    - generic [ref=e31]: The Opportunity
+    - heading "Pakistan has a vibrant social innovation sector. Scale is the next frontier." [level=2] [ref=e32]:
+      - text: Pakistan has a vibrant social
+      - text: innovation sector. Scale is
+      - text: the next frontier.
+    - generic [ref=e33]:
+      - paragraph [ref=e34]: 240 million people. A learning crisis. A hunger crisis. A mental health system that barely exists. A generation of founders has decided not to wait — and they are building real solutions, with real evidence, at real cost. The missing piece is not ambition or talent. It is the knowledge, capital, and networks to cross from thousands of beneficiaries to millions.
+      - img "ChildLife Foundation doctor treating child in emergency room Pakistan" [ref=e35]
+  - generic [ref=e36]:
+    - generic [ref=e37]: What is it
+    - heading "A 7-Day Residential Scale Strategy Intensive" [level=2] [ref=e38]:
+      - text: A 7-Day Residential
+      - text: Scale Strategy Intensive
+    - paragraph [ref=e39]: Founders arrive with working models and leave with a Scale Blueprint — a concrete, defensible strategy for reaching millions — presented live to investors on the final day.
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - img [ref=e43]
+        - generic [ref=e48]: Who attends
+        - heading "Founders post-pilot" [level=4] [ref=e49]
+        - paragraph [ref=e50]: Working model. Real evidence. Ambition to go further. Not for organisations still finding their footing — for those ready to think seriously about scale for the first time.
+      - generic [ref=e51]:
+        - img [ref=e53]
+        - generic [ref=e55]: The framework
+        - heading "The Mulago Scale Screen" [level=4] [ref=e56]
+        - paragraph [ref=e57]:
+          - text: "Four litmus tests every intervention must pass:"
+          - emphasis [ref=e58]: Good Enough? Big Enough? Cheap Enough? Simple Enough?
+          - text: The most rigorous filter in the sector, refined over 20 years.
+      - generic [ref=e59]:
+        - img [ref=e61]
+        - generic [ref=e63]: The work
+        - heading "Rigorous. Uncomfortable." [level=4] [ref=e64]
+        - paragraph [ref=e65]: Founders stress-test each other's assumptions. Mentors push back hard. Models get rebuilt from the ground up. Seven days of the questions most organisations never get around to asking.
+      - generic [ref=e66]:
+        - img [ref=e68]
+        - generic [ref=e70]: The funders
+        - heading "Partners, not audience" [level=4] [ref=e71]
+        - paragraph [ref=e72]: Impact capital providers are present throughout the week — asking the same hard questions as the mentors. By Demo Day, they know every venture in the room.
+      - generic [ref=e73]:
+        - img [ref=e75]
+        - generic [ref=e77]: Demo Day
+        - heading "A Scale Blueprint, live" [level=4] [ref=e78]
+        - paragraph [ref=e79]: The week ends with every founder presenting their Scale Blueprint to a room of funders who flew in specifically to act on what they hear. Ten minutes. No safety net.
+      - generic [ref=e80]:
+        - img [ref=e82]
+        - generic [ref=e88]: What comes next
+        - heading "A permanent network" [level=4] [ref=e89]
+        - paragraph [ref=e90]:
+          - text: The fellowship does not end when the week does. Every founder joins the
+          - strong [ref=e91]: Pakistan Scale Collaborative
+          - text: — structured follow-on support and direct access to the funder community.
+  - generic [ref=e92]:
+    - generic [ref=e93]: The Design
+    - heading "7 Days. Rigorous. Designed for Breakthroughs." [level=2] [ref=e94]:
+      - text: 7 Days. Rigorous.
+      - text: Designed for Breakthroughs.
+    - paragraph [ref=e95]: The fellowship is immersive and residential — no phones, no emails during sessions.
+    - generic [ref=e96]:
+      - generic [ref=e98] [cursor=pointer]:
+        - generic [ref=e99]:
+          - generic [ref=e100]: Day 1
+          - generic [ref=e101]: Sat, Jun 6
+          - generic [ref=e102]: Foundations
+        - generic [ref=e111]: Arrivals, welcome, and a grounding conversation on Pakistan's context — then straight into a four-hour core session on designing for impact at scale. Ends around a bonfire.
+      - generic [ref=e113] [cursor=pointer]:
+        - generic [ref=e114]:
+          - generic [ref=e115]: Day 2
+          - generic [ref=e116]: Sun, Jun 7
+          - generic [ref=e117]: Design for Impact
+        - generic [ref=e126]: The first serious interrogation of who implements your model and who pays for it. Breakout groups pressure-test assumptions. Evening ends with Lightning Talks around a bonfire.
+      - generic [ref=e128] [cursor=pointer]:
+        - generic [ref=e129]:
+          - generic [ref=e130]: Day 3
+          - generic [ref=e131]: Mon, Jun 8
+          - generic [ref=e132]: The Four Enoughs
+        - generic [ref=e141]: A two-hour journey to an outdoor location, then a full day applying all Four Enoughs to every venture. Lunch in the open air. Most founders leave with their assumptions thoroughly shaken.
+      - generic [ref=e143] [cursor=pointer]:
+        - generic [ref=e144]:
+          - generic [ref=e145]: Day 4
+          - generic [ref=e146]: Tue, Jun 9
+          - generic [ref=e147]: Rapid Iteration
+        - generic [ref=e156]: Founders rebuild their models. Funders arrive and run parallel sessions. By evening both groups are in the same room. Late dinner with Funder Talks on AI and new investment areas.
+      - generic [ref=e158] [cursor=pointer]:
+        - generic [ref=e159]:
+          - generic [ref=e160]: Day 5
+          - generic [ref=e161]: Wed, Jun 10
+          - generic [ref=e162]: Communications
+        - generic [ref=e171]: "A full day learning to say something true, clearly, in ten minutes. Clear language, narrative structure, pitch architecture. Evening: sightseeing tour and Cultural Night dinner."
+      - generic [ref=e173] [cursor=pointer]:
+        - generic [ref=e174]:
+          - generic [ref=e175]: Day 6
+          - generic [ref=e176]: Thu, Jun 11
+          - generic [ref=e177]: Rehearsal
+        - generic [ref=e186]: One-on-one mentor sessions, then a full dress rehearsal. Funder Talks in the afternoon. Closing celebration in the evening.
+      - generic [ref=e188] [cursor=pointer]:
+        - generic [ref=e189]:
+          - generic [ref=e190]: ★
+          - generic [ref=e191]: Day 7
+          - generic [ref=e192]: Fri, Jun 12
+          - generic [ref=e193]: Demo Day
+        - generic [ref=e202]: Fifteen founders. Fifteen Scale Blueprints. Ten minutes each, in front of a room that has spent the whole week preparing to hear them. Networking lunch, then departures.
+  - generic [ref=e204]:
+    - generic [ref=e205]:
+      - img "Skardu Valley" [ref=e206]
+      - generic [ref=e207]: 35.2972° N, 75.6333° E · elev. 2,438m
+    - generic [ref=e208]:
+      - generic [ref=e209]: The Setting
+      - heading "Skardu Valley, Northern Pakistan" [level=2] [ref=e210]:
+        - text: Skardu Valley,
+        - text: Northern Pakistan
+      - generic [ref=e211]:
+        - paragraph [ref=e212]: The valley sits at 2,438 metres above sea level, at the point where the Indus and Shigar rivers meet. It was carved by glaciers over 3.2 million years. The rocks beneath your feet are between 37 and 105 million years old.
+        - paragraph [ref=e213]: In June, the surrounding peaks block the monsoon entirely. While the rest of Pakistan swelters, Skardu sits under clear skies at 15–25°C. The air is clean. The silence is extraordinary. There is nowhere else in Pakistan quite like it.
+      - generic [ref=e214]:
+        - generic [ref=e215]:
+          - generic [ref=e216]: The mountains
+          - generic [ref=e217]: Four of the world's five highest peaks are within this district — K2, Broad Peak, Gasherbrum I & II. More 8,000m summits than anywhere else on earth.
+        - generic [ref=e218]:
+          - generic [ref=e219]: The climate
+          - generic [ref=e220]: In June, temperatures sit between 15–25°C. The surrounding peaks block the monsoon entirely. While the rest of Pakistan swelters, Skardu is clear skies and cool mountain air.
+  - generic [ref=e221]:
+    - generic [ref=e222]: Who is behind this
+    - heading "Built by people who have done this before." [level=2] [ref=e223]:
+      - text: Built by people who have
+      - text: done this before.
+    - paragraph [ref=e224]: This fellowship is not a new idea from a new organisation. It is a deliberate collaboration between two entities that have spent decades working on exactly this problem — one from inside Pakistan, one from across the world.
+    - generic [ref=e225]:
+      - generic [ref=e226]:
+        - generic [ref=e227]:
+          - generic [ref=e228]: Organizer
+          - generic [ref=e229]: Taleemabad
+          - generic [ref=e230]: Islamabad, Pakistan
+          - link "Learn more → →" [ref=e231] [cursor=pointer]:
+            - /url: https://taleemabad.com/
+        - paragraph [ref=e233]: "Taleemabad is Pakistan's leading EdTech organisation — reaching over two million children through national TV and an app ranked #1 in Education on the Play Store. The fellowship is Taleemabad's attempt to share what it learned building to scale, and to create a rigorous pathway from proof to national impact for the broader social sector."
+      - generic [ref=e234]:
+        - generic [ref=e235]:
+          - generic [ref=e236]: Framework & Curriculum
+          - generic [ref=e237]: Mulago Foundation
+          - generic [ref=e238]: San Francisco, USA
+          - link "Learn more → →" [ref=e239] [cursor=pointer]:
+            - /url: https://www.mulagofoundation.org/
+        - paragraph [ref=e241]: Mulago Foundation has spent over twenty years funding organisations that achieve impact at genuine scale — 77 portfolio organisations, $26M deployed last year, backing nonprofits and for-profits alike. Their Scale Screen framework is the intellectual backbone of this fellowship, and Kevin Starr, Mulago's founder, leads the curriculum in person.
+  - generic [ref=e242]:
+    - generic [ref=e243]: Prospective Cohort
+    - heading "Founders Under Consideration" [level=2] [ref=e244]
+    - paragraph [ref=e245]: A tentative, indicative selection of Pakistani founders whose work has been evaluated against Mulago Foundation criteria — a priority problem, a scalable solution, and an organization that can deliver. This list is preliminary and subject to change as the fellowship takes its final shape. Click any card to explore their work.
+    - generic [ref=e246]:
+      - button "All" [ref=e247] [cursor=pointer]
+      - button "Fintech" [ref=e248] [cursor=pointer]
+      - button "Health" [ref=e249] [cursor=pointer]
+      - button "Education" [ref=e250] [cursor=pointer]
+      - button "Agriculture" [ref=e251] [cursor=pointer]
+      - button "Social" [ref=e252] [cursor=pointer]
+    - generic [ref=e253]:
+      - generic "Visit Oraan" [ref=e254] [cursor=pointer]:
+        - generic [ref=e255]: Fintech
+        - generic [ref=e256]: Halima Iqbal
+        - generic [ref=e257]: Oraan
+        - generic: ↗
+        - generic:
+          - generic: Halima Iqbal
+          - generic: Oraan
+          - generic: Pakistan's first women-led fintech digitising savings committees for 600,000+ underserved women.
+          - generic: Visit Oraan ↗
+      - generic "Visit xWave" [ref=e258] [cursor=pointer]:
+        - generic [ref=e259]: Workforce Dev
+        - generic [ref=e260]: Wardah Noor
+        - generic [ref=e261]: xWave
+        - generic: ↗
+        - generic:
+          - generic: Wardah Noor
+          - generic: xWave
+          - generic: Training underprivileged youth in IT skills. Acumen Angels Awardee. Selected for TED 2025.
+          - generic: Visit xWave ↗
+      - generic "Visit Rizq" [ref=e262] [cursor=pointer]:
+        - generic [ref=e263]: Food Systems
+        - generic [ref=e264]: Musa Aamir
+        - generic [ref=e265]: Rizq
+        - generic: ↗
+        - generic:
+          - generic: Musa Aamir
+          - generic: Rizq
+          - generic: "Network of social businesses targeting SDG Goal #2: Zero Hunger across 23 Pakistani cities."
+          - generic: Visit Rizq ↗
+      - generic "Visit SobyAgro" [ref=e266] [cursor=pointer]:
+        - generic [ref=e267]: Agriculture
+        - generic [ref=e268]: Osama Shahid
+        - generic [ref=e269]: SobyAgro
+        - generic: ↗
+        - generic:
+          - generic: Osama Shahid
+          - generic: SobyAgro
+          - generic: Affordable farm machinery making modern agriculture accessible for small landholders.
+          - generic: Visit SobyAgro ↗
+      - generic "Visit Awaaz-e-Sehat" [ref=e270] [cursor=pointer]:
+        - generic [ref=e271]: Health
+        - generic [ref=e272]: Maryam Mustafa
+        - generic [ref=e273]: Awaaz-e-Sehat
+        - generic: ↗
+        - generic:
+          - generic: Maryam Mustafa
+          - generic: Awaaz-e-Sehat
+          - generic: AI voice assistant helping community health workers create electronic maternal health records.
+          - generic: Visit Awaaz-e-Sehat ↗
+      - generic "Visit WonderTree" [ref=e274] [cursor=pointer]:
+        - generic [ref=e275]: Special Ed
+        - generic [ref=e276]: Muhammad Waqas
+        - generic [ref=e277]: WonderTree
+        - generic: ↗
+        - generic:
+          - generic: Muhammad Waqas
+          - generic: WonderTree
+          - generic: Augmented reality games making therapy and special education effective and joyful for children.
+          - generic: Visit WonderTree ↗
+      - generic "Visit Legal Aid Society" [ref=e278] [cursor=pointer]:
+        - generic [ref=e279]: Access to Justice
+        - generic [ref=e280]: Haya Emaan Zahid
+        - generic [ref=e281]: Legal Aid Society
+        - generic: ↗
+        - generic:
+          - generic: Haya Emaan Zahid
+          - generic: Legal Aid Society
+          - generic: Expanding access to legal services for prisoners, women, and underserved communities nationwide.
+          - generic: Visit Legal Aid Society ↗
+      - generic "Visit ConnectHear" [ref=e282] [cursor=pointer]:
+        - generic [ref=e283]: Accessibility
+        - generic [ref=e284]: Azima Dhanjee
+        - generic [ref=e285]: ConnectHear
+        - generic: ↗
+        - generic:
+          - generic: Azima Dhanjee
+          - generic: ConnectHear
+          - generic: Sign language tech bridging Pakistan's deaf community to education, healthcare, and opportunity.
+          - generic: Visit ConnectHear ↗
+      - generic "Visit Chiraagh" [ref=e286] [cursor=pointer]:
+        - generic [ref=e287]: EdTech
+        - generic [ref=e288]: Maira Siddiqui
+        - generic [ref=e289]: Chiraagh
+        - generic: ↗
+        - generic:
+          - generic: Maira Siddiqui
+          - generic: Chiraagh
+          - generic: EdTech platform focused on measurable learning outcomes at scale across Pakistan.
+          - generic: Visit Chiraagh ↗
+      - generic "Visit BeMe" [ref=e290] [cursor=pointer]:
+        - generic [ref=e291]: Mental Health
+        - generic [ref=e292]: Talha Rehman
+        - generic [ref=e293]: BeMe
+        - generic: ↗
+        - generic:
+          - generic: Talha Rehman
+          - generic: BeMe
+          - generic: Digital mental health platform designed and built specifically for Pakistani youth.
+          - generic: Visit BeMe ↗
+      - generic "Visit Saving9" [ref=e294] [cursor=pointer]:
+        - generic [ref=e295]: Health
+        - generic [ref=e296]: Abdullah Bin Abbas
+        - generic [ref=e297]: Saving9
+        - generic: ↗
+        - generic:
+          - generic: Abdullah Bin Abbas
+          - generic: Saving9
+          - generic: Improving health outcomes through innovative delivery models for underserved populations.
+          - generic: Visit Saving9 ↗
+      - generic "Visit ReUpCycle" [ref=e298] [cursor=pointer]:
+        - generic [ref=e299]: Environment
+        - generic [ref=e300]: Hashim Akbar
+        - generic [ref=e301]: ReUpCycle
+        - generic: ↗
+        - generic:
+          - generic: Hashim Akbar
+          - generic: ReUpCycle
+          - generic: Circular economy solutions tackling Pakistan's plastic and waste management challenge.
+          - generic: Visit ReUpCycle ↗
+      - generic "Visit Kashf Foundation" [ref=e302] [cursor=pointer]:
+        - generic [ref=e303]: Microfinance
+        - generic [ref=e304]: Roshaneh Zafar
+        - generic [ref=e305]: Kashf Foundation
+        - generic: ↗
+        - generic:
+          - generic: Roshaneh Zafar
+          - generic: Kashf Foundation
+          - generic: Pakistan's first women-focused microfinance institution — 5.5M+ loans to women micro-entrepreneurs across 200+ branches. Pakistan's oldest and largest women-focused MFI.
+          - generic: Visit Kashf Foundation ↗
+      - generic "Visit Ihsaas Trust" [ref=e306] [cursor=pointer]:
+        - generic [ref=e307]: Livelihoods
+        - generic [ref=e308]: Hamza Iqbal
+        - generic [ref=e309]: Ihsaas Trust
+        - generic: ↗
+        - generic:
+          - generic: Hamza Iqbal
+          - generic: Ihsaas Trust
+          - generic: Cart-based micro-business models for Karachi's urban poor — turnkey path to self-employment with training and community accountability.
+          - generic: Visit Ihsaas Trust ↗
+  - generic [ref=e310]:
+    - generic [ref=e311]: Guest Speakers & Mentors
+    - heading "Learning from Those Who've Done It" [level=2] [ref=e312]:
+      - text: Learning from Those
+      - text: Who've Done It
+    - paragraph [ref=e313]: You cannot think about scale in the abstract. You need people in the room who have actually done it — who know what breaks, what holds, and what it takes to cross the threshold from promising to unstoppable.
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - generic [ref=e316]: Pakistani Speakers
+        - generic [ref=e317]:
+          - generic [ref=e318]:
+            - generic [ref=e319]: Sara Saeed Khurram
+            - generic [ref=e320]: Sehat Kahani
+          - generic [ref=e321]: Co-founded Pakistan's largest telemedicine platform connecting rural women to qualified doctors through lady health workers.
+          - generic [ref=e322]:
+            - generic [ref=e323]: Entrepreneur
+            - generic [ref=e324]: Health Tech
+        - generic [ref=e325]:
+          - generic [ref=e326]:
+            - generic [ref=e327]: Muneeb Maayr
+            - generic [ref=e328]: Bykea
+          - generic [ref=e329]: Co-founded Daraz (acquired by Alibaba), then built Bykea into Pakistan's largest motorcycle ride-hailing and logistics network.
+          - generic [ref=e330]:
+            - generic [ref=e331]: Entrepreneur
+            - generic [ref=e332]: Mobility
+            - generic [ref=e333]: Logistics
+        - generic [ref=e334]:
+          - generic [ref=e335]:
+            - generic [ref=e336]: Monis Rahman
+            - generic [ref=e337]: Rozee.pk
+          - generic [ref=e338]: Pioneered online recruitment in Pakistan with Rozee.pk, now serving 10M professionals and 65,000 employers; Forbes Top Asian Businessman.
+          - generic [ref=e339]:
+            - generic [ref=e340]: Entrepreneur
+            - generic [ref=e341]: Tech
+            - generic [ref=e342]: Future of Work
+        - generic [ref=e343]:
+          - generic [ref=e344]:
+            - generic [ref=e345]: Dr. Sania Nishtar
+            - generic [ref=e346]: Ehsaas / Gavi
+          - generic [ref=e347]: Architect of Pakistan's Ehsaas social protection program, reaching 15M households; cardiologist, senator, and now CEO of Gavi.
+          - generic [ref=e348]:
+            - generic [ref=e349]: Policymaker
+            - generic [ref=e350]: Public Health
+            - generic [ref=e351]: Social Protection
+        - generic [ref=e352]:
+          - generic [ref=e353]:
+            - generic [ref=e354]: Roshaneh Zafar
+            - generic [ref=e355]: Kashf Foundation
+          - generic [ref=e356]: Founded Pakistan's first microfinance institution for women in 1996 — 5.5M loans issued, 200+ branches, the country's largest women-focused MFI.
+          - generic [ref=e357]:
+            - generic [ref=e358]: Social Entrepreneur
+            - generic [ref=e359]: Microfinance
+            - generic [ref=e360]: Women's Empowerment
+        - generic [ref=e361]:
+          - generic [ref=e362]:
+            - generic [ref=e363]: Shehzad Roy
+            - generic [ref=e364]: Zindagi Trust
+          - generic [ref=e365]: Pakistan's renowned pop artist turned education reformer, transforming public schools in Karachi through direct government partnership.
+          - generic [ref=e366]:
+            - generic [ref=e367]: Activist
+            - generic [ref=e368]: Education Reform
+        - generic [ref=e369]:
+          - generic [ref=e370]:
+            - generic [ref=e371]: Sarah Farooq
+            - generic [ref=e372]: Acumen
+          - generic [ref=e373]: Former COO of Taleemabad, scaling EdTech to 10M children in Pakistan; now oversees the global Acumen Fellowship program across all regions.
+          - generic [ref=e374]:
+            - generic [ref=e375]: Operator
+            - generic [ref=e376]: EdTech
+            - generic [ref=e377]: Fellowship Design
+        - generic [ref=e378]:
+          - generic [ref=e379]:
+            - generic [ref=e380]: Nadir Shams
+            - generic [ref=e381]: Ex Skoll Foundation
+          - generic [ref=e382]: Former Managing Director at Skoll Foundation; career spanning One Acre Fund, Spring Impact, and Dalberg.
+          - generic [ref=e383]:
+            - generic [ref=e384]: Philanthropy
+            - generic [ref=e385]: Social Innovation
+            - generic [ref=e386]: Scale
+        - generic [ref=e387]:
+          - generic [ref=e388]:
+            - generic [ref=e389]: Dr. Ahson Rabbani
+            - generic [ref=e390]: ChildLife Foundation
+          - generic [ref=e391]: CEO running 13 pediatric emergency rooms and 300+ telemedicine centers across Pakistan, treating 1.7M children annually — free of charge.
+          - generic [ref=e392]:
+            - generic [ref=e393]: Nonprofit Leader
+            - generic [ref=e394]: Pediatric Health
+      - generic [ref=e395]:
+        - generic [ref=e396]: Global Practitioners
+        - generic [ref=e397]:
+          - generic [ref=e398]:
+            - generic [ref=e399]: Andrew Youn
+            - generic [ref=e400]: One Acre Fund
+          - generic [ref=e401]: Founded One Acre Fund to deliver farm inputs and training to smallholder farmers, now serving over 1M families across Sub-Saharan Africa.
+          - generic [ref=e402]:
+            - generic [ref=e403]: Social Entrepreneur
+            - generic [ref=e404]: Agriculture
+        - generic [ref=e405]:
+          - generic [ref=e406]:
+            - generic [ref=e407]: Ajaita Shah
+            - generic [ref=e408]: Frontier Markets
+          - generic [ref=e409]: Built rural last-mile distribution networks in India, turning village women into entrepreneurs delivering clean energy and essential goods.
+          - generic [ref=e410]:
+            - generic [ref=e411]: Social Entrepreneur
+            - generic [ref=e412]: Last-Mile Distribution
+        - generic [ref=e413]:
+          - generic [ref=e414]:
+            - generic [ref=e415]: Patrick Awuah
+            - generic [ref=e416]: Ashesi University
+          - generic [ref=e417]: Left Microsoft to found Ashesi University in Ghana, redefining African higher education around ethics, leadership, and entrepreneurship.
+          - generic [ref=e418]:
+            - generic [ref=e419]: Social Entrepreneur
+            - generic [ref=e420]: Higher Education
+        - generic [ref=e421]:
+          - generic [ref=e422]:
+            - generic [ref=e423]: Bright Simons
+            - generic [ref=e424]: mPedigree
+          - generic [ref=e425]: Invented a mobile drug authentication system that lets patients verify medicines via SMS, combating pharmaceutical counterfeiting across Africa and Asia.
+          - generic [ref=e426]:
+            - generic [ref=e427]: Innovator
+            - generic [ref=e428]: Supply Chain
+            - generic [ref=e429]: Public Health
+        - generic [ref=e430]:
+          - generic [ref=e431]:
+            - generic [ref=e432]: Noam Angrist
+            - generic [ref=e433]: Youth Impact
+          - generic [ref=e434]: MIT/Oxford Rhodes Scholar and co-founder of Youth Impact, scaling RCT-backed education programs to 100,000+ youth across 10 countries.
+          - generic [ref=e435]:
+            - generic [ref=e436]: Researcher
+            - generic [ref=e437]: Education
+            - generic [ref=e438]: Evidence-Based Practice
+  - generic [ref=e439]:
+    - generic [ref=e440]: Capital Partners
+    - heading "The Funder Room" [level=2] [ref=e441]
+    - paragraph [ref=e442]: We are not building an audience. We are building a room. The funders who attend Demo Day are not there to observe — they are there because they are actively looking for Pakistan opportunities and have cleared their calendars to find them. This is not a conference. It is a deal room with mountains in the background.
+    - generic [ref=e443]:
+      - generic [ref=e444]:
+        - generic [ref=e445]: Jeff Skoll
+        - generic [ref=e446]: Skoll Foundation
+        - link "LinkedIn ↗" [ref=e447] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/jeffskoll
+      - generic [ref=e448]:
+        - generic [ref=e449]: Anita Zaidi
+        - generic [ref=e450]: Gates Foundation
+        - link "LinkedIn ↗" [ref=e451] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/anita-zaidi
+      - generic [ref=e452]:
+        - generic [ref=e453]: Leah Hazard
+        - generic [ref=e454]: Rippleworks Foundation
+        - link "LinkedIn ↗" [ref=e455] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/leahhazard
+      - generic [ref=e456]:
+        - generic [ref=e457]: Kamyla Marvi
+        - generic [ref=e458]: British Asian Trust
+        - link "LinkedIn ↗" [ref=e459] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/kamyla-marvi-tapal-69a826a
+      - generic [ref=e460]:
+        - generic [ref=e461]: Liza Mueller
+        - generic [ref=e462]: Echoing Green
+        - link "LinkedIn ↗" [ref=e463] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/lizamueller
+      - generic [ref=e464]:
+        - generic [ref=e465]: Lucien Chan
+        - generic [ref=e466]: TED Audacious
+        - link "LinkedIn ↗" [ref=e467] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/lucien-chan-44a318
+      - generic [ref=e468]:
+        - generic [ref=e469]: Kalsoom Lakhani
+        - generic [ref=e470]: I2I Fund
+        - link "LinkedIn ↗" [ref=e471] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/kalsoomlakhani
+      - generic [ref=e472]:
+        - generic [ref=e473]: Shanzeh Mahmood
+        - generic [ref=e474]: LSE 100X
+        - link "LinkedIn ↗" [ref=e475] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shanzeh-mahmood-93828b5a
+      - generic [ref=e476]:
+        - generic [ref=e477]: Philippe Bellordre
+        - generic [ref=e478]: GSMA
+        - link "LinkedIn ↗" [ref=e479] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/philippebellordre
+      - generic [ref=e480]:
+        - generic [ref=e481]: Joe Exner
+        - generic [ref=e482]: Steele Foundation
+      - generic [ref=e483]:
+        - generic [ref=e484]: Sabrina Malik
+        - generic [ref=e485]: Sall Family Foundation
+        - link "LinkedIn ↗" [ref=e486] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/maliksabrina
+      - generic [ref=e487]:
+        - generic [ref=e488]: Sakina Zaidi
+        - generic [ref=e489]: Pivotal Ventures
+        - link "LinkedIn ↗" [ref=e490] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/sakina-zaidi-0a611222
+      - generic [ref=e491]:
+        - generic [ref=e492]: Zoya Siddiqui
+        - generic [ref=e493]: Acumen Fund
+        - link "LinkedIn ↗" [ref=e494] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/zoya-shabir-siddiqui-178a2582
+      - generic [ref=e495]:
+        - generic [ref=e496]: Ayesha Khan
+        - generic [ref=e497]: Acumen Fund
+        - link "LinkedIn ↗" [ref=e498] [cursor=pointer]:
+          - /url: https://pk.linkedin.com/in/dr-ayesha-khan-4355a1148
+      - generic [ref=e499]:
+        - generic [ref=e500]: Shumaila Rifaqat
+        - generic [ref=e501]: Karandaaz
+        - link "LinkedIn ↗" [ref=e502] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/shumaila-rifaqat-8b78a3120
+      - generic [ref=e503]:
+        - generic [ref=e504]: Dr. Nishat Riaz
+        - generic [ref=e505]: Malala Fund Pakistan
+        - link "LinkedIn ↗" [ref=e506] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/nishat-riaz-mbe-21b0a224
+      - generic [ref=e507]:
+        - generic [ref=e508]: Paul Youn
+        - generic [ref=e509]: One Acre Fund / D-Prize
+        - link "LinkedIn ↗" [ref=e510] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/paulyoun
+      - generic [ref=e511]:
+        - generic [ref=e512]: Kevin Starr
+        - generic [ref=e513]: Mulago Foundation
+        - link "LinkedIn ↗" [ref=e514] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/kevin-starr-mulago
+      - generic [ref=e515]:
+        - generic [ref=e516]: Mubarik Imam
+        - generic [ref=e517]: WhatsApp / Independent
+        - link "LinkedIn ↗" [ref=e518] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/mubarik-imam-a914842
+      - generic [ref=e519]:
+        - generic [ref=e520]: Osman Rashid
+        - generic [ref=e521]: Chegg / Khoj Resorts
+        - link "LinkedIn ↗" [ref=e522] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/osmanrashid
+      - generic [ref=e523]:
+        - generic [ref=e524]: Mudassir Sheikha
+        - generic [ref=e525]: Careem / Uber
+        - link "LinkedIn ↗" [ref=e526] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/mudassirsheikha
+    - paragraph [ref=e527]: "* Final funder list subject to confirmation."
+  - generic [ref=e528]:
+    - generic:
+      - generic: Be in the room.
+    - generic [ref=e530]:
+      - heading "Pakistan's next generation of scale organisations is being built right now. Be in the room." [level=2] [ref=e531]:
+        - text: Pakistan's next generation of scale organisations is being built right now.
+        - emphasis [ref=e532]: Be in the room.
+      - paragraph [ref=e533]: Founders arrive with proven models and the drive to go further. Funders arrive looking for exactly that. Summit Fellowship is where those two things meet — in one room, in one week, with no intermediaries.
+      - generic [ref=e534]:
+        - generic [ref=e535]:
+          - generic [ref=e536]: Founder Applications Close
+          - generic [ref=e537]: March 15, 2026
+          - generic [ref=e538]: Decisions announced April 15
+        - generic [ref=e539]:
+          - generic [ref=e540]: Fellowship Begins
+          - generic [ref=e541]: June 6, 2026
+          - generic [ref=e542]: Skardu, Northern Pakistan
+      - link "Express Interest →" [ref=e543] [cursor=pointer]:
+        - /url: mailto:hello@summitfellowship.pk
+      - paragraph [ref=e544]:
+        - text: Organized by
+        - strong [ref=e545]: Taleemabad
+        - text: · Framework by
+        - strong [ref=e546]: Mulago Foundation
+        - text: · Led by
+        - strong [ref=e547]: Kevin Starr
+  - contentinfo [ref=e548]:
+    - generic [ref=e549]: Summit Fellowship 2026
+    - generic [ref=e550]:
+      - text: June 6–12, 2026 · Northern Pakistan ·
+      - link "hello@summitfellowship.pk" [ref=e551] [cursor=pointer]:
+        - /url: mailto:hello@summitfellowship.pk

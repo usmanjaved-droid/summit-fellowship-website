@@ -13,6 +13,21 @@
   --border: #e5e7eb;
 }
 
+/* Gradient utilities */
+@layer utilities {
+  .bg-alpine-lake {
+    background-image: linear-gradient(135deg, #005C8A 0%, #1A7BA8 50%, #2D8FC4 100%);
+  }
+
+  .bg-skardu-horizon {
+    background-image: linear-gradient(to right, #D62828 0%, #D62828 40%, #8C847C 60%, #005C8A 100%);
+  }
+
+  .bg-forest-shadow {
+    background-image: linear-gradient(180deg, #2D4F1E 0%, #1A3A10 100%);
+  }
+}
+
 /* Typography */
 body {
   @apply bg-white text-gray-900 antialiased;
