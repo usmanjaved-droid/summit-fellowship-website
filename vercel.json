@@ -2,7 +2,5 @@
   "buildCommand": "next build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "installCommand": "npm ci",
-  "env": {},
-  "envPrefix": ""
+  "installCommand": "npm ci"
 }
