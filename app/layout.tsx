@@ -1,25 +1,33 @@
 import type { Metadata } from 'next';
-import { Fraunces, Roboto_Flex } from 'next/font/google';
+import { Instrument_Serif, Geist, JetBrains_Mono } from 'next/font/google';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './globals.css';
 
-const fraunces = Fraunces({
+const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-serif',
-  axes: ['opsz'],
 });
 
-const robotoFlex = Roboto_Flex({
+const geist = Geist({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans',
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+});
+
 export const metadata: Metadata = {
-  title: 'Summit Fellowship | Skardu Scale-Up Fellowship',
-  description: 'A 7-day intensive retreat for Pakistani social entrepreneurs to design scale-ready impact solutions.',
+  title: 'Summit Fellowship — Designed for Scale',
+  description:
+    "The Skardu Scale-Up Fellowship. A 7-day intensive retreat for Pakistan's most promising social enterprises. June 7–14, 2026.",
 };
 
 export default function RootLayout({
@@ -28,12 +36,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${robotoFlex.variable}`}>
-      <body className="flex flex-col min-h-screen">
+    <html
+      lang="en"
+      className={`${instrumentSerif.variable} ${geist.variable} ${jetbrainsMono.variable}`}
+    >
+      <body>
         <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
