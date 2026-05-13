@@ -1099,3 +1099,40 @@ p { text-wrap: pretty; margin: 0; }
 
 .empty-state { text-align: center; padding: 80px 0; color: var(--ink-mute); font-family: var(--serif); font-style: italic; font-size: 24px; display: none; }
 .empty-state.is-visible { display: block; }
+
+/* =========================================================================
+   FACULTY PAGE
+   ========================================================================= */
+.faculty-section { padding: 100px 0; background: var(--paper); }
+.faculty-section--alt { background: var(--paper-warm); }
+.faculty-grid { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
+.person { display: grid; grid-template-columns: 280px 1fr 1fr; gap: 48px; padding: 48px 0; border-bottom: 1px solid var(--line); align-items: start; transition: background .3s var(--ease-out); }
+.person:hover { background: var(--paper-cool); }
+.person__id { display: flex; gap: 20px; align-items: flex-start; }
+.person__avatar { width: 88px; height: 88px; background: var(--alpine-deep); color: var(--ochre); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 28px; flex-shrink: 0; border-radius: 2px; }
+.person__id-text { flex: 1; }
+.person__num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--clay); margin-bottom: 8px; }
+.person__name { font-family: var(--serif); font-size: 28px; color: var(--alpine-deep); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 6px; }
+.person__role { font-size: 13px; color: var(--ink-mute); line-height: 1.4; font-style: italic; }
+.person__col h4 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clay); margin-bottom: 12px; font-weight: 500; }
+.person__col p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+.person__col p strong { color: var(--alpine-deep); font-weight: 500; }
+.person__links { margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap; }
+.person__links a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--alpine-deep); border-bottom: 1px solid var(--alpine-deep); padding-bottom: 2px; transition: color .2s, border-color .2s; }
+.person__links a:hover { color: var(--clay); border-color: var(--clay); }
+@media (max-width: 1100px) { .person { grid-template-columns: 240px 1fr; } .person__col + .person__col { grid-column: 1 / -1; padding-top: 0; } }
+@media (max-width: 700px) { .person { grid-template-columns: 1fr; } }
+
+.faculty-stats { padding: 60px 0; background: var(--paper); border-bottom: 1px solid var(--line); }
+.faculty-stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; }
+.faculty-stats__cell { text-align: left; }
+.faculty-stats__cell .num { font-family: var(--serif); font-size: 64px; color: var(--clay); line-height: 1; margin-bottom: 8px; }
+.faculty-stats__cell .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); }
+@media (max-width: 700px) { .faculty-stats__grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+
+.section-divider { background: var(--alpine-deep); color: var(--parchment); padding: 60px 0; position: relative; overflow: hidden; }
+.section-divider .topo-bg { opacity: 0.12; }
+.section-divider__inner { position: relative; z-index: 1; display: flex; align-items: baseline; justify-content: space-between; gap: 32px; }
+.section-divider h2 { font-size: clamp(36px, 4.5vw, 64px); color: var(--paper); letter-spacing: -0.02em; line-height: 1; }
+.section-divider h2 em { font-style: italic; color: var(--ochre); }
+.section-divider .eyebrow { color: var(--ochre); }
