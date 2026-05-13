@@ -8,13 +8,14 @@ export default function SchedulePage() {
       <HeroSection
         title="7-Day Fellowship Schedule"
         subtitle="June 7-14, 2026 | Khoj Resort, Skardu"
+        gradient="skardu-horizon"
       />
 
       <section className="section bg-white">
         <div className="container-max">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-2 text-gray-900">
-              8-Day Intensive Program
+          <div className="mb-12 pt-8 border-t-4 border-moss-light">
+            <h2 className="text-3xl font-bold mb-4 pb-4 border-b-2 border-moss-light text-lake-dark">
+              7-Day Intensive Program
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl">
               Click each day to view the detailed schedule of sessions, including times,
