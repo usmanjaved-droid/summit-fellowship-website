@@ -63,7 +63,11 @@
       "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\" -Force)",
       "Bash(Select-Object Name, PSIsContainer)",
       "Bash(curl -s http://localhost:3000/schedule)",
-      "Bash(node -e \"const data = require\\('./data/schedule.json'\\); console.log\\('Total days:', data.days.length\\); data.days.forEach\\(d => console.log\\('Day', d.dayNumber, '-', d.date, '-', d.theme, '\\(' + d.sessions.length + ' sessions\\)'\\)\\)\")"
+      "Bash(node -e \"const data = require\\('./data/schedule.json'\\); console.log\\('Total days:', data.days.length\\); data.days.forEach\\(d => console.log\\('Day', d.dayNumber, '-', d.date, '-', d.theme, '\\(' + d.sessions.length + ' sessions\\)'\\)\\)\")",
+      "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\" -Recurse -Filter \"*schedule*\" -ErrorAction SilentlyContinue)",
+      "Bash(npm start *)",
+      "Bash(curl -s http://localhost:3000/resources)",
+      "Bash(pkill -f \"npm start\")"
     ],
     "additionalDirectories": [
       "d:\\"
