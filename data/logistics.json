@@ -1,0 +1,90 @@
+{
+  "cohort": "2026-skardu",
+  "venue": {
+    "name": "Khoj Resort",
+    "city": "Skardu",
+    "region": "Gilgit-Baltistan",
+    "country": "Pakistan",
+    "address": "Khoj Resort, Skardu",
+    "coordinates": {
+      "latitude": 35.2981,
+      "longitude": 75.5597
+    },
+    "amenities": [
+      "Comfortable rooms",
+      "Restaurant & dining facilities",
+      "Meeting halls",
+      "Outdoor spaces for activities",
+      "WiFi connectivity"
+    ],
+    "checkinTime": "Afternoon (Day 0)",
+    "checkoutTime": "Morning (Day 7)"
+  },
+  "travel": {
+    "flights": {
+      "description": "Fly to Islamabad (Benazir Bhutto International Airport - ISD) or Peshawar (Peshawar International Airport - PEW), then connecting flight to Skardu.",
+      "airlines": ["Pakistan International Airlines (PIA)", "Serene Air"],
+      "notes": "Skardu airport has limited flights. Book early. Flight time from Islamabad to Skardu: ~1.5 hours."
+    },
+    "groundTransport": {
+      "airportPickup": "Arranged by organizers from Skardu airport",
+      "journeyTime": "30 minutes from airport to Khoj Resort",
+      "notes": "Fellowship covers transportation to/from airport in Skardu"
+    }
+  },
+  "accommodation": {
+    "included": [
+      "Double/single rooms based on preference",
+      "All meals (breakfast, lunch, dinner)",
+      "Tea/coffee and snacks throughout the day",
+      "Airport transfers in Skardu"
+    ],
+    "roomSetup": "Comfortable, private rooms with basic amenities",
+    "meals": "Pakistani cuisine with vegetarian and dietary accommodations available",
+    "dietary": "Please inform organizers of dietary restrictions in advance"
+  },
+  "climate": {
+    "season": "Summer",
+    "temperature": "15-25°C (59-77°F)",
+    "conditions": "Pleasant summer weather, occasional rain",
+    "altitude": "2,226 meters (7,300 feet) above sea level",
+    "notes": "Skardu is in the mountains. Bring layers. Sun protection is important."
+  },
+  "packingList": [
+    "Light summer clothing and layers",
+    "Comfortable walking shoes",
+    "Sunscreen and hat",
+    "Light sweater or jacket for evenings",
+    "Personal medications and toiletries",
+    "Passport and visa (if applicable)",
+    "Laptop/tablet for note-taking",
+    "Power adapters (Pakistani standard: 220V, 50Hz, Type C plugs)"
+  ],
+  "connectivity": {
+    "timezone": "Pakistan Standard Time (PKT) — UTC+5",
+    "internet": "WiFi available at venue. Mobile networks: Jazz, Zong, Telenor have coverage in Skardu",
+    "notes": "Internet may be intermittent due to remote location"
+  },
+  "faq": [
+    {
+      "question": "Is travel to/from the airport included?",
+      "answer": "Yes, airport transfers to/from Skardu airport are arranged and covered by the fellowship."
+    },
+    {
+      "question": "What about meals and accommodation?",
+      "answer": "All meals (breakfast, lunch, dinner) and accommodation at Khoj Resort are included in the fellowship."
+    },
+    {
+      "question": "Is there WiFi at the venue?",
+      "answer": "Yes, but internet connectivity may be intermittent due to the remote location."
+    },
+    {
+      "question": "What if I have dietary restrictions?",
+      "answer": "Please inform the organizing team in advance. Vegetarian, vegan, and other dietary accommodations can be arranged."
+    },
+    {
+      "question": "What's the weather like in Skardu in June?",
+      "answer": "Pleasant summer weather with temperatures 15-25°C. Bring layers and sun protection."
+    }
+  ]
+}

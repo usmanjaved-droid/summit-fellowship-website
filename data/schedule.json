@@ -1,0 +1,380 @@
+{
+  "cohort": "2026-skardu",
+  "startDate": "2026-06-07",
+  "endDate": "2026-06-14",
+  "location": "Khoj Resort, Skardu",
+  "days": [
+    {
+      "date": "2026-06-07",
+      "dayNumber": 0,
+      "dayName": "Sunday",
+      "theme": "Arrivals & Welcome",
+      "sessions": [
+        {
+          "time": "07:00",
+          "title": "Arrivals & Check-in",
+          "description": "Staggered arrivals into Skardu. Airport pickups and transfers to venue. Check-in and room settle-in.",
+          "topics": ["Check-in", "Welcome tea", "Rest"],
+          "location": "Khoj Resort"
+        },
+        {
+          "time": "18:30",
+          "title": "Welcome Dinner",
+          "description": "Relaxed seated dinner. Informal introductions as fellows arrive.",
+          "topics": ["Networking", "Dinner"],
+          "location": "Khoj Resort"
+        },
+        {
+          "time": "19:30",
+          "title": "Orientation",
+          "description": "Introductions (fellows + faculty). Welcome note from Mulago & Taleemabad. Norm setting (presence, feedback, ground rules). What to expect in the coming week.",
+          "topics": ["Introductions", "Ground rules", "Program overview"],
+          "location": "Main Hall"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-08",
+      "dayNumber": 1,
+      "dayName": "Monday",
+      "theme": "Design for Impact at Scale",
+      "sessions": [
+        {
+          "time": "07:30",
+          "title": "Welcome Breakfast",
+          "description": "Mulago-style icebreaker",
+          "topics": ["Breakfast", "Icebreaker"],
+          "location": "Dining Hall"
+        },
+        {
+          "time": "09:00",
+          "title": "Design for Impact at Scale",
+          "description": "Core Block covering Mission, Big Idea, Theory, Model, and Behavior Drivers.",
+          "topics": ["Mission", "Big Idea", "Theory of Change", "Model Design", "Behavior Drivers"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "14:00",
+          "title": "Doer & Payer at Scale + Scalability",
+          "description": "Ultimate doer-at-scale, Ultimate payer-at-scale, Four Enoughs, Progression of Evidence.",
+          "topics": ["Doer & Payer", "Four Enoughs", "Evidence Framework"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "18:00",
+          "title": "Integration + Synthesis",
+          "description": "Reflection, peer feedback pairs, open Q&A with faculty. One-pager draft due.",
+          "topics": ["Reflection", "Peer feedback", "Q&A"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "19:30",
+          "title": "Seated Dinner",
+          "description": "Free time / open networking",
+          "topics": ["Dinner", "Networking"],
+          "location": "Dining Hall"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-09",
+      "dayNumber": 2,
+      "dayName": "Tuesday",
+      "theme": "Scale Strategy & Impact Evidence",
+      "sessions": [
+        {
+          "time": "07:30",
+          "title": "Breakfast",
+          "description": "",
+          "topics": ["Breakfast"],
+          "location": "Dining Hall"
+        },
+        {
+          "time": "09:00",
+          "title": "Scale Strategy — Part 1",
+          "description": "Scale Screen Framework introduction",
+          "topics": ["Scale Screen", "Framework overview"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "11:00",
+          "title": "Scale Strategy — Part 2",
+          "description": "Applying the framework to your organization",
+          "topics": ["Application", "Org-specific strategy"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "14:00",
+          "title": "Impact Evidence — Part 1",
+          "description": "Levels of Evidence, Metrics Hierarchy",
+          "topics": ["Evidence levels", "Metrics design"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "15:00",
+          "title": "Impact Evidence — Part 2",
+          "description": "Designing Your Evidence Plan",
+          "topics": ["Evidence planning", "Impact measurement"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "17:30",
+          "title": "Fellows Lightning Talks",
+          "description": "5 × 8-min talks + Q&A (at Shigar Fort)",
+          "topics": ["Pitching", "Presentation"],
+          "location": "Shigar Fort"
+        },
+        {
+          "time": "20:30",
+          "title": "Fireside Chat with Kevin Starr",
+          "description": "Kevin's Story + Q&A",
+          "topics": ["Mentorship", "Scale stories"],
+          "location": "Shigar Fort"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-10",
+      "dayNumber": 3,
+      "dayName": "Wednesday",
+      "theme": "1-on-1 Clinics & Outdoor Learning",
+      "sessions": [
+        {
+          "time": "07:30",
+          "title": "Breakfast",
+          "description": "",
+          "topics": ["Breakfast"],
+          "location": "Khoj Resort"
+        },
+        {
+          "time": "08:30",
+          "title": "Travel to Outdoor Location",
+          "description": "Including arrival & setup (1.5 hours)",
+          "topics": ["Travel", "Setup"],
+          "location": "En route"
+        },
+        {
+          "time": "10:30",
+          "title": "Structured 1-on-1s with Faculty (Block A)",
+          "description": "45-min rotations with Pakistani faculty: scaling strategy, impact measurement, iterative improvement, Design for Impact @ Scale",
+          "topics": ["Mentoring", "1-on-1 coaching", "Feedback"],
+          "location": "Outdoor location"
+        },
+        {
+          "time": "14:00",
+          "title": "Structured 1-on-1s with Faculty (Block B)",
+          "description": "Continued rotations with faculty",
+          "topics": ["Mentoring", "Coaching"],
+          "location": "Outdoor location"
+        },
+        {
+          "time": "16:00",
+          "title": "Sightseeing + Activities",
+          "description": "Explore Skardu landscape",
+          "topics": ["Recreation", "Team bonding"],
+          "location": "Skardu"
+        },
+        {
+          "time": "18:30",
+          "title": "Dinner at a Local's House",
+          "description": "Cultural experience and networking",
+          "topics": ["Cultural experience", "Networking"],
+          "location": "Local home"
+        },
+        {
+          "time": "20:00",
+          "title": "Pit Stop at Skardu Bazar",
+          "description": "Local market exploration",
+          "topics": ["Shopping", "Local exploration"],
+          "location": "Skardu Bazar"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-11",
+      "dayNumber": 4,
+      "dayName": "Thursday",
+      "theme": "Iterative Organization & Culture",
+      "sessions": [
+        {
+          "time": "07:30",
+          "title": "Breakfast",
+          "description": "",
+          "topics": ["Breakfast"],
+          "location": "Dining Hall"
+        },
+        {
+          "time": "09:00",
+          "title": "The Iterative Organization",
+          "description": "Theory, Methods & Data Flows. What it means, why it matters, iteration methods, data flows.",
+          "topics": ["Iteration frameworks", "Org design", "Data systems"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "14:00",
+          "title": "Iterative Org Workshop + People / Culture Deep Dive",
+          "description": "Apply theory to your own org. Includes People / Culture module.",
+          "topics": ["Org application", "Culture", "People"],
+          "location": "Workshop rooms"
+        },
+        {
+          "time": "17:00",
+          "title": "TCF & CLF Session (Moderator: Haroon)",
+          "description": "Parallel: Kevin/Nadir with Funders discussion",
+          "topics": ["Fundraising", "Funder insights"],
+          "location": "Multiple rooms"
+        },
+        {
+          "time": "19:00",
+          "title": "Dinner",
+          "description": "Open networking",
+          "topics": ["Dinner", "Networking"],
+          "location": "Dining Hall"
+        },
+        {
+          "time": "20:00",
+          "title": "Fireside Chat with Dr. Asyia",
+          "description": "Leadership and scaling insights",
+          "topics": ["Leadership", "Scale stories"],
+          "location": "Main Hall"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-12",
+      "dayNumber": 5,
+      "dayName": "Friday",
+      "theme": "Communications & Pitch Coaching",
+      "sessions": [
+        {
+          "time": "07:30",
+          "title": "Breakfast",
+          "description": "",
+          "topics": ["Breakfast"],
+          "location": "Dining Hall"
+        },
+        {
+          "time": "09:00",
+          "title": "Communications — Theory",
+          "description": "Clear Language & Banned Words. Narrative Structure. 10-Minute Pitch Structure. The pitch is dead, long live the conversation.",
+          "topics": ["Communication", "Storytelling", "Pitching"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "14:00",
+          "title": "Capacity Clinic",
+          "description": "Building YOUR Presentation | 1:1 Pitch Coaching. Small group, facilitator-led. Participants draft Demo Day pitch.",
+          "topics": ["Pitch coaching", "Presentation skills"],
+          "location": "Workshop rooms"
+        },
+        {
+          "time": "17:30",
+          "title": "CEO Spotlight | Sara Saeed",
+          "description": "Insights from a scaled founder",
+          "topics": ["Founder story", "Scaling lessons"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "18:30",
+          "title": "CEO Spotlight | Aleem Walji",
+          "description": "Leadership and impact insights",
+          "topics": ["Leadership", "Impact"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "19:30",
+          "title": "Cultural Night",
+          "description": "Local musicians + live BBQ + open networking",
+          "topics": ["Music", "BBQ", "Celebration"],
+          "location": "Venue"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-13",
+      "dayNumber": 6,
+      "dayName": "Saturday",
+      "theme": "Demo Day & Celebration",
+      "sessions": [
+        {
+          "time": "07:30",
+          "title": "Breakfast",
+          "description": "",
+          "topics": ["Breakfast"],
+          "location": "Dining Hall"
+        },
+        {
+          "time": "09:00",
+          "title": "Final Prep + Dress Rehearsal",
+          "description": "Demo Day rehearsal and final preparations",
+          "topics": ["Rehearsal", "Feedback"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "10:30",
+          "title": "Demo Day — Block 1",
+          "description": "First set of participant presentations",
+          "topics": ["Presentations", "Pitches"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "14:00",
+          "title": "Demo Day — Block 2",
+          "description": "Remaining participant presentations",
+          "topics": ["Presentations", "Pitches"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "16:00",
+          "title": "Interactive Session with the Funders",
+          "description": "Q&A and discussion with funders",
+          "topics": ["Funder engagement", "Fundraising"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "17:00",
+          "title": "What's Next? Wrap",
+          "description": "Closing remarks and next steps",
+          "topics": ["Next steps", "Closing"],
+          "location": "Main Hall"
+        },
+        {
+          "time": "18:00",
+          "title": "Open Networking",
+          "description": "Informal networking time",
+          "topics": ["Networking"],
+          "location": "Venue"
+        },
+        {
+          "time": "19:00",
+          "title": "Closing Celebration Dinner",
+          "description": "Celebration + Open Networking",
+          "topics": ["Celebration", "Networking"],
+          "location": "Dining Hall"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-14",
+      "dayNumber": 7,
+      "dayName": "Sunday",
+      "theme": "Departures",
+      "sessions": [
+        {
+          "time": "07:00",
+          "title": "Breakfast",
+          "description": "Final breakfast",
+          "topics": ["Breakfast"],
+          "location": "Dining Hall"
+        },
+        {
+          "time": "08:00",
+          "title": "Departures",
+          "description": "Staggered checkouts and transfers (from 8:00 AM onwards). No programming scheduled.",
+          "topics": ["Checkout", "Goodbyes"],
+          "location": "Khoj Resort"
+        }
+      ]
+    }
+  ]
+}

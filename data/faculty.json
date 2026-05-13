@@ -1,0 +1,96 @@
+{
+  "faculty": [
+    {
+      "id": "kevin-starr",
+      "name": "Kevin Starr",
+      "title": "CEO, Mulago Foundation",
+      "organization": "Mulago Foundation",
+      "bio": "The architect of the Scale Screen and Doer & Payer frameworks, Kevin brings decades of expertise in helping founders reconstruct their models to be Good Enough, Big Enough, Simple Enough, and Cheap Enough to achieve national impact.",
+      "role": "faculty",
+      "linkedin": "https://www.linkedin.com/in/kevin-starr",
+      "website": "https://www.mulagofoundation.org/"
+    },
+    {
+      "id": "ahson-rabbani",
+      "name": "Dr. Ahson Rabbani",
+      "title": "CEO, ChildLife Foundation",
+      "organization": "ChildLife Foundation",
+      "bio": "Under his leadership, ChildLife has massively scaled its operations from a few hospitals to a nationwide footprint. He provides fellows with a real-world, localized blueprint for scaling life-saving operations and securing government partnerships.",
+      "role": "faculty",
+      "linkedin": "https://www.linkedin.com/in/ahson-rabbani/",
+      "website": "https://childlifefoundation.org/"
+    },
+    {
+      "id": "sara-khurram",
+      "name": "Dr. Sara Saeed Khurram",
+      "title": "Co-Founder & CEO, Sehat Kahani",
+      "organization": "Sehat Kahani",
+      "bio": "As a Mulago Rainer Arnhold Fellow, Sara successfully applied the design-for-scale frameworks to Sehat Kahani, scaling it to millions of consultations. She bridges theoretical frameworks with practical realities of scaling a digital health enterprise in Pakistan.",
+      "role": "faculty",
+      "linkedin": "https://www.linkedin.com/in/dr-sara-saeed-khurram/",
+      "website": "https://sehatkahani.com/"
+    },
+    {
+      "id": "sarah-farooq",
+      "name": "Sarah Farooq",
+      "title": "Director, Acumen Fund",
+      "organization": "Acumen Fund",
+      "bio": "With experience at Acumen investing patient capital and her previous operational background as COO at Taleemabad, Sarah provides deep insights into how funders evaluate investability, scale strategy, and operational readiness.",
+      "role": "faculty",
+      "linkedin": "https://www.linkedin.com/in/sarah-farooq/",
+      "website": "https://acumen.org/"
+    },
+    {
+      "id": "nadir-shams",
+      "name": "Nadir Shams",
+      "title": "Founder, Friends of Pakistan Society & Fund",
+      "organization": "Friends of Pakistan Society",
+      "bio": "Formerly a Managing Director at the Skoll Foundation, Nadir brings world-class philanthropic and investment expertise, guiding fellows on what global and diaspora capital requires to fund systemic change in Pakistan.",
+      "role": "faculty",
+      "linkedin": "https://www.linkedin.com/in/nadirshams/",
+      "website": "https://fopk.org/"
+    }
+  ],
+  "organizingTeam": [
+    {
+      "id": "haroon-yasin",
+      "name": "Haroon Yasin",
+      "title": "Founder & CEO, Taleemabad",
+      "organization": "Taleemabad",
+      "bio": "As the co-host of the fellowship, Haroon shares his firsthand experience of evolving Taleemabad from an evening school in the slums to a national enterprise partnering with the government and international agencies.",
+      "role": "organizing",
+      "linkedin": "https://www.linkedin.com/in/haroon-yasin/",
+      "website": "https://taleemabad.com/"
+    },
+    {
+      "id": "sabeena-abbasi",
+      "name": "Sabeena Abbasi",
+      "title": "Chief Sustainability & Impact Officer, Taleemabad",
+      "organization": "Taleemabad",
+      "bio": "Sabeena drives the sustainability, impact strategy, and community-of-practice initiatives. She helps fellows connect their programmatic models to measurable, long-term impact metrics and inclusive learning design.",
+      "role": "organizing",
+      "linkedin": "https://www.linkedin.com/in/sabeena-abbasi/",
+      "website": "https://taleemabad.com/"
+    },
+    {
+      "id": "abida-hassan",
+      "name": "Abida Hassan",
+      "title": "General Manager, ChildLife Foundation",
+      "organization": "ChildLife Foundation",
+      "bio": "Abida plays a crucial role in the on-the-ground operational execution of ChildLife's scale strategy. She mentors fellows on the intricate logistics, team management, and operational resilience required to sustain growth.",
+      "role": "organizing",
+      "linkedin": "https://www.linkedin.com/in/abida-hassan-clf/",
+      "website": "https://childlifefoundation.org/"
+    },
+    {
+      "id": "usman-javed",
+      "name": "Muhammad Usman Javed",
+      "title": "Head of Business Strategy and Fundraising, Taleemabad",
+      "organization": "Taleemabad",
+      "bio": "As the architect of the Taleemabad 2026 Strategic Goals and core organizer of the Skardu Scale-Up Fellowship, Usman ensures the cohort receives actionable, high-leverage frameworks while orchestrating strategic partnerships.",
+      "role": "organizing",
+      "linkedin": "https://www.linkedin.com/in/usman-javed/",
+      "website": "https://taleemabad.com/"
+    }
+  ]
+}

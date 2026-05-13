@@ -1,0 +1,45 @@
+{
+  "cohort": "2026-skardu",
+  "resources": [
+    {
+      "id": "scale-screen-framework",
+      "title": "Mulago Scale Screen Framework",
+      "description": "The rigorous framework used throughout the fellowship to evaluate organizational scalability across four dimensions: Good Enough, Big Enough, Simple Enough, and Cheap Enough.",
+      "category": "Framework",
+      "type": "document",
+      "link": "#"
+    },
+    {
+      "id": "doer-payer-framework",
+      "title": "Doer & Payer at Scale",
+      "description": "Deep dive into identifying your ultimate doer (the entity that implements at scale) and ultimate payer (who funds it) — critical for designing scalable models.",
+      "category": "Framework",
+      "type": "document",
+      "link": "#"
+    },
+    {
+      "id": "impact-measurement-guide",
+      "title": "Impact Measurement & Evidence Planning",
+      "description": "A toolkit for designing credible evidence plans and measuring impact at scale. Includes metrics hierarchy and evaluation frameworks.",
+      "category": "Tools",
+      "type": "toolkit",
+      "link": "#"
+    },
+    {
+      "id": "iterative-org-guide",
+      "title": "Building an Iterative Organization",
+      "description": "Guide to creating organizational systems, data flows, and culture that enable continuous learning and improvement as you scale.",
+      "category": "Framework",
+      "type": "document",
+      "link": "#"
+    },
+    {
+      "id": "pitch-guide",
+      "title": "10-Minute Pitch Framework",
+      "description": "Structure for crafting clear, compelling narratives about your organization and its scale strategy. Includes storytelling principles and examples.",
+      "category": "Communication",
+      "type": "toolkit",
+      "link": "#"
+    }
+  ]
+}
