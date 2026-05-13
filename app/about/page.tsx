@@ -8,7 +8,6 @@ export default function About() {
       <HeroSection
         title="About the Fellowship"
         subtitle="Transform social enterprises from project-driven survival to scale-ready impact machines"
-        description="The Skardu Scale-Up Fellowship is a 7-day intensive retreat designed for Pakistani social entrepreneurs ready to tackle the organizational and strategic challenges of achieving true national scale."
       />
 
       <section className="section bg-white">

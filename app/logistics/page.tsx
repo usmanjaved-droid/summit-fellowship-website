@@ -16,7 +16,6 @@ export default function Logistics() {
       <HeroSection
         title="Logistics & Travel"
         subtitle="Everything you need to know for your journey to Skardu"
-        description="From flights to accommodation—we've got you covered"
       />
 
       <section className="section bg-white">

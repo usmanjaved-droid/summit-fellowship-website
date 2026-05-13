@@ -8,7 +8,6 @@ export default function FellowsPage() {
       <HeroSection
         title="Meet the Fellows"
         subtitle="The 11 social entrepreneurs transforming Pakistan"
-        description="Explore the fellows' organizations, sectors, and contact information below."
       />
 
       <Suspense fallback={<div className="section container-max">Loading fellows...</div>}>

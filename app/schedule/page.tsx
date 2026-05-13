@@ -8,7 +8,6 @@ export default function SchedulePage() {
       <HeroSection
         title="7-Day Fellowship Schedule"
         subtitle="June 7-14, 2026 | Khoj Resort, Skardu"
-        description="Detailed itinerary of the intensive week"
       />
 
       <section className="section bg-white">

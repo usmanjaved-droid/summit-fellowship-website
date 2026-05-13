@@ -14,7 +14,6 @@ export default function Faculty() {
       <HeroSection
         title="Faculty & Organizing Team"
         subtitle="World-class mentors and dedicated organizers"
-        description="Meet the faculty and organizing team leading the Fellowship"
       />
 
       {/* Core Faculty & Mentors Section */}

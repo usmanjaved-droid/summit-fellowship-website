@@ -1,21 +1,28 @@
 interface HeroSectionProps {
   title: string;
   subtitle?: string;
-  description?: string;
+  gradient?: 'alpine-lake' | 'skardu-horizon' | 'forest-shadow';
 }
 
 export default function HeroSection({
   title,
   subtitle,
-  description,
+  gradient = 'alpine-lake',
 }: HeroSectionProps) {
+  const gradientMap = {
+    'alpine-lake': 'bg-alpine-lake',
+    'skardu-horizon': 'bg-skardu-horizon',
+    'forest-shadow': 'bg-forest-shadow',
+  };
+
   return (
-    <div className="hero-gradient section container-max">
-      <div className="max-w-3xl">
-        <h1 className="text-5xl font-bold mb-4">{title}</h1>
-        {subtitle && <p className="text-xl mb-6 text-blue-100">{subtitle}</p>}
-        {description && (
-          <p className="text-lg text-blue-50 leading-relaxed">{description}</p>
+    <div className={`${gradientMap[gradient]} py-24 md:py-32 text-cloud-white`}>
+      <div className="container-max">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
+        {subtitle && (
+          <p className="text-lg md:text-xl text-cloud-white/90 max-w-2xl">
+            {subtitle}
+          </p>
         )}
       </div>
     </div>

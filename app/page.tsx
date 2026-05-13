@@ -9,7 +9,6 @@ export default function Home() {
       <HeroSection
         title="Skardu Scale-Up Fellowship"
         subtitle="Transform from project-driven to scale-ready"
-        description="A 7-day intensive retreat for Pakistani social entrepreneurs. June 7-14, 2026 | Khoj Resort, Skardu"
       />
 
       {/* Overview Section */}

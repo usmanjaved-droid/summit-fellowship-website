@@ -24,7 +24,6 @@ export default function ResourcesPage() {
       <HeroSection
         title="Resources"
         subtitle="Tools, frameworks, and guides for scale"
-        description="Access frameworks, toolkits, and resources to support your journey"
       />
 
       <div className="section container-max">
