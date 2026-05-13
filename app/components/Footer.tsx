@@ -1,38 +1,75 @@
+import Link from 'next/link';
+
+const PROGRAM = [
+  { href: '/about', label: 'About' },
+  { href: '/curriculum', label: 'Curriculum' },
+  { href: '/itinerary', label: 'Itinerary' },
+  { href: '/resources', label: 'Resources' },
+];
+
+const PEOPLE = [
+  { href: '/cohort', label: 'Cohort 2026' },
+  { href: '/faculty', label: 'Faculty' },
+  { href: '/faculty#organizers', label: 'Organizers' },
+];
+
+const LOGISTICS = [
+  { href: '/venue', label: 'Khoj Resort, Skardu' },
+  { href: '/travel', label: 'Travel & Arrivals' },
+  { href: '/contact', label: 'Contact' },
+];
+
 export default function Footer() {
   return (
-    <footer className="surface-paper border-t border-[color:var(--color-border)]">
-      <div className="container-max px-4 sm:px-6 lg:px-8 py-12 grid gap-8
-                      md:grid-cols-[1fr_auto] md:items-end">
-        <div>
-          <p className="eyebrow mb-4">In partnership with</p>
-          <div className="flex flex-wrap gap-x-8 gap-y-3 text-[color:var(--color-ink)]
-                          font-serif text-xl leading-tight">
-            <span>Taleemabad</span>
-            <span className="text-slate-warm">·</span>
-            <span>Mulago Foundation</span>
-            <span className="text-slate-warm">·</span>
-            <span>Khoj Resort</span>
+    <footer className="site-footer">
+      <div className="topo-bg" aria-hidden="true" />
+      <div className="container">
+        <div className="site-footer__grid">
+          <div className="site-footer__brand">
+            <h3>
+              Summit
+              <br />
+              Fellowship
+            </h3>
+            <p>
+              The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan&apos;s most
+              promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.
+            </p>
+          </div>
+          <div className="site-footer__col">
+            <h4>The Program</h4>
+            <ul>
+              {PROGRAM.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="site-footer__col">
+            <h4>The People</h4>
+            <ul>
+              {PEOPLE.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="site-footer__col">
+            <h4>Logistics</h4>
+            <ul>
+              {LOGISTICS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-
-        <div className="text-sm text-slate-warm md:text-right">
-          <p>Summit Fellowship · Skardu, Gilgit-Baltistan · June 2026</p>
-          <p className="mt-1">
-            <a href="mailto:info@summitweb.com" className="hover:text-terra-red transition-colors">
-              info@summitweb.com
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <div className="border-t border-[color:var(--color-border)]">
-        <div className="container-max px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row
-                        justify-between gap-2 text-xs text-slate-warm">
-          <p>© 2026 Summit Fellowship. All rights reserved.</p>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-terra-red transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-terra-red transition-colors">Twitter</a>
-          </div>
+        <div className="site-footer__bottom">
+          <span>© 2026 · Summit Fellowship · Vol. 01</span>
+          <span>Skardu · Gilgit-Baltistan · Pakistan</span>
         </div>
       </div>
     </footer>
