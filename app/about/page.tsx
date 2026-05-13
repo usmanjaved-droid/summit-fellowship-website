@@ -8,13 +8,14 @@ export default function About() {
       <HeroSection
         title="About the Fellowship"
         subtitle="Transform social enterprises from project-driven survival to scale-ready impact machines"
+        gradient="skardu-horizon"
       />
 
       <section className="section bg-white">
         <div className="container-max">
           {/* Mission & Philosophy */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">Mission & Philosophy</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-lake-dark">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-terra-red">Mission & Philosophy</h2>
 
             <h3 className="text-xl font-bold mb-3">Why This Fellowship Exists</h3>
             <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
@@ -28,8 +29,8 @@ export default function About() {
           </div>
 
           {/* The Challenge */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">The Challenge</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-forest-dark">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-terra-red">The Challenge</h2>
 
             <h3 className="text-xl font-bold mb-3">Why Social Enterprises Struggle with Scale</h3>
             <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
@@ -43,8 +44,8 @@ export default function About() {
           </div>
 
           {/* The Solution */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">The Solution</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-moss-light">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-moss-light">The Solution</h2>
 
             <h3 className="text-xl font-bold mb-3">A 7-Day Intensive Approach</h3>
             <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
@@ -58,8 +59,8 @@ export default function About() {
           </div>
 
           {/* The Scale Screen Framework */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">The Scale Screen Framework</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-lake-dark">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-lake-dark">The Scale Screen Framework</h2>
 
             <h3 className="text-xl font-bold mb-3">Mulago Foundation's Proven Approach</h3>
             <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
@@ -67,36 +68,36 @@ export default function About() {
             </p>
 
             <h3 className="text-xl font-bold mb-3">The Four Enoughs</h3>
-            <p className="text-gray-700 mb-4 leading-relaxed max-w-[75ch]">
+            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
               The Scale Screen evaluates four critical dimensions:
             </p>
 
-            <div className="space-y-4 mb-6 pl-6 border-l-4 border-blue-200">
-              <div>
-                <h4 className="font-bold text-gray-900">Good Enough</h4>
-                <p className="text-gray-700 leading-relaxed max-w-[75ch]">Your impact is sufficient—you've demonstrated meaningful results and have evidence to support your claims.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div className="bg-moss-light/10 border-l-4 border-moss-light p-4 rounded">
+                <h4 className="font-bold text-forest-dark mb-2">Good Enough</h4>
+                <p className="text-gray-700 text-sm leading-relaxed">Your impact is sufficient—you've demonstrated meaningful results and have evidence to support your claims.</p>
               </div>
 
-              <div>
-                <h4 className="font-bold text-gray-900">Big Enough</h4>
-                <p className="text-gray-700 leading-relaxed max-w-[75ch]">Your scale is sufficient—the issue you're addressing is large enough to justify significant resources and organizational growth.</p>
+              <div className="bg-lake-dark/10 border-l-4 border-lake-dark p-4 rounded">
+                <h4 className="font-bold text-lake-dark mb-2">Big Enough</h4>
+                <p className="text-gray-700 text-sm leading-relaxed">Your scale is sufficient—the issue you're addressing is large enough to justify significant resources and organizational growth.</p>
               </div>
 
-              <div>
-                <h4 className="font-bold text-gray-900">Simple Enough</h4>
-                <p className="text-gray-700 leading-relaxed max-w-[75ch]">Your model is operationalizable—it can be documented, taught, and replicated by others without requiring heroic individual effort.</p>
+              <div className="bg-terra-red/10 border-l-4 border-terra-red p-4 rounded">
+                <h4 className="font-bold text-terra-red mb-2">Simple Enough</h4>
+                <p className="text-gray-700 text-sm leading-relaxed">Your model is operationalizable—it can be documented, taught, and replicated by others without requiring heroic individual effort.</p>
               </div>
 
-              <div>
-                <h4 className="font-bold text-gray-900">Cheap Enough</h4>
-                <p className="text-gray-700 leading-relaxed max-w-[75ch]">Your unit economics work—your cost-per-beneficiary is sustainable and doesn't require subsidy beyond what realistic funding sources can provide.</p>
+              <div className="bg-slate-warm/10 border-l-4 border-slate-warm p-4 rounded">
+                <h4 className="font-bold text-slate-warm mb-2">Cheap Enough</h4>
+                <p className="text-gray-700 text-sm leading-relaxed">Your unit economics work—your cost-per-beneficiary is sustainable and doesn't require subsidy beyond what realistic funding sources can provide.</p>
               </div>
             </div>
           </div>
 
           {/* The Arc of the Week */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">The Arc of the Week</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-terra-red">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-terra-red">The Arc of the Week</h2>
 
             <h3 className="text-xl font-bold mb-3">Day 1: Design for Impact</h3>
             <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
@@ -120,8 +121,8 @@ export default function About() {
           </div>
 
           {/* Co-Hosts */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-8">Co-Hosts</h2>
+          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-forest-dark">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-forest-dark">Co-Hosts</h2>
 
             <h3 className="text-xl font-bold mb-3">Taleemabad: Pakistan's Civic Innovation Leader</h3>
             <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
@@ -135,8 +136,8 @@ export default function About() {
           </div>
 
           {/* Why Skardu */}
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8">Why Skardu?</h2>
+          <div className="max-w-3xl mx-auto pt-8 border-t-4 border-moss-light">
+            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-moss-light">Why Skardu?</h2>
 
             <h3 className="text-xl font-bold mb-3">High-Altitude Focus and Clarity</h3>
             <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
