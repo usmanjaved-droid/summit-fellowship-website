@@ -1,158 +1,163 @@
-'use client';
+import Link from 'next/link';
 
-import HeroSection from '../components/HeroSection';
+export const metadata = {
+  title: 'About — Summit Fellowship',
+  description:
+    "The Skardu Scale-Up Fellowship is a 7-day intensive retreat for Pakistan's most promising social enterprises.",
+};
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
-      <HeroSection
-        title="About the Fellowship"
-        subtitle="Transform social enterprises from project-driven survival to scale-ready impact machines"
-        gradient="skardu-horizon"
-      />
-
-      <section className="section bg-white">
-        <div className="container-max">
-          {/* Mission & Philosophy */}
-          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-lake-dark">
-            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-terra-red">Mission & Philosophy</h2>
-
-            <h3 className="text-xl font-bold mb-3">Why This Fellowship Exists</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              Pakistan is home to dozens of promising social enterprises, but few achieve true national scale. Most remain trapped in "project-driven survival mode"—securing incremental grants and reaching thousands when their models possess the potential to reach millions.
-            </p>
-
-            <h3 className="text-xl font-bold mb-3">The Core Challenge</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              Success at scale requires moving beyond founder-led models to systems-based impact. This means building organizational capabilities, establishing evidence of impact, and creating sustainable financing structures that can outlast any single individual.
-            </p>
+      <section className="page-hero" data-screen-label="About Hero">
+        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
+        <div className="container page-hero__inner">
+          <div className="page-hero__crumbs">
+            <Link href="/">Home</Link>
+            <span>/</span>
+            <span>About</span>
           </div>
-
-          {/* The Challenge */}
-          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-forest-dark">
-            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-terra-red">The Challenge</h2>
-
-            <h3 className="text-xl font-bold mb-3">Why Social Enterprises Struggle with Scale</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              Many Pakistani social enterprises lack the organizational systems to operate beyond their founder's direct oversight. They struggle to document evidence of impact, leaving potential partners and funders uncertain about the real effectiveness of their work.
-            </p>
-
-            <h3 className="text-xl font-bold mb-3">The Two Critical Questions</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              Who is your ultimate doer—the entity that implements your model at national scale? And who is your ultimate payer—the entity with resources to fund it? Many entrepreneurs lack clarity on these questions, leading to misaligned strategies and unsustainable growth.
-            </p>
+          <h1 className="page-hero__title">
+            A 7-day expedition to{' '}
+            <em style={{ fontStyle: 'italic', color: 'var(--ochre)' }}>redesign for scale.</em>
+          </h1>
+          <p className="page-hero__subtitle">
+            Pakistan has dozens of promising social enterprises. The Summit Fellowship exists to
+            graduate them from project-driven survival mode into scale-ready impact machines.
+          </p>
+          <div className="page-hero__meta">
+            <div className="page-hero__meta-item"><span className="label">Edition</span><span className="value">Vol. 01 — 2026</span></div>
+            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June</span></div>
+            <div className="page-hero__meta-item"><span className="label">Format</span><span className="value">Residential intensive</span></div>
+            <div className="page-hero__meta-item"><span className="label">Co-hosts</span><span className="value">Taleemabad × Mulago</span></div>
           </div>
+        </div>
+      </section>
 
-          {/* The Solution */}
-          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-moss-light">
-            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-moss-light">The Solution</h2>
+      <section className="about-philosophy">
+        <div className="topo-bg" aria-hidden="true" />
+        <div className="about-philosophy__inner">
+          <blockquote className="about-philosophy__pull">
+            Transform organizations from project-driven survival mode to scale-ready impact
+            machines through intensive design work, peer learning, and strategic preparation for
+            funding conversations.
+          </blockquote>
+          <div className="about-philosophy__attr">The Core Philosophy</div>
+        </div>
+      </section>
 
-            <h3 className="text-xl font-bold mb-3">A 7-Day Intensive Approach</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              The Skardu Scale-Up Fellowship brings together a curated cohort of founders for a 7-day intensive retreat. Stepping away from daily operations, they engage with rigorous frameworks, world-class faculty, and peer learning from fellow entrepreneurs facing similar challenges.
-            </p>
-
-            <h3 className="text-xl font-bold mb-3">How It Works</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              Over the week, fellows work through the Arc of the Week—a carefully sequenced journey from clarifying impact and strategy to iterating on organizational models and crafting compelling pitches. Small group clinics, facilitated peer sessions, and 1-on-1 mentoring ensure personalized support for each entrepreneur.
-            </p>
-          </div>
-
-          {/* The Scale Screen Framework */}
-          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-lake-dark">
-            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-lake-dark">The Scale Screen Framework</h2>
-
-            <h3 className="text-xl font-bold mb-3">Mulago Foundation's Proven Approach</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              The fellowship uses Mulago Foundation's Scale Screen framework, a rigorous methodology for identifying organizations truly ready to scale. Rather than measuring success by grant dollars distributed, it focuses on organizational readiness and impact potential.
-            </p>
-
-            <h3 className="text-xl font-bold mb-3">The Four Enoughs</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              The Scale Screen evaluates four critical dimensions:
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              <div className="bg-moss-light/10 border-l-4 border-moss-light p-4 rounded">
-                <h4 className="font-bold text-forest-dark mb-2">Good Enough</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">Your impact is sufficient—you've demonstrated meaningful results and have evidence to support your claims.</p>
-              </div>
-
-              <div className="bg-lake-dark/10 border-l-4 border-lake-dark p-4 rounded">
-                <h4 className="font-bold text-lake-dark mb-2">Big Enough</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">Your scale is sufficient—the issue you're addressing is large enough to justify significant resources and organizational growth.</p>
-              </div>
-
-              <div className="bg-terra-red/10 border-l-4 border-terra-red p-4 rounded">
-                <h4 className="font-bold text-terra-red mb-2">Simple Enough</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">Your model is operationalizable—it can be documented, taught, and replicated by others without requiring heroic individual effort.</p>
-              </div>
-
-              <div className="bg-slate-warm/10 border-l-4 border-slate-warm p-4 rounded">
-                <h4 className="font-bold text-slate-warm mb-2">Cheap Enough</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">Your unit economics work—your cost-per-beneficiary is sustainable and doesn't require subsidy beyond what realistic funding sources can provide.</p>
-              </div>
+      <section className="challenge">
+        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
+        <div className="container challenge__inner">
+          <div className="challenge-grid">
+            <div>
+              <div className="eyebrow eyebrow--on-dark" style={{ marginBottom: 16 }}>The challenge</div>
+              <h2>The scale<br />question.</h2>
+            </div>
+            <div className="body">
+              <p>
+                Pakistan is home to dozens of promising social enterprises, but few achieve true
+                national scale. Most remain trapped in{' '}
+                <strong>&ldquo;project-driven survival mode&rdquo;</strong> — securing incremental
+                grants and reaching thousands when their models possess the potential to reach
+                millions.
+              </p>
+              <p>
+                The barrier is rarely a lack of commitment or competence. It is a lack of a
+                definitive scale strategy. Over seven days, this curated cohort steps away from
+                daily operations to answer the defining strategic questions of scale:
+              </p>
+              <p style={{ fontFamily: 'var(--serif)', fontSize: 26, fontStyle: 'italic', color: 'var(--ochre)', borderLeft: '2px solid var(--ochre)', paddingLeft: 24, margin: '32px 0' }}>
+                Who is your ultimate <em>doer</em> at scale — the entity that implements at scale?
+                Who is your ultimate <em>payer</em> — who funds it?
+              </p>
+              <p>
+                These are not abstract questions. By Day 6, every founder leaves with the answers
+                in hand, and a one-pager that&rsquo;s ready for the funder conversations that come
+                next.
+              </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* The Arc of the Week */}
-          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-terra-red">
-            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-terra-red">The Arc of the Week</h2>
-
-            <h3 className="text-xl font-bold mb-3">Day 1: Design for Impact</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              Fellows begin by clarifying their mission, big idea, theory of change, and business model. This foundational work ensures everyone has absolute clarity on what they're building and why it matters.
-            </p>
-
-            <h3 className="text-xl font-bold mb-3">Day 2: Scale Strategy & Evidence</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              The focus shifts to strategy and proof points. Fellows examine their evidence of impact, identify critical data gaps, and develop strategies for measuring and communicating their results to potential funders and partners.
-            </p>
-
-            <h3 className="text-xl font-bold mb-3">Day 3: 1-on-1 Clinics</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              In a shift to experiential learning, fellows engage in outdoor capacity-building sessions and intensive 1-on-1 clinics with faculty. These personalized sessions address the unique challenges each entrepreneur is facing.
-            </p>
-
-            <h3 className="text-xl font-bold mb-3">Days 4-6: Iteration, Organization & Communication</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              Fellows work on iterating their organizational models, strengthening governance structures, and crafting compelling communications. The week culminates in a Demo Day where each entrepreneur presents their refined vision and next steps.
-            </p>
+      <section className="enoughs">
+        <div className="container">
+          <div className="enoughs__head">
+            <div>
+              <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">The Mulago Scale Screen</span></div>
+              <h2>The four<br /><em>enoughs.</em></h2>
+            </div>
+            <p>The Scale Screen is the rigorous framework at the heart of the week. By the end, every cohort model must earn a credible yes on all four questions.</p>
           </div>
-
-          {/* Co-Hosts */}
-          <div className="max-w-3xl mx-auto mb-16 pt-8 border-t-4 border-forest-dark">
-            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-forest-dark">Co-Hosts</h2>
-
-            <h3 className="text-xl font-bold mb-3">Taleemabad: Pakistan's Civic Innovation Leader</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              Taleemabad is Pakistan's premier organization for civic innovation and social entrepreneurship. With deep roots in the local ecosystem and a track record of building transformative organizations, Taleemabad brings institutional knowledge and community connections essential to the fellowship's success.
-            </p>
-
-            <h3 className="text-xl font-bold mb-3">Mulago Foundation: Scale Expertise</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              The Mulago Foundation, based in Washington DC, has spent two decades identifying and supporting organizations with the potential to scale impact. Their Scale Screen framework and decades of experience with social enterprises globally ensures the fellowship is anchored in proven methodology.
-            </p>
+          <div className="enough-grid">
+            {[
+              ['01', 'Good enough.', 'Does the solution actually work, with credible evidence? Outcomes you can defend, not just outputs you can count.'],
+              ['02', 'Big enough.', 'Is the problem large enough to matter at scale? Will solving it move the needle on a population-level outcome?'],
+              ['03', 'Simple enough.', 'Can others replicate it without the founder? Strip the model to the smallest set of elements that still produce the outcome.'],
+              ['04', 'Cheap enough.', 'Can the ultimate payer afford to reach everyone who needs it? Unit economics that work at population scale, not just pilot scale.'],
+            ].map(([n, t, d]) => (
+              <div className="enough-card" key={n}>
+                <div className="enough-card__num">{n}</div>
+                <h3 className="enough-card__title">{t}</h3>
+                <p className="enough-card__desc">{d}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* Why Skardu */}
-          <div className="max-w-3xl mx-auto pt-8 border-t-4 border-moss-light">
-            <h2 className="text-3xl font-bold mb-8 pb-4 border-b-2 border-moss-light">Why Skardu?</h2>
+      <section className="numbers">
+        <div className="container">
+          <div className="numbers__grid">
+            {[
+              ['11', 'Fellows', 'Hand-picked Pakistani founders across health, education, livelihoods, and beyond.'],
+              ['7', 'Days', 'Residential intensive at the foot of the Karakoram, away from daily operations.'],
+              ['9', 'Faculty', "Global frameworks and Pakistani operators who've already scaled."],
+              ['∞', 'After', 'Lifelong cohort. Annual reunions. Warm intros into patient capital.'],
+            ].map(([n, l, d]) => (
+              <div className="numbers__cell" key={l}>
+                <div className="num">{n}</div>
+                <div className="label">{l}</div>
+                <div className="desc">{d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <h3 className="text-xl font-bold mb-3">High-Altitude Focus and Clarity</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              Skardu sits at 2,226 meters above sea level, far from the distractions of Islamabad or Karachi. This altitude—both physical and metaphorical—creates space for deep thinking and strategic clarity that's nearly impossible to achieve while managing daily organizational operations.
-            </p>
+      <section className="pillars">
+        <div className="container pillars__inner">
+          <div className="pillars__copy">
+            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Methodology</span></div>
+            <h2>How the week<br /><em>actually works.</em></h2>
+            <p>The arc balances rigorous framework instruction with intimate 1-on-1 clinics, peer learning, and the kind of unstructured time that only happens when you take eleven founders to a valley with patchy signal.</p>
+            <p>It is intentionally residential. The most consequential conversations happen on walks between sessions, over dinner at a local&rsquo;s home, and in the late-night fireside chats — not in the workshop room.</p>
+          </div>
+          <div className="pillars__list">
+            {[
+              ['01', 'Framework instruction', 'The Mulago Scale Screen. Doer & Payer at Scale. The Iterative Organization. Clear-language pitching. Delivered by the framework architects themselves.'],
+              ['02', '1-on-1 capacity clinics', 'Structured 45-minute rotations with Pakistani faculty who have already navigated the exact scale, funding, and operational walls each fellow now faces.'],
+              ['03', 'Peer learning', "Lightning talks, feedback pairs, and demo-day-style rehearsals. Eleven founders, eleven mirrors. By Day 3, the cohort knows each other's models cold."],
+              ['04', 'Funder access', 'Curated funder sessions and a Demo Day designed for real, post-fellowship conversations — not a one-shot pitch contest.'],
+              ['05', 'Cultural immersion', 'Dinner at a local home, sightseeing in the Shigar valley, a cultural night with regional musicians. The week is shaped by where it happens.'],
+            ].map(([n, h, p]) => (
+              <div className="pillars__item" key={n}>
+                <div className="num">{n}</div>
+                <div><h4>{h}</h4><p>{p}</p></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <h3 className="text-xl font-bold mb-3">Retreat Format for Community Building</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed max-w-[75ch]">
-              The intensive retreat format—where fellows stay together for the full week—builds a powerful cohort of peers facing similar challenges. Meals, evening sessions, and downtime conversations become valuable learning moments, while the stunning Skardu setting creates space for reflection and renewal.
-            </p>
-
-            <h3 className="text-xl font-bold mb-3">A Catalyst for Change</h3>
-            <p className="text-gray-700 leading-relaxed max-w-[75ch]">
-              By removing founders from their day-to-day environments and bringing them together in an environment of focus and support, Skardu becomes more than a location—it becomes a catalyst for organizational and personal transformation.
-            </p>
+      <section style={{ background: 'var(--alpine-deep)', color: 'var(--parchment)', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
+        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
+        <div className="container" style={{ position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 64, alignItems: 'center' }}>
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4.5vw, 64px)', color: 'var(--paper)', lineHeight: 1, letterSpacing: '-0.02em' }}>Continue the expedition.</h2>
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifySelf: 'end' }}>
+            <Link href="/curriculum" className="btn btn--ochre">The Curriculum →</Link>
+            <Link href="/cohort" className="btn btn--ghost-light">Meet the Cohort</Link>
           </div>
         </div>
       </section>
