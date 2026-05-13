@@ -1,65 +1,127 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
+import HeroSection from './components/HeroSection';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <HeroSection
+        title="Skardu Scale-Up Fellowship"
+        subtitle="Transform from project-driven to scale-ready"
+        description="A 7-day intensive retreat for Pakistani social entrepreneurs. June 7-14, 2026 | Khoj Resort, Skardu"
+      />
+
+      {/* Overview Section */}
+      <section className="section bg-gray-50">
+        <div className="container-max">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <div className="text-5xl font-bold text-blue-600 mb-2">7</div>
+              <p className="text-gray-700 font-medium">Days of Intensive Learning</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-blue-600 mb-2">11</div>
+              <p className="text-gray-700 font-medium">Social Entrepreneurs</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-blue-600 mb-2">5</div>
+              <p className="text-gray-700 font-medium">World-Class Faculty</p>
+            </div>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-6">What is the Skardu Scale-Up Fellowship?</h2>
+            <p className="text-lg text-gray-700 mb-4">
+              Pakistan is home to dozens of promising social enterprises, but few achieve true national scale. Most remain trapped in "project-driven survival mode"—securing incremental grants and reaching thousands when their models possess the potential to reach millions.
+            </p>
+            <p className="text-lg text-gray-700 mb-6">
+              Over this 7-day intensive retreat, our curated cohort of founders steps away from daily operations to answer the defining strategic questions of scale: <strong>Who is your ultimate doer (the entity that implements at scale)?</strong> And <strong>who is your ultimate payer (who funds it)?</strong>
+            </p>
+
+            <div className="flex gap-4 flex-wrap justify-center">
+              <Link href="/about" className="btn-primary">
+                Learn More
+              </Link>
+              <Link href="/schedule" className="btn-secondary">
+                View Schedule
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Navigation Cards */}
+      <section className="section">
+        <div className="container-max">
+          <h2 className="text-3xl font-bold text-center mb-12">Explore the Fellowship</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Link href="/fellows" className="card hover:shadow-lg transition-all">
+              <h3 className="text-2xl font-bold text-blue-600 mb-2">11</h3>
+              <p className="font-bold text-lg mb-2">Meet the Fellows</p>
+              <p className="text-gray-600 text-sm">Discover the entrepreneurs transforming Pakistan</p>
+            </Link>
+
+            <Link href="/faculty" className="card hover:shadow-lg transition-all">
+              <h3 className="text-2xl font-bold text-purple-600 mb-2">5</h3>
+              <p className="font-bold text-lg mb-2">Faculty & Team</p>
+              <p className="text-gray-600 text-sm">Learn from world-class mentors and organizers</p>
+            </Link>
+
+            <Link href="/schedule" className="card hover:shadow-lg transition-all">
+              <h3 className="text-2xl font-bold text-green-600 mb-2">7</h3>
+              <p className="font-bold text-lg mb-2">The Schedule</p>
+              <p className="text-gray-600 text-sm">Explore the arc of the week and key themes</p>
+            </Link>
+
+            <Link href="/logistics" className="card hover:shadow-lg transition-all">
+              <h3 className="text-2xl font-bold text-orange-600 mb-2">📍</h3>
+              <p className="font-bold text-lg mb-2">Logistics</p>
+              <p className="text-gray-600 text-sm">Practical info: travel, accommodation, and more</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Arc of the Week */}
+      <section className="section bg-blue-50">
+        <div className="container-max">
+          <h2 className="text-3xl font-bold mb-4">The Arc of the Week</h2>
+          <p className="text-gray-700 mb-8 max-w-2xl">
+            Each day builds on the previous, taking fellows through rigorous frameworks and peer learning to transform their organizations.
           </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-lg">
+              <span className="text-sm font-bold text-blue-600">Day 1</span>
+              <p className="font-bold">Design for Impact</p>
+              <p className="text-sm text-gray-600">Mission, Big Idea, Theory, Model</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg">
+              <span className="text-sm font-bold text-blue-600">Day 2</span>
+              <p className="font-bold">Scale Strategy</p>
+              <p className="text-sm text-gray-600">Evidence, Impact Measurement</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg">
+              <span className="text-sm font-bold text-blue-600">Day 3</span>
+              <p className="font-bold">1-on-1 Clinics</p>
+              <p className="text-sm text-gray-600">Outdoor capacity sessions</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg">
+              <span className="text-sm font-bold text-blue-600">Day 4-6</span>
+              <p className="font-bold">Iteration & Demo</p>
+              <p className="text-sm text-gray-600">Communications, Pitching, Celebration</p>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link href="/schedule" className="btn-primary">
+              View Full Schedule
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
