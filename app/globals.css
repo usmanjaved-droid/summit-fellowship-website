@@ -1,19 +1,52 @@
 @import "tailwindcss";
 
-/* Root variables */
+/* Root variables - Shangrila Lake Color System */
 :root {
-  --color-primary: #005C8A;        /* Deep Lake Blue */
-  --color-accent: #D62828;         /* Terracotta Red */
-  --color-secondary: #2D4F1E;      /* Lush Evergreen */
-  --color-slate: #8C847C;          /* Skardu Slate */
-  --color-moss: #7BA428;           /* Sunlit Moss */
-  --color-bg: #F4F7F6;             /* Cloud White */
-  --text-dark: #1f2937;
-  --text-light: #6b7280;
-  --border: #e5e7eb;
+  /* Brand Colors */
+  --color-lake-dark: #005C8A;        /* Deep Lake Blue */
+  --color-forest-dark: #2D4F1E;      /* Lush Evergreen */
+  --color-terra-red: #D62828;        /* Terracotta Red */
+  --color-slate-warm: #8C847C;       /* Skardu Slate */
+  --color-cloud-white: #F4F7F6;      /* Cloud White */
+  --color-moss-light: #7BA428;       /* Sunlit Moss */
+
+  /* Semantic Colors */
+  --color-primary: var(--color-lake-dark);
+  --color-primary-foreground: var(--color-cloud-white);
+  --color-secondary: var(--color-forest-dark);
+  --color-secondary-foreground: var(--color-cloud-white);
+  --color-accent: var(--color-terra-red);
+  --color-accent-foreground: var(--color-cloud-white);
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: var(--color-cloud-white);
+  --color-muted: var(--color-slate-warm);
+  --color-muted-foreground: #f5f5f5;
+  --color-border: rgba(140, 132, 124, 0.2);
+  --color-background: var(--color-cloud-white);
+  --color-foreground: #1f2937;
+
+  /* Shadow System */
+  --shadow-xs: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.05), 0px 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0px 10px 15px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0px 20px 25px rgba(0, 0, 0, 0.1), 0px 10px 10px rgba(0, 0, 0, 0.04);
+
+  /* Spacing */
+  --radius: 0.5rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Merriweather", serif;
+  --font-mono: "IBM Plex Mono", monospace;
 }
 
-/* Gradient utilities - must be after Tailwind import */
+/* Gradient utilities */
 .bg-alpine-lake {
   background-image: linear-gradient(135deg, #005C8A 0%, #1A7BA8 50%, #2D8FC4 100%) !important;
 }
@@ -26,52 +59,152 @@
   background-image: linear-gradient(180deg, #2D4F1E 0%, #1A3A10 100%) !important;
 }
 
-/* Typography */
+/* Shadow utilities */
+.shadow-xs {
+  box-shadow: var(--shadow-xs);
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Base Typography */
 body {
-  @apply bg-white text-gray-900 antialiased;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  @apply bg-background text-foreground antialiased;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold tracking-tight;
 }
 
 h1 {
-  @apply text-4xl font-bold tracking-tight;
+  @apply text-4xl md:text-5xl;
 }
 
 h2 {
-  @apply text-3xl font-bold tracking-tight;
+  @apply text-3xl md:text-4xl;
 }
 
 h3 {
-  @apply text-2xl font-bold;
+  @apply text-2xl md:text-3xl;
 }
 
 h4 {
-  @apply text-xl font-bold;
+  @apply text-xl md:text-2xl;
+}
+
+p {
+  @apply text-base leading-relaxed;
+  max-width: 75ch;
 }
 
 /* Links */
 a {
-  @apply text-blue-600 hover:text-blue-800 transition-colors;
+  @apply text-primary hover:text-primary/80 transition-colors;
+  text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 92, 138, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 92, 138, 0);
+  }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.4s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
 }
 
 /* Buttons */
 .btn-primary {
-  @apply px-6 py-3 rounded-lg font-medium transition-colors;
-  background-color: #D62828;
-  color: #F4F7F6;
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  background-color: var(--color-accent);
+  color: var(--color-accent-foreground);
+  cursor: pointer;
 }
 
 .btn-primary:hover {
+  @apply shadow-lg transform scale-105;
   opacity: 0.9;
 }
 
+.btn-primary:focus {
+  @apply outline-none ring-2 ring-offset-2;
+  ring-color: var(--color-accent);
+}
+
 .btn-secondary {
-  @apply px-6 py-3 rounded-lg font-medium transition-colors;
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
   background-color: rgba(140, 132, 124, 0.2);
-  color: #8C847C;
+  color: var(--color-muted);
+  cursor: pointer;
 }
 
 .btn-secondary:hover {
   background-color: rgba(140, 132, 124, 0.3);
+  @apply shadow-md;
 }
 
 .hero-gradient {
@@ -79,18 +212,102 @@ a {
   background: linear-gradient(135deg, #005C8A 0%, #1A7BA8 50%, #2D8FC4 100%);
 }
 
-/* Cards */
-.card {
-  @apply rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
-  background-color: #F4F7F6;
-  border: 1px solid rgba(140, 132, 124, 0.2);
+/* Component Layer */
+@layer components {
+  /* Cards */
+  .card {
+    @apply rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+  }
+
+  .card:hover {
+    @apply transform scale-102;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-4 pb-4 border-b-2 border-accent;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Focus states */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    focus-ring-color: var(--color-accent);
+  }
+
+  /* Transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  /* Links with hover effect */
+  .link-primary {
+    @apply text-primary hover:text-primary/80 transition-colors;
+    text-decoration: none;
+  }
+
+  .link-primary:hover {
+    @apply underline;
+  }
 }
 
-/* Section spacing */
-.section {
-  @apply py-16 px-4 sm:px-6 lg:px-8;
-}
+/* Utilities Layer */
+@layer utilities {
+  /* Positioning utilities */
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
 
-.container-max {
-  @apply max-w-7xl mx-auto;
+  /* Text utilities */
+  .text-truncate-2 {
+    @apply line-clamp-2;
+  }
+
+  .text-truncate-3 {
+    @apply line-clamp-3;
+  }
+
+  /* Flex utilities */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  /* Background utilities */
+  .bg-glass {
+    @apply bg-white/80 backdrop-blur-sm;
+  }
+
+  .bg-glass-dark {
+    @apply bg-black/80 backdrop-blur-sm;
+  }
+
+  /* Border radius utilities */
+  .rounded-sm {
+    border-radius: var(--radius-sm);
+  }
+
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
 }
