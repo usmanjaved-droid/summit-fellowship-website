@@ -109,7 +109,7 @@ export default function FellowsContent() {
                 <button
                   key={sector}
                   onClick={() => handleSectorChange(sector)}
-                  className={`px-4 py-2 rounded-full font-medium transition-colors ${
+                  className={`px-4 py-4 rounded-full font-medium transition-colors ${
                     selectedSector === sector
                       ? 'bg-orange-600 text-white'
                       : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
