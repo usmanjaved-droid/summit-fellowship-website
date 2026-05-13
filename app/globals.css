@@ -1,97 +1,52 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Roboto+Flex:wght@400;500;600;700&display=swap');
 
-/* Import Roboto Flex - Luxury Editorial Font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&display=swap');
+/* ---------- Theme tokens (Tailwind v4 @theme generates utilities from these) ---------- */
+@theme {
+  /* Brand colors */
+  --color-lake-dark: #005C8A;
+  --color-forest-dark: #2D4F1E;
+  --color-terra-red: #D62828;
+  --color-slate-warm: #8C847C;
+  --color-cloud-white: #F4F7F6;
+  --color-moss-light: #7BA428;
 
-/* Root variables - Shangrila Lake Color System with Fitzroy-Travel aesthetic */
-:root {
-  /* Brand Colors */
-  --color-lake-dark: #005C8A;        /* Deep Lake Blue */
-  --color-forest-dark: #2D4F1E;      /* Lush Evergreen */
-  --color-terra-red: #D62828;        /* Terracotta Red - Primary Accent */
-  --color-slate-warm: #8C847C;       /* Skardu Slate */
-  --color-cloud-white: #F4F7F6;      /* Cloud White */
-  --color-moss-light: #7BA428;       /* Sunlit Moss */
+  /* Editorial neutrals */
+  --color-ink: #1A1A1A;
+  --color-paper: #FAF7F2;
 
-  /* Semantic Colors - Luxury Travel Aesthetic */
-  --color-primary: var(--color-terra-red);
-  --color-primary-foreground: var(--color-cloud-white);
-  --color-secondary: var(--color-forest-dark);
-  --color-secondary-foreground: var(--color-cloud-white);
-  --color-accent: var(--color-terra-red);
-  --color-accent-foreground: var(--color-cloud-white);
-  --color-destructive: #ef4444;
-  --color-destructive-foreground: var(--color-cloud-white);
-  --color-muted: var(--color-slate-warm);
-  --color-muted-foreground: #f5f5f5;
-  --color-border: rgba(140, 132, 124, 0.15);
-  --color-background: #ffffff;
-  --color-foreground: #363839;
+  /* Typography */
+  --font-sans: 'Roboto Flex', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
 
-  /* Shadow System */
-  --shadow-xs: 0px 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.05), 0px 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0px 10px 15px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0px 20px 25px rgba(0, 0, 0, 0.1), 0px 10px 10px rgba(0, 0, 0, 0.04);
-
-  /* Spacing - Generous whitespace */
-  --radius: 0.5rem;
+  /* Radii */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
-
-  /* Typography - Luxury Editorial Style */
-  --font-sans: 'Roboto Flex', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-serif: "Merriweather", serif;
-  --font-mono: "IBM Plex Mono", monospace;
 }
 
-/* Gradient utilities */
-.bg-alpine-lake {
-  background-image: linear-gradient(135deg, #005C8A 0%, #1A7BA8 50%, #2D8FC4 100%) !important;
+/* ---------- Non-theme custom properties ---------- */
+:root {
+  --color-border: rgba(140, 132, 124, 0.18);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.04);
 }
 
-.bg-skardu-horizon {
-  background-image: linear-gradient(to right, #D62828 0%, #D62828 40%, #8C847C 60%, #005C8A 100%) !important;
-}
+/* ---------- Base typography ---------- */
+html { color-scheme: light; }
 
-.bg-forest-shadow {
-  background-image: linear-gradient(180deg, #2D4F1E 0%, #1A3A10 100%) !important;
-}
-
-/* Shadow utilities */
-.shadow-xs {
-  box-shadow: var(--shadow-xs);
-}
-
-.shadow-sm {
-  box-shadow: var(--shadow-sm);
-}
-
-.shadow-md {
-  box-shadow: var(--shadow-md);
-}
-
-.shadow-lg {
-  box-shadow: var(--shadow-lg);
-}
-
-.shadow-xl {
-  box-shadow: var(--shadow-xl);
-}
-
-/* Base Typography - Luxury Editorial Style (Fitzroy-inspired) */
 body {
-  @apply antialiased;
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: var(--color-ink);
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 1.7rem;
-  line-height: 1.58;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-variation-settings: "opsz" 16;
 }
 
 ::selection {
@@ -99,285 +54,102 @@ body {
   color: var(--color-cloud-white);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-bold tracking-tight;
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  line-height: 1.1;
 }
 
-h1 {
-  @apply text-5xl md:text-6xl font-bold tracking-tight leading-tight;
-  color: var(--color-foreground);
-}
-
-h2 {
-  @apply text-3xl md:text-4xl;
-  color: var(--color-foreground);
-}
-
-h3 {
-  @apply text-2xl md:text-3xl;
-  color: var(--color-foreground);
-}
-
-h4 {
-  @apply text-xl md:text-2xl;
-  color: var(--color-foreground);
-}
+h1 { font-size: clamp(2.75rem, 6vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.15; }
+h3 { font-size: 1.5rem; line-height: 1.25; }
+h4 { font-size: 1.125rem; line-height: 1.3; }
 
 p {
-  @apply leading-relaxed;
-  font-size: 1.7rem;
-  line-height: 1.58;
+  line-height: 1.65;
   max-width: 75ch;
-  color: var(--color-foreground);
+  color: var(--color-ink);
 }
 
-/* Links */
 a {
   color: var(--color-lake-dark);
-  @apply transition-colors;
   text-decoration: none;
+  transition: color 200ms ease-out;
+}
+a:hover { color: var(--color-terra-red); }
+
+/* ---------- Section utilities ---------- */
+.container-max { max-width: 80rem; margin-inline: auto; }
+
+.section { padding-block: clamp(4rem, 8vw, 7rem); padding-inline: 1rem; }
+@media (min-width: 640px) { .section { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .section { padding-inline: 2rem; } }
+
+.surface-paper { background-color: var(--color-paper); }
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-terra-red);
 }
 
-a:hover {
-  color: rgba(0, 92, 138, 0.8);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(0, 92, 138, 0.7);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(0, 92, 138, 0);
-  }
-}
-
-/* Animation utilities */
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out;
-}
-
-.animate-slide-in {
-  animation: slideIn 0.3s ease-out;
-}
-
-.animate-slide-in-up {
-  animation: slideInUp 0.4s ease-out;
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 2s infinite;
-}
-
-/* Buttons - Luxury Editorial Style */
+/* ---------- Buttons ---------- */
 .btn-primary {
-  @apply px-8 py-3 rounded-lg font-medium transition-all duration-300;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
   background-color: var(--color-terra-red);
   color: var(--color-cloud-white);
+  box-shadow: 0 2px 8px rgba(214, 40, 40, 0.18);
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out, background-color 200ms ease-out;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(214, 40, 40, 0.15);
-  letter-spacing: 0.5px;
 }
-
 .btn-primary:hover {
   background-color: #b82020;
-  box-shadow: 0 4px 12px rgba(214, 40, 40, 0.25);
-  @apply transition-all duration-300;
+  box-shadow: 0 6px 16px rgba(214, 40, 40, 0.28);
+  transform: translateY(-2px);
 }
-
-.btn-primary:focus {
+.btn-primary:focus-visible {
   outline: 2px solid var(--color-terra-red);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
-.btn-secondary {
-  @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
-  background-color: transparent;
-  color: var(--color-foreground);
-  cursor: pointer;
-  border: 1px solid var(--color-slate-warm);
+/* ---------- Reveal animation (scroll-into-view) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.btn-secondary:hover {
-  background-color: var(--color-slate-warm);
-  color: var(--color-cloud-white);
-  @apply transition-all duration-200;
+/* ---------- Ken-burns hero zoom ---------- */
+@keyframes kenBurns {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.08); }
 }
+.ken-burns { animation: kenBurns 18s ease-out forwards; }
 
-.hero-gradient {
-  @apply text-white relative;
-  background: linear-gradient(135deg, #005C8A 0%, #1A7BA8 50%, #2D8FC4 100%);
-}
-
-.hero-gradient::before {
-  content: '';
-  @apply absolute inset-0;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.hero-section {
-  @apply relative overflow-hidden;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-}
-
-@media (min-width: 768px) {
-  .hero-section {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-  }
-}
-
-.hero-subtitle {
-  @apply leading-relaxed;
-  font-size: 1.7rem;
-  color: rgba(255, 255, 255, 0.95);
-  max-width: 60ch;
-  margin-bottom: 2.5rem;
-  line-height: 1.58;
-}
-
-.hero-content {
-  @apply relative z-10;
-}
-
-.hero-gradient-text {
-  @apply relative z-20 flex flex-col items-start justify-center h-full;
-}
-
-/* Component Layer - Luxury Editorial */
-@layer components {
-  /* Cards - Minimal, sophisticated */
-  .card {
-    @apply rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-300;
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-  }
-
-  .card:hover {
-    border-color: var(--color-terra-red);
-  }
-
-  /* Section spacing - Generous whitespace */
-  .section {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
-  }
-
-  .section-title {
-    @apply text-3xl font-bold mb-6 pb-6;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-foreground);
-  }
-
-  .container-max {
-    @apply max-w-7xl mx-auto;
-  }
-
-  /* Focus states */
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
-    focus-ring-color: var(--color-terra-red);
-  }
-
-  /* Transitions */
-  .transition-smooth {
-    @apply transition-all duration-300 ease-out;
-  }
-
-  /* Links with hover effect */
-  .link-primary {
-    color: var(--color-terra-red);
-    @apply transition-colors;
-    text-decoration: none;
-  }
-
-  .link-primary:hover {
-    color: #b82020;
-    @apply underline;
-  }
-}
-
-/* Utilities Layer */
-@layer utilities {
-  /* Positioning utilities */
-  .absolute-center {
-    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
-  }
-
-  /* Text utilities */
-  .text-truncate-2 {
-    @apply line-clamp-2;
-  }
-
-  .text-truncate-3 {
-    @apply line-clamp-3;
-  }
-
-  /* Flex utilities */
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
-
-  .flex-between {
-    @apply flex items-center justify-between;
-  }
-
-  /* Background utilities */
-  .bg-glass {
-    @apply bg-white/80 backdrop-blur-sm;
-  }
-
-  .bg-glass-dark {
-    @apply bg-black/80 backdrop-blur-sm;
-  }
-
-  /* Border radius utilities */
-  .rounded-sm {
-    border-radius: var(--radius-sm);
-  }
-
-  .rounded-md {
-    border-radius: var(--radius-md);
-  }
-
-  .rounded-lg {
-    border-radius: var(--radius-lg);
-  }
-
-  .rounded-xl {
-    border-radius: var(--radius-xl);
+/* ---------- Reduced motion: kill all of the above ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .ken-burns { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }
