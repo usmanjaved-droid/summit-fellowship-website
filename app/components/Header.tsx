@@ -16,32 +16,52 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-cloud-white border-b border-slate-warm/20 shadow-sm">
-      <nav className="container-max flex items-center justify-between py-4">
+    <header className="sticky top-0 z-50 bg-white border-b border-slate-warm/10 shadow-xs">
+      <nav className="container-max flex items-center justify-between py-4 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
           href="/"
-          className="text-xl font-bold text-lake-dark hover:text-terra-red
-                     transition-colors duration-100 focus:outline-none
-                     focus:ring-2 focus:ring-terra-red focus:ring-offset-2 rounded-md px-2 py-1"
+          className="text-lg font-bold text-slate-warm hover:text-terra-red
+                     transition-colors duration-200 focus:outline-none
+                     focus:ring-2 focus:ring-terra-red focus:ring-offset-2 rounded-md px-2 py-1 flex-shrink-0"
         >
-          Summit Fellowship
+          <span className="block text-xs uppercase tracking-wider font-semibold">Summit</span>
+          <span className="block">Fellowship</span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-8">
+        {/* Desktop Navigation - Centered */}
+        <div className="hidden md:flex gap-12 absolute left-1/2 transform -translate-x-1/2">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-slate-warm font-medium hover:text-terra-red
-                         transition-colors duration-100 ease-out
+              className="text-sm uppercase tracking-widest text-slate-warm hover:text-terra-red
+                         transition-colors duration-200 ease-out
                          focus:outline-none focus:ring-2 focus:ring-terra-red
-                         focus:ring-offset-2 rounded-md px-2 py-1"
+                         focus:ring-offset-2 rounded-md px-2 py-1 font-medium"
             >
               {item.label}
             </Link>
           ))}
+        </div>
+
+        {/* Desktop Actions */}
+        <div className="hidden md:flex items-center gap-6">
+          <a
+            href="tel:+923001234567"
+            className="text-sm text-slate-warm hover:text-terra-red transition-colors flex items-center gap-2"
+          >
+            <span>📞</span>
+            <span>+1 585 506 6307</span>
+          </a>
+          <Link
+            href="/contact"
+            className="px-6 py-2 bg-terra-red text-white font-medium rounded-lg
+                       hover:bg-[#b82020] transition-colors duration-200
+                       focus:outline-none focus:ring-2 focus:ring-terra-red focus:ring-offset-2"
+          >
+            CONTACT US
+          </Link>
         </div>
 
         {/* Mobile Hamburger Button */}
