@@ -115,8 +115,13 @@ p {
 
 /* Links */
 a {
-  @apply text-lake-dark hover:text-lake-dark/80 transition-colors;
+  color: var(--color-lake-dark);
+  @apply transition-colors;
   text-decoration: none;
+}
+
+a:hover {
+  color: rgba(0, 92, 138, 0.8);
 }
 
 /* Animations */
@@ -268,7 +273,8 @@ a {
   }
 
   .section-title {
-    @apply text-3xl font-bold mb-4 pb-4 border-b-2 border-terra-red;
+    @apply text-3xl font-bold mb-4 pb-4 border-b-2;
+    border-color: var(--color-terra-red);
   }
 
   .container-max {
@@ -288,11 +294,13 @@ a {
 
   /* Links with hover effect */
   .link-primary {
-    @apply text-lake-dark hover:text-lake-dark/80 transition-colors;
+    color: var(--color-lake-dark);
+    @apply transition-colors;
     text-decoration: none;
   }
 
   .link-primary:hover {
+    color: rgba(0, 92, 138, 0.8);
     @apply underline;
   }
 }
