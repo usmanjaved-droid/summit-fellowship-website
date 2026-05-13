@@ -8,6 +8,7 @@ export default function FellowsPage() {
       <HeroSection
         title="Meet the Fellows"
         subtitle="The 11 social entrepreneurs transforming Pakistan"
+        gradient="alpine-lake"
       />
 
       <Suspense fallback={<div className="section container-max">Loading fellows...</div>}>

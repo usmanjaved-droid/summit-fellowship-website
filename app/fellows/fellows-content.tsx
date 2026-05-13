@@ -89,30 +89,31 @@ export default function FellowsContent() {
   return (
     <>
       {/* Filter Section */}
-      <section className="section bg-gray-50">
+      <section className="section bg-cloud-white border-t-4 border-lake-dark">
         <div className="container-max">
           {/* Search Box */}
           <div className="mb-8">
             <input
               type="text"
-              placeholder="Search by name or organization"
+              placeholder="Search by name or organization..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-orange-600 focus:ring-2 focus:ring-orange-100"
+              className="w-full px-4 py-3 border-2 border-slate-warm/20 rounded-lg text-gray-900 placeholder-slate-warm focus:outline-none focus:border-terra-red focus:ring-2 focus:ring-terra-red/20 transition-smooth"
             />
           </div>
 
           {/* Sector Filter Pills */}
           <div className="mb-6">
+            <p className="text-sm font-semibold text-lake-dark mb-3">Filter by Sector</p>
             <div className="flex flex-wrap gap-2">
               {allSectors.map((sector) => (
                 <button
                   key={sector}
                   onClick={() => handleSectorChange(sector)}
-                  className={`px-4 py-4 rounded-full font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full font-medium transition-smooth ${
                     selectedSector === sector
-                      ? 'bg-orange-600 text-white'
-                      : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
+                      ? 'bg-terra-red text-cloud-white shadow-md'
+                      : 'bg-cloud-white border-2 border-slate-warm/30 text-lake-dark hover:border-terra-red hover:text-terra-red'
                   }`}
                   aria-pressed={selectedSector === sector}
                 >
@@ -123,38 +124,46 @@ export default function FellowsContent() {
           </div>
 
           {/* Results Counter */}
-          <p className="text-sm text-gray-600">
-            Showing {filteredFellows.length} of {fellows.length} fellows
+          <p className="text-sm font-medium text-lake-dark">
+            Showing <span className="font-bold text-terra-red">{filteredFellows.length}</span> of <span className="font-bold">{fellows.length}</span> fellows
           </p>
         </div>
       </section>
 
       {/* Fellows Grid */}
-      <section className="section">
+      <section className="section bg-white">
         <div className="container-max">
           {filteredFellows.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredFellows.map((fellow) => (
-                <FellowCard
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max">
+              {filteredFellows.map((fellow, index) => (
+                <div
                   key={fellow.id}
-                  name={fellow.name}
-                  organization={fellow.organization}
-                  sector={fellow.sector}
-                  bio={fellow.bio}
-                  email={fellow.email}
-                  phone={fellow.phone}
-                  linkedIn={fellow.linkedin}
-                  website={fellow.website}
-                />
+                  style={{
+                    animation: `slideInUp 0.4s ease-out ${index * 100}ms backwards`,
+                  }}
+                  className="animate-slide-in-up"
+                >
+                  <FellowCard
+                    name={fellow.name}
+                    organization={fellow.organization}
+                    sector={fellow.sector}
+                    bio={fellow.bio}
+                    email={fellow.email}
+                    phone={fellow.phone}
+                    linkedIn={fellow.linkedin}
+                    website={fellow.website}
+                  />
+                </div>
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <p className="text-lg text-gray-600 mb-2">
-                No fellows match your search. Try a different filter.
+            <div className="text-center py-16">
+              <div className="text-5xl mb-4">🔍</div>
+              <p className="text-lg font-semibold text-lake-dark mb-2">
+                No fellows match your search.
               </p>
-              <p className="text-sm text-gray-500">
-                Consider adjusting your search terms or sector selection.
+              <p className="text-slate-warm">
+                Try adjusting your search terms or sector selection to find what you're looking for.
               </p>
             </div>
           )}
