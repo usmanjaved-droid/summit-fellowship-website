@@ -23,7 +23,7 @@ The homepage becomes the following six sections, replacing the current four:
 1. **Hero** — full-bleed Lower Kachura Lake, asymmetric headline pinned bottom-left, single terra-red CTA. The current right-side "Program Highlights" glass card is removed.
 2. **Intro / positioning** — warm off-white background, large serif pull-statement and 2–3 lines of context.
 3. **Stats** — three editorial numbers separated by hairlines, not card boxes. Subtle Katpana texture wash behind.
-4. **Curriculum pillars** — replaces the removed Before/After slider. Four blocks for the fellowship's themes: *Design · Scale strategy · Evidence & iteration · Communications & demo day*. Two-column layout, serif headers, one paragraph each.
+4. **Curriculum pillars** — replaces the removed Before/After slider. Four blocks mapped 1:1 to the real curriculum days: *Design for Impact at Scale (Day 1) · Scale Strategy and Evidence (Day 2) · The Iterative Organization (Day 4) · Communications and Demo Day (Days 5–6)*. Two-column layout, serif headers, one paragraph each. Final copy locked (see §6.4).
 5. **Explore the Program** — 2×2 grid of four nav cards (Fellows, Schedule, Logistics, Resources), each carrying a duotone Skardu image, an eyebrow label, a serif title, a one-line description, and a hover state where the image animates from duotone to full color.
 6. **Footer band** — quiet closing moment: faculty/partner monochrome lockups, one credit line, contact link.
 
@@ -106,13 +106,25 @@ All images downloaded into `/public/images/skardu/` as optimized originals, serv
 
 ### 6.4 Curriculum pillars (replaces transformation slider)
 - Background: `--color-paper`.
-- Section heading in Fraunces with a small eyebrow above ("THE CURRICULUM").
-- Four pillars in a two-column grid (single column on mobile):
-  1. **Design** — human-centered framing, problem definition.
-  2. **Scale strategy** — pathways from pilot to scale-ready.
-  3. **Evidence & iteration** — measurement, learning loops.
-  4. **Communications & demo day** — narrative, pitch, public-facing voice.
-- Each pillar: small numeral (`01`–`04`) in eyebrow style, serif title, one short paragraph (~40–60 words) of body sans. Final pillar copy to be approved by user; placeholders supplied in implementation.
+- Section heading in Fraunces with a small eyebrow above: `THE CURRICULUM`.
+- Four pillars in a two-column grid (single column on mobile), mapped to the real curriculum days from the master itinerary.
+- Each pillar: small numeral (`01`–`04`) in eyebrow style, serif title, one paragraph of body sans (55–70 words). No em dashes (per the project's voice rules).
+
+**Pillar 01 · Design for Impact at Scale** *(from Day 1)*
+
+> The week opens by redrawing the foundations. Fellows work through Mulago's design discipline: an eight-word mission, a Big Idea in six words or fewer, the theory linking idea to behavior to outcome, and the Doer and Payer who carry the model at scale. By the end of the day, every fellow has a one-pager that says what their organization is for, and who it is for, without hedging.
+
+**Pillar 02 · Scale Strategy and Evidence** *(from Day 2)*
+
+> With foundations in place, the work turns to scale itself. Fellows apply the Scale Screen framework to their own organization, stress test the assumptions that survive only in pilot conditions, and design an evidence plan that matches their level of certainty. The deliverable is not a polished deck. It is an honest map of what is known, what is assumed, and what to prove next.
+
+**Pillar 03 · The Iterative Organization** *(from Day 4)*
+
+> Most social enterprises ship answers. Scale-ready organizations ship better questions. This block covers the theory of iteration, the methods and data flows that make learning routine rather than heroic, and the people and culture decisions that decide whether iteration actually sticks. Fellows leave with a concrete next iteration for their own work, not a generic improvement plan.
+
+**Pillar 04 · Communications and Demo Day** *(from Days 5–6)*
+
+> The week closes with the conversation, not the pitch. Fellows learn to strip the jargon that funders quietly mistrust, build a narrative that survives a ten-minute conversation rather than a forty-slide deck, and rehearse with peers and faculty until the language feels true. Demo Day is the showcase, but the real outcome is fluency for every funder conversation that follows.
 
 ### 6.5 Explore the Program (nav cards)
 - 2×2 grid (single column on mobile).
@@ -198,7 +210,8 @@ The redesign is done when:
 
 ## 12. Risks and open questions
 
-- **Final hero copy** is not yet locked. Working draft is supplied; user to approve before implementation.
-- **Curriculum pillar paragraphs** are placeholder. User to approve final copy before implementation; placeholders will ship if no copy is provided.
+- **Hero copy** is locked: *"A 7-day retreat for Pakistan's scale-ready impact builders."*
+- **Curriculum pillar copy** is locked. See §6.4.
 - **Faculty / partner logos** for the footer band may not exist as assets. If absent, footer band falls back to a typographic single-line credit.
 - **Lower Kachura as the sole hero shot** does make the site lean visually on one famous photograph. Mitigation: the same image is not reused elsewhere on the homepage; the four nav cards use distinct shots so the homepage as a whole shows visual range.
+- **`DESIGN.md` tension:** that doc still describes the pre-redesign aesthetic (Inter + blue + no stock photography). It is stale relative to the shipped code and to this redesign. Updating `DESIGN.md` to reflect the new direction is recommended as a follow-up but is out of scope for this implementation pass.
