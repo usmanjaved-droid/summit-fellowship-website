@@ -115,7 +115,7 @@ p {
 
 /* Links */
 a {
-  @apply text-primary hover:text-primary/80 transition-colors;
+  @apply text-lake-dark hover:text-lake-dark/80 transition-colors;
   text-decoration: none;
 }
 
@@ -268,7 +268,7 @@ a {
   }
 
   .section-title {
-    @apply text-3xl font-bold mb-4 pb-4 border-b-2 border-accent;
+    @apply text-3xl font-bold mb-4 pb-4 border-b-2 border-terra-red;
   }
 
   .container-max {
@@ -288,7 +288,7 @@ a {
 
   /* Links with hover effect */
   .link-primary {
-    @apply text-primary hover:text-primary/80 transition-colors;
+    @apply text-lake-dark hover:text-lake-dark/80 transition-colors;
     text-decoration: none;
   }
 
