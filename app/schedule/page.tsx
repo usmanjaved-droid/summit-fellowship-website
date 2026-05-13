@@ -25,15 +25,16 @@ export default function SchedulePage() {
           </div>
 
           {/* Schedule Days */}
-          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="space-y-0">
             {scheduleData.days.map((day) => (
               <ScheduleDay
                 key={day.dayNumber}
-                date={day.date}
-                dayNumber={day.dayNumber}
-                dayName={day.dayName}
-                theme={day.theme}
-                sessions={day.sessions}
+                dayData={{
+                  day: day.dayNumber,
+                  date: day.date,
+                  theme: day.theme,
+                  sessions: day.sessions,
+                }}
               />
             ))}
           </div>
