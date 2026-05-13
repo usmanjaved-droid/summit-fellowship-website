@@ -5,29 +5,28 @@ export default function HomePage() {
   return (
     <>
       {/* Fitzroy-style Hero Section */}
-      <section className="hero-section bg-alpine-lake relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="hero-section bg-alpine-lake absolute inset-0">
-          <div className="absolute inset-0 bg-black/30"></div>
-        </div>
+      <section className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24"
+               style={{background: 'linear-gradient(135deg, #005C8A 0%, #1A7BA8 50%, #2D8FC4 100%)'}}>
+        <div className="absolute inset-0 bg-black/25"></div>
 
         <div className="container-max relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold text-cloud-white/80 mb-4 tracking-wide uppercase">
+            <p className="text-sm font-semibold text-white/75 mb-4 tracking-wide uppercase">
               Welcome to Summit Fellowship
             </p>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Transforming
-              <span className="text-terra-red block">Scale Readiness</span>
+              <span className="text-orange-400 block">Scale Readiness</span>
             </h1>
-            <p className="text-lg md:text-xl text-cloud-white/95 mb-8 max-w-xl leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl leading-relaxed">
               Turning Pakistani social enterprises from project-driven survival to scale-ready impact machines through intensive 7-day mentorship at Khoj Resort, Skardu.
             </p>
             <Link
               href="/about"
-              className="inline-block px-8 py-3 bg-terra-red text-cloud-white font-medium rounded-lg
-                         hover:bg-[#b82020] transition-all duration-300 hover:shadow-lg
-                         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-terra-red"
+              className="inline-block px-8 py-3 bg-orange-500 text-white font-medium rounded-lg
+                         hover:bg-orange-600 transition-all duration-300 hover:shadow-lg
+                         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
             >
               Learn More
             </Link>
@@ -36,34 +35,34 @@ export default function HomePage() {
           {/* Right Accent Element */}
           <div className="hidden lg:flex items-center justify-center relative">
             <div className="relative w-full max-w-md">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-8 border border-white/25">
                 <h3 className="text-white font-semibold mb-6 text-lg">Program Highlights</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-terra-red/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-terra-red font-bold">7</span>
+                    <div className="w-10 h-10 rounded-full bg-orange-500/30 flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-orange-300 font-bold">7</span>
                     </div>
                     <div>
-                      <p className="text-white/90 font-medium">Days of intensive learning</p>
-                      <p className="text-white/60 text-sm">June 7-14, 2026</p>
+                      <p className="text-white/95 font-medium">Days of intensive learning</p>
+                      <p className="text-white/65 text-sm">June 7-14, 2026</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-terra-red/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-terra-red font-bold">11</span>
+                    <div className="w-10 h-10 rounded-full bg-orange-500/30 flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-orange-300 font-bold">11</span>
                     </div>
                     <div>
-                      <p className="text-white/90 font-medium">Social entrepreneurs</p>
-                      <p className="text-white/60 text-sm">Curated from across Pakistan</p>
+                      <p className="text-white/95 font-medium">Social entrepreneurs</p>
+                      <p className="text-white/65 text-sm">Curated from across Pakistan</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-terra-red/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-terra-red font-bold">5+</span>
+                    <div className="w-10 h-10 rounded-full bg-orange-500/30 flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-orange-300 font-bold">5+</span>
                     </div>
                     <div>
-                      <p className="text-white/90 font-medium">Expert mentors</p>
-                      <p className="text-white/60 text-sm">Scale and impact specialists</p>
+                      <p className="text-white/95 font-medium">Expert mentors</p>
+                      <p className="text-white/65 text-sm">Scale and impact specialists</p>
                     </div>
                   </div>
                 </div>

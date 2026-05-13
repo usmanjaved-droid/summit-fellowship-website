@@ -16,29 +16,29 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-slate-warm/10 shadow-xs">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-xs">
       <nav className="container-max flex items-center justify-between py-4 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
           href="/"
-          className="text-lg font-bold text-slate-warm hover:text-terra-red
+          className="text-base font-bold text-blue-600 hover:text-blue-700
                      transition-colors duration-200 focus:outline-none
-                     focus:ring-2 focus:ring-terra-red focus:ring-offset-2 rounded-md px-2 py-1 flex-shrink-0"
+                     focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md px-2 py-1 flex-shrink-0"
         >
           <span className="block text-xs uppercase tracking-wider font-semibold">Summit</span>
           <span className="block">Fellowship</span>
         </Link>
 
         {/* Desktop Navigation - Centered */}
-        <div className="hidden md:flex gap-12 absolute left-1/2 transform -translate-x-1/2">
+        <div className="hidden md:flex gap-10 absolute left-1/2 transform -translate-x-1/2">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm uppercase tracking-widest text-slate-warm hover:text-terra-red
+              className="text-xs uppercase tracking-widest text-blue-600 hover:text-orange-500
                          transition-colors duration-200 ease-out
-                         focus:outline-none focus:ring-2 focus:ring-terra-red
-                         focus:ring-offset-2 rounded-md px-2 py-1 font-medium"
+                         focus:outline-none focus:ring-2 focus:ring-blue-500
+                         focus:ring-offset-2 rounded-md px-2 py-1 font-semibold"
             >
               {item.label}
             </Link>
@@ -48,17 +48,17 @@ export default function Header() {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-6">
           <a
-            href="tel:+923001234567"
-            className="text-sm text-slate-warm hover:text-terra-red transition-colors flex items-center gap-2"
+            href="tel:+11585506307"
+            className="text-sm text-gray-700 hover:text-orange-500 transition-colors flex items-center gap-1 font-medium"
           >
             <span>📞</span>
             <span>+1 585 506 6307</span>
           </a>
           <Link
             href="/contact"
-            className="px-6 py-2 bg-terra-red text-white font-medium rounded-lg
-                       hover:bg-[#b82020] transition-colors duration-200
-                       focus:outline-none focus:ring-2 focus:ring-terra-red focus:ring-offset-2"
+            className="px-6 py-2 bg-orange-500 text-white font-bold rounded-lg text-sm
+                       hover:bg-orange-600 transition-colors duration-200
+                       focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
           >
             CONTACT US
           </Link>
