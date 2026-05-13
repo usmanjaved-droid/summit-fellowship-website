@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
-/* Root variables - Shangrila Lake Color System */
+/* Import Roboto Flex - Luxury Editorial Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;600;700&display=swap');
+
+/* Root variables - Shangrila Lake Color System with Fitzroy-Travel aesthetic */
 :root {
   /* Brand Colors */
   --color-lake-dark: #005C8A;        /* Deep Lake Blue */
   --color-forest-dark: #2D4F1E;      /* Lush Evergreen */
-  --color-terra-red: #D62828;        /* Terracotta Red */
+  --color-terra-red: #D62828;        /* Terracotta Red - Primary Accent */
   --color-slate-warm: #8C847C;       /* Skardu Slate */
   --color-cloud-white: #F4F7F6;      /* Cloud White */
   --color-moss-light: #7BA428;       /* Sunlit Moss */
 
-  /* Semantic Colors */
-  --color-primary: var(--color-lake-dark);
+  /* Semantic Colors - Luxury Travel Aesthetic */
+  --color-primary: var(--color-terra-red);
   --color-primary-foreground: var(--color-cloud-white);
   --color-secondary: var(--color-forest-dark);
   --color-secondary-foreground: var(--color-cloud-white);
@@ -21,9 +24,9 @@
   --color-destructive-foreground: var(--color-cloud-white);
   --color-muted: var(--color-slate-warm);
   --color-muted-foreground: #f5f5f5;
-  --color-border: rgba(140, 132, 124, 0.2);
-  --color-background: var(--color-cloud-white);
-  --color-foreground: #1f2937;
+  --color-border: rgba(140, 132, 124, 0.15);
+  --color-background: #ffffff;
+  --color-foreground: #363839;
 
   /* Shadow System */
   --shadow-xs: 0px 1px 2px rgba(0, 0, 0, 0.05);
@@ -33,15 +36,15 @@
   --shadow-lg: 0px 10px 15px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0px 20px 25px rgba(0, 0, 0, 0.1), 0px 10px 10px rgba(0, 0, 0, 0.04);
 
-  /* Spacing */
+  /* Spacing - Generous whitespace */
   --radius: 0.5rem;
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
 
-  /* Typography */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Typography - Luxury Editorial Style */
+  --font-sans: 'Roboto Flex', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "Merriweather", serif;
   --font-mono: "IBM Plex Mono", monospace;
 }
@@ -80,12 +83,20 @@
   box-shadow: var(--shadow-xl);
 }
 
-/* Base Typography */
+/* Base Typography - Luxury Editorial Style (Fitzroy-inspired) */
 body {
   @apply antialiased;
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.58;
+}
+
+::selection {
+  background-color: var(--color-terra-red);
+  color: var(--color-cloud-white);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -94,23 +105,30 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   @apply text-5xl md:text-6xl font-bold tracking-tight leading-tight;
+  color: var(--color-foreground);
 }
 
 h2 {
   @apply text-3xl md:text-4xl;
+  color: var(--color-foreground);
 }
 
 h3 {
   @apply text-2xl md:text-3xl;
+  color: var(--color-foreground);
 }
 
 h4 {
   @apply text-xl md:text-2xl;
+  color: var(--color-foreground);
 }
 
 p {
-  @apply text-base leading-relaxed;
+  @apply leading-relaxed;
+  font-size: 1.7rem;
+  line-height: 1.58;
   max-width: 75ch;
+  color: var(--color-foreground);
 }
 
 /* Links */
@@ -184,36 +202,39 @@ a:hover {
   animation: pulseGlow 2s infinite;
 }
 
-/* Buttons */
+/* Buttons - Luxury Editorial Style */
 .btn-primary {
-  @apply px-8 py-3 rounded-xl font-medium transition-all duration-300;
-  background-color: var(--color-accent);
-  color: var(--color-accent-foreground);
+  @apply px-8 py-3 rounded-lg font-medium transition-all duration-300;
+  background-color: var(--color-terra-red);
+  color: var(--color-cloud-white);
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(214, 40, 40, 0.1);
+  box-shadow: 0 2px 8px rgba(214, 40, 40, 0.15);
+  letter-spacing: 0.5px;
 }
 
 .btn-primary:hover {
-  @apply shadow-xl transform scale-105;
-  opacity: 0.95;
-  box-shadow: 0 10px 25px rgba(214, 40, 40, 0.15);
+  background-color: #b82020;
+  box-shadow: 0 4px 12px rgba(214, 40, 40, 0.25);
+  @apply transition-all duration-300;
 }
 
 .btn-primary:focus {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-terra-red);
   outline-offset: 2px;
 }
 
 .btn-secondary {
   @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
-  background-color: rgba(140, 132, 124, 0.2);
-  color: var(--color-muted);
+  background-color: transparent;
+  color: var(--color-foreground);
   cursor: pointer;
+  border: 1px solid var(--color-slate-warm);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(140, 132, 124, 0.3);
-  @apply shadow-md;
+  background-color: var(--color-slate-warm);
+  color: var(--color-cloud-white);
+  @apply transition-all duration-200;
 }
 
 .hero-gradient {
@@ -224,26 +245,29 @@ a:hover {
 .hero-gradient::before {
   content: '';
   @apply absolute inset-0;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .hero-section {
   @apply relative overflow-hidden;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 @media (min-width: 768px) {
   .hero-section {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
   }
 }
 
 .hero-subtitle {
-  @apply text-xl md:text-2xl text-gray-600 leading-relaxed;
+  @apply leading-relaxed;
+  font-size: 1.7rem;
+  color: rgba(255, 255, 255, 0.95);
   max-width: 60ch;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.58;
 }
 
 .hero-content {
@@ -254,27 +278,28 @@ a:hover {
   @apply relative z-20 flex flex-col items-start justify-center h-full;
 }
 
-/* Component Layer */
+/* Component Layer - Luxury Editorial */
 @layer components {
-  /* Cards */
+  /* Cards - Minimal, sophisticated */
   .card {
-    @apply rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200;
+    @apply rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-300;
     background-color: var(--color-background);
     border: 1px solid var(--color-border);
   }
 
   .card:hover {
-    @apply transform scale-105;
+    border-color: var(--color-terra-red);
   }
 
-  /* Section spacing */
+  /* Section spacing - Generous whitespace */
   .section {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
+    @apply py-20 px-4 sm:px-6 lg:px-8;
   }
 
   .section-title {
-    @apply text-3xl font-bold mb-4 pb-4 border-b-2;
-    border-color: var(--color-terra-red);
+    @apply text-3xl font-bold mb-6 pb-6;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-foreground);
   }
 
   .container-max {
@@ -284,7 +309,7 @@ a:hover {
   /* Focus states */
   .focus-ring {
     @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
-    focus-ring-color: var(--color-accent);
+    focus-ring-color: var(--color-terra-red);
   }
 
   /* Transitions */
@@ -294,13 +319,13 @@ a:hover {
 
   /* Links with hover effect */
   .link-primary {
-    color: var(--color-lake-dark);
+    color: var(--color-terra-red);
     @apply transition-colors;
     text-decoration: none;
   }
 
   .link-primary:hover {
-    color: rgba(0, 92, 138, 0.8);
+    color: #b82020;
     @apply underline;
   }
 }
