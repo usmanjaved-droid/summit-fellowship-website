@@ -67,7 +67,13 @@
       "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\" -Recurse -Filter \"*schedule*\" -ErrorAction SilentlyContinue)",
       "Bash(npm start *)",
       "Bash(curl -s http://localhost:3000/resources)",
-      "Bash(pkill -f \"npm start\")"
+      "Bash(pkill -f \"npm start\")",
+      "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\" -Recurse -Filter \"ResourceCard.tsx\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(python -c \"import json; f=open\\('data/resources.json'\\); d=json.load\\(f\\); [print\\(f\\\\\"category: {r['category']}, type: {r['type']}\\\\\"\\) for r in d['resources']]\")",
+      "Bash(vercel --prod --confirm)",
+      "Bash(vercel login *)",
+      "mcp__claude_ai_Vercel__deploy_to_vercel"
     ],
     "additionalDirectories": [
       "d:\\"
