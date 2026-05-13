@@ -3,95 +3,65 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const NAV_LINKS = [
+  { href: '/about', label: 'About' },
+  { href: '/cohort', label: 'Cohort' },
+  { href: '/faculty', label: 'Faculty' },
+  { href: '/curriculum', label: 'Curriculum' },
+  { href: '/itinerary', label: 'Itinerary' },
+  { href: '/venue', label: 'Venue' },
+  { href: '/travel', label: 'Travel' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/contact', label: 'Contact' },
+];
 
-  const navItems = [
-    { label: 'About', href: '/about' },
-    { label: 'Fellows', href: '/fellows' },
-    { label: 'Faculty', href: '/faculty' },
-    { label: 'Schedule', href: '/schedule' },
-    { label: 'Logistics', href: '/logistics' },
-    { label: 'Resources', href: '/resources' },
-  ];
+export default function Header() {
+  const [open, setOpen] = useState(false);
+
+  const toggle = () => {
+    setOpen((prev) => {
+      const next = !prev;
+      if (typeof document !== 'undefined') {
+        document.body.classList.toggle('menu-open', next);
+      }
+      return next;
+    });
+  };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-[color:var(--color-border)]">
-      <nav className="container-max flex items-center justify-between py-5 px-4 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="flex-shrink-0 focus:outline-none focus-visible:ring-2
-                     focus-visible:ring-terra-red focus-visible:ring-offset-2 rounded-md"
-        >
-          <span className="block eyebrow leading-none">Summit</span>
-          <span className="block font-serif text-2xl font-semibold text-[color:var(--color-ink)] leading-none mt-1">
-            Fellowship
+    <header className="site-header">
+      <div className="site-header__inner">
+        <Link className="site-header__logo" href="/" aria-label="Summit Fellowship home">
+          <svg width="32" height="32" viewBox="0 0 40 40" aria-hidden="true" style={{ color: 'var(--clay)' }}>
+            <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round">
+              <path d="M 6 30 L 16 12 L 23 22" />
+              <path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fillOpacity="0.12" />
+              <circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5" />
+            </g>
+          </svg>
+          <span className="site-header__wordmark">
+            Summit<span className="ws">·</span>Fellowship
           </span>
         </Link>
-
-        <div className="hidden md:flex gap-8 absolute left-1/2 -translate-x-1/2">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-xs uppercase tracking-[0.18em] font-semibold
-                         text-[color:var(--color-ink)] hover:text-terra-red
-                         transition-colors duration-200 ease-out
-                         focus:outline-none focus-visible:ring-2 focus-visible:ring-terra-red
-                         focus-visible:ring-offset-2 rounded-md px-1 py-1"
-            >
-              {item.label}
+        <nav className="site-nav" aria-label="Primary">
+          {NAV_LINKS.map((l) => (
+            <Link key={l.href} className="site-nav__link" href={l.href}>
+              {l.label}
             </Link>
           ))}
-        </div>
-
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/contact" className="btn-primary text-xs">
-            Contact
-          </Link>
-        </div>
-
+        </nav>
+        <Link className="site-header__cta" href="/itinerary">
+          June 7–14, 2026 →
+        </Link>
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden w-11 h-11 flex items-center justify-center
-                     rounded-md hover:bg-slate-warm/10 transition-colors duration-150
-                     focus:outline-none focus-visible:ring-2 focus-visible:ring-terra-red
-                     focus-visible:ring-offset-2"
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
+          className="menu-toggle"
+          aria-expanded={open}
+          aria-label="Menu"
+          onClick={toggle}
         >
-          <span className="w-6 h-5 flex flex-col justify-between">
-            <span className={`h-px w-full bg-[color:var(--color-ink)] transition-all duration-300 ${
-              isMenuOpen ? 'translate-y-2 rotate-45' : ''
-            }`} />
-            <span className={`h-px w-full bg-[color:var(--color-ink)] transition-all duration-300 ${
-              isMenuOpen ? 'opacity-0' : ''
-            }`} />
-            <span className={`h-px w-full bg-[color:var(--color-ink)] transition-all duration-300 ${
-              isMenuOpen ? '-translate-y-2 -rotate-45' : ''
-            }`} />
-          </span>
+          ☰
         </button>
-
-        {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white border-b border-[color:var(--color-border)]
-                          md:hidden shadow-lg">
-            <nav className="flex flex-col gap-1 p-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="px-4 py-3 text-[color:var(--color-ink)] hover:bg-slate-warm/10
-                             hover:text-terra-red rounded-md transition-colors duration-100"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
-      </nav>
+      </div>
     </header>
   );
 }
