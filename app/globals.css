@@ -1312,3 +1312,64 @@ p { text-wrap: pretty; margin: 0; }
 .map-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; fill: var(--parchment); }
 .map-label--ochre { fill: var(--ochre); }
 .map-label--lg { font-family: var(--serif); font-size: 18px; letter-spacing: -0.005em; text-transform: none; fill: var(--paper); }
+
+/* =========================================================================
+   TRAVEL PAGE
+   ========================================================================= */
+.travel-section { padding: 100px 0; background: var(--paper); position: relative; }
+.travel-section--warm { background: var(--paper-warm); }
+.travel-section--alpine { background: var(--alpine-deep); color: var(--parchment); overflow: hidden; }
+.travel-section--alpine .topo-bg { opacity: 0.10; }
+
+.section-title { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 48px; padding-bottom: 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.travel-section--alpine .section-title { border-bottom-color: rgba(232, 226, 213, 0.16); }
+.section-title h2 { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 64px); line-height: 1; letter-spacing: -0.02em; color: var(--alpine-deep); }
+.section-title h2 em { color: var(--clay); font-style: italic; }
+.travel-section--alpine .section-title h2 { color: var(--paper); }
+.travel-section--alpine .section-title h2 em { color: var(--ochre); }
+
+.routes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.route-card { background: var(--paper-cool); border: 1px solid var(--line); padding: 32px; }
+.route-card__rank { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--clay); margin-bottom: 12px; }
+.route-card__title { font-family: var(--serif); font-size: 30px; color: var(--alpine-deep); line-height: 1.05; margin-bottom: 16px; }
+.route-card__desc { font-size: 15px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 24px; }
+.route-card__stops { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+.route-stop { display: grid; grid-template-columns: 32px 1fr auto; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+.route-stop:last-child { border-bottom: 0; }
+.route-stop__icon { width: 32px; height: 32px; background: var(--alpine-deep); color: var(--ochre); display: flex; align-items: center; justify-content: center; font-size: 14px; border-radius: 2px; }
+.route-stop__where { font-family: var(--serif); font-size: 16px; color: var(--alpine-deep); line-height: 1.2; }
+.route-stop__where .sub { display: block; font-family: var(--sans); font-size: 12px; color: var(--ink-mute); margin-top: 2px; }
+.route-stop__time { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--clay); text-transform: uppercase; }
+@media (max-width: 800px) { .routes { grid-template-columns: 1fr; } }
+
+.checklist-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.check-col h3 { font-family: var(--serif); font-size: 28px; color: var(--paper); line-height: 1.1; margin-bottom: 20px; }
+.check-col h3 em { color: var(--ochre); font-style: italic; }
+.check-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.check-col li { font-size: 14px; line-height: 1.5; color: var(--parchment); padding-left: 26px; position: relative; }
+.check-col li::before { content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border: 1px solid var(--ochre); border-radius: 2px; }
+.check-col li.essential::before { background: var(--ochre); }
+.check-col li.essential::after { content: "✓"; position: absolute; left: 3px; top: 1px; color: var(--alpine-deep); font-size: 12px; font-weight: 600; }
+@media (max-width: 800px) { .checklist-grid { grid-template-columns: 1fr; } }
+
+.faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item__q { width: 100%; text-align: left; padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: var(--serif); font-size: 22px; color: var(--alpine-deep); line-height: 1.2; cursor: pointer; transition: color .2s; list-style: none; }
+.faq-item__q::-webkit-details-marker { display: none; }
+.faq-item__q:hover { color: var(--clay); }
+.faq-item__q .toggle { width: 32px; height: 32px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 14px; color: var(--ink-mute); flex-shrink: 0; transition: all .2s var(--ease-out); }
+.faq-item[open] .faq-item__q .toggle { background: var(--alpine-deep); color: var(--paper); border-color: var(--alpine-deep); transform: rotate(45deg); }
+.faq-item__a-inner { padding-bottom: 24px; font-size: 16px; line-height: 1.6; color: var(--ink-soft); max-width: 70ch; }
+
+.weather { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+.weather__copy h3 { font-family: var(--serif); font-size: clamp(32px, 4vw, 56px); color: var(--alpine-deep); line-height: 1; letter-spacing: -0.02em; margin-bottom: 24px; }
+.weather__copy h3 em { color: var(--clay); font-style: italic; }
+.weather__copy p { font-size: 17px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 16px; }
+.weather__chart { background: var(--paper-cool); border: 1px solid var(--line); padding: 32px; }
+.weather__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+.weather-day { text-align: center; }
+.weather-day .date { font-family: var(--mono); font-size: 10px; letter-spacing: 0.10em; color: var(--ink-mute); margin-bottom: 8px; }
+.weather-day .icon { width: 36px; height: 36px; margin: 0 auto 8px; color: var(--clay); }
+.weather-day .temp { font-family: var(--serif); font-size: 16px; color: var(--alpine-deep); line-height: 1; }
+.weather-day .temp .low { display: block; font-size: 12px; color: var(--ink-mute); margin-top: 4px; }
+@media (max-width: 800px) { .weather { grid-template-columns: 1fr; } .weather__grid { grid-template-columns: repeat(4, 1fr); } }
