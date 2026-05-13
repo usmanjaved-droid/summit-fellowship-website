@@ -10,17 +10,29 @@ interface FellowCardProps {
   phone?: string;
 }
 
-// Sector color mapping
-const sectorColors: Record<string, { bg: string; text: string; icon: string }> = {
-  'Mental Health': { bg: 'bg-blue-50', text: 'text-blue-700', icon: '🧠' },
-  'Disability': { bg: 'bg-green-50', text: 'text-green-700', icon: '♿' },
-  'Health': { bg: 'bg-green-50', text: 'text-green-700', icon: '💚' },
-  'Science Education': { bg: 'bg-purple-50', text: 'text-purple-700', icon: '🔬' },
-  'Legal': { bg: 'bg-blue-50', text: 'text-blue-700', icon: '⚖️' },
-  'Education': { bg: 'bg-purple-50', text: 'text-purple-700', icon: '📚' },
-  'Livelihoods': { bg: 'bg-orange-50', text: 'text-orange-700', icon: '💼' },
-  'Agriculture': { bg: 'bg-orange-50', text: 'text-orange-700', icon: '🌾' },
-  'Special Education': { bg: 'bg-indigo-50', text: 'text-indigo-700', icon: '✨' },
+// Sector color mapping using Shangrila palette
+const SECTOR_COLORS: Record<string, { bg: string; text: string; border: string }> = {
+  'Health': { bg: 'bg-moss-light', text: 'text-white', border: 'border-l-moss-light' },
+  'Education': { bg: 'bg-lake-dark', text: 'text-white', border: 'border-l-lake-dark' },
+  'Agriculture': { bg: 'bg-terra-red', text: 'text-white', border: 'border-l-terra-red' },
+  'Legal': { bg: 'bg-forest-dark', text: 'text-white', border: 'border-l-forest-dark' },
+  'Mental Health': { bg: 'bg-slate-warm', text: 'text-white', border: 'border-l-slate-warm' },
+  'Disability': { bg: 'bg-moss-light', text: 'text-white', border: 'border-l-moss-light' },
+  'Livelihoods': { bg: 'bg-terra-red', text: 'text-white', border: 'border-l-terra-red' },
+  'Science Education': { bg: 'bg-lake-dark', text: 'text-white', border: 'border-l-lake-dark' },
+  'Special Education': { bg: 'bg-forest-dark', text: 'text-white', border: 'border-l-forest-dark' },
+};
+
+const SECTOR_TINT_BG: Record<string, string> = {
+  'Health': 'bg-moss-light/5',
+  'Education': 'bg-lake-dark/5',
+  'Agriculture': 'bg-terra-red/5',
+  'Legal': 'bg-forest-dark/5',
+  'Mental Health': 'bg-slate-warm/5',
+  'Disability': 'bg-moss-light/5',
+  'Livelihoods': 'bg-terra-red/5',
+  'Science Education': 'bg-lake-dark/5',
+  'Special Education': 'bg-forest-dark/5',
 };
 
 export default function FellowCard({
@@ -42,40 +54,56 @@ export default function FellowCard({
     .toUpperCase()
     .slice(0, 2);
 
-  const colors = sectorColors[sector] || { bg: 'bg-gray-50', text: 'text-gray-700', icon: '🎯' };
+  const sectorColor = SECTOR_COLORS[sector] || SECTOR_COLORS['Health'];
+  const sectorTint = SECTOR_TINT_BG[sector] || 'bg-moss-light/5';
 
   return (
-    <div className={`card border-l-4 border-orange-600 ${colors.bg} hover:shadow-lg`}>
-      {/* Avatar */}
-      <div className="mb-4">
-        {avatar ? (
-          <img
-            src={avatar}
-            alt={name}
-            className="w-16 h-16 rounded-full object-cover"
-          />
-        ) : (
-          <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-            <span className="text-blue-700 font-bold text-lg">{initials}</span>
+    <div className={`card border-l-4 ${sectorColor.border} ${sectorTint}
+                    hover:shadow-lg hover:scale-[1.02] hover:rotate-[-1deg]
+                    transition-all duration-200 ease-out`}>
+      {/* Header with sector color */}
+      <div className={`${sectorColor.bg} -mx-6 -mt-6 mb-4 px-6 pt-4 pb-4 rounded-t-lg`}>
+        <div className="flex items-center gap-4">
+          {/* Avatar */}
+          <div>
+            {avatar ? (
+              <img
+                src={avatar}
+                alt={name}
+                className="w-16 h-16 rounded-lg object-cover"
+              />
+            ) : (
+              <div className="w-16 h-16 rounded-lg bg-white/20 flex items-center justify-center">
+                <span className="text-white font-bold text-lg">{initials}</span>
+              </div>
+            )}
           </div>
-        )}
+
+          {/* Name and Organization */}
+          <div>
+            <h3 className="text-lg font-bold text-white">{name}</h3>
+            <p className="text-white/90 text-sm">{organization}</p>
+          </div>
+        </div>
       </div>
 
-      {/* Content */}
-      <h3 className="text-lg font-bold text-gray-900 mb-1">{name}</h3>
-      <p className="text-sm text-gray-600 mb-2">{organization}</p>
-      <p className={`text-xs font-bold inline-block px-2 py-1 rounded mb-3 ${colors.text} ${colors.bg}`}>
-        {colors.icon} {sector}
-      </p>
-      <p className="text-sm text-gray-700 mb-4 line-clamp-3">{bio}</p>
+      {/* Sector Badge */}
+      <div className={`${sectorColor.bg} ${sectorColor.text} inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3`}>
+        {sector}
+      </div>
+
+      {/* Bio */}
+      <p className="text-slate-warm mb-4 line-clamp-3">{bio}</p>
 
       {/* Contact Links */}
-      <div className="flex gap-4 flex-wrap pt-4 border-t border-gray-200">
+      <div className="flex gap-4 flex-wrap pt-4 border-t border-slate-warm/20">
         {email && (
           <a
             href={`mailto:${email}`}
-            title="Email"
-            className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
+            className="flex items-center gap-2 text-terra-red hover:text-terra-red/80
+                      transition-colors duration-100 focus:outline-none
+                      focus:ring-2 focus:ring-terra-red focus:ring-offset-2 rounded px-1"
+            aria-label={`Email ${name}`}
           >
             ✉️ Email
           </a>
@@ -85,10 +113,12 @@ export default function FellowCard({
             href={linkedIn}
             target="_blank"
             rel="noopener noreferrer"
-            title="LinkedIn"
-            className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
+            className="flex items-center gap-2 text-terra-red hover:text-terra-red/80
+                      transition-colors duration-100 focus:outline-none
+                      focus:ring-2 focus:ring-terra-red focus:ring-offset-2 rounded px-1"
+            aria-label={`LinkedIn profile of ${name}`}
           >
-            🔗 LinkedIn
+            💼 LinkedIn
           </a>
         )}
         {website && (
@@ -96,8 +126,10 @@ export default function FellowCard({
             href={website}
             target="_blank"
             rel="noopener noreferrer"
-            title="Website"
-            className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
+            className="flex items-center gap-2 text-terra-red hover:text-terra-red/80
+                      transition-colors duration-100 focus:outline-none
+                      focus:ring-2 focus:ring-terra-red focus:ring-offset-2 rounded px-1"
+            aria-label={`Website of ${name}`}
           >
             🌐 Website
           </a>
@@ -105,8 +137,10 @@ export default function FellowCard({
         {phone && (
           <a
             href={`tel:${phone}`}
-            title="Call"
-            className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
+            className="flex items-center gap-2 text-terra-red hover:text-terra-red/80
+                      transition-colors duration-100 focus:outline-none
+                      focus:ring-2 focus:ring-terra-red focus:ring-offset-2 rounded px-1"
+            aria-label={`Call ${name}`}
           >
             📞 Call
           </a>
