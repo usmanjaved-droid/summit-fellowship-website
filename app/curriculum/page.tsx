@@ -62,19 +62,12 @@ export default function CurriculumPage() {
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Curriculum</span></div>
           <h1 className="page-hero__title">Five modules. <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>One outcome.</em></h1>
           <p className="page-hero__subtitle">The curriculum is built around frameworks that work — the Mulago Scale Screen, Doer &amp; Payer at Scale, the Iterative Organization, and Clear-Language Communications.</p>
+          <div className="page-hero__meta">
+            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
+            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
+          </div>
         </div>
       </section>
-
-      <nav className="toc-strip">
-        <div className="container toc-strip__inner">
-          <span className="toc-strip__label">Jump to</span>
-          <a href="#m1" className="toc-chip">01 · Design for Impact at Scale</a>
-          <a href="#m2" className="toc-chip">02 · Scale Strategy</a>
-          <a href="#m3" className="toc-chip">03 · Impact Evidence</a>
-          <a href="#m4" className="toc-chip">04 · The Iterative Organization</a>
-          <a href="#m5" className="toc-chip">05 · Communications &amp; Pitch</a>
-        </div>
-      </nav>
 
       <section className="module" id="m1">
         <div className="container">
@@ -213,18 +206,6 @@ export default function CurriculumPage() {
         </div>
       </section>
 
-      <section style={{ background: 'var(--alpine-deep)', color: 'var(--parchment)', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
-        <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 6vw, 80px)', color: 'var(--paper)', lineHeight: 0.95, letterSpacing: '-0.025em', marginBottom: 24 }}>
-            See it in <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>action.</em>
-          </h2>
-          <p style={{ fontSize: 18, color: 'var(--parchment)', opacity: 0.85, maxWidth: '50ch', margin: '0 auto 32px' }}>
-            The hour-by-hour itinerary maps every concept above to a session, location, and faculty member.
-          </p>
-          <Link href="/itinerary" className="btn btn--ochre">Open the Itinerary →</Link>
-        </div>
-      </section>
     </>
   );
 }
