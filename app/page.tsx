@@ -130,31 +130,36 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="whatis-split__right" aria-hidden="true">
-            <svg className="whatis-bento__frame" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <rect x="0.5" y="0.5" width="99" height="99" fill="none" stroke="currentColor" strokeWidth="0.3" strokeDasharray="1.2 1.2" vectorEffect="non-scaling-stroke" />
-            </svg>
-            <div className="whatis-bento">
-              <div className="whatis-bento__cell whatis-bento__cell--1">
-                <img src="/images/skardu/karakoram-hero.jpg" alt="" className="whatis-bento__img whatis-bento__img--a" />
-                <img src="/images/skardu/peaks-panorama.jpg" alt="" className="whatis-bento__img whatis-bento__img--b" />
-                <img src="/images/skardu/shigar-venue.jpg" alt="" className="whatis-bento__img whatis-bento__img--c" />
-              </div>
-              <div className="whatis-bento__cell whatis-bento__cell--2">
-                <img src="/images/skardu/peaks-panorama.jpg" alt="" className="whatis-bento__img whatis-bento__img--a" />
-                <img src="/images/skardu/shigar-venue.jpg" alt="" className="whatis-bento__img whatis-bento__img--b" />
-                <img src="/images/skardu/karakoram-hero.jpg" alt="" className="whatis-bento__img whatis-bento__img--c" />
-              </div>
-              <div className="whatis-bento__cell whatis-bento__cell--3">
-                <img src="/images/skardu/shigar-venue.jpg" alt="" className="whatis-bento__img whatis-bento__img--a" />
-                <img src="/images/skardu/karakoram-hero.jpg" alt="" className="whatis-bento__img whatis-bento__img--b" />
-                <img src="/images/skardu/peaks-panorama.jpg" alt="" className="whatis-bento__img whatis-bento__img--c" />
-              </div>
-              <div className="whatis-bento__cell whatis-bento__cell--4">
-                <img src="/images/skardu/deosai.jpg" alt="" className="whatis-bento__img whatis-bento__img--a" />
-                <img src="/images/skardu/shangrila-resort.jpg" alt="" className="whatis-bento__img whatis-bento__img--b" />
-                <img src="/images/skardu/peaks-panorama.jpg" alt="" className="whatis-bento__img whatis-bento__img--c" />
-              </div>
+          <div className="whatis-split__right">
+            <div className="gallery-cards">
+              <figure className="gallery-card gallery-card--1">
+                <img src="/images/skardu/karakoram-hero.jpg" alt="The Karakoram range above Skardu" />
+                <figcaption>
+                  <span className="gallery-card__eyebrow">Day One</span>
+                  <span className="gallery-card__title">Design for Scale</span>
+                </figcaption>
+              </figure>
+              <figure className="gallery-card gallery-card--2">
+                <img src="/images/skardu/deosai.jpg" alt="Faculty session outdoors on the Deosai plateau" />
+                <figcaption>
+                  <span className="gallery-card__eyebrow">One-on-One Clinics</span>
+                  <span className="gallery-card__title">Mentored Outdoors</span>
+                </figcaption>
+              </figure>
+              <figure className="gallery-card gallery-card--3">
+                <img src="/images/skardu/shangrila-resort.jpg" alt="Khoj Resort lodge at the foot of the mountains" />
+                <figcaption>
+                  <span className="gallery-card__eyebrow">The Venue</span>
+                  <span className="gallery-card__title">Khoj Resort, Skardu</span>
+                </figcaption>
+              </figure>
+              <figure className="gallery-card gallery-card--4">
+                <img src="/images/skardu/peaks-panorama.jpg" alt="Karakoram peaks at dawn" />
+                <figcaption>
+                  <span className="gallery-card__eyebrow">Demo Day</span>
+                  <span className="gallery-card__title">Day Six Showcase</span>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
