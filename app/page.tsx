@@ -94,24 +94,41 @@ export default function HomePage() {
       <section className="whatis section">
         <div className="topo-bg topo-bg--subtle" aria-hidden="true" />
         <div className="container">
-          {/* Block 1 — The Problem */}
-          <div className="whatis-block whatis-block--prose">
-            <div className="eyebrow whatis__label">The Problem</div>
-            <p className="whatis__body">
-              Pakistan has dozens of promising social enterprises. Few reach national scale. Most stay caught in
-              project-driven survival — securing grants, reaching thousands, when their models could reach millions.
-            </p>
+          {/* Block 1 — Why this fellowship */}
+          <div className="whatis-block whatis-block--split">
+            <div className="whatis-block__kicker">
+              <div className="eyebrow whatis__label">Why this fellowship</div>
+              <h2 className="whatis-block__heading">
+                Pakistan has extraordinary founders. Scale is the next frontier.
+              </h2>
+            </div>
+            <div className="whatis-block__body">
+              <p className="whatis__body">
+                240 million people. A learning crisis. A hunger crisis. A mental health system that barely exists.
+                A generation of founders has decided not to wait — and they are building real solutions, with real
+                evidence, at real cost. But few reach national scale. Most stay caught in project-driven survival —
+                securing grants, reaching thousands, when their models could reach millions.{' '}
+                <strong className="whatis__emphasis">We are changing that.</strong>
+              </p>
+            </div>
           </div>
 
           {/* Block 2 — The Fellowship */}
-          <div className="whatis-block whatis-block--prose">
-            <div className="eyebrow whatis__label">The Fellowship</div>
-            <p className="whatis__body">
-              Summit Fellowship is seven days at Khoj Resort, Skardu, where eleven Pakistani founders work the Mulago
-              design discipline alongside Pakistani faculty — Big Idea, doer and payer at scale, the Four Enoughs, the
-              Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start of a narrative
-              funders trust.
-            </p>
+          <div className="whatis-block whatis-block--split">
+            <div className="whatis-block__kicker">
+              <div className="eyebrow whatis__label">The Fellowship</div>
+              <h2 className="whatis-block__heading">
+                Seven days to redesign for scale.
+              </h2>
+            </div>
+            <div className="whatis-block__body">
+              <p className="whatis__body">
+                Summit Fellowship is seven days at Khoj Resort, Skardu, where eleven Pakistani founders work the Mulago
+                design discipline alongside Pakistani faculty — Big Idea, doer and payer at scale, the Four Enoughs, the
+                Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start of a narrative
+                funders trust.
+              </p>
+            </div>
           </div>
 
           {/* Block 3 — What we mean by scale (two-column with chart) */}
@@ -119,9 +136,8 @@ export default function HomePage() {
             <div className="whatis-scale__copy">
               <div className="eyebrow whatis__label">What we mean by scale</div>
               <p className="whatis__pull">
-                A big idea is one that can scale. And scale is exponential, never incremental.
+                A big idea is one that scales exponentially. And scale is exponential impact.
               </p>
-              <p className="whatis__body">It means exponential impact:</p>
               <div className="whatis__stack">
                 <span>From one village to a country.</span>
                 <span>From thousands to millions.</span>

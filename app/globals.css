@@ -1539,26 +1539,45 @@ p { text-wrap: pretty; margin: 0; }
 .whatis .container { position: relative; z-index: 1; }
 
 /* Stacked beats: Problem → Fellowship → Scale */
-.whatis-block + .whatis-block { margin-top: clamp(64px, 8vw, 112px); }
-
-/* Single-column prose blocks (Problem, Fellowship) */
-.whatis-block--prose { max-width: 62ch; }
+.whatis-block + .whatis-block { margin-top: clamp(80px, 10vw, 140px); }
 
 /* Shared text styles */
 .whatis__label { color: var(--clay); margin-bottom: 20px; display: block; }
 .whatis__body {
-  font-size: clamp(17px, 1.3vw, 19px);
-  line-height: 1.65;
+  font-size: clamp(17px, 1.25vw, 19px);
+  line-height: 1.7;
   color: var(--ink-soft);
-  max-width: 62ch;
+}
+.whatis__emphasis {
+  font-weight: 500;
+  color: var(--alpine-deep);
 }
 .whatis__body + .whatis__body { margin-top: 16px; }
 
-/* Two-column scale block: copy on left, chart on right */
+/* Split blocks: kicker (heading) on left, body on right */
+.whatis-block--split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(48px, 6vw, 96px);
+  align-items: start;
+}
+.whatis-block__kicker { min-width: 0; }
+.whatis-block__body { min-width: 0; padding-top: 8px; }
+.whatis-block__heading {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--alpine-deep);
+  text-wrap: balance;
+  max-width: 22ch;
+}
+
+/* Scale block: two-column copy + chart */
 .whatis-scale {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 80px;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(48px, 6vw, 88px);
   align-items: center;
 }
 .whatis-scale__copy { min-width: 0; }
@@ -1568,12 +1587,12 @@ p { text-wrap: pretty; margin: 0; }
 .whatis__pull {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(28px, 3.4vw, 40px);
-  line-height: 1.2;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.15;
   color: var(--alpine-deep);
   letter-spacing: -0.015em;
   margin-bottom: 32px;
-  max-width: 18ch;
+  max-width: 22ch;
   text-wrap: balance;
 }
 .whatis__stack { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
@@ -1586,12 +1605,11 @@ p { text-wrap: pretty; margin: 0; }
   color: var(--ink-soft);
 }
 
-/* Hand-drawn exponential chart (Mulago-inspired) */
+/* Hand-drawn exponential chart (Mulago paths) */
 .exp-chart {
   position: relative;
   width: 100%;
-  max-width: 720px;
-  color: var(--ink-faint);
+  color: var(--ink);
 }
 .exp-chart svg {
   width: 100%;
@@ -1601,22 +1619,21 @@ p { text-wrap: pretty; margin: 0; }
 }
 .exp-chart__label {
   font-family: var(--font-handwriting), 'Caveat', cursive;
-  font-size: 40px;
-  font-weight: 500;
+  font-size: 58px;
+  font-weight: 600;
 }
-.exp-chart__label--ochre { fill: var(--ochre); }
+.exp-chart__label--ochre { fill: #ED7933; }
 .exp-chart__label--grey { fill: var(--ink-mute); }
 
 .exp-chart__dashed,
 .exp-chart__dashed-arrow {
-  color: var(--ink-faint);
   opacity: 0;
-  transition: opacity 0.6s var(--ease-out) 0.2s;
+  transition: opacity 0.7s var(--ease-out) 0.1s;
 }
 .exp-chart.is-visible .exp-chart__dashed,
-.exp-chart.is-visible .exp-chart__dashed-arrow { opacity: 0.85; }
+.exp-chart.is-visible .exp-chart__dashed-arrow { opacity: 1; }
 
-/* Curve + its arrow are scroll-linked: dashoffset set inline by JS */
+/* Curve + arrow are scroll-linked: stroke-dashoffset set inline by JS */
 .exp-chart__curve,
 .exp-chart__arrow { stroke-linejoin: round; }
 
@@ -1632,13 +1649,14 @@ p { text-wrap: pretty; margin: 0; }
   .exp-chart__dashed,
   .exp-chart__dashed-arrow,
   .exp-chart__label { opacity: 1; transition: none; }
-  .exp-chart.is-visible .exp-chart__dashed { opacity: 0.85; }
+  .exp-chart.is-visible .exp-chart__dashed { opacity: 1; }
 }
 
 @media (max-width: 900px) {
-  .whatis-scale { grid-template-columns: 1fr; gap: 56px; }
-  .exp-chart { max-width: 100%; }
-  .exp-chart__label { font-size: 32px; }
+  .whatis-block--split { grid-template-columns: 1fr; gap: 24px; }
+  .whatis-block__body { padding-top: 0; }
+  .whatis-scale { grid-template-columns: 1fr; gap: 48px; }
+  .exp-chart__label { font-size: 44px; }
 }
 
 /* === HOME: Meet the people === */
