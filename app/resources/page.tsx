@@ -6,16 +6,13 @@ export const metadata = {
 
 type Res = { kind: 'pdf' | 'md' | 'xlsx' | 'zip'; title: string; desc: string; tags: string[]; action: string; href: string };
 
-const DOCS: Res[] = [
+const FILES: Res[] = [
   { kind: 'md', title: 'Master Itinerary 2026', desc: 'Day-by-day program, with time blocks and faculty assignments.', tags: ['v3.2', 'All fellows'], action: 'Open →', href: '#' },
   { kind: 'md', title: 'Cohort Brief — Participants', desc: 'Confirmed cohort list with models, sectors, and contacts.', tags: ['Final', 'Internal'], action: 'Open →', href: '#' },
   { kind: 'md', title: 'Faculty & Organizers Brief', desc: 'Profiles of faculty, guest mentors, and the organizing team.', tags: ['v2.1', 'All'], action: 'Open →', href: '#' },
   { kind: 'pdf', title: 'Pre-arrival packing & logistics', desc: 'What to bring, how to dress for Skardu, and what NOT to pack.', tags: ['12 pages', 'May 2026'], action: 'Download →', href: '#' },
   { kind: 'pdf', title: 'Visa letter — template', desc: 'Letter of invitation template for visa applications. Request a personalised version from the team.', tags: ['Template'], action: 'Request →', href: '#' },
   { kind: 'xlsx', title: 'Travel manifest', desc: 'Flight + transfer details for all fellows and faculty. Internal use only.', tags: ['Restricted'], action: 'Request →', href: '#' },
-];
-
-const WORK: Res[] = [
   { kind: 'pdf', title: 'One-pager template', desc: 'Mission · Big Idea · Theory · Model · Doer · Payer. The canonical one-pager every fellow leaves with.', tags: ['Day 01'], action: 'Download →', href: '#' },
   { kind: 'pdf', title: 'Scale Screen worksheet', desc: 'Self-assessment against the four enoughs. Fill in before you arrive — defend it on Day 02.', tags: ['Day 02'], action: 'Download →', href: '#' },
   { kind: 'pdf', title: 'Evidence plan canvas', desc: 'Map your outputs / outcomes / impact. Identify the most expensive evidence gap and design a 12-month plan to close it.', tags: ['Day 02'], action: 'Download →', href: '#' },
@@ -24,11 +21,11 @@ const WORK: Res[] = [
   { kind: 'zip', title: 'Demo Day slide template', desc: 'Branded pitch deck template (Keynote + Google Slides). Mandatory for Demo Day.', tags: ['Day 06'], action: 'Download →', href: '#' },
 ];
 
-const BRAND: Res[] = [
-  { kind: 'zip', title: 'Logo & wordmark pack', desc: 'SVG, PNG, on light + dark. Use the wordmark, not the icon, in third-party communications.', tags: ['v1.0'], action: 'Download →', href: '#' },
-  { kind: 'pdf', title: 'Social media guidelines', desc: 'Hashtags, mentions, and the photo / video releases everyone signs on arrival.', tags: ['2 pages'], action: 'Download →', href: '#' },
-  { kind: 'pdf', title: 'Photo / video consent form', desc: 'Mandatory. Signed on Day 0. Opt-out is fine — just tell us before arriving.', tags: ['Required'], action: 'Download →', href: '#' },
-  { kind: 'zip', title: 'Press kit · Vol. 01', desc: 'Founder bios, programme overview, hi-res photography. For media use only.', tags: ['Press'], action: 'Download →', href: '#' },
+const BRAND = [
+  { title: 'Logo & wordmark pack', href: '#' },
+  { title: 'Social media guidelines', href: '#' },
+  { title: 'Photo / video consent form', href: '#' },
+  { title: 'Press kit · Vol. 01', href: '#' },
 ];
 
 function ResourceCard({ r }: { r: Res }) {
@@ -55,6 +52,10 @@ export default function ResourcesPage() {
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Resources</span></div>
           <h1 className="page-hero__title">Resources &amp; <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>downloads.</em></h1>
           <p className="page-hero__subtitle">Pre-reads, frameworks, the full itinerary as a PDF, and links to everything the cohort needs before, during, and after the week.</p>
+          <div className="page-hero__meta">
+            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
+            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
+          </div>
         </div>
       </section>
 
@@ -62,13 +63,13 @@ export default function ResourcesPage() {
         <div className="container">
           <div className="group-head">
             <div>
-              <div className="group-head__num">01 · Programme docs</div>
-              <h2>Official <em>documents.</em></h2>
+              <div className="group-head__num">Files</div>
+              <h2>Programme docs &amp; <em>worksheets.</em></h2>
             </div>
-            <p>The canonical references the team will keep updated. Bookmark or download — what&rsquo;s posted here is the source of truth.</p>
+            <p>The canonical references and the canvases used during the week. Bookmark or download — what&rsquo;s posted here is the source of truth.</p>
           </div>
           <div className="resource-grid">
-            {DOCS.map((r) => <ResourceCard key={r.title} r={r} />)}
+            {FILES.map((r) => <ResourceCard key={r.title} r={r} />)}
           </div>
         </div>
       </section>
@@ -77,22 +78,7 @@ export default function ResourcesPage() {
         <div className="container">
           <div className="group-head">
             <div>
-              <div className="group-head__num">02 · Worksheets</div>
-              <h2>Frameworks &amp; <em>worksheets.</em></h2>
-            </div>
-            <p>The canvases and templates we use during the week. Print before you arrive — the Studio is whiteboard-and-paper first; laptops are encouraged off, not on.</p>
-          </div>
-          <div className="resource-grid">
-            {WORK.map((r) => <ResourceCard key={r.title} r={r} />)}
-          </div>
-        </div>
-      </section>
-
-      <section className="section" style={{ background: 'var(--paper)' }}>
-        <div className="container">
-          <div className="group-head">
-            <div>
-              <div className="group-head__num">03 · Pre-reads</div>
+              <div className="group-head__num">Pre-reads</div>
               <h2>Reading <em>before you arrive.</em></h2>
             </div>
             <p>Three short reads we ask everyone to do before Day 0. None are long. All are foundational to the conversations on Day 1.</p>
@@ -116,29 +102,18 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <section className="section section--warm">
-        <div className="container">
-          <div className="group-head">
-            <div>
-              <div className="group-head__num">04 · Brand &amp; comms</div>
-              <h2>Brand &amp; <em>media.</em></h2>
-            </div>
-            <p>If you&rsquo;re posting about the fellowship — please do — these are the assets and the small ground rules.</p>
-          </div>
-          <div className="resource-grid">
-            {BRAND.map((r) => <ResourceCard key={r.title} r={r} />)}
-          </div>
-        </div>
-      </section>
-
-      <section style={{ background: 'var(--alpine-deep)', color: 'var(--parchment)', padding: '60px 0', position: 'relative', overflow: 'hidden' }}>
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
-        <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: 800 }}>
-          <div className="eyebrow eyebrow--on-dark" style={{ marginBottom: 12 }}>A note on access</div>
-          <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 24, lineHeight: 1.4, color: 'var(--paper)' }}>
-            Some items above are reserved for confirmed fellows, faculty, and the organizing team. If a link asks you to request access, email the team — we&rsquo;ll respond within 24 hours.
-          </p>
-          <Link href="/contact" className="btn btn--ochre" style={{ marginTop: 24 }}>Request access →</Link>
+      <section style={{ background: 'var(--paper)', padding: '40px 0', borderTop: '1px solid rgba(20,39,52,0.08)' }}>
+        <div className="container" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 16 }}>
+          <span style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ink-mute)' }}>Brand &amp; media</span>
+          {BRAND.map((b) => (
+            <a
+              key={b.title}
+              href={b.href}
+              style={{ fontSize: 14, color: 'var(--alpine-deep)', textDecoration: 'underline', textDecorationColor: 'rgba(20,39,52,0.25)', textUnderlineOffset: 4 }}
+            >
+              {b.title} →
+            </a>
+          ))}
         </div>
       </section>
     </>
