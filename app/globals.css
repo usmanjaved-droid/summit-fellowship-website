@@ -1759,45 +1759,41 @@ p { text-wrap: pretty; margin: 0; }
   position: relative;
   background: var(--alpine-deep);
   color: var(--parchment);
-  padding: 60px 32px;
-  margin-bottom: 60px;
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
   overflow: hidden;
 }
 
 .fellow-hero img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.25;
-  z-index: 0;
+  display: none;
 }
 
 .fellow-hero__avatar {
   position: relative;
   z-index: 2;
-  width: 280px;
-  height: 280px;
-  border-radius: 8px;
-  object-fit: cover;
-  margin-right: 48px;
-  border: 4px solid var(--ochre);
-  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--clay-deep), var(--ochre-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--parchment);
+  margin: 0 auto 2rem;
 }
 
 .fellow-hero h1 {
   position: relative;
   z-index: 2;
-  font-size: 52px;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
   color: var(--parchment);
-  line-height: 1.1;
+  line-height: 1.2;
   margin-bottom: 16px;
-  letter-spacing: -0.01em;
 }
 
 .fellow-hero__org {
@@ -1806,40 +1802,41 @@ p { text-wrap: pretty; margin: 0; }
   font-size: 20px;
   color: var(--ochre);
   font-family: var(--serif);
+  font-weight: 500;
   margin-bottom: 12px;
 }
 
 .fellow-tagline {
   position: relative;
   z-index: 2;
-  font-size: 18px;
-  color: var(--parchment);
-  font-family: var(--serif);
-  line-height: 1.6;
-  max-width: 400px;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--ochre);
+  line-height: 1.4;
 }
 
 /* fellow-section: Main content sections (problem, idea, dream) */
 .fellow-section {
   margin-bottom: 48px;
   padding: 40px;
-  background: var(--paper-warm);
+  background: var(--paper);
   border: 1px solid var(--line-soft);
   border-radius: 4px;
 }
 
 .fellow-section h2 {
-  font-family: var(--serif);
-  font-size: 32px;
-  color: var(--alpine-deep);
-  margin-bottom: 24px;
-  letter-spacing: -0.01em;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
 }
 
 .fellow-section p {
-  font-family: var(--serif);
+  font-family: var(--font-serif);
   font-size: 1.1rem;
-  color: var(--ink);
+  color: var(--ink-soft);
   line-height: 1.8;
   margin-bottom: 16px;
 }
@@ -1928,17 +1925,17 @@ p { text-wrap: pretty; margin: 0; }
 
 /* fellow-related: Related fellows grid section */
 .fellow-related {
-  margin-top: 80px;
-  padding-top: 60px;
+  margin-top: 3rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--line-soft);
 }
 
 .fellow-related h2 {
-  font-family: var(--serif);
-  font-size: 36px;
-  color: var(--alpine-deep);
-  margin-bottom: 40px;
-  letter-spacing: -0.01em;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 2rem;
 }
 
 .fellow-related__grid {
@@ -1949,28 +1946,25 @@ p { text-wrap: pretty; margin: 0; }
 
 /* fellow-footer: Footer section with navigation */
 .fellow-footer {
-  margin-top: 80px;
-  padding: 60px 32px;
+  margin-top: 3rem;
+  padding: 2rem 0;
   text-align: center;
   background: var(--alpine-deep);
   color: var(--parchment);
 }
 
 .fellow-footer a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-block;
   padding: 12px 24px;
-  background: var(--ochre);
-  color: var(--alpine-deep);
+  background-color: var(--alpine);
+  color: var(--ochre);
   border-radius: 4px;
   font-weight: 500;
-  transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+  transition: background 0.25s var(--ease-out);
 }
 
 .fellow-footer a:hover {
-  background: var(--ochre-deep);
-  transform: translateX(4px);
+  background: var(--alpine-soft);
 }
 
 /* Responsive design adjustments */
