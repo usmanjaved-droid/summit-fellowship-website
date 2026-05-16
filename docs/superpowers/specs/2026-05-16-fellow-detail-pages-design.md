@@ -83,7 +83,7 @@ Individual fellow pages at `/fellows/[slug]` will display rich narrative content
 
 **Route:** `/fellows/[slug]`  
 **Data Source:** `data/fellows-deep.json`  
-**Fallback:** If a fellow's photo_url is null, display a placeholder avatar (styled initial + background color)  
+**Fallback:** If a fellow's photo_url is null, display a large circular avatar with the fellow's initials centered on a sector-based background color (reuse the same styling from FellowsBits cards)  
 **Slug Mapping:** Use the `id` field from `fellows-deep.json` as the slug (e.g., `rubeena-kidwai`)
 
 ---
