@@ -1536,54 +1536,61 @@ p { text-wrap: pretty; margin: 0; }
 /* === HOME: What this is === */
 .whatis { background: var(--paper); position: relative; overflow: hidden; }
 .whatis .topo-bg { z-index: 0; opacity: 0.05; }
+.whatis .container { position: relative; z-index: 1; }
 
-/* Two-column split layout (gallery23-inspired) */
-.whatis-split {
-  position: relative;
-  z-index: 1;
+/* Stacked beats: Problem → Fellowship → Scale */
+.whatis-block + .whatis-block { margin-top: clamp(64px, 8vw, 112px); }
+
+/* Single-column prose blocks (Problem, Fellowship) */
+.whatis-block--prose { max-width: 62ch; }
+
+/* Shared text styles */
+.whatis__label { color: var(--clay); margin-bottom: 20px; display: block; }
+.whatis__body {
+  font-size: clamp(17px, 1.3vw, 19px);
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+.whatis__body + .whatis__body { margin-top: 16px; }
+
+/* Two-column scale block: copy on left, chart on right */
+.whatis-scale {
   display: grid;
-  grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 80px;
   align-items: center;
 }
-.whatis-split__left { min-width: 0; }
-.whatis-split__cta { margin-top: 48px; }
+.whatis-scale__copy { min-width: 0; }
+.whatis-scale__chart { min-width: 0; }
+.whatis-scale__cta { margin-top: 40px; }
 
-.whatis__chunk { padding: 40px 0; border-top: 1px solid var(--line); }
-.whatis__chunk:first-child { border-top: 0; padding-top: 0; }
-.whatis__chunk:last-child { padding-bottom: 0; }
-.whatis__label { color: var(--clay); margin-bottom: 20px; display: block; }
-.whatis__body { font-size: 17px; line-height: 1.65; color: var(--ink-soft); max-width: 56ch; }
-.whatis__body + .whatis__body { margin-top: 16px; }
 .whatis__pull {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(24px, 2.6vw, 30px);
-  line-height: 1.25;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.2;
   color: var(--alpine-deep);
-  letter-spacing: -0.01em;
-  margin-bottom: 24px;
-  max-width: 28ch;
+  letter-spacing: -0.015em;
+  margin-bottom: 32px;
+  max-width: 18ch;
   text-wrap: balance;
 }
-.whatis__stack { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.whatis__stack { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
 .whatis__stack span {
   display: block;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 18px;
+  font-size: clamp(18px, 1.6vw, 22px);
   line-height: 1.4;
   color: var(--ink-soft);
 }
 
-/* Right column: hand-drawn exponential chart (Mulago-inspired) */
-.whatis-split__right {
-  position: relative;
-  align-self: center;
-}
+/* Hand-drawn exponential chart (Mulago-inspired) */
 .exp-chart {
   position: relative;
   width: 100%;
+  max-width: 720px;
   color: var(--ink-faint);
 }
 .exp-chart svg {
@@ -1594,11 +1601,11 @@ p { text-wrap: pretty; margin: 0; }
 }
 .exp-chart__label {
   font-family: var(--font-handwriting), 'Caveat', cursive;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 500;
 }
 .exp-chart__label--ochre { fill: var(--ochre); }
-.exp-chart__label--grey { fill: var(--ink-faint); }
+.exp-chart__label--grey { fill: var(--ink-mute); }
 
 .exp-chart__dashed,
 .exp-chart__dashed-arrow {
@@ -1609,47 +1616,29 @@ p { text-wrap: pretty; margin: 0; }
 .exp-chart.is-visible .exp-chart__dashed,
 .exp-chart.is-visible .exp-chart__dashed-arrow { opacity: 0.85; }
 
+/* Curve + its arrow are scroll-linked: dashoffset set inline by JS */
 .exp-chart__curve,
-.exp-chart__arrow {
-  stroke-dasharray: 1100;
-  stroke-dashoffset: 1100;
-}
-.exp-chart.is-visible .exp-chart__curve {
-  animation: exp-draw 1.8s var(--ease-out) 0.4s forwards;
-}
-.exp-chart.is-visible .exp-chart__arrow {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  animation: exp-draw-arrow 0.4s var(--ease-out) 2s forwards;
-}
+.exp-chart__arrow { stroke-linejoin: round; }
 
 .exp-chart__label {
   opacity: 0;
   transition: opacity 0.5s var(--ease-out);
 }
-.exp-chart.is-visible .exp-chart__label--ochre:first-of-type { transition-delay: 0.6s; opacity: 1; }
-.exp-chart.is-visible .exp-chart__label--grey { transition-delay: 1.2s; opacity: 1; }
-.exp-chart.is-visible .exp-chart__label--ochre:last-of-type { transition-delay: 2.2s; opacity: 1; }
-
-@keyframes exp-draw {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes exp-draw-arrow {
-  to { stroke-dashoffset: 0; }
-}
+.exp-chart.is-visible .exp-chart__label--idea { transition-delay: 0.2s; opacity: 1; }
+.exp-chart.is-visible .exp-chart__label--grey { transition-delay: 0.6s; opacity: 1; }
+.exp-chart.is-visible .exp-chart__label--awesome { transition-delay: 1.0s; opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .exp-chart__dashed,
   .exp-chart__dashed-arrow,
   .exp-chart__label { opacity: 1; transition: none; }
   .exp-chart.is-visible .exp-chart__dashed { opacity: 0.85; }
-  .exp-chart__curve,
-  .exp-chart__arrow { stroke-dasharray: none; stroke-dashoffset: 0; animation: none; }
 }
 
 @media (max-width: 900px) {
-  .whatis-split { grid-template-columns: 1fr; gap: 56px; }
-  .exp-chart__label { font-size: 28px; }
+  .whatis-scale { grid-template-columns: 1fr; gap: 56px; }
+  .exp-chart { max-width: 100%; }
+  .exp-chart__label { font-size: 32px; }
 }
 
 /* === HOME: Meet the people === */

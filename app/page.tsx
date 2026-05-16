@@ -93,17 +93,30 @@ export default function HomePage() {
       {/* ============ WHAT THIS IS ============ */}
       <section className="whatis section">
         <div className="topo-bg topo-bg--subtle" aria-hidden="true" />
-        <div className="container whatis-split">
-          <div className="whatis-split__left">
-            <div className="whatis__chunk">
-              <div className="eyebrow whatis__label">The Problem</div>
-              <p className="whatis__body">
-                Pakistan has dozens of promising social enterprises. Few reach national scale. Most stay caught in
-                project-driven survival — securing grants, reaching thousands, when their models could reach millions.
-              </p>
-            </div>
+        <div className="container">
+          {/* Block 1 — The Problem */}
+          <div className="whatis-block whatis-block--prose">
+            <div className="eyebrow whatis__label">The Problem</div>
+            <p className="whatis__body">
+              Pakistan has dozens of promising social enterprises. Few reach national scale. Most stay caught in
+              project-driven survival — securing grants, reaching thousands, when their models could reach millions.
+            </p>
+          </div>
 
-            <div className="whatis__chunk">
+          {/* Block 2 — The Fellowship */}
+          <div className="whatis-block whatis-block--prose">
+            <div className="eyebrow whatis__label">The Fellowship</div>
+            <p className="whatis__body">
+              Summit Fellowship is seven days at Khoj Resort, Skardu, where eleven Pakistani founders work the Mulago
+              design discipline alongside Pakistani faculty — Big Idea, doer and payer at scale, the Four Enoughs, the
+              Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start of a narrative
+              funders trust.
+            </p>
+          </div>
+
+          {/* Block 3 — What we mean by scale (two-column with chart) */}
+          <div className="whatis-block whatis-scale">
+            <div className="whatis-scale__copy">
               <div className="eyebrow whatis__label">What we mean by scale</div>
               <p className="whatis__pull">
                 A big idea is one that can scale. And scale is exponential, never incremental.
@@ -114,25 +127,13 @@ export default function HomePage() {
                 <span>From thousands to millions.</span>
                 <span>From a working pilot to a model the country runs on.</span>
               </div>
+              <Link className="btn btn--ochre whatis-scale__cta" href="/fellows">
+                Meet the Fellows <span className="arrow">→</span>
+              </Link>
             </div>
-
-            <div className="whatis__chunk">
-              <div className="eyebrow whatis__label">The Fellowship</div>
-              <p className="whatis__body">
-                Summit Fellowship is seven days at Khoj Resort, Skardu, where eleven Pakistani founders work the Mulago
-                design discipline alongside Pakistani faculty — Big Idea, doer and payer at scale, the Four Enoughs, the
-                Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start of a narrative
-                funders trust.
-              </p>
+            <div className="whatis-scale__chart">
+              <ExponentialChart />
             </div>
-
-            <Link className="btn btn--ochre whatis-split__cta" href="/fellows">
-              Meet the Fellows <span className="arrow">→</span>
-            </Link>
-          </div>
-
-          <div className="whatis-split__right">
-            <ExponentialChart />
           </div>
         </div>
       </section>
