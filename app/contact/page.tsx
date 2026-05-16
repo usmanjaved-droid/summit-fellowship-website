@@ -37,27 +37,6 @@ const CHANNELS = [
     detail: 'Programme, pre-reads, faculty mentor matching, capacity clinic scheduling.',
     email: 'program@summitfellowship.pk',
   },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 6v6l4 2" />
-      </svg>
-    ),
-    title: 'Press & partnerships',
-    detail: 'Media enquiries, partnership conversations, future cohort sponsorship.',
-    email: 'partners@summitfellowship.pk',
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3" />
-      </svg>
-    ),
-    title: 'Apply — Vol. 02 (2027)',
-    detail: 'Applications for the next cohort open in October 2026. Drop a note to be notified first.',
-    email: 'apply@summitfellowship.pk',
-  },
 ];
 
 export default function ContactPage() {
