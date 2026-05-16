@@ -1536,21 +1536,33 @@ p { text-wrap: pretty; margin: 0; }
 /* === HOME: What this is === */
 .whatis { background: var(--paper); position: relative; overflow: hidden; }
 .whatis .topo-bg { z-index: 0; opacity: 0.05; }
-.whatis__inner { position: relative; z-index: 1; }
-.whatis__chunk { padding: 56px 0; border-top: 1px solid var(--line); }
+
+/* Two-column split layout (gallery23-inspired) */
+.whatis-split {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+  gap: 80px;
+  align-items: center;
+}
+.whatis-split__left { min-width: 0; }
+.whatis-split__cta { margin-top: 48px; }
+
+.whatis__chunk { padding: 40px 0; border-top: 1px solid var(--line); }
 .whatis__chunk:first-child { border-top: 0; padding-top: 0; }
 .whatis__chunk:last-child { padding-bottom: 0; }
 .whatis__label { color: var(--clay); margin-bottom: 20px; display: block; }
-.whatis__body { font-size: 18px; line-height: 1.65; color: var(--ink-soft); max-width: 64ch; }
+.whatis__body { font-size: 17px; line-height: 1.65; color: var(--ink-soft); max-width: 56ch; }
 .whatis__body + .whatis__body { margin-top: 16px; }
 .whatis__pull {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(28px, 3.2vw, 34px);
+  font-size: clamp(24px, 2.6vw, 30px);
   line-height: 1.25;
   color: var(--alpine-deep);
   letter-spacing: -0.01em;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   max-width: 28ch;
   text-wrap: balance;
 }
@@ -1559,9 +1571,109 @@ p { text-wrap: pretty; margin: 0; }
   display: block;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.4;
   color: var(--ink-soft);
+}
+
+/* Right column: animated bento grid wrapped in dashed-SVG frame */
+.whatis-split__right {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  min-height: 480px;
+  color: var(--clay);
+}
+.whatis-bento__frame {
+  position: absolute;
+  inset: -18px;
+  width: calc(100% + 36px);
+  height: calc(100% + 36px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.whatis-bento {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+}
+.whatis-bento__cell {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--paper-warm);
+  transition: transform 0.4s var(--ease-out);
+}
+.whatis-bento__cell:hover { transform: scale(1.02); z-index: 2; }
+.whatis-bento__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .whatis-bento__cell--1 { animation: bento-shape-1 18s ease-in-out infinite; transform-origin: top left; }
+  .whatis-bento__cell--2 { animation: bento-shape-2 18s ease-in-out infinite; transform-origin: top right; }
+  .whatis-bento__cell--3 { animation: bento-shape-3 18s ease-in-out infinite; transform-origin: bottom left; }
+  .whatis-bento__cell--4 { animation: bento-shape-4 18s ease-in-out infinite; transform-origin: bottom right; }
+  .whatis-bento__img--a { animation: bento-fade-a 18s ease-in-out infinite; }
+  .whatis-bento__img--b { animation: bento-fade-b 18s ease-in-out infinite; }
+  .whatis-bento__img--c { animation: bento-fade-c 18s ease-in-out infinite; }
+  .whatis-bento__cell:hover .whatis-bento__img { animation-play-state: paused; }
+  .whatis-bento__cell:hover { animation-play-state: paused; }
+}
+
+/* Static fallback (reduced motion or no JS) shows first image */
+.whatis-bento__img--a { opacity: 1; }
+
+@keyframes bento-shape-1 {
+  0%, 25%, 100% { transform: scale(1, 1); opacity: 1; }
+  33.33%, 58.33% { transform: scale(0.6, 0.6); opacity: 0.7; }
+  66.66%, 91.66% { transform: scale(0.95, 1.05); opacity: 1; }
+}
+@keyframes bento-shape-2 {
+  0%, 25%, 100% { transform: scale(0.75, 0.75); }
+  33.33%, 58.33% { transform: scale(1.1, 1.05); }
+  66.66%, 91.66% { transform: scale(0.7, 0.7); }
+}
+@keyframes bento-shape-3 {
+  0%, 25%, 100% { transform: scale(0.85, 1); }
+  33.33%, 58.33% { transform: scale(0.85, 0.9); }
+  66.66%, 91.66% { transform: scale(1.05, 0.85); }
+}
+@keyframes bento-shape-4 {
+  0%, 25%, 66.66%, 91.66%, 100% { transform: scale(0.6, 0.6); opacity: 0.5; }
+  33.33%, 58.33% { transform: scale(0.95, 0.85); opacity: 1; }
+}
+@keyframes bento-fade-a {
+  0%, 25%, 100% { opacity: 1; }
+  33.33%, 58.33%, 66.66%, 91.66% { opacity: 0; }
+}
+@keyframes bento-fade-b {
+  0%, 25%, 33.33%, 58.33%, 100% { opacity: 0; }
+  66.66%, 91.66% { opacity: 1; }
+}
+@keyframes bento-fade-c {
+  0%, 25%, 66.66%, 91.66%, 100% { opacity: 0; }
+  33.33%, 58.33% { opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .whatis-split { grid-template-columns: 1fr; gap: 56px; }
+  .whatis-split__right { aspect-ratio: 4 / 3; min-height: 320px; }
+  .whatis-bento__cell--1, .whatis-bento__cell--2,
+  .whatis-bento__cell--3, .whatis-bento__cell--4,
+  .whatis-bento__img--a, .whatis-bento__img--b, .whatis-bento__img--c {
+    animation: none;
+  }
+  .whatis-bento__img--a { opacity: 1; }
+  .whatis-bento__img--b, .whatis-bento__img--c { opacity: 0; }
 }
 
 /* === HOME: Meet the people === */

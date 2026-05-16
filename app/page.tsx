@@ -92,36 +92,70 @@ export default function HomePage() {
       {/* ============ WHAT THIS IS ============ */}
       <section className="whatis section">
         <div className="topo-bg topo-bg--subtle" aria-hidden="true" />
-        <div className="container container--narrow whatis__inner">
-          <div className="whatis__chunk">
-            <div className="eyebrow whatis__label">The Problem</div>
-            <p className="whatis__body">
-              Pakistan has dozens of promising social enterprises. Few reach national scale. Most stay caught in
-              project-driven survival — securing grants, reaching thousands, when their models could reach millions.
-            </p>
-          </div>
-
-          <div className="whatis__chunk">
-            <div className="eyebrow whatis__label">What we mean by scale</div>
-            <p className="whatis__pull">
-              A big idea is one that can scale. And scale is exponential, never incremental.
-            </p>
-            <p className="whatis__body">It means exponential impact:</p>
-            <div className="whatis__stack">
-              <span>From one village to a country.</span>
-              <span>From thousands to millions.</span>
-              <span>From a working pilot to a model the country runs on.</span>
+        <div className="container whatis-split">
+          <div className="whatis-split__left">
+            <div className="whatis__chunk">
+              <div className="eyebrow whatis__label">The Problem</div>
+              <p className="whatis__body">
+                Pakistan has dozens of promising social enterprises. Few reach national scale. Most stay caught in
+                project-driven survival — securing grants, reaching thousands, when their models could reach millions.
+              </p>
             </div>
+
+            <div className="whatis__chunk">
+              <div className="eyebrow whatis__label">What we mean by scale</div>
+              <p className="whatis__pull">
+                A big idea is one that can scale. And scale is exponential, never incremental.
+              </p>
+              <p className="whatis__body">It means exponential impact:</p>
+              <div className="whatis__stack">
+                <span>From one village to a country.</span>
+                <span>From thousands to millions.</span>
+                <span>From a working pilot to a model the country runs on.</span>
+              </div>
+            </div>
+
+            <div className="whatis__chunk">
+              <div className="eyebrow whatis__label">The Fellowship</div>
+              <p className="whatis__body">
+                Summit Fellowship is seven days at Khoj Resort, Skardu, where eleven Pakistani founders work the Mulago
+                design discipline alongside Pakistani faculty — Big Idea, doer and payer at scale, the Four Enoughs, the
+                Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start of a narrative
+                funders trust.
+              </p>
+            </div>
+
+            <Link className="btn btn--ochre whatis-split__cta" href="/fellows">
+              Meet the Fellows <span className="arrow">→</span>
+            </Link>
           </div>
 
-          <div className="whatis__chunk">
-            <div className="eyebrow whatis__label">The Fellowship</div>
-            <p className="whatis__body">
-              Summit Fellowship is seven days at Khoj Resort, Skardu, where eleven Pakistani founders work the Mulago
-              design discipline alongside Pakistani faculty — Big Idea, doer and payer at scale, the Four Enoughs, the
-              Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start of a narrative
-              funders trust.
-            </p>
+          <div className="whatis-split__right" aria-hidden="true">
+            <svg className="whatis-bento__frame" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <rect x="0.5" y="0.5" width="99" height="99" fill="none" stroke="currentColor" strokeWidth="0.3" strokeDasharray="1.2 1.2" vectorEffect="non-scaling-stroke" />
+            </svg>
+            <div className="whatis-bento">
+              <div className="whatis-bento__cell whatis-bento__cell--1">
+                <img src="/images/skardu/karakoram-hero.jpg" alt="" className="whatis-bento__img whatis-bento__img--a" />
+                <img src="/images/skardu/peaks-panorama.jpg" alt="" className="whatis-bento__img whatis-bento__img--b" />
+                <img src="/images/skardu/shigar-venue.jpg" alt="" className="whatis-bento__img whatis-bento__img--c" />
+              </div>
+              <div className="whatis-bento__cell whatis-bento__cell--2">
+                <img src="/images/skardu/peaks-panorama.jpg" alt="" className="whatis-bento__img whatis-bento__img--a" />
+                <img src="/images/skardu/shigar-venue.jpg" alt="" className="whatis-bento__img whatis-bento__img--b" />
+                <img src="/images/skardu/karakoram-hero.jpg" alt="" className="whatis-bento__img whatis-bento__img--c" />
+              </div>
+              <div className="whatis-bento__cell whatis-bento__cell--3">
+                <img src="/images/skardu/shigar-venue.jpg" alt="" className="whatis-bento__img whatis-bento__img--a" />
+                <img src="/images/skardu/karakoram-hero.jpg" alt="" className="whatis-bento__img whatis-bento__img--b" />
+                <img src="/images/skardu/peaks-panorama.jpg" alt="" className="whatis-bento__img whatis-bento__img--c" />
+              </div>
+              <div className="whatis-bento__cell whatis-bento__cell--4">
+                <img src="/images/skardu/deosai.jpg" alt="" className="whatis-bento__img whatis-bento__img--a" />
+                <img src="/images/skardu/shangrila-resort.jpg" alt="" className="whatis-bento__img whatis-bento__img--b" />
+                <img src="/images/skardu/peaks-panorama.jpg" alt="" className="whatis-bento__img whatis-bento__img--c" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
