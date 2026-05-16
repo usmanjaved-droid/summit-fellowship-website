@@ -95,12 +95,12 @@ export default async function FellowDetailPage({ params }: PageProps) {
           </div>
           <div className="fellow-org-card__links">
             {fellow.org_url && (
-              <a href={fellow.org_url} target="_blank" rel="noopener noreferrer">
+              <a href={fellow.org_url} target="_blank" rel="noopener noreferrer" className="fellow-org-card__link">
                 Website
               </a>
             )}
             {fellow.fellow_linkedin && (
-              <a href={fellow.fellow_linkedin} target="_blank" rel="noopener noreferrer">
+              <a href={fellow.fellow_linkedin} target="_blank" rel="noopener noreferrer" className="fellow-org-card__link">
                 LinkedIn
               </a>
             )}
