@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getFellow, getRelatedFellows, getAllFellows } from '@/lib/fellows';
+import { getFellow, getAllFellows } from '@/lib/fellows';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -29,7 +29,7 @@ export default async function FellowDetailPage({ params }: PageProps) {
 
   if (!fellow) {
     return (
-      <div className="container" style={{ padding: '4rem 2rem', textAlign: 'center' }}>
+      <div style={{ padding: '4rem 2rem', textAlign: 'center' }}>
         <h1>Fellow not found</h1>
         <p>
           <Link href="/fellows">Back to all fellows</Link>
@@ -44,11 +44,11 @@ export default async function FellowDetailPage({ params }: PageProps) {
   const nextFellow = currentIndex < allFellows.length - 1 ? allFellows[currentIndex + 1] : null;
 
   return (
-    <article className="fellow-detail">
-      {/* Modal-style Head Section */}
-      <section className="fellow-detail__head">
-        <div className="fellow-detail__head-inner">
-          <div className="fellow-detail__avatar">
+    <div className="modal">
+      <div className="modal__head">
+        <div className="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+        <div className="modal__head-inner">
+          <div className="modal__avatar">
             {fellow.name
               .split(' ')
               .map((n) => n[0])
@@ -57,52 +57,41 @@ export default async function FellowDetailPage({ params }: PageProps) {
               .slice(0, 2)}
           </div>
           <div>
-            <h1 className="fellow-detail__name">{fellow.name}</h1>
-            <p className="fellow-detail__org">{fellow.org}</p>
+            <h1 className="modal__name">{fellow.name}</h1>
+            <div className="modal__org">{fellow.org}</div>
           </div>
         </div>
-      </section>
-
-      {/* Modal-style Body Section */}
-      <div className="fellow-detail__body">
-        {/* Sector Section */}
-        <section className="fellow-detail__section">
-          <h3>Sector</h3>
+      </div>
+      <div className="modal__body">
+        <div className="modal__section">
+          <h4>Sector</h4>
           <p>{fellow.sector}</p>
-        </section>
-
-        {/* Model Overview Section */}
-        <section className="fellow-detail__section">
-          <h3>Model Overview</h3>
+        </div>
+        <div className="modal__section">
+          <h4>Model Overview</h4>
           <p>{fellow.model}</p>
-        </section>
-
-        {/* Additional Details if available */}
+        </div>
         {fellow.idea_context && (
-          <section className="fellow-detail__section">
-            <h3>The Problem</h3>
+          <div className="modal__section">
+            <h4>The Problem</h4>
             <p>{fellow.idea_context}</p>
-          </section>
+          </div>
         )}
-
         {fellow.how_it_works && (
-          <section className="fellow-detail__section">
-            <h3>How It Works</h3>
+          <div className="modal__section">
+            <h4>How It Works</h4>
             <p>{fellow.how_it_works}</p>
-          </section>
+          </div>
         )}
-
         {fellow.the_dream && (
-          <section className="fellow-detail__section">
-            <h3>The Vision</h3>
+          <div className="modal__section">
+            <h4>The Vision</h4>
             <p>{fellow.the_dream}</p>
-          </section>
+          </div>
         )}
-
-        {/* Contact & Assets Section */}
-        <section className="fellow-detail__section">
-          <h3>Contact &amp; Assets</h3>
-          <div className="fellow-detail__contact-grid">
+        <div className="modal__section">
+          <h4>Contact &amp; Assets</h4>
+          <div className="modal__contact-grid">
             {fellow.email && (
               <a href={`mailto:${fellow.email}`}>
                 <span className="l">Email</span>
@@ -128,31 +117,29 @@ export default async function FellowDetailPage({ params }: PageProps) {
               </a>
             )}
           </div>
-        </section>
-      </div>
-
-      {/* Navigation Footer */}
-      <footer className="fellow-detail__nav">
-        <div className="fellow-detail__nav-inner">
-          {prevFellow ? (
-            <Link href={`/fellows/${prevFellow.id}`} className="fellow-detail__nav-link">
-              ← {prevFellow.name}
-            </Link>
-          ) : (
-            <span></span>
-          )}
-          <Link href="/fellows" className="fellow-detail__nav-center">
-            Back to all fellows
-          </Link>
-          {nextFellow ? (
-            <Link href={`/fellows/${nextFellow.id}`} className="fellow-detail__nav-link">
-              {nextFellow.name} →
-            </Link>
-          ) : (
-            <span></span>
-          )}
         </div>
-      </footer>
-    </article>
+        <div style={{ marginTop: '40px', paddingTop: '28px', borderTop: '1px solid var(--line)' }}>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'space-between' }}>
+            {prevFellow ? (
+              <Link href={`/fellows/${prevFellow.id}`} style={{ flex: 1, textAlign: 'left', padding: '12px 0', color: 'var(--alpine-deep)', textDecoration: 'none', fontSize: '14px' }}>
+                ← {prevFellow.name}
+              </Link>
+            ) : (
+              <div style={{ flex: 1 }}></div>
+            )}
+            <Link href="/fellows" style={{ flex: 1, textAlign: 'center', padding: '12px 0', color: 'var(--alpine-deep)', textDecoration: 'none', fontSize: '14px' }}>
+              Back to all fellows
+            </Link>
+            {nextFellow ? (
+              <Link href={`/fellows/${nextFellow.id}`} style={{ flex: 1, textAlign: 'right', padding: '12px 0', color: 'var(--alpine-deep)', textDecoration: 'none', fontSize: '14px' }}>
+                {nextFellow.name} →
+              </Link>
+            ) : (
+              <div style={{ flex: 1 }}></div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

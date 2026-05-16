@@ -1747,21 +1747,21 @@ p { text-wrap: pretty; margin: 0; }
 }
 
 /* =========================================================================
-   Fellow Detail Page Component Styles
-   Design System: Alpine/Expedition (warm editorial aesthetic)
-   Modal-based structure matching cohort.html profile design
-   Colors: Alpine-deep + Ochre + Clay with warm paper backgrounds
-   Typography: Serif headings (Instrument Serif) + Sans body (Geist)
+   Fellow Detail Page Modal Styles (from cohort.html)
+   Design System: Alpine/Expedition
    ========================================================================= */
 
-.fellow-detail {
+.modal {
   background: var(--paper);
   max-width: 760px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
   margin: 0 auto;
 }
 
-/* Dark head section: Avatar, name, org */
-.fellow-detail__head {
+.modal__head {
   background: var(--alpine-deep);
   color: var(--parchment);
   padding: 40px 40px 32px;
@@ -1769,20 +1769,12 @@ p { text-wrap: pretty; margin: 0; }
   overflow: hidden;
 }
 
-.fellow-detail__head::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+.modal__head .topo-bg {
   opacity: 0.12;
-  z-index: 0;
-  background-image: url("/images/topo.svg");
-  background-size: 1200px 1200px;
-  background-position: center;
   mix-blend-mode: screen;
 }
 
-.fellow-detail__head-inner {
+.modal__head-inner {
   position: relative;
   z-index: 1;
   display: flex;
@@ -1790,7 +1782,7 @@ p { text-wrap: pretty; margin: 0; }
   align-items: flex-start;
 }
 
-.fellow-detail__avatar {
+.modal__avatar {
   width: 80px;
   height: 80px;
   background: var(--ochre);
@@ -1801,36 +1793,32 @@ p { text-wrap: pretty; margin: 0; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border-radius: 2px;
 }
 
-.fellow-detail__name {
+.modal__name {
   font-family: var(--serif);
   font-size: 40px;
   color: var(--paper);
   line-height: 1;
   letter-spacing: -0.015em;
   margin-bottom: 12px;
-  font-weight: 400;
+  margin: 0;
 }
 
-.fellow-detail__org {
+.modal__org {
   font-size: 16px;
   color: var(--ochre-pale);
-  margin: 0;
-  font-family: var(--sans);
 }
 
-/* Body: Content sections */
-.fellow-detail__body {
+.modal__body {
   padding: 40px;
 }
 
-.fellow-detail__section {
+.modal__section {
   margin-bottom: 28px;
 }
 
-.fellow-detail__section h3 {
+.modal__section h4 {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.16em;
@@ -1838,42 +1826,38 @@ p { text-wrap: pretty; margin: 0; }
   color: var(--clay);
   margin-bottom: 12px;
   font-weight: 500;
-  margin-top: 0;
+  margin: 0 0 12px 0;
 }
 
-.fellow-detail__section p {
-  font-family: var(--sans);
+.modal__section p {
   font-size: 16px;
   line-height: 1.6;
   color: var(--ink-soft);
   margin: 0;
 }
 
-/* Contact & Assets Grid */
-.fellow-detail__contact-grid {
+.modal__contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-.fellow-detail__contact-grid a {
+.modal__contact-grid a {
   display: block;
   padding: 14px 16px;
   border: 1px solid var(--line);
   font-size: 14px;
   color: var(--alpine-deep);
-  text-decoration: none;
   transition: all 0.2s var(--ease-out);
-  border-radius: 2px;
-  font-family: var(--sans);
+  text-decoration: none;
 }
 
-.fellow-detail__contact-grid a:hover {
+.modal__contact-grid a:hover {
   border-color: var(--clay);
   background: var(--paper-warm);
 }
 
-.fellow-detail__contact-grid .l {
+.modal__contact-grid .l {
   display: block;
   font-family: var(--mono);
   font-size: 10px;
@@ -1884,151 +1868,20 @@ p { text-wrap: pretty; margin: 0; }
   font-weight: 500;
 }
 
-/* Navigation Footer */
-.fellow-detail__nav {
-  padding: 40px;
-  border-top: 1px solid var(--line);
-}
-
-.fellow-detail__nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.fellow-detail__nav-link {
-  flex: 1;
-  padding: 12px 16px;
-  background: var(--paper-cool);
-  color: var(--alpine-deep);
-  border: 1px solid var(--line);
-  font-family: var(--sans);
-  font-size: 14px;
-  text-decoration: none;
-  transition: all 0.2s var(--ease-out);
-  border-radius: 2px;
-  text-align: center;
-}
-
-.fellow-detail__nav-link:hover {
-  background: var(--paper-warm);
-  border-color: var(--clay);
-}
-
-.fellow-detail__nav-center {
-  flex: 1;
-  padding: 12px 16px;
-  background: var(--alpine-deep);
-  color: var(--paper);
-  border: 1px solid var(--alpine-deep);
-  font-family: var(--sans);
-  font-size: 14px;
-  text-decoration: none;
-  transition: all 0.2s var(--ease-out);
-  border-radius: 2px;
-  text-align: center;
-  display: inline-block;
-}
-
-.fellow-detail__nav-center:hover {
-  background: var(--clay);
-  border-color: var(--clay);
-}
-
-/* Responsive: Tablet (641–1024px) */
-@media (max-width: 1024px) {
-  .fellow-detail__head {
-    padding: 32px 32px 28px;
-  }
-
-  .fellow-detail__name {
-    font-size: 32px;
-  }
-
-  .fellow-detail__body {
-    padding: 32px;
-  }
-
-  .fellow-detail__nav {
-    padding: 32px;
-  }
-
-  .fellow-detail__contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Responsive: Mobile (0–640px) */
-@media (max-width: 640px) {
-  .fellow-detail {
-    max-width: 100%;
-  }
-
-  .fellow-detail__head {
+@media (max-width: 560px) {
+  .modal__head {
     padding: 32px 24px;
   }
 
-  .fellow-detail__head-inner {
-    gap: 16px;
+  .modal__body {
+    padding: 32px 24px;
   }
 
-  .fellow-detail__avatar {
-    width: 64px;
-    height: 64px;
-    font-size: 22px;
+  .modal__name {
+    font-size: 32px;
   }
 
-  .fellow-detail__name {
-    font-size: 28px;
-    margin-bottom: 8px;
-  }
-
-  .fellow-detail__org {
-    font-size: 14px;
-  }
-
-  .fellow-detail__body {
-    padding: 24px;
-  }
-
-  .fellow-detail__section {
-    margin-bottom: 20px;
-  }
-
-  .fellow-detail__section p {
-    font-size: 15px;
-    line-height: 1.55;
-  }
-
-  .fellow-detail__contact-grid {
+  .modal__contact-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .fellow-detail__contact-grid a {
-    padding: 12px 14px;
-    font-size: 13px;
-  }
-
-  .fellow-detail__nav {
-    padding: 24px;
-  }
-
-  .fellow-detail__nav-inner {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .fellow-detail__nav-link {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 13px;
-  }
-
-  .fellow-detail__nav-center {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 13px;
   }
 }
