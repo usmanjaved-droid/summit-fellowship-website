@@ -39,10 +39,8 @@ export default function CohortPage() {
             millions.
           </p>
           <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Cohort</span><span className="value">11 founders</span></div>
-            <div className="page-hero__meta-item"><span className="label">Sectors</span><span className="value">9 distinct</span></div>
-            <div className="page-hero__meta-item"><span className="label">Combined reach</span><span className="value">~70,000+ today</span></div>
-            <div className="page-hero__meta-item"><span className="label">Goal</span><span className="value">Millions, by 2030</span></div>
+            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
+            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
           </div>
         </div>
       </section>
