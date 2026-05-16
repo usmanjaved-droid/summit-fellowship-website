@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { href: '/venue', label: 'Venue' },
   { href: '/travel', label: 'Travel' },
   { href: '/resources', label: 'Resources' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 const PEOPLE_LINKS = [
@@ -104,8 +103,8 @@ export default function Header() {
             </div>
           </div>
         </nav>
-        <Link className="site-header__cta" href="/itinerary">
-          June 7–14, 2026 →
+        <Link className="site-header__cta" href="/contact">
+          Contact →
         </Link>
         <button
           className="menu-toggle"
