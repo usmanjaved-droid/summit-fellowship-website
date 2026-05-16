@@ -150,10 +150,10 @@ export default function ExponentialChart() {
         <text x="18" y="710" className="exp-chart__label exp-chart__label--ochre exp-chart__label--idea">
           idea
         </text>
-        <text x="1175" y="335" className="exp-chart__label exp-chart__label--grey">
+        <text x="1300" y="335" textAnchor="end" className="exp-chart__label exp-chart__label--grey">
           pretty good
         </text>
-        <text x="1100" y="38" className="exp-chart__label exp-chart__label--ochre exp-chart__label--awesome">
+        <text x="1180" y="38" textAnchor="end" className="exp-chart__label exp-chart__label--ochre exp-chart__label--awesome">
           awesome
         </text>
       </svg>

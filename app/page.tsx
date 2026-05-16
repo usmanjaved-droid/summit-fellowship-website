@@ -136,7 +136,7 @@ export default function HomePage() {
             <div className="whatis-scale__copy">
               <div className="eyebrow whatis__label">What we mean by scale</div>
               <p className="whatis__pull">
-                A big idea is one that scales exponentially. And scale is exponential impact.
+                A big idea is one that can scale. Scale means exponential impact.
               </p>
               <div className="whatis__stack">
                 <span>From one village to a country.</span>
