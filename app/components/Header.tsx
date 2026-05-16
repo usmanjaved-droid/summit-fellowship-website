@@ -44,6 +44,12 @@ export default function Header() {
           </span>
         </Link>
         <nav className="site-nav" aria-label="Primary">
+          <Link className="site-nav__link site-nav__link--icon" href="/" aria-label="Home">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M3 11.5 12 4l9 7.5" />
+              <path d="M5 10v10h14V10" />
+            </svg>
+          </Link>
           {NAV_LINKS.map((l) => (
             <Link key={l.href} className="site-nav__link" href={l.href}>
               {l.label}

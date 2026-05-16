@@ -215,6 +215,8 @@ p { text-wrap: pretty; margin: 0; }
   transition: color .2s var(--ease-out), background .2s var(--ease-out);
   position: relative;
 }
+.site-nav__link--icon { display: inline-flex; align-items: center; justify-content: center; padding: 8px; min-width: 36px; }
+.site-nav__link--icon svg { display: block; }
 .site-nav__link:hover { color: var(--alpine-deep); background: var(--paper-warm); }
 .site-nav__link[aria-current="page"] { color: var(--alpine-deep); }
 .site-nav__link[aria-current="page"]::after {
