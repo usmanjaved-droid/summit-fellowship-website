@@ -15,11 +15,6 @@ const CloudIcon = () => (
     <path d="M6 14a4 4 0 014-4 5 5 0 019.6 1.6A3.5 3.5 0 0119 18H7a4 4 0 01-1-4z" />
   </svg>
 );
-const RainIcon = () => (
-  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M6 14a4 4 0 014-4 5 5 0 019.6 1.6A3.5 3.5 0 0119 18H7a4 4 0 01-1-4z M9 20l-1 2M13 20l-1 2M17 20l-1 2" />
-  </svg>
-);
 const PartIcon = () => (
   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
     <circle cx="12" cy="12" r="4" />
@@ -28,13 +23,9 @@ const PartIcon = () => (
 );
 
 const WEATHER = [
-  { date: 'Sun 07', icon: <SunIcon />, hi: '23°', lo: '11°' },
-  { date: 'Mon 08', icon: <SunIcon />, hi: '24°', lo: '12°' },
-  { date: 'Tue 09', icon: <CloudIcon />, hi: '21°', lo: '10°' },
-  { date: 'Wed 10', icon: <CloudIcon />, hi: '22°', lo: '11°' },
-  { date: 'Thu 11', icon: <PartIcon />, hi: '24°', lo: '12°' },
-  { date: 'Fri 12', icon: <RainIcon />, hi: '19°', lo: '10°' },
-  { date: 'Sat 13', icon: <PartIcon />, hi: '23°', lo: '11°' },
+  { date: 'Typical day', icon: <SunIcon />, hi: '18°', lo: '' },
+  { date: 'Warmest', icon: <PartIcon />, hi: '24°', lo: '' },
+  { date: 'Coldest night', icon: <CloudIcon />, hi: '8°', lo: '' },
 ];
 
 const FAQS = [
@@ -58,10 +49,8 @@ export default function TravelPage() {
           <h1 className="page-hero__title">Getting to <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>Skardu.</em></h1>
           <p className="page-hero__subtitle">Two ways in, one preferred. Here&rsquo;s what you need to know about flights, transfers, packing, and the small things that catch first-time visitors out.</p>
           <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Airport</span><span className="value">SKZ · Skardu Intl.</span></div>
-            <div className="page-hero__meta-item"><span className="label">From Islamabad</span><span className="value">~50 min flight</span></div>
-            <div className="page-hero__meta-item"><span className="label">Airport → Khoj</span><span className="value">~30 min by road</span></div>
-            <div className="page-hero__meta-item"><span className="label">Time zone</span><span className="value">UTC+5 (PKT)</span></div>
+            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
+            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
           </div>
         </div>
       </section>
@@ -70,7 +59,7 @@ export default function TravelPage() {
         <div className="container">
           <div className="section-title">
             <h2>How to <em>get there.</em></h2>
-            <span className="eyebrow">01 · Routing</span>
+            <span className="eyebrow">Routing</span>
           </div>
           <div className="routes">
             <article className="route-card">
@@ -120,7 +109,7 @@ export default function TravelPage() {
         <div className="container">
           <div className="section-title">
             <h2>What to <em>expect.</em></h2>
-            <span className="eyebrow">02 · Weather</span>
+            <span className="eyebrow">Weather</span>
           </div>
           <div className="weather">
             <div className="weather__copy">
@@ -134,12 +123,12 @@ export default function TravelPage() {
                   <div className="weather-day" key={w.date}>
                     <div className="date">{w.date}</div>
                     {w.icon}
-                    <div className="temp">{w.hi}<span className="low">{w.lo}</span></div>
+                    <div className="temp">{w.hi}</div>
                   </div>
                 ))}
               </div>
               <div style={{ marginTop: 20, fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.14em', color: 'var(--ink-mute)', textTransform: 'uppercase' }}>
-                Indicative forecast · highs &amp; lows in °C
+                Indicative June ranges · °C
               </div>
             </div>
           </div>
@@ -151,7 +140,7 @@ export default function TravelPage() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title">
             <h2>The <em>packing list.</em></h2>
-            <span className="eyebrow eyebrow--on-dark">03 · Kit</span>
+            <span className="eyebrow eyebrow--on-dark">Kit</span>
           </div>
           <div className="checklist-grid">
             <div className="check-col">
@@ -198,7 +187,7 @@ export default function TravelPage() {
         <div className="container">
           <div className="section-title">
             <h2>Frequently <em>asked.</em></h2>
-            <span className="eyebrow">04 · FAQ</span>
+            <span className="eyebrow">FAQ</span>
           </div>
           <div className="faq-list">
             {FAQS.map((f, i) => (
@@ -211,17 +200,6 @@ export default function TravelPage() {
         </div>
       </section>
 
-      <section style={{ background: 'var(--paper-warm)', padding: '100px 0', textAlign: 'center' }}>
-        <div className="container">
-          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4.5vw, 56px)', color: 'var(--alpine-deep)', letterSpacing: '-0.02em', marginBottom: 24 }}>
-            Anything else? <em style={{ color: 'var(--clay)', fontStyle: 'italic' }}>Just ask.</em>
-          </h2>
-          <p style={{ fontSize: 18, color: 'var(--ink-soft)', maxWidth: '50ch', margin: '0 auto 32px' }}>
-            Logistics questions, dietary needs, visa letters — the team is responsive and on it.
-          </p>
-          <Link href="/contact" className="btn">Contact the team →</Link>
-        </div>
-      </section>
     </>
   );
 }
