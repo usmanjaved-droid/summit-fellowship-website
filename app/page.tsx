@@ -143,9 +143,6 @@ export default function HomePage() {
                 <span>From thousands to millions.</span>
                 <span>From a working pilot to a model the country runs on.</span>
               </div>
-              <Link className="btn btn--ochre whatis-scale__cta" href="/fellows">
-                Meet the Fellows <span className="arrow">→</span>
-              </Link>
             </div>
             <div className="whatis-scale__chart">
               <ExponentialChart />
