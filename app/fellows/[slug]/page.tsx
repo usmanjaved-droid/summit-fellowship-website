@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { getFellow, getRelatedFellows, getAllFellows } from '@/lib/fellows';
-import FellowsBits from '@/app/components/FellowsBits';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
