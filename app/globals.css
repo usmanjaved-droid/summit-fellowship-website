@@ -1745,3 +1745,317 @@ p { text-wrap: pretty; margin: 0; }
   .action-item__num { font-size: 22px; }
   .action-item__title { font-size: 22px; }
 }
+
+/* =========================================================================
+   Fellow Detail Page Component Styles
+   ========================================================================= */
+
+/* fellow-hero: Hero section with background image and metadata */
+.fellow-detail {
+  background: var(--paper);
+}
+
+.fellow-hero {
+  position: relative;
+  background: var(--alpine-deep);
+  color: var(--parchment);
+  padding: 60px 32px;
+  margin-bottom: 60px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fellow-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.fellow-hero__avatar {
+  position: relative;
+  z-index: 2;
+  width: 280px;
+  height: 280px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 48px;
+  border: 4px solid var(--ochre);
+  flex-shrink: 0;
+}
+
+.fellow-hero h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 52px;
+  color: var(--parchment);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.fellow-hero__org {
+  position: relative;
+  z-index: 2;
+  font-size: 20px;
+  color: var(--ochre);
+  font-family: var(--serif);
+  margin-bottom: 12px;
+}
+
+.fellow-tagline {
+  position: relative;
+  z-index: 2;
+  font-size: 18px;
+  color: var(--parchment);
+  font-family: var(--serif);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* fellow-section: Main content sections (problem, idea, dream) */
+.fellow-section {
+  margin-bottom: 48px;
+  padding: 40px;
+  background: var(--paper-warm);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+}
+
+.fellow-section h2 {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--alpine-deep);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.fellow-section p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--ink);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.fellow-section p:last-child {
+  margin-bottom: 0;
+}
+
+.fellow-section--problem {
+  border-left: 4px solid var(--clay);
+}
+
+.fellow-section--idea {
+  border-left: 4px solid var(--ochre);
+}
+
+.fellow-section--dream {
+  border-left: 4px solid var(--alpine-deep);
+}
+
+/* fellow-org-card: Organization metadata card */
+.fellow-org-card {
+  background: var(--alpine-soft);
+  border: 1px solid var(--line-soft);
+  border-left: 4px solid var(--ochre);
+  padding: 32px;
+  border-radius: 4px;
+  margin-bottom: 48px;
+}
+
+.fellow-org-card__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.fellow-org-card__row:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.fellow-org-card__label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.fellow-org-card__value {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--parchment);
+  text-align: right;
+}
+
+.fellow-org-card__links {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.fellow-org-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--ochre);
+  color: var(--alpine-deep);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.fellow-org-card__link:hover {
+  background: var(--ochre-deep);
+  transform: translateX(4px);
+}
+
+/* fellow-related: Related fellows grid section */
+.fellow-related {
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.fellow-related h2 {
+  font-family: var(--serif);
+  font-size: 36px;
+  color: var(--alpine-deep);
+  margin-bottom: 40px;
+  letter-spacing: -0.01em;
+}
+
+.fellow-related__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+/* fellow-footer: Footer section with navigation */
+.fellow-footer {
+  margin-top: 80px;
+  padding: 60px 32px;
+  text-align: center;
+  background: var(--alpine-deep);
+  color: var(--parchment);
+}
+
+.fellow-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--ochre);
+  color: var(--alpine-deep);
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+
+.fellow-footer a:hover {
+  background: var(--ochre-deep);
+  transform: translateX(4px);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .fellow-related__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .fellow-hero {
+    flex-direction: column;
+    padding: 40px 20px;
+    min-height: auto;
+  }
+
+  .fellow-hero__avatar {
+    width: 200px;
+    height: 200px;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+
+  .fellow-hero h1 {
+    font-size: 36px;
+  }
+
+  .fellow-hero__org {
+    font-size: 16px;
+  }
+
+  .fellow-tagline {
+    font-size: 16px;
+  }
+
+  .fellow-section {
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .fellow-section h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .fellow-section p {
+    font-size: 1rem;
+  }
+
+  .fellow-org-card {
+    padding: 20px;
+    margin-bottom: 32px;
+  }
+
+  .fellow-org-card__row {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+  }
+
+  .fellow-org-card__value {
+    text-align: left;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .fellow-org-card__links {
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .fellow-org-card__link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .fellow-related h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .fellow-footer {
+    padding: 40px 20px;
+    margin-top: 60px;
+  }
+}
