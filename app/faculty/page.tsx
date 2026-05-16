@@ -111,65 +111,28 @@ export default function FacultyPage() {
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Faculty &amp; Organizers</span></div>
           <h1 className="page-hero__title">An ecosystem of <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>support.</em></h1>
           <p className="page-hero__subtitle">A curated group of founders, funders, and system-level operators bringing scale frameworks, patient capital, and the operational scars to make it real.</p>
-        </div>
-      </section>
-
-      <section className="faculty-stats">
-        <div className="container faculty-stats__grid">
-          <div className="faculty-stats__cell"><div className="num">9</div><div className="label">People, total</div></div>
-          <div className="faculty-stats__cell"><div className="num">5</div><div className="label">Core faculty</div></div>
-          <div className="faculty-stats__cell"><div className="num">4</div><div className="label">Organizers &amp; hosts</div></div>
-          <div className="faculty-stats__cell"><div className="num">120+</div><div className="label">Years of scale experience</div></div>
-        </div>
-      </section>
-
-      <section className="section-divider" id="faculty">
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
-        <div className="container section-divider__inner">
-          <div>
-            <div className="eyebrow" style={{ marginBottom: 12 }}>Part 01</div>
-            <h2>Core faculty &amp; <em>guest mentors.</em></h2>
+          <div className="page-hero__meta">
+            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
+            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
           </div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ochre)' }}>05 people</div>
         </div>
       </section>
 
-      <section className="faculty-section">
+      <section className="faculty-section" id="faculty">
         <div className="container">
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--alpine-deep)', letterSpacing: '-0.02em', marginBottom: 40 }}>Faculty</h2>
           <div className="faculty-grid">
             {FACULTY.map((p) => <PersonCard key={p.num} p={p} />)}
           </div>
         </div>
       </section>
 
-      <section className="section-divider" id="organizers">
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
-        <div className="container section-divider__inner">
-          <div>
-            <div className="eyebrow" style={{ marginBottom: 12 }}>Part 02</div>
-            <h2>The organizing <em>team &amp; hosts.</em></h2>
-          </div>
-          <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ochre)' }}>04 people</div>
-        </div>
-      </section>
-
-      <section className="faculty-section faculty-section--alt">
+      <section className="faculty-section faculty-section--alt" id="organizers">
         <div className="container">
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--alpine-deep)', letterSpacing: '-0.02em', marginBottom: 40 }}>Organizers</h2>
           <div className="faculty-grid">
             {ORGANIZERS.map((p) => <PersonCard key={p.num} p={p} />)}
           </div>
-        </div>
-      </section>
-
-      <section style={{ background: 'var(--paper)', padding: '100px 0', textAlign: 'center' }}>
-        <div className="container">
-          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 5vw, 64px)', color: 'var(--alpine-deep)', letterSpacing: '-0.02em', marginBottom: 24 }}>
-            Meet the <em style={{ color: 'var(--clay)', fontStyle: 'italic' }}>cohort</em> they came for.
-          </h2>
-          <p style={{ fontSize: 18, color: 'var(--ink-soft)', maxWidth: '50ch', margin: '0 auto 32px' }}>
-            Eleven Pakistani founders, hand-picked for the kind of scale these mentors specialize in.
-          </p>
-          <Link href="/cohort" className="btn">See the Cohort →</Link>
         </div>
       </section>
     </>
