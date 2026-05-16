@@ -8,8 +8,9 @@ const PROGRAM = [
 ];
 
 const PEOPLE = [
-  { href: '/cohort', label: 'Cohort 2026' },
+  { href: '/fellows', label: 'Fellows 2026' },
   { href: '/faculty', label: 'Faculty' },
+  { href: '/funders', label: 'Funders' },
   { href: '/faculty#organizers', label: 'Organizers' },
 ];
 

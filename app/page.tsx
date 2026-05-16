@@ -3,10 +3,10 @@ import Countdown from './components/Countdown';
 
 const PEOPLE_CARDS = [
   {
-    eyebrow: 'The Cohort',
+    eyebrow: 'The Fellows',
     title: 'Eleven founders',
     desc: 'Pakistani social enterprises across health, education, livelihoods, and beyond — each ready to redesign their model for scale.',
-    href: '/cohort',
+    href: '/fellows',
   },
   {
     eyebrow: 'The Faculty',
@@ -18,7 +18,7 @@ const PEOPLE_CARDS = [
     eyebrow: 'The Funders',
     title: 'Capital that backs scale',
     desc: 'Mulago, Acumen, and other patient-capital partners who fund the journey from working pilot to national reach.',
-    href: '/faculty',
+    href: '/funders',
   },
 ];
 
@@ -68,8 +68,8 @@ export default function HomePage() {
               <Link className="btn btn--ochre" href="/about">
                 Read the Brief <span className="arrow">→</span>
               </Link>
-              <Link className="btn btn--ghost-light" href="/cohort">
-                Meet the Cohort
+              <Link className="btn btn--ghost-light" href="/fellows">
+                Meet the Fellows
               </Link>
             </div>
           </div>

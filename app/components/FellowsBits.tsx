@@ -17,7 +17,7 @@ export type Fellow = {
 
 const SECTORS = ['all', 'Health', 'Mental Health', 'Education', 'Special Ed', 'Disability', 'Legal', 'Livelihoods', 'Agriculture'];
 
-export default function CohortBits({ fellows }: { fellows: Fellow[] }) {
+export default function FellowsBits({ fellows }: { fellows: Fellow[] }) {
   const [filter, setFilter] = useState<string>('all');
   const [open, setOpen] = useState<Fellow | null>(null);
 
@@ -41,9 +41,9 @@ export default function CohortBits({ fellows }: { fellows: Fellow[] }) {
         </div>
       </div>
 
-      <section className="cohort-section">
+      <section className="fellows-section">
         <div className="container">
-          <div className="cohort-grid">
+          <div className="fellows-grid">
             {visible.map((f, i) => (
               <article key={f.id} className="fellow-card" onClick={() => setOpen(f)}>
                 <div className="fellow-card__head">

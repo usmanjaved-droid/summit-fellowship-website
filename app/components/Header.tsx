@@ -1,12 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const NAV_LINKS = [
-  { href: '/about', label: 'About' },
-  { href: '/cohort', label: 'Cohort' },
-  { href: '/faculty', label: 'Faculty' },
   { href: '/curriculum', label: 'Curriculum' },
   { href: '/itinerary', label: 'Itinerary' },
   { href: '/venue', label: 'Venue' },
@@ -15,8 +12,16 @@ const NAV_LINKS = [
   { href: '/contact', label: 'Contact' },
 ];
 
+const PEOPLE_LINKS = [
+  { href: '/fellows', label: 'Fellows' },
+  { href: '/faculty', label: 'Faculty' },
+  { href: '/funders', label: 'Funders' },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [peopleOpen, setPeopleOpen] = useState(false);
+  const peopleRef = useRef<HTMLDivElement | null>(null);
 
   const toggle = () => {
     setOpen((prev) => {
@@ -27,6 +32,17 @@ export default function Header() {
       return next;
     });
   };
+
+  useEffect(() => {
+    if (!peopleOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (peopleRef.current && !peopleRef.current.contains(e.target as Node)) {
+        setPeopleOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onDown);
+    return () => document.removeEventListener('mousedown', onDown);
+  }, [peopleOpen]);
 
   return (
     <header className="site-header">
@@ -55,6 +71,37 @@ export default function Header() {
               {l.label}
             </Link>
           ))}
+          <div
+            className={`site-nav__people${peopleOpen ? ' is-open' : ''}`}
+            ref={peopleRef}
+          >
+            <button
+              type="button"
+              className="site-nav__link site-nav__people-trigger"
+              aria-expanded={peopleOpen}
+              aria-haspopup="menu"
+              onClick={() => setPeopleOpen((v) => !v)}
+            >
+              People
+              <span className={`site-nav__caret${peopleOpen ? ' is-open' : ''}`} aria-hidden="true">▾</span>
+            </button>
+            <div className="site-nav__dropdown" role="menu">
+              {PEOPLE_LINKS.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="site-nav__dropdown-item"
+                  role="menuitem"
+                  onClick={() => setPeopleOpen(false)}
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <Link className="site-nav__link" href="/about">
+            About
+          </Link>
         </nav>
         <Link className="site-header__cta" href="/itinerary">
           June 7–14, 2026 →

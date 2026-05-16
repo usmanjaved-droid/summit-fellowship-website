@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import CohortBits, { type Fellow } from '../components/CohortBits';
+import FellowsBits, { type Fellow } from '../components/FellowsBits';
 
 export const metadata = {
-  title: 'The Cohort — Summit Fellowship 2026',
-  description: 'The 2026 cohort: eleven Pakistani founders building solutions designed for scale.',
+  title: 'The Fellows — Summit Fellowship 2026',
+  description: 'The 2026 fellows: eleven Pakistani founders building solutions designed for scale.',
 };
 
 const FELLOWS: Fellow[] = [
@@ -20,21 +20,21 @@ const FELLOWS: Fellow[] = [
   { id: 11, init: 'OS', name: 'Osama Shahid', org: 'Soby Trading Co', sector: 'Agriculture', model: 'Empowers marginalized communities through fair trade practices and direct market linkages, ensuring farmers and artisans receive fair prices for their products.', email: 'sobyagengineers@gmail.com', phone: '+92 321 8626068', linkedin: 'https://www.linkedin.com/in/osama-shahid-059b381a5/', website: 'https://www.sobyagro.co/' },
 ];
 
-export default function CohortPage() {
+export default function FellowsPage() {
   return (
     <>
-      <section className="page-hero" data-screen-label="Cohort Hero">
+      <section className="page-hero" data-screen-label="Fellows Hero">
         <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
         <div className="container page-hero__inner">
           <div className="page-hero__crumbs">
-            <Link href="/">Home</Link><span>/</span><span>Cohort</span>
+            <Link href="/">Home</Link><span>/</span><span>Fellows</span>
           </div>
           <h1 className="page-hero__title">
             Eleven founders.<br />
             <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>One ascent.</em>
           </h1>
           <p className="page-hero__subtitle">
-            The 2026 cohort spans mental health to special education, AI-powered legal aid to
+            The 2026 fellows span mental health to special education, AI-powered legal aid to
             gamified curriculum. Each leader passed a rigorous selection — now they redesign for
             millions.
           </p>
@@ -45,7 +45,7 @@ export default function CohortPage() {
         </div>
       </section>
 
-      <CohortBits fellows={FELLOWS} />
+      <FellowsBits fellows={FELLOWS} />
     </>
   );
 }
