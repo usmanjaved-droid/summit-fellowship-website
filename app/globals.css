@@ -1775,7 +1775,7 @@ p { text-wrap: pretty; margin: 0; }
   pointer-events: none;
   opacity: 0.12;
   z-index: 0;
-  background-image: url("../assets/topo.svg");
+  background-image: url("/images/topo.svg");
   background-size: 1200px 1200px;
   background-position: center;
   mix-blend-mode: screen;
@@ -2003,7 +2003,7 @@ p { text-wrap: pretty; margin: 0; }
   pointer-events: none;
   opacity: 0.08;
   z-index: 0;
-  background-image: url("../assets/topo.svg");
+  background-image: url("/images/topo.svg");
   background-size: 1200px 1200px;
   background-position: center;
 }
