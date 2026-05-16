@@ -163,7 +163,9 @@
       "Bash(curl -sS -o \"d:/Summit Fellowship Website/public/images/skardu/shigar-venue.jpg\" \"https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=2400&q=80\" -H \"User-Agent: Mozilla/5.0\")",
       "mcp__plugin_playwright_playwright__browser_wait_for",
       "Bash(kill %1)",
-      "Bash(git mv *)"
+      "Bash(git mv *)",
+      "PowerShell(npm run build 2>&1)",
+      "PowerShell(git add app/components/Header.tsx app/globals.css)"
     ],
     "additionalDirectories": [
       "d:\\",
