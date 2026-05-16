@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif, Geist, JetBrains_Mono } from 'next/font/google';
+import { Instrument_Serif, Geist, JetBrains_Mono, Caveat } from 'next/font/google';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './globals.css';
@@ -24,6 +24,12 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono',
 });
 
+const caveat = Caveat({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-handwriting',
+});
+
 export const metadata: Metadata = {
   title: 'Summit Fellowship — Designed for Scale',
   description:
@@ -38,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${geist.variable} ${jetbrainsMono.variable}`}
+      className={`${instrumentSerif.variable} ${geist.variable} ${jetbrainsMono.variable} ${caveat.variable}`}
     >
       <body>
         <Header />

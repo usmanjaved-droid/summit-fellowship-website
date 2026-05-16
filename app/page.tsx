@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Countdown from './components/Countdown';
+import ExponentialChart from './components/ExponentialChart';
 
 const PEOPLE_CARDS = [
   {
@@ -131,20 +132,7 @@ export default function HomePage() {
           </div>
 
           <div className="whatis-split__right">
-            <div className="gallery-cards">
-              <figure className="gallery-card gallery-card--1">
-                <img src="/images/skardu/karakoram-hero.jpg" alt="The Karakoram range above Skardu" />
-              </figure>
-              <figure className="gallery-card gallery-card--2">
-                <img src="/images/skardu/deosai.jpg" alt="Faculty session outdoors on the Deosai plateau" />
-              </figure>
-              <figure className="gallery-card gallery-card--3">
-                <img src="/images/skardu/shangrila-resort.jpg" alt="Khoj Resort lodge at the foot of the mountains" />
-              </figure>
-              <figure className="gallery-card gallery-card--4">
-                <img src="/images/skardu/peaks-panorama.jpg" alt="Karakoram peaks at dawn" />
-              </figure>
-            </div>
+            <ExponentialChart />
           </div>
         </div>
       </section>
