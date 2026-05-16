@@ -55,14 +55,14 @@ export default function HomePage() {
           <div className="hero__lockup">
             <div className="hero__eyebrow">
               <span className="line" />
-              <span>Summit Fellowship · Skardu · 07 — 14 June 2026</span>
+              <span>For Pakistani social innovators designing for scale</span>
             </div>
             <h1 className="hero__title">
               <span className="stack">Summit</span>
               <span className="stack">Fellowship 2026</span>
             </h1>
             <p className="hero__sub">
-              Pakistan&apos;s most promising social innovators, designing for scale.
+              Curating Pakistan&apos;s finest impact companies and matching them with strategy, mentoring, and capital to scale.
             </p>
             <div className="hero__cta-row">
               <Link className="btn btn--ochre" href="/fellows">
