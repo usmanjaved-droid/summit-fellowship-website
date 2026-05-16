@@ -220,7 +220,10 @@
       "Bash(curl -s -w \"\\\\nHTTP Status: %{http_code}\\\\n\" http://localhost:3001/fellows/rubeena-kidwai)",
       "Read(//c/Users/HP/AppData/Local/Temp/design-DMOiWfY9/**)",
       "Bash(ls -la \"C:\\\\Users\\\\HP\\\\AppData\\\\Local\\\\Temp\\\\design-DMOiWfY9\\\\\" 2>/dev/null || echo \"Directory not found\")",
-      "Read(//c/Users/HP/AppData/Local/Temp/design-DMOiWfY9\" 2>/dev/**)"
+      "Read(//c/Users/HP/AppData/Local/Temp/design-DMOiWfY9\" 2>/dev/**)",
+      "Bash(curl -s -m 5 http://localhost:3000/fellows/rubeena-kidwai)",
+      "PowerShell(taskkill /PID 26484 /F 2>&1)",
+      "PowerShell(taskkill /PID 21556 /F 2>&1)"
     ],
     "additionalDirectories": [
       "d:\\",

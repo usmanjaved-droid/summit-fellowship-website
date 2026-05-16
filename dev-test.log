@@ -1374,3 +1374,8 @@ Caused by:
     2: Unable to open static sorted file 00002575.sst
     3: Failed to open SST file D:\Summit Fellowship Website\.next\dev\cache/turbopack\ee6e79b1\00002575.sst
     4: The system cannot find the file specified. (os error 2)
+○ Compiling /fellows/[slug] ...
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Compaction failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+[?25h
