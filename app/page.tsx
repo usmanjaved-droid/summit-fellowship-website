@@ -65,11 +65,8 @@ export default function HomePage() {
               Pakistan&apos;s most promising social innovators, designing for scale.
             </p>
             <div className="hero__cta-row">
-              <Link className="btn btn--ochre" href="/about">
-                Read the Brief <span className="arrow">→</span>
-              </Link>
-              <Link className="btn btn--ghost-light" href="/fellows">
-                Meet the Fellows
+              <Link className="btn btn--ochre" href="/fellows">
+                Meet the Fellows <span className="arrow">→</span>
               </Link>
             </div>
           </div>

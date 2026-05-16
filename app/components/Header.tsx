@@ -103,9 +103,6 @@ export default function Header() {
               ))}
             </div>
           </div>
-          <Link className="site-nav__link" href="/about">
-            About
-          </Link>
         </nav>
         <Link className="site-header__cta" href="/itinerary">
           June 7–14, 2026 →

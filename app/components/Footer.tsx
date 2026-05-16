@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 const PROGRAM = [
-  { href: '/about', label: 'About' },
   { href: '/curriculum', label: 'Curriculum' },
   { href: '/itinerary', label: 'Itinerary' },
   { href: '/resources', label: 'Resources' },

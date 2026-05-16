@@ -171,7 +171,8 @@
       "Bash(git mv *)",
       "PowerShell(npm run build 2>&1)",
       "PowerShell(git add app/components/Header.tsx app/globals.css)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(git rm *)"
     ],
     "additionalDirectories": [
       "d:\\",
