@@ -83,7 +83,11 @@ export default function Header() {
               onClick={() => setPeopleOpen((v) => !v)}
             >
               People
-              <span className={`site-nav__caret${peopleOpen ? ' is-open' : ''}`} aria-hidden="true">▾</span>
+              <span className={`site-nav__caret${peopleOpen ? ' is-open' : ''}`} aria-hidden="true">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 3.5 5 6.5 8 3.5" />
+                </svg>
+              </span>
             </button>
             <div className="site-nav__dropdown" role="menu">
               {PEOPLE_LINKS.map((l) => (

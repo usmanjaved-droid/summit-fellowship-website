@@ -247,15 +247,26 @@ p { text-wrap: pretty; margin: 0; }
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font: inherit;
-}
-.site-nav__caret {
-  display: inline-block;
-  font-size: 10px;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
   line-height: 1;
-  transition: transform .2s var(--ease-out);
 }
+.site-nav__people-trigger:hover { color: var(--alpine-deep); background: var(--paper-warm); }
+.site-nav__caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  transition: transform .2s var(--ease-out);
+  color: currentColor;
+}
+.site-nav__caret svg { display: block; }
 .site-nav__caret.is-open { transform: rotate(180deg); }
 .site-nav__dropdown {
   display: none;
