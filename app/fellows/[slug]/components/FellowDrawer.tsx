@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { Fellow } from '@/lib/fellows';
+import styles from '../page.module.css';
 
 type FellowDrawerProps = {
   fellow: Fellow;
@@ -26,49 +27,49 @@ export function FellowDrawer({ fellow, isOpen, onClose }: FellowDrawerProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fellow-drawer">
-      <div className="fellow-drawer__backdrop" onClick={onClose} aria-hidden="true"></div>
-      <div className="fellow-drawer__panel">
-        <div className="fellow-drawer__header">
-          <button className="fellow-drawer__close" onClick={onClose} aria-label="Close drawer">
+    <div className={styles['fellow-drawer']}>
+      <div className={styles['fellow-drawer__backdrop']} onClick={onClose} aria-hidden="true"></div>
+      <div className={styles['fellow-drawer__panel']}>
+        <div className={styles['fellow-drawer__header']}>
+          <button className={styles['fellow-drawer__close']} onClick={onClose} aria-label="Close drawer">
             ✕
           </button>
         </div>
-        <div className="fellow-drawer__content">
+        <div className={styles['fellow-drawer__content']}>
           {/* Organization */}
-          <div className="fellow-drawer__section">
-            <span className="fellow-drawer__label">Organization</span>
-            <p className="fellow-drawer__value">{fellow.org}</p>
+          <div className={styles['fellow-drawer__section']}>
+            <span className={styles['fellow-drawer__label']}>Organization</span>
+            <p className={styles['fellow-drawer__value']}>{fellow.org}</p>
           </div>
 
           {/* Geography */}
-          <div className="fellow-drawer__section">
-            <span className="fellow-drawer__label">Geography</span>
-            <p className="fellow-drawer__value">{fellow.geography}</p>
+          <div className={styles['fellow-drawer__section']}>
+            <span className={styles['fellow-drawer__label']}>Geography</span>
+            <p className={styles['fellow-drawer__value']}>{fellow.geography}</p>
           </div>
 
           {/* Sector */}
-          <div className="fellow-drawer__section">
-            <span className="fellow-drawer__label">Sector</span>
-            <p className="fellow-drawer__value">{fellow.sector}</p>
+          <div className={styles['fellow-drawer__section']}>
+            <span className={styles['fellow-drawer__label']}>Sector</span>
+            <p className={styles['fellow-drawer__value']}>{fellow.sector}</p>
           </div>
 
           {/* Structure */}
-          <div className="fellow-drawer__section">
-            <span className="fellow-drawer__label">Structure</span>
-            <p className="fellow-drawer__value">{fellow.structure}</p>
+          <div className={styles['fellow-drawer__section']}>
+            <span className={styles['fellow-drawer__label']}>Structure</span>
+            <p className={styles['fellow-drawer__value']}>{fellow.structure}</p>
           </div>
 
           {/* Contact & Links */}
-          <div className="fellow-drawer__section">
-            <span className="fellow-drawer__label">Contact &amp; Links</span>
-            <div className="fellow-drawer__links">
+          <div className={styles['fellow-drawer__section']}>
+            <span className={styles['fellow-drawer__label']}>Contact &amp; Links</span>
+            <div className={styles['fellow-drawer__links']}>
               {fellow.fellow_linkedin && (
                 <a
                   href={fellow.fellow_linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="fellow-drawer__link"
+                  className={styles['fellow-drawer__link']}
                 >
                   LinkedIn
                 </a>
@@ -78,7 +79,7 @@ export function FellowDrawer({ fellow, isOpen, onClose }: FellowDrawerProps) {
                   href={fellow.org_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="fellow-drawer__link"
+                  className={styles['fellow-drawer__link']}
                 >
                   Website
                 </a>

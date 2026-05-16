@@ -1,4 +1,5 @@
 import { Fellow } from '@/lib/fellows';
+import styles from '../page.module.css';
 
 type IdeaBandProps = {
   fellow: Fellow;
@@ -6,9 +7,9 @@ type IdeaBandProps = {
 
 export function IdeaBand({ fellow }: IdeaBandProps) {
   return (
-    <section className="idea-band">
-      <div className="idea-band__inner">
-        <p className="idea-band__tagline">{fellow.tagline}</p>
+    <section className={styles['idea-band']}>
+      <div className={styles['idea-band__inner']}>
+        <p className={styles['idea-band__tagline']}>{fellow.tagline}</p>
       </div>
     </section>
   );

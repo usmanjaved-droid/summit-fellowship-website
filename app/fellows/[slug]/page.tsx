@@ -5,6 +5,7 @@ import { IdeaBand } from './components/IdeaBand';
 import { FellowSection } from './components/FellowSection';
 import { FellowSidebar } from './components/FellowSidebar';
 import { FellowNavigation } from './components/FellowNavigation';
+import styles from './page.module.css';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -49,12 +50,12 @@ export default async function FellowDetailPage({ params }: PageProps) {
   const nextFellow = currentIndex < allFellows.length - 1 ? allFellows[currentIndex + 1] : null;
 
   return (
-    <div className="fellow-detail">
+    <div className={styles['fellow-detail']}>
       <FellowHero fellow={fellow} />
       <IdeaBand fellow={fellow} />
 
-      <div className="fellow-detail__body">
-        <div className="fellow-detail__content">
+      <div className={styles['fellow-detail__body']}>
+        <div className={styles['fellow-detail__content']}>
           <FellowSection title="The Mission" content={fellow.mission} />
           <FellowSection title="How It Works" content={fellow.how_it_works} />
           <FellowSection title="The Dream" content={fellow.the_dream} />
