@@ -135,28 +135,24 @@ export default function HomePage() {
               <figure className="gallery-card gallery-card--1">
                 <img src="/images/skardu/karakoram-hero.jpg" alt="The Karakoram range above Skardu" />
                 <figcaption>
-                  <span className="gallery-card__eyebrow">Day One</span>
                   <span className="gallery-card__title">Design for Scale</span>
                 </figcaption>
               </figure>
               <figure className="gallery-card gallery-card--2">
                 <img src="/images/skardu/deosai.jpg" alt="Faculty session outdoors on the Deosai plateau" />
                 <figcaption>
-                  <span className="gallery-card__eyebrow">One-on-One Clinics</span>
                   <span className="gallery-card__title">Mentored Outdoors</span>
                 </figcaption>
               </figure>
               <figure className="gallery-card gallery-card--3">
                 <img src="/images/skardu/shangrila-resort.jpg" alt="Khoj Resort lodge at the foot of the mountains" />
                 <figcaption>
-                  <span className="gallery-card__eyebrow">The Venue</span>
                   <span className="gallery-card__title">Khoj Resort, Skardu</span>
                 </figcaption>
               </figure>
               <figure className="gallery-card gallery-card--4">
                 <img src="/images/skardu/peaks-panorama.jpg" alt="Karakoram peaks at dawn" />
                 <figcaption>
-                  <span className="gallery-card__eyebrow">Demo Day</span>
                   <span className="gallery-card__title">Day Six Showcase</span>
                 </figcaption>
               </figure>
