@@ -14,6 +14,7 @@ export type Fellow = {
   how_it_works: string;
   the_dream: string;
   structure: string;
+  geography: string;
   org_url: string;
   fellow_linkedin: string;
   photo_url: string | null;
