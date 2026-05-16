@@ -136,7 +136,6 @@ export default function TravelPage() {
       </section>
 
       <section className="travel-section travel-section--alpine">
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-title">
             <h2>The <em>packing list.</em></h2>

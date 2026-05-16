@@ -73,7 +73,6 @@ export default function ContactPage() {
           </div>
 
           <div className="contact-form">
-            <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
             <div className="contact-form__inner">
               <h3>Or send a <em>note.</em></h3>
               <p>Tell us a little about you and what you&rsquo;re after. The form lands in the right inbox automatically.</p>

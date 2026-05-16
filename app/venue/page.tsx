@@ -41,7 +41,6 @@ export default function VenuePage() {
       </section>
 
       <section className="map-section">
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
         <div className="container map-section__inner">
           <div className="map-section__head">
             <div>

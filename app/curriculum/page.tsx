@@ -83,7 +83,6 @@ export default function CurriculumPage() {
               <p>This module is the most precise of the week. By lunchtime, every fellow has rewritten their mission to eight words and their Big Idea to six. By the end of day, the Behavior Map and the model&rsquo;s core elements are on paper.</p>
 
               <div className="framework-vis">
-                <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
                 <div className="framework-vis__inner">
                   <div className="framework-vis__title">The Theory of Change · simplified</div>
                   <div className="framework-vis__diagram">
@@ -121,7 +120,6 @@ export default function CurriculumPage() {
             <div className="module__body">
               <p className="lead">The Scale Screen is the framework at the heart of Mulago&rsquo;s investment thesis. It is not a maturity model — it is a yes/no filter. By the end of this module, fellows can defensibly answer all four questions about their own model.</p>
               <div className="framework-vis">
-                <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
                 <div className="framework-vis__inner">
                   <div className="framework-vis__title">The Four Enoughs · Mulago Scale Screen</div>
                   <div className="framework-vis__diagram">
