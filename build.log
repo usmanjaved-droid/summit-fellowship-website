@@ -1,0 +1,40 @@
+
+> summit-fellowship@0.1.0 build
+> next build
+
+▲ Next.js 16.2.6 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.3s
+  Running TypeScript ...
+  Finished TypeScript in 3.6s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/24) ...
+  Generating static pages using 7 workers (6/24) 
+  Generating static pages using 7 workers (12/24) 
+  Generating static pages using 7 workers (18/24) 
+✓ Generating static pages using 7 workers (24/24) in 580ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /contact
+├ ○ /curriculum
+├ ○ /faculty
+├ ○ /fellows
+├ ● /fellows/[slug]
+│ ├ /fellows/rubeena-kidwai
+│ ├ /fellows/azima-dhanjee
+│ ├ /fellows/habiba-banu
+│ └ [+8 more paths]
+├ ○ /funders
+├ ○ /itinerary
+├ ○ /resources
+├ ○ /travel
+└ ○ /venue
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+

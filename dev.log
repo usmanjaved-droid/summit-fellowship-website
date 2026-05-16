@@ -1,0 +1,13 @@
+
+> summit-fellowship@0.1.0 dev
+> next dev
+
+⚠ Port 3000 is in use by process 26484, using available port 3001 instead.
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.1.5:3001
+✓ Ready in 526ms
+
+ GET /fellows/rubeena-kidwai 200 in 3.7s (next.js: 3.4s, generate-params: 542ms, application-code: 310ms)
+ GET /fellows/rubeena-kidwai 200 in 180ms (next.js: 19ms, generate-params: 13ms, application-code: 161ms)
+✓ Compiled in 161ms

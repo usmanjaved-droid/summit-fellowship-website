@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PageProps) {
 
   return {
     title: `${fellow.name} — Summit Fellowship 2026`,
-    description: fellow.tagline,
+    description: fellow.model,
   };
 }
 
@@ -38,16 +38,17 @@ export default async function FellowDetailPage({ params }: PageProps) {
     );
   }
 
-  const relatedFellows = getRelatedFellows(fellow, 4);
+  const allFellows = getAllFellows();
+  const currentIndex = allFellows.findIndex((f) => f.id === fellow.id);
+  const prevFellow = currentIndex > 0 ? allFellows[currentIndex - 1] : null;
+  const nextFellow = currentIndex < allFellows.length - 1 ? allFellows[currentIndex + 1] : null;
 
   return (
     <article className="fellow-detail">
-      {/* Hero Section */}
-      <section className="fellow-hero">
-        {fellow.photo_url ? (
-          <img src={fellow.photo_url} alt={fellow.name} />
-        ) : (
-          <div className="fellow-hero__avatar">
+      {/* Modal-style Head Section */}
+      <section className="fellow-detail__head">
+        <div className="fellow-detail__head-inner">
+          <div className="fellow-detail__avatar">
             {fellow.name
               .split(' ')
               .map((n) => n[0])
@@ -55,93 +56,103 @@ export default async function FellowDetailPage({ params }: PageProps) {
               .toUpperCase()
               .slice(0, 2)}
           </div>
-        )}
-        <h1>{fellow.name}</h1>
-        <p className="fellow-hero__org">{fellow.org}</p>
+          <div>
+            <h1 className="fellow-detail__name">{fellow.name}</h1>
+            <p className="fellow-detail__org">{fellow.org}</p>
+          </div>
+        </div>
       </section>
 
-      <div className="container">
-        {/* Tagline */}
-        <div className="fellow-tagline">{fellow.tagline}</div>
-
-        {/* The Problem */}
-        <section className="fellow-section fellow-section--problem">
-          <h2>The Problem</h2>
-          <p>{fellow.idea_context}</p>
+      {/* Modal-style Body Section */}
+      <div className="fellow-detail__body">
+        {/* Sector Section */}
+        <section className="fellow-detail__section">
+          <h3>Sector</h3>
+          <p>{fellow.sector}</p>
         </section>
 
-        {/* The Idea */}
-        <section className="fellow-section fellow-section--idea">
-          <h2>The Idea</h2>
-          <p>{fellow.how_it_works}</p>
+        {/* Model Overview Section */}
+        <section className="fellow-detail__section">
+          <h3>Model Overview</h3>
+          <p>{fellow.model}</p>
         </section>
 
-        {/* The Dream */}
-        <section className="fellow-section fellow-section--dream">
-          <h2>The Dream</h2>
-          <p>{fellow.the_dream}</p>
-        </section>
+        {/* Additional Details if available */}
+        {fellow.idea_context && (
+          <section className="fellow-detail__section">
+            <h3>The Problem</h3>
+            <p>{fellow.idea_context}</p>
+          </section>
+        )}
 
-        {/* Organization Card */}
-        <section className="fellow-org-card">
-          <h3>{fellow.org}</h3>
-          <div className="fellow-org-card__row">
-            <span className="fellow-org-card__label">Sector</span>
-            <span className="fellow-org-card__value">{fellow.sector}</span>
-          </div>
-          <div className="fellow-org-card__row">
-            <span className="fellow-org-card__label">Structure</span>
-            <span className="fellow-org-card__value">{fellow.structure}</span>
-          </div>
-          <div className="fellow-org-card__links">
-            {fellow.org_url && (
-              <a href={fellow.org_url} target="_blank" rel="noopener noreferrer" className="fellow-org-card__link">
-                Website
+        {fellow.how_it_works && (
+          <section className="fellow-detail__section">
+            <h3>How It Works</h3>
+            <p>{fellow.how_it_works}</p>
+          </section>
+        )}
+
+        {fellow.the_dream && (
+          <section className="fellow-detail__section">
+            <h3>The Vision</h3>
+            <p>{fellow.the_dream}</p>
+          </section>
+        )}
+
+        {/* Contact & Assets Section */}
+        <section className="fellow-detail__section">
+          <h3>Contact &amp; Assets</h3>
+          <div className="fellow-detail__contact-grid">
+            {fellow.email && (
+              <a href={`mailto:${fellow.email}`}>
+                <span className="l">Email</span>
+                {fellow.email}
+              </a>
+            )}
+            {fellow.phone && (
+              <a href={`tel:${fellow.phone.replace(/\s/g, '')}`}>
+                <span className="l">Phone</span>
+                {fellow.phone}
               </a>
             )}
             {fellow.fellow_linkedin && (
-              <a href={fellow.fellow_linkedin} target="_blank" rel="noopener noreferrer" className="fellow-org-card__link">
-                LinkedIn
+              <a href={fellow.fellow_linkedin} target="_blank" rel="noopener noreferrer">
+                <span className="l">LinkedIn</span>
+                Profile →
+              </a>
+            )}
+            {fellow.org_url && (
+              <a href={fellow.org_url} target="_blank" rel="noopener noreferrer">
+                <span className="l">Website</span>
+                Visit →
               </a>
             )}
           </div>
         </section>
-
-        {/* Related Fellows */}
-        <section className="fellow-related">
-          <h2>Other Fellows</h2>
-          <div className="fellow-related__grid">
-            {relatedFellows.map((f) => (
-              <Link
-                key={f.id}
-                href={`/fellows/${f.id}`}
-                className="fellow-card fellow-card--link"
-              >
-                <div className="fellow-card__head">
-                  <div className="fellow-card__avatar">
-                    {f.name
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')
-                      .toUpperCase()
-                      .slice(0, 2)}
-                  </div>
-                </div>
-                <h3 className="fellow-card__name">{f.name}</h3>
-                <div className="fellow-card__org">
-                  <strong>{f.org}</strong>
-                </div>
-                <div className="fellow-card__sector">{f.sector}</div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Back Link */}
-        <footer className="fellow-footer">
-          <Link href="/fellows">← Back to all fellows</Link>
-        </footer>
       </div>
+
+      {/* Navigation Footer */}
+      <footer className="fellow-detail__nav">
+        <div className="fellow-detail__nav-inner">
+          {prevFellow ? (
+            <Link href={`/fellows/${prevFellow.id}`} className="fellow-detail__nav-link">
+              ← {prevFellow.name}
+            </Link>
+          ) : (
+            <span></span>
+          )}
+          <Link href="/fellows" className="fellow-detail__nav-center">
+            Back to all fellows
+          </Link>
+          {nextFellow ? (
+            <Link href={`/fellows/${nextFellow.id}`} className="fellow-detail__nav-link">
+              {nextFellow.name} →
+            </Link>
+          ) : (
+            <span></span>
+          )}
+        </div>
+      </footer>
     </article>
   );
 }
