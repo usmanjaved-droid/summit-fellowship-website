@@ -8,9 +8,7 @@ const SPACES = [
   { num: '01', title: 'The Studio', desc: 'Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.', img: 'https://images.unsplash.com/photo-1577415124269-fc1140a69e91?auto=format&fit=crop&w=900&q=80' },
   { num: '02', title: 'The Courtyard', desc: 'Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.', img: 'https://images.unsplash.com/photo-1604608672516-f1b9b1d1c1b7?auto=format&fit=crop&w=900&q=80' },
   { num: '03', title: 'The Dining Hall', desc: 'One long table. Locally-sourced food. By Day 3, everyone has a permanent seat. By Day 6, no one wants to leave it.', img: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=900&q=80' },
-  { num: '04', title: 'The Library Lounge', desc: 'Fireplace, mismatched armchairs, surprisingly well-stocked shelves. Default home for fireside chats and post-dinner spillover.', img: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=900&q=80' },
-  { num: '05', title: 'The Orchard', desc: "A short walk from the main building. The default outdoor classroom for 1-on-1 clinics. The cohort's photo gets taken here on Day 6.", img: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80' },
-  { num: '06', title: 'Off-site: Shigar Fort', desc: '15-minute drive. 17th-century Balti fort. Where the Lightning Talks happen on Day 2 — and where the photos every cohort posts come from.', img: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=900&q=80' },
+  { num: '04', title: 'The Orchard', desc: "A short walk from the main building. The default outdoor classroom for 1-on-1 clinics. The cohort's photo gets taken here on Day 6.", img: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80' },
 ];
 
 export default function VenuePage() {
@@ -23,10 +21,8 @@ export default function VenuePage() {
           <h1 className="page-hero__title">Khoj Resort, <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>Skardu.</em></h1>
           <p className="page-hero__subtitle">Tucked into the Shigar valley with the Karakoram rising on every side. Deliberate retreat from city noise, signal, and obligation.</p>
           <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Coordinates</span><span className="value">35.30°N · 75.62°E</span></div>
-            <div className="page-hero__meta-item"><span className="label">Elevation</span><span className="value">~2,228 m</span></div>
-            <div className="page-hero__meta-item"><span className="label">Region</span><span className="value">Gilgit-Baltistan</span></div>
-            <div className="page-hero__meta-item"><span className="label">June climate</span><span className="value">12 – 24°C</span></div>
+            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
+            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
           </div>
         </div>
       </section>
@@ -36,7 +32,7 @@ export default function VenuePage() {
           <div className="venue-intro__copy">
             <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">The venue</span></div>
             <h2>Where the<br /><em>work happens.</em></h2>
-            <p>Khoj is deliberately remote. The flight in lands at 2,228 m. The drive from the airstrip threads the Shigar river through poplar groves and apricot orchards. By the time you arrive, your phone is no longer the most interesting thing in the room.</p>
+            <p>Khoj is deliberately remote. The flight in lands at 2,228 m — 35.30°N · 75.62°E, with June temperatures running 12–24°C. The drive from the airstrip threads the Shigar river through poplar groves and apricot orchards. By the time you arrive, your phone is no longer the most interesting thing in the room.</p>
             <p>The resort is small by design — built for groups exactly this size. Workshop spaces flow onto a stone courtyard. Walk five minutes in any direction and you&rsquo;re in the orchards, on the river bank, or at the foot of a rock face that did not exist on yesterday&rsquo;s horizon.</p>
             <p>Days alternate between structured studio sessions, outdoor 1-on-1 clinics, and the kind of unstructured time that only happens when eleven founders find themselves in a valley together with nothing else to do.</p>
           </div>
@@ -166,22 +162,12 @@ export default function VenuePage() {
         </div>
       </section>
 
-      <section className="fact-strip">
-        <div className="topo-bg" aria-hidden="true" />
-        <div className="container fact-strip__grid">
-          <div className="fact-strip__cell"><div className="label">Total spaces</div><div className="value">11 rooms</div></div>
-          <div className="fact-strip__cell"><div className="label">Workshop capacity</div><div className="value">~30 people</div></div>
-          <div className="fact-strip__cell"><div className="label">Wifi</div><div className="value">Yes — patchy</div></div>
-          <div className="fact-strip__cell"><div className="label">Vibe</div><div className="value">Intentionally quiet</div></div>
-        </div>
-      </section>
-
       <section className="spaces">
         <div className="container">
           <div className="spaces__head">
             <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">The spaces</span></div>
-            <h2>Five rooms.<br /><em>One valley.</em></h2>
-            <p>You&rsquo;ll move between these five spaces over the week. Each was chosen for what it lets the group do, and for what it forbids — Khoj does not have a giant ballroom for a reason.</p>
+            <h2>Four rooms.<br /><em>One valley.</em></h2>
+            <p>You&rsquo;ll move between these spaces over the week. Each was chosen for what it lets the group do, and for what it forbids — Khoj does not have a giant ballroom for a reason.</p>
           </div>
           <div className="space-grid">
             {SPACES.map((s) => (
@@ -202,25 +188,6 @@ export default function VenuePage() {
         </div>
       </section>
 
-      <section className="venue-quote">
-        <div className="container">
-          <blockquote>&ldquo;The work that happens here would not happen in Karachi or Lahore — for reasons that are obvious by Tuesday.&rdquo;</blockquote>
-          <div className="attr">From a Vol. 00 alum</div>
-        </div>
-      </section>
-
-      <section style={{ background: 'var(--alpine-deep)', color: 'var(--parchment)', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
-        <div className="container" style={{ position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 64, alignItems: 'center' }}>
-          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4.5vw, 64px)', color: 'var(--paper)', lineHeight: 1, letterSpacing: '-0.02em' }}>
-            Now, how do you<br />actually get there?
-          </h2>
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifySelf: 'end' }}>
-            <Link href="/travel" className="btn btn--ochre">Travel &amp; Logistics →</Link>
-            <Link href="/contact" className="btn btn--ghost-light">Contact the team</Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
