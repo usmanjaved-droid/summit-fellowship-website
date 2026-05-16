@@ -1605,13 +1605,6 @@ p { text-wrap: pretty; margin: 0; }
   display: block;
   transition: transform 0.6s var(--ease-out);
 }
-.gallery-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(20, 39, 52, 0) 35%, rgba(20, 39, 52, 0.85) 100%);
-  pointer-events: none;
-}
 .gallery-card figcaption {
   position: absolute;
   left: 20px;
