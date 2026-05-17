@@ -54,6 +54,8 @@ export default async function FellowDetailPage({ params }: PageProps) {
       <FellowHero fellow={fellow} />
       <IdeaBand fellow={fellow} />
 
+      <FellowNavigation prevFellow={prevFellow || undefined} nextFellow={nextFellow || undefined} />
+
       <div className={styles['fellow-detail__body']}>
         <div className={styles['fellow-detail__content']}>
           <FellowSection title="The Mission" content={fellow.mission} />
@@ -62,8 +64,6 @@ export default async function FellowDetailPage({ params }: PageProps) {
         </div>
         <FellowSidebar fellow={fellow} />
       </div>
-
-      <FellowNavigation prevFellow={prevFellow || undefined} nextFellow={nextFellow || undefined} />
     </div>
   );
 }
