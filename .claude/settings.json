@@ -46,7 +46,10 @@
       "mcp__plugin_playwright_playwright__browser_wait_for",
       "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\\\\app\" -Recurse -Include \"*.tsx\")",
       "Bash(Select-Object -First 30)",
-      "Bash(cmd /c \"cd /d d:\\\\Summit Fellowship Website && npm run build\")"
+      "Bash(cmd /c \"cd /d d:\\\\Summit Fellowship Website && npm run build\")",
+      "Bash(Start-Sleep -Seconds 5)",
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "mcp__plugin_playwright_playwright__browser_network_requests"
     ],
     "deny": [
       "Bash(rm -rf /)",
