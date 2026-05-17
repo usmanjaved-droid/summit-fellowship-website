@@ -314,13 +314,13 @@
 }
 
 .fellow-detail__body {
-  max-width: 1400px;
+  max-width: var(--container);
   margin: 0 auto;
   width: 100%;
   padding: 80px 32px;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 64px;
+  gap: 48px;
 }
 
 .fellow-detail__content {
