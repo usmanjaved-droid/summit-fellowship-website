@@ -240,7 +240,7 @@
 
 .fellow-sidebar__link:hover {
   background-color: var(--clay);
-  text-decoration: underline;
+  color: white;
 }
 
 /* Hide sidebar on tablet and mobile */
