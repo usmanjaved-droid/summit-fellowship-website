@@ -6,7 +6,7 @@
   background-color: var(--alpine-deep);
   color: var(--parchment);
   overflow: hidden;
-  padding: 80px 32px;
+  padding: 64px 32px;
 }
 
 .fellow-hero::before {
@@ -37,7 +37,7 @@
 
 .fellow-hero__name {
   font-family: var(--serif);
-  font-size: clamp(32px, 7vw, 56px);
+  font-size: 52px;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -98,7 +98,7 @@
   }
 
   .fellow-hero__name {
-    font-size: clamp(24px, 6vw, 40px);
+    font-size: 40px;
   }
 
   .fellow-hero__problem {
