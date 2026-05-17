@@ -57,7 +57,7 @@ export default function VenuePage() {
             <p>The resort is small by design — built for groups exactly this size. Workshop spaces flow onto a stone courtyard. Walk five minutes in any direction and you&rsquo;re in the orchards, on the river bank, or at the foot of a rock face that did not exist on yesterday&rsquo;s horizon.</p>
             <p>Days alternate between structured studio sessions, outdoor 1-on-1 clinics, and the kind of unstructured time that only happens when eleven founders find themselves in a valley together with nothing else to do.</p>
           </div>
-          <div className="venue-intro__image" role="img" aria-label="Khoj Resort landscape and accommodations" />
+          <div className={`venue-intro__image ${styles.venueIntroImage}`} role="img" aria-label="Khoj Resort landscape and accommodations" />
         </div>
       </section>
 
@@ -212,19 +212,19 @@ export default function VenuePage() {
         </div>
       </section>
 
-      <section className="food-section">
+      <section className={styles.foodSection}>
         <div className="container">
-          <div className="section-head">
+          <div className={styles.sectionHead}>
             <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Dining</span></div>
             <h2>Where every<br /><em>meal matters.</em></h2>
             <p>Khoj&rsquo;s restaurant, Raah, sources locally and cooks with intention. Balti Tandoori, grilled meats, continental breakfast, and options for vegetarian and halal diets. Food here is part of the experience, not an afterthought.</p>
           </div>
-          <div className="food-grid">
+          <div className={styles.foodGrid}>
             {FOOD_ITEMS.map((item) => (
-              <article key={item.title} className="food-card">
-                <div className="food-card__icon">{item.icon}</div>
-                <h3 className="food-card__title">{item.title}</h3>
-                <p className="food-card__desc">{item.desc}</p>
+              <article key={item.title} className={styles.foodCard}>
+                <div className={styles.foodCardIcon}>{item.icon}</div>
+                <h3 className={styles.foodCardTitle}>{item.title}</h3>
+                <p className={styles.foodCardDesc}>{item.desc}</p>
               </article>
             ))}
           </div>
