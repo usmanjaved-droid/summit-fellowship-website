@@ -39,7 +39,7 @@ const FOOD_ITEMS = [
 export default function VenuePage() {
   return (
     <>
-      <section className={`page-hero ${styles.pageHeroImage}`} style={{ minHeight: '600px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', paddingLeft: '40px' }} data-screen-label="Venue Hero">
+      <section className={`page-hero ${styles.pageHeroImage}`} style={{ minHeight: '600px', position: 'relative' }} data-screen-label="Venue Hero">
         <div className={styles.pageHeroOverlay} aria-hidden="true" />
         <div className={`container ${styles.pageHeroInnerWrapper}`}>
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Venue</span></div>
