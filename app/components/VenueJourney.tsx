@@ -59,13 +59,24 @@ export function VenueJourney() {
           <div className={styles['venue-journey__elevation']}>
             <div className={styles['venue-journey__profile']}>
               <div className={styles['venue-journey__axis']}>
-                <div className={styles['venue-journey__peak-label']}>2,500m</div>
-                <div className={styles['venue-journey__gridline']} style={{ top: '0%' }} />
-                <div className={styles['venue-journey__gridline']} style={{ top: '20%' }} />
-                <div className={styles['venue-journey__gridline']} style={{ top: '40%' }} />
-                <div className={styles['venue-journey__gridline']} style={{ top: '60%' }} />
-                <div className={styles['venue-journey__gridline']} style={{ top: '80%' }} />
-                <div className={styles['venue-journey__gridline']} style={{ top: '100%' }} />
+                <div className={styles['venue-journey__gridline']} style={{ top: '0%' }}>
+                  <span className={styles['venue-journey__gridline-label']}>2,500m</span>
+                </div>
+                <div className={styles['venue-journey__gridline']} style={{ top: '20%' }}>
+                  <span className={styles['venue-journey__gridline-label']}>2,000m</span>
+                </div>
+                <div className={styles['venue-journey__gridline']} style={{ top: '40%' }}>
+                  <span className={styles['venue-journey__gridline-label']}>1,500m</span>
+                </div>
+                <div className={styles['venue-journey__gridline']} style={{ top: '60%' }}>
+                  <span className={styles['venue-journey__gridline-label']}>1,000m</span>
+                </div>
+                <div className={styles['venue-journey__gridline']} style={{ top: '80%' }}>
+                  <span className={styles['venue-journey__gridline-label']}>500m</span>
+                </div>
+                <div className={styles['venue-journey__gridline']} style={{ top: '100%' }}>
+                  <span className={styles['venue-journey__gridline-label']}>0m</span>
+                </div>
               </div>
 
               <div className={styles['venue-journey__bar-container']}>
