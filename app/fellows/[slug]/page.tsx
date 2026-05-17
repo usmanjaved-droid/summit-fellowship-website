@@ -51,10 +51,10 @@ export default async function FellowDetailPage({ params }: PageProps) {
 
   return (
     <div className={styles['fellow-detail']}>
+      <FellowNavigation prevFellow={prevFellow || undefined} nextFellow={nextFellow || undefined} />
+
       <FellowHero fellow={fellow} />
       <IdeaBand fellow={fellow} />
-
-      <FellowNavigation prevFellow={prevFellow || undefined} nextFellow={nextFellow || undefined} />
 
       <div className={styles['fellow-detail__body']}>
         <div className={styles['fellow-detail__content']}>
