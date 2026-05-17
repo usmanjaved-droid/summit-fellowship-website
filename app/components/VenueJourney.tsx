@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from '@/app/venue/page.module.css';
 
 export function VenueJourney() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const progressRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +20,7 @@ export function VenueJourney() {
       const progress = (start - rect.top) / (start - end);
       const clamped = Math.max(0, Math.min(1, progress));
 
-      setScrollProgress(clamped);
+      progressRef.current = clamped;
     };
 
     let rafId = 0;
