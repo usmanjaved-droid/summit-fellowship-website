@@ -36,13 +36,6 @@ const FOOD_ITEMS = [
   { icon: '☕', title: 'Breakfast Buffet', desc: 'Continental, à la carte, and local options. Tea service all day. Fresh-baked bread.' },
 ];
 
-const SPACES = [
-  { num: '01', title: 'The Studio', desc: 'Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.', img: 'https://images.unsplash.com/photo-1577415124269-fc1140a69e91?auto=format&fit=crop&w=900&q=80' },
-  { num: '02', title: 'The Courtyard', desc: 'Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.', img: 'https://images.unsplash.com/photo-1604608672516-f1b9b1d1c1b7?auto=format&fit=crop&w=900&q=80' },
-  { num: '03', title: 'The Dining Hall', desc: 'One long table. Locally-sourced food. By Day 3, everyone has a permanent seat. By Day 6, no one wants to leave it.', img: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=900&q=80' },
-  { num: '04', title: 'The Orchard', desc: "A short walk from the main building. The default outdoor classroom for 1-on-1 clinics. The cohort's photo gets taken here on Day 6.", img: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80' },
-];
-
 export default function VenuePage() {
   return (
     <>
@@ -185,32 +178,6 @@ export default function VenuePage() {
             <div className="map-legend__item"><span className="legend-dot" /> Off-site sessions</div>
             <div className="map-legend__item"><span className="legend-line" /> Travel routes</div>
             <div className="map-legend__item" style={{ marginLeft: 'auto', opacity: 0.6 }}>Schematic — not to scale</div>
-          </div>
-        </div>
-      </section>
-
-      <section className="spaces">
-        <div className="container">
-          <div className="spaces__head">
-            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">The spaces</span></div>
-            <h2>Four rooms.<br /><em>One valley.</em></h2>
-            <p>You&rsquo;ll move between these spaces over the week. Each was chosen for what it lets the group do, and for what it forbids — Khoj does not have a giant ballroom for a reason.</p>
-          </div>
-          <div className="space-grid">
-            {SPACES.map((s) => (
-              <article key={s.num} className="space-card">
-                <div
-                  className="space-card__image"
-                  style={{ backgroundImage: `linear-gradient(180deg, rgba(20,39,52,0.05), rgba(20,39,52,0.4)), url('${s.img}')` }}
-                >
-                  <span className="space-card__num">{s.num}</span>
-                </div>
-                <div className="space-card__body">
-                  <h3 className="space-card__title">{s.title}</h3>
-                  <p className="space-card__desc">{s.desc}</p>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>
