@@ -116,7 +116,7 @@ export function VenueJourney() {
           </div>
 
           {/* Landscape SVG on right */}
-          <div className={styles['venue-journey__landscape']}>
+          <div className={styles['venue-journey__landscape']} style={{ position: 'relative' }}>
             <svg viewBox="0 0 1200 600" className={styles['venue-journey__svg']}>
               <defs>
                 {/* Sky gradient */}
@@ -313,6 +313,74 @@ export function VenueJourney() {
                 </text>
               </g>
             </svg>
+
+            {/* Waypoint Markers Overlay */}
+            <div className={styles['venue-journey__markers-container']}>
+              {/* Airport marker - visible 0-20% */}
+              <div
+                className={styles['venue-journey__marker']}
+                style={{
+                  opacity: Math.max(0, 1 - scrollProgress * 5),
+                  pointerEvents: 'none',
+                }}
+              >
+                <div className={styles['venue-journey__marker-label']}>Starting point</div>
+                <div className={styles['venue-journey__marker-text']}>30 min from airport</div>
+                <div className={styles['venue-journey__marker-hint']}>City noise fades</div>
+              </div>
+
+              {/* Foothills marker - visible 15-45% */}
+              <div
+                className={styles['venue-journey__marker']}
+                style={{
+                  opacity: Math.max(0, Math.min(1, (scrollProgress - 0.15) * 3)),
+                  pointerEvents: 'none',
+                }}
+              >
+                <div className={styles['venue-journey__marker-label']}>Climbing</div>
+                <div className={styles['venue-journey__marker-text']}>Foothills emerge</div>
+                <div className={styles['venue-journey__marker-hint']}>Signal disappears</div>
+              </div>
+
+              {/* River marker - visible 30-60% */}
+              <div
+                className={styles['venue-journey__marker']}
+                style={{
+                  opacity: Math.max(0, Math.min(1, (scrollProgress - 0.3) * 2.5)),
+                  pointerEvents: 'none',
+                }}
+              >
+                <div className={styles['venue-journey__marker-label']}>River Crossing</div>
+                <div className={styles['venue-journey__marker-text']}>Shigar River</div>
+                <div className={styles['venue-journey__marker-hint']}>Water rushing below</div>
+              </div>
+
+              {/* Valley marker - visible 50-80% */}
+              <div
+                className={styles['venue-journey__marker']}
+                style={{
+                  opacity: Math.max(0, Math.min(1, (scrollProgress - 0.5) * 2)),
+                  pointerEvents: 'none',
+                }}
+              >
+                <div className={styles['venue-journey__marker-label']}>Valley Opens</div>
+                <div className={styles['venue-journey__marker-text']}>Orchards bloom</div>
+                <div className={styles['venue-journey__marker-hint']}>Silence arrives</div>
+              </div>
+
+              {/* Arrival marker - visible 70-100% */}
+              <div
+                className={styles['venue-journey__marker']}
+                style={{
+                  opacity: Math.max(0, scrollProgress - 0.7),
+                  pointerEvents: 'none',
+                }}
+              >
+                <div className={styles['venue-journey__marker-label']}>Destination</div>
+                <div className={styles['venue-journey__marker-text']}>Khoj Resort</div>
+                <div className={styles['venue-journey__marker-hint']}>2,228m • You have arrived</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
