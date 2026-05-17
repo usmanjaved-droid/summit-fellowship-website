@@ -1,3 +1,90 @@
+/**
+ * VenueJourney - Interactive scroll-driven elevation journey visualization
+ *
+ * This client component creates an immersive visual experience showing the ascent
+ * from Skardu Airport (1,700m) to Khoj Resort (2,228m) as users scroll.
+ *
+ * Features:
+ * - Real-time elevation display tied to scroll progress
+ * - Animated landscape with progressive layer reveals (city → foothills → river → orchards → resort)
+ * - Waypoint markers with mood hints for narrative enhancement (Starting point → Climbing → River Crossing → Valley Opens → Destination)
+ * - Full accessibility support (WCAG AA, prefers-reduced-motion, ARIA labels, semantic HTML)
+ * - Optimized for 60fps smooth scroll (RAF debouncing, GPU acceleration, hardware-backed transforms)
+ * - Fully responsive (desktop 2-column → tablet adjusted → mobile single-column centered)
+ *
+ * Usage:
+ * ```tsx
+ * <VenueJourney />
+ * ```
+ *
+ * No props required. Component handles all scroll listening internally.
+ *
+ * Technical Implementation:
+ *
+ * 1. Scroll Tracking:
+ *    - RAF debouncing prevents excessive handler calls (~60fps max, no jank)
+ *    - Scroll progress calculated as container moves through viewport (0 when bottom-visible, 1 at 30% viewport height)
+ *    - useRef stores intermediate values without triggering re-renders
+ *    - Passive: true event listener allows browser scroll optimization
+ *
+ * 2. Animation Strategy:
+ *    - SVG layers use opacity transitions (CSS-driven, no JS re-renders)
+ *    - Stroke-dasharray/offset for river animation (efficient path reveals)
+ *    - Progress bar height animated via CSS transition (hardware-backed)
+ *    - will-change hints for browser optimization
+ *    - backface-visibility and perspective enable GPU acceleration
+ *
+ * 3. Rendering Optimization:
+ *    - No expensive operations in scroll handler (only Math.max/min/round)
+ *    - SVG inline (no network requests)
+ *    - CSS containment on marker container (paint optimization)
+ *    - State updates batched by React (not on every scroll event)
+ *
+ * 4. Elevation Calculation:
+ *    - Linear interpolation from 1,700m (airport) to 2,228m (resort)
+ *    - Rounded to nearest meter for cleaner display
+ *    - Fill percentage synced with elevation for visual feedback
+ *
+ * 5. Accessibility:
+ *    - All animations respect prefers-reduced-motion (CSS media query)
+ *    - ARIA labels on section, region (elevation profile), status (live elevation)
+ *    - Semantic HTML structure
+ *    - Screen reader-friendly labels without screen-reader-only text
+ *    - Color contrast verified (ochre on paper-warm meets WCAG AA)
+ *
+ * 6. Responsive Design:
+ *    - Desktop (1024px+): 2-column layout with full SVG height (600px)
+ *    - Tablet (768px–1023px): Adjusted spacing and SVG height (300px)
+ *    - Mobile (640px–767px): Single-column centered, stacked markers, SVG height 250px
+ *    - Media queries aligned with global breakpoints in globals.css
+ *
+ * Performance Targets:
+ * - Scroll event: <1ms handler, zero layout thrashing
+ * - Frame rate: 60fps smooth animations (no dropped frames)
+ * - Lighthouse Performance: 90+ (inlining SVG, minimal JavaScript)
+ * - Lighthouse Accessibility: 95+ (WCAG AA, ARIA labels, semantic HTML)
+ *
+ * Browser Compatibility:
+ * - Modern browsers with CSS Grid, CSS Variables, requestAnimationFrame
+ * - Gracefully degrades on older browsers (animations still work, layout functional)
+ * - No polyfills required
+ *
+ * @returns React.ReactElement - Full-page section component
+ *
+ * @example
+ * // Import and use on the /venue page
+ * import { VenueJourney } from '@/app/components/VenueJourney';
+ *
+ * export default function VenuePage() {
+ *   return (
+ *     <>
+ *       <!-- Hero section -->
+ *       <VenueJourney />
+ *       <!-- Map section below -->
+ *     </>
+ *   );
+ * }
+ */
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
