@@ -243,7 +243,20 @@
       "Bash(grep -E \"\\\\.\\(css|scss\\)$\")",
       "Bash(Find \"d:\\\\Summit Fellowship Website\\\\app\\\\fellows\\\\[slug]\" -type f -name \"*.tsx\" -o -name \"*.ts\")",
       "Bash(Find \"d:\\\\Summit Fellowship Website\\\\app\\\\fellows\\\\[slug]\" -name \"*.css\" -o -name \"*.module.css\")",
-      "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\\\\app\\\\fellows\" -Recurse)"
+      "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\\\\app\\\\fellows\" -Recurse)",
+      "Bash(xargs grep -l \"alpine-deep\\\\|--clay\\\\|--paper\")",
+      "Bash(powershell -Command \"Get-Content 'd:\\\\Summit Fellowship Website\\\\app\\\\fellows\\\\[slug]\\\\page.module.css' | Select-String '@media' -Context 1,3\")",
+      "Bash(powershell -NoProfile -Command \"Get-Content data/fellows-deep.json | ConvertFrom-Json | Select-Object -ExpandProperty fellows | Select-Object -Last 1 | Select-Object name, slug\")",
+      "Bash(powershell -NoProfile -Command \"\\(Get-Content data/fellows-deep.json | ConvertFrom-Json\\) | Select-Object -Last 1 | Select-Object id, name\")",
+      "Bash(powershell -NoProfile -Command \"\\(Get-Content data/fellows-deep.json | ConvertFrom-Json\\) | Select-Object id, name, photo_url | Format-Table -AutoSize\")",
+      "Bash(powershell -NoProfile -Command \"Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force\")",
+      "Bash(powershell -NoProfile -Command \"\\(Get-Content data/fellows-deep.json | ConvertFrom-Json\\) | Select-Object id, name | Format-Table -AutoSize\")",
+      "Bash(powershell -NoProfile -Command \"Get-Content dev.log -Tail 30 2>/dev/null | Select-String -Pattern 'error|Error|ERROR' | Select-Object -First 5\")",
+      "Bash(powershell -NoProfile -Command \"Get-Content dev.log -Tail 20\")",
+      "Bash(mkdir -p \"docs/archived\")",
+      "Bash(mv DESIGN.md PRODUCT.md CRITIQUE.md Final_Summit_Fellowship_participants.md Summit_Fellowship_Faculty_And_Organizers.md Updated_Summit_Fellowship_2026_Master_Itinerary.md docs/archived/)",
+      "Bash(ls -1 *.png)",
+      "Bash(ls -1 *.md)"
     ],
     "additionalDirectories": [
       "d:\\",
