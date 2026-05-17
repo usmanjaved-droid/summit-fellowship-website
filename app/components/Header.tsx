@@ -4,9 +4,12 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 const NAV_LINKS = [
+  { href: '/resources', label: 'Resources' },
+];
+
+const LOGISTICS_LINKS = [
   { href: '/venue', label: 'Venue' },
   { href: '/travel', label: 'Travel' },
-  { href: '/resources', label: 'Resources' },
 ];
 
 const PROGRAM_LINKS = [
@@ -24,8 +27,10 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [peopleOpen, setPeopleOpen] = useState(false);
   const [programOpen, setProgramOpen] = useState(false);
+  const [logisticsOpen, setLogisticsOpen] = useState(false);
   const peopleRef = useRef<HTMLDivElement | null>(null);
   const programRef = useRef<HTMLDivElement | null>(null);
+  const logisticsRef = useRef<HTMLDivElement | null>(null);
 
   const toggle = () => {
     setOpen((prev) => {
@@ -59,6 +64,17 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', onDown);
   }, [programOpen]);
 
+  useEffect(() => {
+    if (!logisticsOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (logisticsRef.current && !logisticsRef.current.contains(e.target as Node)) {
+        setLogisticsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onDown);
+    return () => document.removeEventListener('mousedown', onDown);
+  }, [logisticsOpen]);
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
@@ -86,6 +102,38 @@ export default function Header() {
               {l.label}
             </Link>
           ))}
+          <div
+            className={`site-nav__logistics${logisticsOpen ? ' is-open' : ''}`}
+            ref={logisticsRef}
+          >
+            <button
+              type="button"
+              className="site-nav__link site-nav__logistics-trigger"
+              aria-expanded={logisticsOpen}
+              aria-haspopup="menu"
+              onClick={() => setLogisticsOpen((v) => !v)}
+            >
+              Logistics
+              <span className={`site-nav__caret${logisticsOpen ? ' is-open' : ''}`} aria-hidden="true">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 3.5 5 6.5 8 3.5" />
+                </svg>
+              </span>
+            </button>
+            <div className="site-nav__dropdown" role="menu">
+              {LOGISTICS_LINKS.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="site-nav__dropdown-item"
+                  role="menuitem"
+                  onClick={() => setLogisticsOpen(false)}
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </div>
           <div
             className={`site-nav__program${programOpen ? ' is-open' : ''}`}
             ref={programRef}
