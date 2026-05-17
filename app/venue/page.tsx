@@ -64,7 +64,7 @@ export default function VenuePage() {
             <p>The resort is small by design — built for groups exactly this size. Workshop spaces flow onto a stone courtyard. Walk five minutes in any direction and you&rsquo;re in the orchards, on the river bank, or at the foot of a rock face that did not exist on yesterday&rsquo;s horizon.</p>
             <p>Days alternate between structured studio sessions, outdoor 1-on-1 clinics, and the kind of unstructured time that only happens when eleven founders find themselves in a valley together with nothing else to do.</p>
           </div>
-          <div className="venue-intro__image" style={{ backgroundImage: 'url(/images/venue/Khoj%201.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '8px', minHeight: '500px' }} role="img" aria-label="Khoj Resort landscape and accommodations" />
+          <div className="venue-intro__image" role="img" aria-label="Khoj Resort landscape and accommodations" />
         </div>
       </section>
 
