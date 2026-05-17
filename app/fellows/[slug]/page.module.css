@@ -159,17 +159,17 @@
 
 .idea-band__header {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 8px;
   flex-shrink: 0;
+  margin-bottom: 16px;
 }
 
 .idea-band__line {
   display: block;
-  width: 20px;
-  height: 2px;
+  width: 100%;
+  height: 1px;
   background-color: var(--parchment);
-  flex-shrink: 0;
 }
 
 .idea-band__label {

@@ -10,8 +10,8 @@ export function IdeaBand({ fellow }: IdeaBandProps) {
     <section className={styles['idea-band']}>
       <div className={styles['idea-band__inner']}>
         <div className={styles['idea-band__header']}>
-          <span className={styles['idea-band__line']}></span>
           <p className={styles['idea-band__label']}>BIG IDEA</p>
+          <span className={styles['idea-band__line']}></span>
         </div>
         <p className={styles['idea-band__tagline']}>"{fellow.tagline}"</p>
       </div>
