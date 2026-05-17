@@ -59,10 +59,6 @@ export default function FundersPage() {
           <div className="page-hero__eyebrow" style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--ochre)', marginBottom: 16 }}>The Funders</div>
           <h1 className="page-hero__title">Capital that backs <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>scale.</em></h1>
           <p className="page-hero__subtitle">The patient-capital partners who fund the journey from working pilot to national reach.</p>
-          <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
-            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
-          </div>
         </div>
       </section>
 

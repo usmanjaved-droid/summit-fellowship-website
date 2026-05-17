@@ -111,10 +111,6 @@ export default function FacultyPage() {
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Faculty &amp; Organizers</span></div>
           <h1 className="page-hero__title">An ecosystem of <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>support.</em></h1>
           <p className="page-hero__subtitle">A curated group of founders, funders, and system-level operators bringing scale frameworks, patient capital, and the operational scars to make it real.</p>
-          <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
-            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
-          </div>
         </div>
       </section>
 

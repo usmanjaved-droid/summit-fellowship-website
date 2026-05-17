@@ -62,10 +62,6 @@ export default function CurriculumPage() {
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Curriculum</span></div>
           <h1 className="page-hero__title">Five modules. <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>One outcome.</em></h1>
           <p className="page-hero__subtitle">The curriculum is built around frameworks that work — the Mulago Scale Screen, Doer &amp; Payer at Scale, the Iterative Organization, and Clear-Language Communications.</p>
-          <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
-            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
-          </div>
         </div>
       </section>
 

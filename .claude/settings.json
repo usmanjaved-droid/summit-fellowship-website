@@ -50,7 +50,17 @@
       "Bash(Start-Sleep -Seconds 5)",
       "mcp__plugin_playwright_playwright__browser_console_messages",
       "mcp__plugin_playwright_playwright__browser_network_requests",
-      "Bash(npm audit *)"
+      "Bash(npm audit *)",
+      "Bash(Start-Sleep -Seconds 8)",
+      "Bash(Get-Content \"C:\\\\Users\\\\HP\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Summit-Fellowship-Website\\\\53950a6f-385c-47bf-b049-2e0b674c97c4\\\\tasks\\\\bbsiqthvv.output\")",
+      "Bash(Select-Object -Last 20)",
+      "Bash(next\\\\.config\")",
+      "Bash(curl -s http://localhost:3000/curriculum)",
+      "Bash(npm list *)",
+      "Bash(netstat -ano)",
+      "Bash(findstr :3000)",
+      "Bash(git reset *)",
+      "Bash(cd \"d:\\\\Summit Fellowship Website\" && rm -f *animated*.png *-test.png curriculum-page.png fellows-page.png itinerary-page.png && echo \"Test screenshots removed\" && git status)"
     ],
     "deny": [
       "Bash(rm -rf /)",
@@ -63,7 +73,8 @@
       "\\tmp",
       "C:\\Users\\HP\\AppData\\Local\\Temp\\design-DMOiWfY9\\summit-fellowship-website\\project\\assets",
       "d:\\Summit Fellowship Website\\app\\fellows\\[slug]",
-      "D:\\Summit Fellowship Website\\app\\fellows\\[slug]\\components"
+      "D:\\Summit Fellowship Website\\app\\fellows\\[slug]\\components",
+      "D:\\Summit Fellowship Website"
     ]
   }
 }

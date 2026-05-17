@@ -164,10 +164,6 @@ export default function ItineraryPage() {
             The seven-day <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>expedition.</em>
           </h1>
           <p className="page-hero__subtitle">Click any day to expand its full hour-by-hour schedule. Times are local (PKT, UTC+5) and approximate — faculty may adjust on the ground.</p>
-          <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
-            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
-          </div>
         </div>
       </section>
 

@@ -38,10 +38,6 @@ export default function FellowsPage() {
             gamified curriculum. Each leader passed a rigorous selection — now they redesign for
             millions.
           </p>
-          <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
-            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
-          </div>
         </div>
       </section>
 
