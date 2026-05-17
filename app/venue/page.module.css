@@ -36,6 +36,9 @@
 
 /* Venue Intro Image */
 .venueIntroImage {
+  background-image: url(/images/venue/Khoj%202.jpeg);
+  background-size: cover;
+  background-position: center;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(20, 39, 52, 0.15);
