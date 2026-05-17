@@ -157,6 +157,21 @@
   align-items: center;
 }
 
+.idea-band__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.idea-band__line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--parchment);
+  flex-shrink: 0;
+}
+
 .idea-band__label {
   font-family: var(--mono);
   font-size: 11px;
@@ -165,8 +180,7 @@
   letter-spacing: 0.16em;
   color: var(--parchment);
   margin: 0;
-  flex-shrink: 0;
-  padding-top: 4px;
+  white-space: nowrap;
 }
 
 .idea-band__tagline {
