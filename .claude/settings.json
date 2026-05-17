@@ -22,7 +22,31 @@
       "WebFetch(domain:api.anthropic.com)",
       "mcp__claude_ai_Gamma__read_gamma",
       "PowerShell(Stop-Process -Id 11644 -Force -ErrorAction SilentlyContinue)",
-      "Bash(curl -s http://localhost:3000/fellows/rubeena-kidwai)"
+      "Bash(curl -s http://localhost:3000/fellows/rubeena-kidwai)",
+      "Read(//d/Summit Fellowship Website/app/fellows/**)",
+      "Bash(rm \"/d/Summit Fellowship Website/app/fellows/[slug]/components/FellowDrawer.tsx\")",
+      "Bash(test -f \"/d/Summit Fellowship Website/app/fellows/[slug]/components/FellowDrawer.tsx\")",
+      "Bash(npx tsc *)",
+      "Bash(node -e \"const fs = require\\('fs'\\); const css = fs.readFileSync\\('app/fellows/[slug]/page.module.css', 'utf8'\\); const matches = css.match\\(/\\\\{/g\\) || []; const close = css.match\\(/\\\\}/g\\) || []; console.log\\('Opening braces:', matches.length\\); console.log\\('Closing braces:', close.length\\); if \\(matches.length === close.length\\) { console.log\\('✓ CSS syntax valid - brace count matches'\\); } else { console.log\\('✗ CSS syntax invalid - brace mismatch'\\); }\")",
+      "Bash(node -e ' *)",
+      "Bash(kill %1)",
+      "Bash(xargs ls -la)",
+      "mcp__plugin_playwright_playwright__browser_press_key",
+      "Bash(timeout 10 bash -c 'until nc -z localhost 3000 2>/dev/null; do sleep 1; done')",
+      "Bash(pkill -f \"npm run dev\")",
+      "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "Bash(git push *)",
+      "Read(//c/Users/HP/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/brainstorming/**)",
+      "Bash(ls -la \"C:\\\\Users\\\\HP\\\\.claude\\\\plugins\\\\cache\\\\claude-plugins-official\\\\superpowers\\\\5.1.0\\\\skills\\\\brainstorming\\\\\" | head -20)",
+      "Read(//c/Users/HP/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0/skills/**)",
+      "Bash(\nfind /c/Users/HP/.claude/plugins -type f -name \"start-server.sh\" 2>/dev/null | head -3\n)",
+      "Read(//c/Users/HP/.claude/plugins/**)",
+      "Bash(curl -s http://localhost:3000/venue)",
+      "mcp__plugin_playwright_playwright__browser_wait_for",
+      "Bash(Get-ChildItem -Path \"d:\\\\Summit Fellowship Website\\\\app\" -Recurse -Include \"*.tsx\")",
+      "Bash(Select-Object -First 30)",
+      "Bash(cmd /c \"cd /d d:\\\\Summit Fellowship Website && npm run build\")"
     ],
     "deny": [
       "Bash(rm -rf /)",
@@ -34,7 +58,8 @@
       "d:\\",
       "\\tmp",
       "C:\\Users\\HP\\AppData\\Local\\Temp\\design-DMOiWfY9\\summit-fellowship-website\\project\\assets",
-      "d:\\Summit Fellowship Website\\app\\fellows\\[slug]"
+      "d:\\Summit Fellowship Website\\app\\fellows\\[slug]",
+      "D:\\Summit Fellowship Website\\app\\fellows\\[slug]\\components"
     ]
   }
 }

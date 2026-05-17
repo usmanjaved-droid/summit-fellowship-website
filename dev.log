@@ -2,18 +2,17 @@
 > summit-fellowship@0.1.0 dev
 > next dev
 
+⚠ Port 3000 is in use by process 17196, using available port 3001 instead.
 ▲ Next.js 16.2.6 (Turbopack)
-- Local:         http://localhost:3000
-- Network:       http://192.168.1.5:3000
-✓ Ready in 314ms
+- Local:         http://localhost:3001
+- Network:       http://192.168.1.5:3001
+✓ Ready in 532ms
+⨯ Another next dev server is already running.
 
- GET / 200 in 345ms (next.js: 119ms, application-code: 227ms)
- GET /fellows/habiba-banu 200 in 674ms (next.js: 405ms, generate-params: 371ms, application-code: 269ms)
- GET /fellows/rubeena-kidwai 200 in 150ms (next.js: 12ms, generate-params: 8ms, application-code: 137ms)
- GET /fellows/azima-dhanjee 200 in 143ms (next.js: 13ms, generate-params: 8ms, application-code: 130ms)
- GET /fellows/azima-dhanjee 200 in 150ms (next.js: 15ms, generate-params: 9ms, application-code: 135ms)
- GET /fellows/azima-dhanjee 200 in 162ms (next.js: 16ms, generate-params: 11ms, application-code: 145ms)
- GET /fellows/rubeena-kidwai 200 in 135ms (next.js: 12ms, generate-params: 8ms, application-code: 123ms)
- GET /fellows/habiba-banu 200 in 87ms (next.js: 10ms, generate-params: 6ms, application-code: 76ms)
- GET /fellows 200 in 139ms (next.js: 26ms, application-code: 112ms)
- GET /fellows/azima-dhanjee 200 in 66ms (next.js: 21ms, generate-params: 13ms, application-code: 45ms)
+- Local:        http://localhost:3000
+- PID:          17196
+- Dir:          D:\Summit Fellowship Website
+- Log:          .next\dev\logs\next-development.log
+
+Run taskkill /PID 17196 /F to stop it.
+[?25h

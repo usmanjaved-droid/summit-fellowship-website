@@ -4,6 +4,17 @@ import { useEffect, useRef, useState } from 'react';
 import styles from '@/app/venue/page.module.css';
 
 export function VenueJourney() {
+  // Performance optimization strategy:
+  // - RAF debouncing prevents excessive scroll handler calls (event fires ~60fps max)
+  // - useRef for scroll progress prevents unnecessary React re-renders until committed
+  // - Passive: true allows browser to optimize scroll event performance
+  // - SVG uses stroke-dasharray/offset instead of path updates (CSS animation)
+  // - will-change CSS hints browser for animation optimization
+  // - No expensive operations in scroll handler (only Math.max/min)
+  // - Event listeners properly cleaned up on unmount (no memory leaks)
+  // - ARIA labels ensure screen reader compatibility
+  // Target: 60fps smooth scroll with no jank during elevation animation
+
   const containerRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef(0);
   const [currentElevation, setCurrentElevation] = useState(1700);
@@ -54,11 +65,19 @@ export function VenueJourney() {
   }, []);
 
   return (
-    <section className={styles['venue-journey']} ref={containerRef}>
+    <section
+      className={styles['venue-journey']}
+      ref={containerRef}
+      aria-label="Interactive elevation journey from Skardu Airport to Khoj Resort"
+    >
       <div className={styles['venue-journey__inner']}>
         <div className={styles['venue-journey__content']}>
           {/* Elevation profile on left */}
-          <div className={styles['venue-journey__elevation']}>
+          <div
+            className={styles['venue-journey__elevation']}
+            role="region"
+            aria-label="Elevation profile showing current altitude and waypoints"
+          >
             <div className={styles['venue-journey__profile']}>
               <div className={styles['venue-journey__axis']}>
                 <div className={styles['venue-journey__gridline']} style={{ top: '0%' }}>
@@ -107,7 +126,12 @@ export function VenueJourney() {
               </div>
             </div>
 
-            <div className={styles['venue-journey__elevation-display']}>
+            <div
+              className={styles['venue-journey__elevation-display']}
+              role="status"
+              aria-live="polite"
+              aria-label={`Current elevation: ${currentElevation.toLocaleString()} meters`}
+            >
               <div className={styles['venue-journey__elevation-label']}>Elevation</div>
               <div className={styles['venue-journey__elevation-value']}>
                 {currentElevation.toLocaleString()}m
@@ -117,7 +141,12 @@ export function VenueJourney() {
 
           {/* Landscape SVG on right */}
           <div className={styles['venue-journey__landscape']} style={{ position: 'relative' }}>
-            <svg viewBox="0 0 1200 600" className={styles['venue-journey__svg']}>
+            <svg
+              viewBox="0 0 1200 600"
+              className={styles['venue-journey__svg']}
+              role="img"
+              aria-label="Illustrated landscape showing the journey from Skardu Airport at 1,700 meters to Khoj Resort at 2,228 meters, featuring distant peaks, city skyline, foothills, Shigar River, orchards, and mountain resort"
+            >
               <defs>
                 {/* Sky gradient */}
                 <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -315,7 +344,11 @@ export function VenueJourney() {
             </svg>
 
             {/* Waypoint Markers Overlay */}
-            <div className={styles['venue-journey__markers-container']}>
+            <div
+              className={styles['venue-journey__markers-container']}
+              role="region"
+              aria-label="Waypoint markers showing journey stages and experiences"
+            >
               {/* Airport marker - visible 0-20% */}
               <div
                 className={styles['venue-journey__marker']}

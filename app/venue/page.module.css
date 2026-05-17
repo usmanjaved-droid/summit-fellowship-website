@@ -3,6 +3,9 @@
   background-color: var(--paper-warm);
   padding: 80px 32px;
   overflow: hidden;
+  /* Performance optimization: GPU acceleration for smooth scroll */
+  will-change: auto;
+  transform: translateZ(0);
 }
 
 .venue-journey__inner {
@@ -81,6 +84,10 @@
   background: linear-gradient(to top, var(--ochre), var(--ochre-pale));
   opacity: 0.6;
   transition: height 0.05s ease-out;
+  /* Hardware acceleration for smooth animations */
+  will-change: height;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .venue-journey__needle {
@@ -90,6 +97,10 @@
   height: 2px;
   background: var(--ochre-deep);
   opacity: 0.8;
+  /* Hardware acceleration for needle position tracking */
+  will-change: bottom;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .venue-journey__markers {
@@ -160,6 +171,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Optimize marker rendering */
+  will-change: opacity;
+  contain: layout style paint;
 }
 
 .venue-journey__marker {
@@ -375,6 +389,10 @@
   min-height: 400px;
   display: block;
   margin: 0 auto;
+  /* SVG rendering optimization */
+  will-change: opacity;
+  backface-visibility: hidden;
+  shape-rendering: geometricPrecision;
 }
 
 /* SVG Layer Groups */
@@ -384,26 +402,39 @@
 
 .journey__city {
   transition: opacity 0.5s ease-in;
+  /* Hardware acceleration for opacity animations */
+  will-change: opacity;
+  backface-visibility: hidden;
 }
 
 .journey__foothills {
   transition: opacity 0.6s ease-out;
+  will-change: opacity;
+  backface-visibility: hidden;
 }
 
 .journey__river {
   transition: opacity 0.5s ease-out;
+  will-change: opacity;
+  backface-visibility: hidden;
 }
 
 .journey__orchards {
   transition: opacity 0.5s ease-out;
+  will-change: opacity;
+  backface-visibility: hidden;
 }
 
 .journey__khoj {
   transition: opacity 0.8s ease-out;
+  will-change: opacity;
+  backface-visibility: hidden;
 }
 
 .journey__markers {
   transition: opacity 0.3s ease-out;
+  will-change: opacity;
+  backface-visibility: hidden;
 }
 
 /* Accessibility: respect prefers-reduced-motion */
