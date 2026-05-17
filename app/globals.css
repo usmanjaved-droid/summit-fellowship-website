@@ -282,6 +282,7 @@ p { text-wrap: pretty; margin: 0; }
   z-index: 50;
 }
 .site-nav__people.is-open .site-nav__dropdown { display: flex; flex-direction: column; }
+.site-nav__program.is-open .site-nav__dropdown { display: flex; flex-direction: column; }
 .site-nav__dropdown-item {
   font-family: var(--mono);
   font-size: 11px;
@@ -296,6 +297,8 @@ p { text-wrap: pretty; margin: 0; }
 @media (max-width: 1100px) {
   body.menu-open .site-nav__people { display: block; width: 100%; }
   body.menu-open .site-nav__people-trigger { width: 100%; justify-content: flex-start; padding: 12px 0; font-size: 13px; }
+  body.menu-open .site-nav__program { display: block; width: 100%; }
+  body.menu-open .site-nav__program-trigger { width: 100%; justify-content: flex-start; padding: 12px 0; font-size: 13px; }
   body.menu-open .site-nav__dropdown {
     display: flex;
     flex-direction: column;
