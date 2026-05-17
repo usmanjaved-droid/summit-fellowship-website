@@ -288,7 +288,7 @@
 /* ===== 5. Fellow Navigation ===== */
 .fellow-navigation {
   position: fixed;
-  top: 20px;
+  top: 80px;
   right: 20px;
   z-index: 100;
 }
@@ -324,7 +324,7 @@
 
 @media (max-width: 640px) {
   .fellow-navigation {
-    top: 16px;
+    top: 70px;
     right: 16px;
   }
 
