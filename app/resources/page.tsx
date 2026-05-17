@@ -52,10 +52,6 @@ export default function ResourcesPage() {
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Resources</span></div>
           <h1 className="page-hero__title">Resources &amp; <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>downloads.</em></h1>
           <p className="page-hero__subtitle">Pre-reads, frameworks, the full itinerary as a PDF, and links to everything the cohort needs before, during, and after the week.</p>
-          <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
-            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
-          </div>
         </div>
       </section>
 

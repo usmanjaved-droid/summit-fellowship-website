@@ -48,10 +48,6 @@ export default function TravelPage() {
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Travel &amp; Logistics</span></div>
           <h1 className="page-hero__title">Getting to <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>Skardu.</em></h1>
           <p className="page-hero__subtitle">Two ways in, one preferred. Here&rsquo;s what you need to know about flights, transfers, packing, and the small things that catch first-time visitors out.</p>
-          <div className="page-hero__meta">
-            <div className="page-hero__meta-item"><span className="label">Dates</span><span className="value">07 — 14 June 2026</span></div>
-            <div className="page-hero__meta-item"><span className="label">Venue</span><span className="value">Khoj Resort, Skardu</span></div>
-          </div>
         </div>
       </section>
 
