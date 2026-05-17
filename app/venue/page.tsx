@@ -28,6 +28,13 @@ const WEATHER = [
   { date: 'Coolest night', icon: <CloudIcon />, hi: '7°', lo: '' },
 ];
 
+const FOOD_ITEMS = [
+  { icon: '🥘', title: 'Balti Tandoori', desc: 'Grilled meats with regional spices and traditional firewood smoke — the soul of local cuisine.' },
+  { icon: '🍖', title: 'BBQ & Grills', desc: 'Farm-to-table proteins prepared over open flame. Local specialties and international cuts.' },
+  { icon: '🥗', title: 'Vegetarian & Halal', desc: 'Equally thoughtful preparation. Continental and local options available daily.' },
+  { icon: '☕', title: 'Breakfast Buffet', desc: 'Continental, à la carte, and local options. Tea service all day. Fresh-baked bread.' },
+];
+
 const SPACES = [
   { num: '01', title: 'The Studio', desc: 'Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.', img: 'https://images.unsplash.com/photo-1577415124269-fc1140a69e91?auto=format&fit=crop&w=900&q=80' },
   { num: '02', title: 'The Courtyard', desc: 'Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.', img: 'https://images.unsplash.com/photo-1604608672516-f1b9b1d1c1b7?auto=format&fit=crop&w=900&q=80' },
@@ -233,6 +240,25 @@ export default function VenuePage() {
                 Indicative June ranges · °C
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="food-section">
+        <div className="container">
+          <div className="section-head">
+            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Dining</span></div>
+            <h2>Where every<br /><em>meal matters.</em></h2>
+            <p>Khoj&rsquo;s restaurant, Raah, sources locally and cooks with intention. Balti Tandoori, grilled meats, continental breakfast, and options for vegetarian and halal diets. Food here is part of the experience, not an afterthought.</p>
+          </div>
+          <div className="food-grid">
+            {FOOD_ITEMS.map((item) => (
+              <article key={item.title} className="food-card">
+                <div className="food-card__icon">{item.icon}</div>
+                <h3 className="food-card__title">{item.title}</h3>
+                <p className="food-card__desc">{item.desc}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
