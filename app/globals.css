@@ -1374,7 +1374,7 @@ p { text-wrap: pretty; margin: 0; }
 .venue-intro__copy h2 { font-family: var(--serif); font-size: clamp(48px, 6vw, 96px); color: var(--alpine-deep); line-height: 0.95; letter-spacing: -0.025em; margin-bottom: 32px; }
 .venue-intro__copy h2 em { color: var(--clay); font-style: italic; }
 .venue-intro__copy p { font-size: 18px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 20px; }
-.venue-intro__image { aspect-ratio: 4/5; background: linear-gradient(180deg, rgba(20, 39, 52, 0.2) 0%, rgba(20, 39, 52, 0.4) 100%), url("/images/venue/Khoj%201.jpeg") center/cover; position: relative; border-radius: 8px; }
+.venue-intro__image { aspect-ratio: 4/5; background: linear-gradient(180deg, rgba(20, 39, 52, 0.2) 0%, rgba(20, 39, 52, 0.4) 100%), url("/images/venue/khoj%204.jpg") center/cover; position: relative; border-radius: 8px; }
 .venue-intro__image::after { content: "Khoj Resort · Shigar Valley"; position: absolute; bottom: 24px; left: 24px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--paper); background: rgba(20, 39, 52, 0.6); padding: 8px 12px; backdrop-filter: blur(4px); }
 @media (max-width: 900px) { .venue-intro__grid { grid-template-columns: 1fr; gap: 40px; } }
 
