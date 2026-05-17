@@ -257,6 +257,25 @@ p { text-wrap: pretty; margin: 0; }
   line-height: 1;
 }
 .site-nav__people-trigger:hover { color: var(--alpine-deep); background: var(--paper-warm); }
+
+/* Program dropdown */
+.site-nav__program { position: relative; display: inline-flex; }
+.site-nav__program-trigger {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  line-height: 1;
+}
+.site-nav__program-trigger:hover { color: var(--alpine-deep); background: var(--paper-warm); }
 .site-nav__caret {
   display: inline-flex;
   align-items: center;
