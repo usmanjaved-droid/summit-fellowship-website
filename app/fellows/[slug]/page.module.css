@@ -151,9 +151,8 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--clay);
+  color: var(--ochre);
   margin: 0 0 24px 0;
-  word-spacing: 0.2em;
 }
 
 .fellow-section__content {
@@ -209,9 +208,8 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--clay);
+  color: var(--ochre);
   margin-bottom: 8px;
-  word-spacing: 0.2em;
 }
 
 .fellow-sidebar__value {
