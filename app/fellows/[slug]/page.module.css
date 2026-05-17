@@ -424,7 +424,7 @@
 
 .fellow-navigation__link:hover {
   background-color: var(--clay);
-  text-decoration: underline;
+  color: white;
 }
 
 /* Stacked navigation on mobile */
