@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { VenueJourney } from '@/app/components/VenueJourney';
 
 export const metadata = {
   title: 'Khoj Resort, Skardu — Summit Fellowship',
@@ -40,8 +39,6 @@ export default function VenuePage() {
           <div className="venue-intro__image" role="img" aria-label="Khoj Resort exterior in the Shigar valley" />
         </div>
       </section>
-
-      <VenueJourney />
 
       <section className="map-section">
         <div className="container map-section__inner">

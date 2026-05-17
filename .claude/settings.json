@@ -49,7 +49,8 @@
       "Bash(cmd /c \"cd /d d:\\\\Summit Fellowship Website && npm run build\")",
       "Bash(Start-Sleep -Seconds 5)",
       "mcp__plugin_playwright_playwright__browser_console_messages",
-      "mcp__plugin_playwright_playwright__browser_network_requests"
+      "mcp__plugin_playwright_playwright__browser_network_requests",
+      "Bash(npm audit *)"
     ],
     "deny": [
       "Bash(rm -rf /)",
