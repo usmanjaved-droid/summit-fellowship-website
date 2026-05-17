@@ -8,6 +8,7 @@ export function VenueJourney() {
   const progressRef = useRef(0);
   const [currentElevation, setCurrentElevation] = useState(1700);
   const [fillPercent, setFillPercent] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +24,7 @@ export function VenueJourney() {
       const clamped = Math.max(0, Math.min(1, progress));
 
       progressRef.current = clamped;
+      setScrollProgress(clamped);
 
       // Update elevation based on progress
       const minElevation = 1700;
@@ -115,7 +117,202 @@ export function VenueJourney() {
 
           {/* Landscape SVG on right */}
           <div className={styles['venue-journey__landscape']}>
-            <p>SVG landscape here</p>
+            <svg viewBox="0 0 1200 600" className={styles['venue-journey__svg']}>
+              <defs>
+                {/* Sky gradient */}
+                <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="var(--alpine-deep)" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="var(--parchment)" stopOpacity="0.8" />
+                </linearGradient>
+
+                {/* Mountain peak shadow */}
+                <linearGradient id="peakGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="var(--ink-faint)" stopOpacity="0.4" />
+                  <stop offset="100%" stopColor="var(--ink-faint)" stopOpacity="0.15" />
+                </linearGradient>
+              </defs>
+
+              {/* Background: Sky */}
+              <rect width="1200" height="600" fill="url(#skyGradient)" />
+
+              {/* Distant Peaks (always visible, subtle) */}
+              <g className={styles['journey__peaks-far']}>
+                <path
+                  d="M 0 300 L 100 180 L 200 300 L 200 600 L 0 600 Z"
+                  fill="var(--ink-faint)"
+                  opacity="0.08"
+                />
+                <path
+                  d="M 180 320 L 300 160 L 420 320 L 420 600 L 180 600 Z"
+                  fill="var(--ink-faint)"
+                  opacity="0.06"
+                />
+                <path
+                  d="M 700 310 L 850 170 L 1000 310 L 1000 600 L 700 600 Z"
+                  fill="var(--ink-faint)"
+                  opacity="0.08"
+                />
+                <path
+                  d="M 1050 300 L 1140 200 L 1200 300 L 1200 600 L 1050 600 Z"
+                  fill="var(--ink-faint)"
+                  opacity="0.06"
+                />
+              </g>
+
+              {/* City Skyline (fades in early, then out) */}
+              <g className={styles['journey__city']} style={{ opacity: Math.max(0, 1 - scrollProgress * 15) }}>
+                {/* Buildings */}
+                <rect x="850" y="200" width="20" height="100" fill="var(--ink-faint)" opacity="0.4" />
+                <rect x="900" y="180" width="25" height="120" fill="var(--ink-faint)" opacity="0.35" />
+                <rect x="950" y="210" width="18" height="90" fill="var(--ink-faint)" opacity="0.4" />
+                <rect x="1000" y="220" width="22" height="80" fill="var(--ink-faint)" opacity="0.38" />
+
+                {/* Windows */}
+                <rect x="856" y="210" width="3" height="3" fill="var(--parchment)" opacity="0.6" />
+                <rect x="856" y="220" width="3" height="3" fill="var(--parchment)" opacity="0.6" />
+                <rect x="906" y="190" width="3" height="3" fill="var(--parchment)" opacity="0.6" />
+                <rect x="906" y="200" width="3" height="3" fill="var(--parchment)" opacity="0.6" />
+              </g>
+
+              {/* Foothills (appear mid-scroll ~20-50%) */}
+              <g className={styles['journey__foothills']} style={{ opacity: Math.min(1, Math.max(0, scrollProgress * 2.5 - 0.3)) }}>
+                {/* Left foothills */}
+                <path
+                  d="M 0 380 Q 80 320 160 360 Q 240 400 320 350 Q 400 300 480 380 L 480 600 L 0 600 Z"
+                  fill="var(--clay)"
+                  opacity="0.4"
+                />
+
+                {/* Right foothills */}
+                <path
+                  d="M 720 350 Q 800 280 880 320 Q 960 360 1050 300 Q 1150 240 1200 350 L 1200 600 L 720 600 Z"
+                  fill="var(--clay)"
+                  opacity="0.35"
+                />
+
+                {/* Mid foothills accent */}
+                <path
+                  d="M 400 420 Q 500 360 600 420 L 600 600 L 400 600 Z"
+                  fill="var(--ochre)"
+                  opacity="0.25"
+                />
+              </g>
+
+              {/* Shigar River (animates in ~30-100%) */}
+              <g className={styles['journey__river']}>
+                <path
+                  d="M 600 200 Q 570 280 600 360 Q 620 420 600 500"
+                  stroke="var(--alpine-deep)"
+                  strokeWidth="12"
+                  fill="none"
+                  strokeLinecap="round"
+                  opacity={Math.max(0.1, scrollProgress - 0.2)}
+                  style={{
+                    strokeDasharray: '500px',
+                    strokeDashoffset: `${Math.max(0, 500 - (scrollProgress > 0.3 ? (scrollProgress - 0.3) * 700 : 0))}px`,
+                  }}
+                />
+
+                {/* River reflection/shimmer */}
+                <path
+                  d="M 600 200 Q 570 280 600 360 Q 620 420 600 500"
+                  stroke="var(--parchment)"
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                  opacity={Math.max(0, scrollProgress - 0.3) * 0.4}
+                  style={{
+                    strokeDasharray: '500px',
+                    strokeDashoffset: `${Math.max(0, 500 - (scrollProgress > 0.3 ? (scrollProgress - 0.3) * 700 : 0))}px`,
+                  }}
+                />
+              </g>
+
+              {/* Valley Floor / Orchards (fade in ~40-100%) */}
+              <g className={styles['journey__orchards']} style={{ opacity: Math.max(0, scrollProgress - 0.4) }}>
+                {/* Orchard ground */}
+                <path
+                  d="M 0 480 L 1200 480 L 1200 600 L 0 600 Z"
+                  fill="var(--parchment)"
+                  opacity="0.5"
+                />
+
+                {/* Apricot trees - stylized circles */}
+                {/* Left grove */}
+                <circle cx="120" cy="430" r="38" fill="var(--clay)" opacity="0.6" />
+                <circle cx="180" cy="445" r="35" fill="var(--clay)" opacity="0.55" />
+                <circle cx="240" cy="435" r="36" fill="var(--clay)" opacity="0.58" />
+
+                {/* Center grove */}
+                <circle cx="420" cy="440" r="40" fill="var(--clay)" opacity="0.65" />
+                <circle cx="480" cy="450" r="38" fill="var(--clay)" opacity="0.6" />
+
+                {/* Right grove */}
+                <circle cx="880" cy="435" r="42" fill="var(--clay)" opacity="0.62" />
+                <circle cx="950" cy="445" r="38" fill="var(--clay)" opacity="0.58" />
+                <circle cx="1040" cy="435" r="40" fill="var(--clay)" opacity="0.6" />
+
+                {/* Tree details - trunks/stems */}
+                <line x1="120" y1="465" x2="120" y2="490" stroke="var(--clay)" strokeWidth="3" opacity="0.4" />
+                <line x1="180" y1="475" x2="180" y2="495" stroke="var(--clay)" strokeWidth="3" opacity="0.4" />
+                <line x1="240" y1="468" x2="240" y2="490" stroke="var(--clay)" strokeWidth="3" opacity="0.4" />
+              </g>
+
+              {/* Khoj Resort (fade in ~80-100%) */}
+              <g className={styles['journey__khoj']} style={{ opacity: Math.max(0, scrollProgress - 0.75) }}>
+                {/* Hillside base */}
+                <path
+                  d="M 450 420 Q 550 350 650 420 L 650 500 L 450 500 Z"
+                  fill="var(--clay)"
+                  opacity="0.35"
+                />
+
+                {/* Main building - pyramid/tent silhouette */}
+                <path
+                  d="M 550 360 L 590 420 L 510 420 Z"
+                  fill="var(--alpine-deep)"
+                  opacity="0.8"
+                />
+
+                {/* Building accent - entrance */}
+                <rect x="555" y="405" width="30" height="15" fill="var(--ochre)" opacity="0.5" />
+
+                {/* Windows/Details */}
+                <circle cx="565" cy="385" r="4" fill="var(--parchment)" opacity="0.6" />
+                <circle cx="575" cy="385" r="4" fill="var(--parchment)" opacity="0.6" />
+
+                {/* Resort label indicator */}
+                <text
+                  x="550"
+                  y="450"
+                  fontFamily="var(--font-serif)"
+                  fontSize="14"
+                  fill="var(--ink-soft)"
+                  opacity="0.5"
+                  textAnchor="middle"
+                >
+                  Khoj
+                </text>
+              </g>
+
+              {/* Elevation markers (always visible, very subtle) */}
+              <g className={styles['journey__markers']} opacity="0.2">
+                <line x1="10" y1="200" x2="30" y2="200" stroke="var(--ink-faint)" strokeWidth="1" />
+                <text x="35" y="205" fontFamily="var(--font-mono)" fontSize="9" fill="var(--ink-faint)">
+                  2,200m
+                </text>
+
+                <line x1="10" y1="350" x2="30" y2="350" stroke="var(--ink-faint)" strokeWidth="1" />
+                <text x="35" y="355" fontFamily="var(--font-mono)" fontSize="9" fill="var(--ink-faint)">
+                  ~1,900m
+                </text>
+
+                <line x1="10" y1="500" x2="30" y2="500" stroke="var(--ink-faint)" strokeWidth="1" />
+                <text x="35" y="505" fontFamily="var(--font-mono)" fontSize="9" fill="var(--ink-faint)">
+                  1,700m
+                </text>
+              </g>
+            </svg>
           </div>
         </div>
       </div>
