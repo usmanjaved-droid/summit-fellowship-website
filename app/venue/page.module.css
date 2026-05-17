@@ -26,6 +26,145 @@
   flex: 1;
 }
 
+.venue-journey__profile {
+  position: relative;
+  height: 400px;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 12px;
+}
+
+.venue-journey__axis {
+  position: relative;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to top, var(--line), var(--line-soft));
+  flex-shrink: 0;
+}
+
+.venue-journey__peak-label {
+  position: absolute;
+  top: -24px;
+  left: -28px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+}
+
+.venue-journey__gridline {
+  position: absolute;
+  width: 8px;
+  height: 1px;
+  background: var(--line-soft);
+  left: -3px;
+}
+
+.venue-journey__bar-container {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.venue-journey__progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(to top, var(--ochre), var(--ochre-pale));
+  opacity: 0.6;
+  transition: height 0.05s ease-out;
+}
+
+.venue-journey__needle {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--ochre-deep);
+  opacity: 0.8;
+}
+
+.venue-journey__markers {
+  position: absolute;
+  top: 0;
+  right: -120px;
+  height: 100%;
+  width: 100px;
+}
+
+.venue-journey__marker {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  transform: translateY(-50%);
+}
+
+.venue-journey__marker-label {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.venue-journey__marker-elevation {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  letter-spacing: 0.16em;
+}
+
+.venue-journey__elevation-display {
+  padding: 16px;
+  background: var(--alpine-soft);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.venue-journey__elevation-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  letter-spacing: 0.16em;
+  margin-bottom: 8px;
+}
+
+.venue-journey__elevation-value {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ochre);
+  line-height: 1.1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 1023px) {
+  .venue-journey__profile {
+    height: 300px;
+  }
+
+  .venue-journey__markers {
+    right: -100px;
+    width: 80px;
+  }
+
+  .venue-journey__elevation-value {
+    font-size: 24px;
+  }
+}
+
 /* Mobile: stack vertically */
 @media (max-width: 640px) {
   .venue-journey {
@@ -36,5 +175,18 @@
     grid-template-columns: 1fr;
     gap: 24px;
     min-height: auto;
+  }
+
+  .venue-journey__profile {
+    height: 200px;
+    margin-bottom: 24px;
+  }
+
+  .venue-journey__elevation-display {
+    padding: 12px;
+  }
+
+  .venue-journey__elevation-value {
+    font-size: 20px;
   }
 }
