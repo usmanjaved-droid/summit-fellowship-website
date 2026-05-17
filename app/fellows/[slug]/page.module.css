@@ -109,7 +109,8 @@
 /* ===== 2. Idea Band Section ===== */
 .idea-band {
   background-color: var(--clay);
-  padding: 40px 32px;
+  border-left: 4px solid var(--ochre);
+  padding: 48px 32px;
   text-align: center;
 }
 
