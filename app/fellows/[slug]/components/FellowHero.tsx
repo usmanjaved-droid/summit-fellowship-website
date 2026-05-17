@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Fellow } from '@/lib/fellows';
+import { Fellow, getAllFellows } from '@/lib/fellows';
 import styles from '../page.module.css';
 
 type FellowHeroProps = {
@@ -14,10 +14,16 @@ export function FellowHero({ fellow }: FellowHeroProps) {
     .toUpperCase()
     .slice(0, 2);
 
+  const allFellows = getAllFellows();
+  const fellowNumber = allFellows.findIndex((f) => f.id === fellow.id) + 1;
+
   return (
     <section className={styles['fellow-hero']}>
       <div className={styles['fellow-hero__inner']}>
         <div className={styles['fellow-hero__content']}>
+          <p className={styles['fellow-hero__meta']}>
+            FELLOW NO. {fellowNumber.toString().padStart(2, '0')} / {allFellows.length} / {fellow.sector.toUpperCase()}
+          </p>
           <h1 className={styles['fellow-hero__name']}>{fellow.name}</h1>
           <p className={styles['fellow-hero__problem']}>{fellow.idea_context}</p>
         </div>
