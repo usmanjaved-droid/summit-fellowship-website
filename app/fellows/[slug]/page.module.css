@@ -153,8 +153,8 @@
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  gap: 32px;
-  align-items: flex-start;
+  gap: 16px;
+  align-items: center;
 }
 
 .idea-band__label {
