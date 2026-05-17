@@ -41,6 +41,8 @@ export default function VenuePage() {
         </div>
       </section>
 
+      <VenueJourney />
+
       <section className="map-section">
         <div className="container map-section__inner">
           <div className="map-section__head">
@@ -161,8 +163,6 @@ export default function VenuePage() {
           </div>
         </div>
       </section>
-
-      <VenueJourney />
 
       <section className="spaces">
         <div className="container">
