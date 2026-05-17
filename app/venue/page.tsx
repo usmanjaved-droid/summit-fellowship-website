@@ -4,6 +4,30 @@ export const metadata = {
   title: 'Khoj Resort, Skardu — Summit Fellowship',
 };
 
+const SunIcon = () => (
+  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5" />
+  </svg>
+);
+const CloudIcon = () => (
+  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path d="M6 14a4 4 0 014-4 5 5 0 019.6 1.6A3.5 3.5 0 0119 18H7a4 4 0 01-1-4z" />
+  </svg>
+);
+const PartIcon = () => (
+  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4 12H2M22 12h-2" />
+  </svg>
+);
+
+const WEATHER = [
+  { date: 'Typical day', icon: <SunIcon />, hi: '20°', lo: '7°' },
+  { date: 'Warmest', icon: <PartIcon />, hi: '24°', lo: '' },
+  { date: 'Coolest night', icon: <CloudIcon />, hi: '7°', lo: '' },
+];
+
 const SPACES = [
   { num: '01', title: 'The Studio', desc: 'Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.', img: 'https://images.unsplash.com/photo-1577415124269-fc1140a69e91?auto=format&fit=crop&w=900&q=80' },
   { num: '02', title: 'The Courtyard', desc: 'Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.', img: 'https://images.unsplash.com/photo-1604608672516-f1b9b1d1c1b7?auto=format&fit=crop&w=900&q=80' },
@@ -179,6 +203,36 @@ export default function VenuePage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="travel-section travel-section--warm">
+        <div className="container">
+          <div className="section-title">
+            <h2>What to <em>expect.</em></h2>
+            <span className="eyebrow">Weather</span>
+          </div>
+          <div className="weather">
+            <div className="weather__copy">
+              <h3>June weather<br />in <em>Skardu.</em></h3>
+              <p>Dry, sunny days with 9-10 hours of daily sunshine. Cool mornings (7°C) and comfortable afternoons (18-20°C). Occasional afternoon thunderstorms that pass quickly. The intense altitude sun requires SPF 50+.</p>
+              <p>Pack layers. A light fleece or windbreaker is essential for mornings and evenings. June averages 37-65% humidity and only ~4 rainy days monthly.</p>
+            </div>
+            <div className="weather__chart">
+              <div className="weather__grid">
+                {WEATHER.map((w) => (
+                  <div className="weather-day" key={w.date}>
+                    <div className="date">{w.date}</div>
+                    {w.icon}
+                    <div className="temp">{w.hi}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: 20, fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.14em', color: 'var(--ink-mute)', textTransform: 'uppercase' }}>
+                Indicative June ranges · °C
+              </div>
+            </div>
           </div>
         </div>
       </section>
