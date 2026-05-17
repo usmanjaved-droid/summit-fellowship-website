@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from './page.module.css';
 
 export const metadata = {
   title: 'Khoj Resort, Skardu — Summit Fellowship',
@@ -45,12 +46,12 @@ const SPACES = [
 export default function VenuePage() {
   return (
     <>
-      <section className="page-hero page-hero--with-image" style={{ backgroundImage: 'url(/images/venue/Khoj%20Resort%20main%20page.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', minHeight: '600px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }} data-screen-label="Venue Hero">
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,39,52,0.3) 0%, rgba(20,39,52,0.5) 100%)' }} aria-hidden="true" />
-        <div className="container page-hero__inner" style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '800px' }}>
+      <section className={`page-hero ${styles.pageHeroImage}`} style={{ minHeight: '600px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }} data-screen-label="Venue Hero">
+        <div className={styles.pageHeroOverlay} aria-hidden="true" />
+        <div className={`container ${styles.pageHeroInnerWrapper}`}>
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Venue</span></div>
-          <h1 className="page-hero__title" style={{ fontSize: 'clamp(48px, 8vw, 90px)', color: 'var(--paper)', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>Khoj Resort, <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>Skardu.</em></h1>
-          <p className="page-hero__subtitle" style={{ color: 'var(--parchment)', fontSize: 'clamp(16px, 2vw, 20px)' }}>Tucked into the Shigar valley with the Karakoram rising on every side. A deliberate retreat from city noise, signal, and obligation.</p>
+          <h1 className={`page-hero__title ${styles.pageHeroTitle}`}>Khoj Resort, <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>Skardu.</em></h1>
+          <p className={`page-hero__subtitle ${styles.pageHeroSubtitle}`}>Tucked into the Shigar valley with the Karakoram rising on every side. A deliberate retreat from city noise, signal, and obligation.</p>
         </div>
       </section>
 
