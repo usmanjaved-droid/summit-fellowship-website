@@ -279,6 +279,7 @@
   transition: all 200ms ease-out;
   line-height: 1;
   padding: 0;
+  cursor: pointer;
 }
 
 .fellow-navigation__close:hover {
