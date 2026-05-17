@@ -44,14 +44,9 @@ export default async function FellowDetailPage({ params }: PageProps) {
     );
   }
 
-  const allFellows = getAllFellows();
-  const currentIndex = allFellows.findIndex((f) => f.id === fellow.id);
-  const prevFellow = currentIndex > 0 ? allFellows[currentIndex - 1] : null;
-  const nextFellow = currentIndex < allFellows.length - 1 ? allFellows[currentIndex + 1] : null;
-
   return (
     <div className={styles['fellow-detail']}>
-      <FellowNavigation prevFellow={prevFellow || undefined} nextFellow={nextFellow || undefined} />
+      <FellowNavigation />
 
       <FellowHero fellow={fellow} />
       <IdeaBand fellow={fellow} />

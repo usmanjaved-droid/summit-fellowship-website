@@ -1,5 +1,29 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(npm run *)",
+      "Bash(sleep 3 && cat /tmp/dev.log | head -20)",
+      "Read(//tmp/**)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "mcp__plugin_playwright_playwright__browser_hover",
+      "mcp__plugin_playwright_playwright__browser_run_code_unsafe",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "Bash(pkill -f \"node.*next\")",
+      "mcp__plugin_playwright_playwright__browser_tabs",
+      "Bash(Select-String -Path \"d:\\\\Summit Fellowship Website\\\\app\\\\fellows\\\\[slug]\\\\page.module.css\" -Pattern \"\\\\.fellow-navigation\")",
+      "Bash(Select-Object -First 20)",
+      "WebFetch(domain:api.anthropic.com)",
+      "mcp__claude_ai_Gamma__read_gamma",
+      "PowerShell(Stop-Process -Id 11644 -Force -ErrorAction SilentlyContinue)",
+      "Bash(curl -s http://localhost:3000/fellows/rubeena-kidwai)"
+    ],
     "deny": [
       "Bash(rm -rf /)",
       "Bash(rm -rf C:\\Windows)",
@@ -11,10 +35,6 @@
       "\\tmp",
       "C:\\Users\\HP\\AppData\\Local\\Temp\\design-DMOiWfY9\\summit-fellowship-website\\project\\assets",
       "d:\\Summit Fellowship Website\\app\\fellows\\[slug]"
-    ],
-    "allow": [
-      "Bash(git add *)",
-      "Bash(git commit *)"
     ]
   }
 }
