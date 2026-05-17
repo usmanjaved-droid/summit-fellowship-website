@@ -1,5 +1,26 @@
 /* ========== Fellow Detail Page - Comprehensive Styling ========== */
 
+/* ===== Keyframe Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ===== 1. Fellow Hero Section ===== */
 .fellow-hero {
   position: relative;
@@ -7,6 +28,7 @@
   color: var(--parchment);
   overflow: hidden;
   padding: 64px 32px;
+  animation: fadeInUp 600ms ease-out;
 }
 
 .fellow-hero::before {
@@ -46,11 +68,12 @@
 }
 
 .fellow-hero__problem {
+  font-family: var(--sans);
   font-size: 18px;
   line-height: 1.6;
   color: var(--parchment);
   margin: 0;
-  font-style: italic;
+  font-style: normal;
 }
 
 .fellow-hero__media {
@@ -112,6 +135,8 @@
   border-left: 4px solid var(--ochre);
   padding: 48px 32px;
   text-align: center;
+  animation: fadeIn 600ms ease-out 200ms both;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .idea-band__inner {
@@ -162,10 +187,13 @@
   color: var(--ink-soft);
   margin: 0;
   max-width: 75ch;
+  background-color: var(--paper-warm);
+  border: 1px solid var(--line-soft);
+  padding: 24px;
 }
 
 .fellow-section__content p {
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
 }
 
 .fellow-section__content p:last-child {
@@ -184,14 +212,14 @@
 
 /* ===== 4. Fellow Sidebar ===== */
 .fellow-sidebar {
-  position: sticky;
-  top: 80px;
+  position: relative;
   background-color: var(--paper);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 32px;
   height: fit-content;
   max-width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .fellow-sidebar__section {
@@ -235,10 +263,11 @@
   padding: 8px;
   border-radius: 4px;
   margin: -8px;
+  cursor: pointer;
 }
 
 .fellow-sidebar__link:hover {
-  background-color: var(--clay);
+  background-color: var(--ochre);
   color: white;
 }
 
