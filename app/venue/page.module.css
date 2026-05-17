@@ -1,0 +1,40 @@
+/* ===== Venue Journey Section ===== */
+.venue-journey {
+  background-color: var(--paper-warm);
+  padding: 80px 32px;
+  overflow: hidden;
+}
+
+.venue-journey__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.venue-journey__content {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 48px;
+  align-items: center;
+  min-height: 600px;
+}
+
+.venue-journey__elevation {
+  flex: 1;
+}
+
+.venue-journey__landscape {
+  flex: 1;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 640px) {
+  .venue-journey {
+    padding: 48px 16px;
+  }
+
+  .venue-journey__content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    min-height: auto;
+  }
+}
