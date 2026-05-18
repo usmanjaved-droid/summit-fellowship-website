@@ -643,7 +643,7 @@ p { text-wrap: pretty; margin: 0; }
 .hero__bg {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(20, 39, 52, 0.55) 0%, rgba(12, 26, 34, 0.95) 100%),
+    linear-gradient(90deg, rgba(20, 39, 52, 0.8) 0%, rgba(20, 39, 52, 0.5) 30%, rgba(20, 39, 52, 0.1) 60%, transparent 100%),
     url("/images/skardu/Hero%20Home.jpg") center/cover;
   z-index: 0;
 }
@@ -653,9 +653,11 @@ p { text-wrap: pretty; margin: 0; }
   position: relative; z-index: 2; flex: 1;
   display: flex; flex-direction: column; justify-content: center;
   padding: 64px 0;
+  align-items: flex-start;
 }
 .hero__lockup {
-  max-width: 1320px; margin: 0 auto; padding: 0 32px;
+  max-width: 1320px; padding: 0 32px;
+  padding-left: 60px;
 }
 .hero__eyebrow {
   font-family: var(--mono);
