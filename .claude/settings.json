@@ -72,7 +72,13 @@
       "Bash(curl -I \"http://localhost:3001/images/venue/khoj%204.jpg\")",
       "Bash(git revert *)",
       "WebSearch",
-      "PowerShell(Stop-Process -Id 11300 -Force -ErrorAction SilentlyContinue)"
+      "PowerShell(Stop-Process -Id 11300 -Force -ErrorAction SilentlyContinue)",
+      "Bash(taskkill /PID 6608 /F)",
+      "PowerShell(taskkill /PID 6608 /F)",
+      "mcp__claude_ai_Vercel__list_teams",
+      "mcp__claude_ai_Vercel__list_projects",
+      "mcp__claude_ai_Vercel__list_deployments",
+      "mcp__claude_ai_Vercel__get_deployment_build_logs"
     ],
     "deny": [
       "Bash(rm -rf /)",

@@ -20,7 +20,6 @@ const PROGRAM_LINKS = [
 const PEOPLE_LINKS = [
   { href: '/fellows', label: 'Fellows' },
   { href: '/faculty', label: 'Faculty' },
-  { href: '/funders', label: 'Funders' },
 ];
 
 export default function Header() {

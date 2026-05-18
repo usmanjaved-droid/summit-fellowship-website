@@ -9,7 +9,6 @@ const PROGRAM = [
 const PEOPLE = [
   { href: '/fellows', label: 'Fellows 2026' },
   { href: '/faculty', label: 'Faculty' },
-  { href: '/funders', label: 'Funders' },
   { href: '/faculty#organizers', label: 'Organizers' },
 ];
 

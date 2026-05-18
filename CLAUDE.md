@@ -160,7 +160,6 @@ All colors are CSS variables (never hardcode hex values):
 | `/fellows` | `app/fellows/page.tsx` | Grid of 11 fellow cards with sector filter |
 | `/fellows/[slug]` | `app/fellows/[slug]/page.tsx` | Full-page editorial detail for each fellow |
 | `/faculty` | `app/faculty/page.tsx` | Faculty + Organizers |
-| `/funders` | `app/funders/page.tsx` | Funding partners |
 | `/curriculum` | `app/curriculum/page.tsx` | Mulago design discipline |
 | `/itinerary` | `app/itinerary/page.tsx` | Week-by-week schedule |
 | `/venue` | `app/venue/page.tsx` | Khoj Resort details |
