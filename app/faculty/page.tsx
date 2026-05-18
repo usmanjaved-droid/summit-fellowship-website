@@ -58,7 +58,7 @@ const ADVISORS: Person[] = [
     init: 'AK', num: 'A.01', name: 'Dr. Asyia Kazmi', role: 'CEO, WISE (World Innovation Summit for Education)',
     org: <>Over 30 years transforming education globally. At the Gates Foundation, improved literacy outcomes by <strong>16% for 8 million children</strong> in Uttar Pradesh and established an EdTech and AI portfolio reaching 2.5 million learners. Led PwC's Girls' Education Challenge, a <strong>$1 billion fund supporting 1.5 million girls</strong> across 17 countries. OBE recipient for services to education. PhD in Education from UCL, Master's in Applied Mathematics from Imperial College.</>,
     relevance: <>Education policy and innovation at scale. <strong>EdTech and AI integration</strong> that improves learning outcomes. Building government partnerships for systemic education reform. How to design and test interventions before scaling to millions. The evidence and rigor needed to prove what works.</>,
-    links: [{ label: 'LinkedIn →', href: 'https://www.wise-qatar.org/biography/dr-asyiakazmi/' }, { label: 'WISE →', href: 'https://www.wise-qatar.org/' }],
+    links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/dr-asyia-k-08495055' }, { label: 'WISE →', href: 'https://www.wise-qatar.org/' }],
   },
   {
     init: 'MI', num: 'A.02', name: 'Mubarik Imam', role: 'Former Head of Growth, Analytics & Strategy, WhatsApp',
@@ -76,7 +76,7 @@ const ADVISORS: Person[] = [
     init: 'SG', num: 'A.04', name: 'Shikha Goyal', role: 'CEO, Vitol Foundation',
     org: <>Over 18 years working across development and private sectors. At CIFF (Children's Investment Fund Foundation), managed a portfolio of <strong>over $60 million</strong> improving literacy and numeracy for children in India and Sub-Saharan Africa. Invested in Educate Girls India (world's first education development impact bond), Tayari (serving 1,500+ schools in Kenya), and Early Learning Partnership with the World Bank. Venture Partner at Imaginable Futures leading strategy and investments across Africa. Kauffman Fellow and board member of Innovation Edge and SPARK Schools.</>,
     relevance: <>Venture capital and impact investing in education. Building <strong>development impact bonds</strong> that align financial returns with social outcomes. Identifying and scaling education innovations across Africa. How to structure investments that blend commercial and development thinking. Board governance and scaling impact through venture models.</>,
-    links: [{ label: 'LinkedIn →', href: 'https://uk.linkedin.com/in/shikhagoyal29' }, { label: 'Vitol Foundation →', href: 'https://www.vitolfoundation.org/' }],
+    links: [{ label: 'LinkedIn →', href: 'https://uk.linkedin.com/in/shikhagoyal29' }, { label: 'Vitol Foundation →', href: 'https://vitol-foundation.com/' }],
   },
 ];
 
