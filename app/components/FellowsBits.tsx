@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -15,6 +16,7 @@ export type Fellow = {
   phone: string;
   linkedin: string;
   website: string;
+  photo_url?: string;
 };
 
 const SECTORS = ['all', 'Health', 'Mental Health', 'Education', 'Special Ed', 'Disability', 'Legal', 'Livelihoods', 'Agriculture'];
@@ -52,7 +54,19 @@ export default function FellowsBits({ fellows }: { fellows: Fellow[] }) {
                 className="fellow-card fellow-card--link"
               >
                 <div className="fellow-card__head">
-                  <div className="fellow-card__avatar">{f.init}</div>
+                  <div className="fellow-card__avatar">
+                    {f.photo_url ? (
+                      <Image
+                        src={f.photo_url}
+                        alt={f.name}
+                        width={80}
+                        height={80}
+                        className="fellow-card__avatar-image"
+                      />
+                    ) : (
+                      f.init
+                    )}
+                  </div>
                   <div className="fellow-card__num">No. {String(i + 1).padStart(2, '0')} / {fellows.length}</div>
                 </div>
                 <h3 className="fellow-card__name">{f.name}</h3>
