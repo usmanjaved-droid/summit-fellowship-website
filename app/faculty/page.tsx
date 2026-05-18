@@ -45,6 +45,12 @@ const FACULTY: Person[] = [
     relevance: <>Formerly a <strong>Managing Director at the Skoll Foundation</strong>, Nadir brings world-class philanthropic and investment expertise. Guides fellows on what global and diaspora capital requires to fund systemic change in Pakistan.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/nadirshams/' }, { label: 'Friends of Pakistan →', href: 'https://fopk.org/' }],
   },
+  {
+    init: 'RK', num: 'F.06', name: 'Riaz Kamlani', role: 'Founder & CEO, The Citizens Foundation',
+    org: <>The Citizens Foundation is <strong>Pakistan&rsquo;s largest community-based education organization</strong>, providing free quality education to underserved children and building sustainable, self-managed school models that empower local communities.</>,
+    relevance: <>Riaz has built TCF into a <strong>transformational force across Pakistan</strong>, reaching hundreds of thousands of children through decentralized community partnerships. Brings deep expertise in scaling education through grassroots networks, community ownership, and sustainable financing models.</>,
+    links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/riaz-kamlani/' }, { label: 'The Citizens Foundation →', href: 'https://www.tcf.org.pk/' }],
+  },
 ];
 
 const ORGANIZERS: Person[] = [
