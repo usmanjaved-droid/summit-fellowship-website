@@ -72,6 +72,12 @@ const ADVISORS: Person[] = [
     relevance: <>Innovation in last-mile delivery and government scaling. How to identify and test solutions before taking them to scale. <strong>Working with governments as the primary customer</strong> for scaling education. Measuring cost-effectiveness and impact rigor. Surfacing and scaling innovations that actually move the needle on learning outcomes.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/aleem-walji-73403b7/' }, { label: '5in5 →', href: 'https://5in5.education/' }],
   },
+  {
+    init: 'SG', num: 'A.04', name: 'Shikha Goyal', role: 'CEO, Vitol Foundation',
+    org: <>Over 18 years working across development and private sectors. At CIFF (Children's Investment Fund Foundation), managed a portfolio of <strong>over $60 million</strong> improving literacy and numeracy for children in India and Sub-Saharan Africa. Invested in Educate Girls India (world's first education development impact bond), Tayari (serving 1,500+ schools in Kenya), and Early Learning Partnership with the World Bank. Venture Partner at Imaginable Futures leading strategy and investments across Africa. Kauffman Fellow and board member of Innovation Edge and SPARK Schools.</>,
+    relevance: <>Venture capital and impact investing in education. Building <strong>development impact bonds</strong> that align financial returns with social outcomes. Identifying and scaling education innovations across Africa. How to structure investments that blend commercial and development thinking. Board governance and scaling impact through venture models.</>,
+    links: [{ label: 'LinkedIn →', href: 'https://uk.linkedin.com/in/shikhagoyal29' }, { label: 'Vitol Foundation →', href: 'https://www.vitolfoundation.org/' }],
+  },
 ];
 
 const ORGANIZERS: Person[] = [
