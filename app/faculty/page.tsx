@@ -18,37 +18,37 @@ const FACULTY: Person[] = [
   {
     init: 'KS', num: 'F.01', name: 'Kevin Starr', role: 'CEO, Mulago Foundation',
     org: <>The Mulago Foundation operates like a venture capital firm for impact, providing unrestricted funding and support to social entrepreneurs who have solutions to poverty and climate change <strong>designed for massive scale.</strong></>,
-    relevance: <>How to use the <strong>Scale Screen</strong> and <strong>Doer &amp; Payer</strong> frameworks to redesign your model. The four Es: <strong>Good Enough, Big Enough, Simple Enough, and Cheap Enough.</strong></>,
+    relevance: <>Design for massive scale. Unit economics that work at volume. When <strong>"good enough" beats perfect</strong> and how to know the difference. Why your market and payer matter more than your model.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/kevin-starr' }, { label: 'Mulago Foundation →', href: 'https://www.mulagofoundation.org/' }],
   },
   {
     init: 'AR', num: 'F.02', name: 'Dr. Ahson Rabbani', role: 'CEO, ChildLife Foundation',
     org: <>ChildLife Foundation provides <strong>high-quality, free-of-cost emergency healthcare services</strong>, managing pediatric emergency rooms and telemedicine centers across Pakistan&rsquo;s public hospitals.</>,
-    relevance: <>How ChildLife scaled from a few hospitals to a <strong>nationwide footprint.</strong> Securing government partnerships for healthcare delivery. Building a real-world, localized blueprint for scaling life-saving operations.</>,
+    relevance: <>Building government partnerships that actually stick. Scaling emergency care across public hospitals. <strong>Making life-saving operations profitable</strong> without compromising quality or access.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/ahson-rabbani/' }, { label: 'ChildLife Foundation →', href: 'https://childlifefoundation.org/' }],
   },
   {
     init: 'SK', num: 'F.03', name: 'Dr. Sara Saeed Khurram', role: 'Co-Founder & CEO, Sehat Kahani',
     org: <>Sehat Kahani democratizes healthcare access through an <strong>all-female doctor provider network</strong> delivering affordable telemedicine to low-income communities and clinics.</>,
-    relevance: <>How to apply design-for-scale frameworks in practice. Scaling from theory to <strong>millions of consultations.</strong> Practical realities of scaling digital health and building all-female provider networks in Pakistan.</>,
+    relevance: <>Telemedicine that works at scale. Building <strong>all-female provider networks</strong> in conservative markets. Navigating Pakistan&rsquo;s healthcare regulatory landscape and the financials that make it sustainable.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/dr-sara-saeed-khurram/' }, { label: 'Sehat Kahani →', href: 'https://sehatkahani.com/' }],
   },
   {
     init: 'SF', num: 'F.04', name: 'Sarah Farooq', role: 'Associate Director, Fellowship at Acumen',
     org: <>Acumen is a global nonprofit changing the way the world tackles poverty by <strong>investing patient capital</strong> in social enterprises and developing leaders building a more inclusive world.</>,
-    relevance: <>How to operationalize your vision at scale without burning capital. Building <strong>franchise and partner-driven models</strong> in emerging markets. Navigating regulatory and policy as features, not obstacles. From scaling Amal Academy (10M+ impact), GYE, and Taleemabad to millions of users across Pakistan and frontier markets.</>,
+    relevance: <>Scaling from startup founder to funder mindset. <strong>Franchise + partnership models</strong> that multiply impact without capital. Unit economics that prove your model works before the 100x push.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/sarah-farooq/' }, { label: 'Acumen →', href: 'https://acumen.org/' }],
   },
   {
     init: 'NS', num: 'F.05', name: 'Nadir Shams', role: 'Founder, Friends of Pakistan Society & Fund',
     org: <>The Friends of Pakistan Society &amp; Fund catalyzes transformational social change and <strong>supports social entrepreneurs driving systems-level improvements</strong> across the country.</>,
-    relevance: <>What global and diaspora capital requires from social enterprises. How to position your work for systemic-level funding. <strong>Portfolio strategy and ecosystem building</strong> from his perspective as a funder. From his background in impact evaluation, leadership at One Acre Fund and Skoll Foundation, and ecosystem-level work.</>,
+    relevance: <>What <strong>diaspora and global capital</strong> actually fund and why. Positioning your work for ecosystem-level impact, not just returns. Portfolio strategy from a funder who builds to scale systems, not just companies.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/nadirshams/' }, { label: 'Friends of Pakistan →', href: 'https://fopk.org/' }],
   },
   {
     init: 'RK', num: 'F.06', name: 'Riaz Ahmed Kamlani', role: 'Chief Operating Officer, The Citizens Foundation',
     org: <>The Citizens Foundation is <strong>Pakistan&rsquo;s largest community-based education organization</strong>, operating thousands of schools across Pakistan and providing free quality education to hundreds of thousands of underserved children through decentralized, community-managed school units.</>,
-    relevance: <>Building <strong>sustainable, self-managed operational models.</strong> Managing critical operations while maintaining impact in resource-constrained environments. Scaling education at massive scale across decentralized, community-managed units. From 17 years at TCF.</>,
+    relevance: <>Decentralized operations at massive scale. <strong>Building sustainable models in resource-constrained environments</strong> where communities own and manage the outcomes. Turning cost into competitive advantage.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/riaz-ahmed-kamlani-38b1a04/' }, { label: 'The Citizens Foundation →', href: 'https://www.tcf.org.pk/' }],
   },
 ];
@@ -57,25 +57,25 @@ const ORGANIZERS: Person[] = [
   {
     init: 'HY', num: 'O.01', name: 'Haroon Yasin', role: 'Founder & CEO, Taleemabad',
     org: <><strong>Taleemabad is Pakistan&rsquo;s largest ed-tech organization</strong>, transforming learning for millions of children through digital platforms, public school integrations, and engaging multimodal content.</>,
-    relevance: <>Co-host. How Taleemabad evolved <strong>from an evening school in the slums to a national enterprise.</strong> Building government partnerships. Scaling ed-tech at national scale.</>,
+    relevance: <>From evening classes in the slums to <strong>millions of learners nationwide.</strong> Government partnerships that create defensible scale. Building the infrastructure of public education 2.0. (Also co-hosting this retreat!)</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/haroon-yasin/' }, { label: 'Taleemabad →', href: 'https://taleemabad.com/' }],
   },
   {
     init: 'SA', num: 'O.02', name: 'Sabeena Abbasi', role: 'Chief Sustainability & Impact Officer, Taleemabad',
     org: <>Taleemabad ensures equitable, high-quality digital learning by delivering standardized curriculum through engaging content, directly targeting <strong>massive gaps in foundational literacy.</strong></>,
-    relevance: <>Designing programmatic models with <strong>measurable impact.</strong> Building long-term sustainability and inclusive learning design. Community-of-practice strategies for scale.</>,
+    relevance: <>Impact measurement that drives decisions. <strong>Inclusive learning design</strong> that doesn&rsquo;t sacrifice quality. Building sustainable models through community learning networks, not top-down lectures.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/sabeena-abbasi/' }, { label: 'Taleemabad →', href: 'https://taleemabad.com/' }],
   },
   {
     init: 'AH', num: 'O.03', name: 'Abida Hassan', role: 'Sr. General Manager - Operations, ChildLife Foundation',
     org: <>ChildLife Foundation modernizes public sector hospitals by running <strong>high-tech, free-of-cost pediatric emergency rooms</strong> across Sindh, Balochistan, and Punjab.</>,
-    relevance: <><strong>On-the-ground operational execution</strong> at scale. Logistics, team management, and operational resilience. How to sustain growth while scaling rapidly.</>,
+    relevance: <>Operational excellence under real constraints. <strong>Scaling across geographies</strong> while maintaining quality. Building resilient logistics and teams that sustain growth in the chaos of public-sector healthcare.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/abida-hassan-clf/' }, { label: 'ChildLife Foundation →', href: 'https://childlifefoundation.org/' }],
   },
   {
     init: 'MJ', num: 'O.04', name: 'Muhammad Usman Javed', role: 'Head of Business Strategy & Fundraising, Taleemabad',
     org: <>Taleemabad is a pioneering social enterprise leveraging <strong>AI and digital content</strong> to replace outdated educational models in Pakistan with highly scalable, adaptive learning solutions.</>,
-    relevance: <>Strategic planning and goal-setting for scale. Building <strong>high-leverage frameworks</strong> for founders. Orchestrating strategic partnerships at ecosystem level. (Organizing the retreat itself!)</>,
+    relevance: <>Strategic frameworks that founders actually use. <strong>Fundraising at scale</strong> (local + diaspora + international). Orchestrating partnerships that multiply your reach. (Also organizing this whole retreat!)</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/usman-javed/' }, { label: 'Taleemabad →', href: 'https://taleemabad.com/' }],
   },
 ];
