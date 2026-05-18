@@ -60,7 +60,19 @@
       "Bash(netstat -ano)",
       "Bash(findstr :3000)",
       "Bash(git reset *)",
-      "Bash(cd \"d:\\\\Summit Fellowship Website\" && rm -f *animated*.png *-test.png curriculum-page.png fellows-page.png itinerary-page.png && echo \"Test screenshots removed\" && git status)"
+      "Bash(cd \"d:\\\\Summit Fellowship Website\" && rm -f *animated*.png *-test.png curriculum-page.png fellows-page.png itinerary-page.png && echo \"Test screenshots removed\" && git status)",
+      "Bash(cd \"d:\\\\Summit Fellowship Website\" && rm -f venue-*.png && git status)",
+      "Bash(git restore *)",
+      "Bash(git clean *)",
+      "Bash(curl -s http://localhost:3000/venue -H \"User-Agent: Mozilla\")",
+      "Bash(taskkill /PID 27324 /F)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(curl -s http://localhost:3001/venue)",
+      "Bash(curl -v http://localhost:3001/)",
+      "Bash(curl -I \"http://localhost:3001/images/venue/khoj%204.jpg\")",
+      "Bash(git revert *)",
+      "WebSearch",
+      "PowerShell(Stop-Process -Id 11300 -Force -ErrorAction SilentlyContinue)"
     ],
     "deny": [
       "Bash(rm -rf /)",
