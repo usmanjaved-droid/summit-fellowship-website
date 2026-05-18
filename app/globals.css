@@ -1186,7 +1186,7 @@ p { text-wrap: pretty; margin: 0; }
 .faculty-section { padding: 100px 0; background: var(--paper); }
 .faculty-section--alt { background: var(--paper-warm); }
 .faculty-grid { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
-.person { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 48px; padding: 48px 32px; border-bottom: 1px solid var(--line); align-items: start; transition: background .3s var(--ease-out); }
+.person { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 48px; padding: 48px 32px; border-bottom: 1px solid var(--line); align-items: stretch; transition: background .3s var(--ease-out); }
 .person:hover { background: var(--paper-cool); }
 .person__photo-col { }
 .person__photo { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; }
