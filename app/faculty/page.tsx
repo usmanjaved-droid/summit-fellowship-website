@@ -53,6 +53,27 @@ const FACULTY: Person[] = [
   },
 ];
 
+const ADVISORS: Person[] = [
+  {
+    init: 'AK', num: 'A.01', name: 'Dr. Asyia Kazmi', role: 'CEO, WISE (World Innovation Summit for Education)',
+    org: <>Over 30 years transforming education globally. At the Gates Foundation, improved literacy outcomes by <strong>16% for 8 million children</strong> in Uttar Pradesh and established an EdTech and AI portfolio reaching 2.5 million learners. Led PwC's Girls' Education Challenge, a <strong>$1 billion fund supporting 1.5 million girls</strong> across 17 countries. OBE recipient for services to education. PhD in Education from UCL, Master's in Applied Mathematics from Imperial College.</>,
+    relevance: <>Education policy and innovation at scale. <strong>EdTech and AI integration</strong> that improves learning outcomes. Building government partnerships for systemic education reform. How to design and test interventions before scaling to millions. The evidence and rigor needed to prove what works.</>,
+    links: [{ label: 'LinkedIn →', href: 'https://www.wise-qatar.org/biography/dr-asyiakazmi/' }, { label: 'WISE →', href: 'https://www.wise-qatar.org/' }],
+  },
+  {
+    init: 'MI', num: 'A.02', name: 'Mubarik Imam', role: 'Former Head of Growth, Analytics & Strategy, WhatsApp',
+    org: <>Pakistan-born, first 25 employees at WhatsApp. Built and led product, growth, integrity, analytics, and strategy teams scaling WhatsApp from <strong>200M to 1.9B+ users</strong> over seven years. Founder of the Association for the Development of Pakistan. Granddaughter of the founder of LUMS. MIT (Electrical Engineering), Harvard Kennedy School (MPA/ID), Stanford GSB (MBA).</>,
+    relevance: <>Scaling globally without losing focus. <strong>Product discipline and strategic focus</strong>—how to say no to 99 good ideas to execute one great idea. Building platforms that reach billions. Pakistani diaspora networks and home-country connections. How founders think at billion-user scale.</>,
+    links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/mubarik-imam-a914842' }],
+  },
+  {
+    init: 'AW', num: 'A.03', name: 'Aleem Walji', role: 'Founder & CEO, 5in5 Impact Alliance',
+    org: <>Former Chief Innovation Advisor at the World Bank Group, CEO of Aga Khan Foundation in Syria, and Head of Global Development Initiatives at Google.org. Leading 5in5 Impact Alliance to improve <strong>literacy and numeracy for 5 million children in 5 years</strong>. Focuses on identifying and scaling proven, cost-effective education solutions through government partnerships.</>,
+    relevance: <>Innovation in last-mile delivery and government scaling. How to identify and test solutions before taking them to scale. <strong>Working with governments as the primary customer</strong> for scaling education. Measuring cost-effectiveness and impact rigor. Surfacing and scaling innovations that actually move the needle on learning outcomes.</>,
+    links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/aleem-walji-73403b7/' }, { label: '5in5 →', href: 'https://5in5.education/' }],
+  },
+];
+
 const ORGANIZERS: Person[] = [
   {
     init: 'HY', num: 'O.01', name: 'Haroon Yasin', role: 'Founder & CEO, Taleemabad',
@@ -129,7 +150,16 @@ export default function FacultyPage() {
         </div>
       </section>
 
-      <section className="faculty-section faculty-section--alt" id="organizers">
+      <section className="faculty-section faculty-section--alt" id="advisors">
+        <div className="container">
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--alpine-deep)', letterSpacing: '-0.02em', marginBottom: 40 }}>Advisors</h2>
+          <div className="faculty-grid">
+            {ADVISORS.map((p) => <PersonCard key={p.num} p={p} />)}
+          </div>
+        </div>
+      </section>
+
+      <section className="faculty-section" id="organizers">
         <div className="container">
           <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--alpine-deep)', letterSpacing: '-0.02em', marginBottom: 40 }}>Organizers</h2>
           <div className="faculty-grid">
