@@ -18,7 +18,7 @@ const FACULTY: Person[] = [
   {
     init: 'KS', num: 'F.01', name: 'Kevin Starr', role: 'CEO, Mulago Foundation',
     org: <>The Mulago Foundation operates like a venture capital firm for impact, providing unrestricted funding and support to social entrepreneurs who have solutions to poverty and climate change <strong>designed for massive scale.</strong></>,
-    relevance: <>The <strong>Doer and Payer</strong> framework: Who will replicate your model at million-scale? Who will fund it? The three questions that determine if you can actually scale: <strong>Cheap enough? Simple enough? Adaptable enough?</strong></>,
+    relevance: <>Your big questions about the <strong>design and strategy</strong> to get your solution to scale. Who's the doer? Who's the payer? The questions that separate thinking-at-scale from thinking-at-startup.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/kevin-starr' }, { label: 'Mulago Foundation →', href: 'https://www.mulagofoundation.org/' }],
   },
   {
