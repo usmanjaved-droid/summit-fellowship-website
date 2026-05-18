@@ -12,7 +12,7 @@ type Person = {
   role: string;
   org: React.ReactNode;
   relevance: React.ReactNode;
-  photo_url?: string;
+  photo_url?: string | null;
   links: { label: string; href: string }[];
 };
 
