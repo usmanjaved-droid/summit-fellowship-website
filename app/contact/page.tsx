@@ -12,9 +12,9 @@ const CHANNELS = [
         <path d="M3 7l9 6 9-6M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l2-2h14l2 2" />
       </svg>
     ),
-    title: 'General enquiries',
-    detail: "Anything that doesn't fit the categories below. Real human answers within one working day.",
-    email: 'hello@summitfellowship.pk',
+    title: 'General queries',
+    detail: 'Program details, curriculum, faculty, pre-reads, mentor matching, capacity clinics, and anything else about the fellowship.',
+    email: 'usman.javed@taleemabad.com',
   },
   {
     icon: (
@@ -24,18 +24,8 @@ const CHANNELS = [
       </svg>
     ),
     title: 'Logistics & travel',
-    detail: 'Flights, visas, transfers, dietary needs, room requests, anything that lands at the airport.',
-    email: 'logistics@summitfellowship.pk',
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M3 12h6l3-9 4 18 3-9h2" />
-      </svg>
-    ),
-    title: 'Curriculum & faculty',
-    detail: 'Programme, pre-reads, faculty mentor matching, capacity clinic scheduling.',
-    email: 'program@summitfellowship.pk',
+    detail: 'Flights, visas, transfers, dietary needs, room requests, and all arrival logistics.',
+    email: 'umair@ascenderadventures.com',
   },
 ];
 
