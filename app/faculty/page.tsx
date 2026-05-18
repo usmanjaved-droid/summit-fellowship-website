@@ -70,7 +70,7 @@ const ORGANIZERS: Person[] = [
     init: 'AH', num: 'O.03', name: 'Abida Hassan', role: 'Sr. General Manager - Operations, ChildLife Foundation',
     org: <>Led hospital operations across Pakistan&rsquo;s most demanding healthcare settings. Manages operations <strong>scaling ChildLife&rsquo;s pediatric emergency care</strong> across multiple provinces, implementing quality systems in public-sector hospitals with limited resources.</>,
     relevance: <>Operational excellence under real constraints. <strong>Scaling across geographies</strong> while maintaining quality. Building resilient logistics and teams that sustain growth in the chaos of public-sector healthcare.</>,
-    links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/abida-hassan-clf/' }, { label: 'ChildLife Foundation →', href: 'https://childlifefoundation.org/' }],
+    links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/abida-hassan/' }, { label: 'ChildLife Foundation →', href: 'https://childlifefoundation.org/' }],
   },
   {
     init: 'MJ', num: 'O.04', name: 'Muhammad Usman Javed', role: 'Head of Business Strategy & Fundraising, Taleemabad',
