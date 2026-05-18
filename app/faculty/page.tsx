@@ -24,7 +24,7 @@ const FACULTY: Person[] = [
   {
     init: 'AR', num: 'F.02', name: 'Dr. Ahson Rabbani', role: 'CEO, ChildLife Foundation',
     org: <>ChildLife Foundation provides <strong>high-quality, free-of-cost emergency healthcare services</strong>, managing pediatric emergency rooms and telemedicine centers across Pakistan&rsquo;s public hospitals.</>,
-    relevance: <>Building government partnerships that actually stick. Scaling emergency care across public hospitals. <strong>Making life-saving operations profitable</strong> without compromising quality or access.</>,
+    relevance: <>Building government partnerships that become permanent fixtures. Scaling emergency pediatric care across public hospitals. <strong>Proving impact with rigor</strong>—the data and methods to measure whether you&rsquo;re actually reducing child mortality. Governance structures that ensure organizational integrity as you grow.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/ahson-rabbani/' }, { label: 'ChildLife Foundation →', href: 'https://childlifefoundation.org/' }],
   },
   {
