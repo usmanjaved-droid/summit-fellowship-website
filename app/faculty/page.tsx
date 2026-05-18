@@ -92,7 +92,7 @@ function PersonCard({ p }: { p: Person }) {
         </div>
       </div>
       <div className="person__col">
-        <h4>About the Organization</h4>
+        <h4>About the Person</h4>
         <p>{p.org}</p>
       </div>
       <div className="person__col">
