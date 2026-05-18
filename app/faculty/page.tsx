@@ -42,7 +42,7 @@ const FACULTY: Person[] = [
   {
     init: 'NS', num: 'F.05', name: 'Nadir Shams', role: 'Founder, Friends of Pakistan Society & Fund',
     org: <>The Friends of Pakistan Society &amp; Fund catalyzes transformational social change and <strong>supports social entrepreneurs driving systems-level improvements</strong> across the country.</>,
-    relevance: <>What <strong>diaspora and global capital</strong> actually fund and why. Positioning your work for ecosystem-level impact, not just returns. Portfolio strategy from a funder who builds to scale systems, not just companies.</>,
+    relevance: <>What <strong>diaspora and global capital</strong> actually fund and why. How narratives around Pakistan shape entrepreneurship, philanthropy, and investment flows. <strong>Ecosystem building and systems change</strong> — positioning your work for long-term structural impact.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/nadirshams/' }, { label: 'Friends of Pakistan →', href: 'https://fopk.org/' }],
   },
   {
