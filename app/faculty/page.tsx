@@ -47,7 +47,7 @@ const FACULTY: Person[] = [
   },
   {
     init: 'NS', num: 'F.05', name: 'Nadir Shams', role: 'Founder, Friends of Pakistan Society & Fund',
-    photo_url: '/images/faculty/Nadir Shams.jpeg',
+    photo_url: '/images/faculty/Nadir Shams.png',
     org: <>Built impact evaluation systems and led strategy at One Acre Fund and Skoll Foundation. Founded Friends of Pakistan, a <strong>$100M+ intermediary</strong> deploying patient capital to Pakistani social enterprises and building ecosystems for systems-level change.</>,
     relevance: <>What <strong>diaspora and global capital</strong> actually fund and why. How narratives around Pakistan shape entrepreneurship, philanthropy, and investment flows. <strong>Ecosystem building and systems change</strong> — positioning your work for long-term structural impact.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/nadirshams/' }, { label: 'Friends of Pakistan →', href: 'https://fopk.org/' }],
@@ -78,7 +78,7 @@ const ADVISORS: Person[] = [
   },
   {
     init: 'AW', num: 'A.03', name: 'Aleem Walji', role: 'Founder & CEO, 5in5 Impact Alliance',
-    photo_url: '/images/faculty/Aleem Walji.png',
+    photo_url: '/images/faculty/Aleem Walji.jpg',
     org: <>Former Chief Innovation Advisor at the World Bank Group, CEO of Aga Khan Foundation in Syria, and Head of Global Development Initiatives at Google.org. Leading 5in5 Impact Alliance to improve <strong>literacy and numeracy for 5 million children in 5 years</strong>. Focuses on identifying and scaling proven, cost-effective education solutions through government partnerships.</>,
     relevance: <>Innovation in last-mile delivery and government scaling. How to identify and test solutions before taking them to scale. <strong>Working with governments as the primary customer</strong> for scaling education. Measuring cost-effectiveness and impact rigor. Surfacing and scaling innovations that actually move the needle on learning outcomes.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/aleem-walji-73403b7/' }, { label: '5in5 →', href: 'https://5in5.education/' }],
