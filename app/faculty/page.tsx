@@ -46,10 +46,10 @@ const FACULTY: Person[] = [
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/nadirshams/' }, { label: 'Friends of Pakistan →', href: 'https://fopk.org/' }],
   },
   {
-    init: 'RK', num: 'F.06', name: 'Riaz Kamlani', role: 'Founder & CEO, The Citizens Foundation',
-    org: <>The Citizens Foundation is <strong>Pakistan&rsquo;s largest community-based education organization</strong>, providing free quality education to underserved children and building sustainable, self-managed school models that empower local communities.</>,
-    relevance: <>Riaz has built TCF into a <strong>transformational force across Pakistan</strong>, reaching hundreds of thousands of children through decentralized community partnerships. Brings deep expertise in scaling education through grassroots networks, community ownership, and sustainable financing models.</>,
-    links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/riaz-kamlani/' }, { label: 'The Citizens Foundation →', href: 'https://www.tcf.org.pk/' }],
+    init: 'RK', num: 'F.06', name: 'Riaz Ahmed Kamlani', role: 'Chief Operating Officer, The Citizens Foundation',
+    org: <>The Citizens Foundation is <strong>Pakistan&rsquo;s largest community-based education organization</strong>, operating thousands of schools across Pakistan and providing free quality education to hundreds of thousands of underserved children through decentralized, community-managed school units.</>,
+    relevance: <>With 17 years at TCF and a background in senior management at Shell International, Riaz brings <strong>deep operational expertise in scaling education at massive scale</strong>. As COO, he oversees programme design, operations, supply chain, and alumni programmes. Guides fellows on how to build sustainable, self-managed models and manage critical operations while maintaining impact in resource-constrained environments.</>,
+    links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/riaz-ahmed-kamlani-38b1a04/' }, { label: 'The Citizens Foundation →', href: 'https://www.tcf.org.pk/' }],
   },
 ];
 
