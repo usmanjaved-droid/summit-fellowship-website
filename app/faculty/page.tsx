@@ -55,15 +55,15 @@ const FACULTY: Person[] = [
 
 const ORGANIZERS: Person[] = [
   {
-    init: 'HY', num: 'O.01', name: 'Haroon Yasin', role: 'Co-founder & CEO, Taleemabad',
+    init: 'HY', num: 'O.01', name: 'Haroon Yasin', role: 'Founder & CEO, Taleemabad',
     org: <><strong>Taleemabad is Pakistan&rsquo;s largest ed-tech organization</strong>, transforming learning for millions of children through digital platforms, public school integrations, and engaging multimodal content.</>,
     relevance: <>Co-host. Shares his firsthand experience of evolving Taleemabad <strong>from an evening school in the slums to a national enterprise</strong> partnering with the government and international agencies.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/haroon-yasin/' }, { label: 'Taleemabad →', href: 'https://taleemabad.com/' }],
   },
   {
-    init: 'SA', num: 'O.02', name: 'Sabeena Abbasi', role: 'Co-founder & Chief Program Officer, Taleemabad',
+    init: 'SA', num: 'O.02', name: 'Sabeena Abbasi', role: 'Chief Sustainability & Impact Officer, Taleemabad',
     org: <>Taleemabad ensures equitable, high-quality digital learning by delivering standardized curriculum through engaging content, directly targeting <strong>massive gaps in foundational literacy.</strong></>,
-    relevance: <>As co-founder and Chief Program Officer, drives <strong>programme design, curriculum strategy, and impact measurement</strong> initiatives. Helps fellows connect programmatic models to measurable, long-term impact metrics and inclusive learning design.</>,
+    relevance: <>Drives <strong>sustainability, impact strategy, and community-of-practice</strong> initiatives. Helps fellows connect programmatic models to measurable, long-term impact metrics and inclusive learning design.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/sabeena-abbasi/' }, { label: 'Taleemabad →', href: 'https://taleemabad.com/' }],
   },
   {
@@ -73,7 +73,7 @@ const ORGANIZERS: Person[] = [
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/abida-hassan-clf/' }, { label: 'ChildLife Foundation →', href: 'https://childlifefoundation.org/' }],
   },
   {
-    init: 'MJ', num: 'O.04', name: 'Muhammad Usman Javed', role: 'Strategic Partnerships Lead, Taleemabad',
+    init: 'MJ', num: 'O.04', name: 'Muhammad Usman Javed', role: 'Head of Business Strategy & Fundraising, Taleemabad',
     org: <>Taleemabad is a pioneering social enterprise leveraging <strong>AI and digital content</strong> to replace outdated educational models in Pakistan with highly scalable, adaptive learning solutions.</>,
     relevance: <>Architect of Taleemabad&rsquo;s 2026 Strategic Goals and the <strong>core organizer of the Skardu Scale-Up Fellowship</strong>. Ensures the cohort receives actionable, high-leverage frameworks while orchestrating the strategic partnerships that make the retreat possible.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/usman-javed/' }, { label: 'Taleemabad →', href: 'https://taleemabad.com/' }],
