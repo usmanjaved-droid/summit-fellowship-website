@@ -48,7 +48,7 @@ const FACULTY: Person[] = [
   {
     init: 'RK', num: 'F.06', name: 'Riaz Ahmed Kamlani', role: 'Chief Operating Officer, The Citizens Foundation',
     org: <>The Citizens Foundation is <strong>Pakistan&rsquo;s largest community-based education organization</strong>, operating thousands of schools across Pakistan and providing free quality education to hundreds of thousands of underserved children through decentralized, community-managed school units.</>,
-    relevance: <>Building <strong>sustainable, self-managed operational models.</strong> Managing critical operations while maintaining impact in resource-constrained environments. Scaling education at massive scale across decentralized, community-managed units. From 17 years as COO at TCF and prior experience at Shell International.</>,
+    relevance: <>Building <strong>sustainable, self-managed operational models.</strong> Managing critical operations while maintaining impact in resource-constrained environments. Scaling education at massive scale across decentralized, community-managed units. From 17 years at TCF.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/riaz-ahmed-kamlani-38b1a04/' }, { label: 'The Citizens Foundation →', href: 'https://www.tcf.org.pk/' }],
   },
 ];
