@@ -40,7 +40,6 @@ export default function FellowsBits({ fellows }: { fellows: Fellow[] }) {
               {s === 'all' ? 'All' : s}
             </button>
           ))}
-          <span className="filter-bar__count">Showing {visible.length} of {fellows.length}</span>
         </div>
       </div>
 
