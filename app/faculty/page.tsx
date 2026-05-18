@@ -30,7 +30,7 @@ const FACULTY: Person[] = [
   {
     init: 'SK', num: 'F.03', name: 'Dr. Sara Saeed Khurram', role: 'Co-Founder & CEO, Sehat Kahani',
     org: <>Sehat Kahani democratizes healthcare access through an <strong>all-female doctor provider network</strong> delivering affordable telemedicine to low-income communities and clinics.</>,
-    relevance: <>Telemedicine that works at scale. Building <strong>all-female provider networks</strong> in conservative markets. Navigating Pakistan&rsquo;s healthcare regulatory landscape and the financials that make it sustainable.</>,
+    relevance: <>Inclusive healthcare systems through telemedicine in culturally complex markets. <strong>Activating female doctors</strong> into meaningful work—solving barriers when culture and infrastructure both matter. Building trust and behavior change. Government partnerships (PPP) as your scaling engine. The discipline of <strong>&quot;cheap enough&quot;</strong>: how rigorous cost modeling separates scaling dreams from reality.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/dr-sara-saeed-khurram/' }, { label: 'Sehat Kahani →', href: 'https://sehatkahani.com/' }],
   },
   {
