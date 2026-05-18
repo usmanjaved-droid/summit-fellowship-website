@@ -36,7 +36,7 @@ const FACULTY: Person[] = [
   {
     init: 'SF', num: 'F.04', name: 'Sarah Farooq', role: 'Associate Director, Fellowship at Acumen',
     org: <>Acumen is a global nonprofit changing the way the world tackles poverty by <strong>investing patient capital</strong> in social enterprises and developing leaders building a more inclusive world.</>,
-    relevance: <>What funders look for: investability and scale strategy. How to build <strong>operational readiness.</strong> Designing and running impactful fellowship programs. From her background as <strong>COO at Taleemabad.</strong></>,
+    relevance: <>How to operationalize your vision at scale without burning capital. Building <strong>franchise and partner-driven models</strong> in emerging markets. Navigating regulatory and policy as features, not obstacles. From scaling Amal Academy (10M+ impact), GYE, and Taleemabad to millions of users across Pakistan and frontier markets.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/sarah-farooq/' }, { label: 'Acumen →', href: 'https://acumen.org/' }],
   },
   {
