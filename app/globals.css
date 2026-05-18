@@ -644,7 +644,7 @@ p { text-wrap: pretty; margin: 0; }
   position: absolute; inset: 0;
   background:
     linear-gradient(180deg, rgba(20, 39, 52, 0.55) 0%, rgba(12, 26, 34, 0.95) 100%),
-    url("/images/skardu/karakoram-hero.jpg") center/cover;
+    url("/images/skardu/Hero%20Home.jpg") center/cover;
   z-index: 0;
 }
 .hero .topo-bg { z-index: 1; opacity: 0.12; mix-blend-mode: screen; }
