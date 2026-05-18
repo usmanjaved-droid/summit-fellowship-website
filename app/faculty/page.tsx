@@ -126,28 +126,30 @@ const ORGANIZERS: Person[] = [
 function PersonCard({ p }: { p: Person }) {
   return (
     <article className="person">
-      <div className="person__photo-section">
+      <div className="person__photo-col">
         {p.photo_url ? (
           <Image
             src={p.photo_url}
             alt={p.name}
-            width={400}
-            height={500}
+            width={200}
+            height={280}
             className="person__photo"
           />
         ) : (
           <div className="person__avatar-large">{p.init}</div>
         )}
       </div>
-      <div className="person__header">
-        <h3 className="person__name">{p.name}</h3>
-        <div className="person__role">{p.role}</div>
+      <div className="person__middle-col">
+        <div className="person__header">
+          <h3 className="person__name">{p.name}</h3>
+          <div className="person__role">{p.role}</div>
+        </div>
+        <div className="person__story">
+          <h4>Their Story</h4>
+          <p>{p.org}</p>
+        </div>
       </div>
-      <div className="person__col">
-        <h4>Their Story</h4>
-        <p>{p.org}</p>
-      </div>
-      <div className="person__col">
+      <div className="person__right-col">
         <h4>Talk to them about</h4>
         <p>{p.relevance}</p>
         <div className="person__links">
