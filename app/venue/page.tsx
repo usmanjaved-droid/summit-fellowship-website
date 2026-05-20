@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -41,7 +42,14 @@ export default function VenuePage() {
               <p>Days alternate between structured studio sessions, outdoor 1-on-1 clinics, and the kind of unstructured time that only happens when eleven founders find themselves in a valley together with nothing else to do.</p>
             </div>
             <figure className={styles.venueIntroImageSlot}>
-              <div className={styles.imagePlaceholder} />
+              <Image
+                src="/images/venue/Khoj resort venue.jpg"
+                alt="Khoj Resort venue"
+                fill
+                className={styles.venueIntroImage}
+                sizes="(max-width: 1023px) 100vw, 40vw"
+                priority
+              />
               <figcaption>Khoj Resort · Shigar Valley</figcaption>
             </figure>
           </div>

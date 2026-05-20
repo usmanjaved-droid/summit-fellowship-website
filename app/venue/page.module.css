@@ -113,6 +113,11 @@
   overflow: hidden;
 }
 
+.venueIntroImage {
+  object-fit: cover;
+  object-position: center;
+}
+
 .venueIntroImageSlot figcaption {
   position: absolute;
   bottom: 24px;
