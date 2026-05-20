@@ -1,32 +1,15 @@
 import Link from 'next/link';
 import styles from './page.module.css';
+import { Sun, Home, Wifi, Heart, Backpack, Plane } from 'lucide-react';
 
 export const metadata = {
   title: 'Khoj Resort, Skardu — Summit Fellowship',
 };
 
-const SunIcon = () => (
-  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <circle cx="12" cy="12" r="4" />
-    <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5" />
-  </svg>
-);
-const CloudIcon = () => (
-  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M6 14a4 4 0 014-4 5 5 0 019.6 1.6A3.5 3.5 0 0119 18H7a4 4 0 01-1-4z" />
-  </svg>
-);
-const PartIcon = () => (
-  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <circle cx="12" cy="12" r="4" />
-    <path d="M12 2v2M12 20v2M4 12H2M22 12h-2" />
-  </svg>
-);
-
 const WEATHER = [
-  { date: 'Typical day', icon: <SunIcon />, hi: '20°', lo: '7°' },
-  { date: 'Warmest', icon: <PartIcon />, hi: '24°', lo: '' },
-  { date: 'Coolest night', icon: <CloudIcon />, hi: '7°', lo: '' },
+  { date: 'Typical day', hi: '20°', lo: '7°' },
+  { date: 'Warmest', hi: '24°', lo: '' },
+  { date: 'Coolest night', hi: '7°', lo: '' },
 ];
 
 const FOOD_ITEMS = [
@@ -199,7 +182,6 @@ export default function VenuePage() {
                 {WEATHER.map((w) => (
                   <div className="weather-day" key={w.date}>
                     <div className="date">{w.date}</div>
-                    {w.icon}
                     <div className="temp">{w.hi}</div>
                   </div>
                 ))}
@@ -243,7 +225,8 @@ export default function VenuePage() {
           <article className={styles.logisticsCard}>
             <div className={styles.logisticsCardInner}>
               <div className={styles.logisticsCardLeft}>
-                <h3>☀️ Weather in June</h3>
+                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Weather & Climate</span></div>
+                <h3><Sun className="w-5 h-5 inline mr-2" aria-hidden="true" />Weather in June</h3>
                 <p>Dry, sunny days with 9–10 hours of daily sunshine define June in Skardu. Daytime temperatures range from 20–30°C, making afternoons warm and comfortable. Mornings and evenings are noticeably cooler (10–15°C), so layering is essential.</p>
                 <p><strong>Sun intensity:</strong> The altitude (2,228 m) amplifies UV exposure. SPF 50+ sunscreen is non-negotiable. Reapply every 2–3 hours if you're outdoors. A sun hat and sunglasses are mandatory for hiking and outdoor activities.</p>
                 <p><strong>What to pack:</strong> A light fleece or merino wool layer for mornings. A windbreaker or light jacket for evening. Breathable, quick-dry clothing for daytime. Humidity runs 37–65%, so you won&rsquo;t feel sticky, but moisture-wicking helps.</p>
@@ -274,10 +257,11 @@ export default function VenuePage() {
           </article>
 
           {/* Room Allocation Section */}
-          <article className={`${styles.logisticsCard} ${styles.logisticsCardAlt}`}>
+          <article className={styles.logisticsCard}>
             <div className={styles.logisticsCardInner}>
               <div className={styles.logisticsCardLeft}>
-                <h3>🛏️ Room Allocation</h3>
+                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Accommodations</span></div>
+                <h3><Home className="w-5 h-5 inline mr-2" aria-hidden="true" />Room Allocation</h3>
                 <p>All fellows are accommodated in triple-sharing rooms with two other fellows of the same gender. This intentional proximity builds cohort connection and reflects the retreat&rsquo;s collaborative ethos.</p>
                 <p><strong>Room structure:</strong> Each room features one bed on the ground floor and two beds in a loft area above. This setup creates a living space with natural height variation, offering both comfort and an interesting spatial dynamic.</p>
                 <p><strong>Bed selection:</strong> You and your roommates can mutually decide who sleeps where. Ground floor offers easier access; the loft provides separation and a more private nook. There&rsquo;s no wrong choice—discuss it on arrival and settle what works best for everyone.</p>
@@ -308,7 +292,8 @@ export default function VenuePage() {
           <article className={styles.logisticsCard}>
             <div className={styles.logisticsCardInner}>
               <div className={styles.logisticsCardLeft}>
-                <h3>📡 Internet & Phone Coverage</h3>
+                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Connectivity</span></div>
+                <h3><Wifi className="w-5 h-5 inline mr-2" aria-hidden="true" />Internet & Phone Coverage</h3>
                 <p>Khoj Resort has Wi-Fi available in the main building and common areas. However, internet connectivity in this region is not guaranteed to be fast or continuous—think of it as a bonus, not a lifeline. Embrace the slowness; it&rsquo;s part of the retreat experience.</p>
                 <p><strong>Mobile networks:</strong> Cellular signals from major telecom providers (Zong, PTCL, Jazz) are generally available, with 3G/4G service in and around the resort. Signal strength varies by location and weather. You may have dead zones near certain areas or during storms.</p>
                 <p><strong>Offline mindset:</strong> Download important documents, maps, and content before you arrive. Save offline versions of flights, accommodation details, and emergency contact info. If you need reliable connectivity for work, consider rescheduling—this is a retreat, and disconnection is intentional.</p>
@@ -336,10 +321,11 @@ export default function VenuePage() {
           </article>
 
           {/* Medical Assistance Section */}
-          <article className={`${styles.logisticsCard} ${styles.logisticsCardAlt}`}>
+          <article className={styles.logisticsCard}>
             <div className={styles.logisticsCardInner}>
               <div className={styles.logisticsCardLeft}>
-                <h3>🏥 Medical Assistance</h3>
+                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Medical Care</span></div>
+                <h3><Heart className="w-5 h-5 inline mr-2" aria-hidden="true" />Medical Assistance</h3>
                 <p>A comprehensive first-aid kit will be available throughout the duration of the program, including during outdoor excursions and activities. Our team is trained to handle minor injuries, altitude-related discomfort, and basic medical issues.</p>
                 <p><strong>Altitude considerations:</strong> At 2,228 m, some fellows may experience mild altitude effects: headaches, slight fatigue, or difficulty sleeping the first night. These typically resolve within 24–48 hours. Drink plenty of water, avoid alcohol on arrival day, and pace yourself during hiking.</p>
                 <p><strong>Nearby facilities:</strong> Basic medical facilities are available in Shigar, a short 5–10 minute drive from Khoj. For more serious concerns, Skardu (45 minutes away) has larger healthcare facilities and hospitals with better equipment and specialist doctors.</p>
@@ -370,7 +356,8 @@ export default function VenuePage() {
           <article className={styles.logisticsCard}>
             <div className={styles.logisticsCardInner}>
               <div className={styles.logisticsCardLeft}>
-                <h3>🎒 Packing List</h3>
+                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">What to Bring</span></div>
+                <h3><Backpack className="w-5 h-5 inline mr-2" aria-hidden="true" />Packing List</h3>
                 <p>Pack for variable mountain weather: warm days, cold mornings/evenings, and the occasional thunderstorm. The list below covers essentials. You&rsquo;ll be comfortable and prepared.</p>
                 <p><strong>Footwear:</strong> Closed-toe hiking boots are essential if you plan to trek (which you should—some of the best moments happen on the trail). Bring extra socks; blisters are your enemy at altitude. Casual walking shoes or sandals for resort areas and evening activities.</p>
                 <p><strong>Clothing:</strong> 3–4 days&rsquo; worth of mixed clothing (tops, bottoms, undergarments). You&rsquo;ll have laundry service, so you don&rsquo;t need a week&rsquo;s wardrobe. Layers are key: merino wool or synthetic (not cotton) base layers, a fleece mid-layer, and a windproof outer shell.</p>
@@ -398,10 +385,11 @@ export default function VenuePage() {
           </article>
 
           {/* Travel Arrangements Section */}
-          <article className={`${styles.logisticsCard} ${styles.logisticsCardAlt}`}>
+          <article className={styles.logisticsCard}>
             <div className={styles.logisticsCardInner}>
               <div className={styles.logisticsCardLeft}>
-                <h3>✈️ Travel Arrangements</h3>
+                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Getting There</span></div>
+                <h3><Plane className="w-5 h-5 inline mr-2" aria-hidden="true" />Travel Arrangements</h3>
                 <p>All flight bookings have been arranged and provided to you. You are responsible for getting to your designated departure airport on time. Once you land in Skardu, our logistics team takes over.</p>
                 <p><strong>Arrival process:</strong> Upon landing at Skardu International Airport, our team will greet you with a sign bearing the Summit Fellowship logo. They&rsquo;ll handle luggage and coordinate transport to Khoj Resort, about 30 minutes away. The drive threads through the Shigar valley—watch for the apricot orchards and the river.</p>
                 <p><strong>Luggage & belongings:</strong> Pack one main piece of luggage plus a carry-on. Khoj has storage for bags during the week. Excess luggage can be left at the airport or in Skardu; coordinate with our logistics team if needed.</p>
