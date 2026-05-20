@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Summit Fellowship</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+  .contact-section {
+    padding: 80px 0 120px;
+    background: var(--paper);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  /* Left: contact channels */
+  .channels {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .channel {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    padding: 24px;
+    background: var(--paper-cool);
+    border: 1px solid var(--line);
+    transition: all .25s var(--ease-out);
+  }
+  .channel:hover {
+    border-color: var(--clay);
+    background: var(--paper);
+  }
+  .channel__icon {
+    width: 60px; height: 60px;
+    border: 1.5px solid var(--alpine-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--alpine-deep);
+    flex-shrink: 0;
+  }
+  .channel__title {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--alpine-deep);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .channel__detail {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .channel__action a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clay);
+    border-bottom: 1px solid var(--clay);
+    padding-bottom: 2px;
+  }
+  .channel__action a:hover { color: var(--alpine-deep); border-color: var(--alpine-deep); }
+
+  /* Right: form */
+  .contact-form {
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-form .topo-bg { opacity: 0.10; }
+  .contact-form__inner { position: relative; z-index: 1; }
+  .contact-form h3 {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: var(--paper);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 12px;
+  }
+  .contact-form h3 em { color: var(--ochre); font-style: italic; }
+  .contact-form p {
+    font-size: 15px;
+    color: var(--parchment);
+    opacity: 0.85;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .form-group {
+    margin-bottom: 18px;
+  }
+  .form-group label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(232, 226, 213, 0.3);
+    padding: 10px 0;
+    color: var(--paper);
+    font-family: var(--sans);
+    font-size: 16px;
+    transition: border-color .2s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-bottom-color: var(--ochre);
+  }
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+    border: 1px solid rgba(232, 226, 213, 0.3);
+    padding: 12px;
+  }
+  .form-group select { appearance: none; cursor: pointer; }
+  .form-group select option { background: var(--alpine-deep); color: var(--paper); }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+  .form-submit {
+    margin-top: 12px;
+  }
+  .form-status {
+    margin-top: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    color: var(--ochre);
+    min-height: 16px;
+  }
+
+  /* Hosts strip */
+  .hosts-section {
+    padding: 100px 0;
+    background: var(--paper-warm);
+  }
+  .hosts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .host-card {
+    background: var(--paper-cool);
+    border: 1px solid var(--line);
+    padding: 40px;
+  }
+  .host-card__name {
+    font-family: var(--serif);
+    font-size: 40px;
+    color: var(--alpine-deep);
+    letter-spacing: -0.015em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .host-card__role {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 24px;
+  }
+  .host-card__desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .host-card__links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .host-card__links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--alpine-deep);
+    border-bottom: 1px solid var(--alpine-deep);
+    padding-bottom: 2px;
+  }
+  .host-card__links a:hover { color: var(--clay); border-color: var(--clay); }
+  @media (max-width: 800px) { .hosts-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Summit Fellowship home">
+      <svg width="32" height="32" viewBox="0 0 40 40" style="color: var(--clay)" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M 6 30 L 16 12 L 23 22" /><path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fill-opacity="0.12"/><circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5"/></g>
+      </svg>
+      <span class="site-header__wordmark">Summit<span class="ws">·</span>Fellowship</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="cohort.html">Cohort</a><a class="site-nav__link" href="faculty.html">Faculty</a><a class="site-nav__link" href="curriculum.html">Curriculum</a><a class="site-nav__link" href="itinerary.html">Itinerary</a><a class="site-nav__link" href="venue.html">Venue</a><a class="site-nav__link" href="travel.html">Travel</a><a class="site-nav__link" href="resources.html">Resources</a><a class="site-nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="site-header__cta" href="mailto:hello@summitfellowship.pk">hello@summitfellowship.pk</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="page-hero" data-screen-label="Contact Hero">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <div class="page-hero__crumbs"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+    <h1 class="page-hero__title">Get in <em style="color: var(--ochre); font-style: italic;">touch.</em></h1>
+    <p class="page-hero__subtitle">For fellows, faculty, partners, and the curious. The team replies within one working day — Pakistan Standard Time.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container contact-grid">
+    <!-- Left: contact channels -->
+    <div>
+      <div class="eyebrow-line"><span class="eyebrow-line__line"></span><span class="eyebrow">By channel</span></div>
+      <h2 style="font-family: var(--serif); font-size: clamp(36px, 4vw, 56px); color: var(--alpine-deep); line-height: 1; letter-spacing: -0.02em; margin-bottom: 32px;">
+        Pick a <em style="color: var(--clay); font-style: italic;">door.</em>
+      </h2>
+
+      <div class="channels">
+        <div class="channel">
+          <div class="channel__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9 6 9-6M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l2-2h14l2 2"/></svg>
+          </div>
+          <div>
+            <h3 class="channel__title">General enquiries</h3>
+            <p class="channel__detail">Anything that doesn't fit the categories below. Real human answers within one working day.</p>
+            <div class="channel__action"><a href="mailto:hello@summitfellowship.pk">hello@summitfellowship.pk →</a></div>
+          </div>
+        </div>
+
+        <div class="channel">
+          <div class="channel__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="9" r="3"/><path d="M12 2a7 7 0 017 7c0 4-7 13-7 13S5 13 5 9a7 7 0 017-7z"/></svg>
+          </div>
+          <div>
+            <h3 class="channel__title">Logistics &amp; travel</h3>
+            <p class="channel__detail">Flights, visas, transfers, dietary needs, room requests, anything that lands at the airport.</p>
+            <div class="channel__action"><a href="mailto:logistics@summitfellowship.pk">logistics@summitfellowship.pk →</a></div>
+          </div>
+        </div>
+
+        <div class="channel">
+          <div class="channel__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h6l3-9 4 18 3-9h2"/></svg>
+          </div>
+          <div>
+            <h3 class="channel__title">Curriculum &amp; faculty</h3>
+            <p class="channel__detail">Programme, pre-reads, faculty mentor matching, capacity clinic scheduling.</p>
+            <div class="channel__action"><a href="mailto:program@summitfellowship.pk">program@summitfellowship.pk →</a></div>
+          </div>
+        </div>
+
+        <div class="channel">
+          <div class="channel__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <h3 class="channel__title">Press &amp; partnerships</h3>
+            <p class="channel__detail">Media enquiries, partnership conversations, future cohort sponsorship.</p>
+            <div class="channel__action"><a href="mailto:partners@summitfellowship.pk">partners@summitfellowship.pk →</a></div>
+          </div>
+        </div>
+
+        <div class="channel">
+          <div class="channel__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <div>
+            <h3 class="channel__title">Apply — Vol. 02 (2027)</h3>
+            <p class="channel__detail">Applications for the next cohort open in October 2026. Drop a note to be notified first.</p>
+            <div class="channel__action"><a href="mailto:apply@summitfellowship.pk">apply@summitfellowship.pk →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="contact-form">
+      <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+      <div class="contact-form__inner">
+        <h3>Or send a <em>note.</em></h3>
+        <p>Tell us a little about you and what you're after. The form lands in the right inbox automatically.</p>
+
+        <form id="contactForm" onsubmit="event.preventDefault(); document.getElementById('formStatus').textContent='✓ Thanks — we\\'ll reply within one working day.';">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cname">Your name</label>
+              <input id="cname" type="text" required>
+            </div>
+            <div class="form-group">
+              <label for="cemail">Email</label>
+              <input id="cemail" type="email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ctopic">What's this about?</label>
+            <select id="ctopic" required>
+              <option value="">Pick one…</option>
+              <option>General enquiry</option>
+              <option>Logistics / travel / visa</option>
+              <option>Curriculum / faculty</option>
+              <option>Press / media</option>
+              <option>Partnership</option>
+              <option>Future cohort (Vol. 02)</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cmsg">Your message</label>
+            <textarea id="cmsg" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--ochre form-submit">Send note →</button>
+          <div class="form-status" id="formStatus" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hosts -->
+<section class="hosts-section">
+  <div class="container">
+    <div class="eyebrow-line"><span class="eyebrow-line__line"></span><span class="eyebrow">The co-hosts</span></div>
+    <h2 style="font-family: var(--serif); font-size: clamp(40px, 5vw, 64px); color: var(--alpine-deep); line-height: 1; letter-spacing: -0.02em; margin-bottom: 48px;">
+      Two organizations. <em style="color: var(--clay); font-style: italic;">One week.</em>
+    </h2>
+
+    <div class="hosts-grid">
+      <article class="host-card">
+        <h3 class="host-card__name">Taleemabad</h3>
+        <div class="host-card__role">Co-host · Organizer · Karachi, Pakistan</div>
+        <p class="host-card__desc">Pakistan's largest ed-tech organization. Transforms learning for millions of children through digital platforms, public school integrations, and engaging multimodal content in Urdu, Punjabi, and Pashto.</p>
+        <div class="host-card__links">
+          <a href="https://taleemabad.com/" target="_blank" rel="noopener">taleemabad.com →</a>
+          <a href="mailto:hello@taleemabad.com">Email →</a>
+        </div>
+      </article>
+
+      <article class="host-card">
+        <h3 class="host-card__name">Mulago Foundation</h3>
+        <div class="host-card__role">Co-host · Framework · San Francisco, CA</div>
+        <p class="host-card__desc">A foundation that operates like a venture capital firm for impact — providing unrestricted funding and support to social entrepreneurs whose solutions are designed for massive scale.</p>
+        <div class="host-card__links">
+          <a href="https://www.mulagofoundation.org/" target="_blank" rel="noopener">mulagofoundation.org →</a>
+          <a href="mailto:info@mulagofoundation.org">Email →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand"><h3>Summit<br>Fellowship</h3><p>The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan's most promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.</p></div>
+      <div class="site-footer__col"><h4>The Program</h4><ul><li><a href="about.html">About</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="itinerary.html">Itinerary</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div class="site-footer__col"><h4>The People</h4><ul><li><a href="cohort.html">Cohort 2026</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="faculty.html#organizers">Organizers</a></li></ul></div>
+      <div class="site-footer__col"><h4>Logistics</h4><ul><li><a href="venue.html">Khoj Resort, Skardu</a></li><li><a href="travel.html">Travel &amp; Arrivals</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom"><span>© 2026 · Summit Fellowship · Vol. 01</span><span>Skardu · Gilgit-Baltistan · Pakistan</span></div>
+  </div>
+</footer>
+
+<script src="scripts/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khoj Resort, Skardu — Summit Fellowship</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+  /* Big venue intro */
+  .venue-intro {
+    padding: 120px 0;
+    background: var(--paper);
+    position: relative;
+  }
+  .venue-intro__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .venue-intro__copy h2 {
+    font-size: clamp(48px, 6vw, 96px);
+    color: var(--alpine-deep);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    margin-bottom: 32px;
+  }
+  .venue-intro__copy h2 em { color: var(--clay); font-style: italic; }
+  .venue-intro__copy p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+  .venue-intro__image {
+    aspect-ratio: 4/5;
+    background:
+      linear-gradient(180deg, rgba(20, 39, 52, 0.2) 0%, rgba(20, 39, 52, 0.4) 100%),
+      url("https://images.unsplash.com/photo-1626891820395-a1d3df8d22e9?auto=format&fit=crop&w=1200&q=80") center/cover;
+    position: relative;
+  }
+  .venue-intro__image::after {
+    content: "Khoj Resort · Shigar Valley";
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: rgba(20, 39, 52, 0.6);
+    padding: 8px 12px;
+    backdrop-filter: blur(4px);
+  }
+  @media (max-width: 900px) {
+    .venue-intro__grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* Map */
+  .map-section {
+    padding: 100px 0;
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    position: relative;
+    overflow: hidden;
+  }
+  .map-section .topo-bg { opacity: 0.10; }
+  .map-section__inner { position: relative; z-index: 1; }
+  .map-section__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 48px;
+  }
+  .map-section__head h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--paper);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .map-section__head h2 em { color: var(--ochre); font-style: italic; }
+  .map-section__head p {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--parchment);
+    opacity: 0.85;
+    max-width: 48ch;
+  }
+  @media (max-width: 800px) { .map-section__head { grid-template-columns: 1fr; } }
+
+  .map-frame {
+    background: #0a1820;
+    border: 1px solid rgba(232, 226, 213, 0.16);
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-frame svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--parchment);
+  }
+  .map-legend__item { display: flex; align-items: center; gap: 8px; }
+  .legend-dot {
+    width: 12px; height: 12px;
+    border: 2px solid var(--ochre);
+    border-radius: 50%;
+    background: transparent;
+  }
+  .legend-dot--solid { background: var(--ochre); }
+  .legend-dot--clay { border-color: var(--clay); background: var(--clay); }
+  .legend-line {
+    width: 24px; height: 2px;
+    background: var(--ochre);
+    background-image: linear-gradient(90deg, var(--ochre) 50%, transparent 50%);
+    background-size: 8px 2px;
+  }
+
+  /* Spaces — like a hotel features grid */
+  .spaces {
+    padding: 120px 0;
+    background: var(--paper-warm);
+  }
+  .spaces__head {
+    margin-bottom: 64px;
+    max-width: 800px;
+  }
+  .spaces__head h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--alpine-deep);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .spaces__head h2 em { color: var(--clay); font-style: italic; }
+  .spaces__head p {
+    font-size: 18px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .space-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .space-card {
+    background: var(--paper-cool);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s var(--ease-out);
+  }
+  .space-card:hover { transform: translateY(-4px); }
+  .space-card__image {
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .space-card__num {
+    position: absolute;
+    top: 16px; left: 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--paper);
+    background: rgba(20, 39, 52, 0.7);
+    padding: 6px 10px;
+    backdrop-filter: blur(4px);
+  }
+  .space-card__body { padding: 24px; }
+  .space-card__title {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--alpine-deep);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .space-card__desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  @media (max-width: 900px) { .space-grid { grid-template-columns: 1fr; } }
+
+  /* Pull quote */
+  .venue-quote {
+    padding: 120px 0;
+    background: var(--paper);
+    text-align: center;
+  }
+  .venue-quote blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.25;
+    max-width: 24ch;
+    margin: 0 auto 32px;
+    color: var(--alpine-deep);
+  }
+  .venue-quote .attr {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* Fact strip */
+  .fact-strip {
+    background: var(--clay);
+    color: var(--paper);
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .fact-strip .topo-bg { opacity: 0.10; mix-blend-mode: overlay; }
+  .fact-strip__grid {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .fact-strip__cell .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ochre-pale);
+    margin-bottom: 8px;
+  }
+  .fact-strip__cell .value {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 40px);
+    color: var(--paper);
+    line-height: 1;
+  }
+  @media (max-width: 700px) { .fact-strip__grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Animated SVG bits */
+  .map-pulse {
+    animation: pulse 2.4s ease-out infinite;
+    transform-origin: center;
+  }
+  @keyframes pulse {
+    0% { opacity: 0.8; r: 6; }
+    100% { opacity: 0; r: 24; }
+  }
+  .map-dash {
+    stroke-dasharray: 6 6;
+    animation: dash 30s linear infinite;
+  }
+  @keyframes dash {
+    to { stroke-dashoffset: -240; }
+  }
+  .map-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    fill: var(--parchment);
+  }
+  .map-label--ochre { fill: var(--ochre); }
+  .map-label--lg {
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: -0.005em;
+    text-transform: none;
+    fill: var(--paper);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Summit Fellowship home">
+      <svg width="32" height="32" viewBox="0 0 40 40" style="color: var(--clay)" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M 6 30 L 16 12 L 23 22" /><path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fill-opacity="0.12"/><circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5"/></g>
+      </svg>
+      <span class="site-header__wordmark">Summit<span class="ws">·</span>Fellowship</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="about.html">About</a>
+      <a class="site-nav__link" href="cohort.html">Cohort</a>
+      <a class="site-nav__link" href="faculty.html">Faculty</a>
+      <a class="site-nav__link" href="curriculum.html">Curriculum</a>
+      <a class="site-nav__link" href="itinerary.html">Itinerary</a>
+      <a class="site-nav__link" href="venue.html">Venue</a>
+      <a class="site-nav__link" href="travel.html">Travel</a>
+      <a class="site-nav__link" href="resources.html">Resources</a>
+      <a class="site-nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="site-header__cta" href="travel.html">Travel Info →</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="page-hero" data-screen-label="Venue Hero">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <div class="page-hero__crumbs"><a href="index.html">Home</a><span>/</span><span>Venue</span></div>
+    <h1 class="page-hero__title">Khoj Resort, <em style="color: var(--ochre); font-style: italic">Skardu.</em></h1>
+    <p class="page-hero__subtitle">Tucked into the Shigar valley with the Karakoram rising on every side. Deliberate retreat from city noise, signal, and obligation.</p>
+    <div class="page-hero__meta">
+      <div class="page-hero__meta-item"><span class="label">Coordinates</span><span class="value">35.30°N · 75.62°E</span></div>
+      <div class="page-hero__meta-item"><span class="label">Elevation</span><span class="value">~2,228 m</span></div>
+      <div class="page-hero__meta-item"><span class="label">Region</span><span class="value">Gilgit-Baltistan</span></div>
+      <div class="page-hero__meta-item"><span class="label">June climate</span><span class="value">12 – 24°C</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="venue-intro">
+  <div class="container venue-intro__grid">
+    <div class="venue-intro__copy">
+      <div class="eyebrow-line"><span class="eyebrow-line__line"></span><span class="eyebrow">The venue</span></div>
+      <h2>Where the<br><em>work happens.</em></h2>
+      <p>Khoj is deliberately remote. The flight in lands at 2,228 m. The drive from the airstrip threads the Shigar river through poplar groves and apricot orchards. By the time you arrive, your phone is no longer the most interesting thing in the room.</p>
+      <p>The resort is small by design — built for groups exactly this size. Workshop spaces flow onto a stone courtyard. Walk five minutes in any direction and you're in the orchards, on the river bank, or at the foot of a rock face that did not exist on yesterday's horizon.</p>
+      <p>Days alternate between structured studio sessions, outdoor 1-on-1 clinics, and the kind of unstructured time that only happens when eleven founders find themselves in a valley together with nothing else to do.</p>
+    </div>
+    <div class="venue-intro__image" role="img" aria-label="Khoj Resort exterior in the Shigar valley"></div>
+  </div>
+</section>
+
+<!-- Animated map -->
+<section class="map-section">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container map-section__inner">
+    <div class="map-section__head">
+      <div>
+        <div class="eyebrow eyebrow--on-dark" style="margin-bottom: 16px;">The terrain</div>
+        <h2>You are <em>here.</em></h2>
+      </div>
+      <p>A schematic of the week's geography. Khoj is the basecamp; off-site days bring the cohort to Shigar Fort, the Skardu bazaar, and a local family's home for dinner.</p>
+    </div>
+
+    <div class="map-frame">
+      <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background tint -->
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0a1820"/>
+            <stop offset="100%" stop-color="#142734"/>
+          </linearGradient>
+          <radialGradient id="khojGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#d4a574" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#d4a574" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1600" height="900" fill="url(#sky)"/>
+
+        <!-- Topographic contour lines (faux relief) -->
+        <g fill="none" stroke="#2a4254" stroke-width="0.8" opacity="0.7">
+          <path d="M 100 200 C 300 140, 600 160, 900 100 C 1100 80, 1300 120, 1500 80"/>
+          <path d="M 100 240 C 300 180, 600 200, 900 140 C 1100 120, 1300 160, 1500 120"/>
+          <path d="M 50 320 C 250 260, 550 290, 850 230 C 1080 210, 1280 250, 1480 210"/>
+          <path d="M 30 400 C 220 350, 500 380, 800 320 C 1050 300, 1260 340, 1460 300"/>
+          <path d="M 1450 480 C 1300 500, 1150 460, 1000 490 C 850 510, 700 480, 550 510 C 400 540, 250 510, 80 540"/>
+          <path d="M 1450 540 C 1300 560, 1150 530, 1000 555 C 850 575, 700 550, 550 575 C 400 600, 250 575, 80 595"/>
+          <path d="M 1450 620 C 1300 640, 1150 610, 1000 635 C 850 655, 700 630, 550 655 C 400 680, 250 655, 80 675"/>
+          <path d="M 1450 720 C 1300 740, 1150 710, 1000 735 C 850 755, 700 730, 550 755 C 400 780, 250 755, 80 775"/>
+        </g>
+
+        <!-- Mountain shapes -->
+        <g opacity="0.35">
+          <polygon points="0,500 200,200 320,360 460,180 620,440 760,250 900,500" fill="#2a4254"/>
+          <polygon points="800,500 920,260 1020,400 1160,180 1320,340 1450,200 1600,500" fill="#1a2e3b"/>
+        </g>
+
+        <!-- River (Shigar/Indus) -->
+        <path class="map-dash" d="M 0 580 C 200 560, 400 600, 600 580 C 800 560, 1000 600, 1200 580 C 1400 560, 1600 590, 1600 590"
+              fill="none" stroke="#5b8baf" stroke-width="3" stroke-opacity="0.6"/>
+        <text x="20" y="630" class="map-label" style="font-size: 11px;">Shigar River →</text>
+
+        <!-- Route to Shigar Fort -->
+        <path class="map-dash" d="M 750 580 Q 900 520, 1080 480"
+              fill="none" stroke="#d4a574" stroke-width="2" stroke-opacity="0.8"/>
+
+        <!-- Route to Skardu Bazar -->
+        <path class="map-dash" d="M 750 580 Q 600 620, 420 660"
+              fill="none" stroke="#d4a574" stroke-width="2" stroke-opacity="0.8"/>
+
+        <!-- Khoj — basecamp -->
+        <g transform="translate(750, 580)">
+          <circle r="60" fill="url(#khojGlow)"/>
+          <circle class="map-pulse" r="6" fill="#d4a574" stroke="#d4a574" stroke-width="2"/>
+          <circle r="8" fill="#d4a574" stroke="#0a1820" stroke-width="2"/>
+          <text x="16" y="6" class="map-label--lg map-label">Khoj Resort</text>
+          <text x="16" y="26" class="map-label">★ Basecamp · 2,228 m</text>
+        </g>
+
+        <!-- Shigar Fort -->
+        <g transform="translate(1080, 480)">
+          <circle r="40" fill="url(#khojGlow)" opacity="0.5"/>
+          <circle r="6" fill="#142734" stroke="#d4a574" stroke-width="2"/>
+          <text x="14" y="2" class="map-label map-label--ochre">Shigar Fort</text>
+          <text x="14" y="20" class="map-label" style="opacity: 0.7">Day 02 · Lightning Talks</text>
+        </g>
+
+        <!-- Skardu Bazar -->
+        <g transform="translate(420, 660)">
+          <circle r="40" fill="url(#khojGlow)" opacity="0.5"/>
+          <circle r="6" fill="#142734" stroke="#d4a574" stroke-width="2"/>
+          <text x="-110" y="2" class="map-label map-label--ochre" text-anchor="start" transform="translate(0, 0)">Skardu Bazar</text>
+          <text x="-200" y="20" class="map-label" style="opacity: 0.7">Day 03 · Evening</text>
+        </g>
+
+        <!-- Karakoram Range marker -->
+        <g transform="translate(1300, 200)">
+          <circle r="5" fill="#8a4a3b"/>
+          <text x="12" y="4" class="map-label" fill="#d4a574">K2 · ~150 km NE</text>
+          <text x="12" y="22" class="map-label" style="opacity: 0.6">Karakoram Range</text>
+        </g>
+
+        <!-- Airport -->
+        <g transform="translate(220, 540)">
+          <circle r="5" fill="#8a4a3b"/>
+          <text x="-8" y="-12" class="map-label" fill="#d4a574" text-anchor="end">Skardu Intl. Airport</text>
+          <text x="-8" y="6" class="map-label" style="opacity: 0.6" text-anchor="end">~30 min drive →</text>
+        </g>
+
+        <!-- Local home -->
+        <g transform="translate(900, 700)">
+          <circle r="4" fill="#142734" stroke="#d4a574" stroke-width="2"/>
+          <text x="12" y="4" class="map-label map-label--ochre">Local Family Home</text>
+          <text x="12" y="22" class="map-label" style="opacity: 0.7">Day 03 · Dinner</text>
+        </g>
+
+        <!-- Compass -->
+        <g transform="translate(1480, 80)" font-family="JetBrains Mono" fill="#a39888">
+          <line x1="0" y1="-30" x2="0" y2="30" stroke="#a39888" stroke-width="0.6"/>
+          <line x1="-30" y1="0" x2="30" y2="0" stroke="#a39888" stroke-width="0.6"/>
+          <text x="0" y="-36" text-anchor="middle" font-size="11" fill="#d4a574">N</text>
+          <text x="0" y="46" text-anchor="middle" font-size="9">S</text>
+          <text x="40" y="4" font-size="9">E</text>
+          <text x="-40" y="4" text-anchor="end" font-size="9">W</text>
+        </g>
+
+        <!-- Scale -->
+        <g transform="translate(60, 820)" font-family="JetBrains Mono">
+          <line x1="0" y1="0" x2="120" y2="0" stroke="#a39888" stroke-width="1.5"/>
+          <line x1="0" y1="-4" x2="0" y2="4" stroke="#a39888" stroke-width="1.5"/>
+          <line x1="60" y1="-4" x2="60" y2="4" stroke="#a39888" stroke-width="1.5"/>
+          <line x1="120" y1="-4" x2="120" y2="4" stroke="#a39888" stroke-width="1.5"/>
+          <text x="0" y="22" font-size="9" fill="#a39888">0</text>
+          <text x="60" y="22" font-size="9" fill="#a39888" text-anchor="middle">2.5 km</text>
+          <text x="120" y="22" font-size="9" fill="#a39888" text-anchor="middle">5 km</text>
+        </g>
+
+        <!-- Title plate -->
+        <g transform="translate(60, 60)">
+          <text font-family="Instrument Serif" font-size="32" fill="#f5efe3">Shigar Valley</text>
+          <text y="24" font-family="JetBrains Mono" font-size="10" fill="#d4a574" letter-spacing="2">SUMMIT FELLOWSHIP · 2026</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="map-legend">
+      <div class="map-legend__item"><span class="legend-dot legend-dot--solid"></span> Basecamp</div>
+      <div class="map-legend__item"><span class="legend-dot"></span> Off-site sessions</div>
+      <div class="map-legend__item"><span class="legend-line"></span> Travel routes</div>
+      <div class="map-legend__item" style="margin-left: auto; opacity: 0.6;">Schematic — not to scale</div>
+    </div>
+  </div>
+</section>
+
+<!-- Fact strip -->
+<section class="fact-strip">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container fact-strip__grid">
+    <div class="fact-strip__cell"><div class="label">Total spaces</div><div class="value">11 rooms</div></div>
+    <div class="fact-strip__cell"><div class="label">Workshop capacity</div><div class="value">~30 people</div></div>
+    <div class="fact-strip__cell"><div class="label">Wifi</div><div class="value">Yes — patchy</div></div>
+    <div class="fact-strip__cell"><div class="label">Vibe</div><div class="value">Intentionally quiet</div></div>
+  </div>
+</section>
+
+<!-- Spaces -->
+<section class="spaces">
+  <div class="container">
+    <div class="spaces__head">
+      <div class="eyebrow-line"><span class="eyebrow-line__line"></span><span class="eyebrow">The spaces</span></div>
+      <h2>Five rooms.<br><em>One valley.</em></h2>
+      <p>You'll move between these five spaces over the week. Each was chosen for what it lets the group do, and for what it forbids — Khoj does not have a giant ballroom for a reason.</p>
+    </div>
+
+    <div class="space-grid">
+      <article class="space-card">
+        <div class="space-card__image" style="background-image: linear-gradient(180deg, rgba(20,39,52,0.05), rgba(20,39,52,0.4)), url('https://images.unsplash.com/photo-1577415124269-fc1140a69e91?auto=format&fit=crop&w=900&q=80');">
+          <span class="space-card__num">01</span>
+        </div>
+        <div class="space-card__body">
+          <h3 class="space-card__title">The Studio</h3>
+          <p class="space-card__desc">Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.</p>
+        </div>
+      </article>
+      <article class="space-card">
+        <div class="space-card__image" style="background-image: linear-gradient(180deg, rgba(20,39,52,0.05), rgba(20,39,52,0.4)), url('https://images.unsplash.com/photo-1604608672516-f1b9b1d1c1b7?auto=format&fit=crop&w=900&q=80');">
+          <span class="space-card__num">02</span>
+        </div>
+        <div class="space-card__body">
+          <h3 class="space-card__title">The Courtyard</h3>
+          <p class="space-card__desc">Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.</p>
+        </div>
+      </article>
+      <article class="space-card">
+        <div class="space-card__image" style="background-image: linear-gradient(180deg, rgba(20,39,52,0.05), rgba(20,39,52,0.4)), url('https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=900&q=80');">
+          <span class="space-card__num">03</span>
+        </div>
+        <div class="space-card__body">
+          <h3 class="space-card__title">The Dining Hall</h3>
+          <p class="space-card__desc">One long table. Locally-sourced food. By Day 3, everyone has a permanent seat. By Day 6, no one wants to leave it.</p>
+        </div>
+      </article>
+      <article class="space-card">
+        <div class="space-card__image" style="background-image: linear-gradient(180deg, rgba(20,39,52,0.05), rgba(20,39,52,0.4)), url('https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=900&q=80');">
+          <span class="space-card__num">04</span>
+        </div>
+        <div class="space-card__body">
+          <h3 class="space-card__title">The Library Lounge</h3>
+          <p class="space-card__desc">Fireplace, mismatched armchairs, surprisingly well-stocked shelves. Default home for fireside chats and post-dinner spillover.</p>
+        </div>
+      </article>
+      <article class="space-card">
+        <div class="space-card__image" style="background-image: linear-gradient(180deg, rgba(20,39,52,0.05), rgba(20,39,52,0.4)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80');">
+          <span class="space-card__num">05</span>
+        </div>
+        <div class="space-card__body">
+          <h3 class="space-card__title">The Orchard</h3>
+          <p class="space-card__desc">A short walk from the main building. The default outdoor classroom for 1-on-1 clinics. The cohort's photo gets taken here on Day 6.</p>
+        </div>
+      </article>
+      <article class="space-card">
+        <div class="space-card__image" style="background-image: linear-gradient(180deg, rgba(20,39,52,0.1), rgba(20,39,52,0.5)), url('https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=900&q=80');">
+          <span class="space-card__num">06</span>
+        </div>
+        <div class="space-card__body">
+          <h3 class="space-card__title">Off-site: Shigar Fort</h3>
+          <p class="space-card__desc">15-minute drive. 17th-century Balti fort. Where the Lightning Talks happen on Day 2 — and where the photos every cohort posts come from.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="venue-quote">
+  <div class="container">
+    <blockquote>
+      "The work that happens here would not happen in Karachi or Lahore — for reasons that are obvious by Tuesday."
+    </blockquote>
+    <div class="attr">From a Vol. 00 alum</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background: var(--alpine-deep); color: var(--parchment); padding: 100px 0; position: relative; overflow: hidden;">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container" style="position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center;">
+    <h2 style="font-family: var(--serif); font-size: clamp(36px, 4.5vw, 64px); color: var(--paper); line-height: 1; letter-spacing: -0.02em;">
+      Now, how do you<br>actually get there?
+    </h2>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-self: end;">
+      <a href="travel.html" class="btn btn--ochre">Travel &amp; Logistics →</a>
+      <a href="contact.html" class="btn btn--ghost-light">Contact the team</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand"><h3>Summit<br>Fellowship</h3><p>The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan's most promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.</p></div>
+      <div class="site-footer__col"><h4>The Program</h4><ul><li><a href="about.html">About</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="itinerary.html">Itinerary</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div class="site-footer__col"><h4>The People</h4><ul><li><a href="cohort.html">Cohort 2026</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="faculty.html#organizers">Organizers</a></li></ul></div>
+      <div class="site-footer__col"><h4>Logistics</h4><ul><li><a href="venue.html">Khoj Resort, Skardu</a></li><li><a href="travel.html">Travel &amp; Arrivals</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom"><span>© 2026 · Summit Fellowship · Vol. 01</span><span>Skardu · Gilgit-Baltistan · Pakistan</span></div>
+  </div>
+</footer>
+
+<script src="scripts/site.js"></script>
+</body>
+</html>

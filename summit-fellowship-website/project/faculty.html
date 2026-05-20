@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faculty & Organizers — Summit Fellowship</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+  .faculty-section {
+    padding: 100px 0;
+    background: var(--paper);
+  }
+  .faculty-section--alt {
+    background: var(--paper-warm);
+  }
+  .faculty-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .person {
+    display: grid;
+    grid-template-columns: 280px 1fr 1fr;
+    gap: 48px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+    transition: background .3s var(--ease-out);
+  }
+  .person:hover { background: var(--paper-cool); }
+  .person__id {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .person__avatar {
+    width: 88px; height: 88px;
+    background: var(--alpine-deep);
+    color: var(--ochre);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 28px;
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+  .person__id-text {
+    flex: 1;
+  }
+  .person__num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--clay);
+    margin-bottom: 8px;
+  }
+  .person__name {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--alpine-deep);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .person__role {
+    font-size: 13px;
+    color: var(--ink-mute);
+    line-height: 1.4;
+    font-style: italic;
+  }
+  .person__col h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .person__col p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .person__col p strong { color: var(--alpine-deep); font-weight: 500; }
+  .person__links {
+    margin-top: 16px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .person__links a {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--alpine-deep);
+    border-bottom: 1px solid var(--alpine-deep);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .person__links a:hover { color: var(--clay); border-color: var(--clay); }
+  @media (max-width: 1100px) {
+    .person { grid-template-columns: 240px 1fr; }
+    .person__col + .person__col { grid-column: 1 / -1; padding-top: 0; }
+  }
+  @media (max-width: 700px) {
+    .person { grid-template-columns: 1fr; }
+  }
+
+  /* Hero faculty stat strip */
+  .faculty-stats {
+    padding: 60px 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .faculty-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+  .faculty-stats__cell {
+    text-align: left;
+  }
+  .faculty-stats__cell .num {
+    font-family: var(--serif);
+    font-size: 64px;
+    color: var(--clay);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .faculty-stats__cell .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  @media (max-width: 700px) {
+    .faculty-stats__grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  }
+
+  .section-divider {
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-divider .topo-bg { opacity: 0.12; }
+  .section-divider__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .section-divider h2 {
+    font-size: clamp(36px, 4.5vw, 64px);
+    color: var(--paper);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .section-divider h2 em { font-style: italic; color: var(--ochre); }
+  .section-divider .eyebrow { color: var(--ochre); }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Summit Fellowship home">
+      <svg width="32" height="32" viewBox="0 0 40 40" style="color: var(--clay)" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M 6 30 L 16 12 L 23 22" /><path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fill-opacity="0.12"/><circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5"/>
+        </g>
+      </svg>
+      <span class="site-header__wordmark">Summit<span class="ws">·</span>Fellowship</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="about.html">About</a>
+      <a class="site-nav__link" href="cohort.html">Cohort</a>
+      <a class="site-nav__link" href="faculty.html">Faculty</a>
+      <a class="site-nav__link" href="curriculum.html">Curriculum</a>
+      <a class="site-nav__link" href="itinerary.html">Itinerary</a>
+      <a class="site-nav__link" href="venue.html">Venue</a>
+      <a class="site-nav__link" href="travel.html">Travel</a>
+      <a class="site-nav__link" href="resources.html">Resources</a>
+      <a class="site-nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="site-header__cta" href="itinerary.html">June 7–14, 2026 →</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="page-hero" data-screen-label="Faculty Hero">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <div class="page-hero__crumbs"><a href="index.html">Home</a><span>/</span><span>Faculty &amp; Organizers</span></div>
+    <h1 class="page-hero__title">An ecosystem of <em style="color: var(--ochre); font-style: italic">support.</em></h1>
+    <p class="page-hero__subtitle">A curated group of founders, funders, and system-level operators bringing scale frameworks, patient capital, and the operational scars to make it real.</p>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="faculty-stats">
+  <div class="container faculty-stats__grid">
+    <div class="faculty-stats__cell"><div class="num">9</div><div class="label">People, total</div></div>
+    <div class="faculty-stats__cell"><div class="num">5</div><div class="label">Core faculty</div></div>
+    <div class="faculty-stats__cell"><div class="num">4</div><div class="label">Organizers &amp; hosts</div></div>
+    <div class="faculty-stats__cell"><div class="num">120+</div><div class="label">Years of scale experience</div></div>
+  </div>
+</section>
+
+<!-- Faculty Divider -->
+<section class="section-divider" id="faculty">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container section-divider__inner">
+    <div>
+      <div class="eyebrow" style="margin-bottom: 12px;">Part 01</div>
+      <h2>Core faculty &amp; <em>guest mentors.</em></h2>
+    </div>
+    <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ochre);">05 people</div>
+  </div>
+</section>
+
+<section class="faculty-section">
+  <div class="container">
+    <div class="faculty-grid">
+
+      <article class="person">
+        <div class="person__id">
+          <div class="person__avatar">KS</div>
+          <div class="person__id-text">
+            <div class="person__num">F.01</div>
+            <h3 class="person__name">Kevin Starr</h3>
+            <div class="person__role">CEO, Mulago Foundation</div>
+          </div>
+        </div>
+        <div class="person__col">
+          <h4>About the Organization</h4>
+          <p>The Mulago Foundation operates like a venture capital firm for impact, providing unrestricted funding and support to social entrepreneurs who have solutions to poverty and climate change <strong>designed for massive scale.</strong></p>
+        </div>
+        <div class="person__col">
+          <h4>Relevance to the Fellowship</h4>
+          <p>Architect of the <strong>Scale Screen</strong> and the <strong>Doer &amp; Payer</strong> frameworks. Decades of expertise helping founders reconstruct their models to be Good Enough, Big Enough, Simple Enough, and Cheap Enough.</p>
+          <div class="person__links">
+            <a href="https://www.linkedin.com/in/kevin-starr" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://www.mulagofoundation.org/" target="_blank" rel="noopener">Mulago Foundation →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="person">
+        <div class="person__id">
+          <div class="person__avatar">AR</div>
+          <div class="person__id-text">
+            <div class="person__num">F.02</div>
+            <h3 class="person__name">Dr. Ahson Rabbani</h3>
+            <div class="person__role">CEO, ChildLife Foundation</div>
+          </div>
+        </div>
+        <div class="person__col">
+          <h4>About the Organization</h4>
+          <p>ChildLife Foundation provides <strong>high-quality, free-of-cost emergency healthcare services</strong>, managing pediatric emergency rooms and telemedicine centers across Pakistan's public hospitals.</p>
+        </div>
+        <div class="person__col">
+          <h4>Relevance to the Fellowship</h4>
+          <p>Under his leadership, ChildLife has scaled from a few hospitals to a <strong>nationwide footprint.</strong> Provides fellows with a real-world, localized blueprint for scaling life-saving operations and securing government partnerships.</p>
+          <div class="person__links">
+            <a href="https://www.linkedin.com/in/ahson-rabbani/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://childlifefoundation.org/" target="_blank" rel="noopener">ChildLife Foundation →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="person">
+        <div class="person__id">
+          <div class="person__avatar">SK</div>
+          <div class="person__id-text">
+            <div class="person__num">F.03</div>
+            <h3 class="person__name">Dr. Sara Saeed Khurram</h3>
+            <div class="person__role">Co-Founder &amp; CEO, Sehat Kahani</div>
+          </div>
+        </div>
+        <div class="person__col">
+          <h4>About the Organization</h4>
+          <p>Sehat Kahani democratizes healthcare access through an <strong>all-female doctor provider network</strong> delivering affordable telemedicine to low-income communities and clinics.</p>
+        </div>
+        <div class="person__col">
+          <h4>Relevance to the Fellowship</h4>
+          <p>A Mulago <strong>Rainer Arnhold Fellow</strong> who applied the design-for-scale frameworks to Sehat Kahani, scaling it to millions of consultations. Bridges the theory with practical realities of scaling digital health in Pakistan.</p>
+          <div class="person__links">
+            <a href="https://www.linkedin.com/in/dr-sara-saeed-khurram/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://sehatkahani.com/" target="_blank" rel="noopener">Sehat Kahani →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="person">
+        <div class="person__id">
+          <div class="person__avatar">SF</div>
+          <div class="person__id-text">
+            <div class="person__num">F.04</div>
+            <h3 class="person__name">Sarah Farooq</h3>
+            <div class="person__role">Director, Acumen Fund</div>
+          </div>
+        </div>
+        <div class="person__col">
+          <h4>About the Organization</h4>
+          <p>Acumen is a global nonprofit changing the way the world tackles poverty by <strong>investing patient capital</strong> in social enterprises and developing leaders building a more inclusive world.</p>
+        </div>
+        <div class="person__col">
+          <h4>Relevance to the Fellowship</h4>
+          <p>Deploys patient capital at Acumen with a previous operational background as <strong>COO at Taleemabad.</strong> Provides deep insights into how funders evaluate investability, scale strategy, and operational readiness.</p>
+          <div class="person__links">
+            <a href="https://www.linkedin.com/in/sarah-farooq/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://acumen.org/" target="_blank" rel="noopener">Acumen →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="person">
+        <div class="person__id">
+          <div class="person__avatar">NS</div>
+          <div class="person__id-text">
+            <div class="person__num">F.05</div>
+            <h3 class="person__name">Nadir Shams</h3>
+            <div class="person__role">Founder, Friends of Pakistan Society &amp; Fund</div>
+          </div>
+        </div>
+        <div class="person__col">
+          <h4>About the Organization</h4>
+          <p>The Friends of Pakistan Society &amp; Fund catalyzes transformational social change and <strong>supports social entrepreneurs driving systems-level improvements</strong> across the country.</p>
+        </div>
+        <div class="person__col">
+          <h4>Relevance to the Fellowship</h4>
+          <p>Formerly a <strong>Managing Director at the Skoll Foundation</strong>, Nadir brings world-class philanthropic and investment expertise. Guides fellows on what global and diaspora capital requires to fund systemic change in Pakistan.</p>
+          <div class="person__links">
+            <a href="https://www.linkedin.com/in/nadirshams/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://fopk.org/" target="_blank" rel="noopener">Friends of Pakistan →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Organizers Divider -->
+<section class="section-divider" id="organizers">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container section-divider__inner">
+    <div>
+      <div class="eyebrow" style="margin-bottom: 12px;">Part 02</div>
+      <h2>The organizing <em>team &amp; hosts.</em></h2>
+    </div>
+    <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ochre);">04 people</div>
+  </div>
+</section>
+
+<section class="faculty-section faculty-section--alt">
+  <div class="container">
+    <div class="faculty-grid">
+
+      <article class="person">
+        <div class="person__id">
+          <div class="person__avatar">HY</div>
+          <div class="person__id-text">
+            <div class="person__num">O.01</div>
+            <h3 class="person__name">Haroon Yasin</h3>
+            <div class="person__role">Founder &amp; CEO, Taleemabad</div>
+          </div>
+        </div>
+        <div class="person__col">
+          <h4>About the Organization</h4>
+          <p><strong>Taleemabad is Pakistan's largest ed-tech organization</strong>, transforming learning for millions of children through digital platforms, public school integrations, and engaging multimodal content.</p>
+        </div>
+        <div class="person__col">
+          <h4>Relevance to the Fellowship</h4>
+          <p>Co-host. Shares his firsthand experience of evolving Taleemabad <strong>from an evening school in the slums to a national enterprise</strong> partnering with the government and international agencies.</p>
+          <div class="person__links">
+            <a href="https://www.linkedin.com/in/haroon-yasin/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://taleemabad.com/" target="_blank" rel="noopener">Taleemabad →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="person">
+        <div class="person__id">
+          <div class="person__avatar">SA</div>
+          <div class="person__id-text">
+            <div class="person__num">O.02</div>
+            <h3 class="person__name">Sabeena Abbasi</h3>
+            <div class="person__role">Chief Sustainability &amp; Impact Officer, Taleemabad</div>
+          </div>
+        </div>
+        <div class="person__col">
+          <h4>About the Organization</h4>
+          <p>Taleemabad ensures equitable, high-quality digital learning by delivering standardized curriculum through engaging content, directly targeting <strong>massive gaps in foundational literacy.</strong></p>
+        </div>
+        <div class="person__col">
+          <h4>Relevance to the Fellowship</h4>
+          <p>Drives <strong>sustainability, impact strategy, and community-of-practice</strong> initiatives. Helps fellows connect programmatic models to measurable, long-term impact metrics and inclusive learning design.</p>
+          <div class="person__links">
+            <a href="https://www.linkedin.com/in/sabeena-abbasi/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://taleemabad.com/" target="_blank" rel="noopener">Taleemabad →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="person">
+        <div class="person__id">
+          <div class="person__avatar">AH</div>
+          <div class="person__id-text">
+            <div class="person__num">O.03</div>
+            <h3 class="person__name">Abida Hassan</h3>
+            <div class="person__role">General Manager, ChildLife Foundation</div>
+          </div>
+        </div>
+        <div class="person__col">
+          <h4>About the Organization</h4>
+          <p>ChildLife Foundation modernizes public sector hospitals by running <strong>high-tech, free-of-cost pediatric emergency rooms</strong> across Sindh, Balochistan, and Punjab.</p>
+        </div>
+        <div class="person__col">
+          <h4>Relevance to the Fellowship</h4>
+          <p>Plays a crucial role in <strong>on-the-ground operational execution</strong> of ChildLife's scale strategy. Mentors fellows on the intricate logistics, team management, and operational resilience required to sustain growth.</p>
+          <div class="person__links">
+            <a href="https://www.linkedin.com/in/abida-hassan-clf/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://childlifefoundation.org/" target="_blank" rel="noopener">ChildLife Foundation →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="person">
+        <div class="person__id">
+          <div class="person__avatar">MJ</div>
+          <div class="person__id-text">
+            <div class="person__num">O.04</div>
+            <h3 class="person__name">Muhammad Usman Javed</h3>
+            <div class="person__role">Head of Business Strategy &amp; Fundraising, Taleemabad</div>
+          </div>
+        </div>
+        <div class="person__col">
+          <h4>About the Organization</h4>
+          <p>Taleemabad is a pioneering social enterprise leveraging <strong>AI and digital content</strong> to replace outdated educational models in Pakistan with highly scalable, adaptive learning solutions.</p>
+        </div>
+        <div class="person__col">
+          <h4>Relevance to the Fellowship</h4>
+          <p>Architect of Taleemabad's 2026 Strategic Goals and the <strong>core organizer of the Skardu Scale-Up Fellowship</strong>. Ensures the cohort receives actionable, high-leverage frameworks while orchestrating the strategic partnerships that make the retreat possible.</p>
+          <div class="person__links">
+            <a href="https://www.linkedin.com/in/usman-javed/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://taleemabad.com/" target="_blank" rel="noopener">Taleemabad →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background: var(--paper); padding: 100px 0; text-align: center;">
+  <div class="container">
+    <h2 style="font-family: var(--serif); font-size: clamp(40px, 5vw, 64px); color: var(--alpine-deep); letter-spacing: -0.02em; margin-bottom: 24px;">
+      Meet the <em style="color: var(--clay); font-style: italic;">cohort</em> they came for.
+    </h2>
+    <p style="font-size: 18px; color: var(--ink-soft); max-width: 50ch; margin: 0 auto 32px;">
+      Eleven Pakistani founders, hand-picked for the kind of scale these mentors specialize in.
+    </p>
+    <a href="cohort.html" class="btn">See the Cohort →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand"><h3>Summit<br>Fellowship</h3><p>The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan's most promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.</p></div>
+      <div class="site-footer__col"><h4>The Program</h4><ul><li><a href="about.html">About</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="itinerary.html">Itinerary</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div class="site-footer__col"><h4>The People</h4><ul><li><a href="cohort.html">Cohort 2026</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="faculty.html#organizers">Organizers</a></li></ul></div>
+      <div class="site-footer__col"><h4>Logistics</h4><ul><li><a href="venue.html">Khoj Resort, Skardu</a></li><li><a href="travel.html">Travel &amp; Arrivals</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 · Summit Fellowship · Vol. 01</span>
+      <span>Skardu · Gilgit-Baltistan · Pakistan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/site.js"></script>
+</body>
+</html>

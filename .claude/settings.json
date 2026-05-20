@@ -91,7 +91,19 @@
       "Bash(python3 scripts/search.py \"eyebrow label section header visual hierarchy accent border spacing\" --domain ux -n 20)",
       "Bash(npm install *)",
       "Bash(npm uninstall *)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Skill(brainstorming)",
+      "Skill(brainstorming:*)",
+      "Bash(tar -xzf webfetch-1779281589413-zi0grf.bin)",
+      "Read(//c/Users/HP/AppData/Local/Temp/design-DMOiWfY9/summit-fellowship-website/project/**)",
+      "Bash(curl -L \"https://api.anthropic.com/v1/design/h/TOMZbzGcCxu3JmLJQEQLKA?open_file=venue.html\" -o design.tar.gz)",
+      "Bash(tar -tzf design.tar.gz)",
+      "Bash(tar -xzf design.tar.gz)",
+      "Bash(Select-Object -First 175)",
+      "Bash(head -n 175 \"d:\\\\Summit Fellowship Website\\\\app\\\\venue\\\\page.tsx\")",
+      "Bash(mv \"/tmp/venue_page_temp.tsx\" \"d:\\\\Summit Fellowship Website\\\\app\\\\venue\\\\page.tsx\")",
+      "Bash(git pull *)",
+      "Bash(cd \"d:\\\\Summit Fellowship Website\" && git show e941064:app/venue/page.tsx > /tmp/venue-full.tsx && head -100 /tmp/venue-full.tsx)"
     ],
     "deny": [
       "Bash(rm -rf /)",

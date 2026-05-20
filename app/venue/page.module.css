@@ -326,3 +326,110 @@
   text-transform: uppercase;
   opacity: 0.6;
 }
+
+/* === Spaces Section === */
+.spacesSection {
+  padding: 120px 0;
+  background: var(--paper);
+  position: relative;
+}
+
+.spacesHead {
+  max-width: 600px;
+  margin-bottom: 80px;
+}
+
+.spacesHead h2 {
+  font-size: clamp(48px, 6vw, 96px);
+  color: var(--alpine-deep);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-bottom: 32px;
+}
+
+.spacesHead h2 em {
+  color: var(--clay);
+  font-style: italic;
+}
+
+.spacesHead p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.spaceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.spaceCard {
+  background: var(--paper-warm);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spaceCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(20, 39, 52, 0.12);
+}
+
+.spaceCardImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(180deg, rgba(20, 39, 52, 0.05), rgba(20, 39, 52, 0.4)),
+              linear-gradient(135deg, var(--clay) 0%, var(--alpine-deep) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.spaceCardNum {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--paper);
+  letter-spacing: -0.02em;
+}
+
+.spaceCardBody {
+  padding: 32px;
+}
+
+.spaceCardTitle {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  color: var(--alpine-deep);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.spaceCardDesc {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1023px) {
+  .spaceGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .spaceGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .spacesHead h2 {
+    font-size: 36px;
+  }
+}

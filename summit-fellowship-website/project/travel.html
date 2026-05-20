@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travel & Logistics — Summit Fellowship</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+  .travel-section {
+    padding: 100px 0;
+    background: var(--paper);
+    position: relative;
+  }
+  .travel-section--warm { background: var(--paper-warm); }
+  .travel-section--alpine {
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    overflow: hidden;
+  }
+  .travel-section--alpine .topo-bg { opacity: 0.10; }
+
+  .section-title {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .travel-section--alpine .section-title { border-bottom-color: rgba(232, 226, 213, 0.16); }
+  .section-title h2 {
+    font-size: clamp(36px, 4.5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--alpine-deep);
+  }
+  .section-title h2 em { color: var(--clay); font-style: italic; }
+  .travel-section--alpine .section-title h2 { color: var(--paper); }
+  .travel-section--alpine .section-title h2 em { color: var(--ochre); }
+
+  /* Routes */
+  .routes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .route-card {
+    background: var(--paper-cool);
+    border: 1px solid var(--line);
+    padding: 32px;
+  }
+  .route-card__rank {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--clay);
+    margin-bottom: 12px;
+  }
+  .route-card__title {
+    font-family: var(--serif);
+    font-size: 30px;
+    color: var(--alpine-deep);
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .route-card__desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+  .route-card__stops {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  .route-stop {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .route-stop:last-child { border-bottom: 0; }
+  .route-stop__icon {
+    width: 32px; height: 32px;
+    background: var(--alpine-deep);
+    color: var(--ochre);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 2px;
+  }
+  .route-stop__where {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--alpine-deep);
+    line-height: 1.2;
+  }
+  .route-stop__where .sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-top: 2px;
+  }
+  .route-stop__time {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--clay);
+    text-transform: uppercase;
+  }
+  @media (max-width: 800px) { .routes { grid-template-columns: 1fr; } }
+
+  /* Checklist */
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .check-col h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--paper);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .check-col h3 em { color: var(--ochre); font-style: italic; }
+  .check-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .check-col li {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--parchment);
+    padding-left: 26px;
+    position: relative;
+  }
+  .check-col li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 4px;
+    width: 16px; height: 16px;
+    border: 1px solid var(--ochre);
+    border-radius: 2px;
+  }
+  .check-col li.essential::before {
+    background: var(--ochre);
+  }
+  .check-col li.essential::after {
+    content: "✓";
+    position: absolute;
+    left: 3px; top: 1px;
+    color: var(--alpine-deep);
+    font-size: 12px;
+    font-weight: 600;
+  }
+  @media (max-width: 800px) { .checklist-grid { grid-template-columns: 1fr; } }
+
+  /* FAQ */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-item__q {
+    width: 100%;
+    text-align: left;
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--alpine-deep);
+    line-height: 1.2;
+    cursor: pointer;
+    transition: color .2s;
+  }
+  .faq-item__q:hover { color: var(--clay); }
+  .faq-item__q .toggle {
+    width: 32px; height: 32px;
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink-mute);
+    flex-shrink: 0;
+    transition: all .2s var(--ease-out);
+  }
+  .faq-item.is-open .faq-item__q .toggle {
+    background: var(--alpine-deep);
+    color: var(--paper);
+    border-color: var(--alpine-deep);
+    transform: rotate(45deg);
+  }
+  .faq-item__a {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .35s var(--ease-out);
+  }
+  .faq-item__a-inner {
+    padding-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 70ch;
+  }
+  .faq-item.is-open .faq-item__a { max-height: 600px; }
+
+  /* Weather */
+  .weather {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .weather__copy h3 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 56px);
+    color: var(--alpine-deep);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .weather__copy h3 em { color: var(--clay); font-style: italic; }
+  .weather__copy p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .weather__chart {
+    background: var(--paper-cool);
+    border: 1px solid var(--line);
+    padding: 32px;
+  }
+  .weather__grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+  }
+  .weather-day {
+    text-align: center;
+  }
+  .weather-day .date {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.10em;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+  .weather-day .icon {
+    width: 36px; height: 36px;
+    margin: 0 auto 8px;
+    color: var(--clay);
+  }
+  .weather-day .temp {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--alpine-deep);
+    line-height: 1;
+  }
+  .weather-day .temp .low {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+  }
+  @media (max-width: 800px) {
+    .weather { grid-template-columns: 1fr; }
+    .weather__grid { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Summit Fellowship home">
+      <svg width="32" height="32" viewBox="0 0 40 40" style="color: var(--clay)" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M 6 30 L 16 12 L 23 22" /><path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fill-opacity="0.12"/><circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5"/></g>
+      </svg>
+      <span class="site-header__wordmark">Summit<span class="ws">·</span>Fellowship</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="cohort.html">Cohort</a><a class="site-nav__link" href="faculty.html">Faculty</a><a class="site-nav__link" href="curriculum.html">Curriculum</a><a class="site-nav__link" href="itinerary.html">Itinerary</a><a class="site-nav__link" href="venue.html">Venue</a><a class="site-nav__link" href="travel.html">Travel</a><a class="site-nav__link" href="resources.html">Resources</a><a class="site-nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="site-header__cta" href="contact.html">Need help? →</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="page-hero" data-screen-label="Travel Hero">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <div class="page-hero__crumbs"><a href="index.html">Home</a><span>/</span><span>Travel &amp; Logistics</span></div>
+    <h1 class="page-hero__title">Getting to <em style="color: var(--ochre); font-style: italic">Skardu.</em></h1>
+    <p class="page-hero__subtitle">Two ways in, one preferred. Here's what you need to know about flights, transfers, packing, and the small things that catch first-time visitors out.</p>
+    <div class="page-hero__meta">
+      <div class="page-hero__meta-item"><span class="label">Airport</span><span class="value">SKZ · Skardu Intl.</span></div>
+      <div class="page-hero__meta-item"><span class="label">From Islamabad</span><span class="value">~50 min flight</span></div>
+      <div class="page-hero__meta-item"><span class="label">Airport → Khoj</span><span class="value">~30 min by road</span></div>
+      <div class="page-hero__meta-item"><span class="label">Time zone</span><span class="value">UTC+5 (PKT)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Routes -->
+<section class="travel-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>How to <em>get there.</em></h2>
+      <span class="eyebrow">01 · Routing</span>
+    </div>
+    <div class="routes">
+      <article class="route-card">
+        <div class="route-card__rank">★ Recommended</div>
+        <h3 class="route-card__title">Fly via Islamabad (ISB → SKZ)</h3>
+        <p class="route-card__desc">The straightforward option. PIA operates daily Islamabad ↔ Skardu flights subject to weather. We recommend arriving in Islamabad at least one day prior — Skardu flights are often delayed or cancelled in unfavourable conditions.</p>
+        <div class="route-card__stops">
+          <div class="route-stop">
+            <div class="route-stop__icon">✈</div>
+            <div class="route-stop__where">Home airport → Islamabad (ISB)<span class="sub">Any major carrier; book well in advance</span></div>
+            <span class="route-stop__time">Day -1</span>
+          </div>
+          <div class="route-stop">
+            <div class="route-stop__icon">🏨</div>
+            <div class="route-stop__where">Overnight in Islamabad<span class="sub">Recommended — gives buffer for weather</span></div>
+            <span class="route-stop__time">Day -1</span>
+          </div>
+          <div class="route-stop">
+            <div class="route-stop__icon">✈</div>
+            <div class="route-stop__where">Islamabad → Skardu (SKZ)<span class="sub">PIA, ~50 min, weather dependent</span></div>
+            <span class="route-stop__time">Day 0 AM</span>
+          </div>
+          <div class="route-stop">
+            <div class="route-stop__icon">🚐</div>
+            <div class="route-stop__where">Skardu Airport → Khoj Resort<span class="sub">~30 min transfer arranged by team</span></div>
+            <span class="route-stop__time">Day 0</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="route-card">
+        <div class="route-card__rank">Backup · Adventure</div>
+        <h3 class="route-card__title">Drive from Islamabad (Karakoram Highway)</h3>
+        <p class="route-card__desc">If flights cancel and you have the time, the overland route via the Karakoram Highway is one of the most scenic drives on earth — and a 20-hour commitment. Coordinate with the team; we can arrange transport.</p>
+        <div class="route-card__stops">
+          <div class="route-stop">
+            <div class="route-stop__icon">🚗</div>
+            <div class="route-stop__where">Islamabad → Chilas<span class="sub">via Karakoram Highway (N-35)</span></div>
+            <span class="route-stop__time">~10 hrs</span>
+          </div>
+          <div class="route-stop">
+            <div class="route-stop__icon">🌙</div>
+            <div class="route-stop__where">Overnight in Chilas or Gilgit<span class="sub">Highly recommended; do not drive at night</span></div>
+            <span class="route-stop__time">Stop</span>
+          </div>
+          <div class="route-stop">
+            <div class="route-stop__icon">🚗</div>
+            <div class="route-stop__where">Chilas → Skardu<span class="sub">via Skardu Road (S-1)</span></div>
+            <span class="route-stop__time">~7 hrs</span>
+          </div>
+          <div class="route-stop">
+            <div class="route-stop__icon">🚐</div>
+            <div class="route-stop__where">Skardu → Khoj Resort<span class="sub">Short final leg</span></div>
+            <span class="route-stop__time">~30 min</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Weather -->
+<section class="travel-section travel-section--warm">
+  <div class="container">
+    <div class="section-title">
+      <h2>What to <em>expect.</em></h2>
+      <span class="eyebrow">02 · Weather</span>
+    </div>
+    <div class="weather">
+      <div class="weather__copy">
+        <h3>June weather<br>in <em>Skardu.</em></h3>
+        <p>Dry, sunny days. Cool mornings and evenings. Occasional thunderstorms in the late afternoon — they pass quickly. The sun is intense at altitude; a hat and SPF are non-negotiable.</p>
+        <p>Pack layers. The temperature swing between 6 AM and 2 PM can easily be 15°C. A light fleece or windbreaker covers most evenings.</p>
+      </div>
+      <div class="weather__chart">
+        <div class="weather__grid">
+          <div class="weather-day"><div class="date">Sun 07</div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg><div class="temp">23°<span class="low">11°</span></div></div>
+          <div class="weather-day"><div class="date">Mon 08</div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg><div class="temp">24°<span class="low">12°</span></div></div>
+          <div class="weather-day"><div class="date">Tue 09</div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 14a4 4 0 014-4 5 5 0 019.6 1.6A3.5 3.5 0 0119 18H7a4 4 0 01-1-4z"/></svg><div class="temp">21°<span class="low">10°</span></div></div>
+          <div class="weather-day"><div class="date">Wed 10</div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 14a4 4 0 014-4 5 5 0 019.6 1.6A3.5 3.5 0 0119 18H7a4 4 0 01-1-4z"/></svg><div class="temp">22°<span class="low">11°</span></div></div>
+          <div class="weather-day"><div class="date">Thu 11</div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"/></svg><div class="temp">24°<span class="low">12°</span></div></div>
+          <div class="weather-day"><div class="date">Fri 12</div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 14a4 4 0 014-4 5 5 0 019.6 1.6A3.5 3.5 0 0119 18H7a4 4 0 01-1-4z M9 20l-1 2M13 20l-1 2M17 20l-1 2"/></svg><div class="temp">19°<span class="low">10°</span></div></div>
+          <div class="weather-day"><div class="date">Sat 13</div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"/></svg><div class="temp">23°<span class="low">11°</span></div></div>
+        </div>
+        <div style="margin-top: 20px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--ink-mute); text-transform: uppercase;">
+          Indicative forecast · highs &amp; lows in °C
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Packing checklist -->
+<section class="travel-section travel-section--alpine">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="section-title">
+      <h2>The <em>packing list.</em></h2>
+      <span class="eyebrow eyebrow--on-dark">03 · Kit</span>
+    </div>
+    <div class="checklist-grid">
+      <div class="check-col">
+        <h3>Documents &amp; <em>essentials</em></h3>
+        <ul>
+          <li class="essential">Passport / CNIC + flight tickets</li>
+          <li class="essential">A printed copy of your itinerary</li>
+          <li class="essential">Insurance card / emergency contacts</li>
+          <li class="essential">PKR + a backup payment method</li>
+          <li class="essential">Phone charger + universal adapter</li>
+          <li>Power bank (signal is patchy at altitude)</li>
+          <li>Physical notebook + a pen you like</li>
+        </ul>
+      </div>
+      <div class="check-col">
+        <h3>Clothing &amp; <em>layers</em></h3>
+        <ul>
+          <li class="essential">Light fleece or windbreaker</li>
+          <li class="essential">Comfortable walking shoes (closed-toe)</li>
+          <li class="essential">Modest layers for cultural events</li>
+          <li>One smart-casual outfit (Demo Day + closing dinner)</li>
+          <li>Light sweater for evenings</li>
+          <li>Sun hat or cap</li>
+          <li>Sandals for the resort</li>
+        </ul>
+      </div>
+      <div class="check-col">
+        <h3>Health &amp; <em>altitude</em></h3>
+        <ul>
+          <li class="essential">SPF 50+ sunscreen</li>
+          <li class="essential">Sunglasses with UV protection</li>
+          <li class="essential">Reusable water bottle (1L+)</li>
+          <li class="essential">Personal medications (named, in original packaging)</li>
+          <li>Lip balm</li>
+          <li>Diamox if prone to altitude sickness (consult your doctor)</li>
+          <li>Hand sanitizer + basic first aid</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="travel-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Frequently <em>asked.</em></h2>
+      <span class="eyebrow">04 · FAQ</span>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-item__q">Do I need a visa to enter Pakistan?<span class="toggle">+</span></summary>
+        <div class="faq-item__a"><div class="faq-item__a-inner">Most international fellows and faculty are eligible for an e-visa. Please apply <strong>at least 4 weeks in advance</strong> via the Government of Pakistan's online portal. The fellowship team will provide a letter of invitation on request — email <a href="mailto:logistics@summitfellowship.pk" style="color: var(--clay); text-decoration: underline;">logistics@summitfellowship.pk</a>.</div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__q">What if my Skardu flight is cancelled?<span class="toggle">+</span></summary>
+        <div class="faq-item__a"><div class="faq-item__a-inner">It happens. We strongly recommend arriving in Islamabad at least 24 hours before your scheduled Skardu departure. The fellowship covers ground-route transfers in the event of cancellations — coordinate with the team immediately and we'll get you on the road or onto the next flight.</div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__q">Is altitude sickness a concern?<span class="toggle">+</span></summary>
+        <div class="faq-item__a"><div class="faq-item__a-inner">Skardu sits at ~2,228 m. Most people acclimatize within a day. Drink lots of water, take it easy on Day 0, and avoid alcohol the first night. If you have a history of altitude issues, consult your doctor about Diamox before travel.</div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__q">Is wifi available at the venue?<span class="toggle">+</span></summary>
+        <div class="faq-item__a"><div class="faq-item__a-inner">Yes, but it's patchy. Khoj has wifi in common areas; mobile signal is intermittent across the valley. Plan for offline time during sessions. This is a feature, not a bug.</div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__q">What about dietary restrictions?<span class="toggle">+</span></summary>
+        <div class="faq-item__a"><div class="faq-item__a-inner">Khoj is well-equipped for vegetarian, halal, gluten-free, and most allergen-conscious diets. Please flag yours during onboarding and we'll handle it. Local Balti cuisine is excellent and largely accommodating.</div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__q">Can I bring a plus-one?<span class="toggle">+</span></summary>
+        <div class="faq-item__a"><div class="faq-item__a-inner">The fellowship itself is for fellows only — protected space for the cohort. We can occasionally accommodate a partner at the venue at additional cost; please reach out before booking flights.</div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__q">Are costs covered?<span class="toggle">+</span></summary>
+        <div class="faq-item__a"><div class="faq-item__a-inner">For confirmed cohort members, the fellowship covers all programming, accommodation, meals at Khoj, and ground transfers within Skardu. Fellows arrange and cover their own travel to Islamabad / Skardu — partial travel stipends are available on a needs basis.</div></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__q">Can I extend my stay?<span class="toggle">+</span></summary>
+        <div class="faq-item__a"><div class="faq-item__a-inner">Absolutely. Many fellows extend by a few days to explore the region — the Deosai Plateau, Shangrila Lake, or even a short trek toward K2 base camp. The team can recommend local operators. Note that Khoj's reserved room block ends Day 7.</div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background: var(--paper-warm); padding: 100px 0; text-align: center;">
+  <div class="container">
+    <h2 style="font-family: var(--serif); font-size: clamp(36px, 4.5vw, 56px); color: var(--alpine-deep); letter-spacing: -0.02em; margin-bottom: 24px;">
+      Anything else? <em style="color: var(--clay); font-style: italic;">Just ask.</em>
+    </h2>
+    <p style="font-size: 18px; color: var(--ink-soft); max-width: 50ch; margin: 0 auto 32px;">
+      Logistics questions, dietary needs, visa letters — the team is responsive and on it.
+    </p>
+    <a href="contact.html" class="btn">Contact the team →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand"><h3>Summit<br>Fellowship</h3><p>The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan's most promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.</p></div>
+      <div class="site-footer__col"><h4>The Program</h4><ul><li><a href="about.html">About</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="itinerary.html">Itinerary</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div class="site-footer__col"><h4>The People</h4><ul><li><a href="cohort.html">Cohort 2026</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="faculty.html#organizers">Organizers</a></li></ul></div>
+      <div class="site-footer__col"><h4>Logistics</h4><ul><li><a href="venue.html">Khoj Resort, Skardu</a></li><li><a href="travel.html">Travel &amp; Arrivals</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom"><span>© 2026 · Summit Fellowship · Vol. 01</span><span>Skardu · Gilgit-Baltistan · Pakistan</span></div>
+  </div>
+</footer>
+
+<script src="scripts/site.js"></script>
+<script>
+  // FAQ open/close — using <details> with custom styling via JS to animate
+  document.querySelectorAll('.faq-item').forEach((d) => {
+    const a = document.createElement('div');
+    const inner = d.querySelector('.faq-item__a-inner');
+    // sync class with open attribute
+    const sync = () => d.classList.toggle('is-open', d.open);
+    d.addEventListener('toggle', sync);
+    sync();
+  });
+</script>
+</body>
+</html>

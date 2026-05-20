@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resources & Downloads — Summit Fellowship</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+  .section {
+    padding: 100px 0;
+    background: var(--paper);
+  }
+  .section--warm { background: var(--paper-warm); }
+
+  .group-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .group-head__num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--clay);
+    margin-bottom: 16px;
+  }
+  .group-head h2 {
+    font-size: clamp(36px, 4.5vw, 64px);
+    color: var(--alpine-deep);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .group-head h2 em { color: var(--clay); font-style: italic; }
+  .group-head p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  @media (max-width: 800px) { .group-head { grid-template-columns: 1fr; gap: 16px; } }
+
+  /* Resource cards (file-style) */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .resource {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 20px 24px;
+    background: var(--paper-cool);
+    border: 1px solid var(--line);
+    transition: all .25s var(--ease-out);
+    cursor: pointer;
+  }
+  .resource:hover {
+    background: var(--paper);
+    border-color: var(--clay);
+    transform: translateX(2px);
+  }
+  .resource__icon {
+    width: 56px;
+    height: 64px;
+    border: 1px solid var(--alpine-deep);
+    background: var(--paper);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 6px;
+    flex-shrink: 0;
+  }
+  .resource__icon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(225deg, var(--paper-warm) 50%, var(--alpine-deep) 50%);
+    border-left: 1px solid var(--alpine-deep);
+    border-bottom: 1px solid var(--alpine-deep);
+  }
+  .resource__icon span {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.10em;
+    color: var(--alpine-deep);
+    font-weight: 600;
+  }
+  .resource__icon--pdf span { color: var(--clay); }
+  .resource__icon--md span { color: var(--alpine-soft); }
+  .resource__icon--xlsx span { color: #1f8a5b; }
+  .resource__icon--zip span { color: var(--ochre-deep); }
+
+  .resource__meta { min-width: 0; }
+  .resource__title {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--alpine-deep);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+  .resource__desc {
+    font-size: 13px;
+    color: var(--ink-mute);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .resource__tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .resource__tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    padding: 2px 6px;
+    border: 1px solid var(--line);
+  }
+  .resource__action {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--alpine-deep);
+    border: 1px solid var(--alpine-deep);
+    padding: 8px 14px;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .resource:hover .resource__action {
+    background: var(--alpine-deep);
+    color: var(--paper);
+  }
+  @media (max-width: 700px) {
+    .resource-grid { grid-template-columns: 1fr; }
+    .resource { grid-template-columns: 48px 1fr; }
+    .resource__icon { width: 48px; height: 56px; }
+    .resource__action { grid-column: 1 / -1; text-align: center; }
+  }
+
+  /* Reading list */
+  .reading-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .reading-item {
+    padding: 28px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    transition: border-color .2s, transform .2s;
+  }
+  .reading-item:hover {
+    border-color: var(--clay);
+    transform: translateY(-2px);
+  }
+  .reading-item__type {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 12px;
+  }
+  .reading-item__title {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--alpine-deep);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin-bottom: 8px;
+  }
+  .reading-item__author {
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .reading-item__why {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .reading-item__link {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--alpine-deep);
+    border-bottom: 1px solid var(--alpine-deep);
+    align-self: flex-start;
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .reading-item:hover .reading-item__link { color: var(--clay); border-color: var(--clay); }
+  @media (max-width: 800px) { .reading-list { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Summit Fellowship home">
+      <svg width="32" height="32" viewBox="0 0 40 40" style="color: var(--clay)" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M 6 30 L 16 12 L 23 22" /><path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fill-opacity="0.12"/><circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5"/></g>
+      </svg>
+      <span class="site-header__wordmark">Summit<span class="ws">·</span>Fellowship</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="cohort.html">Cohort</a><a class="site-nav__link" href="faculty.html">Faculty</a><a class="site-nav__link" href="curriculum.html">Curriculum</a><a class="site-nav__link" href="itinerary.html">Itinerary</a><a class="site-nav__link" href="venue.html">Venue</a><a class="site-nav__link" href="travel.html">Travel</a><a class="site-nav__link" href="resources.html">Resources</a><a class="site-nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="site-header__cta" href="contact.html">Contact →</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="page-hero" data-screen-label="Resources Hero">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <div class="page-hero__crumbs"><a href="index.html">Home</a><span>/</span><span>Resources</span></div>
+    <h1 class="page-hero__title">Resources &amp; <em style="color: var(--ochre); font-style: italic;">downloads.</em></h1>
+    <p class="page-hero__subtitle">Pre-reads, frameworks, the full itinerary as a PDF, and links to everything the cohort needs before, during, and after the week.</p>
+  </div>
+</section>
+
+<!-- Official documents -->
+<section class="section">
+  <div class="container">
+    <div class="group-head">
+      <div>
+        <div class="group-head__num">01 · Programme docs</div>
+        <h2>Official <em>documents.</em></h2>
+      </div>
+      <p>The canonical references the team will keep updated. Bookmark or download — what's posted here is the source of truth.</p>
+    </div>
+
+    <div class="resource-grid">
+      <a class="resource" href="uploads/Updated_Summit_Fellowship_2026_Master_Itinerary.md">
+        <div class="resource__icon resource__icon--md"><span>MD</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Master Itinerary 2026</div>
+          <div class="resource__desc">Day-by-day program, with time blocks and faculty assignments.</div>
+          <div class="resource__tags"><span class="resource__tag">v3.2</span><span class="resource__tag">All fellows</span></div>
+        </div>
+        <span class="resource__action">Open →</span>
+      </a>
+
+      <a class="resource" href="uploads/Final_Summit_Fellowship_participants.md">
+        <div class="resource__icon resource__icon--md"><span>MD</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Cohort Brief — Participants</div>
+          <div class="resource__desc">Confirmed cohort list with models, sectors, and contacts.</div>
+          <div class="resource__tags"><span class="resource__tag">Final</span><span class="resource__tag">Internal</span></div>
+        </div>
+        <span class="resource__action">Open →</span>
+      </a>
+
+      <a class="resource" href="uploads/Summit_Fellowship_Faculty_And_Organizers.md">
+        <div class="resource__icon resource__icon--md"><span>MD</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Faculty &amp; Organizers Brief</div>
+          <div class="resource__desc">Profiles of faculty, guest mentors, and the organizing team.</div>
+          <div class="resource__tags"><span class="resource__tag">v2.1</span><span class="resource__tag">All</span></div>
+        </div>
+        <span class="resource__action">Open →</span>
+      </a>
+
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--pdf"><span>PDF</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Pre-arrival packing &amp; logistics</div>
+          <div class="resource__desc">What to bring, how to dress for Skardu, and what NOT to pack.</div>
+          <div class="resource__tags"><span class="resource__tag">12 pages</span><span class="resource__tag">May 2026</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--pdf"><span>PDF</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Visa letter — template</div>
+          <div class="resource__desc">Letter of invitation template for visa applications. Request a personalised version from the team.</div>
+          <div class="resource__tags"><span class="resource__tag">Template</span></div>
+        </div>
+        <span class="resource__action">Request →</span>
+      </a>
+
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--xlsx"><span>XLSX</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Travel manifest</div>
+          <div class="resource__desc">Flight + transfer details for all fellows and faculty. Internal use only.</div>
+          <div class="resource__tags"><span class="resource__tag">Restricted</span></div>
+        </div>
+        <span class="resource__action">Request →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Frameworks & worksheets -->
+<section class="section section--warm">
+  <div class="container">
+    <div class="group-head">
+      <div>
+        <div class="group-head__num">02 · Worksheets</div>
+        <h2>Frameworks &amp; <em>worksheets.</em></h2>
+      </div>
+      <p>The canvases and templates we use during the week. Print before you arrive — the Studio is whiteboard-and-paper first; laptops are encouraged off, not on.</p>
+    </div>
+
+    <div class="resource-grid">
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--pdf"><span>PDF</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">One-pager template</div>
+          <div class="resource__desc">Mission · Big Idea · Theory · Model · Doer · Payer. The canonical one-pager every fellow leaves with.</div>
+          <div class="resource__tags"><span class="resource__tag">Day 01</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--pdf"><span>PDF</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Scale Screen worksheet</div>
+          <div class="resource__desc">Self-assessment against the four enoughs. Fill in before you arrive — defend it on Day 02.</div>
+          <div class="resource__tags"><span class="resource__tag">Day 02</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--pdf"><span>PDF</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Evidence plan canvas</div>
+          <div class="resource__desc">Map your outputs / outcomes / impact. Identify the most expensive evidence gap and design a 12-month plan to close it.</div>
+          <div class="resource__tags"><span class="resource__tag">Day 02</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--pdf"><span>PDF</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">10-min pitch outline</div>
+          <div class="resource__desc">The four-beat narrative skeleton. Bring 3 draft slides per beat to Day 05 capacity clinics.</div>
+          <div class="resource__tags"><span class="resource__tag">Day 05</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--pdf"><span>PDF</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Banned words list</div>
+          <div class="resource__desc">The complete list. Print, post above your desk, and refer to during pitch revisions.</div>
+          <div class="resource__tags"><span class="resource__tag">Reference</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--zip"><span>ZIP</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Demo Day slide template</div>
+          <div class="resource__desc">Branded pitch deck template (Keynote + Google Slides). Mandatory for Demo Day.</div>
+          <div class="resource__tags"><span class="resource__tag">Day 06</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Reading list -->
+<section class="section">
+  <div class="container">
+    <div class="group-head">
+      <div>
+        <div class="group-head__num">03 · Pre-reads</div>
+        <h2>Reading <em>before you arrive.</em></h2>
+      </div>
+      <p>Three short reads we ask everyone to do before Day 0. None are long. All are foundational to the conversations on Day 1.</p>
+    </div>
+
+    <div class="reading-list">
+      <article class="reading-item">
+        <div class="reading-item__type">Essay · 15 min</div>
+        <h3 class="reading-item__title">Eight Words You Must Get Right</h3>
+        <div class="reading-item__author">Kevin Starr · Stanford Social Innovation Review</div>
+        <p class="reading-item__why">The single best primer on the Mulago Mission framework. If you read one thing before arriving, read this. It frames Day 1 entirely.</p>
+        <a href="#" class="reading-item__link" target="_blank">Read on SSIR →</a>
+      </article>
+      <article class="reading-item">
+        <div class="reading-item__type">Essay · 10 min</div>
+        <h3 class="reading-item__title">The Trouble with Impact Investing</h3>
+        <div class="reading-item__author">Kevin Starr · SSIR</div>
+        <p class="reading-item__why">Frames the funder/operator conversation that runs all week. Useful context for Day 4's parallel funder track.</p>
+        <a href="#" class="reading-item__link" target="_blank">Read on SSIR →</a>
+      </article>
+      <article class="reading-item">
+        <div class="reading-item__type">Article · 12 min</div>
+        <h3 class="reading-item__title">Doer and Payer at Scale</h3>
+        <div class="reading-item__author">Mulago Foundation · Working Paper</div>
+        <p class="reading-item__why">The framework everything else hangs on. Read this twice. The second time, with your own model in front of you.</p>
+        <a href="#" class="reading-item__link" target="_blank">Read PDF →</a>
+      </article>
+      <article class="reading-item">
+        <div class="reading-item__type">Optional · 20 min</div>
+        <h3 class="reading-item__title">Scaling: The Surprising Mathematics of Life and Death</h3>
+        <div class="reading-item__author">Geoffrey West · TED Talk</div>
+        <p class="reading-item__why">A wild card. Why scale obeys mathematical laws across biology, cities, and corporations — and what it means for designing organizations.</p>
+        <a href="#" class="reading-item__link" target="_blank">Watch on TED →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Brand & comms -->
+<section class="section section--warm">
+  <div class="container">
+    <div class="group-head">
+      <div>
+        <div class="group-head__num">04 · Brand &amp; comms</div>
+        <h2>Brand &amp; <em>media.</em></h2>
+      </div>
+      <p>If you're posting about the fellowship — please do — these are the assets and the small ground rules.</p>
+    </div>
+
+    <div class="resource-grid">
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--zip"><span>ZIP</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Logo &amp; wordmark pack</div>
+          <div class="resource__desc">SVG, PNG, on light + dark. Use the wordmark, not the icon, in third-party communications.</div>
+          <div class="resource__tags"><span class="resource__tag">v1.0</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--pdf"><span>PDF</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Social media guidelines</div>
+          <div class="resource__desc">Hashtags, mentions, and the photo / video releases everyone signs on arrival.</div>
+          <div class="resource__tags"><span class="resource__tag">2 pages</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--pdf"><span>PDF</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Photo / video consent form</div>
+          <div class="resource__desc">Mandatory. Signed on Day 0. Opt-out is fine — just tell us before arriving.</div>
+          <div class="resource__tags"><span class="resource__tag">Required</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+      <a class="resource" href="#">
+        <div class="resource__icon resource__icon--zip"><span>ZIP</span></div>
+        <div class="resource__meta">
+          <div class="resource__title">Press kit · Vol. 01</div>
+          <div class="resource__desc">Founder bios, programme overview, hi-res photography. For media use only.</div>
+          <div class="resource__tags"><span class="resource__tag">Press</span></div>
+        </div>
+        <span class="resource__action">Download →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Disclosure note -->
+<section style="background: var(--alpine-deep); color: var(--parchment); padding: 60px 0; position: relative; overflow: hidden;">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container" style="position: relative; z-index: 1; max-width: 800px;">
+    <div class="eyebrow eyebrow--on-dark" style="margin-bottom: 12px;">A note on access</div>
+    <p style="font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.4; color: var(--paper);">
+      Some items above are reserved for confirmed fellows, faculty, and the organizing team. If a link asks you to request access, email the team — we'll respond within 24 hours.
+    </p>
+    <a href="contact.html" class="btn btn--ochre" style="margin-top: 24px;">Request access →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand"><h3>Summit<br>Fellowship</h3><p>The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan's most promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.</p></div>
+      <div class="site-footer__col"><h4>The Program</h4><ul><li><a href="about.html">About</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="itinerary.html">Itinerary</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div class="site-footer__col"><h4>The People</h4><ul><li><a href="cohort.html">Cohort 2026</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="faculty.html#organizers">Organizers</a></li></ul></div>
+      <div class="site-footer__col"><h4>Logistics</h4><ul><li><a href="venue.html">Khoj Resort, Skardu</a></li><li><a href="travel.html">Travel &amp; Arrivals</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom"><span>© 2026 · Summit Fellowship · Vol. 01</span><span>Skardu · Gilgit-Baltistan · Pakistan</span></div>
+  </div>
+</footer>
+
+<script src="scripts/site.js"></script>
+</body>
+</html>

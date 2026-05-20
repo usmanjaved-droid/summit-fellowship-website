@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Summit Fellowship</title>
+<meta name="description" content="The Skardu Scale-Up Fellowship is a 7-day intensive retreat for Pakistan's most promising social enterprises.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+  .about-philosophy {
+    padding: 120px 0;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .about-philosophy .topo-bg { opacity: 0.05; }
+  .about-philosophy__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .about-philosophy__pull {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.15;
+    color: var(--alpine-deep);
+    margin: 0 auto 48px;
+    text-wrap: balance;
+    text-align: center;
+    max-width: 22ch;
+    position: relative;
+  }
+  .about-philosophy__pull::before, .about-philosophy__pull::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--clay);
+    margin: 0 auto;
+  }
+  .about-philosophy__pull::before { margin-bottom: 40px; }
+  .about-philosophy__pull::after { margin-top: 40px; }
+
+  .about-philosophy__attr {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* The challenge */
+  .challenge {
+    padding: 120px 0;
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    position: relative;
+    overflow: hidden;
+  }
+  .challenge__inner { position: relative; z-index: 1; }
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .challenge-grid h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+  }
+  .challenge-grid h2 em { color: var(--ochre); font-style: italic; }
+  .challenge-grid .body p {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--parchment);
+    opacity: 0.88;
+    margin-bottom: 24px;
+    max-width: 60ch;
+  }
+  .challenge-grid .body p strong { color: var(--ochre-pale); font-weight: 500; }
+  @media (max-width: 900px) {
+    .challenge-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* The Four Enoughs */
+  .enoughs {
+    padding: 120px 0;
+    background: var(--paper-warm);
+  }
+  .enoughs__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 64px;
+  }
+  .enoughs__head h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--alpine-deep);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .enoughs__head h2 em { color: var(--clay); font-style: italic; }
+  .enoughs__head p {
+    color: var(--ink-soft);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  @media (max-width: 800px) {
+    .enoughs__head { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  .enough-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .enough-card {
+    background: var(--paper-cool);
+    border: 1px solid var(--line);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s var(--ease-out), border-color .3s;
+  }
+  .enough-card:hover { transform: translateY(-4px); border-color: var(--clay); }
+  .enough-card__num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 56px;
+    color: var(--ochre-deep);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .enough-card__title {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--alpine-deep);
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .enough-card__desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  @media (max-width: 900px) {
+    .enough-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .enough-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Numbers band */
+  .numbers {
+    background: var(--paper);
+    padding: 100px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .numbers__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .numbers__cell {
+    background: var(--paper);
+    padding: 40px 32px;
+  }
+  .numbers__cell .num {
+    font-family: var(--serif);
+    font-size: clamp(48px, 5vw, 80px);
+    color: var(--clay);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .numbers__cell .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--alpine-deep);
+    margin-bottom: 8px;
+  }
+  .numbers__cell .desc {
+    font-size: 13px;
+    color: var(--ink-mute);
+    line-height: 1.4;
+  }
+  @media (max-width: 800px) {
+    .numbers__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .numbers__grid { grid-template-columns: 1fr; }
+  }
+
+  /* Methodology pillars */
+  .pillars {
+    padding: 120px 0;
+    background: var(--paper);
+  }
+  .pillars__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .pillars__copy h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--alpine-deep);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .pillars__copy h2 em { color: var(--clay); font-style: italic; }
+  .pillars__copy p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .pillars__list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .pillars__item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .pillars__item .num {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--clay);
+    padding-top: 4px;
+  }
+  .pillars__item h4 {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--alpine-deep);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .pillars__item p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .pillars__inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Summit Fellowship home">
+      <svg width="32" height="32" viewBox="0 0 40 40" style="color: var(--clay)" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M 6 30 L 16 12 L 23 22" />
+          <path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fill-opacity="0.12"/>
+          <circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5"/>
+        </g>
+      </svg>
+      <span class="site-header__wordmark">Summit<span class="ws">·</span>Fellowship</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="about.html">About</a>
+      <a class="site-nav__link" href="cohort.html">Cohort</a>
+      <a class="site-nav__link" href="faculty.html">Faculty</a>
+      <a class="site-nav__link" href="curriculum.html">Curriculum</a>
+      <a class="site-nav__link" href="itinerary.html">Itinerary</a>
+      <a class="site-nav__link" href="venue.html">Venue</a>
+      <a class="site-nav__link" href="travel.html">Travel</a>
+      <a class="site-nav__link" href="resources.html">Resources</a>
+      <a class="site-nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="site-header__cta" href="itinerary.html">June 7–14, 2026 →</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero" data-screen-label="About Hero">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <div class="page-hero__crumbs">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span>About</span>
+    </div>
+    <h1 class="page-hero__title">A 7-day expedition to <em style="font-style: italic; color: var(--ochre)">redesign for scale.</em></h1>
+    <p class="page-hero__subtitle">Pakistan has dozens of promising social enterprises. The Summit Fellowship exists to graduate them from project-driven survival mode into scale-ready impact machines.</p>
+    <div class="page-hero__meta">
+      <div class="page-hero__meta-item">
+        <span class="label">Edition</span>
+        <span class="value">Vol. 01 — 2026</span>
+      </div>
+      <div class="page-hero__meta-item">
+        <span class="label">Dates</span>
+        <span class="value">07 — 14 June</span>
+      </div>
+      <div class="page-hero__meta-item">
+        <span class="label">Format</span>
+        <span class="value">Residential intensive</span>
+      </div>
+      <div class="page-hero__meta-item">
+        <span class="label">Co-hosts</span>
+        <span class="value">Taleemabad × Mulago</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section class="about-philosophy">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="about-philosophy__inner">
+    <blockquote class="about-philosophy__pull">
+      Transform organizations from project-driven survival mode to scale-ready impact machines through intensive design work, peer learning, and strategic preparation for funding conversations.
+    </blockquote>
+    <div class="about-philosophy__attr">The Core Philosophy</div>
+  </div>
+</section>
+
+<!-- The Challenge -->
+<section class="challenge">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container challenge__inner">
+    <div class="challenge-grid">
+      <div>
+        <div class="eyebrow eyebrow--on-dark" style="margin-bottom: 16px;">The challenge</div>
+        <h2>The scale<br>question.</h2>
+      </div>
+      <div class="body">
+        <p>Pakistan is home to dozens of promising social enterprises, but few achieve true national scale. Most remain trapped in <strong>"project-driven survival mode"</strong> — securing incremental grants and reaching thousands when their models possess the potential to reach millions.</p>
+        <p>The barrier is rarely a lack of commitment or competence. It is a lack of a definitive scale strategy. Over seven days, this curated cohort steps away from daily operations to answer the defining strategic questions of scale:</p>
+        <p style="font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--ochre); border-left: 2px solid var(--ochre); padding-left: 24px; margin: 32px 0;">
+          Who is your ultimate <em>doer</em> at scale — the entity that implements at scale? Who is your ultimate <em>payer</em> — who funds it?
+        </p>
+        <p>These are not abstract questions. By Day 6, every founder leaves with the answers in hand, and a one-pager that's ready for the funder conversations that come next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Four Enoughs -->
+<section class="enoughs">
+  <div class="container">
+    <div class="enoughs__head">
+      <div>
+        <div class="eyebrow-line"><span class="eyebrow-line__line"></span><span class="eyebrow">The Mulago Scale Screen</span></div>
+        <h2>The four<br><em>enoughs.</em></h2>
+      </div>
+      <p>The Scale Screen is the rigorous framework at the heart of the week. By the end, every cohort model must earn a credible yes on all four questions.</p>
+    </div>
+
+    <div class="enough-grid">
+      <div class="enough-card">
+        <div class="enough-card__num">01</div>
+        <h3 class="enough-card__title">Good enough.</h3>
+        <p class="enough-card__desc">Does the solution actually work, with credible evidence? Outcomes you can defend, not just outputs you can count.</p>
+      </div>
+      <div class="enough-card">
+        <div class="enough-card__num">02</div>
+        <h3 class="enough-card__title">Big enough.</h3>
+        <p class="enough-card__desc">Is the problem large enough to matter at scale? Will solving it move the needle on a population-level outcome?</p>
+      </div>
+      <div class="enough-card">
+        <div class="enough-card__num">03</div>
+        <h3 class="enough-card__title">Simple enough.</h3>
+        <p class="enough-card__desc">Can others replicate it without the founder? Strip the model to the smallest set of elements that still produce the outcome.</p>
+      </div>
+      <div class="enough-card">
+        <div class="enough-card__num">04</div>
+        <h3 class="enough-card__title">Cheap enough.</h3>
+        <p class="enough-card__desc">Can the ultimate payer afford to reach everyone who needs it? Unit economics that work at population scale, not just pilot scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Numbers -->
+<section class="numbers">
+  <div class="container">
+    <div class="numbers__grid">
+      <div class="numbers__cell">
+        <div class="num">11</div>
+        <div class="label">Fellows</div>
+        <div class="desc">Hand-picked Pakistani founders across health, education, livelihoods, and beyond.</div>
+      </div>
+      <div class="numbers__cell">
+        <div class="num">7</div>
+        <div class="label">Days</div>
+        <div class="desc">Residential intensive at the foot of the Karakoram, away from daily operations.</div>
+      </div>
+      <div class="numbers__cell">
+        <div class="num">9</div>
+        <div class="label">Faculty</div>
+        <div class="desc">Global frameworks and Pakistani operators who've already scaled.</div>
+      </div>
+      <div class="numbers__cell">
+        <div class="num">∞</div>
+        <div class="label">After</div>
+        <div class="desc">Lifelong cohort. Annual reunions. Warm intros into patient capital.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Methodology pillars -->
+<section class="pillars">
+  <div class="container pillars__inner">
+    <div class="pillars__copy">
+      <div class="eyebrow-line"><span class="eyebrow-line__line"></span><span class="eyebrow">Methodology</span></div>
+      <h2>How the week<br><em>actually works.</em></h2>
+      <p>The arc balances rigorous framework instruction with intimate 1-on-1 clinics, peer learning, and the kind of unstructured time that only happens when you take eleven founders to a valley with patchy signal.</p>
+      <p>It is intentionally residential. The most consequential conversations happen on walks between sessions, over dinner at a local's home, and in the late-night fireside chats — not in the workshop room.</p>
+    </div>
+    <div class="pillars__list">
+      <div class="pillars__item">
+        <div class="num">01</div>
+        <div>
+          <h4>Framework instruction</h4>
+          <p>The Mulago Scale Screen. Doer & Payer at Scale. The Iterative Organization. Clear-language pitching. Delivered by the framework architects themselves.</p>
+        </div>
+      </div>
+      <div class="pillars__item">
+        <div class="num">02</div>
+        <div>
+          <h4>1-on-1 capacity clinics</h4>
+          <p>Structured 45-minute rotations with Pakistani faculty who have already navigated the exact scale, funding, and operational walls each fellow now faces.</p>
+        </div>
+      </div>
+      <div class="pillars__item">
+        <div class="num">03</div>
+        <div>
+          <h4>Peer learning</h4>
+          <p>Lightning talks, feedback pairs, and demo-day-style rehearsals. Eleven founders, eleven mirrors. By Day 3, the cohort knows each other's models cold.</p>
+        </div>
+      </div>
+      <div class="pillars__item">
+        <div class="num">04</div>
+        <div>
+          <h4>Funder access</h4>
+          <p>Curated funder sessions and a Demo Day designed for real, post-fellowship conversations — not a one-shot pitch contest.</p>
+        </div>
+      </div>
+      <div class="pillars__item">
+        <div class="num">05</div>
+        <div>
+          <h4>Cultural immersion</h4>
+          <p>Dinner at a local home, sightseeing in the Shigar valley, a cultural night with regional musicians. The week is shaped by where it happens.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA strip -->
+<section style="background: var(--alpine-deep); color: var(--parchment); padding: 100px 0; position: relative; overflow: hidden;">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container" style="position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center;">
+    <h2 style="font-family: var(--serif); font-size: clamp(36px, 4.5vw, 64px); color: var(--paper); line-height: 1; letter-spacing: -0.02em;">
+      Continue the expedition.
+    </h2>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-self: end;">
+      <a href="curriculum.html" class="btn btn--ochre">The Curriculum →</a>
+      <a href="cohort.html" class="btn btn--ghost-light">Meet the Cohort</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <h3>Summit<br>Fellowship</h3>
+        <p>The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan's most promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.</p>
+      </div>
+      <div class="site-footer__col">
+        <h4>The Program</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="curriculum.html">Curriculum</a></li>
+          <li><a href="itinerary.html">Itinerary</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>The People</h4>
+        <ul>
+          <li><a href="cohort.html">Cohort 2026</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+          <li><a href="faculty.html#organizers">Organizers</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Logistics</h4>
+        <ul>
+          <li><a href="venue.html">Khoj Resort, Skardu</a></li>
+          <li><a href="travel.html">Travel &amp; Arrivals</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 · Summit Fellowship · Vol. 01</span>
+      <span>Skardu · Gilgit-Baltistan · Pakistan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/site.js"></script>
+</body>
+</html>

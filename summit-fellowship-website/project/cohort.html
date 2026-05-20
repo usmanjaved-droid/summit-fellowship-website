@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Cohort — Summit Fellowship 2026</title>
+<meta name="description" content="The 2026 cohort: eleven Pakistani founders building solutions designed for scale.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+  /* Sector filter bar */
+  .filter-bar {
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+    position: sticky;
+    top: 65px;
+    z-index: 20;
+    backdrop-filter: blur(8px);
+  }
+  .filter-bar__inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .filter-bar__label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-right: 8px;
+  }
+  .filter-chip {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all .2s var(--ease-out);
+    border-radius: 2px;
+  }
+  .filter-chip:hover { border-color: var(--alpine-deep); color: var(--alpine-deep); }
+  .filter-chip.is-active {
+    background: var(--alpine-deep);
+    color: var(--paper);
+    border-color: var(--alpine-deep);
+  }
+  .filter-bar__count {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    color: var(--ink-mute);
+  }
+
+  /* Cohort grid */
+  .cohort-section {
+    padding: 80px 0 140px;
+    background: var(--paper);
+  }
+  .cohort-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 1100px) { .cohort-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px)  { .cohort-grid { grid-template-columns: 1fr; } }
+
+  .fellow-card {
+    background: var(--paper-cool);
+    border: 1px solid var(--line);
+    padding: 32px;
+    transition: all .3s var(--ease-out);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 360px;
+  }
+  .fellow-card:hover {
+    border-color: var(--clay);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px -16px rgba(20, 39, 52, 0.18);
+  }
+  .fellow-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--clay);
+    transition: width .4s var(--ease-out);
+  }
+  .fellow-card:hover::before { width: 100%; }
+  .fellow-card.is-hidden { display: none; }
+  .fellow-card__head {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .fellow-card__avatar {
+    width: 64px; height: 64px;
+    background: var(--alpine-deep);
+    color: var(--ochre);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 22px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .fellow-card__num {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+  }
+  .fellow-card__name {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--alpine-deep);
+    line-height: 1.05;
+    margin-bottom: 6px;
+    letter-spacing: -0.005em;
+  }
+  .fellow-card__org {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .fellow-card__org strong { color: var(--alpine-deep); font-weight: 500; }
+  .fellow-card__sector {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 16px;
+  }
+  .fellow-card__sector::before {
+    content: "";
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--clay);
+  }
+  .fellow-card__idea {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.35;
+    color: var(--alpine-deep);
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .fellow-card__expand {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--alpine-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+  }
+  .fellow-card__expand::after {
+    content: "→";
+    transition: transform .2s var(--ease-out);
+  }
+  .fellow-card:hover .fellow-card__expand::after { transform: translateX(4px); }
+
+  /* === Profile Modal (wide, editorial) === */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 26, 34, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity .3s var(--ease-out);
+    overflow-y: auto;
+  }
+  .modal-backdrop.is-open {
+    display: flex;
+    opacity: 1;
+  }
+  .profile {
+    background: var(--paper);
+    max-width: 1180px;
+    width: 100%;
+    margin: 24px auto;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform .3s var(--ease-out);
+    box-shadow: 0 24px 64px -12px rgba(12, 26, 34, 0.4);
+  }
+  .modal-backdrop.is-open .profile { transform: translateY(0); }
+
+  .profile__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 4;
+    width: 44px; height: 44px;
+    background: rgba(245, 239, 227, 0.15);
+    color: var(--paper);
+    font-size: 20px;
+    border-radius: 2px;
+    transition: background .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile__close:hover { background: var(--clay); }
+
+  /* Hero block — dark alpine, big name + problem statement */
+  .profile__hero {
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    padding: 64px 64px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .profile__hero .topo-bg { opacity: 0.10; mix-blend-mode: screen; }
+  .profile__hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 56px;
+    align-items: end;
+  }
+  .profile__breadcrumb {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .profile__breadcrumb-no {
+    color: var(--ochre);
+  }
+  .profile__breadcrumb-sep {
+    opacity: 0.4;
+  }
+  .profile__breadcrumb-sector {
+    color: var(--parchment);
+    opacity: 0.7;
+  }
+  .profile__name {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    margin-bottom: 28px;
+  }
+  .profile__problem {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 1.7vw, 24px);
+    line-height: 1.45;
+    color: var(--ochre-pale);
+    max-width: 56ch;
+  }
+  .profile__portrait {
+    aspect-ratio: 4 / 5;
+    background: var(--alpine);
+    border: 1px solid rgba(232, 226, 213, 0.18);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile__portrait-init {
+    font-family: var(--serif);
+    font-size: 120px;
+    color: var(--ochre);
+    line-height: 1;
+    opacity: 0.85;
+  }
+  .profile__portrait-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ochre-pale);
+    opacity: 0.6;
+  }
+  .profile__portrait-stripes {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 22px,
+      rgba(212, 165, 116, 0.06) 22px,
+      rgba(212, 165, 116, 0.06) 44px
+    );
+  }
+
+  /* Idea band — clay accent strip */
+  .profile__idea-band {
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--line);
+    padding: 36px 64px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .profile__idea-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clay);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .profile__idea-label::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--clay);
+  }
+  .profile__idea-text {
+    font-family: var(--serif);
+    font-size: clamp(24px, 2.2vw, 32px);
+    line-height: 1.15;
+    color: var(--alpine-deep);
+    letter-spacing: -0.01em;
+  }
+
+  /* Body — two column layout (sidebar + sections) */
+  .profile__body {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+    padding: 56px 64px 72px;
+  }
+  .profile__sidebar {
+    position: sticky;
+    top: 32px;
+    align-self: start;
+  }
+  .profile__sidebar-block {
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .profile__sidebar-block:first-child { border-top: 0; padding-top: 0; }
+  .profile__sidebar-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 6px;
+  }
+  .profile__sidebar-value {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--alpine-deep);
+    line-height: 1.2;
+  }
+  .profile__sidebar-value--small {
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+  .profile__sidebar-links {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .profile__sidebar-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--alpine-deep);
+    transition: all .2s var(--ease-out);
+  }
+  .profile__sidebar-links a:hover {
+    background: var(--alpine-deep);
+    color: var(--paper);
+    border-color: var(--alpine-deep);
+  }
+  .profile__sidebar-links a::after {
+    content: "↗";
+    opacity: 0.5;
+  }
+
+  /* Sections */
+  .profile__sections {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .profile__section h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .profile__section h3::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .profile__section-body {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+  .profile__section-body p + p { margin-top: 14px; }
+  .profile__section--mission .profile__section-body {
+    font-family: var(--serif);
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--alpine-deep);
+    letter-spacing: -0.005em;
+  }
+
+  /* Stats row inside profile */
+  .profile__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 24px;
+    background: var(--paper-cool);
+    border: 1px solid var(--line);
+    margin-top: 8px;
+  }
+  .profile__stat .l {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 4px;
+  }
+  .profile__stat .v {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--alpine-deep);
+    line-height: 1.1;
+  }
+
+  /* "Why We Picked" — clay tinted */
+  .profile__section--why {
+    background: var(--paper-warm);
+    margin: 0 -64px;
+    padding: 40px 64px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .profile__section--why h3 { color: var(--clay-deep); }
+
+  /* Footer with nav between fellows */
+  .profile__nav {
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    padding: 32px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .profile__nav .topo-bg { opacity: 0.08; mix-blend-mode: screen; }
+  .profile__nav-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    padding: 12px 16px;
+    border: 1px solid rgba(212, 165, 116, 0.35);
+    transition: all .2s var(--ease-out);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  }
+  .profile__nav-btn:hover { background: var(--ochre); color: var(--alpine-deep); }
+  .profile__nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .profile__nav-btn:disabled:hover { background: transparent; color: var(--ochre); }
+  .profile__nav-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    opacity: 0.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 880px) {
+    .profile__hero { padding: 40px 28px 36px; }
+    .profile__hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .profile__portrait { max-width: 200px; }
+    .profile__idea-band { padding: 28px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .profile__body { grid-template-columns: 1fr; gap: 40px; padding: 40px 28px; }
+    .profile__sidebar { position: static; }
+    .profile__section--why { margin: 0 -28px; padding: 32px 28px; }
+    .profile__nav { padding: 24px 28px; }
+    .profile__stats { grid-template-columns: 1fr; }
+  }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 80px 0;
+    color: var(--ink-mute);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    display: none;
+  }
+  .empty-state.is-visible { display: block; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Summit Fellowship home">
+      <svg width="32" height="32" viewBox="0 0 40 40" style="color: var(--clay)" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M 6 30 L 16 12 L 23 22" /><path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fill-opacity="0.12"/><circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5"/>
+        </g>
+      </svg>
+      <span class="site-header__wordmark">Summit<span class="ws">·</span>Fellowship</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="about.html">About</a>
+      <a class="site-nav__link" href="cohort.html" aria-current="page">Cohort</a>
+      <a class="site-nav__link" href="faculty.html">Faculty</a>
+      <a class="site-nav__link" href="curriculum.html">Curriculum</a>
+      <a class="site-nav__link" href="itinerary.html">Itinerary</a>
+      <a class="site-nav__link" href="venue.html">Venue</a>
+      <a class="site-nav__link" href="travel.html">Travel</a>
+      <a class="site-nav__link" href="resources.html">Resources</a>
+      <a class="site-nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="site-header__cta" href="itinerary.html">June 7–14, 2026 →</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="page-hero" data-screen-label="Cohort Hero">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <div class="page-hero__crumbs">
+      <a href="index.html">Home</a><span>/</span><span>Cohort</span>
+    </div>
+    <h1 class="page-hero__title">Eleven founders.<br><em style="color: var(--ochre); font-style: italic">One ascent.</em></h1>
+    <p class="page-hero__subtitle">The 2026 cohort spans mental health to special education, AI-powered legal aid to gamified curriculum. Each leader passed a rigorous selection — now they redesign for millions.</p>
+    <div class="page-hero__meta">
+      <div class="page-hero__meta-item"><span class="label">Cohort</span><span class="value">11 founders</span></div>
+      <div class="page-hero__meta-item"><span class="label">Sectors</span><span class="value">9 distinct</span></div>
+      <div class="page-hero__meta-item"><span class="label">Combined reach</span><span class="value">~70,000+ today</span></div>
+      <div class="page-hero__meta-item"><span class="label">Goal</span><span class="value">Millions, by 2030</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter bar -->
+<div class="filter-bar">
+  <div class="container filter-bar__inner">
+    <span class="filter-bar__label">Filter by sector</span>
+    <button class="filter-chip is-active" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="Health">Health</button>
+    <button class="filter-chip" data-filter="Mental Health">Mental Health</button>
+    <button class="filter-chip" data-filter="Education">Education</button>
+    <button class="filter-chip" data-filter="Special Ed">Special Ed</button>
+    <button class="filter-chip" data-filter="Disability">Disability</button>
+    <button class="filter-chip" data-filter="Legal">Legal</button>
+    <button class="filter-chip" data-filter="Livelihoods">Livelihoods</button>
+    <button class="filter-chip" data-filter="Agriculture">Agriculture</button>
+    <span class="filter-bar__count" id="count">Showing 11 of 11</span>
+  </div>
+</div>
+
+<!-- Cohort -->
+<section class="cohort-section">
+  <div class="container">
+    <div class="cohort-grid" id="cohortGrid"></div>
+    <div class="empty-state" id="emptyState">No fellows match this filter.</div>
+  </div>
+</section>
+
+<!-- Profile modal -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <article class="profile" id="profile">
+    <button class="profile__close" id="modalClose" aria-label="Close">×</button>
+
+    <!-- Hero -->
+    <header class="profile__hero" data-comment-anchor="profile-hero">
+      <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+      <div class="profile__hero-inner">
+        <div>
+          <div class="profile__breadcrumb">
+            <span class="profile__breadcrumb-no" id="pNo">Fellow No. 01 / 11</span>
+            <span class="profile__breadcrumb-sep">/</span>
+            <span class="profile__breadcrumb-sector" id="pSectorCrumb">Sector</span>
+          </div>
+          <h2 class="profile__name" id="pName">Name</h2>
+          <p class="profile__problem" id="pProblem">Problem statement.</p>
+        </div>
+        <figure class="profile__portrait">
+          <div class="profile__portrait-stripes" aria-hidden="true"></div>
+          <span class="profile__portrait-init" id="pPortraitInit">RK</span>
+          <figcaption class="profile__portrait-tag">[ portrait — drop in ]</figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <!-- The Idea -->
+    <div class="profile__idea-band">
+      <div class="profile__idea-label">The Idea</div>
+      <div class="profile__idea-text" id="pIdea">Idea tagline</div>
+    </div>
+
+    <!-- Body -->
+    <div class="profile__body">
+      <!-- Sidebar -->
+      <aside class="profile__sidebar">
+        <div class="profile__sidebar-block">
+          <div class="profile__sidebar-label">Organization</div>
+          <div class="profile__sidebar-value" id="pOrg">Org</div>
+        </div>
+        <div class="profile__sidebar-block">
+          <div class="profile__sidebar-label">Year</div>
+          <div class="profile__sidebar-value">2026</div>
+        </div>
+        <div class="profile__sidebar-block">
+          <div class="profile__sidebar-label">Geography</div>
+          <div class="profile__sidebar-value--small" id="pGeo">Geography</div>
+        </div>
+        <div class="profile__sidebar-block">
+          <div class="profile__sidebar-label">Sector</div>
+          <div class="profile__sidebar-value--small" id="pSector">Sector</div>
+        </div>
+        <div class="profile__sidebar-block">
+          <div class="profile__sidebar-label">Structure</div>
+          <div class="profile__sidebar-value--small" id="pStructure">Nonprofit</div>
+        </div>
+        <div class="profile__sidebar-block">
+          <div class="profile__sidebar-label">Current reach</div>
+          <div class="profile__sidebar-value--small" id="pReach">—</div>
+        </div>
+        <div class="profile__sidebar-links" id="pLinks"></div>
+      </aside>
+
+      <!-- Sections -->
+      <div class="profile__sections">
+        <section class="profile__section profile__section--mission">
+          <h3>The Mission</h3>
+          <div class="profile__section-body"><p id="pMission">Mission.</p></div>
+        </section>
+
+        <section class="profile__section">
+          <h3>How It Works</h3>
+          <div class="profile__section-body"><p id="pHow">How.</p></div>
+          <div class="profile__stats">
+            <div class="profile__stat"><div class="l">Reach today</div><div class="v" id="pStat1">—</div></div>
+            <div class="profile__stat"><div class="l">Founded</div><div class="v" id="pStat2">—</div></div>
+            <div class="profile__stat"><div class="l">Operating in</div><div class="v" id="pStat3">—</div></div>
+          </div>
+        </section>
+
+        <section class="profile__section">
+          <h3>The Dream</h3>
+          <div class="profile__section-body"><p id="pDream">Dream.</p></div>
+        </section>
+
+        <section class="profile__section profile__section--why">
+          <h3>Why We Picked Them</h3>
+          <div class="profile__section-body"><p id="pWhy">Why.</p></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Nav between fellows -->
+    <footer class="profile__nav">
+      <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+      <button class="profile__nav-btn" id="pPrev">← Previous fellow</button>
+      <div class="profile__nav-meta" id="pNavMeta">Fellow 1 of 11</div>
+      <button class="profile__nav-btn" id="pNext">Next fellow →</button>
+    </footer>
+  </article>
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <h3>Summit<br>Fellowship</h3>
+        <p>The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan's most promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.</p>
+      </div>
+      <div class="site-footer__col"><h4>The Program</h4><ul><li><a href="about.html">About</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="itinerary.html">Itinerary</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div class="site-footer__col"><h4>The People</h4><ul><li><a href="cohort.html">Cohort 2026</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="faculty.html#organizers">Organizers</a></li></ul></div>
+      <div class="site-footer__col"><h4>Logistics</h4><ul><li><a href="venue.html">Khoj Resort, Skardu</a></li><li><a href="travel.html">Travel &amp; Arrivals</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 · Summit Fellowship · Vol. 01</span>
+      <span>Skardu · Gilgit-Baltistan · Pakistan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/site.js"></script>
+<script>
+  /* Fellow records — extended with Mulago-style content fields.
+     Drafts: problem, idea, mission, how, dream, why, geo, structure, reach, founded, opIn.
+     These are placeholders for Taleemabad to refine. */
+  const fellows = [
+    {
+      id: 1, init: "RK", name: "Dr. Rubeena Kidwai", org: "Taskeen Health Initiative", sector: "Mental Health",
+      problem: "One in four Pakistanis live with a mental health condition, yet there are fewer than 500 psychiatrists in the entire country. Stigma, cost, and a near-total absence of services in public health mean most people who suffer never get help. Until 2022, attempting suicide was a criminal offence.",
+      idea: "Make mental health a normal part of Pakistani primary care.",
+      mission: "Every Pakistani who needs mental health support can find it — close, affordable, and free of shame.",
+      how: "Taskeen runs a national bilingual helpline staffed by trained counsellors, a low-cost in-person counseling network, and a policy arm that pushed through Pakistan's 2022 decriminalisation of suicide. They train general physicians, teachers, and HR teams in mental-health first aid so the system absorbs care rather than gating it behind specialists.",
+      dream: "Mental healthcare is built into every BHU, every employer benefits package, and every school in Pakistan — and 'are you okay?' is no longer a stigmatised question.",
+      why: "Rubeena is both a clinician and a movement-builder — a rare combination. She co-led the campaign that got Pakistan to decriminalise suicide, and runs operations at meaningful scale. She thinks structurally: the helpline is the wedge, but the goal is policy change.",
+      geo: "Pakistan (national)", structure: "Nonprofit", reach: "~25,000 callers served", founded: "2017", opIn: "Pakistan-wide",
+      email: "rubeena@taskeen.org", phone: "+92 300 2126284",
+      linkedin: "https://pk.linkedin.com/in/rubeena-kidwai-63768634", website: "https://taskeen.org/"
+    },
+    {
+      id: 2, init: "AD", name: "Azima Dhanjee", org: "ConnectHear", sector: "Disability",
+      problem: "Pakistan has an estimated 10 million deaf and hard-of-hearing people. The country has only a handful of certified sign-language interpreters, no captioning standard for public services, and almost no accessible workplaces. A deaf citizen who needs to visit a hospital, a court, or a bank typically goes alone, in silence.",
+      idea: "On-demand sign-language interpretation — at the price of a phone call.",
+      mission: "Bridge the deaf community and the hearing world through accessible technology, employer training, and dignified service design.",
+      how: "ConnectHear connects deaf users with certified PSL interpreters via a smartphone video app, on demand. They also caption media, train corporates and government in accessibility, and build the country's first PSL learning curriculum. Pricing is sliding-scale: corporate clients subsidise the consumer side.",
+      dream: "Sign-language interpretation, captioning and accessibility-by-default are public utilities — embedded into every emergency line, hospital intake, courtroom, and customer-service channel in Pakistan.",
+      why: "Azima is a CODA — a child of deaf adults — and has spent her life translating between two worlds. She has paired that lived experience with a sharp product instinct: ConnectHear's product roadmap reads like a deaf-built operating system for civic life, not a feel-good NGO.",
+      geo: "Pakistan", structure: "Hybrid (for-profit + nonprofit arm)", reach: "50,000+ users", founded: "2018", opIn: "Pakistan-wide",
+      email: "azima@connecthear.org", phone: "+92 331 2610146",
+      linkedin: "https://www.linkedin.com/in/azimadhanjee", website: "https://www.connecthear.org/"
+    },
+    {
+      id: 3, init: "HB", name: "Habiba Banu", org: "Spiro", sector: "Health",
+      problem: "Asthma and COPD affect ~25 million Pakistanis but fewer than 5% have ever had a spirometry test — the basic diagnostic. Equipment costs over $3,000 and lives in tertiary hospitals. A patient in a rural BHU is diagnosed by symptom guess, prescribed cheaply, and often never controlled.",
+      idea: "A $50 spirometer that runs on a smartphone.",
+      mission: "No undiagnosed respiratory patient in South Asia — diagnostic-grade care available wherever a patient walks in.",
+      how: "Spiro is a low-cost spirometer that pairs with an Urdu-language smartphone app. The app coaches the patient through the breath manoeuvre, runs quality checks, and uploads results to a clinician dashboard. They are validating against gold-standard devices in three Karachi teaching hospitals before primary-care rollout.",
+      dream: "Every primary-care clinic in Pakistan — public, private, and BHU — has a Spiro, and chronic respiratory disease becomes a diagnosed-and-managed condition instead of an invisible killer.",
+      why: "Habiba is the rare founder who is both clinically trained and an engineer. She has shipped a device that meets ATS/ERS technical standards at a 60× cost reduction. The clinical validation is rigorous, and she is plainly building for scale, not for a pilot.",
+      geo: "Pakistan + UK (R&D)", structure: "For-Profit (social mission)", reach: "12 clinics in pilot", founded: "2022", opIn: "Karachi, London",
+      email: "habiba.banu@spiro.ngo", phone: "+44 7703 563 810",
+      linkedin: "https://uk.linkedin.com/in/habiba-banu", website: "https://www.spiro.ngo/"
+    },
+    {
+      id: 4, init: "SH", name: "Saad Hussain", org: "Awaaz-e-Sehat Foundation", sector: "Health",
+      problem: "Pakistan has the highest maternal mortality rate in South Asia. The 100,000-strong Lady Health Worker cadre is the last mile of antenatal care — but they document on paper, can't reliably triage high-risk pregnancies, and lose information between visits. The most common cause of death is the one a screening tool would have caught.",
+      idea: "An Urdu-speaking AI assistant in every Lady Health Worker's pocket.",
+      mission: "Catch every high-risk pregnancy before it becomes a tragedy.",
+      how: "A voice-driven Urdu app for community health workers. The worker speaks her observations during the home visit; the app runs a structured screening, flags high-risk cases for referral, and routes them to the right facility. Pilot data shows risk-detection accuracy rising from 7% (paper baseline) to 40%.",
+      dream: "Every Lady Health Worker in Pakistan has a voice-driven clinical assistant — and the maternal mortality rate halves within a decade.",
+      why: "Saad combines deep public-health systems experience with serious engineering chops. Most maternal-health interventions go upstream of the LHW; Saad is meeting her where she actually works. The 5× improvement in risk detection is the kind of result we look for.",
+      geo: "Pakistan", structure: "For-Profit (social enterprise)", reach: "2,400 pregnancies screened", founded: "2023", opIn: "Sindh, Punjab",
+      email: "saad.hussain@awaazesehat.com", phone: "+92 333 4217251",
+      linkedin: "https://www.linkedin.com/in/saad-h", website: "https://www.awaazesehat.com/"
+    },
+    {
+      id: 5, init: "LR", name: "Lala Rukh Fazal-Ur-Rahman", org: "Science Fuse", sector: "Education",
+      problem: "Pakistani schoolchildren learn science from textbooks. Most never run an experiment, build a circuit, or meet a working scientist. The result is a generation that can recite Newton's laws but cannot reason scientifically — and a teacher cadre with no hands-on training of their own.",
+      idea: "Science is wonder, not memorisation.",
+      mission: "Cultivate scientific curiosity in every Pakistani child through hands-on, inquiry-led learning.",
+      how: "Science Fuse runs travelling science festivals, in-school programmes, a teacher-training pipeline, and an Urdu-language science show for TV and YouTube. Curriculum is co-designed with educators and benchmarked to national standards so public-sector schools can adopt it without political friction.",
+      dream: "Pakistan's national science curriculum is rewritten around inquiry — and 'I want to be a scientist' becomes a normal answer from a public-school child in Quetta or Mardan.",
+      why: "Lala Rukh has spent more than a decade building Pakistan's science-education movement from scratch. She has the patience of an institution-builder and the showmanship of a science presenter — both are needed. She is also a master of running a serious organisation on lean philanthropic budgets.",
+      geo: "Pakistan", structure: "Nonprofit", reach: "45,000 children, 650 teachers, 250 schools", founded: "2014", opIn: "Punjab, Sindh, KP, Balochistan",
+      email: "lalah_rukh@hotmail.com", phone: "+92 321 1288701",
+      linkedin: "https://pk.linkedin.com/in/lala-rukh-fazal-ur-rahman-73735a95", website: "https://sciencefuse.com/"
+    },
+    {
+      id: 6, init: "KJ", name: "Khushbakht Shah Jillani", org: "Mehfooz AI", sector: "Legal",
+      problem: "A domestic-violence survivor in Pakistan typically waits months for a protection order. Evidence is scattered across WhatsApp voice notes, hospital slips and her own memory; lawyers and judges are overworked and culturally biased; and most cases collapse before a verdict. The cost of waiting is, often, her life.",
+      idea: "AI tools that compress 'months of justice' into days.",
+      mission: "Every survivor in Pakistan gets a protection order within days, not months.",
+      how: "Mehfooz ingests scattered evidence — voice notes, medical reports, police FIRs — and produces structured briefs that survivors, lawyers and judges can act on. A bias-detection layer flags when standard-of-care has slipped. They are piloting with sitting family-court judges and women's-rights legal-aid clinics.",
+      dream: "Pakistan's family-court system runs on Mehfooz infrastructure — and the median time to a protection order drops from months to a single week.",
+      why: "Khushbakht is a practising lawyer who built the prototype herself. She is not 'tech for good' from the outside — she is a domain expert who learned to ship product. The buy-in she already has from sitting judges is the kind of distribution moat most legal-tech founders never get.",
+      geo: "Pakistan", structure: "Nonprofit", reach: "300+ cases assisted", founded: "2024", opIn: "Lahore, Karachi",
+      email: "khushbakhtlaw@gmail.com", phone: "+92 335 2350668",
+      linkedin: "https://www.linkedin.com/in/khushbakhtshahjillani/", website: "https://mehfooz.ai/"
+    },
+    {
+      id: 7, init: "MS", name: "Maira Siddiqui", org: "Chiragh Education Technologies", sector: "Education",
+      problem: "Twenty-two million Pakistani children are out of school. Even those inside school read textbooks in a language they don't speak at home, and learn from teachers who are themselves underpaid and undertrained. The result is a literacy crisis hiding behind enrolment statistics.",
+      idea: "Pakistan's curriculum, as cartoons, in your language.",
+      mission: "Foundational education on the cheapest smartphone, in every Pakistani language a family speaks at home.",
+      how: "Chiragh produces curriculum-aligned animated lessons in Urdu, Punjabi, Pashto, and Sindhi for nursery to grade 5. Each lesson is paired with adaptive assessments. Distribution is SMS-led and runs offline so the product works in homes with patchy data.",
+      dream: "Every Pakistani child has a language-appropriate, phone-based path to grade-5 literacy — and 'mother tongue first' becomes operational reality, not a slogan.",
+      why: "Maira built an animation studio and a learning-science team in parallel — most edtech founders pick one and bolt the other on later. The local-language depth is meaningful: nursery rhymes in Pashto that a Peshawari grandmother recognises are very hard to fake.",
+      geo: "Pakistan", structure: "For-Profit", reach: "80,000+ learners", founded: "2020", opIn: "Pakistan-wide",
+      email: "maira@chiraghtech.com", phone: "+92 345 3083194",
+      linkedin: "https://www.linkedin.com/in/maira-siddiqui-chiragh-edtech", website: "https://chiraghtech.com/"
+    },
+    {
+      id: 8, init: "AQ", name: "Adnan Qureshi", org: "Teach the World Foundation", sector: "Education",
+      problem: "Twenty-two million Pakistani out-of-school children, plus tens of millions more whose schools fail them. Cost-per-seat in the public system is high and outcomes are poor; the private system is too expensive for most. The country needs a new unit of education, not more of the same.",
+      idea: "The MicroSchool as the new unit of education.",
+      mission: "A learning seat — and a real outcome — for every out-of-school child in Pakistan.",
+      how: "MicroSchools: one trained facilitator, ~25 children, a few tablets running adaptive curriculum, in a rented room near where the children live. A parallel smartphone app reaches at-home learners with the same curriculum. Cost-per-student is a fraction of the public system; outcomes beat it.",
+      dream: "The MicroSchool unit is adopted by Pakistan's provincial education departments — and 'out of school' becomes a temporary status, not a life sentence.",
+      why: "Adnan has scaled to 141 schools and 14,000+ students with disciplined unit economics, having come from the private sector. He runs Teach the World like an operator, not a fundraiser — that's exactly the muscle the sector needs.",
+      geo: "Pakistan + 4 countries", structure: "Nonprofit", reach: "14,317 students, 141 schools", founded: "2010", opIn: "Pakistan, Bangladesh, Lebanon, Nigeria, USA",
+      email: "adnan.ahmed@teachtheworld.org", phone: "+92 340 0853633",
+      linkedin: "https://www.linkedin.com/in/adnanahmedqureshi/", website: "https://www.teachtheworldfoundation.com/"
+    },
+    {
+      id: 9, init: "MW", name: "Muhammad Waqas", org: "WonderTree", sector: "Special Ed",
+      problem: "Children with autism, cerebral palsy, and ADHD need physical, cognitive and behavioural therapy — but Pakistan has perhaps 200 trained occupational therapists for a population of 240 million. Therapy is expensive, scarce, and abandoned at the first scheduling conflict. The cost is borne by families who can least afford it.",
+      idea: "Therapy as a game children run toward, not away from.",
+      mission: "Make evidence-based therapy something every special-needs child can access — joyfully — in their school or their living room.",
+      how: "WonderTree builds augmented-reality games that target specific therapeutic outcomes (motor planning, attention, social cognition). A camera, a screen, and a teacher or parent are all that's needed. Therapists configure programmes; outcome data feeds back to clinicians.",
+      dream: "AR-based therapy is the standard of care in every special-needs classroom in South Asia — and a parent's diagnosis day no longer comes with a sentence of unaffordable therapy.",
+      why: "Waqas was shipping clinically validated product when peers were still writing pilot decks. He is in 45 schools already, with real outcome data, and is unusual in pairing game-design instinct with rigorous clinical partnerships.",
+      geo: "Pakistan + UAE", structure: "For-Profit (social enterprise)", reach: "45 schools, 5,000+ children", founded: "2015", opIn: "Pakistan, UAE",
+      email: "mwaqas@wondertree.co", phone: "+92 333 3228386",
+      linkedin: "https://www.linkedin.com/in/mwwaqas/", website: "https://wondertree.co/"
+    },
+    {
+      id: 10, init: "AS", name: "Ali Siddiq", org: "Amal Academy", sector: "Livelihoods",
+      problem: "Pakistan graduates about 500,000 university students every year. Most arrive in the workforce without the soft skills, English fluency, and professional judgement employers expect. The result is mass underemployment alongside an unfilled hiring pipeline.",
+      idea: "A three-month bridge from college to career.",
+      mission: "Every motivated young Pakistani can find dignified, well-paid work — regardless of which university they attended.",
+      how: "A three-month online fellowship in critical thinking, communication, and professional skills, taught in cohort-based live sessions by trained alumni. Fellows pay sliding-scale tuition that covers most of the cost. Placement: 81% in dignified employment within three months of graduation.",
+      dream: "'Amal Fellow' is a recognisable hiring signal at every major Pakistani employer — and university brand stops being the dominant predictor of a young person's career.",
+      why: "Ali has built a near-sustainable workforce-development model — extraordinarily rare in this space. The 81% placement rate is independently verified, and the alumni-as-teachers model gives him a loop most peers don't have.",
+      geo: "Pakistan", structure: "Hybrid (revenue-generating nonprofit)", reach: "15,000+ alumni", founded: "2013", opIn: "Pakistan-wide (online)",
+      email: "ali@amalacademy.org", phone: "+92 300 8443979",
+      linkedin: "https://www.linkedin.com/in/alisiddiq/", website: "https://www.amalacademy.org/"
+    },
+    {
+      id: 11, init: "OS", name: "Osama Shahid", org: "Soby Trading Co", sector: "Agriculture",
+      problem: "Pakistani smallholder farmers typically receive 25–30% of the final retail price of their crop. The rest is captured by a chain of middlemen who provide credit, transport, and storage the farmer cannot. The farmer's poverty is not bad luck — it's structural.",
+      idea: "A direct line from the smallholder to the consumer.",
+      mission: "Cut the chain between the farm and the market — and put the margin where it belongs.",
+      how: "Soby buys directly at the farm gate using transparent grading and same-day cash, runs its own cold chain, and sells through retail and export channels under a producer-owned brand. Farmers see their grade, their price, and the final retail price.",
+      dream: "A national, producer-owned fair-trade marketplace — and a smallholder farming household whose income matches the dignity of the work.",
+      why: "Osama is an engineer who grew up in farming families. He has run the supply chain himself — not from spreadsheets — and is one of the few founders in this space who treats the smallholder as a customer rather than a beneficiary.",
+      geo: "Pakistan (rural Sindh + Punjab)", structure: "For-Profit", reach: "1,200 farmer households", founded: "2019", opIn: "Sindh, Punjab",
+      email: "sobyagengineers@gmail.com", phone: "+92 321 8626068",
+      linkedin: "https://www.linkedin.com/in/osama-shahid-059b381a5/", website: "https://www.sobyagro.co/"
+    }
+  ];
+
+  /* === Render cohort grid === */
+  const grid = document.getElementById('cohortGrid');
+  fellows.forEach((f, i) => {
+    const card = document.createElement('article');
+    card.className = 'fellow-card';
+    card.setAttribute('data-sector', f.sector);
+    card.setAttribute('data-id', f.id);
+    card.setAttribute('data-screen-label', `Fellow ${String(i+1).padStart(2,'0')} — ${f.name}`);
+    card.innerHTML = `
+      <div class="fellow-card__head">
+        <div class="fellow-card__avatar">${f.init}</div>
+        <div class="fellow-card__num">No. ${String(i+1).padStart(2,'0')} / 11</div>
+      </div>
+      <h3 class="fellow-card__name">${f.name}</h3>
+      <div class="fellow-card__org"><strong>${f.org}</strong></div>
+      <div class="fellow-card__sector">${f.sector}</div>
+      <p class="fellow-card__idea">"${f.idea}"</p>
+      <div class="fellow-card__expand">Read full profile</div>
+    `;
+    card.addEventListener('click', () => openModal(i));
+    grid.appendChild(card);
+  });
+
+  /* === Filtering === */
+  const chips = document.querySelectorAll('.filter-chip');
+  const countEl = document.getElementById('count');
+  const emptyState = document.getElementById('emptyState');
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      const filter = chip.getAttribute('data-filter');
+      let visible = 0;
+      document.querySelectorAll('.fellow-card').forEach((card) => {
+        const match = filter === 'all' || card.getAttribute('data-sector') === filter;
+        card.classList.toggle('is-hidden', !match);
+        if (match) visible++;
+      });
+      countEl.textContent = `Showing ${visible} of 11`;
+      emptyState.classList.toggle('is-visible', visible === 0);
+    });
+  });
+
+  /* === Profile modal === */
+  const modal = document.getElementById('modal');
+  const modalClose = document.getElementById('modalClose');
+  let currentIdx = 0;
+
+  function openModal(idx) {
+    currentIdx = idx;
+    renderProfile(idx);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    modal.scrollTop = 0;
+  }
+
+  function renderProfile(idx) {
+    const f = fellows[idx];
+    document.getElementById('pNo').textContent = `Fellow No. ${String(idx+1).padStart(2,'0')} / 11`;
+    document.getElementById('pSectorCrumb').textContent = f.sector;
+    document.getElementById('pName').textContent = f.name;
+    document.getElementById('pProblem').textContent = f.problem;
+    document.getElementById('pPortraitInit').textContent = f.init;
+    document.getElementById('pIdea').textContent = `"${f.idea}"`;
+    document.getElementById('pOrg').textContent = f.org;
+    document.getElementById('pGeo').textContent = f.geo;
+    document.getElementById('pSector').textContent = f.sector;
+    document.getElementById('pStructure').textContent = f.structure;
+    document.getElementById('pReach').textContent = f.reach;
+    document.getElementById('pMission').textContent = f.mission;
+    document.getElementById('pHow').textContent = f.how;
+    document.getElementById('pDream').textContent = f.dream;
+    document.getElementById('pWhy').textContent = f.why;
+    document.getElementById('pStat1').textContent = f.reach;
+    document.getElementById('pStat2').textContent = f.founded;
+    document.getElementById('pStat3').textContent = f.opIn;
+    document.getElementById('pLinks').innerHTML = `
+      <a href="${f.website}" target="_blank" rel="noopener">Visit website</a>
+      <a href="${f.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:${f.email}">Email ${f.name.split(' ')[0]}</a>
+    `;
+    document.getElementById('pNavMeta').textContent = `Fellow ${idx+1} of ${fellows.length}`;
+    document.getElementById('pPrev').disabled = idx === 0;
+    document.getElementById('pNext').disabled = idx === fellows.length - 1;
+
+    // Scroll the modal article back to top
+    document.querySelector('.profile').scrollIntoView ? null : null;
+    modal.scrollTop = 0;
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft' && currentIdx > 0) { currentIdx--; renderProfile(currentIdx); modal.scrollTop = 0; }
+    if (e.key === 'ArrowRight' && currentIdx < fellows.length - 1) { currentIdx++; renderProfile(currentIdx); modal.scrollTop = 0; }
+  });
+
+  document.getElementById('pPrev').addEventListener('click', () => {
+    if (currentIdx > 0) { currentIdx--; renderProfile(currentIdx); modal.scrollTop = 0; }
+  });
+  document.getElementById('pNext').addEventListener('click', () => {
+    if (currentIdx < fellows.length - 1) { currentIdx++; renderProfile(currentIdx); modal.scrollTop = 0; }
+  });
+</script>
+</body>
+</html>

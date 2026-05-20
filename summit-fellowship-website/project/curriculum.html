@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curriculum & Frameworks — Summit Fellowship</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+  /* Module sections */
+  .module {
+    padding: 120px 0;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .module:nth-child(even) {
+    background: var(--paper-warm);
+  }
+  .module__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .module__head {
+    position: sticky;
+    top: 100px;
+  }
+  .module__num {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--clay);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .module__title {
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--alpine-deep);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    margin-bottom: 24px;
+  }
+  .module__title em { color: var(--clay); font-style: italic; }
+  .module__sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+  .module__when {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .module__body p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+  .module__body p.lead {
+    font-size: 20px;
+    color: var(--alpine-deep);
+  }
+
+  .concept-list {
+    list-style: none;
+    padding: 0;
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .module:nth-child(even) .concept-list { border-color: var(--line-soft); }
+  .concept-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .module:nth-child(even) .concept-item { border-color: var(--line-soft); }
+  .concept-item__num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--clay);
+    padding-top: 2px;
+  }
+  .concept-item__title {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--alpine-deep);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .concept-item__desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 1000px) {
+    .module__grid { grid-template-columns: 1fr; gap: 32px; }
+    .module__head { position: static; }
+  }
+
+  /* Frameworks visual */
+  .framework-vis {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .framework-vis .topo-bg { opacity: 0.10; }
+  .framework-vis__inner { position: relative; z-index: 1; }
+  .framework-vis__title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 16px;
+  }
+  .framework-vis__diagram {
+    display: grid;
+    gap: 16px;
+  }
+  .vis-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .vis-box {
+    padding: 12px 18px;
+    border: 1px solid rgba(232, 226, 213, 0.3);
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--paper);
+    border-radius: 2px;
+    background: rgba(245, 239, 227, 0.06);
+  }
+  .vis-box.is-key {
+    background: var(--ochre);
+    color: var(--alpine-deep);
+    border-color: var(--ochre);
+  }
+  .vis-arrow {
+    color: var(--ochre);
+    font-family: var(--mono);
+  }
+
+  /* TOC strip at top */
+  .toc-strip {
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(232, 226, 213, 0.16);
+  }
+  .toc-strip__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .toc-strip__label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-right: 16px;
+  }
+  .toc-chip {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    color: var(--parchment);
+    padding: 6px 12px;
+    border: 1px solid rgba(232, 226, 213, 0.25);
+    transition: all .2s var(--ease-out);
+  }
+  .toc-chip:hover {
+    background: var(--ochre);
+    color: var(--alpine-deep);
+    border-color: var(--ochre);
+  }
+
+  /* Banned words showcase */
+  .banned-words {
+    margin: 32px 0;
+    padding: 32px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    border-radius: 2px;
+  }
+  .module:nth-child(even) .banned-words { background: var(--paper-cool); }
+  .banned-words h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .banned-words__cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .banned-words__cloud span {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink-mute);
+    text-decoration: line-through;
+    text-decoration-color: var(--clay);
+    text-decoration-thickness: 1.5px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Summit Fellowship home">
+      <svg width="32" height="32" viewBox="0 0 40 40" style="color: var(--clay)" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M 6 30 L 16 12 L 23 22" /><path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fill-opacity="0.12"/><circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5"/></g>
+      </svg>
+      <span class="site-header__wordmark">Summit<span class="ws">·</span>Fellowship</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="about.html">About</a><a class="site-nav__link" href="cohort.html">Cohort</a><a class="site-nav__link" href="faculty.html">Faculty</a><a class="site-nav__link" href="curriculum.html">Curriculum</a><a class="site-nav__link" href="itinerary.html">Itinerary</a><a class="site-nav__link" href="venue.html">Venue</a><a class="site-nav__link" href="travel.html">Travel</a><a class="site-nav__link" href="resources.html">Resources</a><a class="site-nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="site-header__cta" href="resources.html">Pre-reads →</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="page-hero" data-screen-label="Curriculum Hero">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <div class="page-hero__crumbs"><a href="index.html">Home</a><span>/</span><span>Curriculum</span></div>
+    <h1 class="page-hero__title">Five modules. <em style="color: var(--ochre); font-style: italic;">One outcome.</em></h1>
+    <p class="page-hero__subtitle">The curriculum is built around frameworks that work — the Mulago Scale Screen, Doer &amp; Payer at Scale, the Iterative Organization, and Clear-Language Communications.</p>
+  </div>
+</section>
+
+<!-- TOC -->
+<nav class="toc-strip">
+  <div class="container toc-strip__inner">
+    <span class="toc-strip__label">Jump to</span>
+    <a href="#m1" class="toc-chip">01 · Design for Impact at Scale</a>
+    <a href="#m2" class="toc-chip">02 · Scale Strategy</a>
+    <a href="#m3" class="toc-chip">03 · Impact Evidence</a>
+    <a href="#m4" class="toc-chip">04 · The Iterative Organization</a>
+    <a href="#m5" class="toc-chip">05 · Communications &amp; Pitch</a>
+  </div>
+</nav>
+
+<!-- Module 1 -->
+<section class="module" id="m1">
+  <div class="container">
+    <div class="module__grid">
+      <div class="module__head">
+        <div class="module__num">Module 01</div>
+        <h2 class="module__title">Design for impact<br>at <em>scale.</em></h2>
+        <p class="module__sub">The foundational building blocks. Every cohort's models are reconstructed from these elements first.</p>
+        <div class="module__when">Day 01 · Monday · 09:00 – 17:30</div>
+      </div>
+      <div class="module__body">
+        <p class="lead">Most social enterprises know what they do. Far fewer can answer, in one sentence, what specific behavior change drives the outcome they care about — and which model elements actually produce that behavior.</p>
+        <p>This module is the most precise of the week. By lunchtime, every fellow has rewritten their mission to eight words and their Big Idea to six. By the end of day, the Behavior Map and the model's core elements are on paper.</p>
+
+        <div class="framework-vis">
+          <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+          <div class="framework-vis__inner">
+            <div class="framework-vis__title">The Theory of Change · simplified</div>
+            <div class="framework-vis__diagram">
+              <div class="vis-row">
+                <div class="vis-box">Big Idea</div>
+                <span class="vis-arrow">→</span>
+                <div class="vis-box">Model</div>
+                <span class="vis-arrow">→</span>
+                <div class="vis-box is-key">Behavior</div>
+                <span class="vis-arrow">→</span>
+                <div class="vis-box is-key">Outcome</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="concept-list">
+          <li class="concept-item">
+            <span class="concept-item__num">1.1</span>
+            <div>
+              <h4 class="concept-item__title">Mission · 8 words, outcome-focused</h4>
+              <p class="concept-item__desc">Strip every word until what's left names a specific outcome for a specific population. No nouns about activities. No "empowering" or "transforming". The mission either causes the outcome or it doesn't.</p>
+            </div>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item__num">1.2</span>
+            <div>
+              <h4 class="concept-item__title">Big Idea · ≤ 6 words</h4>
+              <p class="concept-item__desc">The compact, replicable mechanism. The thing that, if copy-pasted onto someone else's organization, would still produce the outcome.</p>
+            </div>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item__num">1.3</span>
+            <div>
+              <h4 class="concept-item__title">Theory · idea → behavior → outcome</h4>
+              <p class="concept-item__desc">The causal chain. What behavior change does your idea produce, in whom, that produces the outcome? If any link is fuzzy, the model isn't ready.</p>
+            </div>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item__num">1.4</span>
+            <div>
+              <h4 class="concept-item__title">The Model · 4–6 core elements</h4>
+              <p class="concept-item__desc">The minimum set of activities the model must do to produce the behavior change. Strip anything else.</p>
+            </div>
+          </li>
+          <li class="concept-item">
+            <span class="concept-item__num">1.5</span>
+            <div>
+              <h4 class="concept-item__title">Behavior map + drivers</h4>
+              <p class="concept-item__desc">What gets in the way of the behavior change? What removes the barriers? Map drivers explicitly — most failed scale-ups failed at exactly one of them.</p>
+            </div>
+          </li>
+        </ul>
+
+        <p style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--alpine-deep); border-left: 2px solid var(--clay); padding-left: 20px; margin-top: 32px;">By the end of Day 1, every fellow has a one-pager: Mission, Big Idea, Theory, Model, Behaviors, Doer, and Payer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Module 2 -->
+<section class="module" id="m2">
+  <div class="container">
+    <div class="module__grid">
+      <div class="module__head">
+        <div class="module__num">Module 02</div>
+        <h2 class="module__title">Scale strategy<br>+ the <em>Scale Screen.</em></h2>
+        <p class="module__sub">The four-question filter every Mulago-backed model has to earn a yes on.</p>
+        <div class="module__when">Day 02 · Tuesday · 09:00 – 13:00</div>
+      </div>
+      <div class="module__body">
+        <p class="lead">The Scale Screen is the framework at the heart of Mulago's investment thesis. It is not a maturity model — it is a yes/no filter. By the end of this module, fellows can defensibly answer all four questions about their own model.</p>
+
+        <div class="framework-vis">
+          <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+          <div class="framework-vis__inner">
+            <div class="framework-vis__title">The Four Enoughs · Mulago Scale Screen</div>
+            <div class="framework-vis__diagram">
+              <div class="vis-row">
+                <div class="vis-box is-key">Good enough</div>
+                <div class="vis-box is-key">Big enough</div>
+                <div class="vis-box is-key">Simple enough</div>
+                <div class="vis-box is-key">Cheap enough</div>
+              </div>
+              <div class="vis-row">
+                <div class="vis-box">Evidence</div>
+                <div class="vis-box">Population</div>
+                <div class="vis-box">Replicable</div>
+                <div class="vis-box">Unit economics</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="concept-list">
+          <li class="concept-item"><span class="concept-item__num">2.1</span><div><h4 class="concept-item__title">Good enough?</h4><p class="concept-item__desc">Does the solution work? Show me the evidence chain — and where it has gaps.</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">2.2</span><div><h4 class="concept-item__title">Big enough?</h4><p class="concept-item__desc">Will solving the problem move a population-level outcome? Or are we describing a slice that doesn't matter at the national level?</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">2.3</span><div><h4 class="concept-item__title">Simple enough?</h4><p class="concept-item__desc">Can a stranger, with the manual, replicate this without you? The founder dependency is the single biggest scale killer.</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">2.4</span><div><h4 class="concept-item__title">Cheap enough?</h4><p class="concept-item__desc">Can the ultimate payer afford to reach everyone? Pilot-scale unit economics do not translate. Scale-scale unit economics must.</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">2.5</span><div><h4 class="concept-item__title">Doer &amp; Payer at scale</h4><p class="concept-item__desc">The two questions Mulago will ask before anything else. Who, specifically, is the entity that implements your model at scale? Who pays them, sustainably, to do it?</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Module 3 -->
+<section class="module" id="m3">
+  <div class="container">
+    <div class="module__grid">
+      <div class="module__head">
+        <div class="module__num">Module 03</div>
+        <h2 class="module__title">Impact <em>evidence.</em></h2>
+        <p class="module__sub">Designing an evidence plan that's defensible to a skeptical funder — not just to a friendly evaluator.</p>
+        <div class="module__when">Day 02 · Tuesday · 14:00 – 16:30</div>
+      </div>
+      <div class="module__body">
+        <p class="lead">Most organizations measure too much, and the wrong things. We design from the outcome backwards: what is the smallest set of metrics that, taken together, force a funder to believe the model is causing the outcome?</p>
+        <ul class="concept-list">
+          <li class="concept-item"><span class="concept-item__num">3.1</span><div><h4 class="concept-item__title">Levels of evidence</h4><p class="concept-item__desc">The ladder from anecdote to RCT. Where on the ladder are you? Where do you actually need to be?</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">3.2</span><div><h4 class="concept-item__title">Metrics hierarchy</h4><p class="concept-item__desc">Outputs, outcomes, impact. Most organizations confuse these — and pay for it during funder due diligence.</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">3.3</span><div><h4 class="concept-item__title">Designing your evidence plan</h4><p class="concept-item__desc">A 12-month, costed plan that closes your most expensive evidence gap. Built in workshop format, with critique.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Module 4 -->
+<section class="module" id="m4">
+  <div class="container">
+    <div class="module__grid">
+      <div class="module__head">
+        <div class="module__num">Module 04</div>
+        <h2 class="module__title">The iterative<br><em>organization.</em></h2>
+        <p class="module__sub">Theory, methods, data flows, and culture. How organizations actually improve at the speed scale requires.</p>
+        <div class="module__when">Day 04 · Thursday · 09:00 – 17:00</div>
+      </div>
+      <div class="module__body">
+        <p class="lead">A model designed for scale is necessary but not sufficient. Scale-ready organizations also <em>improve</em> at scale — they learn from data, kill what isn't working, and double down on what is, on a quarterly rhythm not an annual one.</p>
+        <ul class="concept-list">
+          <li class="concept-item"><span class="concept-item__num">4.1</span><div><h4 class="concept-item__title">Why iteration matters</h4><p class="concept-item__desc">Theory of why this is the difference between organizations that scale and organizations that grow.</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">4.2</span><div><h4 class="concept-item__title">Iteration methods</h4><p class="concept-item__desc">From A/B testing program design to operational quarterly rhythms. Concrete patterns from organizations who do it well.</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">4.3</span><div><h4 class="concept-item__title">Data flows</h4><p class="concept-item__desc">What data flows up, down, and across the organization — and on what cadence — for iteration to be possible.</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">4.4</span><div><h4 class="concept-item__title">People &amp; culture</h4><p class="concept-item__desc">The hardest part. What does it look like inside the org to be one that genuinely runs on iteration, not on heroics?</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Module 5 -->
+<section class="module" id="m5">
+  <div class="container">
+    <div class="module__grid">
+      <div class="module__head">
+        <div class="module__num">Module 05</div>
+        <h2 class="module__title">Comms &amp; <em>pitching.</em></h2>
+        <p class="module__sub">"The pitch is dead. Long live the conversation." Building a narrative that holds up across a 90-second pitch and a 90-minute meeting.</p>
+        <div class="module__when">Day 05 · Friday · 09:00 – 17:00</div>
+      </div>
+      <div class="module__body">
+        <p class="lead">By Day 5, every fellow has a defensible model. This module is about being able to communicate it — first to themselves, then to peers, then to a funder who's heard 200 pitches this year.</p>
+
+        <ul class="concept-list">
+          <li class="concept-item"><span class="concept-item__num">5.1</span><div><h4 class="concept-item__title">Clear language</h4><p class="concept-item__desc">The discipline of plain language. What jargon you can keep, what you must drop, and why most decks fail on slide three.</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">5.2</span><div><h4 class="concept-item__title">Narrative structure</h4><p class="concept-item__desc">The four-beat structure every memorable funder pitch follows. Designed, not improvised.</p></div></li>
+          <li class="concept-item"><span class="concept-item__num">5.3</span><div><h4 class="concept-item__title">The 10-minute pitch</h4><p class="concept-item__desc">Built live, in workshop. Every fellow drafts theirs on Day 5 and delivers it on Day 6.</p></div></li>
+        </ul>
+
+        <div class="banned-words">
+          <h4>The banned words list · examples</h4>
+          <div class="banned-words__cloud">
+            <span>empower</span>
+            <span>holistic</span>
+            <span>solution</span>
+            <span>at-risk</span>
+            <span>transform</span>
+            <span>impactful</span>
+            <span>capacity-building</span>
+            <span>ecosystem</span>
+            <span>stakeholders</span>
+            <span>leverage</span>
+            <span>synergy</span>
+            <span>cutting-edge</span>
+          </div>
+        </div>
+
+        <p>By Day 6, the pitch has been rehearsed, critiqued, rebuilt, and delivered. The skill the cohort actually walks away with is not the pitch itself — it's the ability to rebuild it for any audience, in any room, for the next ten years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background: var(--alpine-deep); color: var(--parchment); padding: 100px 0; position: relative; overflow: hidden;">
+  <div class="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+  <div class="container" style="position: relative; z-index: 1; text-align: center;">
+    <h2 style="font-family: var(--serif); font-size: clamp(40px, 6vw, 80px); color: var(--paper); line-height: 0.95; letter-spacing: -0.025em; margin-bottom: 24px;">
+      See it in <em style="color: var(--ochre); font-style: italic;">action.</em>
+    </h2>
+    <p style="font-size: 18px; color: var(--parchment); opacity: 0.85; max-width: 50ch; margin: 0 auto 32px;">
+      The hour-by-hour itinerary maps every concept above to a session, location, and faculty member.
+    </p>
+    <a href="itinerary.html" class="btn btn--ochre">Open the Itinerary →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand"><h3>Summit<br>Fellowship</h3><p>The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan's most promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.</p></div>
+      <div class="site-footer__col"><h4>The Program</h4><ul><li><a href="about.html">About</a></li><li><a href="curriculum.html">Curriculum</a></li><li><a href="itinerary.html">Itinerary</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+      <div class="site-footer__col"><h4>The People</h4><ul><li><a href="cohort.html">Cohort 2026</a></li><li><a href="faculty.html">Faculty</a></li><li><a href="faculty.html#organizers">Organizers</a></li></ul></div>
+      <div class="site-footer__col"><h4>Logistics</h4><ul><li><a href="venue.html">Khoj Resort, Skardu</a></li><li><a href="travel.html">Travel &amp; Arrivals</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom"><span>© 2026 · Summit Fellowship · Vol. 01</span><span>Skardu · Gilgit-Baltistan · Pakistan</span></div>
+  </div>
+</footer>
+
+<script src="scripts/site.js"></script>
+</body>
+</html>

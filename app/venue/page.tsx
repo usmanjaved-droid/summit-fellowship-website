@@ -6,6 +6,13 @@ export const metadata = {
   title: 'Khoj Resort, Skardu — Summit Fellowship',
 };
 
+const SPACES = [
+  { num: '01', title: 'The Studio', desc: 'Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.' },
+  { num: '02', title: 'The Courtyard', desc: 'Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.' },
+  { num: '03', title: 'The Dining Hall', desc: 'One long table. Locally-sourced food. By Day 3, everyone has a permanent seat. By Day 6, no one wants to leave it.' },
+  { num: '04', title: 'The Orchard', desc: "A short walk from the main building. The default outdoor classroom for 1-on-1 clinics. The cohort's photo gets taken here on Day 6." },
+];
+
 export default function VenuePage() {
   return (
     <>
@@ -174,6 +181,30 @@ export default function VenuePage() {
             <div className={styles.mapLegendItem}><span className={styles.legendDot}></span> Off-site sessions</div>
             <div className={styles.mapLegendItem}><span className={styles.legendLine}></span> Travel routes</div>
             <div className={styles.mapLegendItem} style={{ marginLeft: 'auto', opacity: 0.6 }}>Schematic — not to scale</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Spaces */}
+      <section className={styles.spacesSection}>
+        <div className="container">
+          <div className={styles.spacesHead}>
+            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">The spaces</span></div>
+            <h2>Four rooms.<br /><em>One valley.</em></h2>
+            <p>You'll move between these spaces over the week. Each was chosen for what it lets the group do, and for what it forbids — Khoj does not have a giant ballroom for a reason.</p>
+          </div>
+          <div className={styles.spaceGrid}>
+            {SPACES.map((s) => (
+              <article key={s.num} className={styles.spaceCard}>
+                <div className={styles.spaceCardImage}>
+                  <span className={styles.spaceCardNum}>{s.num}</span>
+                </div>
+                <div className={styles.spaceCardBody}>
+                  <h3 className={styles.spaceCardTitle}>{s.title}</h3>
+                  <p className={styles.spaceCardDesc}>{s.desc}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

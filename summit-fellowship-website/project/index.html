@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Summit Fellowship — Designed for Scale</title>
+<meta name="description" content="The Skardu Scale-Up Fellowship. A 7-day intensive retreat for Pakistan's most promising social enterprises. June 7–14, 2026.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles/base.css">
+
+<style>
+  /* === Home-specific === */
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero__bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(20, 39, 52, 0.55) 0%, rgba(12, 26, 34, 0.95) 100%),
+      url("https://images.unsplash.com/photo-1605649461784-edc01e90a09c?auto=format&fit=crop&w=2400&q=80") center/cover;
+    z-index: 0;
+  }
+  .hero .topo-bg { z-index: 1; opacity: 0.12; mix-blend-mode: screen; }
+
+  .hero__head {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+  .hero__body {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 0;
+  }
+  .hero__lockup {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .hero__eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .hero__eyebrow .line {
+    width: 56px; height: 1px;
+    background: var(--ochre);
+  }
+  .hero__title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(56px, 11vw, 200px);
+    line-height: 0.86;
+    letter-spacing: -0.025em;
+    color: var(--paper);
+    margin-bottom: 32px;
+    max-width: 13ch;
+  }
+  .hero__title em {
+    font-style: italic;
+    color: var(--ochre);
+  }
+  .hero__title .stack {
+    display: block;
+  }
+  .hero__sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.35;
+    color: var(--ochre-pale);
+    max-width: 50ch;
+    margin-bottom: 56px;
+  }
+  .hero__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .hero__meta-strip {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(232, 226, 213, 0.18);
+    background: rgba(12, 26, 34, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .hero__meta-strip-inner {
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .hero__meta-item .label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 8px;
+  }
+  .hero__meta-item .value {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--paper);
+  }
+  .hero__meta-item .sub {
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 800px) {
+    .hero__meta-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+
+  /* Countdown band */
+  .countdown {
+    background: var(--clay);
+    color: var(--paper);
+    padding: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .countdown__bg {
+    position: absolute; inset: 0;
+    background-image: url("assets/topo.svg");
+    background-size: 800px 800px;
+    background-position: center;
+    opacity: 0.18;
+    mix-blend-mode: overlay;
+  }
+  .countdown__inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+  }
+  .countdown__label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .countdown__label .heading {
+    display: block;
+    font-family: var(--serif);
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    color: var(--paper);
+    margin-top: 6px;
+  }
+  .countdown__grid {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 32px;
+  }
+  .countdown__cell {
+    text-align: center;
+  }
+  .countdown__cell .num {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1;
+    color: var(--paper);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .countdown__cell .unit {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ochre-pale);
+    margin-top: 8px;
+    display: block;
+  }
+  @media (max-width: 640px) {
+    .countdown__grid { gap: 18px; }
+  }
+
+  /* Intro split */
+  .intro {
+    padding: 120px 0;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .intro .topo-bg { opacity: 0.06; }
+  .intro__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .intro__label h2 {
+    font-size: clamp(42px, 4.5vw, 64px);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--alpine-deep);
+  }
+  .intro__label h2 em { font-style: italic; color: var(--clay); }
+  .intro__body p {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    max-width: 60ch;
+  }
+  .intro__body p.lead {
+    font-family: var(--serif);
+    font-size: 28px;
+    line-height: 1.35;
+    color: var(--alpine-deep);
+    font-style: italic;
+    border-left: 2px solid var(--clay);
+    padding-left: 24px;
+    margin: 32px 0;
+  }
+  @media (max-width: 900px) {
+    .intro__inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* The Arc of the Week */
+  .arc {
+    padding: 120px 0;
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    position: relative;
+    overflow: hidden;
+  }
+  .arc .topo-bg { z-index: 0; }
+  .arc__inner { position: relative; z-index: 1; }
+
+  .arc-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: rgba(232, 226, 213, 0.16);
+    border: 1px solid rgba(232, 226, 213, 0.16);
+  }
+  .arc-day {
+    background: var(--alpine-deep);
+    padding: 28px 20px 32px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    transition: background .3s var(--ease-out);
+    cursor: default;
+  }
+  .arc-day:hover { background: var(--alpine-soft); }
+  .arc-day__num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--ochre);
+    margin-bottom: 16px;
+  }
+  .arc-day__title {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.1;
+    color: var(--paper);
+    margin-bottom: 12px;
+  }
+  .arc-day__date {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+  .arc-day__desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--parchment);
+    opacity: 0.75;
+    margin-top: auto;
+  }
+  @media (max-width: 1100px) {
+    .arc-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .arc-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 460px) {
+    .arc-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Cohort strip */
+  .cohort-strip {
+    padding: 120px 0;
+    background: var(--paper-warm);
+    position: relative;
+    overflow: hidden;
+  }
+  .cohort-strip__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+  .cohort-strip__head h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--alpine-deep);
+    letter-spacing: -0.02em;
+  }
+  .cohort-strip__head h2 em { font-style: italic; color: var(--clay); }
+  .cohort-strip__head p {
+    color: var(--ink-soft);
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 48ch;
+  }
+  @media (max-width: 800px) {
+    .cohort-strip__head { grid-template-columns: 1fr; }
+  }
+
+  .cohort-marquee {
+    display: grid;
+    grid-template-columns: repeat(11, minmax(180px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--line);
+    background: var(--line);
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .cohort-cell {
+    background: var(--paper-cool);
+    padding: 20px 16px 24px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    transition: background .2s var(--ease-out);
+  }
+  .cohort-cell:hover { background: var(--paper); }
+  .cohort-cell__avatar {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--alpine-deep);
+    color: var(--ochre);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 22px;
+    margin-bottom: 16px;
+    border: 2px solid var(--paper-warm);
+  }
+  .cohort-cell__name {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.15;
+    color: var(--alpine-deep);
+    margin-bottom: 8px;
+  }
+  .cohort-cell__org {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-bottom: auto;
+    line-height: 1.3;
+  }
+  .cohort-cell__sector {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-top: 16px;
+  }
+
+  .cohort-strip__cta {
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  /* Faculty band */
+  .faculty {
+    padding: 120px 0;
+    background: var(--paper);
+  }
+  .faculty__head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .faculty__head h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--alpine-deep);
+    letter-spacing: -0.02em;
+    max-width: 18ch;
+  }
+  .faculty__head h2 em { font-style: italic; color: var(--clay); }
+
+  .faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .faculty-card {
+    border: 1px solid var(--line);
+    background: var(--paper-cool);
+    padding: 32px;
+    transition: transform .3s var(--ease-out), border-color .3s var(--ease-out);
+    position: relative;
+  }
+  .faculty-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--clay);
+  }
+  .faculty-card__head {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .faculty-card__avatar {
+    width: 56px; height: 56px;
+    background: var(--alpine-deep);
+    color: var(--ochre);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 20px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .faculty-card__name {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--alpine-deep);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .faculty-card__role {
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.3;
+  }
+  .faculty-card__bio {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 900px) {
+    .faculty-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Venue band */
+  .venue {
+    padding: 0;
+    background: var(--alpine-deep);
+    color: var(--parchment);
+    position: relative;
+    overflow: hidden;
+  }
+  .venue__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+  .venue__image {
+    background:
+      linear-gradient(180deg, rgba(20, 39, 52, 0.2) 0%, rgba(20, 39, 52, 0.6) 100%),
+      url("https://images.unsplash.com/photo-1626891820395-a1d3df8d22e9?auto=format&fit=crop&w=1600&q=80") center/cover;
+    position: relative;
+  }
+  .venue__image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/topo.svg");
+    background-size: 800px 800px;
+    opacity: 0.12;
+    mix-blend-mode: screen;
+  }
+  .venue__copy {
+    padding: 96px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 700px;
+  }
+  .venue__copy h2 {
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--paper);
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+  .venue__copy h2 em { font-style: italic; color: var(--ochre); }
+  .venue__copy p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--parchment);
+    margin-bottom: 32px;
+  }
+  .venue__coords {
+    display: flex;
+    gap: 32px;
+    padding: 24px 0;
+    border-top: 1px solid rgba(232, 226, 213, 0.16);
+    border-bottom: 1px solid rgba(232, 226, 213, 0.16);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .venue__coords-item .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .venue__coords-item .value {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--paper);
+  }
+  @media (max-width: 900px) {
+    .venue__split { grid-template-columns: 1fr; }
+    .venue__image { min-height: 320px; }
+    .venue__copy { padding: 64px 32px; }
+  }
+
+  /* Hosts band */
+  .hosts {
+    padding: 80px 0;
+    background: var(--paper-warm);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .hosts__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .hosts__label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hosts__logos {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .host-mark {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--alpine-deep);
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+  .host-mark .role {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-top: 6px;
+  }
+  .host-mark .org-sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+    letter-spacing: 0;
+  }
+
+  /* Closing CTA */
+  .close-cta {
+    padding: 140px 0;
+    text-align: center;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .close-cta .topo-bg { opacity: 0.10; }
+  .close-cta__inner { position: relative; z-index: 1; }
+  .close-cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 7vw, 110px);
+    color: var(--alpine-deep);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    margin-bottom: 32px;
+    max-width: 18ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .close-cta h2 em { font-style: italic; color: var(--clay); }
+  .close-cta p {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 50ch;
+    margin: 0 auto 40px;
+    line-height: 1.55;
+  }
+
+  /* Reveals */
+  .stagger > * { transition-delay: calc(var(--i, 0) * 60ms); }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Summit Fellowship home">
+      <svg width="32" height="32" viewBox="0 0 40 40" aria-hidden="true" style="color: var(--clay)">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M 6 30 L 16 12 L 23 22" />
+          <path d="M 14 30 L 24 16 L 34 30 L 4 30 Z" fill="currentColor" fill-opacity="0.12"/>
+          <circle cx="29" cy="11" r="2.4" fill="currentColor" stroke="none" opacity="0.5"/>
+        </g>
+      </svg>
+      <span class="site-header__wordmark">Summit<span class="ws">·</span>Fellowship</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__link" href="about.html">About</a>
+      <a class="site-nav__link" href="cohort.html">Cohort</a>
+      <a class="site-nav__link" href="faculty.html">Faculty</a>
+      <a class="site-nav__link" href="curriculum.html">Curriculum</a>
+      <a class="site-nav__link" href="itinerary.html">Itinerary</a>
+      <a class="site-nav__link" href="venue.html">Venue</a>
+      <a class="site-nav__link" href="travel.html">Travel</a>
+      <a class="site-nav__link" href="resources.html">Resources</a>
+      <a class="site-nav__link" href="contact.html">Contact</a>
+    </nav>
+    <a class="site-header__cta" href="itinerary.html">June 7–14, 2026 →</a>
+    <button class="menu-toggle" aria-expanded="false" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" data-screen-label="Home Hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="topo-bg" aria-hidden="true"></div>
+
+  <div class="hero__body">
+    <div class="hero__lockup">
+      <div class="hero__eyebrow">
+        <span class="line"></span>
+        <span>Vol. 01 — Skardu, Pakistan — 2026</span>
+      </div>
+      <h1 class="hero__title">
+        <span class="stack">Designed</span>
+        <span class="stack">for <em>scale.</em></span>
+      </h1>
+      <p class="hero__sub">
+        A seven-day intensive retreat in the Karakoram for eleven Pakistani founders building solutions that could reach millions.
+      </p>
+      <div class="hero__cta-row">
+        <a class="btn btn--ochre" href="about.html">Read the Brief <span class="arrow">→</span></a>
+        <a class="btn btn--ghost-light" href="cohort.html">Meet the Cohort</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__meta-strip">
+    <div class="hero__meta-strip-inner">
+      <div class="hero__meta-item">
+        <span class="label">Dates</span>
+        <div class="value">07 — 14 June 2026</div>
+        <div class="sub">Day 0 arrivals to Day 7 departures</div>
+      </div>
+      <div class="hero__meta-item">
+        <span class="label">Venue</span>
+        <div class="value">Khoj Resort, Skardu</div>
+        <div class="sub">Gilgit-Baltistan, Pakistan · 2,228 m</div>
+      </div>
+      <div class="hero__meta-item">
+        <span class="label">Cohort</span>
+        <div class="value">11 founders</div>
+        <div class="sub">Across health, education, livelihoods</div>
+      </div>
+      <div class="hero__meta-item">
+        <span class="label">Co-hosts</span>
+        <div class="value">Taleemabad <span style="opacity:.5">×</span> Mulago</div>
+        <div class="sub">Patient capital meets ed-tech at scale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COUNTDOWN ============ -->
+<section class="countdown" aria-label="Countdown to fellowship">
+  <div class="countdown__bg" aria-hidden="true"></div>
+  <div class="countdown__inner">
+    <div class="countdown__label">
+      <span>The expedition begins in</span>
+      <span class="heading">June 7, 2026 · 07:00 PKT</span>
+    </div>
+    <div class="countdown__grid" data-countdown>
+      <div class="countdown__cell"><div class="num" data-cd="days">000</div><span class="unit">Days</span></div>
+      <div class="countdown__cell"><div class="num" data-cd="hours">00</div><span class="unit">Hours</span></div>
+      <div class="countdown__cell"><div class="num" data-cd="mins">00</div><span class="unit">Min</span></div>
+      <div class="countdown__cell"><div class="num" data-cd="secs">00</div><span class="unit">Sec</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="intro">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container intro__inner">
+    <div class="intro__label">
+      <div class="eyebrow-line"><span class="eyebrow-line__line"></span><span class="eyebrow">01 — The Mission</span></div>
+      <h2>From project<br>to <em>scale-ready</em><br>impact machine.</h2>
+    </div>
+    <div class="intro__body">
+      <p class="lead">
+        Pakistan is home to dozens of promising social enterprises, but few achieve true national scale. Most remain trapped in project-driven survival mode — securing incremental grants and reaching thousands when their models possess the potential to reach millions.
+      </p>
+      <p>
+        The barrier is rarely a lack of commitment or competence; it is a lack of a definitive scale strategy. Over seven days at the edge of the Karakoram, this curated cohort of founders will step away from daily operations to answer the defining strategic questions of scale.
+      </p>
+      <p style="font-family: var(--serif); font-size: 22px; color: var(--alpine-deep); margin-top: 32px;">
+        <em>Who is your ultimate doer at scale? Who is your ultimate payer?</em>
+      </p>
+      <a href="about.html" class="btn btn--ghost" style="margin-top: 32px;">The Full Brief <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARC OF THE WEEK ============ -->
+<section class="arc">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container arc__inner">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow eyebrow--on-dark" style="margin-bottom: 16px;">02 — Seven Days</div>
+        <h2 class="section-heading__title">The arc of the week.</h2>
+      </div>
+      <div class="section-heading__meta">Sun → Sun · 07 — 14 June</div>
+    </div>
+
+    <div class="arc-grid">
+      <div class="arc-day">
+        <div class="arc-day__num">Day 01</div>
+        <div class="arc-day__date">Mon · Jun 08</div>
+        <div class="arc-day__title">Mulago<br>Basics</div>
+        <p class="arc-day__desc">Mission, Big Idea, Theory, Model, Behaviors, Doer & Payer at Scale.</p>
+      </div>
+      <div class="arc-day">
+        <div class="arc-day__num">Day 02</div>
+        <div class="arc-day__date">Tue · Jun 09</div>
+        <div class="arc-day__title">Scale<br>Strategy</div>
+        <p class="arc-day__desc">The Scale Screen framework + impact evidence + lightning talks at Shigar Fort.</p>
+      </div>
+      <div class="arc-day">
+        <div class="arc-day__num">Day 03</div>
+        <div class="arc-day__date">Wed · Jun 10</div>
+        <div class="arc-day__title">1-on-1<br>Clinics</div>
+        <p class="arc-day__desc">Outdoor capacity sessions with Pakistani faculty + a dinner at a local's home.</p>
+      </div>
+      <div class="arc-day">
+        <div class="arc-day__num">Day 04</div>
+        <div class="arc-day__date">Thu · Jun 11</div>
+        <div class="arc-day__title">Iterative<br>Organization</div>
+        <p class="arc-day__desc">Theory, methods, data flows, and culture. Plus a fireside chat with Dr. Asyia.</p>
+      </div>
+      <div class="arc-day">
+        <div class="arc-day__num">Day 05</div>
+        <div class="arc-day__date">Fri · Jun 12</div>
+        <div class="arc-day__title">Comms +<br>Pitching</div>
+        <p class="arc-day__desc">Clear narrative, 10-min pitching, CEO spotlights, and cultural night with live music.</p>
+      </div>
+      <div class="arc-day">
+        <div class="arc-day__num">Day 06</div>
+        <div class="arc-day__date">Sat · Jun 13</div>
+        <div class="arc-day__title">Demo Day<br>+ Closing</div>
+        <p class="arc-day__desc">Participant presentations, funder Q&A, and closing celebration dinner.</p>
+      </div>
+      <div class="arc-day">
+        <div class="arc-day__num">Day 07</div>
+        <div class="arc-day__date">Sun · Jun 14</div>
+        <div class="arc-day__title">Karakoram<br>Departure</div>
+        <p class="arc-day__desc">Staggered checkouts. Optional excursion into the high mountains.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px; text-align: center;">
+      <a href="itinerary.html" class="btn btn--ochre">Explore the Full Itinerary <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COHORT STRIP ============ -->
+<section class="cohort-strip">
+  <div class="container">
+    <div class="cohort-strip__head">
+      <h2>Eleven founders.<br><em>One ascent.</em></h2>
+      <p>The cohort spans mental health to special education, AI-powered legal aid to gamified curriculum. Each leader has already proven their model — now we redesign it for millions.</p>
+    </div>
+
+    <div class="cohort-marquee">
+      <div class="cohort-cell"><div class="cohort-cell__avatar">RK</div><div class="cohort-cell__name">Rubeena<br>Kidwai</div><div class="cohort-cell__org">Taskeen Health Initiative</div><div class="cohort-cell__sector">Mental Health</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">AD</div><div class="cohort-cell__name">Azima<br>Dhanjee</div><div class="cohort-cell__org">ConnectHear</div><div class="cohort-cell__sector">Disability</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">HB</div><div class="cohort-cell__name">Habiba<br>Banu</div><div class="cohort-cell__org">Spiro</div><div class="cohort-cell__sector">Health</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">SH</div><div class="cohort-cell__name">Saad<br>Hussain</div><div class="cohort-cell__org">Awaaz-e-Sehat</div><div class="cohort-cell__sector">Health · AI</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">LR</div><div class="cohort-cell__name">Lala Rukh<br>Fazal-Ur-Rahman</div><div class="cohort-cell__org">Science Fuse</div><div class="cohort-cell__sector">STEM Education</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">KJ</div><div class="cohort-cell__name">Khushbakht<br>Shah Jillani</div><div class="cohort-cell__org">Mehfooz AI</div><div class="cohort-cell__sector">Legal · AI</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">MS</div><div class="cohort-cell__name">Maira<br>Siddiqui</div><div class="cohort-cell__org">Chiragh Tech</div><div class="cohort-cell__sector">EdTech</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">AQ</div><div class="cohort-cell__name">Adnan<br>Qureshi</div><div class="cohort-cell__org">Teach the World</div><div class="cohort-cell__sector">OOSC</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">MW</div><div class="cohort-cell__name">Muhammad<br>Waqas</div><div class="cohort-cell__org">WonderTree</div><div class="cohort-cell__sector">Special Ed</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">AS</div><div class="cohort-cell__name">Ali<br>Siddiq</div><div class="cohort-cell__org">Amal Academy</div><div class="cohort-cell__sector">Livelihoods</div></div>
+      <div class="cohort-cell"><div class="cohort-cell__avatar">OS</div><div class="cohort-cell__name">Osama<br>Shahid</div><div class="cohort-cell__org">Soby Trading Co</div><div class="cohort-cell__sector">Agriculture</div></div>
+    </div>
+
+    <div class="cohort-strip__cta">
+      <a href="cohort.html" class="btn btn--ghost">Meet the Cohort <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FACULTY ============ -->
+<section class="faculty">
+  <div class="container">
+    <div class="faculty__head">
+      <h2>An ecosystem of<br><em>support.</em></h2>
+      <a href="faculty.html" class="btn btn--ghost">All Faculty & Organizers <span class="arrow">→</span></a>
+    </div>
+
+    <div class="faculty-grid">
+      <article class="faculty-card">
+        <div class="faculty-card__head">
+          <div class="faculty-card__avatar">KS</div>
+          <div>
+            <div class="faculty-card__name">Kevin Starr</div>
+            <div class="faculty-card__role">CEO, Mulago Foundation</div>
+          </div>
+        </div>
+        <p class="faculty-card__bio">Architect of the Scale Screen and Doer & Payer frameworks. Decades of helping founders reconstruct their models for national impact.</p>
+      </article>
+      <article class="faculty-card">
+        <div class="faculty-card__head">
+          <div class="faculty-card__avatar">AR</div>
+          <div>
+            <div class="faculty-card__name">Dr. Ahson Rabbani</div>
+            <div class="faculty-card__role">CEO, ChildLife Foundation</div>
+          </div>
+        </div>
+        <p class="faculty-card__bio">Scaled emergency pediatric care from a few hospitals to a nationwide footprint. A real-world blueprint for life-saving operations.</p>
+      </article>
+      <article class="faculty-card">
+        <div class="faculty-card__head">
+          <div class="faculty-card__avatar">SK</div>
+          <div>
+            <div class="faculty-card__name">Dr. Sara Saeed Khurram</div>
+            <div class="faculty-card__role">Co-Founder & CEO, Sehat Kahani</div>
+          </div>
+        </div>
+        <p class="faculty-card__bio">A Mulago Rainer Arnhold Fellow who scaled an all-female telemedicine network to millions of consultations across Pakistan.</p>
+      </article>
+      <article class="faculty-card">
+        <div class="faculty-card__head">
+          <div class="faculty-card__avatar">SF</div>
+          <div>
+            <div class="faculty-card__name">Sarah Farooq</div>
+            <div class="faculty-card__role">Director, Acumen Fund</div>
+          </div>
+        </div>
+        <p class="faculty-card__bio">Patient-capital insider with operational background as COO at Taleemabad. Deep insight into how funders evaluate investability.</p>
+      </article>
+      <article class="faculty-card">
+        <div class="faculty-card__head">
+          <div class="faculty-card__avatar">NS</div>
+          <div>
+            <div class="faculty-card__name">Nadir Shams</div>
+            <div class="faculty-card__role">Founder, Friends of Pakistan</div>
+          </div>
+        </div>
+        <p class="faculty-card__bio">Formerly Managing Director at the Skoll Foundation. Guides fellows on what global and diaspora capital requires for systems change.</p>
+      </article>
+      <article class="faculty-card">
+        <div class="faculty-card__head">
+          <div class="faculty-card__avatar">HY</div>
+          <div>
+            <div class="faculty-card__name">Haroon Yasin</div>
+            <div class="faculty-card__role">Founder & CEO, Taleemabad</div>
+          </div>
+        </div>
+        <p class="faculty-card__bio">Co-host. Evolved Taleemabad from an evening school in the slums to Pakistan's largest ed-tech organization.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VENUE ============ -->
+<section class="venue">
+  <div class="venue__split">
+    <div class="venue__image" role="img" aria-label="Mountains around Skardu, Gilgit-Baltistan"></div>
+    <div class="venue__copy">
+      <div class="eyebrow eyebrow--on-dark" style="margin-bottom: 16px;">04 — The Venue</div>
+      <h2>Khoj Resort.<br><em>Where the work happens.</em></h2>
+      <p>Tucked into the Shigar valley with the Karakoram rising on every side, Khoj is a deliberate retreat from city noise. Days alternate between studio sessions, outdoor 1-on-1 clinics, and quiet walks along the river.</p>
+      <div class="venue__coords">
+        <div class="venue__coords-item">
+          <span class="label">Coordinates</span>
+          <span class="value">35.30°N · 75.62°E</span>
+        </div>
+        <div class="venue__coords-item">
+          <span class="label">Elevation</span>
+          <span class="value">~2,228 m</span>
+        </div>
+        <div class="venue__coords-item">
+          <span class="label">Climate</span>
+          <span class="value">12 – 24°C in June</span>
+        </div>
+      </div>
+      <div style="display:flex; gap: 16px; flex-wrap: wrap;">
+        <a href="venue.html" class="btn btn--ochre">Explore the Venue <span class="arrow">→</span></a>
+        <a href="travel.html" class="btn btn--ghost-light">Travel & Logistics</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOSTS ============ -->
+<section class="hosts">
+  <div class="container hosts__inner">
+    <div class="hosts__label">Co-hosted by</div>
+    <div class="hosts__logos">
+      <div class="host-mark">
+        Taleemabad
+        <span class="org-sub">Pakistan's largest ed-tech</span>
+        <span class="role">Co-host · Organizer</span>
+      </div>
+      <div class="host-mark">
+        Mulago Foundation
+        <span class="org-sub">Venture-style impact funding</span>
+        <span class="role">Co-host · Framework</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="close-cta">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container close-cta__inner">
+    <h2>Good enough.<br>Big enough.<br><em>Simple enough.</em><br>Cheap enough.</h2>
+    <p>The four enoughs of scale. By Day 6, every founder leaves with a model that earns its place on all four.</p>
+    <a href="curriculum.html" class="btn">Read the Curriculum <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="topo-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <h3>Summit<br>Fellowship</h3>
+        <p>The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan's most promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.</p>
+      </div>
+      <div class="site-footer__col">
+        <h4>The Program</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="curriculum.html">Curriculum</a></li>
+          <li><a href="itinerary.html">Itinerary</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>The People</h4>
+        <ul>
+          <li><a href="cohort.html">Cohort 2026</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+          <li><a href="faculty.html#organizers">Organizers</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Logistics</h4>
+        <ul>
+          <li><a href="venue.html">Khoj Resort, Skardu</a></li>
+          <li><a href="travel.html">Travel &amp; Arrivals</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 · Summit Fellowship · Vol. 01</span>
+      <span>Skardu · Gilgit-Baltistan · Pakistan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/site.js"></script>
+</body>
+</html>
