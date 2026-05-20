@@ -78,7 +78,9 @@
       "mcp__claude_ai_Vercel__list_teams",
       "mcp__claude_ai_Vercel__list_projects",
       "mcp__claude_ai_Vercel__list_deployments",
-      "mcp__claude_ai_Vercel__get_deployment_build_logs"
+      "mcp__claude_ai_Vercel__get_deployment_build_logs",
+      "Bash(Start-Sleep -Seconds 3)",
+      "Bash(Get-Content \"C:\\\\Users\\\\HP\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Summit-Fellowship-Website\\\\ad29ae7c-6d4e-4ba9-86c4-8c68553727cb\\\\tasks\\\\b8y65ztbw.output\" -Tail 20)"
     ],
     "deny": [
       "Bash(rm -rf /)",

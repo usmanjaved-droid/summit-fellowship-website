@@ -121,6 +121,170 @@
   margin: 0;
 }
 
+/* Logistics Sections */
+.logisticsSection {
+  background: var(--paper);
+  padding: 80px 0;
+  margin-top: 60px;
+}
+
+.logisticsHead {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.logisticsHead h2 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 56px);
+  color: var(--alpine-deep);
+  letter-spacing: -0.02em;
+  margin: 20px 0;
+  line-height: 1.1;
+}
+
+.logisticsHead em {
+  font-style: italic;
+  color: var(--ochre);
+}
+
+/* Logistics Card Layout */
+.logisticsCard {
+  margin-bottom: 60px;
+  padding: 48px 40px;
+  background: var(--paper-cool);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  border-left: 6px solid var(--ochre);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logisticsCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(20, 39, 52, 0.08);
+}
+
+.logisticsCardAlt {
+  background: var(--alpine-soft);
+  border-color: var(--alpine);
+  border-left-color: var(--ochre);
+}
+
+.logisticsCardAlt h3 {
+  color: var(--parchment);
+}
+
+.logisticsCardAlt p {
+  color: var(--parchment);
+}
+
+.logisticsCardInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.logisticsCardLeft h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--alpine-deep);
+  margin-bottom: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.logisticsCardLeft p {
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.logisticsCardLeft p:last-child {
+  margin-bottom: 0;
+}
+
+.logisticsCardLeft strong {
+  color: var(--alpine-deep);
+  font-weight: 500;
+}
+
+.logisticsCardRight {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Highlight Box for Key Facts */
+.highlightBox {
+  padding: 20px 24px;
+  background: var(--ochre-pale);
+  border-left: 4px solid var(--ochre-deep);
+  border-radius: 4px;
+  font-size: 15px;
+  color: var(--alpine-deep);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.logisticsCardAlt .highlightBox {
+  background: rgba(212, 165, 116, 0.2);
+  border-left-color: var(--ochre);
+  color: var(--parchment);
+}
+
+/* Facts List */
+.factsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.factsItem {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.factsItem:last-child {
+  border-bottom: none;
+}
+
+.logisticsCardAlt .factsItem {
+  color: var(--parchment);
+  border-bottom-color: rgba(212, 165, 116, 0.2);
+}
+
+/* Checklist Section */
+.checklistSection {
+  padding: 16px;
+  background: rgba(212, 165, 116, 0.08);
+  border-radius: 4px;
+}
+
+.logisticsCardAlt .checklistSection {
+  background: rgba(212, 165, 116, 0.15);
+}
+
+/* Checklist Item */
+.checklistItem {
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 8px;
+  font-family: var(--sans);
+}
+
+.checklistItem:last-child {
+  margin-bottom: 0;
+}
+
+.logisticsCardAlt .checklistItem {
+  color: var(--parchment);
+}
+
 /* Mobile: Disable parallax scroll effect and responsive layout */
 @media (max-width: 1023px) {
   .pageHeroImage {
@@ -140,5 +304,46 @@
   .venueIntroImage {
     min-height: 400px;
     margin-top: 32px;
+  }
+
+  .logisticsCard {
+    padding: 32px 24px;
+    margin-bottom: 40px;
+  }
+
+  .logisticsCardInner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .logisticsCardLeft h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .logisticsCardLeft p {
+    font-size: 15px;
+  }
+
+  .logisticsCardRight {
+    gap: 16px;
+  }
+
+  .highlightBox {
+    padding: 16px 20px;
+    font-size: 14px;
+  }
+
+  .factsItem {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  .checklistSection {
+    padding: 12px;
+  }
+
+  .checklistItem {
+    font-size: 13px;
   }
 }
