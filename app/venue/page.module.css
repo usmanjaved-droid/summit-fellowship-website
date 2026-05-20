@@ -20,13 +20,27 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(20, 39, 52, 0.65);
+  background: rgba(10, 15, 20, 0.75);
   z-index: 1;
 }
 
 .pageHero .container {
   position: relative;
   z-index: 2;
+}
+
+.pageHero .page-hero__title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.pageHero .page-hero__subtitle {
+  color: #f0f0f0 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.pageHero .page-hero__crumbs {
+  color: #e8e2d5 !important;
 }
 
 .pageHeroMeta {
@@ -50,11 +64,19 @@
   color: var(--ochre-pale);
 }
 
+.pageHero .label {
+  color: #d4a574 !important;
+}
+
 .value {
   font-family: var(--font-serif);
   font-size: 20px;
   color: var(--paper);
   line-height: 1.2;
+}
+
+.pageHero .value {
+  color: #ffffff !important;
 }
 
 @media (max-width: 1023px) {
