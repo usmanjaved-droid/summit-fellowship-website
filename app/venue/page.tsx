@@ -157,55 +157,55 @@ export default function VenuePage() {
         </div>
       </section>
 
-      <section className={styles.weatherSection}>
-        <div className="container">
-          <div className={styles.weatherHead}>
-            <div className={styles.weatherEyebrow}>
-              <span className={styles.weatherNumber}>NO. 07</span>
-              <span>WEATHER IN JUNE</span>
-            </div>
-            <h2 className={styles.weatherTitle}>Warm sun, cool nights, clear sky.</h2>
-            <p className={styles.weatherIntro}>June is one of the most favourable months for Shigar. Days are dry and bright with strong mountain sun. Mornings and evenings cool down sharply. Karakoram visibility is typically excellent.</p>
-          </div>
-
-          <div className={styles.weatherCards}>
-            {WEATHER_PERIODS.map((w) => {
-              const Icon = w.icon;
-              return (
-                <article key={w.period} className={styles.weatherCard}>
-                  <div className={styles.weatherCardIcon}>
-                    <Icon className={styles.weatherCardIconSvg} aria-hidden="true" />
-                  </div>
-                  <div className={styles.weatherCardLabel}>{w.period}</div>
-                  <div className={styles.weatherCardTemp}>{w.temp}</div>
-                  <p className={styles.weatherCardDesc}>{w.desc}</p>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className={styles.temperatureSlider}>
-            <div className={styles.sliderTrack}>
-              <div className={styles.sliderMarker} style={{ left: '25%' }} />
-              <div className={styles.sliderFill} style={{ left: '25%', right: '17%' }} />
-              <div className={styles.sliderMarker} style={{ right: '17%' }} />
-            </div>
-            <div className={styles.sliderLabels}>
-              <span>0°C</span>
-              <span>10°C</span>
-              <span>20°C</span>
-              <span>30°C</span>
-              <span>40°C</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Logistics Section */}
+      {/* Weather + Room Allocation Side by Side */}
       <section className={styles.logisticsSection}>
         <div className="container">
-          {/* Room Allocation Card */}
-          <article className={styles.cardItem}>
+          <div className={styles.twoColumnSection}>
+            {/* Weather Column */}
+            <div className={styles.weatherColumn}>
+              <div className={styles.weatherHead}>
+                <div className={styles.weatherEyebrow}>
+                  <span className={styles.weatherNumber}>NO. 07</span>
+                  <span>WEATHER IN JUNE</span>
+                </div>
+                <h2 className={styles.weatherTitle}>Warm sun, cool nights, clear sky.</h2>
+                <p className={styles.weatherIntro}>June is one of the most favourable months for Shigar. Days are dry and bright with strong mountain sun. Mornings and evenings cool down sharply. Karakoram visibility is typically excellent.</p>
+              </div>
+
+              <div className={styles.weatherCards}>
+                {WEATHER_PERIODS.map((w) => {
+                  const Icon = w.icon;
+                  return (
+                    <article key={w.period} className={styles.weatherCard}>
+                      <div className={styles.weatherCardIcon}>
+                        <Icon className={styles.weatherCardIconSvg} aria-hidden="true" />
+                      </div>
+                      <div className={styles.weatherCardLabel}>{w.period}</div>
+                      <div className={styles.weatherCardTemp}>{w.temp}</div>
+                      <p className={styles.weatherCardDesc}>{w.desc}</p>
+                    </article>
+                  );
+                })}
+              </div>
+
+              <div className={styles.temperatureSlider}>
+                <div className={styles.sliderTrack}>
+                  <div className={styles.sliderMarker} style={{ left: '25%' }} />
+                  <div className={styles.sliderFill} style={{ left: '25%', right: '17%' }} />
+                  <div className={styles.sliderMarker} style={{ right: '17%' }} />
+                </div>
+                <div className={styles.sliderLabels}>
+                  <span>0°C</span>
+                  <span>10°C</span>
+                  <span>20°C</span>
+                  <span>30°C</span>
+                  <span>40°C</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Room Allocation Column */}
+            <article className={styles.cardItem}>
             <div className={styles.cardEyebrow}>
               <span className={styles.cardNumber}>NO. 08</span>
               <span>ROOM ALLOCATION</span>
@@ -238,8 +238,14 @@ export default function VenuePage() {
               </div>
             </div>
             <a href="#" className={styles.cardLink}>SEE VILLA DETAILS →</a>
-          </article>
+            </article>
+          </div>
+        </div>
+      </section>
 
+      {/* Remaining Logistics Cards */}
+      <section className={styles.logisticsSection}>
+        <div className="container">
           {/* Connectivity Card */}
           <article className={styles.cardItem}>
             <div className={styles.cardEyebrow}>

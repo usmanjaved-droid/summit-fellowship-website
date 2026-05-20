@@ -261,6 +261,20 @@
   margin-top: 60px;
 }
 
+/* Two Column Layout */
+.twoColumnSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.weatherColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .logisticsHead {
   margin-bottom: 60px;
   text-align: center;
@@ -739,6 +753,11 @@
     font-size: 14px;
     padding: 16px;
   }
+
+  .twoColumnSection {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 /* Mobile: Optimized for phones */
@@ -856,5 +875,10 @@
 
   .packingNote strong {
     font-size: 13px;
+  }
+
+  .twoColumnSection {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }

@@ -2,17 +2,15 @@
 > summit-fellowship@0.1.0 dev
 > next dev
 
-⚠ Port 3000 is in use by process 27324, using available port 3003 instead.
 ▲ Next.js 16.2.6 (Turbopack)
-- Local:         http://localhost:3003
-- Network:       http://192.168.1.6:3003
-✓ Ready in 740ms
-⨯ Another next dev server is already running.
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.6:3000
+✓ Ready in 494ms
 
-- Local:        http://localhost:3002
-- PID:          25020
-- Dir:          D:\Summit Fellowship Website
-- Log:          .next\dev\logs\next-development.log
-
-Run taskkill /PID 25020 /F to stop it.
-[?25h
+ GET /venue 200 in 667ms (next.js: 174ms, application-code: 493ms)
+ GET /venue 200 in 502ms (next.js: 12ms, application-code: 489ms)
+ GET /venue 200 in 183ms (next.js: 42ms, application-code: 141ms)
+ GET /venue 200 in 82ms (next.js: 4ms, application-code: 78ms)
+ GET /venue 200 in 536ms (next.js: 4ms, application-code: 532ms)
+✓ Compiled in 117ms
+✓ Compiled in 50ms
