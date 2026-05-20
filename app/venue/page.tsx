@@ -10,7 +10,7 @@ export default function VenuePage() {
   return (
     <>
       {/* Hero */}
-      <section className={`page-hero ${styles.pageHero}`} style={{ backgroundImage: 'linear-gradient(rgba(10, 15, 20, 0.75), rgba(10, 15, 20, 0.75)), url(/images/venue/Khoj%20Resort%20main%20page.jpg)' }} data-screen-label="Venue Hero">
+      <section className={`page-hero ${styles.pageHero}`} style={{ backgroundImage: 'linear-gradient(to bottom, rgba(10, 15, 20, 0.8) 0%, rgba(10, 15, 20, 0.3) 50%, rgba(10, 15, 20, 0) 100%), url(/images/venue/Khoj%20Resort%20main%20page.jpg)' }} data-screen-label="Venue Hero">
         <div className={`topo-bg topo-bg--on-dark ${styles.topoBg}`} aria-hidden="true"></div>
         <div className="container">
           <div className="page-hero__crumbs">
