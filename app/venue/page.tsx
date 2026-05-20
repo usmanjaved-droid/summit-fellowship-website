@@ -1,15 +1,14 @@
 import Link from 'next/link';
 import styles from './page.module.css';
-import { Sun, Home, Wifi, Heart, Backpack, Plane } from 'lucide-react';
+import { Sun, Home, Wifi, Heart, Backpack, Plane, Moon } from 'lucide-react';
 
 export const metadata = {
   title: 'Khoj Resort, Skardu — Summit Fellowship',
 };
 
-const WEATHER = [
-  { date: 'Typical day', hi: '20°', lo: '7°' },
-  { date: 'Warmest', hi: '24°', lo: '' },
-  { date: 'Coolest night', hi: '7°', lo: '' },
+const WEATHER_PERIODS = [
+  { period: 'DAYTIME', icon: Sun, temp: '20–30°C', desc: 'Strong sun. Open areas feel hotter — sun protection essential.' },
+  { period: 'EVENING & EARLY MORNING', icon: Moon, temp: '10–15°C', desc: 'Bring at least one warm layer. Pleasant after sunset.' },
 ];
 
 export default function VenuePage() {
@@ -158,30 +157,45 @@ export default function VenuePage() {
         </div>
       </section>
 
-      <section className="travel-section travel-section--warm">
+      <section className={styles.weatherSection}>
         <div className="container">
-          <div className="section-title">
-            <h2>What to <em>expect.</em></h2>
-            <span className="eyebrow">Weather</span>
-          </div>
-          <div className="weather">
-            <div className="weather__copy">
-              <h3>June weather<br />in <em>Skardu.</em></h3>
-              <p>Dry, sunny days with 9-10 hours of daily sunshine. Cool mornings (7°C) and comfortable afternoons (18-20°C). Occasional afternoon thunderstorms that pass quickly. The intense altitude sun requires SPF 50+.</p>
-              <p>Pack layers. A light fleece or windbreaker is essential for mornings and evenings. June averages 37-65% humidity and only ~4 rainy days monthly.</p>
+          <div className={styles.weatherHead}>
+            <div className={styles.weatherEyebrow}>
+              <span className={styles.weatherNumber}>NO. 07</span>
+              <span>WEATHER IN JUNE</span>
             </div>
-            <div className="weather__chart">
-              <div className="weather__grid">
-                {WEATHER.map((w) => (
-                  <div className="weather-day" key={w.date}>
-                    <div className="date">{w.date}</div>
-                    <div className="temp">{w.hi}</div>
+            <h2 className={styles.weatherTitle}>Warm sun, cool nights, clear sky.</h2>
+            <p className={styles.weatherIntro}>June is one of the most favourable months for Shigar. Days are dry and bright with strong mountain sun. Mornings and evenings cool down sharply. Karakoram visibility is typically excellent.</p>
+          </div>
+
+          <div className={styles.weatherCards}>
+            {WEATHER_PERIODS.map((w) => {
+              const Icon = w.icon;
+              return (
+                <article key={w.period} className={styles.weatherCard}>
+                  <div className={styles.weatherCardIcon}>
+                    <Icon className={styles.weatherCardIconSvg} aria-hidden="true" />
                   </div>
-                ))}
-              </div>
-              <div style={{ marginTop: 20, fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.14em', color: 'var(--ink-mute)', textTransform: 'uppercase' }}>
-                Indicative June ranges · °C
-              </div>
+                  <div className={styles.weatherCardLabel}>{w.period}</div>
+                  <div className={styles.weatherCardTemp}>{w.temp}</div>
+                  <p className={styles.weatherCardDesc}>{w.desc}</p>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className={styles.temperatureSlider}>
+            <div className={styles.sliderTrack}>
+              <div className={styles.sliderMarker} style={{ left: '25%' }} />
+              <div className={styles.sliderFill} style={{ left: '25%', right: '17%' }} />
+              <div className={styles.sliderMarker} style={{ right: '17%' }} />
+            </div>
+            <div className={styles.sliderLabels}>
+              <span>0°C</span>
+              <span>10°C</span>
+              <span>20°C</span>
+              <span>30°C</span>
+              <span>40°C</span>
             </div>
           </div>
         </div>
@@ -194,41 +208,6 @@ export default function VenuePage() {
             <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Practical Details</span></div>
             <h2>Everything you<br /><em>need to know.</em></h2>
           </div>
-
-          {/* Weather Section */}
-          <article className={styles.logisticsCard}>
-            <div className={styles.logisticsCardInner}>
-              <div className={styles.logisticsCardLeft}>
-                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Weather & Climate</span></div>
-                <h3><Sun className="w-5 h-5 inline mr-2" aria-hidden="true" />Weather in June</h3>
-                <p>Dry, sunny days with 9–10 hours of daily sunshine define June in Skardu. Daytime temperatures range from 20–30°C, making afternoons warm and comfortable. Mornings and evenings are noticeably cooler (10–15°C), so layering is essential.</p>
-                <p><strong>Sun intensity:</strong> The altitude (2,228 m) amplifies UV exposure. SPF 50+ sunscreen is non-negotiable. Reapply every 2–3 hours if you're outdoors. A sun hat and sunglasses are mandatory for hiking and outdoor activities.</p>
-                <p><strong>What to pack:</strong> A light fleece or merino wool layer for mornings. A windbreaker or light jacket for evening. Breathable, quick-dry clothing for daytime. Humidity runs 37–65%, so you won&rsquo;t feel sticky, but moisture-wicking helps.</p>
-                <p><strong>Expect:</strong> Only ~4 rainy days in June. Occasional afternoon thunderstorms pass quickly. Evenings are crystal-clear. Bring a light rain jacket just in case.</p>
-              </div>
-              <div className={styles.logisticsCardRight}>
-                <div className={styles.highlightBox}>
-                  <strong>Daytime</strong><br />20–30°C
-                </div>
-                <div className={styles.highlightBox}>
-                  <strong>Mornings/Evenings</strong><br />10–15°C
-                </div>
-                <div className={styles.factsList}>
-                  <div className={styles.factsItem}>☀️ Sunshine: 9–10 hrs/day</div>
-                  <div className={styles.factsItem}>💧 Humidity: 37–65%</div>
-                  <div className={styles.factsItem}>🌧️ Rainy days: ~4/month</div>
-                </div>
-                <div className={styles.checklistSection}>
-                  <strong style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ochre)', marginBottom: 12, display: 'block' }}>Pack for sun & cold</strong>
-                  <div className={styles.checklistItem}>✓ SPF 50+ sunscreen</div>
-                  <div className={styles.checklistItem}>✓ Sun hat & sunglasses</div>
-                  <div className={styles.checklistItem}>✓ Fleece or merino layer</div>
-                  <div className={styles.checklistItem}>✓ Windbreaker/light jacket</div>
-                  <div className={styles.checklistItem}>✓ Breathable clothing</div>
-                </div>
-              </div>
-            </div>
-          </article>
 
           {/* Room Allocation Section */}
           <article className={styles.logisticsCard}>
