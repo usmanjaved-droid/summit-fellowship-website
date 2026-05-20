@@ -17,13 +17,6 @@
   opacity: 0.12;
 }
 
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 15, 20, 0.75);
-  z-index: 1;
-}
-
 .pageHero .container {
   position: relative;
   z-index: 2;
