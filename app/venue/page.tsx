@@ -201,171 +201,191 @@ export default function VenuePage() {
         </div>
       </section>
 
-      {/* Logistics Sections */}
+      {/* Logistics Section */}
       <section className={styles.logisticsSection}>
         <div className="container">
-          <div className={styles.logisticsHead}>
-            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Practical Details</span></div>
-            <h2>Everything you<br /><em>need to know.</em></h2>
-          </div>
-
-          {/* Room Allocation Section */}
-          <article className={styles.logisticsCard}>
-            <div className={styles.logisticsCardInner}>
-              <div className={styles.logisticsCardLeft}>
-                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Accommodations</span></div>
-                <h3><Home className="w-5 h-5 inline mr-2" aria-hidden="true" />Room Allocation</h3>
-                <p>All fellows are accommodated in triple-sharing rooms with two other fellows of the same gender. This intentional proximity builds cohort connection and reflects the retreat&rsquo;s collaborative ethos.</p>
-                <p><strong>Room structure:</strong> Each room features one bed on the ground floor and two beds in a loft area above. This setup creates a living space with natural height variation, offering both comfort and an interesting spatial dynamic.</p>
-                <p><strong>Bed selection:</strong> You and your roommates can mutually decide who sleeps where. Ground floor offers easier access; the loft provides separation and a more private nook. There&rsquo;s no wrong choice—discuss it on arrival and settle what works best for everyone.</p>
-                <p><strong>Shared space etiquette:</strong> You&rsquo;ll have an ensuite bathroom. Agree on morning/evening routines with your roommates to avoid conflicts. Respect quiet hours after 10 PM. Bring earplugs if you&rsquo;re a light sleeper—mountain air and fellow snorers are real.</p>
+          {/* Room Allocation Card */}
+          <article className={styles.cardItem}>
+            <div className={styles.cardEyebrow}>
+              <span className={styles.cardNumber}>NO. 08</span>
+              <span>ROOM ALLOCATION</span>
+            </div>
+            <h2 className={styles.cardTitle}>Loft villa, triple sharing.</h2>
+            <p className={styles.cardIntro}>Fellows are accommodated in Khoj's River-View Loft Villas. Each room sleeps three of the same gender — one bed on the ground floor, two beds on the loft. Sort the bunk politics among yourselves.</p>
+            <div className={styles.cardVisual}>
+              <svg viewBox="0 0 400 200" className={styles.roomDiagram} preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+                <rect x="40" y="30" width="320" height="140" fill="none" stroke="var(--alpine-deep)" strokeWidth="2" rx="8"/>
+                <text x="200" y="55" textAnchor="middle" fontFamily="var(--mono)" fontSize="12" fill="var(--alpine-deep)" letterSpacing="0.1em">LOFT 1 LOFT 2</text>
+                <line x1="200" y1="30" x2="200" y2="170" stroke="var(--alpine-deep)" strokeWidth="1" strokeDasharray="4" />
+                <rect x="50" y="90" width="60" height="40" fill="var(--clay)" stroke="var(--alpine-deep)" strokeWidth="1.5"/>
+                <text x="80" y="116" textAnchor="middle" fontFamily="var(--mono)" fontSize="11" fill="white" fontWeight="500">GROUND</text>
+                <rect x="130" y="75" width="35" height="25" fill="none" stroke="var(--alpine-deep)" strokeWidth="1.5"/>
+                <rect x="180" y="75" width="35" height="25" fill="none" stroke="var(--alpine-deep)" strokeWidth="1.5"/>
+              </svg>
+            </div>
+            <div className={styles.cardDetails}>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>Beds per room</span>
+                <span className={styles.detailValue}>3</span>
               </div>
-              <div className={styles.logisticsCardRight}>
-                <div className={styles.highlightBox}>
-                  <strong>Triple Sharing</strong><br />1 Ground Floor Bed + 2 Loft Beds
-                </div>
-                <div className={styles.factsList}>
-                  <div className={styles.factsItem}>👥 Roommates: 2 others (same gender)</div>
-                  <div className={styles.factsItem}>🚿 Ensuite bathroom</div>
-                  <div className={styles.factsItem}>💨 Hot water available</div>
-                  <div className={styles.factsItem}>📶 Wi-Fi coverage</div>
-                </div>
-                <div className={styles.checklistSection}>
-                  <strong style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ochre)', marginBottom: 12, display: 'block' }}>Bring for comfort</strong>
-                  <div className={styles.checklistItem}>✓ Earplugs (optional)</div>
-                  <div className={styles.checklistItem}>✓ Toiletries</div>
-                  <div className={styles.checklistItem}>✓ Medications (if needed)</div>
-                  <div className={styles.checklistItem}>✓ Change of clothes (3–4 days)</div>
-                </div>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>Sharing</span>
+                <span className={styles.detailValue}>Same gender</span>
+              </div>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>Layout</span>
+                <span className={styles.detailValue}>1 ground + 2 loft</span>
+              </div>
+            </div>
+            <a href="#" className={styles.cardLink}>SEE VILLA DETAILS →</a>
+          </article>
+
+          {/* Connectivity Card */}
+          <article className={styles.cardItem}>
+            <div className={styles.cardEyebrow}>
+              <span className={styles.cardNumber}>NO. 11</span>
+              <span>CONNECTIVITY</span>
+            </div>
+            <h2 className={styles.cardTitle}>Wi-Fi yes, fast no.</h2>
+            <p className={styles.cardIntro}>Khoj has Wi-Fi, but connectivity in this part of Pakistan isn&rsquo;t always reliable or high-speed. Cellular signals from major telecom networks are generally available, and 3G/4G internet services also work in the area, though connectivity may vary depending on weather and network conditions.</p>
+            <div className={styles.colorSwatches}>
+              <div className={styles.swatch} style={{ backgroundColor: 'var(--alpine-deep)' }} aria-label="Alpine Deep"></div>
+              <div className={styles.swatch} style={{ backgroundColor: 'var(--alpine-soft)' }} aria-label="Alpine Soft"></div>
+              <div className={styles.swatch} style={{ backgroundColor: 'var(--clay)' }} aria-label="Clay"></div>
+              <div className={styles.swatch} style={{ backgroundColor: 'var(--ochre)' }} aria-label="Ochre"></div>
+              <div className={styles.swatch} style={{ backgroundColor: 'var(--parchment)' }} aria-label="Parchment"></div>
+            </div>
+            <div className={styles.cardDetails}>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>RESORT WI-FI</span>
+                <span className={styles.detailValue}>Available</span>
+              </div>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>MOBILE DATA</span>
+                <span className={styles.detailValue}>3G/4G works</span>
+              </div>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>PLAN TO BE</span>
+                <span className={styles.detailValue}>Offline-ish</span>
               </div>
             </div>
           </article>
 
-          {/* Internet & Phone Section */}
-          <article className={styles.logisticsCard}>
-            <div className={styles.logisticsCardInner}>
-              <div className={styles.logisticsCardLeft}>
-                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Connectivity</span></div>
-                <h3><Wifi className="w-5 h-5 inline mr-2" aria-hidden="true" />Internet & Phone Coverage</h3>
-                <p>Khoj Resort has Wi-Fi available in the main building and common areas. However, internet connectivity in this region is not guaranteed to be fast or continuous—think of it as a bonus, not a lifeline. Embrace the slowness; it&rsquo;s part of the retreat experience.</p>
-                <p><strong>Mobile networks:</strong> Cellular signals from major telecom providers (Zong, PTCL, Jazz) are generally available, with 3G/4G service in and around the resort. Signal strength varies by location and weather. You may have dead zones near certain areas or during storms.</p>
-                <p><strong>Offline mindset:</strong> Download important documents, maps, and content before you arrive. Save offline versions of flights, accommodation details, and emergency contact info. If you need reliable connectivity for work, consider rescheduling—this is a retreat, and disconnection is intentional.</p>
-                <p><strong>Best signal spots:</strong> The main building and courtyard typically have the strongest Wi-Fi and mobile coverage. Rooms may have weaker signals, especially the lofts. Plan accordingly if you need to take a call or send urgent emails.</p>
+          {/* Medical Card */}
+          <article className={styles.cardItem}>
+            <div className={styles.cardEyebrow}>
+              <span className={styles.cardNumber}>NO. 10</span>
+              <span>MEDICAL</span>
+            </div>
+            <h2 className={styles.cardTitle}>Covered.</h2>
+            <div className={styles.medicalIcon}>
+              <Heart className={styles.medicalIconSvg} aria-hidden="true" />
+            </div>
+            <p className={styles.cardIntro}>A first-aid kit travels with the team across all sessions and outdoor excursions. Basic medical facilities are available in Shigar, located around a 45-minute drive away, has larger healthcare facilities and hospitals as well.</p>
+            <div className={styles.cardDetails}>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>ON-SITE KIT</span>
+                <span className={styles.detailValue}>Basic care</span>
               </div>
-              <div className={styles.logisticsCardRight}>
-                <div className={styles.highlightBox}>
-                  <strong>Expect Slow Internet</strong><br />Not city-speed connectivity
-                </div>
-                <div className={styles.factsList}>
-                  <div className={styles.factsItem}>📶 Wi-Fi: Available (variable speeds)</div>
-                  <div className={styles.factsItem}>📱 3G/4G: Generally available</div>
-                  <div className={styles.factsItem}>🌐 Providers: Zong, PTCL, Jazz</div>
-                  <div className={styles.factsItem}>⚠️ Signal varies by location & weather</div>
-                </div>
-                <div className={styles.checklistSection}>
-                  <strong style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ochre)', marginBottom: 12, display: 'block' }}>Download before arrival</strong>
-                  <div className={styles.checklistItem}>✓ Flight confirmations</div>
-                  <div className={styles.checklistItem}>✓ Offline maps</div>
-                  <div className={styles.checklistItem}>✓ Important documents</div>
-                  <div className={styles.checklistItem}>✓ Emergency contacts</div>
-                </div>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>SHIGAR FACILITY</span>
+                <span className={styles.detailValue}>5–10 min</span>
+              </div>
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>SKARDU HOSPITAL</span>
+                <span className={styles.detailValue}>~45 min</span>
               </div>
             </div>
           </article>
 
-          {/* Medical Assistance Section */}
-          <article className={styles.logisticsCard}>
-            <div className={styles.logisticsCardInner}>
-              <div className={styles.logisticsCardLeft}>
-                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Medical Care</span></div>
-                <h3><Heart className="w-5 h-5 inline mr-2" aria-hidden="true" />Medical Assistance</h3>
-                <p>A comprehensive first-aid kit will be available throughout the duration of the program, including during outdoor excursions and activities. Our team is trained to handle minor injuries, altitude-related discomfort, and basic medical issues.</p>
-                <p><strong>Altitude considerations:</strong> At 2,228 m, some fellows may experience mild altitude effects: headaches, slight fatigue, or difficulty sleeping the first night. These typically resolve within 24–48 hours. Drink plenty of water, avoid alcohol on arrival day, and pace yourself during hiking.</p>
-                <p><strong>Nearby facilities:</strong> Basic medical facilities are available in Shigar, a short 5–10 minute drive from Khoj. For more serious concerns, Skardu (45 minutes away) has larger healthcare facilities and hospitals with better equipment and specialist doctors.</p>
-                <p><strong>Medications:</strong> Bring any personal medications in their original bottles. Inform our team of allergies or chronic conditions on arrival. Common medications (pain relievers, antihistamines, digestive aids) are available through the first-aid kit.</p>
+          {/* Travel Arrangements Card */}
+          <article className={styles.cardItem}>
+            <div className={styles.cardEyebrow}>
+              <span className={styles.cardNumber}>NO. 09</span>
+              <span>TRAVEL ARRANGEMENTS</span>
+            </div>
+            <h2 className={styles.cardTitle}>Four steps to Khoj.</h2>
+            <p className={styles.cardIntro}>Your journey has four distinct stages. You handle the first; we handle the rest. Flight bookings have already been sent to your inbox.</p>
+
+            <div className={styles.stepFlow}>
+              <div className={styles.stepBox}>
+                <div className={styles.stepNumber}>STEP 01</div>
+                <div className={styles.stepLabel}>YOU</div>
+                <p className={styles.stepDesc}>Your home city → Get to your departure airport on your own</p>
               </div>
-              <div className={styles.logisticsCardRight}>
-                <div className={styles.highlightBox}>
-                  <strong>First-Aid Kit On-Site</strong><br />Throughout the program
-                </div>
-                <div className={styles.factsList}>
-                  <div className={styles.factsItem}>📍 Shigar clinic: 5–10 min drive</div>
-                  <div className={styles.factsItem}>🏥 Skardu hospital: 45 min drive</div>
-                  <div className={styles.factsItem}>⛰️ Altitude: 2,228 m</div>
-                  <div className={styles.factsItem}>💧 Hydration: Critical at altitude</div>
-                </div>
-                <div className={styles.checklistSection}>
-                  <strong style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ochre)', marginBottom: 12, display: 'block' }}>Bring medications</strong>
-                  <div className={styles.checklistItem}>✓ Personal prescriptions</div>
-                  <div className={styles.checklistItem}>✓ Pain relievers</div>
-                  <div className={styles.checklistItem}>✓ Allergy meds (if needed)</div>
-                  <div className={styles.checklistItem}>✓ Digestive aids</div>
-                </div>
+              <div className={styles.stepArrow} aria-hidden="true">→</div>
+
+              <div className={styles.stepBox}>
+                <div className={styles.stepNumber}>STEP 02</div>
+                <div className={styles.stepLabel}>WE&rsquo;VE BOOKED</div>
+                <p className={styles.stepDesc}>Flight to Skardu → Domestic flight, ticket already in your inbox</p>
+              </div>
+              <div className={styles.stepArrow} aria-hidden="true">→</div>
+
+              <div className={styles.stepBox}>
+                <div className={styles.stepNumber}>STEP 03</div>
+                <div className={styles.stepLabel}>WE PICK UP</div>
+                <p className={styles.stepDesc}>Skardu Airport → Ascender Adventures team meets the cohort</p>
+              </div>
+              <div className={styles.stepArrow} aria-hidden="true">→</div>
+
+              <div className={styles.stepBox}>
+                <div className={styles.stepNumber}>STEP 04</div>
+                <div className={styles.stepLabel}>WE DRIVE</div>
+                <p className={styles.stepDesc}>Khoj, Shigar → ~45-min transfer through the valley</p>
               </div>
             </div>
+
+            <a href="/travel" className={styles.cardLink}>FULL TRAVEL PAGE →</a>
           </article>
 
-          {/* Packing List Section */}
-          <article className={styles.logisticsCard}>
-            <div className={styles.logisticsCardInner}>
-              <div className={styles.logisticsCardLeft}>
-                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">What to Bring</span></div>
-                <h3><Backpack className="w-5 h-5 inline mr-2" aria-hidden="true" />Packing List</h3>
-                <p>Pack for variable mountain weather: warm days, cold mornings/evenings, and the occasional thunderstorm. The list below covers essentials. You&rsquo;ll be comfortable and prepared.</p>
-                <p><strong>Footwear:</strong> Closed-toe hiking boots are essential if you plan to trek (which you should—some of the best moments happen on the trail). Bring extra socks; blisters are your enemy at altitude. Casual walking shoes or sandals for resort areas and evening activities.</p>
-                <p><strong>Clothing:</strong> 3–4 days&rsquo; worth of mixed clothing (tops, bottoms, undergarments). You&rsquo;ll have laundry service, so you don&rsquo;t need a week&rsquo;s wardrobe. Layers are key: merino wool or synthetic (not cotton) base layers, a fleece mid-layer, and a windproof outer shell.</p>
-                <p><strong>Sun & altitude protection:</strong> SPF 50+ sunscreen (reapply often). Sun hat with wide brim. Sunglasses that block UVA/UVB. The high altitude amplifies sun exposure; don&rsquo;t underestimate it.</p>
+          {/* Packing List Card */}
+          <article className={styles.cardItem}>
+            <div className={styles.cardEyebrow}>
+              <span className={styles.cardNumber}>NO. 12</span>
+              <span>PACKING LIST</span>
+            </div>
+            <h2 className={styles.cardTitle}>What to throw in <em>the bag.</em></h2>
+            <p className={styles.cardIntro}>Pack for variable mountain weather. Warm sun by day, chilly mornings and evenings. Layers are essential. You&rsquo;ll have laundry service, so one week of clothing is overkill.</p>
+
+            <div className={styles.checklistGrid}>
+              <div className={styles.checklistColumn}>
+                <h3 className={styles.checklistColumnHeader}>CLOTHING</h3>
+                <div className={styles.checklistItem}>Hiking boots (closed-toe)</div>
+                <div className={styles.checklistItem}>Casual shoes or sandals</div>
+                <div className={styles.checklistItem}>3–4 days mixed clothing</div>
+                <div className={styles.checklistItem}>Merino wool base layers</div>
+                <div className={styles.checklistItem}>Fleece or wool jumper</div>
+                <div className={styles.checklistItem}>Windbreaker or rain jacket</div>
               </div>
-              <div className={styles.logisticsCardRight}>
-                <div className={styles.checklistSection}>
-                  <strong style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ochre)', marginBottom: 12, display: 'block' }}>Essentials</strong>
-                  <div className={styles.checklistItem}>✓ Hiking boots (closed-toe)</div>
-                  <div className={styles.checklistItem}>✓ Casual shoes/sandals</div>
-                  <div className={styles.checklistItem}>✓ 3–4 days clothing</div>
-                  <div className={styles.checklistItem}>✓ Merino/synthetic base layers</div>
-                  <div className={styles.checklistItem}>✓ Fleece or wool jumper</div>
-                  <div className={styles.checklistItem}>✓ Windbreaker/rain jacket</div>
-                </div>
-                <div className={styles.checklistSection} style={{ marginTop: 20 }}>
-                  <strong style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ochre)', marginBottom: 12, display: 'block' }}>Sun & altitude</strong>
-                  <div className={styles.checklistItem}>✓ SPF 50+ sunscreen</div>
-                  <div className={styles.checklistItem}>✓ Sun hat & sunglasses</div>
-                  <div className={styles.checklistItem}>✓ Water bottle (refillable)</div>
-                  <div className={styles.checklistItem}>✓ Toiletries & medications</div>
-                </div>
+
+              <div className={styles.checklistColumn}>
+                <h3 className={styles.checklistColumnHeader}>SUN & WEATHER</h3>
+                <div className={styles.checklistItem}>SPF 50+ sunscreen</div>
+                <div className={styles.checklistItem}>Sun hat with wide brim</div>
+                <div className={styles.checklistItem}>Sunglasses (UVA/UVB)</div>
+                <div className={styles.checklistItem}>Reusable water bottle</div>
+              </div>
+
+              <div className={styles.checklistColumn}>
+                <h3 className={styles.checklistColumnHeader}>PERSONAL</h3>
+                <div className={styles.checklistItem}>Toiletries & deodorant</div>
+                <div className={styles.checklistItem}>Medications (bring extra)</div>
+                <div className={styles.checklistItem}>Phone & chargers</div>
+                <div className={styles.checklistItem}>Comfortable sleep clothes</div>
+              </div>
+
+              <div className={styles.checklistColumn}>
+                <h3 className={styles.checklistColumnHeader}>WORK & BRING</h3>
+                <div className={styles.checklistItem}>Laptop & power adapter</div>
+                <div className={styles.checklistItem}>Notebook & pen</div>
+                <div className={styles.checklistItem}>Headphones</div>
+                <div className={styles.checklistItem}>Camera (optional)</div>
               </div>
             </div>
-          </article>
 
-          {/* Travel Arrangements Section */}
-          <article className={styles.logisticsCard}>
-            <div className={styles.logisticsCardInner}>
-              <div className={styles.logisticsCardLeft}>
-                <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Getting There</span></div>
-                <h3><Plane className="w-5 h-5 inline mr-2" aria-hidden="true" />Travel Arrangements</h3>
-                <p>All flight bookings have been arranged and provided to you. You are responsible for getting to your designated departure airport on time. Once you land in Skardu, our logistics team takes over.</p>
-                <p><strong>Arrival process:</strong> Upon landing at Skardu International Airport, our team will greet you with a sign bearing the Summit Fellowship logo. They&rsquo;ll handle luggage and coordinate transport to Khoj Resort, about 30 minutes away. The drive threads through the Shigar valley—watch for the apricot orchards and the river.</p>
-                <p><strong>Luggage & belongings:</strong> Pack one main piece of luggage plus a carry-on. Khoj has storage for bags during the week. Excess luggage can be left at the airport or in Skardu; coordinate with our logistics team if needed.</p>
-                <p><strong>Return journey:</strong> On departure day, we&rsquo;ll coordinate your drive back to Skardu Airport and ensure you make your flight. Flights are typically in the afternoon; plan for a 6–7 AM departure from Khoj.</p>
-              </div>
-              <div className={styles.logisticsCardRight}>
-                <div className={styles.highlightBox}>
-                  <strong>Flight Bookings</strong><br />Already provided to you
-                </div>
-                <div className={styles.factsList}>
-                  <div className={styles.factsItem}>📍 Skardu Airport → Khoj: 30 min</div>
-                  <div className={styles.factsItem}>🚗 Airport pickup: Logistics team waits</div>
-                  <div className={styles.factsItem}>🧳 Luggage: 1 main + 1 carry-on</div>
-                  <div className={styles.factsItem}>📞 Emergency contacts on arrival</div>
-                </div>
-                <div className={styles.checklistSection}>
-                  <strong style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ochre)', marginBottom: 12, display: 'block' }}>On departure day</strong>
-                  <div className={styles.checklistItem}>✓ Check-out: 6–7 AM</div>
-                  <div className={styles.checklistItem}>✓ Airport: ~30 min drive</div>
-                  <div className={styles.checklistItem}>✓ Flight: Afternoon departure</div>
-                  <div className={styles.checklistItem}>✓ Confirm flight time before</div>
-                </div>
-              </div>
+            <div className={styles.packingNote}>
+              <strong>A note from the team:</strong> Don&rsquo;t overpack. The valley does not judge wardrobe rotation. The thing you&rsquo;ll wish you&rsquo;d brought is the warm layer at 9pm on the courtyard—everything else, we can sort.
             </div>
           </article>
 

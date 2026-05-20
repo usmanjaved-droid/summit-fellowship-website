@@ -80,7 +80,18 @@
       "mcp__claude_ai_Vercel__list_deployments",
       "mcp__claude_ai_Vercel__get_deployment_build_logs",
       "Bash(Start-Sleep -Seconds 3)",
-      "Bash(Get-Content \"C:\\\\Users\\\\HP\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Summit-Fellowship-Website\\\\ad29ae7c-6d4e-4ba9-86c4-8c68553727cb\\\\tasks\\\\b8y65ztbw.output\" -Tail 20)"
+      "Bash(Get-Content \"C:\\\\Users\\\\HP\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Summit-Fellowship-Website\\\\ad29ae7c-6d4e-4ba9-86c4-8c68553727cb\\\\tasks\\\\b8y65ztbw.output\" -Tail 20)",
+      "Read(//c/Users/HP/.claude/skills/ui-ux-pro-max/**)",
+      "Bash(python3 scripts/search.py \"event fellowship retreat information page professional elegant sophisticated\" --design-system -p \"Summit Fellowship Venue\" -f markdown)",
+      "Bash(python3 scripts/search.py \"card layout visual hierarchy spacing typography contrast accessibility\" --domain ux -n 20)",
+      "Bash(python3 scripts/search.py \"cards grid layout spacing visual separation depth shadow\" --domain style -n 15)",
+      "Bash(python3 scripts/search.py \"icon implementation SVG Heroicons consistent sizing styling\" --domain ux -n 15)",
+      "Bash(python3 scripts/search.py \"responsive typography modular scale mobile desktop font sizing hierarchy\" --domain typography -n 20)",
+      "Bash(python3 scripts/search.py \"card layout responsive grid spacing hover effects mobile optimization\" --stack nextjs -n 20)",
+      "Bash(python3 scripts/search.py \"eyebrow label section header visual hierarchy accent border spacing\" --domain ux -n 20)",
+      "Bash(npm install *)",
+      "Bash(npm uninstall *)",
+      "Bash(git checkout *)"
     ],
     "deny": [
       "Bash(rm -rf /)",
