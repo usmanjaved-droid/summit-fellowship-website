@@ -208,6 +208,96 @@ export default function VenuePage() {
           </div>
         </div>
       </section>
+
+      {/* Field Guide */}
+      <section className={styles.fieldGuideSection}>
+        <div className="container">
+          <div className={styles.fieldGuideHead}>
+            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Practical Details</span></div>
+            <h2>Everything you<br /><em>need to know.</em></h2>
+          </div>
+
+          <div className={styles.fieldGuideGrid}>
+            {/* Weather */}
+            <article className={styles.fieldGuideCard}>
+              <div className={styles.fieldGuideNum}>01</div>
+              <h3 className={styles.fieldGuideTitle}>Weather in June</h3>
+              <p>Dry, sunny days with 9–10 hours of daily sunshine. Daytime temperatures range from 20–30°C. Mornings and evenings are noticeably cooler (10–15°C), so layering is essential.</p>
+              <div className={styles.fieldGuideFacts}>
+                <div className={styles.factRow}><span>Daytime</span><strong>20–30°C</strong></div>
+                <div className={styles.factRow}><span>Evenings</span><strong>10–15°C</strong></div>
+                <div className={styles.factRow}><span>Sunshine</span><strong>9–10 hrs/day</strong></div>
+                <div className={styles.factRow}><span>Rainy days</span><strong>~4/month</strong></div>
+              </div>
+            </article>
+
+            {/* Rooms */}
+            <article className={styles.fieldGuideCard}>
+              <div className={styles.fieldGuideNum}>02</div>
+              <h3 className={styles.fieldGuideTitle}>Room Allocation</h3>
+              <p>All fellows are accommodated in triple-sharing rooms with two other fellows of the same gender. Each room has one bed on the ground floor and two beds in a loft area above.</p>
+              <div className={styles.fieldGuideFacts}>
+                <div className={styles.factRow}><span>Configuration</span><strong>3 per room</strong></div>
+                <div className={styles.factRow}><span>Beds</span><strong>1 ground + 2 loft</strong></div>
+                <div className={styles.factRow}><span>Bathroom</span><strong>Ensuite</strong></div>
+                <div className={styles.factRow}><span>Wi-Fi</span><strong>Available</strong></div>
+              </div>
+            </article>
+
+            {/* Medical */}
+            <article className={styles.fieldGuideCard}>
+              <div className={styles.fieldGuideNum}>03</div>
+              <h3 className={styles.fieldGuideTitle}>Medical Assistance</h3>
+              <p>A first-aid kit travels with the team across all sessions. Basic medical facilities are in Shigar (~5–10 min away). Skardu has larger hospitals (~45 min away) for emergencies.</p>
+              <div className={styles.fieldGuideFacts}>
+                <div className={styles.factRow}><span>On-site</span><strong>First-aid kit</strong></div>
+                <div className={styles.factRow}><span>Shigar clinic</span><strong>5–10 min</strong></div>
+                <div className={styles.factRow}><span>Skardu hospital</span><strong>~45 min</strong></div>
+                <div className={styles.factRow}><span>Coverage</span><strong>Basic care</strong></div>
+              </div>
+            </article>
+
+            {/* Connectivity */}
+            <article className={styles.fieldGuideCard}>
+              <div className={styles.fieldGuideNum}>04</div>
+              <h3 className={styles.fieldGuideTitle}>Internet & Phone</h3>
+              <p>Khoj has Wi-Fi available but connectivity is not guaranteed to be fast or continuous. Cellular signals from major providers are generally available. Download important documents before arrival.</p>
+              <div className={styles.fieldGuideFacts}>
+                <div className={styles.factRow}><span>Wi-Fi</span><strong>Variable speed</strong></div>
+                <div className={styles.factRow}><span>Mobile signal</span><strong>3G/4G available</strong></div>
+                <div className={styles.factRow}><span>Best spots</span><strong>Main building</strong></div>
+                <div className={styles.factRow}><span>Mindset</span><strong>Embrace offline</strong></div>
+              </div>
+            </article>
+
+            {/* Travel */}
+            <article className={styles.fieldGuideCard}>
+              <div className={styles.fieldGuideNum}>05</div>
+              <h3 className={styles.fieldGuideTitle}>Travel Arrangements</h3>
+              <p>Your journey has four stages: get to your departure airport, fly to Skardu (ticket in your inbox), airport pickup by Ascender Adventures, and ~45-min drive to Khoj through the valley.</p>
+              <div className={styles.fieldGuideFacts}>
+                <div className={styles.factRow}><span>Step 1</span><strong>You get to airport</strong></div>
+                <div className={styles.factRow}><span>Step 2</span><strong>Flight to Skardu</strong></div>
+                <div className={styles.factRow}><span>Step 3</span><strong>Airport pickup</strong></div>
+                <div className={styles.factRow}><span>Step 4</span><strong>Drive to Khoj</strong></div>
+              </div>
+            </article>
+
+            {/* Packing */}
+            <article className={styles.fieldGuideCard}>
+              <div className={styles.fieldGuideNum}>06</div>
+              <h3 className={styles.fieldGuideTitle}>Packing List</h3>
+              <p>Pack for variable mountain weather. Warm sun by day, chilly mornings and evenings. Layers are essential. You'll have laundry service, so one week of clothing is overkill.</p>
+              <div className={styles.fieldGuideFacts}>
+                <div className={styles.factRow}><span>Essentials</span><strong>Layers, sun protection</strong></div>
+                <div className={styles.factRow}><span>Footwear</span><strong>Hiking boots, sandals</strong></div>
+                <div className={styles.factRow}><span>Clothing</span><strong>3–4 days worth</strong></div>
+                <div className={styles.factRow}><span>Tech</span><strong>Chargers, laptop</strong></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
