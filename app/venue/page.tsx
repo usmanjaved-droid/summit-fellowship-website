@@ -1,130 +1,143 @@
 import Link from 'next/link';
 import styles from './page.module.css';
-import { Sun, Home, Wifi, Heart, Backpack, Plane, Moon } from 'lucide-react';
 
 export const metadata = {
   title: 'Khoj Resort, Skardu — Summit Fellowship',
 };
 
-const WEATHER_PERIODS = [
-  { period: 'DAYTIME', icon: Sun, temp: '20–30°C', desc: 'Strong sun. Open areas feel hotter — sun protection essential.' },
-  { period: 'EVENING & EARLY MORNING', icon: Moon, temp: '10–15°C', desc: 'Bring at least one warm layer. Pleasant after sunset.' },
-];
-
 export default function VenuePage() {
   return (
     <>
-      <section className={`page-hero ${styles.pageHeroImage}`} style={{ minHeight: '600px', position: 'relative' }} data-screen-label="Venue Hero">
-        <div className={styles.pageHeroOverlay} aria-hidden="true" />
-        <div className={`container ${styles.pageHeroInnerWrapper}`}>
-          <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Venue</span></div>
-          <h1 className={`page-hero__title ${styles.pageHeroTitle}`}>Khoj Resort, <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>Skardu.</em></h1>
-          <p className={`page-hero__subtitle ${styles.pageHeroSubtitle}`}>Tucked into the Shigar valley with the Karakoram rising on every side. A deliberate retreat from city noise, signal, and obligation.</p>
-        </div>
-      </section>
-
-      <section className="venue-intro">
-        <div className="container venue-intro__grid">
-          <div className="venue-intro__copy">
-            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">The venue</span></div>
-            <h2>Where the<br /><em>work happens.</em></h2>
-            <p>Khoj is deliberately remote. The flight in lands at 2,228 m — 35.30°N · 75.62°E, with June temperatures running 7–20°C. The drive from the airstrip threads the Shigar river through poplar groves and apricot orchards. By the time you arrive, your phone is no longer the most interesting thing in the room.</p>
-            <p>The resort is small by design — built for groups exactly this size. Workshop spaces flow onto a stone courtyard. Walk five minutes in any direction and you&rsquo;re in the orchards, on the river bank, or at the foot of a rock face that did not exist on yesterday&rsquo;s horizon.</p>
-            <p>Days alternate between structured studio sessions, outdoor 1-on-1 clinics, and the kind of unstructured time that only happens when eleven founders find themselves in a valley together with nothing else to do.</p>
+      {/* Hero */}
+      <section className={`page-hero ${styles.pageHero}`} data-screen-label="Venue Hero">
+        <div className={`topo-bg topo-bg--on-dark ${styles.topoBg}`} aria-hidden="true"></div>
+        <div className="container">
+          <div className="page-hero__crumbs">
+            <Link href="/">Home</Link>
+            <span>/</span>
+            <span>Venue</span>
           </div>
-          <div className={`venue-intro__image ${styles.venueIntroImage}`} role="img" aria-label="Khoj Resort landscape and accommodations" />
+          <h1 className="page-hero__title">Khoj Resort, <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>Skardu.</em></h1>
+          <p className="page-hero__subtitle">Tucked into the Shigar valley with the Karakoram rising on every side. Deliberate retreat from city noise, signal, and obligation.</p>
+          <div className={styles.pageHeroMeta}>
+            <div className={styles.pageHeroMetaItem}><span className={styles.label}>Coordinates</span><span className={styles.value}>35.30°N · 75.62°E</span></div>
+            <div className={styles.pageHeroMetaItem}><span className={styles.label}>Elevation</span><span className={styles.value}>~2,228 m</span></div>
+            <div className={styles.pageHeroMetaItem}><span className={styles.label}>Region</span><span className={styles.value}>Gilgit-Baltistan</span></div>
+            <div className={styles.pageHeroMetaItem}><span className={styles.label}>June climate</span><span className={styles.value}>10 – 30°C</span></div>
+          </div>
         </div>
       </section>
 
-      <section className="map-section">
-        <div className="container map-section__inner">
-          <div className="map-section__head">
+      {/* Intro */}
+      <section className={styles.venueIntro}>
+        <div className="container">
+          <div className={styles.venueIntroGrid}>
+            <div className={styles.venueIntroCopy}>
+              <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">The venue</span></div>
+              <h2>Where the<br /><em>work happens.</em></h2>
+              <p>Khoj is deliberately remote. The flight in lands at 2,228 m. The drive from the airstrip threads the Shigar river through poplar groves and apricot orchards. By the time you arrive, your phone is no longer the most interesting thing in the room.</p>
+              <p>The resort is small by design — built for groups exactly this size. Workshop spaces flow onto a stone courtyard. Walk five minutes in any direction and you're in the orchards, on the river bank, or at the foot of a rock face that did not exist on yesterday's horizon.</p>
+              <p>Days alternate between structured studio sessions, outdoor 1-on-1 clinics, and the kind of unstructured time that only happens when eleven founders find themselves in a valley together with nothing else to do.</p>
+            </div>
+            <figure className={styles.venueIntroImageSlot}>
+              <div className={styles.imagePlaceholder} />
+              <figcaption>Khoj Resort · Shigar Valley</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* Map */}
+      <section className={styles.mapSection}>
+        <div className={`topo-bg topo-bg--on-dark ${styles.topoBg}`} aria-hidden="true"></div>
+        <div className="container">
+          <div className={styles.mapSectionHead}>
             <div>
               <div className="eyebrow eyebrow--on-dark" style={{ marginBottom: 16 }}>The terrain</div>
               <h2>You are <em>here.</em></h2>
             </div>
-            <p>A schematic of the week&rsquo;s geography. Khoj is the basecamp; off-site days bring the cohort to Shigar Fort, the Skardu bazaar, and a local family&rsquo;s home for dinner.</p>
+            <p>A schematic of the week's geography. Khoj is the basecamp; off-site days bring the cohort to Shigar Fort, the Skardu bazaar, and a local family's home for dinner.</p>
           </div>
 
-          <div className="map-frame">
+          <div className={styles.mapFrame}>
             <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#0a1820" />
-                  <stop offset="100%" stopColor="#142734" />
+                  <stop offset="0%" stopColor="#0a1820"/>
+                  <stop offset="100%" stopColor="#142734"/>
                 </linearGradient>
                 <radialGradient id="khojGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#d4a574" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="#d4a574" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#d4a574" stopOpacity="0.4"/>
+                  <stop offset="100%" stopColor="#d4a574" stopOpacity="0"/>
                 </radialGradient>
               </defs>
-              <rect width="1600" height="900" fill="url(#sky)" />
+              <rect width="1600" height="900" fill="url(#sky)"/>
 
               <g fill="none" stroke="#2a4254" strokeWidth="0.8" opacity="0.7">
-                <path d="M 100 200 C 300 140, 600 160, 900 100 C 1100 80, 1300 120, 1500 80" />
-                <path d="M 100 240 C 300 180, 600 200, 900 140 C 1100 120, 1300 160, 1500 120" />
-                <path d="M 50 320 C 250 260, 550 290, 850 230 C 1080 210, 1280 250, 1480 210" />
-                <path d="M 30 400 C 220 350, 500 380, 800 320 C 1050 300, 1260 340, 1460 300" />
-                <path d="M 1450 480 C 1300 500, 1150 460, 1000 490 C 850 510, 700 480, 550 510 C 400 540, 250 510, 80 540" />
-                <path d="M 1450 540 C 1300 560, 1150 530, 1000 555 C 850 575, 700 550, 550 575 C 400 600, 250 575, 80 595" />
-                <path d="M 1450 620 C 1300 640, 1150 610, 1000 635 C 850 655, 700 630, 550 655 C 400 680, 250 655, 80 675" />
-                <path d="M 1450 720 C 1300 740, 1150 710, 1000 735 C 850 755, 700 730, 550 755 C 400 780, 250 755, 80 775" />
+                <path d="M 100 200 C 300 140, 600 160, 900 100 C 1100 80, 1300 120, 1500 80"/>
+                <path d="M 100 240 C 300 180, 600 200, 900 140 C 1100 120, 1300 160, 1500 120"/>
+                <path d="M 50 320 C 250 260, 550 290, 850 230 C 1080 210, 1280 250, 1480 210"/>
+                <path d="M 30 400 C 220 350, 500 380, 800 320 C 1050 300, 1260 340, 1460 300"/>
+                <path d="M 1450 480 C 1300 500, 1150 460, 1000 490 C 850 510, 700 480, 550 510 C 400 540, 250 510, 80 540"/>
+                <path d="M 1450 540 C 1300 560, 1150 530, 1000 555 C 850 575, 700 550, 550 575 C 400 600, 250 575, 80 595"/>
+                <path d="M 1450 620 C 1300 640, 1150 610, 1000 635 C 850 655, 700 630, 550 655 C 400 680, 250 655, 80 675"/>
+                <path d="M 1450 720 C 1300 740, 1150 710, 1000 735 C 850 755, 700 730, 550 755 C 400 780, 250 755, 80 775"/>
               </g>
 
               <g opacity="0.35">
-                <polygon points="0,500 200,200 320,360 460,180 620,440 760,250 900,500" fill="#2a4254" />
-                <polygon points="800,500 920,260 1020,400 1160,180 1320,340 1450,200 1600,500" fill="#1a2e3b" />
+                <polygon points="0,500 200,200 320,360 460,180 620,440 760,250 900,500" fill="#2a4254"/>
+                <polygon points="800,500 920,260 1020,400 1160,180 1320,340 1450,200 1600,500" fill="#1a2e3b"/>
               </g>
 
-              <path className="map-dash" d="M 0 580 C 200 560, 400 600, 600 580 C 800 560, 1000 600, 1200 580 C 1400 560, 1600 590, 1600 590" fill="none" stroke="#5b8baf" strokeWidth="3" strokeOpacity="0.6" />
-              <text x="20" y="630" className="map-label" style={{ fontSize: 11 }}>Shigar River →</text>
+              <path className={styles.mapDash} d="M 0 580 C 200 560, 400 600, 600 580 C 800 560, 1000 600, 1200 580 C 1400 560, 1600 590, 1600 590" fill="none" stroke="#5b8baf" strokeWidth="3" strokeOpacity="0.6"/>
+              <text x="20" y="630" className={styles.mapLabel} style={{ fontSize: 11 }}>Shigar River →</text>
 
-              <path className="map-dash" d="M 750 580 Q 900 520, 1080 480" fill="none" stroke="#d4a574" strokeWidth="2" strokeOpacity="0.8" />
-              <path className="map-dash" d="M 750 580 Q 600 620, 420 660" fill="none" stroke="#d4a574" strokeWidth="2" strokeOpacity="0.8" />
+              <path className={styles.mapDash} d="M 750 580 Q 900 520, 1080 480" fill="none" stroke="#d4a574" strokeWidth="2" strokeOpacity="0.8"/>
+              <path className={styles.mapDash} d="M 750 580 Q 600 620, 420 660" fill="none" stroke="#d4a574" strokeWidth="2" strokeOpacity="0.8"/>
 
               <g transform="translate(750, 580)">
-                <circle r="60" fill="url(#khojGlow)" />
-                <circle className="map-pulse" r="6" fill="#d4a574" stroke="#d4a574" strokeWidth="2" />
-                <circle r="8" fill="#d4a574" stroke="#0a1820" strokeWidth="2" />
-                <text x="16" y="6" className="map-label--lg map-label">Khoj Resort</text>
-                <text x="16" y="26" className="map-label">★ Basecamp · 2,228 m</text>
+                <circle r="60" fill="url(#khojGlow)"/>
+                <circle className={styles.mapPulse} r="6" fill="#d4a574" stroke="#d4a574" strokeWidth="2"/>
+                <circle r="8" fill="#d4a574" stroke="#0a1820" strokeWidth="2"/>
+                <text x="16" y="6" className={`${styles.mapLabel} ${styles.mapLabelLg}`}>Khoj Resort</text>
+                <text x="16" y="26" className={styles.mapLabel}>★ Basecamp · 2,228 m</text>
               </g>
 
               <g transform="translate(1080, 480)">
-                <circle r="40" fill="url(#khojGlow)" opacity="0.5" />
-                <circle r="6" fill="#142734" stroke="#d4a574" strokeWidth="2" />
-                <text x="14" y="2" className="map-label map-label--ochre">Shigar Fort</text>
-                <text x="14" y="20" className="map-label" style={{ opacity: 0.7 }}>Day 02 · Lightning Talks</text>
+                <circle r="40" fill="url(#khojGlow)" opacity="0.5"/>
+                <circle r="6" fill="#142734" stroke="#d4a574" strokeWidth="2"/>
+                <text x="14" y="2" className={`${styles.mapLabel} ${styles.mapLabelOchre}`}>Shigar Fort</text>
+                <text x="14" y="20" className={styles.mapLabel} style={{ opacity: 0.7 }}>Day 02 · Lightning Talks</text>
               </g>
 
               <g transform="translate(420, 660)">
-                <circle r="40" fill="url(#khojGlow)" opacity="0.5" />
-                <circle r="6" fill="#142734" stroke="#d4a574" strokeWidth="2" />
-                <text x="-110" y="2" className="map-label map-label--ochre" textAnchor="start">Skardu Bazar</text>
-                <text x="-200" y="20" className="map-label" style={{ opacity: 0.7 }}>Day 03 · Evening</text>
+                <circle r="40" fill="url(#khojGlow)" opacity="0.5"/>
+                <circle r="6" fill="#142734" stroke="#d4a574" strokeWidth="2"/>
+                <text x="-110" y="2" className={`${styles.mapLabel} ${styles.mapLabelOchre}`} textAnchor="start">Skardu Bazar</text>
+                <text x="-200" y="20" className={styles.mapLabel} style={{ opacity: 0.7 }}>Day 03 · Evening</text>
               </g>
 
               <g transform="translate(1300, 200)">
-                <circle r="5" fill="#8a4a3b" />
-                <text x="12" y="4" className="map-label" fill="#d4a574">K2 · ~150 km NE</text>
-                <text x="12" y="22" className="map-label" style={{ opacity: 0.6 }}>Karakoram Range</text>
+                <circle r="5" fill="#8a4a3b"/>
+                <text x="12" y="4" className={styles.mapLabel} fill="#d4a574">K2 · ~150 km NE</text>
+                <text x="12" y="22" className={styles.mapLabel} style={{ opacity: 0.6 }}>Karakoram Range</text>
               </g>
 
               <g transform="translate(220, 540)">
-                <circle r="5" fill="#8a4a3b" />
-                <text x="-8" y="-12" className="map-label" fill="#d4a574" textAnchor="end">Skardu Intl. Airport</text>
-                <text x="-8" y="6" className="map-label" style={{ opacity: 0.6 }} textAnchor="end">~30 min drive →</text>
+                <circle r="5" fill="#8a4a3b"/>
+                <text x="-8" y="-12" className={styles.mapLabel} fill="#d4a574" textAnchor="end">Skardu Intl. Airport</text>
+                <text x="-8" y="6" className={styles.mapLabel} style={{ opacity: 0.6 }} textAnchor="end">~30 min drive →</text>
               </g>
 
               <g transform="translate(900, 700)">
-                <circle r="4" fill="#142734" stroke="#d4a574" strokeWidth="2" />
-                <text x="12" y="4" className="map-label map-label--ochre">Local Family Home</text>
-                <text x="12" y="22" className="map-label" style={{ opacity: 0.7 }}>Day 03 · Dinner</text>
+                <circle r="4" fill="#142734" stroke="#d4a574" strokeWidth="2"/>
+                <text x="12" y="4" className={`${styles.mapLabel} ${styles.mapLabelOchre}`}>Local Family Home</text>
+                <text x="12" y="22" className={styles.mapLabel} style={{ opacity: 0.7 }}>Day 03 · Dinner</text>
               </g>
 
               <g transform="translate(1480, 80)" fill="#a39888">
-                <line x1="0" y1="-30" x2="0" y2="30" stroke="#a39888" strokeWidth="0.6" />
-                <line x1="-30" y1="0" x2="30" y2="0" stroke="#a39888" strokeWidth="0.6" />
+                <line x1="0" y1="-30" x2="0" y2="30" stroke="#a39888" strokeWidth="0.6"/>
+                <line x1="-30" y1="0" x2="30" y2="0" stroke="#a39888" strokeWidth="0.6"/>
                 <text x="0" y="-36" textAnchor="middle" fontSize="11" fill="#d4a574">N</text>
                 <text x="0" y="46" textAnchor="middle" fontSize="9">S</text>
                 <text x="40" y="4" fontSize="9">E</text>
@@ -132,10 +145,10 @@ export default function VenuePage() {
               </g>
 
               <g transform="translate(60, 820)">
-                <line x1="0" y1="0" x2="120" y2="0" stroke="#a39888" strokeWidth="1.5" />
-                <line x1="0" y1="-4" x2="0" y2="4" stroke="#a39888" strokeWidth="1.5" />
-                <line x1="60" y1="-4" x2="60" y2="4" stroke="#a39888" strokeWidth="1.5" />
-                <line x1="120" y1="-4" x2="120" y2="4" stroke="#a39888" strokeWidth="1.5" />
+                <line x1="0" y1="0" x2="120" y2="0" stroke="#a39888" strokeWidth="1.5"/>
+                <line x1="0" y1="-4" x2="0" y2="4" stroke="#a39888" strokeWidth="1.5"/>
+                <line x1="60" y1="-4" x2="60" y2="4" stroke="#a39888" strokeWidth="1.5"/>
+                <line x1="120" y1="-4" x2="120" y2="4" stroke="#a39888" strokeWidth="1.5"/>
                 <text x="0" y="22" fontSize="9" fill="#a39888">0</text>
                 <text x="60" y="22" fontSize="9" fill="#a39888" textAnchor="middle">2.5 km</text>
                 <text x="120" y="22" fontSize="9" fill="#a39888" textAnchor="middle">5 km</text>
@@ -148,256 +161,369 @@ export default function VenuePage() {
             </svg>
           </div>
 
-          <div className="map-legend">
-            <div className="map-legend__item"><span className="legend-dot legend-dot--solid" /> Basecamp</div>
-            <div className="map-legend__item"><span className="legend-dot" /> Off-site sessions</div>
-            <div className="map-legend__item"><span className="legend-line" /> Travel routes</div>
-            <div className="map-legend__item" style={{ marginLeft: 'auto', opacity: 0.6 }}>Schematic — not to scale</div>
+          <div className={styles.mapLegend}>
+            <div className={styles.mapLegendItem}><span className={`${styles.legendDot} ${styles.legendDotSolid}`}></span> Basecamp</div>
+            <div className={styles.mapLegendItem}><span className={styles.legendDot}></span> Off-site sessions</div>
+            <div className={styles.mapLegendItem}><span className={styles.legendLine}></span> Travel routes</div>
+            <div className={styles.mapLegendItem} style={{ marginLeft: 'auto', opacity: 0.6 }}>Schematic — not to scale</div>
           </div>
         </div>
       </section>
 
-      {/* Weather + Room Allocation Side by Side */}
-      <section className={styles.logisticsSection}>
+      {/* Gallery */}
+      <section className={styles.gallery} data-screen-label="Venue Gallery" id="gallery">
         <div className="container">
-          <div className={styles.twoColumnSection}>
-            {/* Weather Column */}
-            <div className={styles.weatherColumn}>
-              <div className={styles.weatherHead}>
-                <div className={styles.weatherEyebrow}>
-                  <span className={styles.weatherNumber}>NO. 07</span>
-                  <span>WEATHER IN JUNE</span>
-                </div>
-                <h2 className={styles.weatherTitle}>Warm sun, cool nights, clear sky.</h2>
-                <p className={styles.weatherIntro}>June is one of the most favourable months for Shigar. Days are dry and bright with strong mountain sun. Mornings and evenings cool down sharply. Karakoram visibility is typically excellent.</p>
-              </div>
-
-              <div className={styles.weatherCards}>
-                {WEATHER_PERIODS.map((w) => {
-                  const Icon = w.icon;
-                  return (
-                    <article key={w.period} className={styles.weatherCard}>
-                      <div className={styles.weatherCardIcon}>
-                        <Icon className={styles.weatherCardIconSvg} aria-hidden="true" />
-                      </div>
-                      <div className={styles.weatherCardLabel}>{w.period}</div>
-                      <div className={styles.weatherCardTemp}>{w.temp}</div>
-                      <p className={styles.weatherCardDesc}>{w.desc}</p>
-                    </article>
-                  );
-                })}
-              </div>
-
-              <div className={styles.temperatureSlider}>
-                <div className={styles.sliderTrack}>
-                  <div className={styles.sliderMarker} style={{ left: '25%' }} />
-                  <div className={styles.sliderFill} style={{ left: '25%', right: '17%' }} />
-                  <div className={styles.sliderMarker} style={{ right: '17%' }} />
-                </div>
-                <div className={styles.sliderLabels}>
-                  <span>0°C</span>
-                  <span>10°C</span>
-                  <span>20°C</span>
-                  <span>30°C</span>
-                  <span>40°C</span>
-                </div>
-              </div>
+          <div className={styles.galleryHead}>
+            <div>
+              <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">Look around</span></div>
+              <h2>Khoj,<br /><em>in pictures.</em></h2>
+              <p>The valley does most of the work. Drag photos onto any tile to fill the gallery — they'll persist on the site automatically. Until then, the placeholders show where each shot will live.</p>
             </div>
-
-            {/* Room Allocation Column */}
-            <article className={styles.cardItem}>
-            <div className={styles.cardEyebrow}>
-              <span className={styles.cardNumber}>NO. 08</span>
-              <span>ROOM ALLOCATION</span>
+            <div className={styles.galleryMeta}>
+              <span>Plate 01–07</span>
+              <span className={styles.v}>Shigar Valley · June</span>
             </div>
-            <h2 className={styles.cardTitle}>Loft villa, triple sharing.</h2>
-            <p className={styles.cardIntro}>Fellows are accommodated in Khoj's River-View Loft Villas. Each room sleeps three of the same gender — one bed on the ground floor, two beds on the loft. Sort the bunk politics among yourselves.</p>
-            <div className={styles.cardVisual}>
-              <svg viewBox="0 0 400 200" className={styles.roomDiagram} preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-                <rect x="40" y="30" width="320" height="140" fill="none" stroke="var(--alpine-deep)" strokeWidth="2" rx="8"/>
-                <text x="200" y="55" textAnchor="middle" fontFamily="var(--mono)" fontSize="12" fill="var(--alpine-deep)" letterSpacing="0.1em">LOFT 1 LOFT 2</text>
-                <line x1="200" y1="30" x2="200" y2="170" stroke="var(--alpine-deep)" strokeWidth="1" strokeDasharray="4" />
-                <rect x="50" y="90" width="60" height="40" fill="var(--clay)" stroke="var(--alpine-deep)" strokeWidth="1.5"/>
-                <text x="80" y="116" textAnchor="middle" fontFamily="var(--mono)" fontSize="11" fill="white" fontWeight="500">GROUND</text>
-                <rect x="130" y="75" width="35" height="25" fill="none" stroke="var(--alpine-deep)" strokeWidth="1.5"/>
-                <rect x="180" y="75" width="35" height="25" fill="none" stroke="var(--alpine-deep)" strokeWidth="1.5"/>
+          </div>
+
+          <div className={styles.galGrid}>
+            {[
+              { id: 1, class: 'gal-hero', caption: 'Khoj from the river bank' },
+              { id: 2, class: 'gal-tall', caption: 'Light through the loft' },
+              { id: 3, class: 'gal-sq', caption: 'River-View Loft Villa' },
+              { id: 4, class: 'gal-sq', caption: 'The long table' },
+              { id: 5, class: 'gal-sq', caption: 'The orchard walk' },
+              { id: 6, class: 'gal-pano', caption: 'Looking east toward the Karakoram' },
+              { id: 7, class: 'gal-sq', caption: 'The stone courtyard' },
+              { id: 8, class: 'gal-sq', caption: 'Vol. 00 · candid' },
+              { id: 9, class: 'gal-sq', caption: 'Shigar Fort · off-site' },
+            ].map((cell) => (
+              <figure key={cell.id} className={`${styles.galCell} ${styles[cell.class]}`}>
+                <div className={styles.imagePlaceholder} />
+                <figcaption><span className={styles.n}>{String(cell.id).padStart(2, '0')}</span>{cell.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <div className={styles.galleryCredit}>
+            <span>Photography · drop your own or pull from <a href="https://www.khojresorts.com" target="_blank" rel="noopener">khojresorts.com</a></span>
+            <span>The valley speaks for itself</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Fact Strip */}
+      <section className={styles.factStrip}>
+        <div className={`topo-bg ${styles.topoBg}`} aria-hidden="true"></div>
+        <div className="container">
+          <div className={styles.factStripGrid}>
+            <div className={styles.factStripCell}><div className={styles.label}>Total spaces</div><div className={styles.value}>11 rooms</div></div>
+            <div className={styles.factStripCell}><div className={styles.label}>Workshop capacity</div><div className={styles.value}>~30 people</div></div>
+            <div className={styles.factStripCell}><div className={styles.label}>Wifi</div><div className={styles.value}>Yes — patchy</div></div>
+            <div className={styles.factStripCell}><div className={styles.label}>Vibe</div><div className={styles.value}>Intentionally quiet</div></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Spaces */}
+      <section className={styles.spaces}>
+        <div className="container">
+          <div className={styles.spacesHead}>
+            <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">The spaces</span></div>
+            <h2>Five rooms.<br /><em>One valley.</em></h2>
+            <p>You'll move between these five spaces over the week. Each was chosen for what it lets the group do, and for what it forbids — Khoj does not have a giant ballroom for a reason.</p>
+          </div>
+
+          <div className={styles.spaceGrid}>
+            {[
+              { num: '01', title: 'The Studio', desc: 'Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.' },
+              { num: '02', title: 'The Courtyard', desc: 'Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.' },
+              { num: '03', title: 'The Dining Hall', desc: 'One long table. Locally-sourced food. By Day 3, everyone has a permanent seat. By Day 6, no one wants to leave it.' },
+              { num: '04', title: 'The Library Lounge', desc: 'Fireplace, mismatched armchairs, surprisingly well-stocked shelves. Default home for fireside chats and post-dinner spillover.' },
+              { num: '05', title: 'The Orchard', desc: 'A short walk from the main building. The default outdoor classroom for 1-on-1 clinics. The cohort\'s photo gets taken here on Day 6.' },
+              { num: '06', title: 'Off-site: Shigar Fort', desc: '15-minute drive. 17th-century Balti fort. Where the Lightning Talks happen on Day 2 — and where the photos every cohort posts come from.' },
+            ].map((space) => (
+              <article key={space.num} className={styles.spaceCard}>
+                <div className={styles.spaceCardMedia}>
+                  <div className={styles.imagePlaceholder} />
+                  <span className={`${styles.spaceCardNum} ${styles.isOverlay}`}>{space.num}</span>
+                </div>
+                <div className={styles.spaceCardBody}>
+                  <h3 className={styles.spaceCardTitle}>{space.title}</h3>
+                  <p className={styles.spaceCardDesc}>{space.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quote */}
+      <section className={styles.venueQuote}>
+        <div className="container">
+          <blockquote className={styles.quoteText}>
+            "The work that happens here would not happen in Karachi or Lahore — for reasons that are obvious by Tuesday."
+          </blockquote>
+          <div className={styles.quoteAttr}>From a Vol. 00 alum</div>
+        </div>
+      </section>
+
+      {/* Field Guide */}
+      <section className={styles.fieldGuide} data-screen-label="Venue Field Guide" id="field-guide">
+        <div className="container">
+          <div className={styles.fieldGuideHead}>
+            <div>
+              <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">The field guide</span></div>
+              <h2>What you need<br />to know <em>on the ground.</em></h2>
+            </div>
+            <div className={styles.fieldGuideHeadMeta}>
+              <span>Vol. 01 · Section 02</span>
+              <span className={styles.v}>Updated May 2026</span>
+            </div>
+          </div>
+
+          <nav className={styles.fgNav} aria-label="Field guide sections">
+            <a href="#fg-weather"><span className={styles.n}>07</span>Weather</a>
+            <a href="#fg-rooms"><span className={styles.n}>08</span>Rooms</a>
+            <a href="#fg-travel"><span className={styles.n}>09</span>Travel</a>
+            <a href="#fg-medical"><span className={styles.n}>10</span>Medical</a>
+            <a href="#fg-signal"><span className={styles.n}>11</span>Internet &amp; Phone</a>
+            <a href="#fg-packing"><span className={styles.n}>12</span>Packing</a>
+          </nav>
+
+          <div className={styles.fgGrid}>
+            {/* 07 Weather */}
+            <article className={`${styles.fgCard} ${styles.fgCardFeature}`} id="fg-weather">
+              <div className={`topo-bg topo-bg--on-dark ${styles.topoBg}`} aria-hidden="true"></div>
+              <div className={styles.fgCardNum}>No. 07 · Weather in June</div>
+              <h3 className={styles.fgCardTitle}>Warm sun, cool nights, clear sky.</h3>
+              <div className={styles.fgCardBody}>
+                <p>June is one of the most favourable months for Shigar. Days are dry and bright with strong mountain sun. Mornings and evenings cool down sharply. Karakoram visibility is typically excellent.</p>
+              </div>
+
+              <div className={styles.weatherViz}>
+                <div className={styles.weatherCell}>
+                  <div className={styles.weatherCellHead}>
+                    <svg className={styles.weatherIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                      <circle cx="12" cy="12" r="4"/>
+                      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                    </svg>
+                    Daytime
+                  </div>
+                  <div className={styles.weatherCellTemp}>20–30<span className={styles.unit}>°C</span></div>
+                  <div className={styles.weatherCellNote}>Strong sun. Open areas feel hotter — sun protection essential.</div>
+                </div>
+                <div className={styles.weatherCell}>
+                  <div className={styles.weatherCellHead}>
+                    <svg className={styles.weatherIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    Evening &amp; early morning
+                  </div>
+                  <div className={styles.weatherCellTemp}>10–15<span className={styles.unit}>°C</span></div>
+                  <div className={styles.weatherCellNote}>Bring at least one warm layer. Pleasant after sunset.</div>
+                </div>
+              </div>
+
+              <div className={styles.weatherBar} aria-hidden="true">
+                <div className={styles.weatherBarTrack}>
+                  <div className={styles.weatherBarRange}></div>
+                </div>
+                <div className={styles.weatherBarTick} style={{ left: '25%' }}></div>
+                <div className={styles.weatherBarTick} style={{ left: '75%' }}></div>
+                <div className={styles.weatherBarLabel} style={{ left: '25%' }}>10°</div>
+                <div className={styles.weatherBarLabel} style={{ left: '75%' }}>30°</div>
+              </div>
+              <div className={styles.weatherScale}>
+                <span>0°C</span><span>10°C</span><span>20°C</span><span>30°C</span><span>40°C</span>
+              </div>
+            </article>
+
+            {/* 08 Rooms */}
+            <article className={`${styles.fgCard} ${styles.fgCardRooms}`} id="fg-rooms">
+              <div className={styles.fgCardNum}>No. 08 · Room allocation</div>
+              <h3 className={styles.fgCardTitle}>Loft villa, triple sharing.</h3>
+              <div className={styles.fgCardBody}>
+                <p>Fellows are accommodated in Khoj's River-View Loft Villas. Each room sleeps three of the same gender — one bed on the ground floor, two on the loft. Sort the bunk politics among yourselves.</p>
+              </div>
+
+              <div className={styles.roomsDiagram} aria-hidden="true">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 20 60 L 100 15 L 180 60 L 180 145 L 20 145 Z" fill="none" stroke="#142734" strokeWidth="1.5"/>
+                  <line x1="20" y1="85" x2="180" y2="85" stroke="#142734" strokeWidth="1" strokeDasharray="3 3"/>
+                  <rect x="38" y="68" width="46" height="14" fill="#d4a574" opacity="0.85"/>
+                  <rect x="116" y="68" width="46" height="14" fill="#d4a574" opacity="0.85"/>
+                  <text x="61" y="63" fontFamily="JetBrains Mono" fontSize="6" fill="#142734" textAnchor="middle" letterSpacing="1">LOFT 1</text>
+                  <text x="139" y="63" fontFamily="JetBrains Mono" fontSize="6" fill="#142734" textAnchor="middle" letterSpacing="1">LOFT 2</text>
+                  <line x1="100" y1="85" x2="100" y2="130" stroke="#8a4a3b" strokeWidth="1"/>
+                  <line x1="96" y1="92" x2="104" y2="92" stroke="#8a4a3b" strokeWidth="1"/>
+                  <line x1="96" y1="104" x2="104" y2="104" stroke="#8a4a3b" strokeWidth="1"/>
+                  <line x1="96" y1="116" x2="104" y2="116" stroke="#8a4a3b" strokeWidth="1"/>
+                  <rect x="35" y="120" width="55" height="16" fill="#8a4a3b" opacity="0.9"/>
+                  <text x="62" y="116" fontFamily="JetBrains Mono" fontSize="6" fill="#142734" textAnchor="middle" letterSpacing="1">GROUND</text>
+                  <rect x="140" y="118" width="20" height="27" fill="none" stroke="#142734" strokeWidth="1"/>
+                  <circle cx="156" cy="132" r="0.8" fill="#142734"/>
+                  <rect x="120" y="95" width="14" height="14" fill="none" stroke="#142734" strokeWidth="0.8"/>
+                  <line x1="127" y1="95" x2="127" y2="109" stroke="#142734" strokeWidth="0.5"/>
+                  <line x1="120" y1="102" x2="134" y2="102" stroke="#142734" strokeWidth="0.5"/>
+                </svg>
+              </div>
+
+              <div className={styles.roomsList}>
+                <div className={styles.roomsListRow}><span>Beds per room</span><span className={styles.v}>3</span></div>
+                <div className={styles.roomsListRow}><span>Sharing</span><span className={styles.v}>Same gender</span></div>
+                <div className={styles.roomsListRow}><span>Layout</span><span className={styles.v}>1 ground + 2 loft</span></div>
+              </div>
+
+              <a className={styles.fgCardLink} href="https://www.khojresorts.com/river-view-loft-villa" target="_blank" rel="noopener">See villa details</a>
+            </article>
+
+            {/* 09 Travel */}
+            <article className={`${styles.fgCard} ${styles.fgCardTravel}`} id="fg-travel">
+              <div className={styles.fgCardNum}>No. 09 · Travel arrangements</div>
+              <h3 className={styles.fgCardTitle}>We fly you to Skardu. You handle the airport.</h3>
+              <div className={styles.fgCardBody}>
+                <p>All fellows have flight bookings from their respective cities. You're responsible for getting to your <strong>departure airport</strong> in your home city; our logistics team — coordinated with Ascender Adventures — picks you up at <strong>Skardu airport</strong> and drives the group to Shigar. Return is mirrored.</p>
+              </div>
+
+              <div className={styles.travelFlow}>
+                <div className={styles.travelFlowStep}>
+                  <div className={styles.n}>Step 01 · You</div>
+                  <div className={styles.t}>Your home city</div>
+                  <div className={styles.s}>Get to your departure airport on your own.</div>
+                </div>
+                <div className={styles.travelFlowStep}>
+                  <div className={styles.n}>Step 02 · We've booked</div>
+                  <div className={styles.t}>Flight to Skardu</div>
+                  <div className={styles.s}>Domestic flight, ticket already in your inbox.</div>
+                </div>
+                <div className={styles.travelFlowStep}>
+                  <div className={styles.n}>Step 03 · We pick up</div>
+                  <div className={styles.t}>Skardu Airport</div>
+                  <div className={styles.s}>Ascender Adventures team meets the cohort.</div>
+                </div>
+                <div className={styles.travelFlowStep}>
+                  <div className={styles.n}>Step 04 · We drive</div>
+                  <div className={styles.t}>Khoj, Shigar</div>
+                  <div className={styles.s}>~45-min transfer through the valley.</div>
+                </div>
+              </div>
+
+              <a className={styles.fgCardLink} href="/travel">Full travel page</a>
+            </article>
+
+            {/* 10 Medical */}
+            <article className={`${styles.fgCard} ${styles.fgCardMedical}`} id="fg-medical">
+              <div className={styles.fgCardNum}>No. 10 · Medical</div>
+              <h3 className={styles.fgCardTitle}>Covered.</h3>
+              <svg className={styles.medCross} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.4">
+                <rect x="18" y="6" width="12" height="36" rx="1.5"/>
+                <rect x="6" y="18" width="36" height="12" rx="1.5"/>
               </svg>
-            </div>
-            <div className={styles.cardDetails}>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>Beds per room</span>
-                <span className={styles.detailValue}>3</span>
+              <div className={styles.fgCardBody} style={{ marginTop: 12 }}>
+                <p>A first-aid kit travels with the team across all sessions and outdoor excursions.</p>
               </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>Sharing</span>
-                <span className={styles.detailValue}>Same gender</span>
+              <ul className={styles.fgCardSublist}>
+                <li><span>On-site kit</span><span className={styles.v}>Always</span></li>
+                <li><span>Shigar facility</span><span className={styles.v}>Basic care</span></li>
+                <li><span>Skardu hospital</span><span className={styles.v}>~45 min</span></li>
+              </ul>
+            </article>
+
+            {/* 11 Signal */}
+            <article className={`${styles.fgCard} ${styles.fgCardSignal}`} id="fg-signal">
+              <div className={styles.fgCardNum}>No. 11 · Connectivity</div>
+              <h3 className={styles.fgCardTitle}>Wi-Fi yes, fast no.</h3>
+              <div className={styles.signalViz} aria-hidden="true" title="Reliability: variable">
+                <div className={`${styles.bar} ${styles.on}`}></div>
+                <div className={`${styles.bar} ${styles.on}`}></div>
+                <div className={`${styles.bar} ${styles.on} ${styles.mid}`}></div>
+                <div className={styles.bar}></div>
+                <div className={styles.bar}></div>
               </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>Layout</span>
-                <span className={styles.detailValue}>1 ground + 2 loft</span>
+              <div className={styles.fgCardBody}>
+                <p>Khoj has Wi-Fi, but connectivity in this part of Pakistan isn't always reliable or fast. Cellular coverage from major networks is generally available; 3G/4G works but varies with weather.</p>
               </div>
-            </div>
-            <a href="#" className={styles.cardLink}>SEE VILLA DETAILS →</a>
+              <ul className={styles.fgCardSublist}>
+                <li><span>Resort Wi-Fi</span><span className={styles.v}>Available</span></li>
+                <li><span>Mobile data</span><span className={styles.v}>3G / 4G</span></li>
+                <li><span>Plan to be</span><span className={styles.v}>Offline-ish</span></li>
+              </ul>
+            </article>
+
+            {/* 12 Packing */}
+            <article className={`${styles.fgCard} ${styles.fgCardPacking}`} id="fg-packing">
+              <div className={styles.fgCardNum}>No. 12 · Packing list</div>
+              <h3 className={styles.fgCardTitle}>What to throw in <em style={{ fontStyle: 'italic', color: 'var(--clay)' }}>the bag.</em></h3>
+              <div className={styles.fgCardBody} style={{ maxWidth: '60ch' }}>
+                <p>Pack for the weather in <a href="#fg-weather" style={{ color: 'var(--clay)', textDecoration: 'underline', textDecorationLine: 'underline' }}>Section 07</a>. Days are warm, evenings get chilly — at least one warm layer is non-negotiable. Sun protection during the day is the other non-negotiable.</p>
+              </div>
+
+              <div className={styles.packingGrid}>
+                <div className={styles.packingCol}>
+                  <h4><span>Clothing</span><span className={styles.ct}>5</span></h4>
+                  <ul>
+                    <li className={styles.essential}>One warm layer (fleece / light jacket)</li>
+                    <li>Light, breathable daywear</li>
+                    <li>Comfortable walking shoes</li>
+                    <li>Modest casual wear for village visits</li>
+                    <li>Traditional attire for Cultural Night</li>
+                  </ul>
+                </div>
+
+                <div className={styles.packingCol}>
+                  <h4><span>Sun &amp; weather</span><span className={styles.ct}>4</span></h4>
+                  <ul>
+                    <li className={styles.essential}>Sun hat with brim</li>
+                    <li className={styles.essential}>Sunglasses (UV)</li>
+                    <li className={styles.essential}>SPF 30+ sunscreen</li>
+                    <li>Lip balm with SPF</li>
+                  </ul>
+                </div>
+
+                <div className={styles.packingCol}>
+                  <h4><span>Personal</span><span className={styles.ct}>5</span></h4>
+                  <ul>
+                    <li>Refillable water bottle</li>
+                    <li>Personal medication (full course)</li>
+                    <li>Toiletries</li>
+                    <li>Power bank</li>
+                    <li>Universal adapter (Pakistan: Type C/D)</li>
+                  </ul>
+                </div>
+
+                <div className={styles.packingCol}>
+                  <h4><span>Work &amp; bring</span><span className={styles.ct}>4</span></h4>
+                  <ul>
+                    <li>Laptop &amp; charger</li>
+                    <li>Notebook + pen</li>
+                    <li>Headphones</li>
+                    <li>A snack or delicacy from your region (Cultural Night)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className={styles.packingNote}>
+                <span className={styles.l}>A note from the team</span>
+                Don't overpack. The valley does not judge wardrobe rotation. The thing you'll wish you'd brought is the warm layer at 9pm on the courtyard — everything else, we can sort.
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      {/* Remaining Logistics Cards */}
-      <section className={styles.logisticsSection}>
-        <div className="container">
-          {/* Connectivity Card */}
-          <article className={styles.cardItem}>
-            <div className={styles.cardEyebrow}>
-              <span className={styles.cardNumber}>NO. 11</span>
-              <span>CONNECTIVITY</span>
-            </div>
-            <h2 className={styles.cardTitle}>Wi-Fi yes, fast no.</h2>
-            <p className={styles.cardIntro}>Khoj has Wi-Fi, but connectivity in this part of Pakistan isn&rsquo;t always reliable or high-speed. Cellular signals from major telecom networks are generally available, and 3G/4G internet services also work in the area, though connectivity may vary depending on weather and network conditions.</p>
-            <div className={styles.colorSwatches}>
-              <div className={styles.swatch} style={{ backgroundColor: 'var(--alpine-deep)' }} aria-label="Alpine Deep"></div>
-              <div className={styles.swatch} style={{ backgroundColor: 'var(--alpine-soft)' }} aria-label="Alpine Soft"></div>
-              <div className={styles.swatch} style={{ backgroundColor: 'var(--clay)' }} aria-label="Clay"></div>
-              <div className={styles.swatch} style={{ backgroundColor: 'var(--ochre)' }} aria-label="Ochre"></div>
-              <div className={styles.swatch} style={{ backgroundColor: 'var(--parchment)' }} aria-label="Parchment"></div>
-            </div>
-            <div className={styles.cardDetails}>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>RESORT WI-FI</span>
-                <span className={styles.detailValue}>Available</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>MOBILE DATA</span>
-                <span className={styles.detailValue}>3G/4G works</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>PLAN TO BE</span>
-                <span className={styles.detailValue}>Offline-ish</span>
-              </div>
-            </div>
-          </article>
-
-          {/* Medical Card */}
-          <article className={styles.cardItem}>
-            <div className={styles.cardEyebrow}>
-              <span className={styles.cardNumber}>NO. 10</span>
-              <span>MEDICAL</span>
-            </div>
-            <h2 className={styles.cardTitle}>Covered.</h2>
-            <div className={styles.medicalIcon}>
-              <Heart className={styles.medicalIconSvg} aria-hidden="true" />
-            </div>
-            <p className={styles.cardIntro}>A first-aid kit travels with the team across all sessions and outdoor excursions. Basic medical facilities are available in Shigar, located around a 45-minute drive away, has larger healthcare facilities and hospitals as well.</p>
-            <div className={styles.cardDetails}>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>ON-SITE KIT</span>
-                <span className={styles.detailValue}>Basic care</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>SHIGAR FACILITY</span>
-                <span className={styles.detailValue}>5–10 min</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>SKARDU HOSPITAL</span>
-                <span className={styles.detailValue}>~45 min</span>
-              </div>
-            </div>
-          </article>
-
-          {/* Travel Arrangements Card */}
-          <article className={styles.cardItem}>
-            <div className={styles.cardEyebrow}>
-              <span className={styles.cardNumber}>NO. 09</span>
-              <span>TRAVEL ARRANGEMENTS</span>
-            </div>
-            <h2 className={styles.cardTitle}>Four steps to Khoj.</h2>
-            <p className={styles.cardIntro}>Your journey has four distinct stages. You handle the first; we handle the rest. Flight bookings have already been sent to your inbox.</p>
-
-            <div className={styles.stepFlow}>
-              <div className={styles.stepBox}>
-                <div className={styles.stepNumber}>STEP 01</div>
-                <div className={styles.stepLabel}>YOU</div>
-                <p className={styles.stepDesc}>Your home city → Get to your departure airport on your own</p>
-              </div>
-              <div className={styles.stepArrow} aria-hidden="true">→</div>
-
-              <div className={styles.stepBox}>
-                <div className={styles.stepNumber}>STEP 02</div>
-                <div className={styles.stepLabel}>WE&rsquo;VE BOOKED</div>
-                <p className={styles.stepDesc}>Flight to Skardu → Domestic flight, ticket already in your inbox</p>
-              </div>
-              <div className={styles.stepArrow} aria-hidden="true">→</div>
-
-              <div className={styles.stepBox}>
-                <div className={styles.stepNumber}>STEP 03</div>
-                <div className={styles.stepLabel}>WE PICK UP</div>
-                <p className={styles.stepDesc}>Skardu Airport → Ascender Adventures team meets the cohort</p>
-              </div>
-              <div className={styles.stepArrow} aria-hidden="true">→</div>
-
-              <div className={styles.stepBox}>
-                <div className={styles.stepNumber}>STEP 04</div>
-                <div className={styles.stepLabel}>WE DRIVE</div>
-                <p className={styles.stepDesc}>Khoj, Shigar → ~45-min transfer through the valley</p>
-              </div>
-            </div>
-
-            <a href="/travel" className={styles.cardLink}>FULL TRAVEL PAGE →</a>
-          </article>
-
-          {/* Packing List Card */}
-          <article className={styles.cardItem}>
-            <div className={styles.cardEyebrow}>
-              <span className={styles.cardNumber}>NO. 12</span>
-              <span>PACKING LIST</span>
-            </div>
-            <h2 className={styles.cardTitle}>What to throw in <em>the bag.</em></h2>
-            <p className={styles.cardIntro}>Pack for variable mountain weather. Warm sun by day, chilly mornings and evenings. Layers are essential. You&rsquo;ll have laundry service, so one week of clothing is overkill.</p>
-
-            <div className={styles.checklistGrid}>
-              <div className={styles.checklistColumn}>
-                <h3 className={styles.checklistColumnHeader}>CLOTHING</h3>
-                <div className={styles.checklistItem}>Hiking boots (closed-toe)</div>
-                <div className={styles.checklistItem}>Casual shoes or sandals</div>
-                <div className={styles.checklistItem}>3–4 days mixed clothing</div>
-                <div className={styles.checklistItem}>Merino wool base layers</div>
-                <div className={styles.checklistItem}>Fleece or wool jumper</div>
-                <div className={styles.checklistItem}>Windbreaker or rain jacket</div>
-              </div>
-
-              <div className={styles.checklistColumn}>
-                <h3 className={styles.checklistColumnHeader}>SUN & WEATHER</h3>
-                <div className={styles.checklistItem}>SPF 50+ sunscreen</div>
-                <div className={styles.checklistItem}>Sun hat with wide brim</div>
-                <div className={styles.checklistItem}>Sunglasses (UVA/UVB)</div>
-                <div className={styles.checklistItem}>Reusable water bottle</div>
-              </div>
-
-              <div className={styles.checklistColumn}>
-                <h3 className={styles.checklistColumnHeader}>PERSONAL</h3>
-                <div className={styles.checklistItem}>Toiletries & deodorant</div>
-                <div className={styles.checklistItem}>Medications (bring extra)</div>
-                <div className={styles.checklistItem}>Phone & chargers</div>
-                <div className={styles.checklistItem}>Comfortable sleep clothes</div>
-              </div>
-
-              <div className={styles.checklistColumn}>
-                <h3 className={styles.checklistColumnHeader}>WORK & BRING</h3>
-                <div className={styles.checklistItem}>Laptop & power adapter</div>
-                <div className={styles.checklistItem}>Notebook & pen</div>
-                <div className={styles.checklistItem}>Headphones</div>
-                <div className={styles.checklistItem}>Camera (optional)</div>
-              </div>
-            </div>
-
-            <div className={styles.packingNote}>
-              <strong>A note from the team:</strong> Don&rsquo;t overpack. The valley does not judge wardrobe rotation. The thing you&rsquo;ll wish you&rsquo;d brought is the warm layer at 9pm on the courtyard—everything else, we can sort.
-            </div>
-          </article>
-
+      {/* CTA */}
+      <section className={styles.ctaSection}>
+        <div className={`topo-bg topo-bg--on-dark ${styles.topoBg}`} aria-hidden="true"></div>
+        <div className="container" style={{ position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '64px', alignItems: 'center' }}>
+          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4.5vw, 64px)', color: 'var(--paper)', lineHeight: '1', letterSpacing: '-0.02em' }}>
+            Now, how do you<br />actually get there?
+          </h2>
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifySelf: 'end' }}>
+            <Link href="/travel" className="btn btn--ochre">Travel &amp; Logistics →</Link>
+            <Link href="/contact" className="btn btn--ghost-light">Contact the team</Link>
+          </div>
         </div>
       </section>
-
     </>
   );
 }
