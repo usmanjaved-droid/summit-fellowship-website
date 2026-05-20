@@ -34,3 +34,14 @@
 ✓ Compiled in 94ms
 ✓ Compiled in 71ms
 ✓ Compiled in 72ms
+ GET /venue 200 in 530ms (next.js: 136ms, application-code: 395ms)
+✓ Compiled in 76ms
+✓ Compiled in 84ms
+ GET /venue 200 in 767ms (next.js: 45ms, application-code: 721ms)
+✓ Compiled in 110ms
+✓ Compiled in 89ms
+✓ Compiled in 75ms
+✓ Compiled in 223ms
+✓ Compiled in 77ms
+✓ Compiled in 70ms
+✓ Compiled in 82ms

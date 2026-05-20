@@ -7,10 +7,12 @@ export const metadata = {
 };
 
 const SPACES = [
-  { num: '01', title: 'The Studio', desc: 'Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.' },
-  { num: '02', title: 'The Courtyard', desc: 'Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.' },
-  { num: '03', title: 'The Dining Hall', desc: 'One long table. Locally-sourced food. By Day 3, everyone has a permanent seat. By Day 6, no one wants to leave it.' },
-  { num: '04', title: 'The Orchard', desc: "A short walk from the main building. The default outdoor classroom for 1-on-1 clinics. The cohort's photo gets taken here on Day 6." },
+  { id: 'space-studio', num: '01', title: 'The Studio', desc: 'Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.' },
+  { id: 'space-courtyard', num: '02', title: 'The Courtyard', desc: 'Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.' },
+  { id: 'space-dining', num: '03', title: 'The Dining Hall', desc: 'One long table. Locally-sourced food. By Day 3, everyone has a permanent seat. By Day 6, no one wants to leave it.' },
+  { id: 'space-library', num: '04', title: 'The Library Lounge', desc: 'Fireplace, mismatched armchairs, surprisingly well-stocked shelves. Default home for fireside chats and post-dinner spillover.' },
+  { id: 'space-orchard', num: '05', title: 'The Orchard', desc: "A short walk from the main building. The default outdoor classroom for 1-on-1 clinics. The cohort's photo gets taken here on Day 6." },
+  { id: 'space-fort', num: '06', title: 'Off-site: Shigar Fort', desc: "15-minute drive. 17th-century Balti fort. Where the Lightning Talks happen on Day 2 — and where the photos every cohort posts come from." },
 ];
 
 export default function VenuePage() {
@@ -185,19 +187,87 @@ export default function VenuePage() {
         </div>
       </section>
 
+      {/* Gallery */}
+      <section className={styles.gallery} data-screen-label="Venue Gallery">
+        <div className="container">
+          <div className={styles.galleryHead}>
+            <div>
+              <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">Look around</span></div>
+              <h2>Khoj,<br /><em>in pictures.</em></h2>
+              <p>The valley does most of the work. Drag photos onto any tile to fill the gallery — they'll persist on the site automatically. Until then, the placeholders show where each shot will live.</p>
+            </div>
+            <div className={styles.galleryMeta}>
+              <span>Plate 01–07</span>
+              <span className={styles.v}>Shigar Valley · June</span>
+            </div>
+          </div>
+
+          <div className={styles.galGrid}>
+            <figure className={`${styles.galCell} ${styles.galHero}`}>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
+              <figcaption><span className={styles.n}>01</span>Khoj from the river bank</figcaption>
+            </figure>
+            <figure className={`${styles.galCell} ${styles.galTall}`}>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
+              <figcaption><span className={styles.n}>02</span>Light through the loft</figcaption>
+            </figure>
+            <figure className={`${styles.galCell} ${styles.galSq}`}>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
+              <figcaption><span className={styles.n}>03</span>River-View Loft Villa</figcaption>
+            </figure>
+            <figure className={`${styles.galCell} ${styles.galSq}`}>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
+              <figcaption><span className={styles.n}>04</span>The long table</figcaption>
+            </figure>
+            <figure className={`${styles.galCell} ${styles.galSq}`}>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
+              <figcaption><span className={styles.n}>05</span>The orchard walk</figcaption>
+            </figure>
+            <figure className={`${styles.galCell} ${styles.galPano}`}>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
+              <figcaption><span className={styles.n}>06</span>Looking east toward the Karakoram</figcaption>
+            </figure>
+            <figure className={`${styles.galCell} ${styles.galSq}`}>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
+              <figcaption><span className={styles.n}>07</span>The stone courtyard</figcaption>
+            </figure>
+          </div>
+
+          <div className={styles.galleryCredit}>
+            <span>Photography · drop your own or pull from <a href="https://www.khojresorts.com" target="_blank" rel="noopener noreferrer">khojresorts.com</a></span>
+            <span>The valley speaks for itself</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Fact Strip */}
+      <section className={styles.factStrip} style={{ background: 'var(--clay)', color: 'var(--paper)' }}>
+        <div className="topo-bg" aria-hidden="true"></div>
+        <div className="container">
+          <div className={styles.factStripGrid}>
+            <div className={styles.factStripCell}><span className={styles.factLabel}>Total spaces</span><span className={styles.factValue}>11 rooms</span></div>
+            <div className={styles.factStripCell}><span className={styles.factLabel}>Workshop capacity</span><span className={styles.factValue}>~30 people</span></div>
+            <div className={styles.factStripCell}><span className={styles.factLabel}>Wifi</span><span className={styles.factValue}>Yes — patchy</span></div>
+            <div className={styles.factStripCell}><span className={styles.factLabel}>Vibe</span><span className={styles.factValue}>Intentionally quiet</span></div>
+          </div>
+        </div>
+      </section>
+
       {/* Spaces */}
-      <section className={styles.spacesSection}>
+      <section className={styles.spaces} style={{ background: 'var(--paper-warm)' }}>
         <div className="container">
           <div className={styles.spacesHead}>
-            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">The spaces</span></div>
-            <h2>Four rooms.<br /><em>One valley.</em></h2>
-            <p>You'll move between these spaces over the week. Each was chosen for what it lets the group do, and for what it forbids — Khoj does not have a giant ballroom for a reason.</p>
+            <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">The spaces</span></div>
+            <h2>Five rooms.<br /><em>One valley.</em></h2>
+            <p>You'll move between these five spaces over the week. Each was chosen for what it lets the group do, and for what it forbids — Khoj does not have a giant ballroom for a reason.</p>
           </div>
+
           <div className={styles.spaceGrid}>
             {SPACES.map((s) => (
-              <article key={s.num} className={styles.spaceCard}>
-                <div className={styles.spaceCardImage}>
-                  <span className={styles.spaceCardNum}>{s.num}</span>
+              <article key={s.id} className={styles.spaceCard}>
+                <div className={styles.spaceCardMedia}>
+                  <div className={styles.spaceCardPlaceholder}></div>
+                  <span className={`${styles.spaceCardNum} ${styles.spaceCardNumOverlay}`}>{s.num}</span>
                 </div>
                 <div className={styles.spaceCardBody}>
                   <h3 className={styles.spaceCardTitle}>{s.title}</h3>
@@ -209,92 +279,256 @@ export default function VenuePage() {
         </div>
       </section>
 
+      {/* Quote */}
+      <section className={styles.venueQuote}>
+        <div className="container">
+          <blockquote>
+            "The work that happens here would not happen in Karachi or Lahore — for reasons that are obvious by Tuesday."
+          </blockquote>
+          <div className={styles.attr}>From a Vol. 00 alum</div>
+        </div>
+      </section>
+
       {/* Field Guide */}
-      <section className={styles.fieldGuideSection}>
+      <section className={styles.fieldGuide} data-screen-label="Venue Field Guide">
         <div className="container">
           <div className={styles.fieldGuideHead}>
-            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Practical Details</span></div>
-            <h2>Everything you<br /><em>need to know.</em></h2>
+            <div>
+              <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">The field guide</span></div>
+              <h2>What you need<br />to know <em>on the ground.</em></h2>
+            </div>
+            <div className={styles.fieldGuideHeadMeta}>
+              <span>Vol. 01 · Section 02</span>
+              <span className={styles.v}>Updated May 2026</span>
+            </div>
           </div>
 
-          <div className={styles.fieldGuideGrid}>
-            {/* Weather */}
-            <article className={styles.fieldGuideCard}>
-              <div className={styles.fieldGuideNum}>01</div>
-              <h3 className={styles.fieldGuideTitle}>Weather in June</h3>
-              <p>Dry, sunny days with 9–10 hours of daily sunshine. Daytime temperatures range from 20–30°C. Mornings and evenings are noticeably cooler (10–15°C), so layering is essential.</p>
-              <div className={styles.fieldGuideFacts}>
-                <div className={styles.factRow}><span>Daytime</span><strong>20–30°C</strong></div>
-                <div className={styles.factRow}><span>Evenings</span><strong>10–15°C</strong></div>
-                <div className={styles.factRow}><span>Sunshine</span><strong>9–10 hrs/day</strong></div>
-                <div className={styles.factRow}><span>Rainy days</span><strong>~4/month</strong></div>
+          <nav className={styles.fgNav} aria-label="Field guide sections">
+            <a href="#fg-weather"><span className={styles.n}>07</span>Weather</a>
+            <a href="#fg-rooms"><span className={styles.n}>08</span>Rooms</a>
+            <a href="#fg-travel"><span className={styles.n}>09</span>Travel</a>
+            <a href="#fg-medical"><span className={styles.n}>10</span>Medical</a>
+            <a href="#fg-signal"><span className={styles.n}>11</span>Connectivity</a>
+            <a href="#fg-packing"><span className={styles.n}>12</span>Packing</a>
+          </nav>
+
+          <div className={styles.fgGrid}>
+            {/* 07 · Weather (featured) */}
+            <article className={`${styles.fgCard} ${styles.fgCardFeature}`} id="fg-weather">
+              <div className="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
+              <div className={styles.fgCardNum}>No. 07 · Weather in June</div>
+              <h3 className={styles.fgCardTitle}>Warm sun, cool nights, clear sky.</h3>
+              <div className={styles.fgCardBody}>
+                <p>June is one of the most favourable months for Shigar. Days are dry and bright with strong mountain sun. Mornings and evenings cool down sharply. Karakoram visibility is typically excellent.</p>
+              </div>
+
+              <div className={styles.weatherViz}>
+                <div className={styles.weatherCell}>
+                  <div className={styles.weatherCellHead}>
+                    <svg className={styles.weatherIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                      <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                    </svg>
+                    Daytime
+                  </div>
+                  <div className={styles.weatherCellTemp}>20–30<span className={styles.unit}>°C</span></div>
+                  <div className={styles.weatherCellNote}>Strong sun. Open areas feel hotter — sun protection essential.</div>
+                </div>
+                <div className={styles.weatherCell}>
+                  <div className={styles.weatherCellHead}>
+                    <svg className={styles.weatherIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    Evening &amp; early morning
+                  </div>
+                  <div className={styles.weatherCellTemp}>10–15<span className={styles.unit}>°C</span></div>
+                  <div className={styles.weatherCellNote}>Bring at least one warm layer. Pleasant after sunset.</div>
+                </div>
+              </div>
+
+              <div className={styles.weatherBar} aria-hidden="true">
+                <div className={styles.weatherBarTrack}>
+                  <div className={styles.weatherBarRange}></div>
+                </div>
+                <div className={styles.weatherBarTick} style={{ left: '25%' }}></div>
+                <div className={styles.weatherBarTick} style={{ left: '75%' }}></div>
+                <div className={styles.weatherBarLabel} style={{ left: '25%' }}>10°</div>
+                <div className={styles.weatherBarLabel} style={{ left: '75%' }}>30°</div>
+              </div>
+              <div className={styles.weatherScale}>
+                <span>0°C</span><span>10°C</span><span>20°C</span><span>30°C</span><span>40°C</span>
               </div>
             </article>
 
-            {/* Rooms */}
-            <article className={styles.fieldGuideCard}>
-              <div className={styles.fieldGuideNum}>02</div>
-              <h3 className={styles.fieldGuideTitle}>Room Allocation</h3>
-              <p>All fellows are accommodated in triple-sharing rooms with two other fellows of the same gender. Each room has one bed on the ground floor and two beds in a loft area above.</p>
-              <div className={styles.fieldGuideFacts}>
-                <div className={styles.factRow}><span>Configuration</span><strong>3 per room</strong></div>
-                <div className={styles.factRow}><span>Beds</span><strong>1 ground + 2 loft</strong></div>
-                <div className={styles.factRow}><span>Bathroom</span><strong>Ensuite</strong></div>
-                <div className={styles.factRow}><span>Wi-Fi</span><strong>Available</strong></div>
+            {/* 08 · Rooms */}
+            <article className={`${styles.fgCard} ${styles.fgCardRooms}`} id="fg-rooms">
+              <div className={styles.fgCardNum}>No. 08 · Room allocation</div>
+              <h3 className={styles.fgCardTitle}>Loft villa, triple sharing.</h3>
+              <div className={styles.fgCardBody}>
+                <p>Fellows are accommodated in Khoj's River-View Loft Villas. Each room sleeps three of the same gender — one bed on the ground floor, two on the loft. Sort the bunk politics among yourselves.</p>
+              </div>
+
+              <div className={styles.roomsDiagram} aria-hidden="true">
+                <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 20 60 L 100 15 L 180 60 L 180 145 L 20 145 Z" fill="none" stroke="#142734" strokeWidth="1.5"/>
+                  <line x1="20" y1="85" x2="180" y2="85" stroke="#142734" strokeWidth="1" strokeDasharray="3 3"/>
+                  <rect x="38" y="68" width="46" height="14" fill="#d4a574" opacity="0.85"/>
+                  <rect x="116" y="68" width="46" height="14" fill="#d4a574" opacity="0.85"/>
+                  <text x="61" y="63" fontFamily="JetBrains Mono" fontSize="6" fill="#142734" textAnchor="middle" letterSpacing="1">LOFT 1</text>
+                  <text x="139" y="63" fontFamily="JetBrains Mono" fontSize="6" fill="#142734" textAnchor="middle" letterSpacing="1">LOFT 2</text>
+                  <line x1="100" y1="85" x2="100" y2="130" stroke="#8a4a3b" strokeWidth="1"/>
+                  <line x1="96" y1="92" x2="104" y2="92" stroke="#8a4a3b" strokeWidth="1"/>
+                  <line x1="96" y1="104" x2="104" y2="104" stroke="#8a4a3b" strokeWidth="1"/>
+                  <line x1="96" y1="116" x2="104" y2="116" stroke="#8a4a3b" strokeWidth="1"/>
+                  <rect x="35" y="120" width="55" height="16" fill="#8a4a3b" opacity="0.9"/>
+                  <text x="62" y="116" fontFamily="JetBrains Mono" fontSize="6" fill="#142734" textAnchor="middle" letterSpacing="1">GROUND</text>
+                  <rect x="140" y="118" width="20" height="27" fill="none" stroke="#142734" strokeWidth="1"/>
+                  <circle cx="156" cy="132" r="0.8" fill="#142734"/>
+                  <rect x="120" y="95" width="14" height="14" fill="none" stroke="#142734" strokeWidth="0.8"/>
+                  <line x1="127" y1="95" x2="127" y2="109" stroke="#142734" strokeWidth="0.5"/>
+                  <line x1="120" y1="102" x2="134" y2="102" stroke="#142734" strokeWidth="0.5"/>
+                </svg>
+              </div>
+
+              <div className={styles.roomsList}>
+                <div className={styles.roomsListRow}><span>Beds per room</span><span className={styles.v}>3</span></div>
+                <div className={styles.roomsListRow}><span>Sharing</span><span className={styles.v}>Same gender</span></div>
+                <div className={styles.roomsListRow}><span>Layout</span><span className={styles.v}>1 ground + 2 loft</span></div>
+              </div>
+
+              <a className={styles.fgCardLink} href="https://www.khojresorts.com/river-view-loft-villa" target="_blank" rel="noopener noreferrer">See villa details</a>
+            </article>
+
+            {/* 09 · Travel arrangements */}
+            <article className={`${styles.fgCard} ${styles.fgCardTravel}`} id="fg-travel">
+              <div className={styles.fgCardNum}>No. 09 · Travel arrangements</div>
+              <h3 className={styles.fgCardTitle}>We fly you to Skardu. You handle the airport.</h3>
+              <div className={styles.fgCardBody}>
+                <p>All fellows have flight bookings from their respective cities. You're responsible for getting to your <strong>departure airport</strong> in your home city; our logistics team — coordinated with Ascender Adventures — picks you up at <strong>Skardu airport</strong> and drives the group to Shigar. Return is mirrored.</p>
+              </div>
+
+              <div className={styles.travelFlow}>
+                <div className={styles.travelFlowStep}>
+                  <div className={styles.n}>Step 01 · You</div>
+                  <div className={styles.t}>Your home city</div>
+                  <div className={styles.s}>Get to your departure airport on your own.</div>
+                </div>
+                <div className={styles.travelFlowStep}>
+                  <div className={styles.n}>Step 02 · We've booked</div>
+                  <div className={styles.t}>Flight to Skardu</div>
+                  <div className={styles.s}>Domestic flight, ticket already in your inbox.</div>
+                </div>
+                <div className={styles.travelFlowStep}>
+                  <div className={styles.n}>Step 03 · We pick up</div>
+                  <div className={styles.t}>Skardu Airport</div>
+                  <div className={styles.s}>Ascender Adventures team meets the cohort.</div>
+                </div>
+                <div className={styles.travelFlowStep}>
+                  <div className={styles.n}>Step 04 · We drive</div>
+                  <div className={styles.t}>Khoj, Shigar</div>
+                  <div className={styles.s}>~45-min transfer through the valley.</div>
+                </div>
+              </div>
+
+              <a className={styles.fgCardLink} href="/travel">Full travel page</a>
+            </article>
+
+            {/* 10 · Medical */}
+            <article className={`${styles.fgCard} ${styles.fgCardMedical}`} id="fg-medical">
+              <div className={styles.fgCardNum}>No. 10 · Medical</div>
+              <h3 className={styles.fgCardTitle}>Covered.</h3>
+              <svg className={styles.medCross} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.4">
+                <rect x="18" y="6" width="12" height="36" rx="1.5"/>
+                <rect x="6" y="18" width="36" height="12" rx="1.5"/>
+              </svg>
+              <div className={styles.fgCardBody} style={{ marginTop: 12 }}>
+                <p>A first-aid kit travels with the team across all sessions and outdoor excursions.</p>
+              </div>
+              <ul className={styles.fgCardSublist}>
+                <li><span>On-site kit</span><span className={styles.v}>Always</span></li>
+                <li><span>Shigar facility</span><span className={styles.v}>Basic care</span></li>
+                <li><span>Skardu hospital</span><span className={styles.v}>~45 min</span></li>
+              </ul>
+            </article>
+
+            {/* 11 · Connectivity */}
+            <article className={`${styles.fgCard} ${styles.fgCardSignal}`} id="fg-signal">
+              <div className={styles.fgCardNum}>No. 11 · Connectivity</div>
+              <h3 className={styles.fgCardTitle}>Wi-Fi yes, fast no.</h3>
+              <div className={styles.signalViz} aria-hidden="true" title="Reliability: variable">
+                <div className={styles.bar + ' ' + styles.barOn}></div>
+                <div className={styles.bar + ' ' + styles.barOn}></div>
+                <div className={`${styles.bar} ${styles.barOn} ${styles.barMid}`}></div>
+                <div className={styles.bar}></div>
+                <div className={styles.bar}></div>
+              </div>
+              <div className={styles.fgCardBody}>
+                <p>Khoj has Wi-Fi, but connectivity in this part of Pakistan isn't always reliable or fast. Cellular coverage from major networks is generally available; 3G/4G works but varies with weather.</p>
+              </div>
+              <ul className={styles.fgCardSublist}>
+                <li><span>Resort Wi-Fi</span><span className={styles.v}>Available</span></li>
+                <li><span>Mobile data</span><span className={styles.v}>3G / 4G</span></li>
+                <li><span>Plan to be</span><span className={styles.v}>Offline-ish</span></li>
+              </ul>
+            </article>
+
+            {/* 12 · Packing */}
+            <article className={`${styles.fgCard} ${styles.fgCardPacking}`} id="fg-packing">
+              <div className={styles.fgCardNum}>No. 12 · Packing list</div>
+              <h3 className={styles.fgCardTitle}>What to throw in <em style={{ fontStyle: 'italic', color: 'var(--clay)' }}>the bag.</em></h3>
+              <div className={styles.fgCardBody} style={{ maxWidth: '60ch' }}>
+                <p>Pack for the weather in <a href="#fg-weather" style={{ color: 'var(--clay)', textDecoration: 'underline', textDecorationThickness: 1, textUnderlineOffset: 3 }}>Section 07</a>. Days are warm, evenings get chilly — at least one warm layer is non-negotiable. Sun protection during the day is the other non-negotiable.</p>
+              </div>
+
+              <div className={styles.packingGrid}>
+                <div className={styles.packingCol}>
+                  <h4><span>Clothing</span><span className={styles.ct}>5</span></h4>
+                  <ul>
+                    <li className={styles.essential}>One warm layer (fleece / light jacket)</li>
+                    <li>Light, breathable daywear</li>
+                    <li>Comfortable walking shoes</li>
+                    <li>Modest casual wear for village visits</li>
+                    <li>Traditional attire for Cultural Night</li>
+                  </ul>
+                </div>
+
+                <div className={styles.packingCol}>
+                  <h4><span>Sun &amp; weather</span><span className={styles.ct}>4</span></h4>
+                  <ul>
+                    <li className={styles.essential}>Sun hat with brim</li>
+                    <li className={styles.essential}>Sunglasses (UV)</li>
+                    <li className={styles.essential}>SPF 30+ sunscreen</li>
+                    <li>Lip balm with SPF</li>
+                  </ul>
+                </div>
+
+                <div className={styles.packingCol}>
+                  <h4><span>Personal</span><span className={styles.ct}>5</span></h4>
+                  <ul>
+                    <li>Refillable water bottle</li>
+                    <li>Personal medication (full course)</li>
+                    <li>Toiletries</li>
+                    <li>Power bank</li>
+                    <li>Universal adapter (Pakistan: Type C/D)</li>
+                  </ul>
+                </div>
+
+                <div className={styles.packingCol}>
+                  <h4><span>Work &amp; bring</span><span className={styles.ct}>4</span></h4>
+                  <ul>
+                    <li>Laptop &amp; charger</li>
+                    <li>Notebook + pen</li>
+                    <li>Headphones</li>
+                    <li>A snack or delicacy from your region (Cultural Night)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className={styles.packingNote}>
+                <span className={styles.l}>A note from the team</span>
+                Don't overpack. The valley does not judge wardrobe rotation. The thing you'll wish you'd brought is the warm layer at 9pm on the courtyard — everything else, we can sort.
               </div>
             </article>
 
-            {/* Medical */}
-            <article className={styles.fieldGuideCard}>
-              <div className={styles.fieldGuideNum}>03</div>
-              <h3 className={styles.fieldGuideTitle}>Medical Assistance</h3>
-              <p>A first-aid kit travels with the team across all sessions. Basic medical facilities are in Shigar (~5–10 min away). Skardu has larger hospitals (~45 min away) for emergencies.</p>
-              <div className={styles.fieldGuideFacts}>
-                <div className={styles.factRow}><span>On-site</span><strong>First-aid kit</strong></div>
-                <div className={styles.factRow}><span>Shigar clinic</span><strong>5–10 min</strong></div>
-                <div className={styles.factRow}><span>Skardu hospital</span><strong>~45 min</strong></div>
-                <div className={styles.factRow}><span>Coverage</span><strong>Basic care</strong></div>
-              </div>
-            </article>
-
-            {/* Connectivity */}
-            <article className={styles.fieldGuideCard}>
-              <div className={styles.fieldGuideNum}>04</div>
-              <h3 className={styles.fieldGuideTitle}>Internet & Phone</h3>
-              <p>Khoj has Wi-Fi available but connectivity is not guaranteed to be fast or continuous. Cellular signals from major providers are generally available. Download important documents before arrival.</p>
-              <div className={styles.fieldGuideFacts}>
-                <div className={styles.factRow}><span>Wi-Fi</span><strong>Variable speed</strong></div>
-                <div className={styles.factRow}><span>Mobile signal</span><strong>3G/4G available</strong></div>
-                <div className={styles.factRow}><span>Best spots</span><strong>Main building</strong></div>
-                <div className={styles.factRow}><span>Mindset</span><strong>Embrace offline</strong></div>
-              </div>
-            </article>
-
-            {/* Travel */}
-            <article className={styles.fieldGuideCard}>
-              <div className={styles.fieldGuideNum}>05</div>
-              <h3 className={styles.fieldGuideTitle}>Travel Arrangements</h3>
-              <p>Your journey has four stages: get to your departure airport, fly to Skardu (ticket in your inbox), airport pickup by Ascender Adventures, and ~45-min drive to Khoj through the valley.</p>
-              <div className={styles.fieldGuideFacts}>
-                <div className={styles.factRow}><span>Step 1</span><strong>You get to airport</strong></div>
-                <div className={styles.factRow}><span>Step 2</span><strong>Flight to Skardu</strong></div>
-                <div className={styles.factRow}><span>Step 3</span><strong>Airport pickup</strong></div>
-                <div className={styles.factRow}><span>Step 4</span><strong>Drive to Khoj</strong></div>
-              </div>
-            </article>
-
-            {/* Packing */}
-            <article className={styles.fieldGuideCard}>
-              <div className={styles.fieldGuideNum}>06</div>
-              <h3 className={styles.fieldGuideTitle}>Packing List</h3>
-              <p>Pack for variable mountain weather. Warm sun by day, chilly mornings and evenings. Layers are essential. You'll have laundry service, so one week of clothing is overkill.</p>
-              <div className={styles.fieldGuideFacts}>
-                <div className={styles.factRow}><span>Essentials</span><strong>Layers, sun protection</strong></div>
-                <div className={styles.factRow}><span>Footwear</span><strong>Hiking boots, sandals</strong></div>
-                <div className={styles.factRow}><span>Clothing</span><strong>3–4 days worth</strong></div>
-                <div className={styles.factRow}><span>Tech</span><strong>Chargers, laptop</strong></div>
-              </div>
-            </article>
           </div>
         </div>
       </section>

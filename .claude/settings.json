@@ -103,7 +103,10 @@
       "Bash(head -n 175 \"d:\\\\Summit Fellowship Website\\\\app\\\\venue\\\\page.tsx\")",
       "Bash(mv \"/tmp/venue_page_temp.tsx\" \"d:\\\\Summit Fellowship Website\\\\app\\\\venue\\\\page.tsx\")",
       "Bash(git pull *)",
-      "Bash(cd \"d:\\\\Summit Fellowship Website\" && git show e941064:app/venue/page.tsx > /tmp/venue-full.tsx && head -100 /tmp/venue-full.tsx)"
+      "Bash(cd \"d:\\\\Summit Fellowship Website\" && git show e941064:app/venue/page.tsx > /tmp/venue-full.tsx && head -100 /tmp/venue-full.tsx)",
+      "Bash(curl -s \"https://api.anthropic.com/v1/design/h/TOMZbzGcCxu3JmLJQEQLKA?open_file=venue.html\" -o design.tar.gz)",
+      "Bash(curl -s \"https://api.anthropic.com/v1/design/h/TOMZbzGcCxu3JmLJQEQLKA?open_file=venue.html\" -o design.zip)",
+      "Bash(unzip -l design.zip)"
     ],
     "deny": [
       "Bash(rm -rf /)",
