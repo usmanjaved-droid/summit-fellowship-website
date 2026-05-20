@@ -1,884 +1,308 @@
-/* Hero Section with Image */
-.pageHeroImage {
-  background-image: url(/images/venue/Khoj%20Resort%20main%20page.jpg) !important;
+/* Venue Page Styles */
+
+/* === Page Hero === */
+.pageHero {
+  padding: 100px 0;
+  background: var(--alpine-deep);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  color: var(--parchment);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
-.pageHeroOverlay {
+.pageHero .topoBg {
+  opacity: 0.12;
+}
+
+.heroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(20, 39, 52, 0.7) 0%, rgba(20, 39, 52, 0.5) 35%, rgba(20, 39, 52, 0.2) 65%, transparent 100%);
-}
-
-.pageHeroInnerWrapper {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  background: rgba(20, 39, 52, 0.5);
   z-index: 1;
-  text-align: left;
-  max-width: 600px;
-  padding-left: 60px;
 }
 
-.pageHeroTitle {
-  font-size: clamp(48px, 8vw, 90px);
-  color: var(--paper);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.pageHeroSubtitle {
-  color: var(--parchment);
-  font-size: clamp(16px, 2vw, 20px);
-}
-
-/* Venue Intro Image */
-.venueIntroImage {
-  background-image: url(/images/venue/khoj%204.jpg);
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(20, 39, 52, 0.15);
-  min-height: 500px;
-}
-
-/* Weather Section */
-.weatherSection {
-  background: var(--alpine-deep);
-  padding: 100px 0;
-  margin-top: 60px;
-}
-
-.weatherHead {
-  max-width: 900px;
-  margin-bottom: 80px;
-}
-
-.weatherEyebrow {
-  display: flex;
-  gap: 12px;
-  align-items: baseline;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  color: var(--ochre);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.weatherNumber {
-  font-weight: 600;
-}
-
-.weatherTitle {
-  font-family: var(--serif);
-  font-size: clamp(42px, 5vw, 64px);
-  color: var(--parchment);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  margin-bottom: 20px;
-}
-
-.weatherIntro {
-  font-size: 16px;
-  color: var(--parchment);
-  line-height: 1.6;
-  max-width: 700px;
-}
-
-.weatherCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.weatherCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 32px;
-  backdrop-filter: blur(10px);
-}
-
-.weatherCardIcon {
-  margin-bottom: 20px;
-}
-
-.weatherCardIconSvg {
-  width: 32px;
-  height: 32px;
-  color: var(--ochre);
-  stroke-width: 1.5;
-}
-
-.weatherCardLabel {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--ochre);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.weatherCardTemp {
-  font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 400;
-  color: var(--parchment);
-  line-height: 1;
-  margin-bottom: 16px;
-}
-
-.weatherCardDesc {
-  font-size: 15px;
-  color: var(--parchment);
-  line-height: 1.5;
-  margin: 0;
-  opacity: 0.85;
-}
-
-.temperatureSlider {
-  margin-top: 60px;
-}
-
-.sliderTrack {
+.pageHero .container {
   position: relative;
-  height: 8px;
-  background: linear-gradient(to right, rgba(212, 165, 116, 0.2) 0%, rgba(212, 165, 116, 0.2) 100%);
-  border-radius: 4px;
-  margin-bottom: 12px;
+  z-index: 2;
 }
 
-.sliderFill {
-  position: absolute;
-  height: 8px;
-  background: linear-gradient(to right, rgba(212, 165, 116, 0.5), var(--ochre));
-  border-radius: 4px;
-  top: 0;
-}
-
-.sliderMarker {
-  position: absolute;
-  top: 50%;
-  width: 2px;
-  height: 16px;
-  background: var(--parchment);
-  transform: translateY(-50%);
-}
-
-.sliderLabels {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--parchment);
-  opacity: 0.6;
-}
-
-/* Responsive */
-@media (max-width: 1023px) {
-  .weatherSection {
-    padding: 80px 0;
-  }
-
-  .weatherHead {
-    margin-bottom: 60px;
-  }
-
-  .weatherTitle {
-    font-size: clamp(36px, 4vw, 48px);
-  }
-
-  .weatherCards {
-    gap: 24px;
-    margin-bottom: 40px;
-  }
-
-  .weatherCard {
-    padding: 24px;
-  }
-
-  .weatherCardTemp {
-    font-size: clamp(28px, 3vw, 40px);
-  }
-}
-
-@media (max-width: 640px) {
-  .weatherSection {
-    padding: 60px 0;
-  }
-
-  .weatherHead {
-    margin-bottom: 40px;
-  }
-
-  .weatherTitle {
-    font-size: 32px;
-  }
-
-  .weatherIntro {
-    font-size: 15px;
-  }
-
-  .weatherCards {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
-  .weatherCard {
-    padding: 20px;
-  }
-
-  .weatherCardIcon {
-    margin-bottom: 16px;
-  }
-
-  .weatherCardTemp {
-    font-size: 32px;
-  }
-
-  .weatherCardDesc {
-    font-size: 14px;
-  }
-
-  .sliderLabels {
-    font-size: 12px;
-  }
-}
-
-/* Logistics Sections */
-.logisticsSection {
-  background: var(--paper);
-  padding: 80px 0;
-  margin-top: 60px;
-}
-
-/* Two Column Layout */
-.twoColumnSection {
+.pageHeroMeta {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: flex-start;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 64px;
 }
 
-.weatherColumn {
+.pageHeroMetaItem {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
 }
 
-.logisticsHead {
-  margin-bottom: 60px;
-  text-align: center;
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ochre-pale);
 }
 
-.logisticsHead h2 {
-  font-family: var(--serif);
-  font-size: clamp(36px, 4vw, 56px);
-  color: var(--alpine-deep);
-  letter-spacing: -0.02em;
-  margin: 20px 0;
-  line-height: 1.1;
-}
-
-.logisticsHead em {
-  font-style: italic;
-  color: var(--ochre);
-}
-
-/* Logistics Card Layout */
-.logisticsCard {
-  margin-bottom: 60px;
-  padding: 48px 40px;
-  background: var(--paper-cool);
-  border: 1px solid var(--line-soft);
-  border-radius: 8px;
-  border-left: 6px solid var(--ochre);
-  border-top: 4px solid var(--ochre);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.logisticsCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(20, 39, 52, 0.08);
-}
-
-.logisticsCardInner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-.logisticsCardLeft h3 {
-  font-family: var(--serif);
-  font-size: 24px;
-  color: var(--alpine-deep);
-  margin-bottom: 24px;
-  font-weight: 400;
+.value {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--paper);
   line-height: 1.2;
 }
 
-.logisticsCardLeft p {
-  font-size: 16px;
-  color: var(--ink);
-  line-height: 1.6;
-  margin-bottom: 20px;
+@media (max-width: 1023px) {
+  .pageHeroMeta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
 }
 
-.logisticsCardLeft p:last-child {
-  margin-bottom: 0;
+@media (max-width: 640px) {
+  .pageHeroMeta {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
-.logisticsCardLeft strong {
+/* === Venue Intro === */
+.venueIntro {
+  padding: 120px 0;
+  background: var(--paper);
+  position: relative;
+}
+
+.venueIntroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.venueIntroCopy h2 {
+  font-size: clamp(48px, 6vw, 96px);
   color: var(--alpine-deep);
-  font-weight: 500;
-}
-
-.logisticsCardRight {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* Highlight Box for Key Facts */
-.highlightBox {
-  padding: 24px;
-  background: var(--ochre-pale);
-  border-left: 4px solid var(--ochre-deep);
-  border-radius: 4px;
-  font-family: var(--serif);
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--alpine-deep);
-  line-height: 1.5;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Facts List */
-.factsList {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.factsItem {
-  font-size: 15px;
-  color: var(--ink-soft);
-  line-height: 1.5;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--line-soft);
-}
-
-.factsItem:last-child {
-  border-bottom: none;
-}
-
-/* Checklist Section */
-.checklistSection {
-  padding: 16px;
-  background: rgba(212, 165, 116, 0.08);
-  border-radius: 4px;
-}
-
-.checklistSection strong {
-  display: block;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ochre);
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-/* Checklist Item */
-.checklistItem {
-  font-size: 14px;
-  color: var(--ink);
-  line-height: 1.6;
-  margin-bottom: 8px;
-  padding: 6px 0;
-  font-family: var(--sans);
-}
-
-.checklistItem:last-child {
-  margin-bottom: 0;
-}
-
-/* New Card Item Styles */
-.cardItem {
-  background: var(--paper-cool);
-  border: 1px solid var(--line-soft);
-  border-radius: 8px;
-  padding: 40px;
-  margin-bottom: 40px;
-}
-
-.cardEyebrow {
-  display: flex;
-  gap: 12px;
-  align-items: baseline;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  color: var(--ochre);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.cardNumber {
-  font-weight: 600;
-  display: block;
-}
-
-.cardTitle {
-  font-family: var(--serif);
-  font-size: clamp(24px, 4vw, 48px);
-  color: var(--alpine-deep);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  margin-bottom: 16px;
-}
-
-.cardTitle em {
-  font-style: italic;
-  color: var(--ochre);
-}
-
-.cardIntro {
-  font-size: 16px;
-  color: var(--ink);
-  line-height: 1.6;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
   margin-bottom: 32px;
 }
 
-.cardVisual {
-  margin: 32px 0;
-  background: rgba(212, 165, 116, 0.08);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  padding: 20px;
+.venueIntroCopy h2 em {
+  color: var(--clay);
+  font-style: italic;
 }
 
-.roomDiagram {
-  width: 100%;
-  height: auto;
-  max-width: 400px;
+.venueIntroCopy p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
 }
 
-/* Detail Rows */
-.detailRow {
+.venueIntroImageSlot {
+  aspect-ratio: 4/5;
+  background: var(--paper-warm);
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+.venueIntroImageSlot figcaption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(20, 39, 52, 0.6);
+  padding: 8px 12px;
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 1023px) {
+  .venueIntroGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* === Map Section === */
+.mapSection {
+  padding: 100px 0;
+  background: var(--alpine-deep);
+  color: var(--parchment);
+  position: relative;
+  overflow: hidden;
+}
+
+.mapSection .topoBg {
+  opacity: 0.10;
+}
+
+.mapSectionHead {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line-soft);
-  align-items: center;
+  gap: 64px;
+  margin-bottom: 48px;
 }
 
-.detailRow:last-child {
-  border-bottom: none;
+.mapSectionHead h2 {
+  font-size: clamp(40px, 5vw, 72px);
+  color: var(--paper);
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
-.detailLabel {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+.mapSectionHead h2 em {
   color: var(--ochre);
-  text-transform: uppercase;
+  font-style: italic;
 }
 
-.detailValue {
-  font-size: 15px;
-  color: var(--ink);
-  font-weight: 500;
-  text-align: right;
+.mapSectionHead p {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--parchment);
+  opacity: 0.85;
+  max-width: 48ch;
 }
 
-.cardDetails {
-  margin-top: 24px;
+@media (max-width: 900px) {
+  .mapSectionHead {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 }
 
-/* Color Swatches */
-.colorSwatches {
+.mapFrame {
+  background: #0a1820;
+  border: 1px solid rgba(232, 226, 213, 0.16);
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.mapFrame svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mapLegend {
   display: flex;
-  gap: 12px;
-  margin: 24px 0;
-  padding: 20px;
-  background: rgba(212, 165, 116, 0.08);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
   flex-wrap: wrap;
-}
-
-.swatch {
-  width: 56px;
-  height: 56px;
-  border-radius: 4px;
-  border: 1px solid var(--line);
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
-  cursor: pointer;
-}
-
-.swatch:hover {
-  transform: scale(1.05);
-}
-
-/* Medical Icon */
-.medicalIcon {
-  margin: 24px 0;
-  display: flex;
-  justify-content: center;
-}
-
-.medicalIconSvg {
-  width: 48px;
-  height: 48px;
-  color: var(--clay);
-  stroke-width: 1.5;
-}
-
-.cardLink {
-  color: var(--ochre);
-  font-family: var(--mono);
+  gap: 24px;
+  font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 20px;
-  transition: color 0.3s ease;
+  color: var(--parchment);
 }
 
-.cardLink:hover {
-  color: var(--ochre-deep);
-}
-
-/* Step Flow (Travel Card) */
-.stepFlow {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin: 40px 0;
+.mapLegendItem {
+  display: flex;
   align-items: center;
+  gap: 8px;
 }
 
-.stepBox {
-  background: rgba(212, 165, 116, 0.08);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  padding: 24px 16px;
-  text-align: center;
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ochre);
+  border-radius: 50%;
+  background: transparent;
 }
 
-.stepNumber {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: var(--ochre);
+.legendDotSolid {
+  background: var(--ochre);
+}
+
+.legendLine {
+  width: 24px;
+  height: 2px;
+  background: var(--ochre);
+  background-image: linear-gradient(90deg, var(--ochre) 50%, transparent 50%);
+  background-size: 8px 2px;
+}
+
+/* === Map SVG Animations === */
+.mapPulse {
+  animation: pulse 2.4s ease-out infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+    r: 6;
+  }
+  100% {
+    opacity: 0;
+    r: 24;
+  }
+}
+
+.mapDash {
+  stroke-dasharray: 6 6;
+  animation: dash 30s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -240;
+  }
+}
+
+.mapLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  display: block;
-  margin-bottom: 8px;
+  fill: var(--parchment);
 }
 
-.stepLabel {
-  font-family: var(--serif);
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--alpine-deep);
-  display: block;
-  margin-bottom: 12px;
+.mapLabelOchre {
+  fill: var(--ochre);
 }
 
-.stepDesc {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.5;
-  margin: 0;
+.mapLabelLg {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  fill: var(--paper);
 }
 
-.stepArrow {
-  display: none;
-  text-align: center;
-  color: var(--ochre);
-  font-size: 20px;
+/* === Utility Classes === */
+.topoBg {
+  position: absolute;
+  inset: 0;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--paper-warm) 0%,
+    var(--paper) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-mute);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   opacity: 0.6;
-}
-
-/* Checklist Grid (Packing Card) */
-.checklistGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin: 40px 0;
-}
-
-.checklistColumn {
-  background: rgba(212, 165, 116, 0.08);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  padding: 20px;
-}
-
-.checklistColumnHeader {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: var(--ochre);
-  text-transform: uppercase;
-  margin: 0 0 16px 0;
-  display: block;
-}
-
-.checklistGrid .checklistItem {
-  font-size: 14px;
-  color: var(--ink);
-  line-height: 1.5;
-  padding: 6px 0;
-  border-bottom: 1px solid var(--line-soft);
-  margin-bottom: 6px;
-}
-
-.checklistGrid .checklistItem:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.packingNote {
-  background: var(--ochre-pale);
-  border-left: 4px solid var(--ochre-deep);
-  border-radius: 4px;
-  padding: 20px;
-  font-size: 15px;
-  color: var(--alpine-deep);
-  line-height: 1.6;
-  margin-top: 40px;
-}
-
-.packingNote strong {
-  font-weight: 600;
-  display: block;
-  margin-bottom: 8px;
-}
-
-/* Tablet: Responsive layout */
-@media (max-width: 1023px) {
-  .pageHeroImage {
-    background-attachment: scroll;
-    min-height: 500px;
-  }
-
-  .venueIntroImage {
-    min-height: 400px;
-    margin-top: 32px;
-  }
-
-  .logisticsCard {
-    padding: 32px 24px;
-    margin-bottom: 40px;
-  }
-
-  .logisticsCardInner {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .logisticsCardLeft h3 {
-    font-size: 22px;
-    margin-bottom: 16px;
-  }
-
-  .logisticsCardLeft p {
-    font-size: 16px;
-  }
-
-  .logisticsCardRight {
-    gap: 16px;
-  }
-
-  .highlightBox {
-    font-size: 15px;
-    padding: 20px;
-  }
-
-  .factsItem {
-    font-size: 14px;
-    padding: 6px 0;
-  }
-
-  .checklistItem {
-    font-size: 13px;
-  }
-
-  .checklistSection {
-    padding: 12px;
-  }
-
-  .cardItem {
-    padding: 36px 28px;
-  }
-
-  .stepFlow {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .stepArrow {
-    display: none;
-  }
-
-  .checklistGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .packingNote {
-    font-size: 14px;
-    padding: 16px;
-  }
-
-  .twoColumnSection {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-/* Mobile: Optimized for phones */
-@media (max-width: 640px) {
-  .logisticsCard {
-    padding: 24px 20px;
-    margin-bottom: 36px;
-  }
-
-  .logisticsCardLeft h3 {
-    font-size: 18px;
-    margin-bottom: 16px;
-  }
-
-  .logisticsCardLeft p {
-    font-size: 15px;
-    margin-bottom: 16px;
-  }
-
-  .logisticsCardRight {
-    gap: 12px;
-  }
-
-  .highlightBox {
-    font-size: 15px;
-    padding: 18px;
-    margin-bottom: 16px;
-  }
-
-  .factsItem {
-    font-size: 14px;
-    padding: 8px 0;
-  }
-
-  .checklistSection {
-    padding: 12px;
-  }
-
-  .checklistSection strong {
-    font-size: 11px;
-    margin-bottom: 10px;
-  }
-
-  .checklistItem {
-    font-size: 13px;
-    padding: 10px 0;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-  }
-
-  .cardItem {
-    padding: 20px 16px;
-    margin-bottom: 32px;
-  }
-
-  .cardTitle {
-    font-size: 22px;
-  }
-
-  .cardIntro {
-    font-size: 14px;
-  }
-
-  .stepFlow {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin: 32px 0;
-  }
-
-  .stepBox {
-    padding: 16px 12px;
-  }
-
-  .stepNumber {
-    font-size: 9px;
-  }
-
-  .stepLabel {
-    font-size: 14px;
-  }
-
-  .stepDesc {
-    font-size: 13px;
-  }
-
-  .checklistGrid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin: 32px 0;
-  }
-
-  .checklistColumn {
-    padding: 16px;
-  }
-
-  .checklistColumnHeader {
-    font-size: 10px;
-    margin-bottom: 12px;
-  }
-
-  .checklistGrid .checklistItem {
-    font-size: 13px;
-    padding: 6px 0;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-  }
-
-  .packingNote {
-    font-size: 13px;
-    padding: 16px;
-    margin-top: 32px;
-  }
-
-  .packingNote strong {
-    font-size: 13px;
-  }
-
-  .twoColumnSection {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
 }
