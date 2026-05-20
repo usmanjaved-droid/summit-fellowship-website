@@ -401,6 +401,160 @@
   margin-bottom: 0;
 }
 
+/* New Card Item Styles */
+.cardItem {
+  background: var(--paper-cool);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 40px;
+  margin-bottom: 40px;
+}
+
+.cardEyebrow {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--ochre);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cardNumber {
+  font-weight: 600;
+  display: block;
+}
+
+.cardTitle {
+  font-family: var(--serif);
+  font-size: clamp(24px, 4vw, 48px);
+  color: var(--alpine-deep);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.cardTitle em {
+  font-style: italic;
+  color: var(--ochre);
+}
+
+.cardIntro {
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.cardVisual {
+  margin: 32px 0;
+  background: rgba(212, 165, 116, 0.08);
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.roomDiagram {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+}
+
+/* Detail Rows */
+.detailRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-soft);
+  align-items: center;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.detailLabel {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--ochre);
+  text-transform: uppercase;
+}
+
+.detailValue {
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 500;
+  text-align: right;
+}
+
+.cardDetails {
+  margin-top: 24px;
+}
+
+/* Color Swatches */
+.colorSwatches {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+  padding: 20px;
+  background: rgba(212, 165, 116, 0.08);
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  flex-wrap: wrap;
+}
+
+.swatch {
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.swatch:hover {
+  transform: scale(1.05);
+}
+
+/* Medical Icon */
+.medicalIcon {
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.medicalIconSvg {
+  width: 48px;
+  height: 48px;
+  color: var(--clay);
+  stroke-width: 1.5;
+}
+
+.cardLink {
+  color: var(--ochre);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  transition: color 0.3s ease;
+}
+
+.cardLink:hover {
+  color: var(--ochre-deep);
+}
+
 /* Step Flow (Travel Card) */
 .stepFlow {
   display: grid;
