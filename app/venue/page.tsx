@@ -12,13 +12,6 @@ const WEATHER = [
   { date: 'Coolest night', hi: '7°', lo: '' },
 ];
 
-const FOOD_ITEMS = [
-  { icon: '🥘', title: 'Balti Tandoori', desc: 'Grilled meats with regional spices and traditional firewood smoke — the soul of local cuisine.' },
-  { icon: '🍖', title: 'BBQ & Grills', desc: 'Farm-to-table proteins prepared over open flame. Local specialties and international cuts.' },
-  { icon: '🥗', title: 'Vegetarian & Halal', desc: 'Equally thoughtful preparation. Continental and local options available daily.' },
-  { icon: '☕', title: 'Breakfast Buffet', desc: 'Continental, à la carte, and local options. Tea service all day. Fresh-baked bread.' },
-];
-
 export default function VenuePage() {
   return (
     <>
@@ -190,25 +183,6 @@ export default function VenuePage() {
                 Indicative June ranges · °C
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.foodSection}>
-        <div className="container">
-          <div className={styles.sectionHead}>
-            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">Dining</span></div>
-            <h2>Where every<br /><em>meal matters.</em></h2>
-            <p>Khoj&rsquo;s restaurant, Raah, sources locally and cooks with intention. Balti Tandoori, grilled meats, continental breakfast, and options for vegetarian and halal diets. Food here is part of the experience, not an afterthought.</p>
-          </div>
-          <div className={styles.foodGrid}>
-            {FOOD_ITEMS.map((item) => (
-              <article key={item.title} className={styles.foodCard}>
-                <div className={styles.foodCardIcon}>{item.icon}</div>
-                <h3 className={styles.foodCardTitle}>{item.title}</h3>
-                <p className={styles.foodCardDesc}>{item.desc}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>

@@ -45,82 +45,6 @@
   min-height: 500px;
 }
 
-/* Food Section */
-.foodSection {
-  background: var(--paper);
-  padding: 80px 0;
-  margin-top: 60px;
-}
-
-.sectionHead {
-  margin-bottom: 60px;
-  text-align: center;
-}
-
-.sectionHead h2 {
-  font-family: var(--serif);
-  font-size: clamp(36px, 4vw, 56px);
-  color: var(--alpine-deep);
-  letter-spacing: -0.02em;
-  margin: 20px 0;
-  line-height: 1.1;
-}
-
-.sectionHead em {
-  font-style: italic;
-  color: var(--ochre);
-}
-
-.sectionHead p {
-  font-size: 18px;
-  color: var(--ink);
-  max-width: 800px;
-  margin: 20px auto 0;
-  line-height: 1.6;
-}
-
-.foodGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-  margin-top: 40px;
-}
-
-.foodCard {
-  padding: 40px 30px;
-  background: var(--paper-cool);
-  border: 1px solid var(--line-soft);
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.foodCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(20, 39, 52, 0.1);
-}
-
-.foodCardIcon {
-  font-size: 48px;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.foodCardTitle {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--alpine-deep);
-  margin-bottom: 12px;
-}
-
-.foodCardDesc {
-  font-size: 15px;
-  color: var(--ink-soft);
-  line-height: 1.6;
-  margin: 0;
-}
-
 /* Logistics Sections */
 .logisticsSection {
   background: var(--paper);
@@ -273,15 +197,6 @@
   .pageHeroImage {
     background-attachment: scroll;
     min-height: 500px;
-  }
-
-  .foodGrid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .foodCard {
-    padding: 32px 24px;
   }
 
   .venueIntroImage {
