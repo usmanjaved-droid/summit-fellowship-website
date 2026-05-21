@@ -445,15 +445,26 @@ export default function VenuePage() {
               </div>
             </article>
 
-            {/* Cultural Evening */}
-            <article className={`${styles.fgCard} ${styles.fgCardCultural}`} style={{ gridColumn: 'span 3', backgroundColor: 'var(--clay)', color: 'var(--paper)' }}>
-              <h3 style={{ fontSize: '28px', lineHeight: '1.1', marginBottom: '16px', color: 'var(--paper)', fontFamily: 'var(--font-serif)', fontWeight: '400' }}>Cultural Evening</h3>
-              <div style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '20px' }}>
-                <p style={{ marginBottom: '16px' }}>We have planned a special cultural evening for all fellows. Participants are encouraged to wear their traditional attire and, if possible, bring along a delicacy or snack representing their native culture or region.</p>
-                <p style={{ fontWeight: '500', fontSize: '17px', marginBottom: '12px' }}>To make the evening more engaging and immersive, we will be inviting local artisans and musicians to showcase traditional crafts and perform local music. This will be a celebration of diverse cultures and traditions.</p>
-              </div>
-            </article>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Cultural Evening */}
+      <section style={{ padding: '80px 0 0 0', background: 'var(--paper)' }}>
+        <div className="container">
+          <div style={{ maxWidth: '920px', margin: '0 auto' }}>
+            <div style={{ borderLeft: '4px solid var(--clay)', paddingLeft: '32px' }}>
+              <h2 style={{ fontSize: 'clamp(32px, 4vw, 56px)', fontFamily: 'var(--font-serif)', fontWeight: '400', lineHeight: '1.05', letterSpacing: '-0.01em', marginBottom: '24px', color: 'var(--alpine-deep)' }}>
+                Cultural Evening
+              </h2>
+              <p style={{ fontSize: '17px', lineHeight: '1.6', color: 'var(--ink-soft)', marginBottom: '16px' }}>
+                We have planned a special cultural evening for all fellows. Participants are encouraged to wear their traditional attire and, if possible, bring along a delicacy or snack representing their native culture or region.
+              </p>
+              <p style={{ fontSize: '17px', lineHeight: '1.6', color: 'var(--ink)', marginBottom: '0', fontWeight: '500' }}>
+                To make the evening more engaging and immersive, we will be inviting local artisans and musicians to showcase traditional crafts and perform local music. This will be a celebration of diverse cultures and traditions.
+              </p>
+            </div>
           </div>
         </div>
       </section>
