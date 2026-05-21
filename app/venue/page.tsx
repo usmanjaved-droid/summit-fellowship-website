@@ -451,20 +451,18 @@ export default function VenuePage() {
       </section>
 
       {/* Cultural Evening */}
-      <section style={{ padding: '80px 0 0 0', background: 'var(--paper)' }}>
+      <section className={styles.culturalEvening}>
         <div className="container">
-          <div style={{ maxWidth: '920px', margin: '0 auto' }}>
-            <div style={{ borderLeft: '4px solid var(--clay)', paddingLeft: '32px' }}>
-              <h2 style={{ fontSize: 'clamp(32px, 4vw, 56px)', fontFamily: 'var(--font-serif)', fontWeight: '400', lineHeight: '1.05', letterSpacing: '-0.01em', marginBottom: '24px', color: 'var(--alpine-deep)' }}>
-                Cultural Evening
-              </h2>
-              <p style={{ fontSize: '17px', lineHeight: '1.6', color: 'var(--ink-soft)', marginBottom: '16px' }}>
-                We have planned a special cultural evening for all fellows. Participants are encouraged to wear their traditional attire and, if possible, bring along a delicacy or snack representing their native culture or region.
-              </p>
-              <p style={{ fontSize: '17px', lineHeight: '1.6', color: 'var(--ink)', marginBottom: '0', fontWeight: '500' }}>
-                To make the evening more engaging and immersive, we will be inviting local artisans and musicians to showcase traditional crafts and perform local music. This will be a celebration of diverse cultures and traditions.
-              </p>
-            </div>
+          <div style={{ borderLeft: '4px solid var(--clay)', paddingLeft: '32px', maxWidth: '80ch' }}>
+            <h2 className={styles.culturalEveningTitle}>
+              Cultural Evening
+            </h2>
+            <p className={styles.culturalEveningText}>
+              We have planned a special cultural evening for all fellows. Participants are encouraged to wear their traditional attire and, if possible, bring along a delicacy or snack representing their native culture or region.
+            </p>
+            <p className={styles.culturalEveningText}>
+              To make the evening more engaging and immersive, we will be inviting local artisans and musicians to showcase traditional crafts and perform local music. This will be a celebration of diverse cultures and traditions.
+            </p>
           </div>
         </div>
       </section>
