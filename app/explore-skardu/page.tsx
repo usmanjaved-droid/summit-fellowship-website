@@ -274,9 +274,6 @@ export default function ExploreSkardu() {
             <blockquote style={{ fontStyle: 'italic', fontSize: 'clamp(28px, 4vw, 56px)', color: 'var(--paper)', maxWidth: '22ch', margin: 0 }}>
               Time runs slower here. You&apos;ll notice it by the second afternoon.
             </blockquote>
-            <div style={{ marginTop: '24px', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--ochre)' }}>
-              — Field note, Vol. 00
-            </div>
           </div>
         </div>
       </section>
