@@ -133,7 +133,7 @@ export default function ExploreSkardu() {
           <div className={styles.keyFactsHead}>
             <div>
               <div className={`${styles.eyebrow} ${styles.eyebrowDark}`} style={{ marginBottom: '16px' }}>
-                Section 02 · Key facts about Skardu
+                Section 03 · Key facts about Skardu
               </div>
               <h2 style={{ color: 'var(--paper)', fontSize: 'clamp(40px, 5.2vw, 80px)' }}>
                 The numbers that<br />
