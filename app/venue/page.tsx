@@ -414,7 +414,7 @@ export default function VenuePage() {
                     <li className={styles.essential}>One warm layer (fleece / light jacket)</li>
                     <li>Light, breathable daywear</li>
                     <li>Comfortable walking shoes</li>
-                    <li>Modest casual wear for village visits</li>
+                    <li>Trekking shoes — you'll need them on day 3 for our outdoors day</li>
                     <li>Traditional attire for Cultural Night</li>
                   </ul>
                   <p style={{ fontSize: '14px', lineHeight: '1.5', color: 'var(--ink-soft)', marginTop: '12px' }}>For attire, we'll be casual and comfortable. Do not overpack. You'll be glad that you packed comfortable casual clothes.</p>
