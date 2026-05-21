@@ -186,14 +186,6 @@ export default function ExploreSkardu() {
               <div className={styles.factLabel}>"Land of giants"</div>
             </article>
 
-            <article className={`${styles.fact} ${styles.factQuote}`}>
-              <div className={styles.factNum}>No. 04 · The pull quote</div>
-              <p className={styles.factPull}>
-                "You can stand in Skardu town and be 150 kilometres from the second-highest point on the planet — and not see it."
-              </p>
-              <div className={styles.factLabel}>The Karakoram does not pose for photographs</div>
-            </article>
-
             <article className={`${styles.fact} ${styles.factSpan4}`}>
               <div className={styles.factNum}>No. 05 · Geographic oddity</div>
               <div className={styles.factStat}>
@@ -205,7 +197,7 @@ export default function ExploreSkardu() {
               <div className={styles.factLabel}>Sarfaranga · White desert</div>
             </article>
 
-            <article className={`${styles.fact} ${styles.factSpan6}`}>
+            <article className={`${styles.fact} ${styles.factSpan4}`}>
               <div className={styles.factNum}>No. 06 · Ice</div>
               <div className={styles.factStat}>
                 63<span className={styles.unit}>km</span> + 67<span className={styles.unit}>km</span>
@@ -216,7 +208,7 @@ export default function ExploreSkardu() {
               <div className={styles.factLabel}>Baltoro + Biafo glaciers</div>
             </article>
 
-            <article className={`${styles.fact} ${styles.factSpan6}`}>
+            <article className={`${styles.fact} ${styles.factSpan4}`}>
               <div className={styles.factNum}>No. 07 · Pre-Islamic heritage</div>
               <div className={styles.factStat}>
                 8<span className={styles.unit}>th c.</span>
@@ -228,38 +220,6 @@ export default function ExploreSkardu() {
               <div className={styles.factLabel}>Manthal Buddha Rock</div>
             </article>
 
-            <article className={`${styles.fact} ${styles.factSpan3}`}>
-              <div className={styles.factNum}>No. 08 · Ruling dynasty</div>
-              <div className={styles.factStat}>
-                ~700<span className={styles.small}>years</span>
-              </div>
-              <div className={styles.factBody}>
-                The Maqpon dynasty ruled Baltistan from Skardu for roughly seven centuries, until the Dogra invasion of 1840. At its peak the kingdom stretched to Chitral and Ladakh.
-              </div>
-            </article>
-
-            <article className={`${styles.fact} ${styles.factSpan3}`}>
-              <div className={styles.factNum}>No. 09 · The valley floor</div>
-              <div className={styles.factStat}>
-                10<span className={styles.unit}>×</span>40<span className={styles.unit}>km</span>
-              </div>
-              <div className={styles.factBody}>
-                The Skardu valley is 10 km wide and 40 km long, carved between 3.2 million and 11,700 years ago by glaciers descending the Indus and Shigar drainages.
-              </div>
-            </article>
-
-            <article className={`${styles.fact} ${styles.factSpan6}`}>
-              <div className={styles.factNum}>No. 10 · The dividing river</div>
-              <div className={styles.factStat} style={{ fontSize: 'clamp(36px, 4vw, 60px)' }}>
-                The Indus separates<br />
-                the <em>Karakoram</em> from<br />
-                the <em>Himalaya.</em>
-              </div>
-              <div className={styles.factBody} style={{ marginTop: '20px' }}>
-                It runs east-to-west through Skardu, then turns south at Nanga Parbat (8,126 m) — the western anchor of the Himalayan range — and drops 6,000 metres in the next few hundred kilometres. The valley is, geologically, the boundary between two of the planet&apos;s largest mountain systems.
-              </div>
-              <div className={styles.factLabel}>Tectonics, basically</div>
-            </article>
           </div>
         </div>
       </section>
