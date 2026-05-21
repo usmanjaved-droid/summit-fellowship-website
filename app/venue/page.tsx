@@ -30,9 +30,8 @@ export default function VenuePage() {
             <div className={styles.venueIntroCopy}>
               <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">The venue</span></div>
               <h2>Where the<br /><em>work happens.</em></h2>
-              <p>Khoj is deliberately remote. The flight in lands at 2,228 m. The drive from the airstrip threads the Shigar river through poplar groves and apricot orchards. By the time you arrive, your phone is no longer the most interesting thing in the room.</p>
-              <p>The resort is small by design — built for groups exactly this size. Workshop spaces flow onto a stone courtyard. Walk five minutes in any direction and you're in the orchards, on the river bank, or at the foot of a rock face that did not exist on yesterday's horizon.</p>
-              <p>Days alternate between structured studio sessions, outdoor 1-on-1 clinics, and the kind of unstructured time that only happens when eleven founders find themselves in a valley together with nothing else to do.</p>
+              <p>Khoj sits on the Shigar River in a valley that feels deliberately removed from the world. The journey in unfolds in two chapters: a flight to Skardu at 2,228 m elevation, then a 45-minute drive that threads through poplar groves and apricot orchards until you reach the resort. By the time you arrive, you've crossed into a different geography—mountains rising on every side, the river below, and your attention finally free to settle.</p>
+              <p>The resort is built as a collection of private villas overlooking the river and valley. On the grounds: hammock forests of poplar trees, walking trails across seven acres, an organic farm that feeds the restaurant, firepits for evening gathering. The setting is small and contained, naturally suited to groups this size. There's signal here, but also silence when you want it.</p>
             </div>
             <figure className={styles.venueIntroImageSlot}>
               <Image
