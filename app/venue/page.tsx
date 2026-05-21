@@ -411,9 +411,9 @@ export default function VenuePage() {
                 <div className={styles.packingCol}>
                   <h4><span>Clothing</span><span className={styles.ct}>6</span></h4>
                   <ul>
-                    <li className={styles.essential}>Casual, comfortable clothes suitable for layering</li>
-                    <li className={styles.essential}>Warm layers (T-shirts + long-sleeve tops, sweaters)</li>
-                    <li className={styles.essential}>A warm jacket or puffer for cold, rainy days and evenings</li>
+                    <li>Casual, comfortable clothes suitable for layering</li>
+                    <li>Warm layers (T-shirts + long-sleeve tops, sweaters)</li>
+                    <li>A warm jacket or puffer for cold, rainy days and evenings</li>
                     <li>Comfortable walking shoes or trail sneakers with good grip</li>
                     <li>Trekking shoes — you'll need them on day 3 for our outdoors day</li>
                     <li>Traditional attire for Cultural Night</li>
@@ -424,9 +424,9 @@ export default function VenuePage() {
                 <div className={styles.packingCol}>
                   <h4><span>Sun &amp; weather</span><span className={styles.ct}>4</span></h4>
                   <ul>
-                    <li className={styles.essential}>Sun hat with brim</li>
-                    <li className={styles.essential}>Sunglasses (UV)</li>
-                    <li className={styles.essential}>SPF 30+ sunscreen</li>
+                    <li>Sun hat with brim</li>
+                    <li>Sunglasses (UV)</li>
+                    <li>SPF 30+ sunscreen</li>
                     <li>Lip balm with SPF</li>
                   </ul>
                 </div>
