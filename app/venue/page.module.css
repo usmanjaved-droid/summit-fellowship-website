@@ -705,8 +705,8 @@
 
 .culturalEveningGrid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 80px;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 60px;
   align-items: start;
 }
 
@@ -738,7 +738,7 @@
 }
 
 .culturalEveningImageSlot {
-  aspect-ratio: 4/5;
+  aspect-ratio: 16/9;
   background: var(--paper-warm);
   position: relative;
   margin: 0;
