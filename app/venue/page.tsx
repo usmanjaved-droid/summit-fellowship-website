@@ -432,13 +432,14 @@ export default function VenuePage() {
                 </div>
 
                 <div className={styles.packingCol}>
-                  <h4><span>Personal</span><span className={styles.ct}>5</span></h4>
+                  <h4><span>Personal</span><span className={styles.ct}>6</span></h4>
                   <ul>
                     <li>Refillable water bottle</li>
                     <li>Personal medication (full course)</li>
                     <li>Toiletries</li>
                     <li>Power bank</li>
                     <li>Universal adapter (Pakistan: Type C/D)</li>
+                    <li>Day bag or small backpack — you'll often be away from your room during the day; big enough for essentials or a laptop</li>
                   </ul>
                 </div>
               </div>
