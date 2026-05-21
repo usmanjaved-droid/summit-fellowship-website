@@ -244,26 +244,22 @@ export default function VenuePage() {
               <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">The field guide</span></div>
               <h2>What you need<br />to know <em>on the ground.</em></h2>
             </div>
-            <div className={styles.fieldGuideHeadMeta}>
-              <span>Vol. 01 · Section 02</span>
-              <span className={styles.v}>Updated May 2026</span>
-            </div>
           </div>
 
           <nav className={styles.fgNav} aria-label="Field guide sections">
-            <a href="#fg-weather"><span className={styles.n}>07</span>Weather</a>
-            <a href="#fg-rooms"><span className={styles.n}>08</span>Rooms</a>
-            <a href="#fg-travel"><span className={styles.n}>09</span>Travel</a>
-            <a href="#fg-medical"><span className={styles.n}>10</span>Medical</a>
-            <a href="#fg-signal"><span className={styles.n}>11</span>Connectivity</a>
-            <a href="#fg-packing"><span className={styles.n}>12</span>Packing</a>
+            <a href="#fg-weather"><span className={styles.n}>01</span>Weather</a>
+            <a href="#fg-rooms"><span className={styles.n}>02</span>Rooms</a>
+            <a href="#fg-travel"><span className={styles.n}>03</span>Travel</a>
+            <a href="#fg-medical"><span className={styles.n}>04</span>Medical</a>
+            <a href="#fg-signal"><span className={styles.n}>05</span>Connectivity</a>
+            <a href="#fg-packing"><span className={styles.n}>06</span>Packing</a>
           </nav>
 
           <div className={styles.fgGrid}>
-            {/* 07 · Weather (featured) */}
+            {/* 01 · Weather (featured) */}
             <article className={`${styles.fgCard} ${styles.fgCardFeature}`} id="fg-weather">
               <div className="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
-              <div className={styles.fgCardNum}>No. 07 · Weather in June</div>
+              <div className={styles.fgCardNum}>No. 01 · Weather in June</div>
               <h3 className={styles.fgCardTitle}>Warm sun, cool nights, clear sky.</h3>
               <div className={styles.fgCardBody}>
                 <p>June is one of the most favourable months for Shigar. Days are dry and bright with strong mountain sun. Mornings and evenings cool down sharply. Karakoram visibility is typically excellent.</p>
@@ -306,9 +302,9 @@ export default function VenuePage() {
               </div>
             </article>
 
-            {/* 08 · Rooms */}
+            {/* 02 · Rooms */}
             <article className={`${styles.fgCard} ${styles.fgCardRooms}`} id="fg-rooms">
-              <div className={styles.fgCardNum}>No. 08 · Room allocation</div>
+              <div className={styles.fgCardNum}>No. 02 · Room allocation</div>
               <h3 className={styles.fgCardTitle}>Loft villa, triple sharing.</h3>
               <div className={styles.fgCardBody}>
                 <p>Fellows are accommodated in Khoj's River-View Loft Villas. Each room sleeps three of the same gender — one bed on the ground floor, two on the loft. Sort the bunk politics among yourselves.</p>
@@ -345,9 +341,9 @@ export default function VenuePage() {
               <a className={styles.fgCardLink} href="https://www.khojresorts.com/river-view-loft-villa" target="_blank" rel="noopener noreferrer">See villa details</a>
             </article>
 
-            {/* 09 · Travel arrangements */}
+            {/* 03 · Travel arrangements */}
             <article className={`${styles.fgCard} ${styles.fgCardTravel}`} id="fg-travel">
-              <div className={styles.fgCardNum}>No. 09 · Travel arrangements</div>
+              <div className={styles.fgCardNum}>No. 03 · Travel arrangements</div>
               <h3 className={styles.fgCardTitle}>We fly you to Skardu. You handle the airport.</h3>
               <div className={styles.fgCardBody}>
                 <p>All fellows have flight bookings from their respective cities. You're responsible for getting to your <strong>departure airport</strong> in your home city; our logistics team — coordinated with Ascender Adventures — picks you up at <strong>Skardu airport</strong> and drives the group to Shigar. Return is mirrored.</p>
@@ -379,9 +375,9 @@ export default function VenuePage() {
               <a className={styles.fgCardLink} href="/travel">Full travel page</a>
             </article>
 
-            {/* 10 · Medical */}
+            {/* 04 · Medical */}
             <article className={`${styles.fgCard} ${styles.fgCardMedical}`} id="fg-medical">
-              <div className={styles.fgCardNum}>No. 10 · Medical</div>
+              <div className={styles.fgCardNum}>No. 04 · Medical</div>
               <h3 className={styles.fgCardTitle}>Covered.</h3>
               <svg className={styles.medCross} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.4">
                 <rect x="18" y="6" width="12" height="36" rx="1.5"/>
@@ -397,9 +393,9 @@ export default function VenuePage() {
               </ul>
             </article>
 
-            {/* 11 · Connectivity */}
+            {/* 05 · Connectivity */}
             <article className={`${styles.fgCard} ${styles.fgCardSignal}`} id="fg-signal">
-              <div className={styles.fgCardNum}>No. 11 · Connectivity</div>
+              <div className={styles.fgCardNum}>No. 05 · Connectivity</div>
               <h3 className={styles.fgCardTitle}>Wi-Fi yes, fast no.</h3>
               <div className={styles.signalViz} aria-hidden="true" title="Reliability: variable">
                 <div className={styles.bar + ' ' + styles.barOn}></div>
@@ -418,12 +414,12 @@ export default function VenuePage() {
               </ul>
             </article>
 
-            {/* 12 · Packing */}
+            {/* 06 · Packing */}
             <article className={`${styles.fgCard} ${styles.fgCardPacking}`} id="fg-packing">
-              <div className={styles.fgCardNum}>No. 12 · Packing list</div>
+              <div className={styles.fgCardNum}>No. 06 · Packing list</div>
               <h3 className={styles.fgCardTitle}>What to throw in <em style={{ fontStyle: 'italic', color: 'var(--clay)' }}>the bag.</em></h3>
               <div className={styles.fgCardBody} style={{ maxWidth: '60ch' }}>
-                <p>Pack for the weather in <a href="#fg-weather" style={{ color: 'var(--clay)', textDecoration: 'underline', textDecorationThickness: 1, textUnderlineOffset: 3 }}>Section 07</a>. Days are warm, evenings get chilly — at least one warm layer is non-negotiable. Sun protection during the day is the other non-negotiable.</p>
+                <p>Pack for the weather in <a href="#fg-weather" style={{ color: 'var(--clay)', textDecoration: 'underline', textDecorationThickness: 1, textUnderlineOffset: 3 }}>Section 01</a>. Days are warm, evenings get chilly — at least one warm layer is non-negotiable. Sun protection during the day is the other non-negotiable.</p>
               </div>
 
               <div className={styles.packingGrid}>
