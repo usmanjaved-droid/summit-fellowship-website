@@ -175,15 +175,8 @@ export default function VenuePage() {
       <section className={styles.gallery} data-screen-label="Venue Gallery">
         <div className="container">
           <div className={styles.galleryHead}>
-            <div>
-              <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">Look around</span></div>
-              <h2>Khoj,<br /><em>in pictures.</em></h2>
-              <p>The valley does most of the work. Drag photos onto any tile to fill the gallery — they'll persist on the site automatically. Until then, the placeholders show where each shot will live.</p>
-            </div>
-            <div className={styles.galleryMeta}>
-              <span>Plate 01–07</span>
-              <span className={styles.v}>Shigar Valley · June</span>
-            </div>
+            <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">Look around</span></div>
+            <h2>Khoj,<br /><em>in pictures.</em></h2>
           </div>
 
           <div className={styles.galGrid}>
