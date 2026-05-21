@@ -703,6 +703,17 @@
   background: var(--paper);
 }
 
+.culturalEveningGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.culturalEveningCopy {
+  flex: 1;
+}
+
 .culturalEveningTitle {
   font-family: var(--font-serif);
   font-size: clamp(40px, 5vw, 64px);
@@ -724,6 +735,41 @@
   margin-bottom: 0;
   color: var(--ink);
   font-weight: 500;
+}
+
+.culturalEveningImageSlot {
+  aspect-ratio: 4/5;
+  background: var(--paper-warm);
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+.culturalEveningImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.culturalEveningImageSlot figcaption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(20, 39, 52, 0.6);
+  padding: 8px 12px;
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 1023px) {
+  .culturalEveningGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 .fgCardBody p + p {

@@ -453,16 +453,30 @@ export default function VenuePage() {
       {/* Cultural Evening */}
       <section className={styles.culturalEvening}>
         <div className="container">
-          <div style={{ borderLeft: '4px solid var(--clay)', paddingLeft: '32px', maxWidth: '80ch' }}>
-            <h2 className={styles.culturalEveningTitle}>
-              Cultural Evening
-            </h2>
-            <p className={styles.culturalEveningText}>
-              We have planned a special cultural evening for all fellows. Participants are encouraged to wear their traditional attire and, if possible, bring along a delicacy or snack representing their native culture or region.
-            </p>
-            <p className={styles.culturalEveningText}>
-              To make the evening more engaging and immersive, we will be inviting local artisans and musicians to showcase traditional crafts and perform local music. This will be a celebration of diverse cultures and traditions.
-            </p>
+          <div className={styles.culturalEveningGrid}>
+            <div className={styles.culturalEveningCopy}>
+              <div style={{ borderLeft: '4px solid var(--clay)', paddingLeft: '32px' }}>
+                <h2 className={styles.culturalEveningTitle}>
+                  Cultural Evening
+                </h2>
+                <p className={styles.culturalEveningText}>
+                  We have planned a special cultural evening for all fellows. Participants are encouraged to wear their traditional attire and, if possible, bring along a delicacy or snack representing their native culture or region.
+                </p>
+                <p className={styles.culturalEveningText}>
+                  To make the evening more engaging and immersive, we will be inviting local artisans and musicians to showcase traditional crafts and perform local music. This will be a celebration of diverse cultures and traditions.
+                </p>
+              </div>
+            </div>
+            <figure className={styles.culturalEveningImageSlot}>
+              <Image
+                src="/images/venue/gallery/khoj venue 4.jpg"
+                alt="Cultural gathering at Khoj Resort"
+                fill
+                className={styles.culturalEveningImage}
+                sizes="(max-width: 1023px) 100vw, 40vw"
+              />
+              <figcaption>Evening gathering at Khoj Resort</figcaption>
+            </figure>
           </div>
         </div>
       </section>
