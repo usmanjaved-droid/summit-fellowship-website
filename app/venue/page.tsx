@@ -469,13 +469,13 @@ export default function VenuePage() {
             </div>
             <figure className={styles.culturalEveningImageSlot}>
               <Image
-                src="/images/venue/gallery/khoj venue 4.jpg"
-                alt="Cultural gathering at Khoj Resort"
+                src="/images/venue/gallery/khoj venue musician.jpeg"
+                alt="Local musician performing traditional music"
                 fill
                 className={styles.culturalEveningImage}
                 sizes="(max-width: 1023px) 100vw, 40vw"
               />
-              <figcaption>Evening gathering at Khoj Resort</figcaption>
+              <figcaption>Traditional musician · Khoj Resort</figcaption>
             </figure>
           </div>
         </div>
