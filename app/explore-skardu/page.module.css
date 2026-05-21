@@ -570,7 +570,6 @@
   align-items: end;
   margin-bottom: 64px;
   padding-bottom: 32px;
-  border-bottom: 1px solid var(--line);
 }
 
 .thingsHead h2 {
