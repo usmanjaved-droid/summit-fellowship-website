@@ -181,32 +181,32 @@ export default function VenuePage() {
 
           <div className={styles.galGrid}>
             <figure className={`${styles.galCell} ${styles.galHero}`}>
-              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
-              <figcaption><span className={styles.n}>01</span>Khoj from the river bank</figcaption>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'url(/images/venue/gallery/khoj%20venue%2013.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <figcaption><span className={styles.n}>01</span>The valley unfolds</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galTall}`}>
-              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
-              <figcaption><span className={styles.n}>02</span>Light through the loft</figcaption>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'url(/images/venue/gallery/khoj%20venue%2014.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <figcaption><span className={styles.n}>02</span>Light on stone</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
-              <figcaption><span className={styles.n}>03</span>River-View Loft Villa</figcaption>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'url(/images/venue/gallery/khoj%20venue%2012.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <figcaption><span className={styles.n}>03</span>River valley</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
-              <figcaption><span className={styles.n}>04</span>The long table</figcaption>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'url(/images/venue/gallery/khoj%20venue%2011.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <figcaption><span className={styles.n}>04</span>Stone courtyard</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
-              <figcaption><span className={styles.n}>05</span>The orchard walk</figcaption>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'url(/images/venue/gallery/khoj%20venue%2010.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <figcaption><span className={styles.n}>05</span>Architecture and sky</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galPano}`}>
-              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
-              <figcaption><span className={styles.n}>06</span>Looking east toward the Karakoram</figcaption>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'url(/images/venue/gallery/khoj%20venue%209.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <figcaption><span className={styles.n}>06</span>Panoramic valley view</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <div className={styles.galPlaceholder} style={{ backgroundImage: 'linear-gradient(135deg, var(--paper-warm) 0%, var(--paper) 100%)' }}></div>
-              <figcaption><span className={styles.n}>07</span>The stone courtyard</figcaption>
+              <div className={styles.galPlaceholder} style={{ backgroundImage: 'url(/images/venue/gallery/khoj%20venue%208.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <figcaption><span className={styles.n}>07</span>Evening light</figcaption>
             </figure>
           </div>
 
