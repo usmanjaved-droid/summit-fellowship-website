@@ -439,16 +439,6 @@ export default function VenuePage() {
                     <li>Universal adapter (Pakistan: Type C/D)</li>
                   </ul>
                 </div>
-
-                <div className={styles.packingCol}>
-                  <h4><span>Work &amp; bring</span><span className={styles.ct}>4</span></h4>
-                  <ul>
-                    <li>Laptop &amp; charger</li>
-                    <li>Notebook + pen</li>
-                    <li>Headphones</li>
-                    <li>A snack or delicacy from your region (Cultural Night)</li>
-                  </ul>
-                </div>
               </div>
 
               <div className={styles.packingNote}>
