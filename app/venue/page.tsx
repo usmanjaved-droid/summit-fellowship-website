@@ -409,15 +409,16 @@ export default function VenuePage() {
 
               <div className={styles.packingGrid}>
                 <div className={styles.packingCol}>
-                  <h4><span>Clothing</span><span className={styles.ct}>5</span></h4>
+                  <h4><span>Clothing</span><span className={styles.ct}>6</span></h4>
                   <ul>
-                    <li className={styles.essential}>One warm layer (fleece / light jacket)</li>
-                    <li>Light, breathable daywear</li>
-                    <li>Comfortable walking shoes</li>
+                    <li className={styles.essential}>Casual, comfortable clothes suitable for layering</li>
+                    <li className={styles.essential}>Warm layers (T-shirts + long-sleeve tops, sweaters)</li>
+                    <li className={styles.essential}>A warm jacket or puffer for cold, rainy days and evenings</li>
+                    <li>Comfortable walking shoes or trail sneakers with good grip</li>
                     <li>Trekking shoes — you'll need them on day 3 for our outdoors day</li>
                     <li>Traditional attire for Cultural Night</li>
                   </ul>
-                  <p style={{ fontSize: '14px', lineHeight: '1.5', color: 'var(--ink-soft)', marginTop: '12px' }}>For attire, we'll be casual and comfortable. Do not overpack. You'll be glad that you packed comfortable casual clothes.</p>
+                  <p style={{ fontSize: '14px', lineHeight: '1.5', color: 'var(--ink-soft)', marginTop: '12px' }}>For attire, we'll be casual and comfortable. Do not overpack. You'll be glad that you packed comfortable casual clothes. Dress shoes and heels are not recommended.</p>
                 </div>
 
                 <div className={styles.packingCol}>
