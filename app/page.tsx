@@ -15,12 +15,6 @@ const PEOPLE_CARDS = [
     desc: "Kevin Starr and the Mulago team alongside Pakistani founders who've built at national scale — from Sehat Kahani to ChildLife to Taleemabad.",
     href: '/faculty',
   },
-  {
-    eyebrow: 'The Funders',
-    title: 'Capital that backs scale',
-    desc: 'Mulago, Acumen, and other patient-capital partners who fund the journey from working pilot to national reach.',
-    href: '/funders',
-  },
 ];
 
 const ACTIONS = [

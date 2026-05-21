@@ -1662,7 +1662,7 @@ p { text-wrap: pretty; margin: 0; }
 .people__title { font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.02em; color: var(--alpine-deep); }
 .people-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 .people-card {

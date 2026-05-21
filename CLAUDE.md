@@ -16,9 +16,11 @@
 - **Framework:** Next.js 16.2.6 (App Router, React 19.2.4)
 - **Language:** TypeScript 5+ (strict mode)
 - **Styling:** Tailwind CSS 4 with custom CSS variables
+- **Icons:** Lucide React 1.16.0 (`import { ChevronRight } from 'lucide-react'`)
 - **Fonts:** Google Fonts (Instrument Serif, Geist, JetBrains Mono, Caveat)
 - **Images:** Next.js Image component with remote pattern validation
 - **Data:** JSON files in `data/` directory (no database)
+- **Linting:** ESLint 9 with Next.js Core Web Vitals + TypeScript configs
 - **Hosting:** Vercel (automatic deploys on git push to main)
 - **Version Control:** Git with conventional commits
 
@@ -337,7 +339,17 @@ Always use Next.js Link (auto-prefetch):
 
 ---
 
-## Build & Deployment
+## Development & Deployment
+
+### Commands
+
+```bash
+npm run dev           # Start dev server (http://localhost:3000, hot reload)
+npm run build         # Production build + type check (runs tsc, catches errors)
+npm run start         # Start production server
+npm run lint          # Run ESLint on all files
+npm run lint --fix    # Auto-fix linting errors
+```
 
 ### Local Development
 
@@ -345,22 +357,35 @@ Always use Next.js Link (auto-prefetch):
 npm run dev
 ```
 
-Hot reload on file changes. Dev server at http://localhost:3000
+Hot reload on file changes. Dev server at http://localhost:3000. Type checking happens at build time.
 
-### Production Build
+### Pre-Deployment Checklist
+
+Before pushing to `main`:
+
+1. **Run `npm run build`** — Builds production bundle and validates all TypeScript. If it passes, the site will deploy successfully.
+2. **Run `npm run lint`** — Ensures code follows ESLint rules (Next.js Core Web Vitals + TypeScript). Auto-fix with `npm run lint --fix` if needed.
+3. **Test responsive layout** — Resize browser to 640px and 1024px. Verify:
+   - Mobile stacking works
+   - Sidebar hidden below 1024px
+   - Images load and maintain aspect ratio
+   - Text scales smoothly
+4. **Verify new fellow photos** — If adding fellows, check that `photo_url` domains are whitelisted in `next.config.ts` remotePatterns.
+5. **Manual QA** — Test all updated pages in browser. Check all links work.
+
+### Production Build & Deployment
 
 ```bash
 npm run build
 npm run start
 ```
 
-### Vercel Deployment
-
 Auto-deploy on push to `main` branch:
-1. Commit + push
-2. Vercel builds automatically
-3. Deploy to edge network
-4. Live on https://summit-fellowship.vercel.app
+1. Commit + push to `main`
+2. Vercel detects push, starts build
+3. Build runs ESLint + TypeScript checks
+4. If successful, deploys to edge network
+5. Live on https://summit-fellowship.vercel.app (usually 1–2 min)
 
 ---
 
@@ -487,12 +512,13 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 
 ### Debugging
 
-- TypeScript: `tsc --noEmit`
-- Build: `npm run build`
-- Images: Check `next.config.ts` remotePatterns
-- CSS: Verify module path and class names
+- **TypeScript errors:** `npm run build` includes full type checking. For quick check without build: `tsc --noEmit`
+- **Linting issues:** `npm run lint` shows all ESLint violations. `npm run lint --fix` auto-fixes many.
+- **Images not loading:** Verify domain is in `next.config.ts` remotePatterns. Check Next.js Image domains list.
+- **CSS not applying:** Verify `.module.css` file path matches component import. Check BEM class names match.
+- **Build fails:** Run `npm run build` locally to catch errors before push. Check for missing imports, type mismatches, or broken image domains.
 
 ---
 
-**Last Updated:** 2026-05-17  
+**Last Updated:** 2026-05-21  
 **Status:** All features implemented, deployed, live on Vercel
