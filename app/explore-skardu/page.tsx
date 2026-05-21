@@ -264,20 +264,6 @@ export default function ExploreSkardu() {
         </div>
       </section>
 
-      {/* Pull Strip */}
-      <section className={styles.pullStrip}>
-        <div className={styles.imagePlaceholder} style={{ width: '100%', height: '100%' }}>
-          <span>Karakoram peaks at golden hour</span>
-        </div>
-        <div className={styles.pullStripOverlay}>
-          <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-            <blockquote style={{ fontStyle: 'italic', fontSize: 'clamp(28px, 4vw, 56px)', color: 'var(--paper)', maxWidth: '22ch', margin: 0 }}>
-              Time runs slower here. You&apos;ll notice it by the second afternoon.
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
       {/* Things to do - simplified for MVP */}
       <section className={styles.thingsSection} id="things-to-do">
         <div className="container">
@@ -285,7 +271,7 @@ export default function ExploreSkardu() {
             <div>
               <div className={styles.eyebrowLine}>
                 <span className={styles.eyebrowLineBar}></span>
-                <span className={styles.eyebrow}>Section 03 · Things to do in Skardu</span>
+                <span className={styles.eyebrow}>Section 04 · Things to do in Skardu</span>
               </div>
               <h2>
                 What to <em>do</em>
@@ -421,7 +407,7 @@ export default function ExploreSkardu() {
           {/* Hiking & trekking activity */}
           <div className={styles.activity}>
             <div className={styles.activityIntro}>
-              <div className={styles.activityNum}>No. 02 · Hiking &amp; trekking</div>
+              <div className={styles.activityNum}>No. 03 · Hiking &amp; trekking</div>
               <h3 className={styles.activityTitle}>
                 Trails of every<br />
                 <em>scale.</em>
@@ -469,7 +455,7 @@ export default function ExploreSkardu() {
           {/* Cold deserts activity */}
           <div className={styles.activity}>
             <div className={styles.activityIntro}>
-              <div className={styles.activityNum}>No. 03 · Cold deserts &amp; Deosai</div>
+              <div className={styles.activityNum}>No. 04 · Cold deserts &amp; Deosai</div>
               <h3 className={styles.activityTitle}>
                 Sand dunes,<br />
                 <em>at altitude.</em>
@@ -514,80 +500,6 @@ export default function ExploreSkardu() {
             </div>
           </div>
 
-          {/* Village & cultural activity */}
-          <div className={styles.activity}>
-            <div className={styles.activityIntro}>
-              <div className={styles.activityNum}>No. 04 · Village &amp; cultural experiences</div>
-              <h3 className={styles.activityTitle}>
-                Slower<br />
-                <em>encounters.</em>
-              </h3>
-              <p className={styles.activityDesc}>Beyond the marquee sites, the Skardu region rewards the unhurried visitor. Music, polo, oral storytelling, and the kind of hospitality that doesn&apos;t appear on tour packages.</p>
-              <div className={styles.activityTag}>Bring nothing in a hurry</div>
-            </div>
-            <div className={styles.activityList}>
-              <ListItem
-                num="01"
-                title="Cultural Night at Khoj"
-                subtitle=" — with the cohort"
-                description="Built into the Fellowship week. Local artisans and musicians come to Khoj for an evening; fellows arrive in their own traditional attire and bring a delicacy or snack from their home region. Half show-and-tell, half listening session."
-                meta="Khoj · Evening"
-              />
-              <ListItem
-                num="02"
-                title="Balti music &amp; oral storytelling"
-                subtitle=" — hosted"
-                description="The Balti language is Tibetic — closer to Tibetan than to Urdu — and carries a deep oral tradition of poetry, song and folk narrative. Best heard live, in a small room, with butter tea in hand."
-                meta="Various"
-              />
-              <ListItem
-                num="03"
-                title="Polo match"
-                subtitle=" — if the timing aligns"
-                description="The &quot;freestyle&quot; mountain polo of Gilgit-Baltistan is faster, rougher, and more openly chaotic than the version played anywhere else. Local matches happen in Skardu through the summer."
-                meta="Summer · Free"
-              />
-              <ListItem
-                num="04"
-                title="Sadpara village walk"
-                description="Just south of Skardu — the home village of the late high-altitude mountaineer Ali Sadpara. A small, gentle walk through traditional Balti settlement and irrigation."
-                meta="~30 min from Skardu"
-              />
-            </div>
-          </div>
-
-          {/* Markets & photography activity */}
-          <div className={styles.activity}>
-            <div className={styles.activityIntro}>
-              <div className={styles.activityNum}>No. 05 · Markets, crafts &amp; photography</div>
-              <h3 className={styles.activityTitle}>
-                For things to<br />
-                <em>take home.</em>
-              </h3>
-              <p className={styles.activityDesc}>If you have a free afternoon in Skardu town, this is where it goes. Bazaars, dried fruit, gemstones, woven textiles, and the kind of urban-mountain street photography that rewards a 50 mm lens.</p>
-              <div className={styles.activityTag}>Cash · small bills</div>
-            </div>
-            <div className={styles.activityList}>
-              <ListItem
-                num="01"
-                title="Purana Bazaar, Skardu"
-                description="Skardu's old bazaar — narrow, busy, and full of the things the region actually makes: pashmina, hand-woven wool, dried apricots and apricot oil, walnuts, mulberries, and the local pink salt. Bargaining is expected and good-natured."
-                meta="~45 min from Khoj"
-              />
-              <ListItem
-                num="02"
-                title="Gemstone shops"
-                description="Gilgit-Baltistan sits on some of the world's best mineral country — aquamarine, topaz, tourmaline, peridot, quartz. A few legitimate dealers in Skardu town; many more selling glass to tourists. Go with someone who knows."
-                meta="Skardu town"
-              />
-              <ListItem
-                num="03"
-                title="Photography route · &quot;the golden hour drive&quot;"
-                description="Khoj → Sarfaranga → Indus viewpoint → Katpana → Skardu — best done with the light low, mid-June. The Karakoram peaks turn gold for about 20 minutes around sunset; the deserts go pink before they go grey."
-                meta="Bring a wide lens"
-              />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -598,7 +510,7 @@ export default function ExploreSkardu() {
             <div>
               <div className={styles.eyebrowLine}>
                 <span className={styles.eyebrowLineBar}></span>
-                <span className={styles.eyebrow}>Section 04 · Local cuisine</span>
+                <span className={styles.eyebrow}>Section 05 · Local cuisine</span>
               </div>
               <h2>
                 Apricots, butter,<br />
@@ -666,27 +578,6 @@ export default function ExploreSkardu() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className={styles.ctaSection}>
-        <div className={styles.topoBg}></div>
-        <div className="container">
-          <div className={styles.ctaGrid}>
-            <h2>
-              Now —<br />
-              how does the week<br />
-              actually <em>fit together?</em>
-            </h2>
-            <div className={styles.ctaActions}>
-              <Link href="/itinerary" className="btn btn--ochre">
-                See the itinerary →
-              </Link>
-              <Link href="/venue" className="btn btn--ghost-light">
-                About the venue
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
