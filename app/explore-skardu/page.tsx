@@ -240,9 +240,6 @@ export default function ExploreSkardu() {
                 in session.
               </h2>
             </div>
-            <p className={styles.desc}>
-              Between studio blocks, on off-days, and on the way to/from the airport, there is a lot to see. We won&apos;t get to all of it — but here&apos;s what&apos;s within reach.
-            </p>
           </div>
 
           {/* Lakes & water activity */}
