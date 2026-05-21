@@ -441,11 +441,6 @@ export default function VenuePage() {
                   </ul>
                 </div>
               </div>
-
-              <div className={styles.packingNote}>
-                <span className={styles.l}>A note from the team</span>
-                Don't overpack. The valley does not judge wardrobe rotation. The thing you'll wish you'd brought is the warm layer at 9pm on the courtyard — everything else, we can sort.
-              </div>
             </article>
 
           </div>
