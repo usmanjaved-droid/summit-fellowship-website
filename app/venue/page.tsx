@@ -233,11 +233,6 @@ export default function VenuePage() {
               <figcaption><span className={styles.n}>13</span>The valley speaks</figcaption>
             </figure>
           </div>
-
-          <div className={styles.galleryCredit}>
-            <span>Photography · drop your own or pull from <a href="https://www.khojresorts.com" target="_blank" rel="noopener noreferrer">khojresorts.com</a></span>
-            <span>The valley speaks for itself</span>
-          </div>
         </div>
       </section>
 
