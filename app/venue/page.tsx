@@ -231,29 +231,6 @@ export default function VenuePage() {
         </div>
       </section>
 
-      {/* Fact Strip */}
-      <section className={styles.factStrip} style={{ background: 'var(--clay)', color: 'var(--paper)' }}>
-        <div className="topo-bg" aria-hidden="true"></div>
-        <div className="container">
-          <div className={styles.factStripGrid}>
-            <div className={styles.factStripCell}><span className={styles.factLabel}>Total spaces</span><span className={styles.factValue}>11 rooms</span></div>
-            <div className={styles.factStripCell}><span className={styles.factLabel}>Workshop capacity</span><span className={styles.factValue}>~30 people</span></div>
-            <div className={styles.factStripCell}><span className={styles.factLabel}>Wifi</span><span className={styles.factValue}>Yes — patchy</span></div>
-            <div className={styles.factStripCell}><span className={styles.factLabel}>Vibe</span><span className={styles.factValue}>Intentionally quiet</span></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quote */}
-      <section className={styles.venueQuote}>
-        <div className="container">
-          <blockquote>
-            "The work that happens here would not happen in Karachi or Lahore — for reasons that are obvious by Tuesday."
-          </blockquote>
-          <div className={styles.attr}>From a Vol. 00 alum</div>
-        </div>
-      </section>
-
       {/* Field Guide */}
       <section className={styles.fieldGuide} data-screen-label="Venue Field Guide">
         <div className="container">
