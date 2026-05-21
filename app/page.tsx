@@ -2,6 +2,11 @@ import Link from 'next/link';
 import Countdown from './components/Countdown';
 import ExponentialChart from './components/ExponentialChart';
 
+export const metadata = {
+  title: 'Summit Fellowship 2026 — Design for Scale',
+  description: 'A seven-day intensive for Pakistan\'s most promising social enterprises. Curating Pakistan\'s finest impact companies and matching them with strategy, mentoring, and capital to scale.',
+};
+
 const PEOPLE_CARDS = [
   {
     eyebrow: 'The Fellows',

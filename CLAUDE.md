@@ -45,8 +45,7 @@ Summit Fellowship Website/
 │   │           ├── IdeaBand.tsx
 │   │           ├── FellowSection.tsx
 │   │           ├── FellowSidebar.tsx
-│   │           ├── FellowNavigation.tsx
-│   │           └── FellowDrawer.tsx
+│   │           └── FellowNavigation.tsx
 │   │
 │   ├── faculty/page.tsx           # Faculty + Organizers
 │   ├── funders/page.tsx           # Funding partners
