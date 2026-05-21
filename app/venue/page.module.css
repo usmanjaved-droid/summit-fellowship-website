@@ -304,7 +304,7 @@
 
 /* === Gallery: Khoj in pictures === */
 .gallery {
-  padding: 120px 0;
+  padding: 120px 0 60px 0;
   background: var(--paper);
   position: relative;
 }
@@ -372,7 +372,7 @@
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: 280px;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .galCell {
@@ -496,7 +496,7 @@
 
 /* === Field Guide Section === */
 .fieldGuide {
-  padding: 40px 0 120px 0;
+  padding: 0 0 120px 0;
   background: var(--paper);
   position: relative;
 }
