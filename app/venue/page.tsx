@@ -181,55 +181,55 @@ export default function VenuePage() {
 
           <div className={styles.galGrid}>
             <figure className={`${styles.galCell} ${styles.galHero}`}>
-              <Image src="/images/venue/gallery/khoj venue 13.jpg" alt="The valley unfolds" fill priority className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 13.jpg" alt="The valley unfolds" fill priority className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>01</span>The valley unfolds</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galTall}`}>
-              <Image src="/images/venue/gallery/khoj venue 14.jpg" alt="Light on stone" fill priority className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 14.jpg" alt="Light on stone" fill priority className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>02</span>Light on stone</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 12.jpg" alt="River valley" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 12.jpg" alt="River valley" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>03</span>River valley</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 11.jpg" alt="Stone courtyard" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 11.jpg" alt="Stone courtyard" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>04</span>Stone courtyard</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 10.jpg" alt="Architecture and sky" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 10.jpg" alt="Architecture and sky" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>05</span>Architecture and sky</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galPano}`}>
-              <Image src="/images/venue/gallery/khoj venue 9.jpg" alt="Panoramic valley view" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 9.jpg" alt="Panoramic valley view" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>06</span>Panoramic valley view</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 8.jpg" alt="Evening light" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 8.jpg" alt="Evening light" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>07</span>Evening light</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 6.jpg" alt="Mountain peaks" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 6.jpg" alt="Mountain peaks" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>08</span>Mountain peaks</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galTall}`}>
-              <Image src="/images/venue/gallery/khoj venue 5.jpg" alt="Riverside detail" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 5.jpg" alt="Riverside detail" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>09</span>Riverside detail</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 4.jpg" alt="Sanctuary space" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 4.jpg" alt="Sanctuary space" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>10</span>Sanctuary space</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 3.jpg" alt="Dawn at Khoj" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 3.jpg" alt="Dawn at Khoj" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>11</span>Dawn at Khoj</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galPano}`}>
-              <Image src="/images/venue/gallery/khoj venue 2.jpg" alt="Horizons" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue 2.jpg" alt="Horizons" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>12</span>Horizons</figcaption>
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue.jpg" alt="The valley speaks" fill className={styles.galImage} />
+              <Image src="/images/venue/gallery/khoj venue.jpg" alt="The valley speaks" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
               <figcaption><span className={styles.n}>13</span>The valley speaks</figcaption>
             </figure>
           </div>
