@@ -9,6 +9,7 @@ const NAV_LINKS = [
 
 const LOGISTICS_LINKS = [
   { href: '/venue', label: 'Venue' },
+  { href: '/explore-skardu', label: 'Explore Skardu' },
   { href: '/travel', label: 'Travel' },
 ];
 
