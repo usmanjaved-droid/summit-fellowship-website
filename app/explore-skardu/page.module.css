@@ -666,30 +666,23 @@
 }
 
 .activityItems {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.spot {
+  width: 100%;
 }
 
 /* Hiking & Trekking - K2 Base Camp (1st card) spans full width */
-.thingsSection > .container > .activity:nth-child(4) .activityItems .spot:nth-child(1) {
-  flex: 0 0 100%;
-}
-
-.thingsSection > .container > .activity:nth-child(4) .activityItems .spot:nth-child(2),
-.thingsSection > .container > .activity:nth-child(4) .activityItems .spot:nth-child(3) {
-  flex: 0 0 calc(50% - 12px);
+.activity:nth-of-type(3) .spot:first-child {
+  grid-column: 1 / -1;
 }
 
 /* Cold Deserts - Deosai National Park (3rd card) spans full width */
-.thingsSection > .container > .activity:nth-child(5) .activityItems .spot:nth-child(1),
-.thingsSection > .container > .activity:nth-child(5) .activityItems .spot:nth-child(2) {
-  flex: 0 0 calc(50% - 12px);
-  order: 1;
-}
-
-.thingsSection > .container > .activity:nth-child(5) .activityItems .spot:nth-child(3) {
-  flex: 0 0 100%;
+.activity:nth-of-type(4) .spot:last-child {
+  grid-column: 1 / -1;
   order: -1;
 }
 
