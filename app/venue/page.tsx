@@ -417,6 +417,7 @@ export default function VenuePage() {
                     <li>Modest casual wear for village visits</li>
                     <li>Traditional attire for Cultural Night</li>
                   </ul>
+                  <p style={{ fontSize: '14px', lineHeight: '1.5', color: 'var(--ink-soft)', marginTop: '12px' }}>For attire, we'll be casual and comfortable. Do not overpack. You'll be glad that you packed comfortable casual clothes.</p>
                 </div>
 
                 <div className={styles.packingCol}>
