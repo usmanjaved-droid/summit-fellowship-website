@@ -358,8 +358,6 @@ export default function VenuePage() {
                   <div className={styles.s}>~45-min transfer through the valley.</div>
                 </div>
               </div>
-
-              <a className={styles.fgCardLink} href="/travel">Full travel page</a>
             </article>
 
             {/* 04 · Medical */}
