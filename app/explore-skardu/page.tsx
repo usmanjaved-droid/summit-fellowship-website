@@ -420,6 +420,177 @@ export default function ExploreSkardu() {
               />
             </div>
           </div>
+
+          {/* Hiking & trekking activity */}
+          <div className={styles.activity}>
+            <div className={styles.activityIntro}>
+              <div className={styles.activityNum}>No. 02 · Hiking &amp; trekking</div>
+              <h3 className={styles.activityTitle}>
+                Trails of every<br />
+                <em>scale.</em>
+              </h3>
+              <p className={styles.activityDesc}>From 30-minute lakeside walks to the 21-day K2 Base Camp trek. The short walks around Khoj are some of the best things you&apos;ll do all week.</p>
+              <div className={styles.activityTag}>Good shoes only</div>
+            </div>
+            <div className={styles.activityItems}>
+              <SpotCard
+                name="K2 Base Camp · Concordia"
+                local="Skardu → Askole → Baltoro Glacier"
+                description="The most legendary trek in Pakistan. A 60-km foot journey up the Baltoro glacier to Concordia, the throne-room cirque where K2, Broad Peak, the Gasherbrums meet. Best June–September."
+                meta={[
+                  { label: 'Difficulty', value: 'Hard' },
+                  { label: 'Best season', value: 'Jun–Sep' },
+                  { label: 'Highest point', value: '~5,150 m' },
+                  { label: 'For you?', value: 'Not this week' },
+                ]}
+              />
+              <SpotCard
+                name="Kharpocho Fort climb"
+                local='"The king of forts"'
+                description="Short, steep walk up to a 16th-century fort overlooking Skardu town and the Indus. Roughly an hour up, 40 minutes down. Panoramic city view; quietly atmospheric ruin."
+                meta={[
+                  { label: 'From Skardu', value: 'In town' },
+                  { label: 'Round-trip', value: '~2 hrs' },
+                  { label: 'Difficulty', value: 'Moderate' },
+                  { label: 'Best at', value: 'Sunset' },
+                ]}
+              />
+              <SpotCard
+                name="Shigar orchard walks"
+                local="Khoj backyard"
+                description="Twenty- to ninety-minute walks through Shigar's irrigation channels, apricot and apple orchards, and small villages. Flat-ish, gentle, surprisingly cinematic."
+                meta={[
+                  { label: 'From Khoj', value: 'Out the door' },
+                  { label: 'Difficulty', value: 'Easy' },
+                  { label: 'Length', value: '20–90 min' },
+                  { label: 'Best at', value: 'Dawn / dusk' },
+                ]}
+              />
+            </div>
+          </div>
+
+          {/* Cold deserts activity */}
+          <div className={styles.activity}>
+            <div className={styles.activityIntro}>
+              <div className={styles.activityNum}>No. 03 · Cold deserts &amp; Deosai</div>
+              <h3 className={styles.activityTitle}>
+                Sand dunes,<br />
+                <em>at altitude.</em>
+              </h3>
+              <p className={styles.activityDesc}>Possibly Skardu's strangest feature: white-sand cold deserts at over 2,300 m, framed by 7,000-m peaks. The Deosai plateau adjoins them — the world's second-highest alpine plain.</p>
+              <div className={styles.activityTag}>SPF 50, always</div>
+            </div>
+            <div className={styles.activityItems}>
+              <SpotCard
+                name="Katpana Cold Desert"
+                local="Skardu Desert"
+                description="Rolling sand dunes sitting at over 2,300 m altitude — 20 minutes from Skardu town, with the Indus on one side and the Karakoram peaks on the other. A small lake in the middle adds another layer of surrealism. Best at sunset."
+                meta={[
+                  { label: 'From Khoj', value: '~45 min' },
+                  { label: 'Elevation', value: '~2,300 m' },
+                  { label: 'Best at', value: 'Sunset' },
+                  { label: 'Length of stay', value: '90 min' },
+                ]}
+              />
+              <SpotCard
+                name="Sarfaranga White Desert"
+                local="World's highest cold desert"
+                description="Even more dramatic than Katpana — in the Shigar valley, framed on three sides by mountains. Hosts an annual jeep rally that draws drivers from across Pakistan. Wide, flat, and almost ridiculous in scale."
+                meta={[
+                  { label: 'From Khoj', value: '~20 min' },
+                  { label: 'Elevation', value: '~2,400 m' },
+                  { label: 'Rally', value: 'April annually' },
+                  { label: 'Best for', value: 'Wide angle' },
+                ]}
+              />
+              <SpotCard
+                name="Deosai National Park"
+                local='"Land of giants"'
+                description="3,000 km² of high alpine plain averaging 4,114 m. Closed by snow late October to mid-April; open six to seven months a year. Home to Himalayan brown bear, snow leopard, golden marmot, ibex. The drive across via 4×4 is one of the most surreal road trips in South Asia."
+                meta={[
+                  { label: 'From Khoj', value: '3–4 hrs' },
+                  { label: 'Avg. elevation', value: '4,114 m' },
+                  { label: 'Wildlife', value: 'Brown bear, leopard' },
+                  { label: 'Open', value: 'Apr–Oct' },
+                ]}
+              />
+            </div>
+          </div>
+
+          {/* Village & cultural activity */}
+          <div className={styles.activity}>
+            <div className={styles.activityIntro}>
+              <div className={styles.activityNum}>No. 04 · Village &amp; cultural experiences</div>
+              <h3 className={styles.activityTitle}>
+                Slower<br />
+                <em>encounters.</em>
+              </h3>
+              <p className={styles.activityDesc}>Beyond the marquee sites, the Skardu region rewards the unhurried visitor. Music, polo, oral storytelling, and the kind of hospitality that doesn&apos;t appear on tour packages.</p>
+              <div className={styles.activityTag}>Bring nothing in a hurry</div>
+            </div>
+            <div className={styles.activityList}>
+              <ListItem
+                num="01"
+                title="Cultural Night at Khoj"
+                subtitle=" — with the cohort"
+                description="Built into the Fellowship week. Local artisans and musicians come to Khoj for an evening; fellows arrive in their own traditional attire and bring a delicacy or snack from their home region. Half show-and-tell, half listening session."
+                meta="Khoj · Evening"
+              />
+              <ListItem
+                num="02"
+                title="Balti music &amp; oral storytelling"
+                subtitle=" — hosted"
+                description="The Balti language is Tibetic — closer to Tibetan than to Urdu — and carries a deep oral tradition of poetry, song and folk narrative. Best heard live, in a small room, with butter tea in hand."
+                meta="Various"
+              />
+              <ListItem
+                num="03"
+                title="Polo match"
+                subtitle=" — if the timing aligns"
+                description="The &quot;freestyle&quot; mountain polo of Gilgit-Baltistan is faster, rougher, and more openly chaotic than the version played anywhere else. Local matches happen in Skardu through the summer."
+                meta="Summer · Free"
+              />
+              <ListItem
+                num="04"
+                title="Sadpara village walk"
+                description="Just south of Skardu — the home village of the late high-altitude mountaineer Ali Sadpara. A small, gentle walk through traditional Balti settlement and irrigation."
+                meta="~30 min from Skardu"
+              />
+            </div>
+          </div>
+
+          {/* Markets & photography activity */}
+          <div className={styles.activity}>
+            <div className={styles.activityIntro}>
+              <div className={styles.activityNum}>No. 05 · Markets, crafts &amp; photography</div>
+              <h3 className={styles.activityTitle}>
+                For things to<br />
+                <em>take home.</em>
+              </h3>
+              <p className={styles.activityDesc}>If you have a free afternoon in Skardu town, this is where it goes. Bazaars, dried fruit, gemstones, woven textiles, and the kind of urban-mountain street photography that rewards a 50 mm lens.</p>
+              <div className={styles.activityTag}>Cash · small bills</div>
+            </div>
+            <div className={styles.activityList}>
+              <ListItem
+                num="01"
+                title="Purana Bazaar, Skardu"
+                description="Skardu's old bazaar — narrow, busy, and full of the things the region actually makes: pashmina, hand-woven wool, dried apricots and apricot oil, walnuts, mulberries, and the local pink salt. Bargaining is expected and good-natured."
+                meta="~45 min from Khoj"
+              />
+              <ListItem
+                num="02"
+                title="Gemstone shops"
+                description="Gilgit-Baltistan sits on some of the world's best mineral country — aquamarine, topaz, tourmaline, peridot, quartz. A few legitimate dealers in Skardu town; many more selling glass to tourists. Go with someone who knows."
+                meta="Skardu town"
+              />
+              <ListItem
+                num="03"
+                title="Photography route · &quot;the golden hour drive&quot;"
+                description="Khoj → Sarfaranga → Indus viewpoint → Katpana → Skardu — best done with the light low, mid-June. The Karakoram peaks turn gold for about 20 minutes around sunset; the deserts go pink before they go grey."
+                meta="Bring a wide lens"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -589,5 +760,33 @@ function DishCard({
       </div>
       <p className={styles.dishDesc}>{description}</p>
     </article>
+  );
+}
+
+function ListItem({
+  num,
+  title,
+  subtitle,
+  description,
+  meta,
+}: {
+  num: string;
+  title: string;
+  subtitle?: string;
+  description: string;
+  meta: string;
+}) {
+  return (
+    <div className={styles.listItem}>
+      <span className={styles.listItemNum}>{num}</span>
+      <div>
+        <h4 className={styles.listItemTitle}>
+          {title}
+          {subtitle && <span className={styles.listItemLocal}>{subtitle}</span>}
+        </h4>
+        <p className={styles.listItemDesc}>{description}</p>
+      </div>
+      <span className={styles.listItemMeta}>{meta}</span>
+    </div>
   );
 }
