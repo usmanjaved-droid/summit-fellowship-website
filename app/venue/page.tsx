@@ -20,12 +20,6 @@ export default function VenuePage() {
           </div>
           <h1 className="page-hero__title">Khoj Resort, <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>Skardu.</em></h1>
           <p className="page-hero__subtitle">Tucked into the Shigar valley with the Karakoram rising on every side. Deliberate retreat from city noise, signal, and obligation.</p>
-          <div className={styles.pageHeroMeta}>
-            <div className={styles.pageHeroMetaItem}><span className={styles.label}>Coordinates</span><span className={styles.value}>35.30°N · 75.62°E</span></div>
-            <div className={styles.pageHeroMetaItem}><span className={styles.label}>Elevation</span><span className={styles.value}>~2,228 m</span></div>
-            <div className={styles.pageHeroMetaItem}><span className={styles.label}>Region</span><span className={styles.value}>Gilgit-Baltistan</span></div>
-            <div className={styles.pageHeroMetaItem}><span className={styles.label}>June climate</span><span className={styles.value}>10 – 30°C</span></div>
-          </div>
         </div>
       </section>
 
