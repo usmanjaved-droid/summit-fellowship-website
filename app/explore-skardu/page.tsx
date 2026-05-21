@@ -94,33 +94,32 @@ export default function ExploreSkardu() {
               <p>
                 At the centre of all this sits the <strong>17th-century Fong Khar</strong> — Palace on the Rock — built by Raja Hasan Khan, the 20th ruler of the Amacha dynasty, using craftsmen brought in from Kashmir. It was abandoned in the mid-20th century, restored by the Aga Khan Cultural Service over five years, and now operates as a heritage hotel and museum. It is a 15-minute drive from Khoj — and one of the sites the cohort will visit during the week.
               </p>
-
-              <div className={styles.aboutShigarMedia}>
-                <figure className={styles.fig1}>
-                  <div className={styles.imagePlaceholder}>
-                    <span>Shigar valley · looking north</span>
-                  </div>
-                  <figcaption>
-                    <span className={styles.n}>01</span>Shigar valley · looking north
-                  </figcaption>
-                </figure>
-                <figure className={styles.fig2}>
-                  <div className={styles.imagePlaceholder}>
-                    <span>Fong Khar</span>
-                  </div>
-                  <figcaption>
-                    <span className={styles.n}>02</span>Fong Khar
-                  </figcaption>
-                </figure>
-                <figure className={styles.fig3}>
-                  <div className={styles.imagePlaceholder}>
-                    <span>Apricot orchards</span>
-                  </div>
-                  <figcaption>
-                    <span className={styles.n}>03</span>Apricot orchards
-                  </figcaption>
-                </figure>
-              </div>
+            </div>
+            <div className={styles.aboutShigarMedia}>
+              <figure className={styles.fig1}>
+                <div className={styles.imagePlaceholder}>
+                  <span>Shigar valley · looking north</span>
+                </div>
+                <figcaption>
+                  <span className={styles.n}>01</span>Shigar valley · looking north
+                </figcaption>
+              </figure>
+              <figure className={styles.fig2}>
+                <div className={styles.imagePlaceholder}>
+                  <span>Fong Khar</span>
+                </div>
+                <figcaption>
+                  <span className={styles.n}>02</span>Fong Khar
+                </figcaption>
+              </figure>
+              <figure className={styles.fig3}>
+                <div className={styles.imagePlaceholder}>
+                  <span>Apricot orchards</span>
+                </div>
+                <figcaption>
+                  <span className={styles.n}>03</span>Apricot orchards
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
