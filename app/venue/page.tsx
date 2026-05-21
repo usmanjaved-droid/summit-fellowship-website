@@ -6,15 +6,6 @@ export const metadata = {
   title: 'Khoj Resort, Skardu — Summit Fellowship',
 };
 
-const SPACES = [
-  { id: 'space-studio', num: '01', title: 'The Studio', desc: 'Workshop room with U-shaped seating for 12. Whiteboard walls. Where the Mulago core blocks happen, and the one-pagers get written.' },
-  { id: 'space-courtyard', num: '02', title: 'The Courtyard', desc: 'Stone courtyard with apricot trees. Where coffee breaks become 30 minutes longer than scheduled, and 1-on-1 clinics spill out when the weather allows.' },
-  { id: 'space-dining', num: '03', title: 'The Dining Hall', desc: 'One long table. Locally-sourced food. By Day 3, everyone has a permanent seat. By Day 6, no one wants to leave it.' },
-  { id: 'space-library', num: '04', title: 'The Library Lounge', desc: 'Fireplace, mismatched armchairs, surprisingly well-stocked shelves. Default home for fireside chats and post-dinner spillover.' },
-  { id: 'space-orchard', num: '05', title: 'The Orchard', desc: "A short walk from the main building. The default outdoor classroom for 1-on-1 clinics. The cohort's photo gets taken here on Day 6." },
-  { id: 'space-fort', num: '06', title: 'Off-site: Shigar Fort', desc: "15-minute drive. 17th-century Balti fort. Where the Lightning Talks happen on Day 2 — and where the photos every cohort posts come from." },
-];
-
 export default function VenuePage() {
   return (
     <>
@@ -249,32 +240,6 @@ export default function VenuePage() {
             <div className={styles.factStripCell}><span className={styles.factLabel}>Workshop capacity</span><span className={styles.factValue}>~30 people</span></div>
             <div className={styles.factStripCell}><span className={styles.factLabel}>Wifi</span><span className={styles.factValue}>Yes — patchy</span></div>
             <div className={styles.factStripCell}><span className={styles.factLabel}>Vibe</span><span className={styles.factValue}>Intentionally quiet</span></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Spaces */}
-      <section className={styles.spaces} style={{ background: 'var(--paper-warm)' }}>
-        <div className="container">
-          <div className={styles.spacesHead}>
-            <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">The spaces</span></div>
-            <h2>Five rooms.<br /><em>One valley.</em></h2>
-            <p>You'll move between these five spaces over the week. Each was chosen for what it lets the group do, and for what it forbids — Khoj does not have a giant ballroom for a reason.</p>
-          </div>
-
-          <div className={styles.spaceGrid}>
-            {SPACES.map((s) => (
-              <article key={s.id} className={styles.spaceCard}>
-                <div className={styles.spaceCardMedia}>
-                  <div className={styles.spaceCardPlaceholder}></div>
-                  <span className={`${styles.spaceCardNum} ${styles.spaceCardNumOverlay}`}>{s.num}</span>
-                </div>
-                <div className={styles.spaceCardBody}>
-                  <h3 className={styles.spaceCardTitle}>{s.title}</h3>
-                  <p className={styles.spaceCardDesc}>{s.desc}</p>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>

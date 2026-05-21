@@ -45,3 +45,34 @@
 ✓ Compiled in 77ms
 ✓ Compiled in 70ms
 ✓ Compiled in 82ms
+✓ Compiled in 110ms
+✓ Compiled in 89ms
+⨯ ReferenceError: Image is not defined
+    at VenuePage (app\venue\page.tsx:52:16)
+  50 |             </div>
+  51 |             <figure className={styles.venueIntroImageSlot}>
+> 52 |               <Image
+     |                ^
+  53 |                 src="/images/venue/Khoj resort venue.jpg"
+  54 |                 alt="Khoj Resort venue"
+  55 |                 fill {
+  digest: '2387819240'
+}
+ GET /venue 500 in 232ms (next.js: 75ms, application-code: 157ms)
+[browser] Uncaught ReferenceError: Image is not defined
+    at VenuePage (app\venue\page.tsx:52:16)
+    at resolveErrorDev (file://D:/Summit Fellowship Website/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:1919:105)
+    at processFullStringRow (file://D:/Summit Fellowship Website/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2434:29)
+    at processFullBinaryRow (file://D:/Summit Fellowship Website/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2393:9)
+    at processBinaryChunk (file://D:/Summit Fellowship Website/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2502:221)
+    at progress (file://D:/Summit Fellowship Website/.next/dev/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_0p3wegg._.js:2689:13)
+  50 |             </div>
+  51 |             <figure className={styles.venueIntroImageSlot}>
+> 52 |               <Image
+     |                ^
+  53 |                 src="/images/venue/Khoj resort venue.jpg"
+  54 |                 alt="Khoj Resort venue"
+  55 |                 fill
+ GET /venue 200 in 965ms (next.js: 50ms, application-code: 915ms)
+✓ Compiled in 504ms
+✓ Compiled in 83ms
