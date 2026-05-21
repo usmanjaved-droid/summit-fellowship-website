@@ -449,6 +449,13 @@
 .factPhoto .imagePlaceholder {
   background: var(--alpine-deep);
   color: var(--parchment);
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.factPhoto .imagePlaceholder span {
+  display: none;
 }
 
 .factOverlay {
