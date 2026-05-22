@@ -30,6 +30,16 @@ export default function Header() {
   const programRef = useRef<HTMLDivElement | null>(null);
   const logisticsRef = useRef<HTMLDivElement | null>(null);
 
+  const closeAllMenus = () => {
+    setOpen(false);
+    setProgramOpen(false);
+    setPeopleOpen(false);
+    setLogisticsOpen(false);
+    if (typeof document !== 'undefined') {
+      document.body.classList.remove('menu-open');
+    }
+  };
+
   const toggle = () => {
     setOpen((prev) => {
       const next = !prev;
@@ -89,7 +99,7 @@ export default function Header() {
           </span>
         </Link>
         <nav className="site-nav" aria-label="Primary">
-          <Link className="site-nav__link site-nav__link--icon" href="/" aria-label="Home" onClick={() => setOpen(false)}>
+          <Link className="site-nav__link site-nav__link--icon" href="/" aria-label="Home" onClick={() => closeAllMenus()}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M3 11.5 12 4l9 7.5" />
               <path d="M5 10v10h14V10" />
@@ -122,10 +132,7 @@ export default function Header() {
                   href={l.href}
                   className="site-nav__dropdown-item"
                   role="menuitem"
-                  onClick={() => {
-                    setProgramOpen(false);
-                    if (open) setOpen(false);
-                  }}
+                  onClick={() => closeAllMenus()}
                 >
                   {l.label}
                 </Link>
@@ -159,10 +166,7 @@ export default function Header() {
                   href={l.href}
                   className="site-nav__dropdown-item"
                   role="menuitem"
-                  onClick={() => {
-                    setPeopleOpen(false);
-                    if (open) setOpen(false);
-                  }}
+                  onClick={() => closeAllMenus()}
                 >
                   {l.label}
                 </Link>
@@ -197,10 +201,7 @@ export default function Header() {
                     href={l.href}
                     className="site-nav__dropdown-item"
                     role="menuitem"
-                    onClick={() => {
-                      setLogisticsOpen(false);
-                      if (open) setOpen(false);
-                    }}
+                    onClick={() => closeAllMenus()}
                   >
                     {l.label}
                   </Link>
@@ -209,12 +210,12 @@ export default function Header() {
             </div>
           )}
           {NAV_LINKS.map((l) => (
-            <Link key={l.href} className="site-nav__link" href={l.href} onClick={() => setOpen(false)}>
+            <Link key={l.href} className="site-nav__link" href={l.href} onClick={() => closeAllMenus()}>
               {l.label}
             </Link>
           ))}
         </nav>
-        <Link className="site-header__cta" href="/contact" onClick={() => setOpen(false)}>
+        <Link className="site-header__cta" href="/contact" onClick={() => closeAllMenus()}>
           Contact →
         </Link>
         <button
@@ -223,7 +224,51 @@ export default function Header() {
           aria-label="Menu"
           onClick={toggle}
         >
-          ☰
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+            className={`hamburger-icon${open ? ' is-open' : ''}`}
+          >
+            <line
+              x1="3"
+              y1="6"
+              x2="21"
+              y2="6"
+              className="hamburger-top"
+              style={{
+                transformOrigin: '12px 6px',
+                transition: 'all 0.2s var(--ease-out)',
+              }}
+            />
+            <line
+              x1="3"
+              y1="12"
+              x2="21"
+              y2="12"
+              className="hamburger-middle"
+              style={{
+                transition: 'opacity 0.2s var(--ease-out)',
+              }}
+            />
+            <line
+              x1="3"
+              y1="18"
+              x2="21"
+              y2="18"
+              className="hamburger-bottom"
+              style={{
+                transformOrigin: '12px 18px',
+                transition: 'all 0.2s var(--ease-out)',
+              }}
+            />
+          </svg>
         </button>
       </div>
     </header>

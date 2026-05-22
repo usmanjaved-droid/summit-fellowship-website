@@ -368,12 +368,31 @@ p { text-wrap: pretty; margin: 0; }
   background: transparent;
   border: 0;
   cursor: pointer;
-  font-size: 24px;
   line-height: 1;
-  transition: transform .3s var(--ease-out);
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  -webkit-appearance: none;
+  appearance: none;
 }
-body.menu-open .menu-toggle {
-  transform: rotate(45deg);
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-icon line {
+    transition: none !important;
+  }
+}
+
+.hamburger-icon.is-open .hamburger-top {
+  transform: rotate(-45deg) translateY(6px);
+}
+
+.hamburger-icon.is-open .hamburger-middle {
+  opacity: 0;
+}
+
+.hamburger-icon.is-open .hamburger-bottom {
+  transform: rotate(45deg) translateY(-6px);
 }
 
 @media (max-width: 1100px) {
