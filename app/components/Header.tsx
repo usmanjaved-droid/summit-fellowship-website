@@ -4,13 +4,12 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 const NAV_LINKS = [
+  { href: '/venue', label: 'Venue' },
+  { href: '/explore-skardu', label: 'Explore Skardu' },
   { href: '/resources', label: 'Resources' },
 ];
 
-const LOGISTICS_LINKS = [
-  { href: '/venue', label: 'Venue' },
-  { href: '/explore-skardu', label: 'Explore Skardu' },
-];
+const LOGISTICS_LINKS = [];
 
 const PROGRAM_LINKS = [
   { href: '/curriculum', label: 'Curriculum' },
@@ -160,38 +159,40 @@ export default function Header() {
               ))}
             </div>
           </div>
-          <div
-            className={`site-nav__logistics${logisticsOpen ? ' is-open' : ''}`}
-            ref={logisticsRef}
-          >
-            <button
-              type="button"
-              className="site-nav__link site-nav__logistics-trigger"
-              aria-expanded={logisticsOpen}
-              aria-haspopup="menu"
-              onClick={() => setLogisticsOpen((v) => !v)}
+          {LOGISTICS_LINKS.length > 0 && (
+            <div
+              className={`site-nav__logistics${logisticsOpen ? ' is-open' : ''}`}
+              ref={logisticsRef}
             >
-              Logistics
-              <span className={`site-nav__caret${logisticsOpen ? ' is-open' : ''}`} aria-hidden="true">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2 3.5 5 6.5 8 3.5" />
-                </svg>
-              </span>
-            </button>
-            <div className="site-nav__dropdown" role="menu">
-              {LOGISTICS_LINKS.map((l) => (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  className="site-nav__dropdown-item"
-                  role="menuitem"
-                  onClick={() => setLogisticsOpen(false)}
-                >
-                  {l.label}
-                </Link>
-              ))}
+              <button
+                type="button"
+                className="site-nav__link site-nav__logistics-trigger"
+                aria-expanded={logisticsOpen}
+                aria-haspopup="menu"
+                onClick={() => setLogisticsOpen((v) => !v)}
+              >
+                Logistics
+                <span className={`site-nav__caret${logisticsOpen ? ' is-open' : ''}`} aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 3.5 5 6.5 8 3.5" />
+                  </svg>
+                </span>
+              </button>
+              <div className="site-nav__dropdown" role="menu">
+                {LOGISTICS_LINKS.map((l) => (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    className="site-nav__dropdown-item"
+                    role="menuitem"
+                    onClick={() => setLogisticsOpen(false)}
+                  >
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
           {NAV_LINKS.map((l) => (
             <Link key={l.href} className="site-nav__link" href={l.href}>
               {l.label}
