@@ -14,7 +14,6 @@ const PEOPLE = [
 
 const LOGISTICS = [
   { href: '/venue', label: 'Khoj Resort, Skardu' },
-  { href: '/travel', label: 'Travel & Arrivals' },
   { href: '/contact', label: 'Contact' },
 ];
 
