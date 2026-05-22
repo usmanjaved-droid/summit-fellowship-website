@@ -675,12 +675,14 @@
   width: 100%;
 }
 
+/* Historic sites - all cards equal width (no spanning) */
+
 /* Hiking & Trekking - K2 Base Camp (1st card) spans full width */
 .activity:nth-of-type(3) .spot:first-child {
   grid-column: 1 / -1;
 }
 
-/* Cold Deserts - all cards equal width */
+/* Cold Deserts - all cards equal width (no spanning) */
 
 .spot {
   background: var(--paper-cool);
