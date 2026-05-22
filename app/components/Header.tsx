@@ -88,7 +88,16 @@ export default function Header() {
           </span>
         </Link>
         <nav className="site-nav" aria-label="Primary">
-          <Link className="site-nav__link site-nav__link--icon" href="/" aria-label="Home">
+          {open && (
+            <button
+              className="site-nav__close"
+              aria-label="Close menu"
+              onClick={toggle}
+            >
+              ✕
+            </button>
+          )}
+          <Link className="site-nav__link site-nav__link--icon" href="/" aria-label="Home" onClick={() => open && setOpen(false)}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M3 11.5 12 4l9 7.5" />
               <path d="M5 10v10h14V10" />
@@ -121,7 +130,10 @@ export default function Header() {
                   href={l.href}
                   className="site-nav__dropdown-item"
                   role="menuitem"
-                  onClick={() => setProgramOpen(false)}
+                  onClick={() => {
+                    setProgramOpen(false);
+                    if (open) setOpen(false);
+                  }}
                 >
                   {l.label}
                 </Link>
@@ -155,7 +167,10 @@ export default function Header() {
                   href={l.href}
                   className="site-nav__dropdown-item"
                   role="menuitem"
-                  onClick={() => setPeopleOpen(false)}
+                  onClick={() => {
+                    setPeopleOpen(false);
+                    if (open) setOpen(false);
+                  }}
                 >
                   {l.label}
                 </Link>
@@ -190,7 +205,10 @@ export default function Header() {
                     href={l.href}
                     className="site-nav__dropdown-item"
                     role="menuitem"
-                    onClick={() => setLogisticsOpen(false)}
+                    onClick={() => {
+                      setLogisticsOpen(false);
+                      if (open) setOpen(false);
+                    }}
                   >
                     {l.label}
                   </Link>
@@ -199,12 +217,12 @@ export default function Header() {
             </div>
           )}
           {NAV_LINKS.map((l) => (
-            <Link key={l.href} className="site-nav__link" href={l.href}>
+            <Link key={l.href} className="site-nav__link" href={l.href} onClick={() => open && setOpen(false)}>
               {l.label}
             </Link>
           ))}
         </nav>
-        <Link className="site-header__cta" href="/contact">
+        <Link className="site-header__cta" href="/contact" onClick={() => open && setOpen(false)}>
           Contact →
         </Link>
         <button

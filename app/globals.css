@@ -383,6 +383,22 @@ p { text-wrap: pretty; margin: 0; }
   body.menu-open .site-nav__link { padding: 12px 0; font-size: 13px; }
   body.menu-open .site-header__inner { flex-wrap: wrap; }
   body.menu-open .site-header__cta { width: 100%; text-align: center; }
+
+  .site-nav__close {
+    display: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 8px 12px;
+    color: var(--ink);
+    align-self: flex-end;
+    margin-right: 4px;
+    margin-bottom: 12px;
+    transition: color .2s var(--ease-out);
+  }
+  body.menu-open .site-nav__close { display: block; }
+  .site-nav__close:hover { color: var(--clay); }
 }
 
 /* === Footer === */
