@@ -89,15 +89,6 @@ export default function Header() {
           </span>
         </Link>
         <nav className="site-nav" aria-label="Primary">
-          {open && (
-            <button
-              className="site-nav__close"
-              aria-label="Close menu"
-              onClick={toggle}
-            >
-              ✕
-            </button>
-          )}
           <Link className="site-nav__link site-nav__link--icon" href="/" aria-label="Home" onClick={() => setOpen(false)}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M3 11.5 12 4l9 7.5" />
