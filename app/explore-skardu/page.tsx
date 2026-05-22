@@ -429,6 +429,7 @@ export default function ExploreSkardu() {
                   { label: 'Length', value: '20–90 min' },
                   { label: 'Best at', value: 'Dawn / dusk' },
                 ]}
+                image="/images/skardu/explore-skardu/apricot-orchar-Shigar.jpg"
               />
             </div>
           </div>
