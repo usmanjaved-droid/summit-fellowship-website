@@ -97,6 +97,8 @@ export default function Header() {
           <div
             className={`site-nav__program${programOpen ? ' is-open' : ''}`}
             ref={programRef}
+            onMouseEnter={() => setProgramOpen(true)}
+            onMouseLeave={() => setProgramOpen(false)}
           >
             <button
               type="button"
@@ -129,6 +131,8 @@ export default function Header() {
           <div
             className={`site-nav__people${peopleOpen ? ' is-open' : ''}`}
             ref={peopleRef}
+            onMouseEnter={() => setPeopleOpen(true)}
+            onMouseLeave={() => setPeopleOpen(false)}
           >
             <button
               type="button"
@@ -162,6 +166,8 @@ export default function Header() {
             <div
               className={`site-nav__logistics${logisticsOpen ? ' is-open' : ''}`}
               ref={logisticsRef}
+              onMouseEnter={() => setLogisticsOpen(true)}
+              onMouseLeave={() => setLogisticsOpen(false)}
             >
               <button
                 type="button"
