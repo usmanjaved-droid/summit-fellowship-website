@@ -1769,6 +1769,24 @@ p { text-wrap: pretty; margin: 0; }
   .exp-chart__label { font-size: 44px; }
 }
 
+@media (max-width: 640px) {
+  .whatis-block + .whatis-block {
+    margin-top: clamp(48px, 8vw, 80px);
+  }
+  .whatis-block__heading {
+    font-size: clamp(24px, 5vw, 36px);
+  }
+  .whatis__body {
+    font-size: clamp(15px, 3.5vw, 17px);
+  }
+  .whatis__pull {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+  .exp-chart__label {
+    font-size: 36px;
+  }
+}
+
 /* === HOME: Meet the people === */
 .people { background: var(--paper); }
 .people__head { margin-bottom: 56px; }
