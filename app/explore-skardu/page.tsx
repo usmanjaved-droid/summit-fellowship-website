@@ -97,24 +97,39 @@ export default function ExploreSkardu() {
             </div>
             <div className={styles.aboutShigarMedia}>
               <figure className={styles.fig1}>
-                <div className={styles.imagePlaceholder}>
-                  <span>Shigar valley · looking north</span>
+                <div className={styles.imageWrapper}>
+                  <Image
+                    src="/images/skardu/explore-skardu/shigar valley.jpg"
+                    alt="Shigar valley · looking north"
+                    fill
+                    className={styles.aboutShigarImage}
+                  />
                 </div>
                 <figcaption>
                   <span className={styles.n}>01</span>Shigar valley · looking north
                 </figcaption>
               </figure>
               <figure className={styles.fig2}>
-                <div className={styles.imagePlaceholder}>
-                  <span>Fong Khar</span>
+                <div className={styles.imageWrapper}>
+                  <Image
+                    src="/images/skardu/explore-skardu/Fond Khar.jpg"
+                    alt="Fong Khar"
+                    fill
+                    className={styles.aboutShigarImage}
+                  />
                 </div>
                 <figcaption>
                   <span className={styles.n}>02</span>Fong Khar
                 </figcaption>
               </figure>
               <figure className={styles.fig3}>
-                <div className={styles.imagePlaceholder}>
-                  <span>Apricot orchards</span>
+                <div className={styles.imageWrapper}>
+                  <Image
+                    src="/images/skardu/explore-skardu/apricot orchar Shigar.jpg"
+                    alt="Apricot orchards"
+                    fill
+                    className={styles.aboutShigarImage}
+                  />
                 </div>
                 <figcaption>
                   <span className={styles.n}>03</span>Apricot orchards
@@ -405,7 +420,6 @@ export default function ExploreSkardu() {
                   { label: 'Length', value: '20–90 min' },
                   { label: 'Best at', value: 'Dawn / dusk' },
                 ]}
-                image="/images/skardu/explore-skardu/apricot orchar Shigar.jpg"
               />
             </div>
           </div>

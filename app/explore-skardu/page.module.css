@@ -205,6 +205,17 @@
   background: var(--paper-warm);
 }
 
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.aboutShigarImage {
+  object-fit: cover;
+  object-position: center;
+}
+
 .aboutShigarMedia figcaption {
   position: absolute;
   bottom: 12px;
