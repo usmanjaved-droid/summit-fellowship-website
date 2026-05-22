@@ -76,7 +76,10 @@
       "Bash(sed -i 's|/images/skardu/explore-skardu/Fond Khar\\\\.jpg|/images/skardu/explore-skardu/Fond-Khar.jpg|g' app/explore-skardu/page.tsx)",
       "Bash(sed -i 's|/images/skardu/explore-skardu/apricot orchar Shigar\\\\.jpg|/images/skardu/explore-skardu/apricot-orchar-Shigar.jpg|g' app/explore-skardu/page.tsx)",
       "Bash(sed -i 's|/images/skardu/explore-skardu/upper kachura lake\\\\.jpeg|/images/skardu/explore-skardu/upper-kachura-lake.jpeg|g' app/explore-skardu/page.tsx)",
-      "Bash(sed -i 's|/images/skardu/explore-skardu/Shangrila lake\\\\.jpg|/images/skardu/explore-skardu/Shangrila-lake.jpg|g' app/explore-skardu/page.tsx)"
+      "Bash(sed -i 's|/images/skardu/explore-skardu/Shangrila lake\\\\.jpg|/images/skardu/explore-skardu/Shangrila-lake.jpg|g' app/explore-skardu/page.tsx)",
+      "Bash(curl -s \"https://summit-fellowship-2026.vercel.app/explore-skardu\")",
+      "Bash(curl -s -H \"Cache-Control: max-age=0\" -H \"Pragma: no-cache\" \"https://summit-fellowship-2026.vercel.app/explore-skardu\")",
+      "Bash(curl -s \"https://summit-fellowship-2026.vercel.app/\")"
     ],
     "deny": [
       "Bash(rm -rf /)",
