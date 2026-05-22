@@ -248,11 +248,10 @@ export default function ExploreSkardu() {
                 <span className={styles.eyebrow}>Section 04 · Things to do in Skardu</span>
               </div>
               <h2>
-                What to <em>do</em>
+                what to <em>do</em> in Skardu
+                <br />— for those who have
                 <br />
-                when you&apos;re not
-                <br />
-                in session.
+                extra days.
               </h2>
             </div>
           </div>
