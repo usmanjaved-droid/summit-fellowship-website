@@ -1079,6 +1079,14 @@ p { text-wrap: pretty; margin: 0; }
   .venue__image { min-height: 320px; }
   .venue__copy { padding: 64px 32px; }
 }
+@media (max-width: 640px) {
+  .venue__copy {
+    padding: 48px 16px;
+  }
+  .venue__image {
+    min-height: 240px;
+  }
+}
 
 /* Hosts */
 .hosts {
