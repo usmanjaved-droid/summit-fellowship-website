@@ -680,11 +680,7 @@
   grid-column: 1 / -1;
 }
 
-/* Cold Deserts - Deosai National Park (3rd card) spans full width */
-.activity:nth-of-type(4) .spot:last-child {
-  grid-column: 1 / -1;
-  order: -1;
-}
+/* Cold Deserts - all cards equal width */
 
 .spot {
   background: var(--paper-cool);
