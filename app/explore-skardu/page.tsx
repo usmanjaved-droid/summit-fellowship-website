@@ -323,6 +323,7 @@ export default function ExploreSkardu() {
                   { label: 'Restored', value: '2004' },
                   { label: 'Status', value: 'Museum + hotel' },
                 ]}
+                image="/images/skardu/explore-skardu/Fond Khar.jpg"
               />
               <SpotCard
                 name="Amburiq Mosque"
@@ -543,18 +544,29 @@ function SpotCard({
   local,
   description,
   meta,
+  image,
 }: {
   name: string;
   local?: string;
   description: string;
   meta: Array<{ label: string; value: string }>;
+  image?: string;
 }) {
   return (
     <article className={styles.spot}>
       <div className={styles.spotMedia}>
-        <div className={styles.imagePlaceholder}>
-          <span>{name}</span>
-        </div>
+        {image ? (
+          <Image
+            src={image}
+            alt={name}
+            fill
+            className={styles.spotImage}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder}>
+            <span>{name}</span>
+          </div>
+        )}
         <span className={styles.spotTag}>Location</span>
       </div>
       <div className={styles.spotBody}>
