@@ -1198,7 +1198,7 @@ p { text-wrap: pretty; margin: 0; }
    COHORT PAGE
    ========================================================================= */
 .filter-bar { background: var(--paper-warm); border-bottom: 1px solid var(--line); padding: 24px 0; position: sticky; top: 65px; z-index: 20; backdrop-filter: blur(8px); }
-.filter-bar__inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.filter-bar__inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 0 32px; max-width: var(--container); margin: 0 auto; width: 100%; }
 .filter-bar__label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-right: 8px; }
 .filter-chip { font-family: var(--mono); font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; padding: 8px 14px; border: 1px solid var(--line); background: transparent; color: var(--ink-soft); cursor: pointer; transition: all .2s var(--ease-out); border-radius: 2px; }
 .filter-chip:hover { border-color: var(--alpine-deep); color: var(--alpine-deep); }
