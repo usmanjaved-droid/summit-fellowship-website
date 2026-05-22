@@ -900,7 +900,7 @@
   grid-template-columns: 5fr 7fr;
   gap: 72px;
   margin-bottom: 64px;
-  align-items: start;
+  align-items: center;
 }
 
 .cuisineHead h2 {
