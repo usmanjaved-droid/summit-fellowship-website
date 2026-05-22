@@ -22,7 +22,14 @@ const PEOPLE_CARDS = [
   },
 ];
 
-const ACTIONS = [
+interface Action {
+  num: string;
+  title: string;
+  desc: string;
+  href: string;
+}
+
+const ACTIONS: Action[] = [
   {
     num: '01',
     title: 'Submit your pre work',
