@@ -279,6 +279,7 @@ export default function ExploreSkardu() {
                   { label: 'Depth', value: '~70 m' },
                   { label: 'Best for', value: 'Solitude' },
                 ]}
+                image="/images/skardu/explore-skardu/upper kachura lake.jpeg"
               />
               <SpotCard
                 name="Lower Kachura · Shangrila"
@@ -290,6 +291,7 @@ export default function ExploreSkardu() {
                   { label: 'Founded', value: '1983' },
                   { label: 'Best for', value: 'Lunch stop' },
                 ]}
+                image="/images/skardu/explore-skardu/Shangrila lake.jpg"
               />
               <SpotCard
                 name="Satpara Lake"
@@ -301,6 +303,7 @@ export default function ExploreSkardu() {
                   { label: 'Fish', value: 'Trout' },
                   { label: 'Best for', value: 'Photography' },
                 ]}
+                image="/images/skardu/explore-skardu/Satpara Lake.jpg"
               />
               <SpotCard
                 name="Sheosar Lake"
@@ -312,6 +315,7 @@ export default function ExploreSkardu() {
                   { label: 'Access', value: 'Jun–Oct only' },
                   { label: 'Best for', value: 'A whole day' },
                 ]}
+                image="/images/skardu/explore-skardu/Sheosar lake.jpg"
               />
             </div>
           </div>
@@ -350,6 +354,7 @@ export default function ExploreSkardu() {
                   { label: 'Style', value: 'Tibetan–Islamic' },
                   { label: 'Best for', value: 'Woodcarving' },
                 ]}
+                image="/images/skardu/explore-skardu/Amburiq Mosque.jpg"
               />
               <SpotCard
                 name="Manthal Buddha Rock"
@@ -361,6 +366,7 @@ export default function ExploreSkardu() {
                   { label: 'Subject', value: 'Buddha + bodhisattvas' },
                   { label: 'Entry', value: 'Free' },
                 ]}
+                image="/images/skardu/explore-skardu/Manthal Budha rock.jpg"
               />
               <SpotCard
                 name="Kharpocho Fort"
@@ -372,6 +378,7 @@ export default function ExploreSkardu() {
                   { label: 'Dynasty', value: 'Maqpon' },
                   { label: 'Best at', value: 'Sunset' },
                 ]}
+                image="/images/skardu/explore-skardu/Kharpocho Fort.jpg"
               />
             </div>
           </div>
@@ -398,6 +405,7 @@ export default function ExploreSkardu() {
                   { label: 'Highest point', value: '~5,150 m' },
                   { label: 'For you?', value: 'Not this week' },
                 ]}
+                image="/images/skardu/explore-skardu/K2 Base Camp · Concordia.jpg"
               />
               <SpotCard
                 name="Kharpocho Fort climb"
@@ -446,6 +454,7 @@ export default function ExploreSkardu() {
                   { label: 'Best at', value: 'Sunset' },
                   { label: 'Length of stay', value: '90 min' },
                 ]}
+                image="/images/skardu/explore-skardu/Katpana cold desert.webp"
               />
               <SpotCard
                 name="Sarfaranga White Desert"
@@ -457,6 +466,7 @@ export default function ExploreSkardu() {
                   { label: 'Rally', value: 'April annually' },
                   { label: 'Best for', value: 'Wide angle' },
                 ]}
+                image="/images/skardu/explore-skardu/Sarfaranga Cold Desert.jpg"
               />
               <SpotCard
                 name="Deosai National Park"
@@ -468,6 +478,7 @@ export default function ExploreSkardu() {
                   { label: 'Wildlife', value: 'Brown bear, leopard' },
                   { label: 'Open', value: 'Apr–Oct' },
                 ]}
+                image="/images/skardu/explore-skardu/Deosai National Park.jpg"
               />
             </div>
           </div>
