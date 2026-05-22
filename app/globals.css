@@ -1797,6 +1797,21 @@ p { text-wrap: pretty; margin: 0; }
 .people-card__arrow { font-family: var(--mono); font-size: 22px; color: var(--clay); transition: transform .25s var(--ease-out); align-self: flex-end; }
 .people-card:hover .people-card__arrow { transform: translateX(6px); }
 @media (max-width: 1024px) { .people-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .people {
+    padding: 64px 0;
+  }
+  .people__head {
+    margin-bottom: 40px;
+  }
+  .people-card {
+    padding: 24px;
+    min-height: 240px;
+  }
+  .people-card__title {
+    font-size: 24px;
+  }
+}
 
 /* === HOME: Before you arrive === */
 .actions { background: var(--paper); }
