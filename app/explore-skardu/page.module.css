@@ -961,6 +961,11 @@
   position: relative;
 }
 
+.dishImage {
+  object-fit: cover;
+  object-position: center;
+}
+
 .dishNum {
   position: absolute;
   top: 12px;

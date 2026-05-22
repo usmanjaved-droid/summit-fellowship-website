@@ -527,24 +527,28 @@ export default function ExploreSkardu() {
               local="མོག་མོག་"
               category="Dumpling"
               description="Steamed dumplings — typically filled with minced meat, onion and spice — directly cousins to the Tibetan momo and Central Asian manti. The defining Balti dish."
+              image="/images/skardu/explore-skardu/Mamtu.jpeg"
             />
             <DishCard
               num="02"
               name="Khurba"
               category="Bread"
               description="A traditional Balti flatbread — thick, slightly chewy, often baked in a tandoor and eaten warm with butter or apricot jam. Trekkers carry it."
+              image="/images/skardu/explore-skardu/Khurba.jpg"
             />
             <DishCard
               num="03"
               name="Prapu"
               category="Buckwheat"
               description="A buckwheat-based dish unique to Baltistan — closer to a savoury crepe than to anything you&apos;ll find south of the mountains. Earthy and filling."
+              image="/images/skardu/explore-skardu/Prapu.jpg"
             />
             <DishCard
               num="04"
               name="Chapshuro"
               category="Stuffed bread"
               description="Sometimes called &quot;Balti pizza&quot; — a flat bread stuffed with spiced minced meat, onions and herbs, then baked or pan-fried. Originally from Hunza."
+              image="/images/skardu/explore-skardu/Chapshuro.jpg"
             />
             <DishCard
               num="05"
@@ -552,12 +556,14 @@ export default function ExploreSkardu() {
               local="po cha"
               category="Drink"
               description="Salted tea churned with yak butter — the Tibetan high-altitude staple. Strange on first sip, restorative by the second cup."
+              image="/images/skardu/explore-skardu/Butter-Tea.jpg"
             />
             <DishCard
               num="06"
               name="Apricot, everything"
               category="Fruit · oil · soup"
               description="Baltistan&apos;s apricot crop is genuinely world-class. Fresh in June, dried and powdered for the rest of the year. Pressed for oil. Stirred into sweet-savoury soup."
+              image="/images/skardu/explore-skardu/apricots.webp"
             />
           </div>
         </div>
@@ -620,19 +626,30 @@ function DishCard({
   local,
   category,
   description,
+  image,
 }: {
   num: string;
   name: string;
   local?: string;
   category: string;
   description: string;
+  image?: string;
 }) {
   return (
     <article className={styles.dish}>
       <div className={styles.dishMedia}>
-        <div className={styles.imagePlaceholder}>
-          <span>{name}</span>
-        </div>
+        {image ? (
+          <Image
+            src={image}
+            alt={name}
+            fill
+            className={styles.dishImage}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder}>
+            <span>{name}</span>
+          </div>
+        )}
         <span className={styles.dishNum}>No. {num}</span>
       </div>
       <div className={styles.dishHead}>
