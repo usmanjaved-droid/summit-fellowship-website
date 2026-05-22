@@ -707,7 +707,7 @@ p { text-wrap: pretty; margin: 0; }
 /* Hero */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--alpine-deep);
   color: var(--parchment);
   overflow: hidden;
