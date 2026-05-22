@@ -92,7 +92,9 @@
       "Bash(python3 scripts/search.py \"filter button chip dropdown select mobile\" --domain ux -n 10)",
       "Bash(python3 scripts/search.py \"card list directory minimal professional elegant\" --style -n 8)",
       "Bash(python3 scripts/search.py \"card list directory minimal professional elegant\" --domain style -n 8)",
-      "Bash(powershell -Command \"Get-Content data/fellows-deep.json | ConvertFrom-Json | Select-Object -First 1 -ExpandProperty id\")"
+      "Bash(powershell -Command \"Get-Content data/fellows-deep.json | ConvertFrom-Json | Select-Object -First 1 -ExpandProperty id\")",
+      "Bash(python3 scripts/search.py \"landing page service fellowship responsive mobile tablet\" --design-system -f markdown)",
+      "Bash(python3 scripts/search.py \"responsive mobile tablet layout touch interaction accessibility\" --domain ux -n 10)"
     ],
     "deny": [
       "Bash(rm -rf /)",
