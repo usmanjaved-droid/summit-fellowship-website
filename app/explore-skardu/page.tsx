@@ -405,7 +405,7 @@ export default function ExploreSkardu() {
                   { label: 'Highest point', value: '~5,150 m' },
                   { label: 'For you?', value: 'Not this week' },
                 ]}
-                image="/images/skardu/explore-skardu/K2 Base Camp · Concordia.jpg"
+                image="/images/skardu/explore-skardu/K2-Base-Camp.jpg"
               />
               <SpotCard
                 name="Kharpocho Fort climb"
