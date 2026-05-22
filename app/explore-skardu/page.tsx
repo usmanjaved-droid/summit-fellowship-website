@@ -417,6 +417,7 @@ export default function ExploreSkardu() {
                   { label: 'Difficulty', value: 'Moderate' },
                   { label: 'Best at', value: 'Sunset' },
                 ]}
+                image="/images/skardu/explore-skardu/Kharpocho Fort climb.webp"
               />
               <SpotCard
                 name="Shigar orchard walks"
