@@ -12,8 +12,9 @@ const PEOPLE = [
   { href: '/faculty#organizers', label: 'Organizers' },
 ];
 
-const LOGISTICS = [
+const EXPLORE = [
   { href: '/venue', label: 'Khoj Resort, Skardu' },
+  { href: '/explore-skardu', label: 'Explore Skardu' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -55,9 +56,9 @@ export default function Footer() {
             </ul>
           </div>
           <div className="site-footer__col">
-            <h4>Logistics</h4>
+            <h4>Explore</h4>
             <ul>
-              {LOGISTICS.map((l) => (
+              {EXPLORE.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href}>{l.label}</Link>
                 </li>
