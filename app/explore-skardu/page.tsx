@@ -513,13 +513,6 @@ export default function ExploreSkardu() {
             </div>
           </div>
 
-          <div className={styles.cuisineHero}>
-            <div className={styles.imagePlaceholder}>
-              <span>Balti spread</span>
-            </div>
-            <figcaption>Plate 01 · A Balti table</figcaption>
-          </div>
-
           <div className={styles.dishGrid}>
             <DishCard
               num="01"
