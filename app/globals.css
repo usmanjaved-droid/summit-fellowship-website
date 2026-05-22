@@ -224,7 +224,7 @@ p { text-wrap: pretty; margin: 0; }
   transition: color .2s var(--ease-out), background .2s var(--ease-out);
   position: relative;
 }
-.site-nav__link--icon { display: inline-flex; align-items: center; justify-content: center; padding: 8px; min-width: 36px; }
+.site-nav__link--icon { display: inline-flex; align-items: center; justify-content: center; padding: 8px; min-width: 44px; min-height: 44px; }
 .site-nav__link--icon svg { display: block; }
 .site-nav__link:hover { color: var(--alpine-deep); background: var(--paper-warm); }
 .site-nav__link[aria-current="page"] { color: var(--alpine-deep); }
@@ -571,11 +571,13 @@ p { text-wrap: pretty; margin: 0; }
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 14px 22px;
+  padding: 16px 22px;
   background: var(--alpine-deep);
   color: var(--paper);
   border-radius: 2px;
   transition: background .2s var(--ease-out), transform .2s var(--ease-out);
+  min-height: 44px;
+  min-width: 44px;
 }
 .btn:hover { background: var(--clay); }
 .btn--ochre { background: var(--ochre); color: var(--alpine-deep); }
@@ -1818,6 +1820,7 @@ p { text-wrap: pretty; margin: 0; }
   padding: 32px 0;
   color: inherit;
   transition: padding .25s var(--ease-out);
+  min-height: 80px;
 }
 .action-item__link:hover { padding-left: 8px; padding-right: 0; }
 .action-item__num { font-family: var(--mono); font-size: 28px; color: var(--clay); letter-spacing: 0.02em; }
@@ -1840,8 +1843,8 @@ p { text-wrap: pretty; margin: 0; }
 .actions__footer-link:hover { color: var(--alpine-deep); border-color: var(--alpine-deep); }
 .actions__footer-link .arrow { transition: transform .2s var(--ease-out); }
 .actions__footer-link:hover .arrow { transform: translateX(4px); }
-@media (max-width: 600px) {
-  .action-item__link { grid-template-columns: 56px 1fr 24px; gap: 20px; }
+@media (max-width: 640px) {
+  .action-item__link { grid-template-columns: 56px 1fr 24px; gap: 20px; min-height: 56px; }
   .action-item__num { font-size: 22px; }
   .action-item__title { font-size: 22px; }
 }
