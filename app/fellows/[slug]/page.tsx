@@ -55,7 +55,6 @@ export default async function FellowDetailPage({ params }: PageProps) {
         <div className={styles['fellow-detail__content']}>
           <FellowSection title="The Mission" content={fellow.mission} />
           <FellowSection title="How It Works" content={fellow.how_it_works} />
-          <FellowSection title="The Dream" content={fellow.the_dream} />
         </div>
         <FellowSidebar fellow={fellow} />
       </div>
