@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { href: '/resources', label: 'Resources' },
 ];
 
-const LOGISTICS_LINKS = [];
+const LOGISTICS_LINKS: Array<{ href: string; label: string }> = [];
 
 const PROGRAM_LINKS = [
   { href: '/curriculum', label: 'Curriculum' },
