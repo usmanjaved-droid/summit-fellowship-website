@@ -1205,12 +1205,17 @@ p { text-wrap: pretty; margin: 0; }
 .filter-chip.is-active { background: var(--alpine-deep); color: var(--paper); border-color: var(--alpine-deep); }
 .filter-bar__count { margin-left: auto; font-family: var(--mono); font-size: 11px; letter-spacing: 0.10em; color: var(--ink-mute); }
 
-@media (max-width: 640px) {
+@media (max-width: 1200px) {
   .filter-bar { padding: 12px 0; }
   .filter-bar__inner { flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding: 0 16px; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
   .filter-bar__inner::-webkit-scrollbar { display: none; }
-  .filter-bar__label { flex-shrink: 0; margin-right: 4px; font-size: 9px; }
-  .filter-chip { flex-shrink: 0; padding: 6px 12px; font-size: 10px; }
+  .filter-bar__label { flex-shrink: 0; margin-right: 4px; }
+  .filter-chip { flex-shrink: 0; padding: 8px 14px; }
+}
+
+@media (max-width: 640px) {
+  .filter-bar__label { font-size: 9px; }
+  .filter-chip { padding: 6px 12px; font-size: 10px; }
 }
 
 .fellows-section { padding: 80px 0 140px; background: var(--paper); }
