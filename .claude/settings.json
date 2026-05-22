@@ -79,7 +79,20 @@
       "Bash(sed -i 's|/images/skardu/explore-skardu/Shangrila lake\\\\.jpg|/images/skardu/explore-skardu/Shangrila-lake.jpg|g' app/explore-skardu/page.tsx)",
       "Bash(curl -s \"https://summit-fellowship-2026.vercel.app/explore-skardu\")",
       "Bash(curl -s -H \"Cache-Control: max-age=0\" -H \"Pragma: no-cache\" \"https://summit-fellowship-2026.vercel.app/explore-skardu\")",
-      "Bash(curl -s \"https://summit-fellowship-2026.vercel.app/\")"
+      "Bash(curl -s \"https://summit-fellowship-2026.vercel.app/\")",
+      "Bash(python3 scripts/search.py \"mobile navigation hamburger menu animation toggle alpine professional\" --design-system -p \"Summit Fellowship Navigation\")",
+      "Bash(python3 scripts/search.py \"hamburger menu animation toggle close button\" --domain ux)",
+      "Bash(python3 scripts/search.py \"touch target button close menu interaction\" --domain ux)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s https://summit-fellowship.vercel.app/)",
+      "Bash(curl -s https://summit-fellowship.vercel.app/fellows/rubeena-kidwai)",
+      "Bash(curl -I https://summit-fellowship.vercel.app/fellows/rubeena-kidwai)",
+      "Bash(curl -I https://summit-fellowship.vercel.app)",
+      "Bash(python3 scripts/search.py \"mobile filter chips scrollable responsive layout\" --domain ux -n 10)",
+      "Bash(python3 scripts/search.py \"filter button chip dropdown select mobile\" --domain ux -n 10)",
+      "Bash(python3 scripts/search.py \"card list directory minimal professional elegant\" --style -n 8)",
+      "Bash(python3 scripts/search.py \"card list directory minimal professional elegant\" --domain style -n 8)",
+      "Bash(powershell -Command \"Get-Content data/fellows-deep.json | ConvertFrom-Json | Select-Object -First 1 -ExpandProperty id\")"
     ],
     "deny": [
       "Bash(rm -rf /)",

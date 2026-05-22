@@ -28,8 +28,8 @@ export default function FellowsBits({ fellows }: { fellows: Fellow[] }) {
 
   return (
     <>
-      <div className="filter-bar">
-        <div className="container filter-bar__inner">
+      <div className="filter-bar container">
+        <div className="filter-bar__inner">
           <span className="filter-bar__label">Filter by sector</span>
           {SECTORS.map((s) => (
             <button
