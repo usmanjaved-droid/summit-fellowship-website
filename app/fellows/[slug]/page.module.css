@@ -317,17 +317,28 @@
   color: white;
 }
 
-/* Hide sidebar on tablet and mobile */
+/* Sidebar responsive adjustments */
 @media (max-width: 1023px) {
   .fellow-sidebar {
-    display: none;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 640px) {
   .fellow-sidebar {
-    position: relative;
-    top: auto;
+    padding: 24px;
+  }
+
+  .fellow-sidebar__section {
+    margin-bottom: 24px;
+  }
+
+  .fellow-sidebar__label {
+    font-size: 9px;
+  }
+
+  .fellow-sidebar__value {
+    font-size: 13px;
   }
 }
 
@@ -408,7 +419,7 @@
   .fellow-detail__body {
     grid-template-columns: 1fr;
     padding: 48px 24px;
-    gap: 32px;
+    gap: 40px;
   }
 }
 
