@@ -104,7 +104,7 @@ export default function ExponentialChart() {
 
   return (
     <div ref={wrapRef} className={`exp-chart${visible ? ' is-visible' : ''}`}>
-      <svg viewBox="0 0 1317 724" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg width="100%" height="auto" viewBox="0 0 1317 724" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         {/* Grey dashed line: idea → pretty good (linear-ish) */}
         <g opacity="0.5">
           <path
