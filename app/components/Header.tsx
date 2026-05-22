@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 const NAV_LINKS = [
@@ -97,7 +98,7 @@ export default function Header() {
               ✕
             </button>
           )}
-          <Link className="site-nav__link site-nav__link--icon" href="/" aria-label="Home" onClick={() => open && setOpen(false)}>
+          <Link className="site-nav__link site-nav__link--icon" href="/" aria-label="Home" onClick={() => setOpen(false)}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M3 11.5 12 4l9 7.5" />
               <path d="M5 10v10h14V10" />
@@ -217,12 +218,12 @@ export default function Header() {
             </div>
           )}
           {NAV_LINKS.map((l) => (
-            <Link key={l.href} className="site-nav__link" href={l.href} onClick={() => open && setOpen(false)}>
+            <Link key={l.href} className="site-nav__link" href={l.href} onClick={() => setOpen(false)}>
               {l.label}
             </Link>
           ))}
         </nav>
-        <Link className="site-header__cta" href="/contact" onClick={() => open && setOpen(false)}>
+        <Link className="site-header__cta" href="/contact" onClick={() => setOpen(false)}>
           Contact →
         </Link>
         <button
