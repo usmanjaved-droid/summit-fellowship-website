@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from 'react';
 const NAV_LINKS = [
   { href: '/venue', label: 'Venue' },
   { href: '/explore-skardu', label: 'Explore Skardu' },
-  { href: '/resources', label: 'Resources' },
 ];
 
 const LOGISTICS_LINKS: Array<{ href: string; label: string }> = [];

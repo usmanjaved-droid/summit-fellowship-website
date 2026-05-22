@@ -238,12 +238,6 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
-
-          <div className="actions__footer">
-            <Link href="/resources" className="actions__footer-link">
-              Full pre-arrival pack <span className="arrow">→</span>
-            </Link>
-          </div>
         </div>
       </section>
     </>

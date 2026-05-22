@@ -3,7 +3,6 @@ import Link from 'next/link';
 const PROGRAM = [
   { href: '/curriculum', label: 'Curriculum' },
   { href: '/itinerary', label: 'Itinerary' },
-  { href: '/resources', label: 'Resources' },
 ];
 
 const PEOPLE = [
