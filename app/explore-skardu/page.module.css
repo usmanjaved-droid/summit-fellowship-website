@@ -719,6 +719,11 @@
   overflow: hidden;
 }
 
+.spotImage {
+  object-fit: cover;
+  object-position: center;
+}
+
 .spotTag {
   position: absolute;
   top: 12px;
