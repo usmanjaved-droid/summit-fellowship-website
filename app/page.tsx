@@ -7,21 +7,6 @@ export const metadata = {
   description: 'A seven-day intensive for Pakistan\'s most promising social enterprises. Curating Pakistan\'s finest impact companies and matching them with strategy, mentoring, and capital to scale.',
 };
 
-const PEOPLE_CARDS = [
-  {
-    eyebrow: 'The Fellows',
-    title: 'Eleven founders',
-    desc: 'Pakistani social enterprises across health, education, livelihoods, and beyond - each ready to redesign their model for scale.',
-    href: '/fellows',
-  },
-  {
-    eyebrow: 'The Faculty',
-    title: 'Builders of scale',
-    desc: "Kevin Starr and the Mulago team alongside Pakistani founders who've built at national scale - from Sehat Kahani to ChildLife to Taleemabad.",
-    href: '/faculty',
-  },
-];
-
 interface Action {
   num: string;
   title: string;
@@ -44,12 +29,18 @@ const ACTIONS: Action[] = [
   },
   {
     num: '03',
+    title: 'Meet the people',
+    desc: 'Get to know the fellows and the faculty and advisors and the organizing team who would be there with us during the fellowship.',
+    href: '/fellows',
+  },
+  {
+    num: '04',
     title: 'Explore the venue',
     desc: 'Learn about Khoj Resort, review the packing essentials list, and understand the logistics of arrival.',
     href: '/venue',
   },
   {
-    num: '04',
+    num: '05',
     title: 'Explore Skardu',
     desc: "Get to know the region - the history, geography, culture, food, and activities around where you'll be.",
     href: '/explore-skardu',
@@ -163,47 +154,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ MEET THE PEOPLE ============ */}
-      <section className="people section">
-        <div className="container">
-          <div className="people__head">
-            <div className="eyebrow" style={{ marginBottom: 16 }}>Who&apos;s coming</div>
-            <h2 className="people__title">Meet the people.</h2>
-          </div>
-          <div className="people-grid">
-            {PEOPLE_CARDS.map((c) => (
-              <Link key={c.eyebrow} href={c.href} className="people-card">
-                <div className="people-card__top">
-                  <div className="eyebrow people-card__eyebrow">{c.eyebrow}</div>
-                  <h3 className="people-card__title">{c.title}</h3>
-                  <p className="people-card__desc">{c.desc}</p>
-                </div>
-                <span className="people-card__arrow" aria-hidden="true">→</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ VENUE (BRIEF) ============ */}
-      <section className="venue">
-        <div className="venue__split">
-          <div className="venue__image" role="img" aria-label="Mountains around Skardu, Gilgit-Baltistan" />
-          <div className="venue__copy">
-            <div className="eyebrow eyebrow--on-dark" style={{ marginBottom: 16 }}>The Venue</div>
-            <h2>Khoj Resort, Skardu</h2>
-            <p>
-              Tucked into the Shigar valley with the Karakoram rising on every side. A deliberate retreat where the
-              work happens.
-            </p>
-            <div className="venue__cta-row">
-              <Link href="/venue" className="btn btn--ochre">
-                Explore the venue <span className="arrow">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ============ BEFORE YOU ARRIVE ============ */}
       <section className="actions section">

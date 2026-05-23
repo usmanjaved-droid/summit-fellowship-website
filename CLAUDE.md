@@ -145,11 +145,14 @@ All colors are CSS variables (never hardcode hex values):
 
 ### Responsive Breakpoints
 
+**CSS breakpoints** (where layout changes):
 ```css
 @media (max-width: 640px)    { /* Mobile */ }
-@media (max-width: 1023px)   { /* Tablet */ }
+@media (max-width: 1024px)   { /* Tablet */ }
 @media (min-width: 1024px)   { /* Desktop */ }
 ```
+
+**Testing viewports** — Test at representative widths: 375px (mobile minimum), 768px (tablet), 1440px (wide desktop). These cover the full range even though CSS breakpoints are at 640px and 1024px.
 
 ---
 
@@ -200,7 +203,7 @@ All colors are CSS variables (never hardcode hex values):
   geography: string;       // Regions (e.g., "Punjab, Sindh")
   org_url: string;
   fellow_linkedin: string;
-  photo_url: string | null;  // External URL or null
+  photo_url: string | null;  // External HTTPS URL, local path, or null
   photo_source: string | null;
   sources: string[];
 }
@@ -212,18 +215,19 @@ All colors are CSS variables (never hardcode hex values):
 
 `generateStaticParams()` pre-renders all 11 fellow pages at build time (zero runtime overhead).
 
-### Image Domains
+### Photo URLs
 
-External photo URLs must be whitelisted in `next.config.ts`:
-
-```typescript
-images: {
-  remotePatterns: [
-    { protocol: "https", hostname: "static.wixstatic.com" },
-    { protocol: "https", hostname: "falling-walls.com" },
-  ],
-}
-```
+Photos can be:
+- **Local paths:** `/images/fellows/name.jpg` (served from `/public`)
+- **External HTTPS URLs:** Must be whitelisted in `next.config.ts` remotePatterns:
+  ```typescript
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "static.wixstatic.com" },
+      { protocol: "https", hostname: "falling-walls.com" },
+    ],
+  }
+  ```
 
 ### Photo Fallback
 
@@ -343,12 +347,14 @@ Always use Next.js Link (auto-prefetch):
 ### Commands
 
 ```bash
-npm run dev           # Start dev server (http://localhost:3000, hot reload)
-npm run build         # Production build + type check (runs tsc, catches errors)
-npm run start         # Start production server
-npm run lint          # Run ESLint on all files
-npm run lint --fix    # Auto-fix linting errors
+npm run dev              # Start dev server (http://localhost:3000, hot reload)
+npm run build            # Production build + type check (runs tsc, catches errors)
+npm run start            # Start production server
+npm run lint             # Run ESLint on all files (checks Next.js Core Web Vitals + TypeScript)
+npx eslint --fix        # Auto-fix linting errors (eslint.config.mjs config)
 ```
+
+**Note:** ESLint 9 uses `eslint.config.mjs` (ESM format, not `.js`).
 
 ### Local Development
 
@@ -363,13 +369,13 @@ Hot reload on file changes. Dev server at http://localhost:3000. Type checking h
 Before pushing to `main`:
 
 1. **Run `npm run build`** — Builds production bundle and validates all TypeScript. If it passes, the site will deploy successfully.
-2. **Run `npm run lint`** — Ensures code follows ESLint rules (Next.js Core Web Vitals + TypeScript). Auto-fix with `npm run lint --fix` if needed.
-3. **Test responsive layout** — Resize browser to 640px and 1024px. Verify:
-   - Mobile stacking works
+2. **Run `npx eslint --fix`** — Fix any linting errors. Then commit changes or run `npm run lint` to verify no violations remain.
+3. **Test responsive layout** — Resize browser to test viewports: 375px (mobile), 768px (tablet), 1440px (desktop). Verify:
+   - Mobile stacking works (below 640px)
    - Sidebar hidden below 1024px
    - Images load and maintain aspect ratio
-   - Text scales smoothly
-4. **Verify new fellow photos** — If adding fellows, check that `photo_url` domains are whitelisted in `next.config.ts` remotePatterns.
+   - Text scales smoothly across all widths
+4. **Verify fellow photos** — If adding/updating fellows with external photo URLs, ensure domains are whitelisted in `next.config.ts` remotePatterns.
 5. **Manual QA** — Test all updated pages in browser. Check all links work.
 
 ### Production Build & Deployment
@@ -435,11 +441,12 @@ Edit `app/globals.css` `:root` CSS variables. All components inherit changes.
 
 ### Test Responsive Layout
 
-Resize to 640px and 1024px. Verify:
+Test at 375px (mobile), 768px (tablet), and 1440px (desktop). Verify:
+- Mobile stacking works (below 640px)
 - Sidebar hidden below 1024px
-- Mobile stacking works
-- Text scales smoothly
-- Images maintain aspect ratio
+- Images load and maintain aspect ratio
+- Text scales smoothly and stays readable
+- Touch targets (buttons, links) are adequately sized on mobile
 
 ---
 
@@ -519,5 +526,5 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 
 ---
 
-**Last Updated:** 2026-05-21  
+**Last Updated:** 2026-05-23  
 **Status:** All features implemented, deployed, live on Vercel
