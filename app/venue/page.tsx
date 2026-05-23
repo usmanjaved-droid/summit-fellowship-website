@@ -439,43 +439,43 @@ export default function VenuePage() {
 
           <div className={styles.galGrid}>
             <figure className={`${styles.galCell} ${styles.galHero}`}>
-              <Image src="/images/venue/gallery/khoj venue 13.jpg" alt="The valley unfolds" fill priority className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 13.jpg" alt="The valley unfolds" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, 100vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galTall}`}>
-              <Image src="/images/venue/gallery/khoj venue 14.jpg" alt="Light on stone" fill priority className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 14.jpg" alt="Light on stone" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 12.jpg" alt="River valley" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 12.jpg" alt="River valley" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 11.jpg" alt="Stone courtyard" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 11.jpg" alt="Stone courtyard" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 10.jpg" alt="Architecture and sky" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 10.jpg" alt="Architecture and sky" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galPano}`}>
-              <Image src="/images/venue/gallery/khoj venue 9.jpg" alt="Panoramic valley view" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 9.jpg" alt="Panoramic valley view" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, 100vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 8.jpg" alt="Evening light" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 8.jpg" alt="Evening light" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 6.jpg" alt="Mountain peaks" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 6.jpg" alt="Mountain peaks" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galTall}`}>
-              <Image src="/images/venue/gallery/khoj venue 5.jpg" alt="Riverside detail" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 5.jpg" alt="Riverside detail" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 4.jpg" alt="Sanctuary space" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 4.jpg" alt="Sanctuary space" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue 3.jpg" alt="Dawn at Khoj" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 3.jpg" alt="Dawn at Khoj" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galPano}`}>
-              <Image src="/images/venue/gallery/khoj venue 2.jpg" alt="Horizons" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue 2.jpg" alt="Horizons" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, 100vw" style={{ objectFit: 'cover' }} />
             </figure>
             <figure className={`${styles.galCell} ${styles.galSq}`}>
-              <Image src="/images/venue/gallery/khoj venue.jpg" alt="The valley speaks" fill className={styles.galImage} style={{ objectFit: 'cover' }} />
+              <Image src="/images/venue/gallery/khoj venue.jpg" alt="The valley speaks" fill className={styles.galImage} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </figure>
           </div>
         </div>

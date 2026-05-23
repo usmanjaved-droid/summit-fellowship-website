@@ -47,14 +47,14 @@ const FACULTY: Person[] = [
   },
   {
     init: 'NS', num: 'F.05', name: 'Nadir Shams', role: 'Founder, Friends of Pakistan Society & Fund',
-    photo_url: '/images/faculty/Nadir Shams.png',
+    photo_url: '/images/faculty/Nadir Shams.webp',
     org: <>Built impact evaluation systems and led strategy at One Acre Fund and Skoll Foundation. Founded Friends of Pakistan, a <strong>$100M+ intermediary</strong> deploying patient capital to Pakistani social enterprises and building ecosystems for systems-level change.</>,
     relevance: <>What <strong>diaspora and global capital</strong> actually fund and why. How narratives around Pakistan shape entrepreneurship, philanthropy, and investment flows. <strong>Ecosystem building and systems change</strong> — positioning your work for long-term structural impact.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/nadirshams/' }, { label: 'Friends of Pakistan →', href: 'https://fopk.org/' }],
   },
   {
     init: 'RK', num: 'F.06', name: 'Riaz Ahmed Kamlani', role: 'Chief Operating Officer, The Citizens Foundation',
-    photo_url: '/images/faculty/Riaz Kamlani.png',
+    photo_url: '/images/faculty/Riaz Kamlani.webp',
     org: <>Scaled from Shell International operations to build Citizens Foundation into <strong>Pakistan&rsquo;s largest community-based education organization.</strong> Manages 2,800+ decentralized schools serving 400,000+ children, pioneered teacher training systems that improve learning outcomes in resource-constrained settings.</>,
     relevance: <>Decentralized operations at massive scale. <strong>Building sustainable models in resource-constrained environments</strong> where communities own and manage the outcomes. Turning cost into competitive advantage.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/riaz-ahmed-kamlani-38b1a04/' }, { label: 'The Citizens Foundation →', href: 'https://www.tcf.org.pk/' }],

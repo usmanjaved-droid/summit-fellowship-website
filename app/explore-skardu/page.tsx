@@ -102,6 +102,8 @@ export default function ExploreSkardu() {
                     src="/images/skardu/explore-skardu/shigar-valley.jpg"
                     alt="Shigar valley · looking north"
                     fill
+                    priority
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                     className={styles.aboutShigarImage}
                   />
                 </div>
@@ -115,6 +117,7 @@ export default function ExploreSkardu() {
                     src="/images/skardu/explore-skardu/Fond-Khar.jpg"
                     alt="Fong Khar"
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                     className={styles.aboutShigarImage}
                   />
                 </div>
@@ -128,6 +131,7 @@ export default function ExploreSkardu() {
                     src="/images/skardu/explore-skardu/apricot-orchar-Shigar.jpg"
                     alt="Apricot orchards"
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                     className={styles.aboutShigarImage}
                   />
                 </div>
@@ -586,6 +590,7 @@ function SpotCard({
             src={image}
             alt={name}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className={styles.spotImage}
           />
         ) : (
