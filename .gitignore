@@ -44,3 +44,13 @@ next-env.d.ts
 .playwright-mcp/
 verification-*.png
 verification-*.yml
+
+# QA screenshots + scratch at repo root (anchored, so /public assets are unaffected)
+/*.png
+/*.log
+/*.tar.gz
+/test-results.txt
+/BUILD_TIMESTAMP.txt
+
+# agent/tool scratch
+.superpowers/
