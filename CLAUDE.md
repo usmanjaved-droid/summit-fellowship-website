@@ -4,7 +4,7 @@
 
 **Summit Fellowship 2026** is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, fellows, faculty, curriculum, logistics, and all necessary information for participants.
 
-**Status:** Full site implemented and live on Vercel (2026-05-17)  
+**Status:** Full site implemented and live on Vercel. Latest optimizations: responsive images, mobile-first refinements (2026-06-04)  
 **Audience:** Fellows, faculty, funders, potential participants  
 **Event:** June 7–14, 2026 at Khoj Resort, Skardu  
 **Organization:** Mulago Foundation + Taleemabad
@@ -60,7 +60,7 @@ Summit Fellowship Website/
 │       ├── Header.tsx
 │       ├── Footer.tsx
 │       ├── FellowsBits.tsx        # Fellows grid with filtering
-│       ├── Countdown.tsx
+│       ├── EventDate.tsx          # Static event-date band
 │       ├── ExponentialChart.tsx
 │       ├── ContactForm.tsx
 │       └── (13 other components)
@@ -169,6 +169,7 @@ All colors are CSS variables (never hardcode hex values):
 | `/venue` | `app/venue/page.tsx` | Khoj Resort details |
 | `/travel` | `app/travel/page.tsx` | Transportation + logistics |
 | `/resources` | `app/resources/page.tsx` | Pre-arrival docs + checklist |
+| `/explore-skardu` | `app/explore-skardu/page.tsx` | Field guide to Baltistan — history, culture, food, activities |
 | `/contact` | `app/contact/page.tsx` | Contact form |
 
 ---
@@ -273,7 +274,7 @@ Never hardcode hex values.
 ### Server Components (Default)
 
 - FellowHero, IdeaBand, FellowSection, FellowSidebar, FellowNavigation
-- Footer, HeroSection, ScheduleDay, etc.
+- Footer, HeroSection, ScheduleDay, EventDate, etc.
 
 **Benefits:** No JavaScript, fast, can access databases/env vars
 
@@ -281,7 +282,6 @@ Never hardcode hex values.
 
 - Header (mobile menu state)
 - FellowsBits (sector filter with useState)
-- Countdown (real-time timer)
 - ContactForm (form submission)
 - BeforeAfterSlider (interactive)
 
@@ -519,12 +519,12 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 ### Debugging
 
 - **TypeScript errors:** `npm run build` includes full type checking. For quick check without build: `tsc --noEmit`
-- **Linting issues:** `npm run lint` shows all ESLint violations. `npm run lint --fix` auto-fixes many.
+- **Linting issues:** `npm run lint` shows all ESLint violations. `npx eslint --fix` auto-fixes many.
 - **Images not loading:** Verify domain is in `next.config.ts` remotePatterns. Check Next.js Image domains list.
 - **CSS not applying:** Verify `.module.css` file path matches component import. Check BEM class names match.
 - **Build fails:** Run `npm run build` locally to catch errors before push. Check for missing imports, type mismatches, or broken image domains.
 
 ---
 
-**Last Updated:** 2026-05-23  
+**Last Updated:** 2026-06-04  
 **Status:** All features implemented, deployed, live on Vercel

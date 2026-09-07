@@ -828,15 +828,15 @@ p { text-wrap: pretty; margin: 0; }
   }
 }
 
-/* Countdown */
-.countdown {
+/* Event date band (replaced the countdown after the June 2026 fellowship) */
+.event-date {
   background: var(--clay);
   color: var(--paper);
-  padding: 48px 0;
+  padding: 56px 0;
   position: relative;
   overflow: hidden;
 }
-.countdown__bg {
+.event-date__bg {
   position: absolute; inset: 0;
   background-image: url("/images/topo.svg");
   background-size: 800px 800px;
@@ -844,38 +844,29 @@ p { text-wrap: pretty; margin: 0; }
   opacity: 0.18;
   mix-blend-mode: overlay;
 }
-.countdown__inner {
+.event-date__inner {
   max-width: 1320px; margin: 0 auto; padding: 0 32px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 48px; position: relative; z-index: 1; flex-wrap: wrap;
+  position: relative; z-index: 1;
+  text-align: center;
 }
-.countdown__label {
-  font-family: var(--mono); font-size: 11px;
+.event-date__label {
+  display: block;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
   letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ochre-pale);
 }
-.countdown__label .heading {
-  display: block; font-family: var(--serif); font-size: 28px;
-  letter-spacing: -0.01em; text-transform: none; color: var(--paper);
-  margin-top: 6px;
-}
-.countdown__grid {
-  display: grid; grid-template-columns: repeat(4, auto); gap: 32px;
-}
-.countdown__cell { text-align: center; }
-.countdown__cell .num {
+.event-date__value {
   font-family: var(--serif);
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 1;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   color: var(--paper);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
+  margin-top: 10px;
 }
-.countdown__cell .unit {
-  font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--ochre-pale); margin-top: 8px; display: block;
+@media (max-width: 640px) {
+  .event-date { padding: 44px 0; }
+  .event-date__inner { padding: 0 24px; }
 }
-@media (max-width: 640px) { .countdown__grid { gap: 18px; } }
 
 /* Intro */
 .intro {

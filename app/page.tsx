@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Countdown from './components/Countdown';
+import EventDate from './components/EventDate';
 import ExponentialChart from './components/ExponentialChart';
 
 export const metadata = {
@@ -90,8 +90,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ COUNTDOWN ============ */}
-      <Countdown />
+      {/* ============ EVENT DATE ============ */}
+      <EventDate />
 
       {/* ============ WHAT THIS IS ============ */}
       <section className="whatis section">
