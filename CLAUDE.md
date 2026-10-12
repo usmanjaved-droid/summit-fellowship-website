@@ -4,7 +4,7 @@
 
 **Summit Fellowship** is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, cohorts, fellows, faculty, curriculum, and everything participants need.
 
-**Status:** The site is being converted from a 2026-only event site into a permanent, multi-year site. Phase 1 was built on the `staging` branch and reaches production only when the owner approves go-live. Production serves whatever is on `master`.  
+**Status:** The site is being converted from a 2026-only event site into a permanent, multi-year site. Phase 1 (permanent multi-year site) and Phase 2 (application form) are built on the `staging` branch and reach production only when the owner approves go-live (see "Go-live runbook" below). Production serves whatever is on `master`.  
 **Audience:** Fellows, faculty, funders, potential applicants  
 **Latest cohort:** 2026 — June 7–14, 2026 at Khoj Resort, Skardu  
 **Organization:** Mulago Foundation + Taleemabad
@@ -62,7 +62,7 @@ Summit Fellowship Website/
 ├── lib/
 │   ├── cohorts.ts                 # Cohort registry helpers
 │   ├── fellows.ts                 # getAllFellows(year), getFellow(year, slug), getFellowCards(year)
-│   ├── site.ts                    # Site settings, FORM_ENABLED (false until Phase 2)
+│   ├── site.ts                    # Site settings, FORM_ENABLED (true since Phase 2)
 │   ├── env.ts                     # Production vs staging detection
 │   ├── navigation.ts              # Nav structure
 │   └── *.test.ts                  # Vitest tests
@@ -166,7 +166,7 @@ All colors are CSS variables (never hardcode hex values):
 | `/faq` | `app/faq/page.tsx` | FAQ (answers in `data/faq.json`) |
 | `/curriculum` | `app/curriculum/page.tsx` | Mulago design discipline |
 | `/faculty` | `app/faculty/page.tsx` | Faculty + Organizers |
-| `/contact` | `app/contact/page.tsx` | Contact page (form disabled until Phase 2) |
+| `/contact` | `app/contact/page.tsx` | Contact page; the form opens the visitor's email app with a pre-filled message (mailto, no backend) |
 | `/apply/form` | `app/apply/form/page.tsx` | The application form (screener, sections A–H, review, submit) |
 | `/api/apply` (POST) | `app/api/apply/route.ts` | Receives a submitted application and stores it in Supabase |
 | `/cohorts` | `app/cohorts/page.tsx` | List of cohorts |
@@ -184,12 +184,21 @@ All colors are CSS variables (never hardcode hex values):
 
 - **Form:** `/apply/form` is a client form (loaded with `ssr:false`): screener, sections A–H, review, submit. Draft autosave lives in the visitor's browser (localStorage key `summit-application-<year>`, `lib/application/draft.ts`).
 - **Schema:** `lib/application/questions.ts` is the single source for the form, the validator (`lib/application/validate.ts`), the server (`lib/application/handle.ts`) and the offline PDF (`scripts/build-application-pdf.ts`). After editing questions run `npm run pdf:application`; the test `lib/application/schemaHash.test.ts` fails until you do.
-- **Submit flow:** `POST /api/apply` (`app/api/apply/route.ts`) calls `handleSubmission`: honeypot field `nickname`, 403 when applications are not live, rate limit of 5 per 10 minutes per IP (per server instance), screener and full validation re-checked, then the Supabase RPC `public.submit_application`.
+- **Server normalisation:** `normalizeAnswers` (`lib/application/answers.ts`) coerces submitted answers to the schema shape before validation and storage (junk keys dropped, untracked numbers and stale "Please specify" text cleared, blank table rows removed). The browser gives up on a submit after 40 seconds and shows the retry message.
+- **Submit flow:** `POST /api/apply` (`app/api/apply/route.ts`) calls `handleSubmission`: honeypot field `nickname`, 403 when applications are not live, rate limit of 15 per 10 minutes per IP (per server instance), screener and full validation re-checked, then the Supabase RPC `public.submit_application`.
 - **Supabase** (org free plan, region ap-south-1): staging `summit-fellowship-staging` (ref `wagaimviefobclwhaboa`), production `summit-fellowship-production` (ref `sfkmvxewojvstmincdzw`). Migration: `supabase/migrations/20261012000000_applications.sql`, applied to both. Table `public.applications` has RLS on with no policies and no anon/authenticated grants; only the SECURITY DEFINER function (EXECUTE for anon only) can insert. Read applications in the Supabase dashboard → Table editor → `applications` (filter `is_latest = true`; Export CSV). The old paused project "Summit Fellowship App reviewer" is unrelated (last year's reviewer page). The staging database holds test rows (e.g. smoke@example.com); that is expected.
 - **Env vars (server-only, never `NEXT_PUBLIC_`):** `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`. In Vercel, Preview and Development use staging values; Production uses production values. Local `.env.local` (git-ignored) holds staging values.
 - **Open/closed:** non-production deployments always treat applications as open (`getCurrentCohort` in `lib/site.ts`); production follows `data/site.json`.
 - **Each year:** in `data/site.json` set `currentCohort.year`, dates, deadline and `applicationsOpen`, then run `npm run pdf:application` (the year is printed in the PDF).
 - **Free-plan caveat:** Supabase pauses free projects after about 7 days without activity. Check the production project is active before opening applications and during the window (dashboard → Restore if paused).
+
+### Go-live runbook
+
+1. Confirm the production Supabase project (`summit-fellowship-production`) is active, not paused.
+2. In `data/site.json` set the cohort dates, the deadline and `applicationsOpen: true` (then `npm run pdf:application` if the year changed).
+3. Merge `staging` → `master` so Vercel makes a fresh production build.
+4. Make one test submission on the production site, then delete that row in the Supabase dashboard (Table editor → `applications`).
+5. On deadline day set `applicationsOpen: false` in `data/site.json` and deploy — this is what closes the API (`/api/apply` returns 403).
 
 ---
 
@@ -530,7 +539,6 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 
 ## Future Improvements
 
-- **Phase 2 — contact/application form:** flip `FORM_ENABLED` in `lib/site.ts` once the backend exists
 - **Contact form backend:** Wire to Vercel Functions or SendGrid
 - **Mobile drawer:** Implement FellowDrawer.tsx if needed
 - **URL-based filtering:** Add `?sector=health` params for persistent filter state
@@ -569,4 +577,4 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 ---
 
 **Last Updated:** 2026-10-12 (application form, Phase 2)  
-**Status:** Phase 1 of the permanent multi-year site built on `staging`; production serves whatever is on `master` (staging merges only with go-live approval)
+**Status:** Phase 1 (permanent multi-year site) and Phase 2 (application form) built on `staging`; production serves whatever is on `master` (staging merges only with go-live approval)
