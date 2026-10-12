@@ -1,8 +1,5 @@
-import fellowsData from '@/data/fellows-deep.json';
+import fellows2026 from '@/data/cohorts/2026/fellows.json';
 
-/**
- * Type definition for a Fellow in the Summit Fellowship program
- */
 export type Fellow = {
   id: string;
   name: string;
@@ -20,45 +17,55 @@ export type Fellow = {
   photo_url: string | null;
   photo_source: string | null;
   sources: string[];
+  card_summary: string;
+  email: string;
+  phone: string;
 };
 
-/**
- * Retrieves a single fellow by their slug (id)
- * @param slug - The fellow's id/slug
- * @returns The Fellow object or null if not found
- */
-export function getFellow(slug: string): Fellow | null {
-  const fellows = fellowsData as Fellow[];
-  return fellows.find((fellow) => fellow.id === slug) || null;
+export type FellowCard = {
+  slug: string;
+  init: string;
+  name: string;
+  org: string;
+  sector: string;
+  summary: string;
+  photo_url?: string;
+};
+
+/** Add one line per cohort year. Static imports keep pages statically generated. */
+const FELLOWS_BY_YEAR: Record<number, Fellow[]> = {
+  2026: fellows2026 as Fellow[],
+};
+
+export function getAllFellows(year: number): Fellow[] {
+  return FELLOWS_BY_YEAR[year] ?? [];
 }
 
-/**
- * Retrieves all fellows from the data file
- * @returns Array of all Fellows
- */
-export function getAllFellows(): Fellow[] {
-  return fellowsData as Fellow[];
+export function getFellow(year: number, slug: string): Fellow | null {
+  return getAllFellows(year).find((f) => f.id === slug) ?? null;
 }
 
-/**
- * Retrieves related fellows from different sectors
- * Prioritizes fellows from different sectors first, then includes same-sector fellows if needed
- * @param currentFellow - The fellow to find related fellows for
- * @param count - Number of related fellows to return (default: 4)
- * @returns Array of related Fellow objects
- */
-export function getRelatedFellows(currentFellow: Fellow, count: number = 4): Fellow[] {
-  const fellows = fellowsData as Fellow[];
+export function getFellowNumber(year: number, slug: string): number {
+  return getAllFellows(year).findIndex((f) => f.id === slug) + 1;
+}
 
-  // Exclude the current fellow
-  const otherFellows = fellows.filter((fellow) => fellow.id !== currentFellow.id);
+export function initials(name: string): string {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+}
 
-  // Separate into different sectors and same sector
-  const differentSectors = otherFellows.filter((fellow) => fellow.sector !== currentFellow.sector);
-  const sameSector = otherFellows.filter((fellow) => fellow.sector === currentFellow.sector);
-
-  // Combine: prioritize different sectors first, then add same sector if needed
-  const related = [...differentSectors, ...sameSector].slice(0, count);
-
-  return related;
+export function getFellowCards(year: number): FellowCard[] {
+  return getAllFellows(year).map((f) => ({
+    slug: f.id,
+    init: initials(f.name),
+    name: f.name,
+    org: f.org,
+    sector: f.sector,
+    summary: f.card_summary,
+    photo_url: f.photo_url ?? undefined,
+  }));
 }

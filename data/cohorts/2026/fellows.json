@@ -20,7 +20,10 @@
       "https://taskeen.org/program/mental-health-helpline/",
       "https://taskeen.org/taskeen-launches-sahara-program/",
       "https://tribune.com.pk/story/2313226/therapy-by-any-name"
-    ]
+    ],
+    "card_summary": "Provides mental health support through helplines and counseling services to reduce stigma and increase awareness in Pakistan. Played a key role in decriminalizing suicide.",
+    "email": "rubeena@taskeen.org",
+    "phone": "+92 300 2126284"
   },
   {
     "id": "azima-dhanjee",
@@ -43,7 +46,10 @@
       "https://www.startup.pk/founder-spotlight-azima-dhanjee-connecthear-bridging-silence-with-connection/",
       "https://katalystlabs.pk/the-astounding-journey-of-connecthear-in-conversation-with-azima-dhanjee-co-founder-ceo-connecthear/",
       "https://sewfonline.com/speaker/azima-dhanjee/"
-    ]
+    ],
+    "card_summary": "Makes hearing aids affordable and accessible to low-income hearing-impaired people through innovative design and financing options.",
+    "email": "azima@connecthear.org",
+    "phone": "+92 331 2610146"
   },
   {
     "id": "habiba-banu",
@@ -66,7 +72,10 @@
       "https://www.spiro.ngo/team",
       "https://forum.effectivealtruism.org/posts/C8ZzjFc7aKT7ihmeK/spiro-new-tb-charity-raising-seed-funds",
       "https://www.givingwhatwecan.org/people/habiba-banu"
-    ]
+    ],
+    "card_summary": "Provides affordable respiratory care and asthma management tools for low-income patients, addressing the gap in diagnostic capabilities in Pakistan's healthcare system.",
+    "email": "habiba.banu@spiro.ngo",
+    "phone": "+44 7703 563 810"
   },
   {
     "id": "saad-hussain",
@@ -89,7 +98,10 @@
       "https://gcgh.grandchallenges.org/grant/awaaz-e-sehat-empowering-maternal-healthcare-voice-enabled-electronic-record-management",
       "https://borgenproject.org/health-care-in-pakistan/",
       "https://www.linkedin.com/posts/saad-h_awaaz-e-sehat-mlnlp-expert-activity-7266769017091092480-ruis"
-    ]
+    ],
+    "card_summary": "Uses AI-powered voice-activated technology in Urdu to help health workers detect maternal health risks early. Improved risk detection from 7% to 40% in pilot testing.",
+    "email": "saad.hussain@awaazesehat.com",
+    "phone": "+92 333 4217251"
   },
   {
     "id": "lala-rukh",
@@ -112,7 +124,10 @@
       "https://falling-walls.com/people/lalah-rukh-fazal-ur-rahman/",
       "https://www.csmonitor.com/World/Making-a-difference/2025/1201/pakistan-science-fuse-karachi-machar-colony",
       "https://www.nature.com/articles/d41586-022-01566-6"
-    ]
+    ],
+    "card_summary": "Brings STEM education to underserved students through hands-on activities and shows. Impacted 45,000 children and trained 650 teachers across 250 schools in Pakistan.",
+    "email": "lalah_rukh@hotmail.com",
+    "phone": "+92 321 1288701"
   },
   {
     "id": "khushbakht-shah",
@@ -135,7 +150,10 @@
       "https://ksjlegal.com/khushbakht-shah-jillani/",
       "https://www.geo.tv/latest/601553-in-pakistan-pursuit-of-justice-and-healing-finds-powerful-digital-allies",
       "https://www.techjuice.pk/only-one-woman-led-pakistani-startup-makes-it-to-unlock-her-future-prize-2025-finalist-list/"
-    ]
+    ],
+    "card_summary": "Uses AI to support domestic violence survivors in Pakistan by analyzing evidence, detecting bias, and generating legal briefs to help accelerate protection orders.",
+    "email": "khushbakhtlaw@gmail.com",
+    "phone": "+92 335 2350668"
   },
   {
     "id": "maira-siddiqui",
@@ -158,7 +176,10 @@
       "https://katalystlabs.pk/startup/chiragh-education-technologies/",
       "https://womenintechpk.com/maira-siddiqui-incredible-womenintechpk/",
       "https://ifdp.invest2innovate.com/listing/chiragh-technologies/"
-    ]
+    ],
+    "card_summary": "Turns Pakistan's school curriculum into gamified cartoons in local languages (Urdu, Punjabi, Pashto). Makes learning accessible via smartphone for grades nursery to 5.",
+    "email": "maira@chiraghtech.com",
+    "phone": "+92 345 3083194"
   },
   {
     "id": "adnan-qureshi",
@@ -181,7 +202,10 @@
       "https://www.teachtheworldfoundation.com/digital-literacy-programs-microschools",
       "https://hundred.org/en/innovations/digital-microschools-teach-the-world-foundation",
       "https://www.linkedin.com/in/adnanahmedqureshi/"
-    ]
+    ],
+    "card_summary": "Brings digital learning to underserved communities through MicroSchools and smartphone apps. Currently serves 14,317 students across 141 schools with plans to expand significantly.",
+    "email": "adnan.ahmed@teachtheworld.org",
+    "phone": "+92 340 0853633"
   },
   {
     "id": "muhammad-waqas",
@@ -204,7 +228,10 @@
       "https://atlasofthefuture.org/project/wondertree/",
       "https://www.unicefventurefund.org/portfolio/wondertree-ar-accelerate-learning-and-development",
       "https://tribune.com.pk/story/2258899/pakistani-startup-wondertree-picked-by-google-unicef-for-investment"
-    ]
+    ],
+    "card_summary": "Creates augmented reality games to help children with special needs (autism, cerebral palsy, ADHD) develop physical, cognitive, and social skills. Operating in 45 Pakistani schools.",
+    "email": "mwaqas@wondertree.co",
+    "phone": "+92 333 3228386"
   },
   {
     "id": "ali-siddiq",
@@ -227,7 +254,10 @@
       "https://acumenacademy.org/meet-the-foundry/ali-siddiq/",
       "https://acumen.org/case-studies/amal-academy/",
       "https://en.wikipedia.org/wiki/Amal_Academy"
-    ]
+    ],
+    "card_summary": "Bridges the gap between university education and the job market through a 3-month fellowship teaching critical thinking and professional skills. 81% of graduates are employed within 3 months.",
+    "email": "ali@amalacademy.org",
+    "phone": "+92 300 8443979"
   },
   {
     "id": "osama-shahid",
@@ -250,6 +280,9 @@
       "https://www.linkedin.com/in/osamashahidsoby/",
       "https://agrilinks.org/post/how-usaid-patta-supporting-pakistani-ag-tech-businesses-and-farmers-during-pandemic",
       "https://sobyagro.co/blogs/news/welcome-to-the-future-of-agriculture-launch-of-soby-agro-machinerys-new-website"
-    ]
+    ],
+    "card_summary": "Empowers marginalized communities through fair trade practices and direct market linkages, ensuring farmers and artisans receive fair prices for their products.",
+    "email": "sobyagengineers@gmail.com",
+    "phone": "+92 321 8626068"
   }
 ]
