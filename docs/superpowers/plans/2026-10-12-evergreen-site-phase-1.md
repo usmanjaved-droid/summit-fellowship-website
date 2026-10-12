@@ -2337,9 +2337,9 @@ Vercel builds a Preview deployment for the `summit-fellowship-website` project. 
 
 Using the Vercel MCP (`list_deployments` for project `prj_lc2W4lRgzSGCZeiE6lJx4rPmce06`, team `team_uFNqBRKTl5FMMUeIgSV47RbO`), wait for the `staging` deployment to reach `READY`. The stable branch URL is `summit-fellowship-website-git-staging-usmanjaved-6797s-projects.vercel.app`. Run the smoke script against it through an authenticated fetch (`web_fetch_vercel_url` for `/`, `/robots.txt` and `/apply`). Confirm the banner text, `Disallow: /`, and the `X-Robots-Tag: noindex` header (check the headers with `vercel curl -I` if the CLI is available).
 
-- [ ] **Step 5: Shareable link (owner action, then verify)**
+- [ ] **Step 5: Shareable link (create, then verify)**
 
-Ask the owner to open the staging deployment in the Vercel dashboard → **Share** → **Anyone with the link**, and send back the link. Open it in a private browser window. Expected: the site loads with the staging banner and no Vercel login. Then make a trivial commit to `staging` (for example a whitespace-only change to `README.md`) and push. Once it's `READY`, open the **same** shared link again.
+Create a non-expiring shareable link for the staging branch alias with the Vercel MCP tool `patch_url_protection_bypass` (alias = the branch URL from Step 4, team `team_uFNqBRKTl5FMMUeIgSV47RbO`, no `ttl`). The free plan allows one shareable link per account, so create it only once. If the MCP call fails, fall back to asking the owner to use dashboard → deployment → **Share** → **Anyone with the link**. Open the resulting link with a plain, unauthenticated `curl`. Expected: the site loads with the staging banner and no Vercel login. Then make a trivial commit to `staging` (for example a whitespace-only change to `README.md`) and push. Once it's `READY`, open the **same** shared link again.
 - If it still loads the new deployment without login, the shareable link survives deployments. Record this in `CLAUDE.md` under "Production vs staging".
 - If it asks for login or shows the old deployment, report back to the owner and propose the spec's fallback (a public preview at an unguessable URL with noindex). Do not change protection settings without approval.
 
