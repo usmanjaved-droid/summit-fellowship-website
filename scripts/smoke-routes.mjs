@@ -20,4 +20,5 @@ export const ROUTES = [
   { path: '/curriculum', status: 200, contains: ['Apply →', 'Cohorts', '2026 · Skardu', 'FAQ'] },
   { path: '/apply', status: 200, contains: ['Who should apply', 'USD 100,000', 'How selection works', 'Key dates', 'To be confirmed', 'Applications opening soon'], absent: ['Scale Screen', '/apply/form'] },
   { path: '/apply/form', status: 404 },
+  { path: '/faq', status: 200, contains: ['Eligibility', 'The application', 'The retreat', 'After the fellowship', 'USD 100,000'] },
 ];
