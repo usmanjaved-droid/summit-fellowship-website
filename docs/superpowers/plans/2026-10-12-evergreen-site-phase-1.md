@@ -21,7 +21,7 @@
 - No redirects from old URLs. Removed routes must return 404.
 - Values that aren't set render as exactly `To be confirmed`.
 - FAQ content the documents don't settle contains the literal marker `[TO CONFIRM]`.
-- Fellows' personal emails and phone numbers must not appear anywhere in source code.
+- Fellows' `email` and `phone` are kept in `data/cohorts/<year>/fellows.json` (owner decision) but are never rendered on any page.
 - Metadata titles follow `<Page> — Summit Fellowship`.
 - Commit messages: conventional commits, ending with `Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>`.
 
@@ -499,7 +499,7 @@ Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>"
   - `type Cohort = { year: number; label: string; dates: string; venue: string; location: string; summary: string }`
   - `getCohorts(): Cohort[]` (newest first), `getCohort(year: number): Cohort | null`, `getLatestCohort(): Cohort`
   - `type CohortTab = { href: string; label: string }`, `getCohortTabs(year: number): CohortTab[]`, `isTabActive(tab: CohortTab, pathname: string, year: number): boolean`
-  - `Fellow` (existing fields + `card_summary: string`)
+  - `Fellow` (existing fields + `card_summary: string`, `email: string`, `phone: string`)
   - `getAllFellows(year: number): Fellow[]`, `getFellow(year: number, slug: string): Fellow | null`, `getFellowNumber(year: number, slug: string): number` (1-based, 0 if missing)
   - `type FellowCard = { slug: string; init: string; name: string; org: string; sector: string; summary: string; photo_url?: string }`, `getFellowCards(year: number): FellowCard[]`, `initials(name: string): string`
 
@@ -583,7 +583,8 @@ describe('fellows', () => {
   it('every fellow has a card summary', () => {
     for (const f of getAllFellows(2026)) expect(f.card_summary.trim().length).toBeGreaterThan(20);
   });
-  it('builds cards without contact details', () => {
+  it('stores contact details but keeps them out of cards', () => {
+    expect(getFellow(2026, 'habiba-banu')?.email).toBe('habiba.banu@spiro.ngo');
     const card = getFellowCards(2026)[0];
     expect(Object.keys(card).sort()).toEqual(['init', 'name', 'org', 'photo_url', 'sector', 'slug', 'summary'].sort());
   });
@@ -609,7 +610,7 @@ mkdir -p data/cohorts/2026
 git mv data/fellows-deep.json data/cohorts/2026/fellows.json
 ```
 
-Add a `card_summary` field to each record in `data/cohorts/2026/fellows.json`. Copy the text verbatim from the `model` values in `app/fellows/page.tsx` (`FELLOWS_DATA`), keyed by `id`:
+Add `card_summary`, `email` and `phone` fields to each record in `data/cohorts/2026/fellows.json`, copied verbatim from `model`, `email` and `phone` in `app/fellows/page.tsx` (`FELLOWS_DATA`), keyed by `id`. The `card_summary` values are:
 
 | id | card_summary |
 |---|---|
@@ -625,7 +626,7 @@ Add a `card_summary` field to each record in `data/cohorts/2026/fellows.json`. C
 | ali-siddiq | Bridges the gap between university education and the job market through a 3-month fellowship teaching critical thinking and professional skills. 81% of graduates are employed within 3 months. |
 | osama-shahid | Empowers marginalized communities through fair trade practices and direct market linkages, ensuring farmers and artisans receive fair prices for their products. |
 
-Do **not** copy `email` or `phone`.
+Copy `email` and `phone` exactly as they appear in `FELLOWS_DATA` (e.g. `habiba-banu` → `habiba.banu@spiro.ngo`, `+44 7703 563 810`). They are stored, never rendered.
 
 - [ ] **Step 5: Create `data/cohorts/index.json`**
 
@@ -710,6 +711,8 @@ export type Fellow = {
   photo_source: string | null;
   sources: string[];
   card_summary: string;
+  email: string;
+  phone: string;
 };
 
 export type FellowCard = {
@@ -777,8 +780,6 @@ Expected: PASS. (`npm run build` will fail until Tasks 4–5 update the old impo
 ```bash
 git add -A data lib
 git commit -m "feat: add cohort registry and cohort-aware fellows data
-
-Drops fellow contact details from the codebase.
 
 Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>"
 ```
@@ -2098,7 +2099,7 @@ Expected smoke: `/apply` ok (no "Scale Screen", no link to `/apply/form`), and `
       { "q": "Can I save my answers and come back later?", "a": "Yes. Your answers are saved automatically in your browser as you type, so you can close the page and return on the same device and browser. To draft on paper or across devices, download the PDF version of the application and paste your answers in when you are ready." },
       { "q": "What happens after I apply?", "a": "We read every application over about two weeks. Shortlisted founders are invited to a single 45-minute conversation with the Mulago and Taleemabad team, which starts from your answers. Final selection of twelve organisations follows." },
       { "q": "When will I hear back?", "a": "Final decisions are made about four weeks after the application deadline. We write to every applicant by email." },
-      { "q": "Is there an application fee?", "a": "[TO CONFIRM: there is no application fee.]" }
+      { "q": "Is there an application fee?", "a": "No. Applying is free." }
     ]
   },
   {
@@ -2210,7 +2211,7 @@ npm run smoke
 npm run check:golive
 ```
 
-Expected: smoke all ok. `check:golive` exits 1 and lists 5 open items. That's correct for staging, and the owner resolves them before go-live.
+Expected: smoke all ok. `check:golive` exits 1 and lists 4 open items. That's correct for staging, and the owner resolves them before go-live.
 
 - [ ] **Step 7: Commit**
 
@@ -2348,4 +2349,4 @@ Pages: `/`, `/apply`, `/faq`, `/curriculum`, `/faculty`, `/contact`, `/cohorts`,
 
 - [ ] **Step 7: Report to the owner**
 
-Report: the staging link, the result of the shareable-link check, the 5 `[TO CONFIRM]` FAQ items that need answers, and that production is untouched. Phase 1 goes live only when the owner approves merging `staging` → `master` **and** `npm run check:golive` passes.
+Report: the staging link, the result of the shareable-link check, the remaining `[TO CONFIRM]` FAQ items that need answers, and that production is untouched. Phase 1 goes live only when the owner approves merging `staging` → `master` **and** `npm run check:golive` passes.
