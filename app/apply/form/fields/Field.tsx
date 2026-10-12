@@ -68,6 +68,7 @@ export function Field({ question: q, value, onChange, error }: Props) {
               <span className={styles.form__sublabel}>Please specify</span>
               <input
                 className={styles.form__input}
+                aria-describedby={error ? `${id}-error` : undefined}
                 maxLength={q.specify!.maxChars}
                 value={v.specify}
                 onChange={(e) => onChange({ ...v, specify: e.target.value })}
@@ -143,7 +144,8 @@ export function Field({ question: q, value, onChange, error }: Props) {
         {needsSpecify && (
           <label className={styles.form__specify}>
             <span className={styles.form__sublabel}>Please specify</span>
-            <input className={styles.form__input} maxLength={q.specify!.maxChars} value={v.specify} onChange={(e) => onChange({ ...v, specify: e.target.value })} />
+            <input className={styles.form__input} aria-describedby={error ? `${id}-error` : undefined}
+                maxLength={q.specify!.maxChars} value={v.specify} onChange={(e) => onChange({ ...v, specify: e.target.value })} />
           </label>
         )}
       </>

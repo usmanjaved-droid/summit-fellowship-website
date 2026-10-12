@@ -15,7 +15,7 @@ export default function TableField({ question: q, value, onChange }: { question:
   return (
     <div className={styles.form__table}>
       {rows.map((row, r) => (
-        <div key={r} className={styles.form__row} role="group" aria-label={`Row ${r + 1}`}>
+        <div key={r} className={styles.form__row} role="group" aria-label={`${q.label} — row ${r + 1}`}>
           {q.columns.map((c) => {
             const cellId = `q-${q.id}-${r}-${c.id}`;
             const cell = row[c.id];

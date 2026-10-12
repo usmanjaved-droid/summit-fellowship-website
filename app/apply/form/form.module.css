@@ -31,8 +31,8 @@ textarea.form__input { resize: vertical; line-height: 1.5; }
 .form__counter--near { color: var(--clay); }
 .form__error { color: var(--clay-deep); font-size: 14px; margin: 8px 0 0; font-weight: 500; }
 .form__options { display: grid; gap: 10px; }
-.form__option { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; cursor: pointer; min-height: 32px; }
-.form__option input { margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--clay); }
+.form__option { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; cursor: pointer; min-height: 44px; padding: 10px 0; box-sizing: border-box; }
+.form__option input { margin-top: 2px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--clay); }
 .form__specify { display: block; margin-top: 12px; max-width: 420px; }
 .form__sublabel { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }
 .form__sentence { font-size: 18px; line-height: 2.4; color: var(--ink); }
@@ -44,6 +44,7 @@ textarea.form__input { resize: vertical; line-height: 1.5; }
   background: var(--paper-cool);
   padding: 4px 8px;
   margin: 0 4px;
+  min-height: 44px;
   max-width: 100%;
   color: var(--ink);
 }
