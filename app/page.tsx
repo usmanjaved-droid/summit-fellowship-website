@@ -135,7 +135,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ WHAT YOU GET ============ */}
-      <section className={`section ${styles.offer}`}>
+      <section className="section">
         <div className="container">
           <div className="eyebrow">What you get</div>
           <h2 className={styles.home__heading}>A week that changes how you build.</h2>
@@ -152,7 +152,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ HOW IT WORKS ============ */}
-      <section className={`section section--paper-warm ${styles.steps}`}>
+      <section className="section section--paper-warm">
         <div className="container">
           <div className="eyebrow">How it works</div>
           <h2 className={styles.home__heading}>From application to Demo Day.</h2>

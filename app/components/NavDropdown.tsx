@@ -1,23 +1,43 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import type { NavGroup } from '@/lib/navigation';
 
-// Hover-to-open is desktop only; in the stacked mobile menu a tap must toggle.
-const isStacked = () => window.matchMedia('(max-width: 1024px)').matches;
+// Read inside handlers only (never during render) so server and client markup match.
+const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 export default function NavDropdown({ group, onNavigate }: { group: NavGroup; onNavigate: () => void }) {
   const [open, setOpen] = useState(false);
+  // How the current open state was reached: a hover-open must not be toggled shut by the click that follows it.
+  const openedBy = useRef<'hover' | 'click' | null>(null);
   const ref = useRef<HTMLDivElement | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const dropdownId = useId();
+
+  const show = (via: 'hover' | 'click') => {
+    openedBy.current = via;
+    setOpen(true);
+  };
+  const hide = () => {
+    openedBy.current = null;
+    setOpen(false);
+  };
 
   useEffect(() => {
     if (!open) return;
+    const close = () => {
+      openedBy.current = null;
+      setOpen(false);
+    };
     const onDown = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node)) close();
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape') {
+        close();
+        triggerRef.current?.focus();
+      }
     };
     document.addEventListener('mousedown', onDown);
     document.addEventListener('keydown', onKey);
@@ -27,19 +47,35 @@ export default function NavDropdown({ group, onNavigate }: { group: NavGroup; on
     };
   }, [open]);
 
+  const onClick = () => {
+    if (!canHover()) {
+      if (open) hide();
+      else show('click');
+      return;
+    }
+    if (!open) show('click');
+    else if (openedBy.current === 'click') hide();
+    else openedBy.current = 'click'; // opened by hover: keep it open; a further click may close it
+  };
+
   return (
     <div
       className={`site-nav__group${open ? ' is-open' : ''}`}
       ref={ref}
-      onMouseEnter={() => !isStacked() && setOpen(true)}
-      onMouseLeave={() => !isStacked() && setOpen(false)}
+      onMouseEnter={() => {
+        if (canHover() && !open) show('hover');
+      }}
+      onMouseLeave={() => {
+        if (canHover()) hide();
+      }}
     >
       <button
+        ref={triggerRef}
         type="button"
         className="site-nav__link site-nav__group-trigger"
         aria-expanded={open}
-        aria-haspopup="menu"
-        onClick={() => setOpen((v) => !v)}
+        aria-controls={dropdownId}
+        onClick={onClick}
       >
         {group.label}
         <span className={`site-nav__caret${open ? ' is-open' : ''}`} aria-hidden="true">
@@ -48,15 +84,14 @@ export default function NavDropdown({ group, onNavigate }: { group: NavGroup; on
           </svg>
         </span>
       </button>
-      <div className="site-nav__dropdown" role="menu">
+      <div className="site-nav__dropdown" id={dropdownId}>
         {group.links.map((l) => (
           <Link
             key={l.href}
             href={l.href}
             className="site-nav__dropdown-item"
-            role="menuitem"
             onClick={() => {
-              setOpen(false);
+              hide();
               onNavigate();
             }}
           >

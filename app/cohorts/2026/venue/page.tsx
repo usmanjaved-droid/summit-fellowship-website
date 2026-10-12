@@ -16,7 +16,9 @@ export default function VenuePage() {
           <div className="page-hero__crumbs">
             <Link href="/">Home</Link>
             <span>/</span>
-            <Link href="/cohorts/2026">2026 Cohort</Link>
+            <Link href="/cohorts">Cohorts</Link>
+            <span>/</span>
+            <Link href="/cohorts/2026">2026</Link>
             <span>/</span>
             <span>Venue</span>
           </div>

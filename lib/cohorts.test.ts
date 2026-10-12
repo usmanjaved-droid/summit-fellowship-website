@@ -34,6 +34,7 @@ describe('cohort tabs', () => {
   it('marks Fellows active on the hub and on profile pages', () => {
     expect(isTabActive(tabs[0], '/cohorts/2026', 2026)).toBe(true);
     expect(isTabActive(tabs[0], '/cohorts/2026/fellows/habiba-banu', 2026)).toBe(true);
+    expect(isTabActive(tabs[0], '/cohorts/2026/fellows', 2026)).toBe(true);
     expect(isTabActive(tabs[0], '/cohorts/2026/week', 2026)).toBe(false);
   });
   it('marks other tabs active by prefix', () => {

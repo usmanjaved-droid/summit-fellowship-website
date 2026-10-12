@@ -19,7 +19,9 @@ export default function ExploreSkardu() {
           <div className={styles.breadcrumbs}>
             <Link href="/">Home</Link>
             <span>/</span>
-            <Link href="/cohorts/2026">2026 Cohort</Link>
+            <Link href="/cohorts">Cohorts</Link>
+            <span>/</span>
+            <Link href="/cohorts/2026">2026</Link>
             <span>/</span>
             <span>Explore Skardu</span>
           </div>

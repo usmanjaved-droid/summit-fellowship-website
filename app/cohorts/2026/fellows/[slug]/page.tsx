@@ -4,7 +4,6 @@ import { FellowHero } from '../../../_components/fellow/FellowHero';
 import { IdeaBand } from '../../../_components/fellow/IdeaBand';
 import { FellowSection } from '../../../_components/fellow/FellowSection';
 import { FellowSidebar } from '../../../_components/fellow/FellowSidebar';
-import { FellowNavigation } from '../../../_components/fellow/FellowNavigation';
 import styles from '../../../_components/fellow/fellow-detail.module.css';
 
 const YEAR = 2026;
@@ -34,8 +33,13 @@ export default async function FellowDetailPage({ params }: PageProps) {
 
   return (
     <div className={styles['fellow-detail']}>
-      <FellowNavigation />
-      <FellowHero fellow={fellow} number={getFellowNumber(YEAR, slug)} total={getAllFellows(YEAR).length} />
+      <FellowHero
+        fellow={fellow}
+        number={getFellowNumber(YEAR, slug)}
+        total={getAllFellows(YEAR).length}
+        backHref={`/cohorts/${YEAR}`}
+        year={YEAR}
+      />
       <IdeaBand fellow={fellow} />
       <div className={styles['fellow-detail__body']}>
         <div className={styles['fellow-detail__content']}>
