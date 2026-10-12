@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ContactForm from '../components/ContactForm';
+import { getSiteSettings } from '@/lib/site';
 
 export const metadata = {
   title: 'Contact — Summit Fellowship',
@@ -54,8 +55,8 @@ export default function ContactPage() {
           <div className="contact-form">
             <div className="contact-form__inner">
               <h3>Or send a <em>note.</em></h3>
-              <p>Tell us a little about you and what you&rsquo;re after. The form lands in the right inbox automatically.</p>
-              <ContactForm />
+              <p>Tell us a little about you and what you&rsquo;re after. Sending opens your email app with the note ready to go.</p>
+              <ContactForm contactEmail={getSiteSettings().contactEmail} />
             </div>
           </div>
         </div>
