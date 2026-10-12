@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Instrument_Serif, Geist, JetBrains_Mono, Caveat } from 'next/font/google';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import StagingBanner from './components/StagingBanner';
+import { isProductionDeploy } from '@/lib/env';
 import './globals.css';
 
 const instrumentSerif = Instrument_Serif({
@@ -33,7 +35,8 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: 'Summit Fellowship — Designed for Scale',
   description:
-    "The Skardu Scale-Up Fellowship. A 7-day intensive retreat for Pakistan's most promising social enterprises. June 7–14, 2026.",
+    "A seven-day intensive for Pakistan's most promising social enterprises, matching founders with strategy, mentoring and capital to scale.",
+  robots: isProductionDeploy() ? undefined : { index: false, follow: false },
 };
 
 export default function RootLayout({
@@ -47,6 +50,7 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${geist.variable} ${jetbrainsMono.variable} ${caveat.variable}`}
     >
       <body>
+        <StagingBanner />
         <Header />
         <main>{children}</main>
         <Footer />
