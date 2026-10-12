@@ -1,4 +1,4 @@
-import styles from '../page.module.css';
+import styles from './fellow-detail.module.css';
 
 type FellowSectionProps = {
   title: string;

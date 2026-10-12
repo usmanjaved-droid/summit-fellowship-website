@@ -1,5 +1,5 @@
 import { Fellow } from '@/lib/fellows';
-import styles from '../page.module.css';
+import styles from './fellow-detail.module.css';
 
 type FellowSidebarProps = {
   fellow: Fellow;

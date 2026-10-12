@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import styles from '../page.module.css';
+import styles from './fellow-detail.module.css';
 
 export function FellowNavigation() {
   const router = useRouter();

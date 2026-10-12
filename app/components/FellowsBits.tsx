@@ -3,25 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-
-export type Fellow = {
-  id: number;
-  slug?: string;
-  init: string;
-  name: string;
-  org: string;
-  sector: string;
-  model: string;
-  email: string;
-  phone: string;
-  linkedin: string;
-  website: string;
-  photo_url?: string;
-};
+import type { FellowCard } from '@/lib/fellows';
 
 const SECTORS = ['all', 'Health', 'Mental Health', 'Education', 'Special Ed', 'Disability', 'Legal', 'Livelihoods', 'Agriculture'];
 
-export default function FellowsBits({ fellows }: { fellows: Fellow[] }) {
+export default function FellowsBits({ fellows, basePath }: { fellows: FellowCard[]; basePath: string }) {
   const [filter, setFilter] = useState<string>('all');
 
   const visible = fellows.filter((f) => filter === 'all' || f.sector === filter);
@@ -48,8 +34,8 @@ export default function FellowsBits({ fellows }: { fellows: Fellow[] }) {
           <div className="fellows-grid">
             {visible.map((f, i) => (
               <Link
-                key={f.id}
-                href={`/fellows/${f.slug ?? ''}`}
+                key={f.slug}
+                href={`${basePath}/${f.slug}`}
                 className="fellow-card fellow-card--link"
               >
                 <div className="fellow-card__head">
@@ -71,7 +57,7 @@ export default function FellowsBits({ fellows }: { fellows: Fellow[] }) {
                 <h3 className="fellow-card__name">{f.name}</h3>
                 <div className="fellow-card__org"><strong>{f.org}</strong></div>
                 <div className="fellow-card__sector">{f.sector}</div>
-                <p className="fellow-card__model">{f.model.length > 140 ? f.model.slice(0, 140) + '…' : f.model}</p>
+                <p className="fellow-card__model">{f.summary.length > 140 ? f.summary.slice(0, 140) + '…' : f.summary}</p>
                 <div className="fellow-card__expand">Read full profile →</div>
               </Link>
             ))}
