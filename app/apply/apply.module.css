@@ -1,6 +1,7 @@
 .apply__grid { display: grid; grid-template-columns: 2fr 1fr; gap: 64px; align-items: start; }
 .apply__heading { font-size: clamp(28px, 3vw, 40px); color: var(--alpine-deep); margin: 0 0 24px; }
 .apply__heading:not(:first-child) { margin-top: 56px; }
+.apply__intro { color: var(--ink-soft); margin: 0 0 16px; max-width: 65ch; }
 .apply__list { padding-left: 20px; display: grid; gap: 12px; color: var(--ink-soft); }
 .apply__stages { list-style: none; padding: 0; display: grid; gap: 24px; counter-reset: stage; }
 .apply__stages li { border-left: 2px solid var(--ochre); padding-left: 20px; }

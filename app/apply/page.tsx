@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BEFORE_YOU_START } from '@/lib/application/questions';
 import { displayValue, getApplyCta, getCurrentCohort, isApplicationLive } from '@/lib/site';
 import styles from './apply.module.css';
 
@@ -62,6 +63,20 @@ export default function ApplyPage() {
                 </li>
               ))}
             </ol>
+
+            {live && (
+              <>
+                <h2 className={styles.apply__heading}>Before you start</h2>
+                <p className={styles.apply__intro}>About 25 minutes of typing once you have gathered your numbers. Your answers save automatically in this browser. Have these ready:</p>
+                <ul className={styles.apply__list}>
+                  {BEFORE_YOU_START.map((b) => <li key={b}>{b}</li>)}
+                </ul>
+                <p className={styles.apply__intro}>One answer — your path to a million users — is longer than the rest. Plan five to eight minutes for it.</p>
+                <a className="btn btn--ghost" href="/application/summit-fellowship-application.pdf" download>
+                  Download the application (PDF)
+                </a>
+              </>
+            )}
           </div>
 
           <aside className={styles.apply__aside}>
