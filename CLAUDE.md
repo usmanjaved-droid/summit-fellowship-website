@@ -4,7 +4,7 @@
 
 **Summit Fellowship** is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, cohorts, fellows, faculty, curriculum, and everything participants need.
 
-**Status:** The site is being converted from a 2026-only event site into a permanent, multi-year site. Phase 1 is built and lives on the `staging` branch; production (`master`) still serves the old 2026 site until the owner approves go-live.  
+**Status:** The site is being converted from a 2026-only event site into a permanent, multi-year site. Phase 1 was built on the `staging` branch and reaches production only when the owner approves go-live. Production serves whatever is on `master`.  
 **Audience:** Fellows, faculty, funders, potential applicants  
 **Latest cohort:** 2026 — June 7–14, 2026 at Khoj Resort, Skardu  
 **Organization:** Mulago Foundation + Taleemabad
@@ -47,6 +47,7 @@ Summit Fellowship Website/
 │   │   │   └── fellow/            # Fellow detail components + fellow-detail.module.css
 │   │   └── 2026/
 │   │       ├── page.tsx           # Fellows tab (grid + sector filter)
+│   │       ├── fellows/page.tsx   # Same Fellows tab at /cohorts/2026/fellows (re-export)
 │   │       ├── week/  venue/  explore/
 │   │       └── fellows/[slug]/page.tsx   # Fellow detail page
 │   │
@@ -282,7 +283,7 @@ Never hardcode hex values.
 ### Server Components (Default)
 
 - FellowHero, IdeaBand, FellowSection, FellowSidebar, FellowNavigation
-- Footer, HeroSection, DeadlineBand, StagingBanner, etc.
+- Footer, DeadlineBand, StagingBanner, etc.
 
 **Benefits:** No JavaScript, fast, can access databases/env vars
 
@@ -290,7 +291,7 @@ Never hardcode hex values.
 
 - Header, NavDropdown (menu state)
 - FellowsBits (sector filter with useState)
-- ContactForm (form submission)
+- ContactForm (opens the visitor's email app via mailto:)
 - BeforeAfterSlider (interactive)
 
 **Use only for:** State, event listeners, hooks, real-time updates
@@ -403,6 +404,7 @@ See **Production vs staging** below for how branches map to deployments.
 
 - **Production** is the `master` branch → Vercel project `summit-fellowship-website` → https://summit-fellowship-website.vercel.app. (The older `summit-fellowship.vercel.app` project is paused; do not use it as the live site.)
 - **Staging** is the `staging` branch, deployed as a Vercel preview. Whenever `VERCEL_ENV !== 'production'` the site shows a STAGING banner and is hidden from search engines (`robots.txt` Disallow, `X-Robots-Tag` header, meta robots noindex).
+- Never use Vercel 'Promote to Production' on a staging preview — staging flags are baked in at build time; production must be a fresh build from master.
 - **Go-live rule:** merge `staging` → `master` only with the owner's approval **and** `npm run check:golive` passing (it fails while any FAQ answer in `data/faq.json` is still marked [TO CONFIRM]).
 
 ### Yearly update
@@ -549,4 +551,4 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 ---
 
 **Last Updated:** 2026-10-12  
-**Status:** Phase 1 of the permanent multi-year site built on `staging`; production still on the old site until go-live approval
+**Status:** Phase 1 of the permanent multi-year site built on `staging`; production serves whatever is on `master` (staging merges only with go-live approval)

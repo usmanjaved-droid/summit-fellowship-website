@@ -4,8 +4,16 @@ const base = process.argv[2] ?? 'http://localhost:3100';
 let failures = 0;
 
 for (const r of ROUTES) {
-  const res = await fetch(base + r.path, { redirect: 'manual' });
-  const body = await res.text();
+  let res;
+  let body;
+  try {
+    res = await fetch(base + r.path, { redirect: 'manual' });
+    body = await res.text();
+  } catch (err) {
+    failures++;
+    console.log(`FAIL ${r.path}: ${err instanceof Error ? err.message : String(err)}`);
+    continue;
+  }
   const problems = [];
   if (res.status !== r.status) problems.push(`status ${res.status} ≠ ${r.status}`);
   for (const text of r.contains ?? []) {

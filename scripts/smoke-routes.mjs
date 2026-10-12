@@ -1,9 +1,10 @@
 /** Route expectations checked by scripts/smoke.mjs. Tasks append entries. */
 export const ROUTES = [
-  { path: '/', status: 200, contains: ['Staging — not the live site', 'Applications opening soon', 'What you get', 'How it works', 'Meet the 2026 fellows', 'Ready to design for scale?'], absent: ['Before you arrive', 'Fellowship 2026'] },
+  { path: '/', status: 200, contains: ['Staging — not the live site', 'Applications opening soon', 'What you get', 'How it works', 'Meet the 2026 fellows', 'Ready to design for scale?', 'noindex'], absent: ['Before you arrive', 'Fellowship 2026'] },
   { path: '/robots.txt', status: 200, contains: ['Disallow: /'] },
   { path: '/cohorts', status: 200, contains: ['2026 · Skardu'] },
   { path: '/cohorts/2026', status: 200, contains: ['Eleven founders', 'The Week', 'Habiba Banu'] },
+  { path: '/cohorts/2026/fellows', status: 200, contains: ['Habiba Banu'] },
   { path: '/cohorts/2026/fellows/habiba-banu', status: 200, contains: ['Habiba Banu', 'The Mission'] },
   { path: '/cohorts/2026/fellows/nobody', status: 404 },
   { path: '/cohorts/1999', status: 404 },
