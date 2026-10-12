@@ -1,6 +1,6 @@
 /** Route expectations checked by scripts/smoke.mjs. Tasks append entries. */
 export const ROUTES = [
-  { path: '/', status: 200, contains: ['Staging — not the live site', 'Applications opening soon', 'What you get', 'How it works', 'Meet the 2026 fellows', 'Ready to design for scale?', 'noindex'], absent: ['Before you arrive', 'Fellowship 2026'] },
+  { path: '/', status: 200, contains: ['Staging — not the live site', 'Apply for the 2027 cohort', 'What you get', 'How it works', 'Meet the 2026 fellows', 'Ready to design for scale?', 'noindex'], absent: ['Before you arrive', 'Fellowship 2026'] },
   { path: '/robots.txt', status: 200, contains: ['Disallow: /'] },
   { path: '/cohorts', status: 200, contains: ['2026 · Skardu'] },
   { path: '/cohorts/2026', status: 200, contains: ['Eleven founders', 'The Week', 'Habiba Banu'] },
@@ -19,8 +19,8 @@ export const ROUTES = [
   { path: '/resources', status: 404 },
   { path: '/travel', status: 404 },
   { path: '/curriculum', status: 200, contains: ['Apply →', 'Cohorts', '2026 · Skardu', 'FAQ'] },
-  { path: '/apply', status: 200, contains: ['Who should apply', 'USD 100,000', 'How selection works', 'Key dates', 'To be confirmed', 'Applications opening soon'], absent: ['Scale Screen', '/apply/form'] },
-  { path: '/apply/form', status: 404 },
+  { path: '/apply', status: 200, contains: ['Who should apply', 'USD 100,000', 'How selection works', 'Key dates', 'To be confirmed', 'Start your application'], absent: ['Scale Screen'] },
+  { path: '/apply/form', status: 200, contains: ['Loading the application'], absent: ['Scale Screen'] },
   { path: '/faq', status: 200, contains: ['Eligibility', 'The application', 'The retreat', 'After the fellowship', 'USD 100,000'] },
   { path: '/contact', status: 200, contains: ['usman.javed@taleemabad.com'], absent: ['ascenderadventures', 'Flights, visas'] },
   { path: '/faculty', status: 200, contains: ['Kevin Starr'] },
