@@ -17,4 +17,5 @@ export const ROUTES = [
   { path: '/explore-skardu', status: 404 },
   { path: '/resources', status: 404 },
   { path: '/travel', status: 404 },
+  { path: '/curriculum', status: 200, contains: ['Apply →', 'Cohorts', '2026 · Skardu', 'FAQ'] },
 ];
