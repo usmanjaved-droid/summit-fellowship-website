@@ -18,4 +18,6 @@ export const ROUTES = [
   { path: '/resources', status: 404 },
   { path: '/travel', status: 404 },
   { path: '/curriculum', status: 200, contains: ['Apply →', 'Cohorts', '2026 · Skardu', 'FAQ'] },
+  { path: '/apply', status: 200, contains: ['Who should apply', 'USD 100,000', 'How selection works', 'Key dates', 'To be confirmed', 'Applications opening soon'], absent: ['Scale Screen', '/apply/form'] },
+  { path: '/apply/form', status: 404 },
 ];
