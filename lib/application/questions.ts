@@ -40,9 +40,9 @@ export const SECTIONS: Section[] = [
         options: ['Education & ECD', 'Health', 'Livelihoods & Employment', 'Financial Inclusion', 'Water & Sanitation', 'Agriculture & Food', 'Energy', 'Climate & Conservation', 'Other'],
       },
       { id: 'A9', kind: 'url', label: 'Website', help: 'Enter "none" if you do not have one.', required: true, acceptWords: ['none'] },
-      { id: 'A10', kind: 'number', label: 'Total annual budget, most recent complete financial year, USD', help: 'Total expenditure, not income.', required: true, allowUntracked: true },
-      { id: 'A11', kind: 'number', label: 'Full-time staff today', help: 'Full-time equivalents on your payroll. Exclude volunteers and government staff.', required: true },
-      { id: 'A12', kind: 'number', label: 'Part-time, contract and field staff today', required: true },
+      { id: 'A10', kind: 'number', label: 'Total annual budget, most recent complete financial year, USD', help: 'Total expenditure, not income. Whole numbers only — no commas or decimals.', required: true, allowUntracked: true },
+      { id: 'A11', kind: 'number', label: 'Full-time staff today', help: 'Full-time equivalents on your payroll. Exclude volunteers and government staff. Whole numbers only — no commas or decimals.', required: true },
+      { id: 'A12', kind: 'number', label: 'Part-time, contract and field staff today', help: 'Whole numbers only — no commas or decimals.', required: true },
     ],
   },
   {
