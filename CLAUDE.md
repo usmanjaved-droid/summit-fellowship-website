@@ -282,7 +282,7 @@ Never hardcode hex values.
 ### Server Components (Default)
 
 - FellowHero, IdeaBand, FellowSection, FellowSidebar, FellowNavigation
-- Footer, HeroSection, ScheduleDay, DeadlineBand, StagingBanner, etc.
+- Footer, HeroSection, DeadlineBand, StagingBanner, etc.
 
 **Benefits:** No JavaScript, fast, can access databases/env vars
 

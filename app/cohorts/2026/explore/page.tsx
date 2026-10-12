@@ -187,7 +187,7 @@ export default function ExploreSkardu() {
               <div className={styles.factInner}>
                 <div className={styles.factNum}>No. 02 · Etymology</div>
                 <div className={styles.factStat} style={{ fontSize: 'clamp(32px, 3.6vw, 56px)' }}>
-                  "Low land between two high places."
+                  &ldquo;Low land between two high places.&rdquo;
                 </div>
                 <div className={styles.factBody} style={{ opacity: 0.95 }}>
                   The name <em>Skardu</em> comes from Balti — the low ground between Shigar (north) and Satpara Lake (south).
@@ -203,7 +203,7 @@ export default function ExploreSkardu() {
               <div className={styles.factBody}>
                 The Deosai National Park, just south of Skardu, is the <strong>second-highest alpine plateau on Earth</strong>. Locals call it the Land of Giants. It is closed half the year by snow, and home to the Himalayan brown bear, snow leopard, golden marmot and ibex.
               </div>
-              <div className={styles.factLabel}>"Land of giants"</div>
+              <div className={styles.factLabel}>&ldquo;Land of giants&rdquo;</div>
             </article>
 
             <article className={`${styles.fact} ${styles.factSpan4}`}>
@@ -447,7 +447,7 @@ export default function ExploreSkardu() {
                 Sand dunes,<br />
                 <em>at altitude.</em>
               </h3>
-              <p className={styles.activityDesc}>Possibly Skardu's strangest feature: white-sand cold deserts at over 2,300 m, framed by 7,000-m peaks. The Deosai plateau adjoins them — the world's second-highest alpine plain.</p>
+              <p className={styles.activityDesc}>Possibly Skardu&apos;s strangest feature: white-sand cold deserts at over 2,300 m, framed by 7,000-m peaks. The Deosai plateau adjoins them — the world&apos;s second-highest alpine plain.</p>
               <div className={styles.activityTag}>SPF 50, always</div>
             </div>
             <div className={styles.activityItems}>
@@ -661,33 +661,5 @@ function DishCard({
       </div>
       <p className={styles.dishDesc}>{description}</p>
     </article>
-  );
-}
-
-function ListItem({
-  num,
-  title,
-  subtitle,
-  description,
-  meta,
-}: {
-  num: string;
-  title: string;
-  subtitle?: string;
-  description: string;
-  meta: string;
-}) {
-  return (
-    <div className={styles.listItem}>
-      <span className={styles.listItemNum}>{num}</span>
-      <div>
-        <h4 className={styles.listItemTitle}>
-          {title}
-          {subtitle && <span className={styles.listItemLocal}>{subtitle}</span>}
-        </h4>
-        <p className={styles.listItemDesc}>{description}</p>
-      </div>
-      <span className={styles.listItemMeta}>{meta}</span>
-    </div>
   );
 }

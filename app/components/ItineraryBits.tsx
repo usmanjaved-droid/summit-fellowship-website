@@ -28,6 +28,7 @@ export default function ItineraryBits({ days }: { days: Day[] }) {
 
   useEffect(() => {
     const m = location.hash.match(/^#day-(\d)$/);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hash only exists client-side; reading it in useState would cause a hydration mismatch
     if (m) setActive(Number(m[1]));
   }, []);
 

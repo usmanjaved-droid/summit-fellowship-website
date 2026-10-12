@@ -32,8 +32,8 @@ export default function VenuePage() {
             <div className={styles.venueIntroCopy}>
               <div className="eyebrow-line"><span className="eyebrow-line__line"></span><span className="eyebrow">The venue</span></div>
               <h2>Where the<br /><em>work happens.</em></h2>
-              <p>Khoj sits on the Shigar River in a valley that feels deliberately removed from the world. The journey in unfolds in two chapters: a flight to Skardu at 2,228 m elevation, then a 45-minute drive that threads through poplar groves and apricot orchards until you reach the resort. By the time you arrive, you've crossed into a different geography—mountains rising on every side, the river below, and your attention finally free to settle.</p>
-              <p>The resort is built as a collection of private villas overlooking the river and valley. On the grounds: hammock forests of poplar trees, walking trails across seven acres, an organic farm that feeds the restaurant, firepits for evening gathering. The setting is small and contained, naturally suited to groups this size. There's signal here, but also silence when you want it.</p>
+              <p>Khoj sits on the Shigar River in a valley that feels deliberately removed from the world. The journey in unfolds in two chapters: a flight to Skardu at 2,228 m elevation, then a 45-minute drive that threads through poplar groves and apricot orchards until you reach the resort. By the time you arrive, you&apos;ve crossed into a different geography—mountains rising on every side, the river below, and your attention finally free to settle.</p>
+              <p>The resort is built as a collection of private villas overlooking the river and valley. On the grounds: hammock forests of poplar trees, walking trails across seven acres, an organic farm that feeds the restaurant, firepits for evening gathering. The setting is small and contained, naturally suited to groups this size. There&apos;s signal here, but also silence when you want it.</p>
             </div>
             <figure className={styles.venueIntroImageSlot}>
               <Image
@@ -121,7 +121,7 @@ export default function VenuePage() {
               <div className={styles.fgCardNum}>No. 02 · Room allocation</div>
               <h3 className={styles.fgCardTitle}>Loft villa, triple sharing.</h3>
               <div className={styles.fgCardBody}>
-                <p>Fellows are accommodated in Khoj's River-View Loft Villas. Each room sleeps three of the same gender — one bed on the ground floor, two on the loft. Sort the bunk politics among yourselves.</p>
+                <p>Fellows are accommodated in Khoj&apos;s River-View Loft Villas. Each room sleeps three of the same gender — one bed on the ground floor, two on the loft. Sort the bunk politics among yourselves.</p>
               </div>
 
               <div className={styles.roomsDiagram} aria-hidden="true">
@@ -160,7 +160,7 @@ export default function VenuePage() {
               <div className={styles.fgCardNum}>No. 03 · Travel arrangements</div>
               <h3 className={styles.fgCardTitle}>We fly you to Skardu. You handle the airport.</h3>
               <div className={styles.fgCardBody}>
-                <p>All fellows have flight bookings from their respective cities. You're responsible for getting to your <strong>departure airport</strong> in your home city; our logistics team — coordinated with Ascender Adventures — picks you up at <strong>Skardu airport</strong> and drives the group to Shigar. Return is mirrored.</p>
+                <p>All fellows have flight bookings from their respective cities. You&apos;re responsible for getting to your <strong>departure airport</strong> in your home city; our logistics team — coordinated with Ascender Adventures — picks you up at <strong>Skardu airport</strong> and drives the group to Shigar. Return is mirrored.</p>
               </div>
 
               <div className={styles.travelFlow}>
@@ -170,7 +170,7 @@ export default function VenuePage() {
                   <div className={styles.s}>Get to your departure airport on your own.</div>
                 </div>
                 <div className={styles.travelFlowStep}>
-                  <div className={styles.n}>Step 02 · We've booked</div>
+                  <div className={styles.n}>Step 02 · We&apos;ve booked</div>
                   <div className={styles.t}>Flight to Skardu</div>
                   <div className={styles.s}>Domestic flight, ticket already in your inbox.</div>
                 </div>
@@ -217,7 +217,7 @@ export default function VenuePage() {
                 <div className={styles.bar}></div>
               </div>
               <div className={styles.fgCardBody}>
-                <p>Khoj has Wi-Fi, but connectivity in this part of Pakistan isn't always reliable or fast. Cellular coverage from major networks is generally available; 3G/4G works but varies with weather.</p>
+                <p>Khoj has Wi-Fi, but connectivity in this part of Pakistan isn&apos;t always reliable or fast. Cellular coverage from major networks is generally available; 3G/4G works but varies with weather.</p>
               </div>
               <ul className={styles.fgCardSublist}>
                 <li><span>Resort Wi-Fi</span><span className={styles.v}>Available</span></li>
@@ -242,10 +242,10 @@ export default function VenuePage() {
                     <li>Warm layers (T-shirts + long-sleeve tops, sweaters)</li>
                     <li>A warm jacket or puffer for cold, rainy days and evenings</li>
                     <li>Comfortable walking shoes or trail sneakers with good grip</li>
-                    <li>Trekking shoes — you'll need them on day 3 for our outdoors day</li>
+                    <li>Trekking shoes — you&apos;ll need them on day 3 for our outdoors day</li>
                     <li>Traditional attire for Cultural Night</li>
                   </ul>
-                  <p style={{ fontSize: '14px', lineHeight: '1.5', color: 'var(--ink-soft)', marginTop: '12px' }}>For attire, we'll be casual and comfortable. Do not overpack. You'll be glad that you packed comfortable casual clothes. Dress shoes and heels are not recommended.</p>
+                  <p style={{ fontSize: '14px', lineHeight: '1.5', color: 'var(--ink-soft)', marginTop: '12px' }}>For attire, we&apos;ll be casual and comfortable. Do not overpack. You&apos;ll be glad that you packed comfortable casual clothes. Dress shoes and heels are not recommended.</p>
                 </div>
 
                 <div className={styles.packingCol}>
@@ -266,7 +266,7 @@ export default function VenuePage() {
                     <li>Toiletries</li>
                     <li>Power bank</li>
                     <li>Universal adapter (Pakistan: Type C/D)</li>
-                    <li>Day bag or small backpack — you'll often be away from your room during the day; big enough for essentials or a laptop</li>
+                    <li>Day bag or small backpack — you&apos;ll often be away from your room during the day; big enough for essentials or a laptop</li>
                   </ul>
                 </div>
               </div>
@@ -317,7 +317,7 @@ export default function VenuePage() {
               <div className="eyebrow eyebrow--on-dark" style={{ marginBottom: 16 }}>The terrain</div>
               <h2>You are <em>here.</em></h2>
             </div>
-            <p>A schematic of the week's geography. Khoj is the basecamp; off-site days bring the cohort to Shigar Fort, the Skardu bazaar, and a local family's home for dinner.</p>
+            <p>A schematic of the week&apos;s geography. Khoj is the basecamp; off-site days bring the cohort to Shigar Fort, the Skardu bazaar, and a local family&apos;s home for dinner.</p>
           </div>
 
           <div className={styles.mapFrame}>
