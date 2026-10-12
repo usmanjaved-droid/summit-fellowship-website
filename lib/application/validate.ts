@@ -37,6 +37,8 @@ const PHONE = /^\+?[0-9][0-9 ()-]{6,19}$/;
 const URL_RE = /^https?:\/\/[^\s.]+\.[^\s]+$/i;
 const YEAR = /^(19|20)\d{2}$/;
 const MONTH_YEAR = /^(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
+/** Cap for table text/url cells that declare no maxChars of their own. */
+const MAX_CELL_CHARS = 300;
 
 function checkUrl(v: string, words: string[]): string | null {
   const t = v.trim();
@@ -48,10 +50,10 @@ function checkCell(col: Column, cell: Cell | undefined): boolean {
   if (col.kind === 'number') {
     if (!isNum(cell)) return false;
     if (cell.untracked) return !!col.allowUntracked;
-    return /^\d+$/.test(cell.value);
+    return /^\d{1,15}$/.test(cell.value);
   }
   if (!isStr(cell) || cell.trim() === '') return false;
-  if (col.maxChars && cell.length > col.maxChars) return false;
+  if (cell.length > (col.maxChars ?? MAX_CELL_CHARS)) return false;
   if (col.kind === 'monthYear') return MONTH_YEAR.test(cell);
   if (col.kind === 'url') return checkUrl(cell, col.acceptWords ?? []) === null;
   return true;

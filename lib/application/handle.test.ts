@@ -79,6 +79,36 @@ describe('handleSubmission', () => {
     expect(res.status).toBe(400);
     expect(Object.keys(res.body.fieldErrors ?? {})).toEqual(expect.arrayContaining(['A1', 'A11']));
   });
+  it('stores normalised answers: junk keys, untracked values, stale specify and blank rows are removed', async () => {
+    const { c, saved } = ctx();
+    const answers = {
+      ...validAnswers(),
+      evil: 'x',
+      C3: { count: '1200', category: 'teachers', what: 'our app', definition: 'used it in the last 7 days', junk: 'y'.repeat(50_000) },
+      C4: [
+        { name: 'Rawalpindi', users: { value: '900', untracked: false }, since: '01/2023', junk: 'z' },
+        { name: '', users: { value: '', untracked: false }, since: '' },
+      ],
+      A10: { value: '123', untracked: true },
+      A4: { choice: 'Trust', specify: 'stale text' },
+    };
+    const res = await handleSubmission(body({ answers }), c);
+    expect(res.status).toBe(201);
+    const stored = saved[0].answers;
+    expect('evil' in stored).toBe(false);
+    expect(stored.C3).toEqual({ count: '1200', category: 'teachers', what: 'our app', definition: 'used it in the last 7 days' });
+    expect(stored.C4).toEqual([{ name: 'Rawalpindi', users: { value: '900', untracked: false }, since: '01/2023' }]);
+    expect(stored.A10).toEqual({ value: '', untracked: true });
+    expect(stored.A4).toEqual({ choice: 'Trust', specify: '' });
+  });
+  it('rejects a 100k-digit table number cell (400)', async () => {
+    const { c, saved } = ctx();
+    const answers = { ...validAnswers(), C4: [{ name: 'Rawalpindi', users: { value: '9'.repeat(100_000), untracked: false }, since: '01/2023' }] };
+    const res = await handleSubmission(body({ answers }), c);
+    expect(res.status).toBe(400);
+    expect(res.body.fieldErrors?.C4).toBeDefined();
+    expect(saved).toHaveLength(0);
+  });
   it('returns 502 with a retry message when the store fails', async () => {
     const { c } = ctx({ store: { save: async () => { throw new Error('down'); } } });
     const res = await handleSubmission(body(), c);

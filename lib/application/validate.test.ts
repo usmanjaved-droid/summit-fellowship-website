@@ -78,6 +78,14 @@ describe('validateQuestion', () => {
     expect(validateQuestion(q('C4'), full)).toBeNull();
     expect(validateQuestion(q('C4'), [...full, ...full, ...full, ...full])).toBe(MSG.tooManyRows(3));
   });
+  it('tables: caps number cells at 15 digits and uncapped text/url cells at 300 chars', () => {
+    const row = { name: 'Rawalpindi', users: { value: '9'.repeat(100_000), untracked: false }, since: '01/2023' };
+    expect(validateQuestion(q('C4'), [row])).toBe(MSG.rowIncomplete(1));
+    expect(validateQuestion(q('C4'), [{ ...row, users: { value: '9'.repeat(15), untracked: false } }])).toBeNull();
+    const f2 = { measured: 'Reading', result: '+12', sample: { value: '300', untracked: false }, compared: 'Baseline', who: 'Us', when: '05/2024' };
+    expect(validateQuestion(q('F2'), [{ ...f2, link: `https://example.org/${'a'.repeat(300)}` }])).toBe(MSG.rowIncomplete(1));
+    expect(validateQuestion(q('F2'), [{ ...f2, link: 'https://example.org/report' }])).toBeNull();
+  });
   it('rejects wrong shapes instead of crashing', () => {
     expect(validateQuestion(q('A1'), { value: 'x', untracked: false })).toBe(MSG.invalid);
     expect(validateQuestion(q('C4'), 'not a table')).toBe(MSG.invalid);

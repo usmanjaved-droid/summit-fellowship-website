@@ -1,4 +1,4 @@
-import { pickKnownAnswers } from './answers';
+import { normalizeAnswers } from './answers';
 import { SCHEMA_VERSION } from './questions';
 import { SCREENER_QUESTIONS, isEligible, isScreenerComplete } from './screener';
 import type { ApplicationStore } from './store';
@@ -45,7 +45,7 @@ export async function handleSubmission(body: unknown, ctx: HandlerContext) {
     return reply(400, { ok: false, error: 'Please confirm the statement before submitting.', fieldErrors: { confirm: 'Please confirm.' } });
   }
 
-  const answers = pickKnownAnswers(b.answers);
+  const answers = normalizeAnswers(b.answers);
   const fieldErrors = validateAll(answers);
   if (Object.keys(fieldErrors).length > 0) return reply(400, { ok: false, error: 'Some answers need attention.', fieldErrors });
 
