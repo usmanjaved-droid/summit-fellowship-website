@@ -13,19 +13,8 @@ const CHANNELS = [
       </svg>
     ),
     title: 'General queries',
-    detail: 'Program details, curriculum, faculty, pre-reads, mentor matching, capacity clinics, and anything else about the fellowship.',
+    detail: 'Eligibility, the application, the curriculum, faculty, and anything else about the fellowship.',
     email: 'usman.javed@taleemabad.com',
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="9" r="3" />
-        <path d="M12 2a7 7 0 017 7c0 4-7 13-7 13S5 13 5 9a7 7 0 017-7z" />
-      </svg>
-    ),
-    title: 'Logistics & travel',
-    detail: 'Flights, visas, transfers, dietary needs, room requests, and all arrival logistics.',
-    email: 'umair@ascenderadventures.com',
   },
 ];
 

@@ -184,7 +184,7 @@ export default function CurriculumPage() {
               <div className="module__when">Day 05 · Friday · 09:00 – 17:00</div>
             </div>
             <div className="module__body">
-              <p className="lead">By Day 5, every fellow has a defensible model. This module is about being able to communicate it — first to themselves, then to peers, then to a funder who&rsquo;s heard 200 pitches this year.</p>
+              <p className="lead">By Day 5, every fellow has a defensible model. This module is about being able to communicate it — first to themselves, then to peers, then to a funder who hears 200 pitches a year.</p>
               <ConceptList items={M5} />
               <div className="banned-words">
                 <h4>The banned words list · examples</h4>
