@@ -56,9 +56,11 @@ export function Field({ question: q, value, onChange, error }: Props) {
               <input
                 type="checkbox"
                 checked={v.choices.includes(o)}
-                onChange={(e) =>
-                  onChange({ ...v, choices: e.target.checked ? [...v.choices, o] : v.choices.filter((c) => c !== o) })
-                }
+                onChange={(e) => {
+                  const choices = e.target.checked ? [...v.choices, o] : v.choices.filter((c) => c !== o);
+                  const keepSpecify = !!q.specify && choices.some((c) => q.specify!.options.includes(c));
+                  onChange({ ...v, choices, specify: keepSpecify ? v.specify : '' });
+                }}
               />
               <span>{o}</span>
             </label>
@@ -137,7 +139,10 @@ export function Field({ question: q, value, onChange, error }: Props) {
     const needsSpecify = q.specify?.options.includes(v.choice);
     input = (
       <>
-        <select {...common} value={v.choice} onChange={(e) => onChange({ ...v, choice: e.target.value })}>
+        <select {...common} value={v.choice} onChange={(e) => {
+          const choice = e.target.value;
+          onChange({ choice, specify: q.specify?.options.includes(choice) ? v.specify : '' });
+        }}>
           <option value="">Choose…</option>
           {q.options.map((o) => <option key={o} value={o}>{o}</option>)}
         </select>
