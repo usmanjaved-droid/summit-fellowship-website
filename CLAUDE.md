@@ -390,7 +390,7 @@ Auto-deploy on push to `main` branch:
 2. Vercel detects push, starts build
 3. Build runs ESLint + TypeScript checks
 4. If successful, deploys to edge network
-5. Live on https://summit-fellowship.vercel.app (usually 1–2 min)
+5. Live on https://summit-fellowship-website.vercel.app (usually 1–2 min)
 
 ---
 
