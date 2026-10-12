@@ -167,6 +167,8 @@ All colors are CSS variables (never hardcode hex values):
 | `/curriculum` | `app/curriculum/page.tsx` | Mulago design discipline |
 | `/faculty` | `app/faculty/page.tsx` | Faculty + Organizers |
 | `/contact` | `app/contact/page.tsx` | Contact page (form disabled until Phase 2) |
+| `/apply/form` | `app/apply/form/page.tsx` | The application form (screener, sections A–H, review, submit) |
+| `/api/apply` (POST) | `app/api/apply/route.ts` | Receives a submitted application and stores it in Supabase |
 | `/cohorts` | `app/cohorts/page.tsx` | List of cohorts |
 | `/cohorts/2026` | `app/cohorts/2026/page.tsx` | 2026 cohort, Fellows tab (grid with sector filter) |
 | `/cohorts/2026/week` | `app/cohorts/2026/week/page.tsx` | Week-by-week schedule |
@@ -175,6 +177,19 @@ All colors are CSS variables (never hardcode hex values):
 | `/cohorts/2026/fellows/[slug]` | `app/cohorts/2026/fellows/[slug]/page.tsx` | Full-page editorial detail for each fellow |
 
 **Removed routes** (they now 404, no redirects): `/fellows`, `/fellows/[slug]`, `/itinerary`, `/venue`, `/explore-skardu`, `/travel`, `/resources`. `app/not-found.tsx` is a helpful 404 that points visitors to the right place.
+
+---
+
+## Application form (Phase 2)
+
+- **Form:** `/apply/form` is a client form (loaded with `ssr:false`): screener, sections A–H, review, submit. Draft autosave lives in the visitor's browser (localStorage key `summit-application-<year>`, `lib/application/draft.ts`).
+- **Schema:** `lib/application/questions.ts` is the single source for the form, the validator (`lib/application/validate.ts`), the server (`lib/application/handle.ts`) and the offline PDF (`scripts/build-application-pdf.ts`). After editing questions run `npm run pdf:application`; the test `lib/application/schemaHash.test.ts` fails until you do.
+- **Submit flow:** `POST /api/apply` (`app/api/apply/route.ts`) calls `handleSubmission`: honeypot field `nickname`, 403 when applications are not live, rate limit of 5 per 10 minutes per IP (per server instance), screener and full validation re-checked, then the Supabase RPC `public.submit_application`.
+- **Supabase** (org free plan, region ap-south-1): staging `summit-fellowship-staging` (ref `wagaimviefobclwhaboa`), production `summit-fellowship-production` (ref `sfkmvxewojvstmincdzw`). Migration: `supabase/migrations/20261012000000_applications.sql`, applied to both. Table `public.applications` has RLS on with no policies and no anon/authenticated grants; only the SECURITY DEFINER function (EXECUTE for anon only) can insert. Read applications in the Supabase dashboard → Table editor → `applications` (filter `is_latest = true`; Export CSV). The old paused project "Summit Fellowship App reviewer" is unrelated (last year's reviewer page). The staging database holds test rows (e.g. smoke@example.com); that is expected.
+- **Env vars (server-only, never `NEXT_PUBLIC_`):** `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`. In Vercel, Preview and Development use staging values; Production uses production values. Local `.env.local` (git-ignored) holds staging values.
+- **Open/closed:** non-production deployments always treat applications as open (`getCurrentCohort` in `lib/site.ts`); production follows `data/site.json`.
+- **Each year:** in `data/site.json` set `currentCohort.year`, dates, deadline and `applicationsOpen`, then run `npm run pdf:application` (the year is printed in the PDF).
+- **Free-plan caveat:** Supabase pauses free projects after about 7 days without activity. Check the production project is active before opening applications and during the window (dashboard → Restore if paused).
 
 ---
 
@@ -361,6 +376,7 @@ npm run build            # Production build + type check (runs tsc, catches erro
 npm run start            # Start production server
 npm test                 # Vitest unit tests (lib/**/*.test.ts)
 npm run smoke [baseUrl]  # Check every route responds (default http://localhost:3100; run against `npx next start -p 3100`)
+npm run pdf:application  # Rebuild the offline application PDF (required after editing questions or the year)
 npm run check:golive     # Fails while data/faq.json still has [TO CONFIRM] answers
 npm run lint             # Run ESLint on all files (checks Next.js Core Web Vitals + TypeScript)
 npx eslint --fix        # Auto-fix linting errors (eslint.config.mjs config)
@@ -552,5 +568,5 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 
 ---
 
-**Last Updated:** 2026-10-12  
+**Last Updated:** 2026-10-12 (application form, Phase 2)  
 **Status:** Phase 1 of the permanent multi-year site built on `staging`; production serves whatever is on `master` (staging merges only with go-live approval)

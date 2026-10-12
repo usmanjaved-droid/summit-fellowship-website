@@ -14,7 +14,7 @@
     "group": "The application",
     "items": [
       { "q": "How long does the application take?", "a": "About 25 minutes of typing once you have gathered your numbers. Before you start, have ready: your active user count and how you define \"active\", the month your first outside user started, your three largest sites with users and start dates, your primary metric and how you measure it, and your single best outcome result." },
-      { "q": "Can I save my answers and come back later?", "a": "Yes. Your answers are saved automatically in your browser as you type, so you can close the page and return on the same device and browser. To draft on paper or across devices, download the PDF version of the application and paste your answers in when you are ready. [TO CONFIRM: Phase 2 only — remove or reword if going live before the application form exists.]" },
+      { "q": "Can I save my answers and come back later?", "a": "Yes. Your answers are saved automatically in your browser as you type, so you can close the page and return on the same device and browser. To draft on paper or across devices, download the PDF version of the application from the Apply page and paste your answers in when you are ready." },
       { "q": "What happens after I apply?", "a": "We read every application over about two weeks. Shortlisted founders are invited to a single 45-minute conversation with the Mulago and Taleemabad team, which starts from your answers. Final selection of twelve organisations follows." },
       { "q": "When will I hear back?", "a": "Final decisions are made about five weeks after the application deadline. We write to every applicant by email." },
       { "q": "Is there an application fee?", "a": "No. Applying is free." }
