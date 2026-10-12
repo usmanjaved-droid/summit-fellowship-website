@@ -4,12 +4,22 @@ export type SubmitResult = { ok: true } | { ok: false; error: string; fieldError
 
 const RETRY = 'We could not reach the server. Your answers are still saved in this browser — check your connection and try again.';
 
-export async function submitApplication(payload: SubmissionPayload, fetchImpl: typeof fetch = fetch): Promise<SubmitResult> {
+/** Gives up after this long so a stalled connection never leaves the applicant waiting forever. */
+export const SUBMIT_TIMEOUT_MS = 40_000;
+
+export async function submitApplication(
+  payload: SubmissionPayload,
+  fetchImpl: typeof fetch = fetch,
+  timeoutMs: number = SUBMIT_TIMEOUT_MS,
+): Promise<SubmitResult> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const res = await fetchImpl('/api/apply', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
+      signal: controller.signal,
     });
     let data: { ok?: boolean; error?: string; fieldErrors?: Record<string, string> } = {};
     try {
@@ -26,5 +36,7 @@ export async function submitApplication(payload: SubmissionPayload, fetchImpl: t
     return { ok: false, error: typeof data.error === 'string' ? data.error : RETRY, ...(fieldErrors ? { fieldErrors } : {}) };
   } catch {
     return { ok: false, error: RETRY };
+  } finally {
+    clearTimeout(timer);
   }
 }
