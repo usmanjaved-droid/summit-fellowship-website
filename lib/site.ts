@@ -1,4 +1,5 @@
 import siteData from '@/data/site.json';
+import { isProductionDeploy } from './env';
 
 export type CohortSettings = {
   year: number;
@@ -15,11 +16,21 @@ export type SiteSettings = {
 
 export const TBC = 'To be confirmed';
 
-/** Flipped to true in Phase 2, when /apply/form exists. */
-export const FORM_ENABLED = false;
+/** The application form exists (Phase 2). */
+export const FORM_ENABLED = true;
 
 export function getSiteSettings(): SiteSettings {
   return siteData as SiteSettings;
+}
+
+/**
+ * The cohort settings pages and the API should use. Production follows data/site.json.
+ * Every non-production deployment (staging previews, local) treats applications as open,
+ * so the team can test the form end to end against the staging database.
+ */
+export function getCurrentCohort(env: Record<string, string | undefined> = process.env): CohortSettings {
+  const c = getSiteSettings().currentCohort;
+  return isProductionDeploy(env) ? c : { ...c, applicationsOpen: true };
 }
 
 export function displayValue(v: string | null | undefined): string {

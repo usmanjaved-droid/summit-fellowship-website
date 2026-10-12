@@ -1,8 +1,8 @@
-import { getDeadlineText, getSiteSettings } from '@/lib/site';
+import { getCurrentCohort, getDeadlineText } from '@/lib/site';
 
 /** Application-deadline band. Renders nothing while applications are not live. */
 export default function DeadlineBand() {
-  const deadline = getDeadlineText(getSiteSettings().currentCohort);
+  const deadline = getDeadlineText(getCurrentCohort());
   if (!deadline) return null;
   return (
     <section className="event-date" aria-label="Application deadline">

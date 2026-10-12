@@ -4,6 +4,7 @@ import {
   displayValue,
   getApplyCta,
   getDeadlineText,
+  getCurrentCohort,
   getSiteSettings,
   isApplicationLive,
   type CohortSettings,
@@ -63,6 +64,16 @@ describe('getDeadlineText', () => {
     expect(
       getDeadlineText({ ...base, applicationsOpen: true, applicationDeadline: '15 January 2027' }, true),
     ).toBe('15 January 2027');
+  });
+});
+
+describe('getCurrentCohort', () => {
+  it('follows data/site.json in production', () => {
+    expect(getCurrentCohort({ VERCEL_ENV: 'production' }).applicationsOpen).toBe(false);
+  });
+  it('is always open on staging and local so the team can test', () => {
+    expect(getCurrentCohort({ VERCEL_ENV: 'preview' }).applicationsOpen).toBe(true);
+    expect(getCurrentCohort({}).applicationsOpen).toBe(true);
   });
 });
 

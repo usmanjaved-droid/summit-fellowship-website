@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { displayValue, getApplyCta, getSiteSettings, isApplicationLive } from '@/lib/site';
+import { displayValue, getApplyCta, getCurrentCohort, isApplicationLive } from '@/lib/site';
 import styles from './apply.module.css';
 
 export const metadata = {
@@ -29,7 +29,7 @@ const STAGES = [
 ];
 
 export default function ApplyPage() {
-  const cohort = getSiteSettings().currentCohort;
+  const cohort = getCurrentCohort();
   const live = isApplicationLive(cohort);
   const cta = getApplyCta(cohort);
 

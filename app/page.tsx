@@ -5,7 +5,7 @@ import ExponentialChart from './components/ExponentialChart';
 import { FACULTY } from './faculty/people';
 import { getLatestCohort } from '@/lib/cohorts';
 import { getFellowCards } from '@/lib/fellows';
-import { displayValue, getApplyCta, getDeadlineText, getSiteSettings } from '@/lib/site';
+import { displayValue, getApplyCta, getCurrentCohort, getDeadlineText } from '@/lib/site';
 import styles from './home.module.css';
 
 export const metadata = {
@@ -30,7 +30,7 @@ const STEPS = [
 ];
 
 export default function HomePage() {
-  const cohort = getSiteSettings().currentCohort;
+  const cohort = getCurrentCohort();
   const cta = getApplyCta(cohort);
   const deadline = getDeadlineText(cohort);
   const latest = getLatestCohort();
