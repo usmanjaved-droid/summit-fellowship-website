@@ -45,4 +45,20 @@ describe('draft', () => {
     expect(saveDraft(throwing, newDraft(2027))).toBe(false);
     expect(() => clearDraft(throwing, 2027)).not.toThrow();
   });
+  it('conforms stored answers to the schema shape', () => {
+    const s = memoryStorage();
+    const d = newDraft(2027) as unknown as { answers: Record<string, unknown>; screener: Record<string, unknown> };
+    d.answers.A7 = 'foo';
+    d.answers.C4 = [{ name: 1 }];
+    d.answers.A1 = null;
+    d.answers.zzz = 'extra';
+    d.screener.leader = 'maybe';
+    s.setItem(draftKey(2027), JSON.stringify(d));
+    const back = loadDraft(s, 2027);
+    expect(back.answers.A7).toEqual({ choices: [], specify: '' });
+    expect(back.answers.C4).toEqual([{ name: '', users: { value: '', untracked: false }, since: '' }]);
+    expect(back.answers.A1).toBe('');
+    expect('zzz' in back.answers).toBe(false);
+    expect(back.screener.leader).toBe('');
+  });
 });

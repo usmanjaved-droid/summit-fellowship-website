@@ -19,6 +19,7 @@ describe('submitApplication', () => {
     const html = (async () => new Response('<html>', { status: 504 })) as unknown as typeof fetch;
     const r2 = await submitApplication(payload, html);
     expect(r2.ok).toBe(false);
+    if (!r2.ok) expect(r2.error).toMatch(/still saved/);
     if (!r1.ok) expect(r1.error).toMatch(/still saved/);
   });
 });

@@ -18,7 +18,12 @@ export async function submitApplication(payload: SubmissionPayload, fetchImpl: t
       return { ok: false, error: RETRY };
     }
     if (res.ok && data.ok) return { ok: true };
-    return { ok: false, error: data.error ?? RETRY, ...(data.fieldErrors ? { fieldErrors: data.fieldErrors } : {}) };
+    const fe = data.fieldErrors;
+    const fieldErrors =
+      fe && typeof fe === 'object' && !Array.isArray(fe) && Object.values(fe).every((v) => typeof v === 'string')
+        ? fe
+        : undefined;
+    return { ok: false, error: typeof data.error === 'string' ? data.error : RETRY, ...(fieldErrors ? { fieldErrors } : {}) };
   } catch {
     return { ok: false, error: RETRY };
   }

@@ -26,6 +26,34 @@ function isStep(s: unknown): s is Step {
 
 const isPlainObject = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
 
+/**
+ * Returns `stored` if it has the same shape as `fallback`, otherwise a value
+ * conformed to that shape. Unknown object keys are dropped, wrong-typed leaves
+ * fall back to the fallback's value, so the result is always safe to render.
+ */
+export function conform<T>(stored: unknown, fallback: T): T {
+  if (typeof fallback === 'string' || typeof fallback === 'boolean') {
+    return (typeof stored === typeof fallback ? stored : fallback) as T;
+  }
+  if (Array.isArray(fallback)) {
+    if (!Array.isArray(stored)) return fallback;
+    if (fallback.length === 0) return stored.filter((v) => typeof v === 'string') as T;
+    const template: unknown = fallback[0];
+    return stored.filter(isPlainObject).map((el) => conform(el, template)) as T;
+  }
+  if (isPlainObject(fallback)) {
+    if (!isPlainObject(stored)) return fallback;
+    const keys = Object.keys(fallback);
+    if (keys.length === 0) {
+      return Object.fromEntries(Object.entries(stored).filter(([, v]) => typeof v === 'string')) as T;
+    }
+    return Object.fromEntries(
+      keys.map((k) => [k, conform(stored[k], (fallback as Record<string, unknown>)[k])]),
+    ) as T;
+  }
+  return fallback;
+}
+
 export function loadDraft(storage: Storage | null, year: number): Draft {
   try {
     const raw = storage?.getItem(draftKey(year));
@@ -35,11 +63,17 @@ export function loadDraft(storage: Storage | null, year: number): Draft {
       return newDraft(year);
     }
     const fresh = newDraft(year);
+    const screener = Object.fromEntries(
+      Object.keys(fresh.screener).map((k) => {
+        const v = (d.screener as Record<string, unknown>)[k];
+        return [k, v === 'yes' || v === 'no' ? v : ''];
+      }),
+    ) as ScreenerAnswers;
     return {
       ...fresh,
       step: d.step,
-      screener: { ...fresh.screener, ...(d.screener as ScreenerAnswers) },
-      answers: { ...fresh.answers, ...(d.answers as Answers) },
+      screener,
+      answers: conform(d.answers, fresh.answers),
     };
   } catch {
     return newDraft(year);
