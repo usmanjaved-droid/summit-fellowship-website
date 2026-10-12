@@ -4,7 +4,7 @@ import { createRateLimiter } from '@/lib/application/rateLimit';
 import { StoreConfigError, createSupabaseStore } from '@/lib/application/store';
 import { getCurrentCohort, isApplicationLive } from '@/lib/site';
 
-const limiter = createRateLimiter({ limit: 5, windowMs: 10 * 60 * 1000 });
+const limiter = createRateLimiter({ limit: 15, windowMs: 10 * 60 * 1000 });
 
 export async function POST(req: Request) {
   let body: unknown = null;
