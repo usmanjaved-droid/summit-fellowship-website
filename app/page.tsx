@@ -1,60 +1,47 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import EventDate from './components/EventDate';
+import DeadlineBand from './components/DeadlineBand';
 import ExponentialChart from './components/ExponentialChart';
+import { FACULTY } from './faculty/people';
+import { getLatestCohort } from '@/lib/cohorts';
+import { getFellowCards } from '@/lib/fellows';
+import { displayValue, getApplyCta, getDeadlineText, getSiteSettings } from '@/lib/site';
+import styles from './home.module.css';
 
 export const metadata = {
-  title: 'Summit Fellowship 2026 - Design for Scale',
-  description: 'A seven-day intensive for Pakistan\'s most promising social enterprises. Curating Pakistan\'s finest impact companies and matching them with strategy, mentoring, and capital to scale.',
+  title: 'Summit Fellowship — Designed for Scale',
+  description:
+    "Curating Pakistan's finest impact organisations and matching them with strategy, mentoring, and capital to scale.",
 };
 
-interface Action {
-  num: string;
-  title: string;
-  desc: string;
-  href: string;
-}
+const OFFER = [
+  { title: 'Seven days, fully present', desc: 'An immersive residential retreat in Northern Pakistan. No email, no calls during sessions — just the work.' },
+  { title: 'The Mulago scale framework', desc: 'Mission, Big Idea, doer and payer at scale, and the tests every scalable solution has to pass.' },
+  { title: 'Mentoring from people who have scaled', desc: 'Venture diagnostics and strategy clinics with Mulago Foundation and Pakistani faculty.' },
+  { title: 'Demo Day', desc: 'Present your scale blueprint to funders actively investing in Pakistan.' },
+];
 
-const ACTIONS: Action[] = [
-  {
-    num: '01',
-    title: 'Submit your pre work',
-    desc: 'Complete the pre-work assignments to prepare intellectually for the fellowship. Due before 31 May 2026.',
-    href: 'https://skardu-taleemabad.vercel.app/skardu-prework.html',
-  },
-  {
-    num: '02',
-    title: 'Review the curriculum & itinerary',
-    desc: "Understand the week's rhythm, the Mulago design discipline you'll be working through, and what each day requires.",
-    href: '/itinerary',
-  },
-  {
-    num: '03',
-    title: 'Meet the people',
-    desc: 'Get to know the fellows and the faculty and advisors and the organizing team who would be there with us during the fellowship.',
-    href: '/fellows',
-  },
-  {
-    num: '04',
-    title: 'Explore the venue',
-    desc: 'Learn about Khoj Resort, review the packing essentials list, and understand the logistics of arrival.',
-    href: '/venue',
-  },
-  {
-    num: '05',
-    title: 'Explore Skardu',
-    desc: "Get to know the region - the history, geography, culture, food, and activities around where you'll be.",
-    href: '/explore-skardu',
-  },
+const STEPS = [
+  { num: '01', title: 'Apply', desc: 'A focused written application: numbers, names, dates — about 25 minutes once you have gathered them.' },
+  { num: '02', title: 'Conversation', desc: 'Shortlisted founders have one 45-minute conversation with the Mulago and Taleemabad team.' },
+  { num: '03', title: 'Selection', desc: 'Twelve organisations are selected, plus a small number of alternates.' },
+  { num: '04', title: 'The retreat', desc: 'Seven days redesigning your model for scale, ending with Demo Day.' },
+  { num: '05', title: 'After', desc: 'Ongoing mentorship and a peer network of Pakistan’s most ambitious founders.' },
 ];
 
 export default function HomePage() {
+  const cohort = getSiteSettings().currentCohort;
+  const cta = getApplyCta(cohort);
+  const deadline = getDeadlineText(cohort);
+  const latest = getLatestCohort();
+  const fellows = getFellowCards(latest.year);
+
   return (
     <>
       {/* ============ HERO ============ */}
       <section className="hero" data-screen-label="Home Hero">
         <div className="hero__bg" aria-hidden="true" />
         <div className="topo-bg" aria-hidden="true" />
-
         <div className="hero__body">
           <div className="hero__lockup">
             <div className="hero__eyebrow">
@@ -63,47 +50,48 @@ export default function HomePage() {
             </div>
             <h1 className="hero__title">
               <span className="stack">Summit</span>
-              <span className="stack">Fellowship 2026</span>
+              <span className="stack">Fellowship</span>
             </h1>
             <p className="hero__sub">
               Curating Pakistan&apos;s finest impact companies and matching them with strategy, mentoring, and capital to scale.
             </p>
             <div className="hero__cta-row">
-              <Link className="btn btn--ochre" href="/fellows">
-                Meet the Fellows <span className="arrow">→</span>
+              <Link className="btn btn--ochre" href={cta.href}>
+                {cta.label} <span className="arrow">→</span>
               </Link>
             </div>
           </div>
         </div>
-
         <div className="hero__meta-strip">
           <div className="hero__meta-strip-inner">
+            {deadline && (
+              <div className="hero__meta-item">
+                <span className="label">Applications close</span>
+                <div className="value">{deadline}</div>
+              </div>
+            )}
             <div className="hero__meta-item">
-              <span className="label">Dates</span>
-              <div className="value">07 - 14 June 2026</div>
+              <span className="label">Next cohort</span>
+              <div className="value">{displayValue(cohort.retreatDates)}</div>
             </div>
             <div className="hero__meta-item">
-              <span className="label">Venue</span>
-              <div className="value">Khoj Resort, Skardu</div>
+              <span className="label">Location</span>
+              <div className="value">{displayValue(cohort.location)}</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ============ EVENT DATE ============ */}
-      <EventDate />
+      <DeadlineBand />
 
-      {/* ============ WHAT THIS IS ============ */}
+      {/* ============ WHY ============ */}
       <section className="whatis section">
         <div className="topo-bg topo-bg--subtle" aria-hidden="true" />
         <div className="container">
-          {/* Block 1 - Why this fellowship */}
           <div className="whatis-block whatis-block--split">
             <div className="whatis-block__kicker">
               <div className="eyebrow whatis__label">Why this fellowship</div>
-              <h2 className="whatis-block__heading">
-                Pakistan has extraordinary founders. Scale is the next frontier.
-              </h2>
+              <h2 className="whatis-block__heading">Pakistan has extraordinary founders. Scale is the next frontier.</h2>
             </div>
             <div className="whatis-block__body">
               <p className="whatis__body">
@@ -115,32 +103,24 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-
-          {/* Block 2 - The Fellowship */}
           <div className="whatis-block whatis-block--split">
             <div className="whatis-block__kicker">
               <div className="eyebrow whatis__label">The Fellowship</div>
-              <h2 className="whatis-block__heading">
-                Seven days to redesign for scale.
-              </h2>
+              <h2 className="whatis-block__heading">Seven days to redesign for scale.</h2>
             </div>
             <div className="whatis-block__body">
               <p className="whatis__body">
-                Summit Fellowship is seven days at Khoj Resort, Skardu, where eleven Pakistani founders work the Mulago
-                design discipline alongside Pakistani faculty - Big Idea, doer and payer at scale, the Four Enoughs, the
-                Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start of a narrative
-                funders trust.
+                Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan working the
+                Mulago design discipline alongside Pakistani faculty - Big Idea, doer and payer at scale, the Four
+                Enoughs, the Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start
+                of a narrative funders trust.
               </p>
             </div>
           </div>
-
-          {/* Block 3 - What we mean by scale (two-column with chart) */}
           <div className="whatis-block whatis-scale">
             <div className="whatis-scale__copy">
               <div className="eyebrow whatis__label">What we mean by scale</div>
-              <p className="whatis__pull">
-                A big idea is one that can scale. Scale means exponential impact.
-              </p>
+              <p className="whatis__pull">A big idea is one that can scale. Scale means exponential impact.</p>
               <div className="whatis__stack">
                 <span>From one village to a country.</span>
                 <span>From thousands to millions.</span>
@@ -154,40 +134,91 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      {/* ============ BEFORE YOU ARRIVE ============ */}
-      <section className="actions section">
-        <div className="container container--narrow">
-          <div className="actions__head">
-            <div className="eyebrow" style={{ marginBottom: 16 }}>What to do</div>
-            <h2 className="actions__title">Before you arrive.</h2>
+      {/* ============ WHAT YOU GET ============ */}
+      <section className={`section ${styles.offer}`}>
+        <div className="container">
+          <div className="eyebrow">What you get</div>
+          <h2 className={styles.home__heading}>A week that changes how you build.</h2>
+          <div className={styles.offer__grid}>
+            {OFFER.map((o) => (
+              <div key={o.title} className={styles.offer__tile}>
+                <h3 className={styles.offer__title}>{o.title}</h3>
+                <p className={styles.offer__desc}>{o.desc}</p>
+              </div>
+            ))}
           </div>
+          <p className={styles.offer__note}>Fully funded: accommodation, meals and domestic travel are covered.</p>
+        </div>
+      </section>
 
-          <div className="covered-callout">
-            <p>
-              <strong>Fellows</strong> - flights, accommodation, meals, ground transport, and airport transfers are all
-              covered.
-            </p>
-            <p>
-              <strong>Faculty</strong> - accommodation, meals, ground transport, and airport transfers covered; flights
-              coordinated separately.
-            </p>
-          </div>
-
-          <ol className="actions__list">
-            {ACTIONS.map((a) => (
-              <li key={a.num} className="action-item">
-                <Link href={a.href} className="action-item__link">
-                  <span className="action-item__num">{a.num}</span>
-                  <div className="action-item__body">
-                    <h3 className="action-item__title">{a.title}</h3>
-                    <p className="action-item__desc">{a.desc}</p>
-                  </div>
-                  <span className="action-item__arrow" aria-hidden="true">→</span>
-                </Link>
+      {/* ============ HOW IT WORKS ============ */}
+      <section className={`section section--paper-warm ${styles.steps}`}>
+        <div className="container">
+          <div className="eyebrow">How it works</div>
+          <h2 className={styles.home__heading}>From application to Demo Day.</h2>
+          <ol className={styles.steps__list}>
+            {STEPS.map((s) => (
+              <li key={s.num} className={styles.steps__item}>
+                <span className={styles.steps__num}>{s.num}</span>
+                <h3 className={styles.steps__title}>{s.title}</h3>
+                <p className={styles.steps__desc}>{s.desc}</p>
               </li>
             ))}
           </ol>
+          <Link href="/apply" className="btn btn--ghost">Eligibility and timeline <span className="arrow">→</span></Link>
+        </div>
+      </section>
+
+      {/* ============ PAST FELLOWS ============ */}
+      <section className="section">
+        <div className="container">
+          <div className="eyebrow">{`Meet the ${latest.year} fellows`}</div>
+          <h2 className={styles.home__heading}>{fellows.length} founders who have done the work.</h2>
+          <ul className={styles.people__grid}>
+            {fellows.map((f) => (
+              <li key={f.slug}>
+                <Link href={`/cohorts/${latest.year}/fellows/${f.slug}`} className={styles.people__item}>
+                  <span className={styles.people__avatar}>
+                    {f.photo_url ? <Image src={f.photo_url} alt="" width={64} height={64} /> : f.init}
+                  </span>
+                  <span className={styles.people__name}>{f.name}</span>
+                  <span className={styles.people__org}>{f.org}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link href={`/cohorts/${latest.year}`} className="btn btn--ghost">The {latest.year} cohort <span className="arrow">→</span></Link>
+        </div>
+      </section>
+
+      {/* ============ FACULTY ============ */}
+      <section className="section section--paper-warm">
+        <div className="container">
+          <div className="eyebrow">Faculty</div>
+          <h2 className={styles.home__heading}>Taught by people who have scaled.</h2>
+          <ul className={styles.people__grid}>
+            {FACULTY.map((p) => (
+              <li key={p.num} className={styles.people__item}>
+                <span className={styles.people__avatar}>
+                  {p.photo_url ? <Image src={p.photo_url} alt="" width={64} height={64} /> : p.init}
+                </span>
+                <span className={styles.people__name}>{p.name}</span>
+                <span className={styles.people__org}>{p.role}</span>
+              </li>
+            ))}
+          </ul>
+          <Link href="/faculty" className="btn btn--ghost">Faculty &amp; team <span className="arrow">→</span></Link>
+        </div>
+      </section>
+
+      {/* ============ CLOSING CTA ============ */}
+      <section className={`section section--alpine ${styles.closing}`}>
+        <div className="container container--narrow">
+          <h2 className={styles.closing__title}>Ready to design for scale?</h2>
+          <div className={styles.closing__actions}>
+            <Link className="btn btn--ochre" href={cta.href}>{cta.label} <span className="arrow">→</span></Link>
+            <Link className="btn btn--ghost-light" href="/faq">Read the FAQ</Link>
+          </div>
         </div>
       </section>
     </>

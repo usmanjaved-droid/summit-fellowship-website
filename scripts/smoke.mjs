@@ -11,6 +11,9 @@ for (const r of ROUTES) {
   for (const text of r.contains ?? []) {
     if (!body.includes(text)) problems.push(`missing "${text}"`);
   }
+  for (const text of r.absent ?? []) {
+    if (body.includes(text)) problems.push(`unexpected "${text}"`);
+  }
   if (problems.length) {
     failures++;
     console.log(`FAIL ${r.path}: ${problems.join('; ')}`);
