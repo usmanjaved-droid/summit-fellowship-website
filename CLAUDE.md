@@ -2,11 +2,11 @@
 
 ## Project Overview
 
-**Summit Fellowship 2026** is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, fellows, faculty, curriculum, logistics, and all necessary information for participants.
+**Summit Fellowship** is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, cohorts, fellows, faculty, curriculum, and everything participants need.
 
-**Status:** Full site implemented and live on Vercel. Latest optimizations: responsive images, mobile-first refinements (2026-06-04)  
-**Audience:** Fellows, faculty, funders, potential participants  
-**Event:** June 7–14, 2026 at Khoj Resort, Skardu  
+**Status:** The site is being converted from a 2026-only event site into a permanent, multi-year site. Phase 1 is built and lives on the `staging` branch; production (`master`) still serves the old 2026 site until the owner approves go-live.  
+**Audience:** Fellows, faculty, funders, potential applicants  
+**Latest cohort:** 2026 — June 7–14, 2026 at Khoj Resort, Skardu  
 **Organization:** Mulago Foundation + Taleemabad
 
 ---
@@ -21,7 +21,7 @@
 - **Images:** Next.js Image component with remote pattern validation
 - **Data:** JSON files in `data/` directory (no database)
 - **Linting:** ESLint 9 with Next.js Core Web Vitals + TypeScript configs
-- **Hosting:** Vercel (automatic deploys on git push to main)
+- **Hosting:** Vercel (production deploys from `master`, preview deploys from `staging`)
 - **Version Control:** Git with conventional commits
 
 ---
@@ -31,51 +31,51 @@
 ```
 Summit Fellowship Website/
 ├── app/
-│   ├── layout.tsx                 # Root layout (Header, Footer, fonts)
+│   ├── layout.tsx                 # Root layout (StagingBanner, Header, Footer, fonts)
 │   ├── page.tsx                   # Homepage
+│   ├── not-found.tsx              # Helpful 404
+│   ├── robots.ts                  # Disallow: / on non-production
 │   ├── globals.css                # Global design system
+│   ├── apply/  faq/  curriculum/  contact/
+│   ├── faculty/
+│   │   ├── page.tsx
+│   │   └── people.tsx             # Faculty data
 │   │
-│   ├── fellows/
-│   │   ├── page.tsx               # Fellows grid/listing page
-│   │   └── [slug]/
-│   │       ├── page.tsx           # Individual fellow detail page
-│   │       ├── page.module.css    # Fellow detail styling (BEM)
-│   │       └── components/        # Fellow page components
-│   │           ├── FellowHero.tsx
-│   │           ├── IdeaBand.tsx
-│   │           ├── FellowSection.tsx
-│   │           ├── FellowSidebar.tsx
-│   │           └── FellowNavigation.tsx
-│   │
-│   ├── faculty/page.tsx           # Faculty + Organizers
-│   ├── funders/page.tsx           # Funding partners
-│   ├── curriculum/page.tsx        # Program curriculum
-│   ├── itinerary/page.tsx         # Weekly schedule
-│   ├── venue/page.tsx             # Khoj Resort details
-│   ├── travel/page.tsx            # Transportation logistics
-│   ├── resources/page.tsx         # Pre-arrival documents
-│   ├── contact/page.tsx           # Contact form
+│   ├── cohorts/
+│   │   ├── page.tsx               # Cohorts index
+│   │   ├── _components/           # CohortBar, CohortTabs
+│   │   │   └── fellow/            # Fellow detail components + fellow-detail.module.css
+│   │   └── 2026/
+│   │       ├── page.tsx           # Fellows tab (grid + sector filter)
+│   │       ├── week/  venue/  explore/
+│   │       └── fellows/[slug]/page.tsx   # Fellow detail page
 │   │
 │   └── components/                # Shared components
-│       ├── Header.tsx
-│       ├── Footer.tsx
+│       ├── Header.tsx  NavDropdown.tsx   # Client: menus
+│       ├── Footer.tsx  StagingBanner.tsx
+│       ├── DeadlineBand.tsx       # Replaced EventDate.tsx
 │       ├── FellowsBits.tsx        # Fellows grid with filtering
-│       ├── EventDate.tsx          # Static event-date band
-│       ├── ExponentialChart.tsx
 │       ├── ContactForm.tsx
-│       └── (13 other components)
+│       └── (other components)
 │
 ├── lib/
-│   └── fellows.ts                 # Fellow data helpers
+│   ├── cohorts.ts                 # Cohort registry helpers
+│   ├── fellows.ts                 # getAllFellows(year), getFellow(year, slug), getFellowCards(year)
+│   ├── site.ts                    # Site settings, FORM_ENABLED (false until Phase 2)
+│   ├── env.ts                     # Production vs staging detection
+│   ├── navigation.ts              # Nav structure
+│   └── *.test.ts                  # Vitest tests
 │
 ├── data/
-│   ├── fellows-deep.json          # All 11 fellows (authoritative source)
+│   ├── site.json                  # Site-wide settings (edit yearly)
+│   ├── faq.json                   # FAQ answers ([TO CONFIRM] blocks go-live)
 │   ├── faculty.json
-│   ├── schedule.json
-│   ├── logistics.json
-│   └── resources.json
+│   └── cohorts/
+│       ├── index.json             # Cohort registry
+│       └── 2026/fellows.json      # All 11 fellows (authoritative source)
 │
-├── next.config.ts                 # Image domain configuration
+├── scripts/                       # smoke.mjs, check-golive.mjs
+├── next.config.ts                 # Image domain + noindex header configuration
 ├── package.json
 ├── tsconfig.json
 └── CLAUDE.md                      # This file
@@ -160,17 +160,20 @@ All colors are CSS variables (never hardcode hex values):
 
 | Route | File | Purpose |
 |-------|------|---------|
-| `/` | `app/page.tsx` | Homepage hero + program overview |
-| `/fellows` | `app/fellows/page.tsx` | Grid of 11 fellow cards with sector filter |
-| `/fellows/[slug]` | `app/fellows/[slug]/page.tsx` | Full-page editorial detail for each fellow |
-| `/faculty` | `app/faculty/page.tsx` | Faculty + Organizers |
+| `/` | `app/page.tsx` | Homepage for the permanent site |
+| `/apply` | `app/apply/page.tsx` | Eligibility, selection and key dates |
+| `/faq` | `app/faq/page.tsx` | FAQ (answers in `data/faq.json`) |
 | `/curriculum` | `app/curriculum/page.tsx` | Mulago design discipline |
-| `/itinerary` | `app/itinerary/page.tsx` | Week-by-week schedule |
-| `/venue` | `app/venue/page.tsx` | Khoj Resort details |
-| `/travel` | `app/travel/page.tsx` | Transportation + logistics |
-| `/resources` | `app/resources/page.tsx` | Pre-arrival docs + checklist |
-| `/explore-skardu` | `app/explore-skardu/page.tsx` | Field guide to Baltistan — history, culture, food, activities |
-| `/contact` | `app/contact/page.tsx` | Contact form |
+| `/faculty` | `app/faculty/page.tsx` | Faculty + Organizers |
+| `/contact` | `app/contact/page.tsx` | Contact page (form disabled until Phase 2) |
+| `/cohorts` | `app/cohorts/page.tsx` | List of cohorts |
+| `/cohorts/2026` | `app/cohorts/2026/page.tsx` | 2026 cohort, Fellows tab (grid with sector filter) |
+| `/cohorts/2026/week` | `app/cohorts/2026/week/page.tsx` | Week-by-week schedule |
+| `/cohorts/2026/venue` | `app/cohorts/2026/venue/page.tsx` | Khoj Resort details |
+| `/cohorts/2026/explore` | `app/cohorts/2026/explore/page.tsx` | Field guide to Baltistan |
+| `/cohorts/2026/fellows/[slug]` | `app/cohorts/2026/fellows/[slug]/page.tsx` | Full-page editorial detail for each fellow |
+
+**Removed routes** (they now 404, no redirects): `/fellows`, `/fellows/[slug]`, `/itinerary`, `/venue`, `/explore-skardu`, `/travel`, `/resources`. `app/not-found.tsx` is a helpful 404 that points visitors to the right place.
 
 ---
 
@@ -178,7 +181,9 @@ All colors are CSS variables (never hardcode hex values):
 
 **Recent Redesign:** 2026-05-17 — Full-page editorial layout (not modal)
 
-### Page Structure (`/fellows/[slug]`)
+### Page Structure (`/cohorts/2026/fellows/[slug]`)
+
+Page: `app/cohorts/2026/fellows/[slug]/page.tsx`. Components and CSS: `app/cohorts/_components/fellow/*` (`fellow-detail.module.css`).
 
 1. **FellowHero** — Alpine background, name, problem statement, photo/avatar
 2. **IdeaBand** — Clay background tagline section
@@ -187,7 +192,7 @@ All colors are CSS variables (never hardcode hex values):
    - Right: Sticky sidebar with org metadata
 4. **FellowNavigation** — Prev/Next fellow links
 
-### Data Schema (`data/fellows-deep.json`)
+### Data Schema (`data/cohorts/2026/fellows.json`)
 
 ```typescript
 {
@@ -196,6 +201,7 @@ All colors are CSS variables (never hardcode hex values):
   org: string;
   sector: string;
   tagline: string;         // Short idea (idea band)
+  card_summary: string;    // Short blurb shown on the fellows grid card
   idea_context: string;    // Problem statement (hero)
   mission: string;         // Narrative section
   how_it_works: string;    // Narrative section
@@ -207,10 +213,12 @@ All colors are CSS variables (never hardcode hex values):
   photo_url: string | null;  // External HTTPS URL, local path, or null
   photo_source: string | null;
   sources: string[];
+  email: string;           // Stored by owner decision; never rendered
+  phone: string;           // Stored by owner decision; never rendered
 }
 ```
 
-**Critical:** This is the SINGLE source of truth for fellow data. All 11 fellows have complete records.
+**Critical:** This is the SINGLE source of truth for fellow data. All 11 fellows have complete records. `email` and `phone` are kept in the data on purpose but must never appear on any page.
 
 ### Static Generation
 
@@ -274,13 +282,13 @@ Never hardcode hex values.
 ### Server Components (Default)
 
 - FellowHero, IdeaBand, FellowSection, FellowSidebar, FellowNavigation
-- Footer, HeroSection, ScheduleDay, EventDate, etc.
+- Footer, HeroSection, ScheduleDay, DeadlineBand, StagingBanner, etc.
 
 **Benefits:** No JavaScript, fast, can access databases/env vars
 
 ### Client Components ("use client")
 
-- Header (mobile menu state)
+- Header, NavDropdown (menu state)
 - FellowsBits (sector filter with useState)
 - ContactForm (form submission)
 - BeforeAfterSlider (interactive)
@@ -291,13 +299,13 @@ Never hardcode hex values.
 
 ## Data Files
 
-**Single source of truth:** `data/fellows-deep.json`
+**Single source of truth for fellows:** `data/cohorts/2026/fellows.json` (one file per cohort year)
 
 Other data files:
-- `faculty.json` — Faculty + Organizers
-- `schedule.json` — Week-by-week itinerary
-- `logistics.json` — Venue, travel, packing
-- `resources.json` — Pre-arrival documents
+- `site.json` — Site-wide settings
+- `cohorts/index.json` — Cohort registry
+- `faq.json` — FAQ answers
+- `faculty.json` — Faculty + Organizers (people rendered via `app/faculty/people.tsx`)
 
 ---
 
@@ -316,7 +324,7 @@ Or dynamic for detail pages:
 
 ```typescript
 export async function generateMetadata({ params }) {
-  const fellow = getFellow(slug);
+  const fellow = getFellow(2026, slug);
   return {
     title: `${fellow.name} — Summit Fellowship 2026`,
     description: fellow.tagline,
@@ -329,7 +337,7 @@ export async function generateMetadata({ params }) {
 Always use Next.js Link (auto-prefetch):
 
 ```typescript
-<Link href="/fellows">All fellows</Link>
+<Link href="/cohorts/2026">All fellows</Link>
 ```
 
 ### Conditional Rendering
@@ -350,6 +358,9 @@ Always use Next.js Link (auto-prefetch):
 npm run dev              # Start dev server (http://localhost:3000, hot reload)
 npm run build            # Production build + type check (runs tsc, catches errors)
 npm run start            # Start production server
+npm test                 # Vitest unit tests (lib/**/*.test.ts)
+npm run smoke [baseUrl]  # Check every route responds (default http://localhost:3100; run against `npx next start -p 3100`)
+npm run check:golive     # Fails while data/faq.json still has [TO CONFIRM] answers
 npm run lint             # Run ESLint on all files (checks Next.js Core Web Vitals + TypeScript)
 npx eslint --fix        # Auto-fix linting errors (eslint.config.mjs config)
 ```
@@ -366,17 +377,18 @@ Hot reload on file changes. Dev server at http://localhost:3000. Type checking h
 
 ### Pre-Deployment Checklist
 
-Before pushing to `main`:
+Before pushing to `staging` (and before any merge to `master`):
 
-1. **Run `npm run build`** — Builds production bundle and validates all TypeScript. If it passes, the site will deploy successfully.
-2. **Run `npx eslint --fix`** — Fix any linting errors. Then commit changes or run `npm run lint` to verify no violations remain.
-3. **Test responsive layout** — Resize browser to test viewports: 375px (mobile), 768px (tablet), 1440px (desktop). Verify:
+1. **Run `npm test`** — All unit tests must pass.
+2. **Run `npm run build`** — Builds production bundle and validates all TypeScript. If it passes, the site will deploy successfully.
+3. **Run `npx eslint --fix`** — Fix any linting errors. Then commit changes or run `npm run lint` to verify no violations remain.
+4. **Test responsive layout** — Resize browser to test viewports: 375px (mobile), 768px (tablet), 1440px (desktop). Verify:
    - Mobile stacking works (below 640px)
    - Sidebar hidden below 1024px
    - Images load and maintain aspect ratio
    - Text scales smoothly across all widths
-4. **Verify fellow photos** — If adding/updating fellows with external photo URLs, ensure domains are whitelisted in `next.config.ts` remotePatterns.
-5. **Manual QA** — Test all updated pages in browser. Check all links work.
+5. **Verify fellow photos** — If adding/updating fellows with external photo URLs, ensure domains are whitelisted in `next.config.ts` remotePatterns.
+6. **Manual QA** (optionally `npm run smoke` against a local `next start`) — Test all updated pages in browser. Check all links work.
 
 ### Production Build & Deployment
 
@@ -385,12 +397,22 @@ npm run build
 npm run start
 ```
 
-Auto-deploy on push to `main` branch:
-1. Commit + push to `main`
-2. Vercel detects push, starts build
-3. Build runs ESLint + TypeScript checks
-4. If successful, deploys to edge network
-5. Live on https://summit-fellowship-website.vercel.app (usually 1–2 min)
+See **Production vs staging** below for how branches map to deployments.
+
+### Production vs staging
+
+- **Production** is the `master` branch → Vercel project `summit-fellowship-website` → https://summit-fellowship-website.vercel.app. (The older `summit-fellowship.vercel.app` project is paused; do not use it as the live site.)
+- **Staging** is the `staging` branch, deployed as a Vercel preview. Whenever `VERCEL_ENV !== 'production'` the site shows a STAGING banner and is hidden from search engines (`robots.txt` Disallow, `X-Robots-Tag` header, meta robots noindex).
+- **Go-live rule:** merge `staging` → `master` only with the owner's approval **and** `npm run check:golive` passing (it fails while any FAQ answer in `data/faq.json` is still marked [TO CONFIRM]).
+
+### Yearly update
+
+- Site-wide changes (dates, deadlines, settings): edit `data/site.json`.
+- To add a cohort:
+  1. Add an entry to `data/cohorts/index.json`.
+  2. Add `data/cohorts/<year>/fellows.json`.
+  3. Add one line to `FELLOWS_BY_YEAR` in `lib/fellows.ts`.
+  4. Create `app/cohorts/<year>/` — copy the 2026 folder's layout and page, then adapt week, venue and explore.
 
 ---
 
@@ -414,7 +436,7 @@ git checkout -b feature/new-feature
 git checkout -b fix/bug-name
 ```
 
-Push to GitHub, create PR, merge to `main`.
+Work on `staging`; production (`master`) changes only through an approved staging → master merge.
 
 ---
 
@@ -422,11 +444,11 @@ Push to GitHub, create PR, merge to `main`.
 
 ### Add a New Fellow
 
-1. Edit `data/fellows-deep.json` — add record with all 17 fields
+1. Edit `data/cohorts/<year>/fellows.json` — add record with all fields (including `card_summary`)
 2. Ensure `id` matches URL slug (lowercase, no spaces)
 3. Populate `geography`
-4. `npm run build` → `git push origin main`
-5. Page auto-renders at `/fellows/<id>`
+4. `npm test && npm run build` → push to `staging`
+5. Page auto-renders at `/cohorts/<year>/fellows/<id>`
 
 ### Add a New Page
 
@@ -488,7 +510,7 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 
 ## Future Improvements
 
-- **Refactor fellows data:** Consolidate hardcoded FELLOWS array in `fellows/page.tsx` to use `data/fellows-deep.json`
+- **Phase 2 — contact/application form:** flip `FORM_ENABLED` in `lib/site.ts` once the backend exists
 - **Contact form backend:** Wire to Vercel Functions or SendGrid
 - **Mobile drawer:** Implement FellowDrawer.tsx if needed
 - **URL-based filtering:** Add `?sector=health` params for persistent filter state
@@ -512,7 +534,7 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 1. `git clone <repo>` → `npm install` → `npm run dev`
 2. Read `app/globals.css` (design system)
 3. Check `app/page.tsx` (homepage structure)
-4. Review `app/fellows/[slug]/page.tsx` (dynamic page)
+4. Review `app/cohorts/2026/fellows/[slug]/page.tsx` (dynamic page)
 5. Look at `app/components/Header.tsx` (client component)
 6. Study `lib/fellows.ts` (data access)
 
@@ -526,5 +548,5 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 
 ---
 
-**Last Updated:** 2026-06-04  
-**Status:** All features implemented, deployed, live on Vercel
+**Last Updated:** 2026-10-12  
+**Status:** Phase 1 of the permanent multi-year site built on `staging`; production still on the old site until go-live approval
