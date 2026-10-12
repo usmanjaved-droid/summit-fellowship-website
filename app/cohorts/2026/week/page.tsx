@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import ItineraryBits, { type Day } from '../components/ItineraryBits';
+import ItineraryBits, { type Day } from '@/app/components/ItineraryBits';
 
 export const metadata = {
-  title: 'Itinerary — Summit Fellowship 2026',
+  title: 'The Week — 2026 Cohort — Summit Fellowship',
 };
 
 const CUTOFF = { time: '23:00', title: '⚠️ Cut-off · 11 PM', cutoff: true };
@@ -159,7 +159,7 @@ export default function ItineraryPage() {
       <section className="page-hero" data-screen-label="Itinerary Hero" style={{ padding: '100px 0 60px' }}>
         <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
         <div className="container page-hero__inner">
-          <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Itinerary</span></div>
+          <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><Link href="/cohorts/2026">2026 Cohort</Link><span>/</span><span>The Week</span></div>
           <h1 className="page-hero__title" style={{ fontSize: 'clamp(48px, 7vw, 110px)', maxWidth: '22ch' }}>
             The seven-day <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>expedition.</em>
           </h1>

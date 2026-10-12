@@ -9,4 +9,12 @@ export const ROUTES = [
   { path: '/cohorts/1999', status: 404 },
   { path: '/fellows', status: 404 },
   { path: '/fellows/habiba-banu', status: 404 },
+  { path: '/cohorts/2026/week', status: 200, contains: ['Arrivals', 'Mulago'] },
+  { path: '/cohorts/2026/venue', status: 200, contains: ['Khoj Resort'] },
+  { path: '/cohorts/2026/explore', status: 200, contains: ['Baltistan'] },
+  { path: '/itinerary', status: 404 },
+  { path: '/venue', status: 404 },
+  { path: '/explore-skardu', status: 404 },
+  { path: '/resources', status: 404 },
+  { path: '/travel', status: 404 },
 ];

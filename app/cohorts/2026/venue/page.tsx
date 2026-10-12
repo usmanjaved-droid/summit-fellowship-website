@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'Khoj Resort, Skardu — Summit Fellowship',
+  title: 'Venue — 2026 Cohort — Summit Fellowship',
 };
 
 export default function VenuePage() {
@@ -15,6 +15,8 @@ export default function VenuePage() {
         <div className="container">
           <div className="page-hero__crumbs">
             <Link href="/">Home</Link>
+            <span>/</span>
+            <Link href="/cohorts/2026">2026 Cohort</Link>
             <span>/</span>
             <span>Venue</span>
           </div>

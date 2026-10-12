@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Explore Skardu — Summit Fellowship 2026',
+  title: 'Explore Skardu — 2026 Cohort — Summit Fellowship',
   description:
     'A field guide to Baltistan. Five thousand square kilometres of valley, glacier, fort, lake and desert — wedged between four of the world\'s fourteen eight-thousanders.',
 };
@@ -18,6 +18,8 @@ export default function ExploreSkardu() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className={styles.breadcrumbs}>
             <Link href="/">Home</Link>
+            <span>/</span>
+            <Link href="/cohorts/2026">2026 Cohort</Link>
             <span>/</span>
             <span>Explore Skardu</span>
           </div>
