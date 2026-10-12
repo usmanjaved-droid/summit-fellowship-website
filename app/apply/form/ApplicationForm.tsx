@@ -13,6 +13,9 @@ import { Field } from './fields/Field';
 import styles from './form.module.css';
 
 type Props = { year: number; contactEmail: string };
+type Errors = Record<string, string>;
+type SaveState = 'idle' | 'saved' | 'failed';
+type FocusTarget = 'heading' | 'summary' | null;
 
 function display(q: Question, a: Answer | undefined): string {
   if (a === undefined) return '—';
@@ -30,43 +33,76 @@ function display(q: Question, a: Answer | undefined): string {
   if ('choices' in a && Array.isArray(a.choices)) return [a.choices.join(', '), a.specify].filter(Boolean).join(' — ') || '—';
   if ('choice' in a) return [a.choice, a.specify].filter(Boolean).join(' — ') || '—';
   if (q.kind === 'sentence') {
-    return q.parts.map((p) => (typeof p === 'string' ? p : `[${(a as Record<string, string>)[p.id] || '…'}]`)).join(' ');
+    return q.parts
+      .map((p) => (typeof p === 'string' ? p : `[${(a as Record<string, string>)[p.id] || '…'}]`))
+      .join(' ')
+      .replace(/\s+([.,])/g, '$1');
   }
   return '—';
 }
 
+/** Indexes of sections that have at least one error in `errors`. */
+function failingSections(errors: Errors): number[] {
+  return SECTIONS.flatMap((s, i) => (s.questions.some((q) => errors[q.id]) ? [i] : []));
+}
+
+/** `errors` without the entries belonging to section `index`. */
+function withoutSection(errors: Errors, index: number): Errors {
+  const ids = new Set(SECTIONS[index].questions.map((q) => q.id));
+  return Object.fromEntries(Object.entries(errors).filter(([id]) => !ids.has(id)));
+}
+
 export default function ApplicationForm({ year, contactEmail }: Props) {
   const [draft, setDraft] = useState<Draft>(() => loadDraft(safeStorage(), year));
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [savedAt, setSavedAt] = useState<number | null>(null);
+  const [errors, setErrors] = useState<Errors>({});
+  const [saveState, setSaveState] = useState<SaveState>('idle');
   const [confirmed, setConfirmed] = useState(false);
   const [honeypot, setHoneypot] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
-  const topRef = useRef<HTMLDivElement | null>(null);
+  const [reachedReview, setReachedReview] = useState(() => draft.step === 'review');
+  const topRef = useRef<HTMLElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const summaryRef = useRef<HTMLDivElement | null>(null);
+  const focusNext = useRef<FocusTarget>(null);
 
   useEffect(() => {
     if (done) return;
     const t = setTimeout(() => {
-      if (saveDraft(safeStorage(), draft)) setSavedAt(Date.now());
+      setSaveState(saveDraft(safeStorage(), draft) ? 'saved' : 'failed');
     }, 400);
     return () => clearTimeout(t);
   }, [draft, done]);
 
-  const goTo = (step: Step) => {
-    setErrors({});
-    setSubmitError(null);
-    setDraft((d) => ({ ...d, step }));
+  // After a step change or a new set of errors, bring the top of the screen into view
+  // and move focus to the error summary (if shown) or the step heading.
+  useEffect(() => {
+    const target = focusNext.current;
+    if (!target) return;
+    focusNext.current = null;
     topRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const el = target === 'summary' && summaryRef.current ? summaryRef.current : headingRef.current;
+    el?.focus({ preventScroll: true });
+  }, [draft.step, errors, done, submitError]);
+
+  /** Moves to `step`, keeping `keepErrors` (and the submit error, if asked). */
+  const jump = (step: Step, keepErrors: Errors = {}, keepSubmitError = false) => {
+    setErrors(keepErrors);
+    if (!keepSubmitError) setSubmitError(null);
+    if (step === 'review') setReachedReview(true);
+    setDraft((d) => ({ ...d, step }));
+    focusNext.current = Object.keys(keepErrors).length ? 'summary' : 'heading';
   };
+
+  const goTo = (step: Step) => jump(step);
 
   const setAnswer = (id: string, a: Answer) => setDraft((d) => ({ ...d, answers: { ...d.answers, [id]: a } }));
 
   if (done) {
     return (
       <section className={`container container--narrow ${styles.form}`} ref={topRef}>
-        <h2 className={styles.form__title}>Thank you — your application is in.</h2>
+        <h2 className={styles.form__title} ref={headingRef} tabIndex={-1}>Thank you — your application is in.</h2>
         <p className={styles.form__intro}>Here is what happens next:</p>
         <ul>
           <li><strong>Next two weeks:</strong> we read every application.</li>
@@ -78,7 +114,15 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
     );
   }
 
-  const savedLine = <p className={styles.form__saved} aria-live="polite">{savedAt ? 'Saved in this browser' : ''}</p>;
+  const savedLine = (
+    <p className={styles.form__saved} aria-live="polite">
+      {saveState === 'saved'
+        ? 'Saved in this browser'
+        : saveState === 'failed'
+          ? 'Not saved — your browser is blocking storage. Keep this tab open or use the PDF.'
+          : ''}
+    </p>
+  );
 
   if (draft.step === 'screener' || draft.step === 'ineligible') {
     const s = draft.screener;
@@ -88,7 +132,7 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
         <p className={styles.form__progress}>Before you begin · Eligibility</p>
         {draft.step === 'ineligible' ? (
           <>
-            <h2 className={styles.form__title}>This fellowship isn&apos;t the right fit this year.</h2>
+            <h2 className={styles.form__title} ref={headingRef} tabIndex={-1}>This fellowship isn&apos;t the right fit this year.</h2>
             <p className={styles.form__intro}>
               The fellowship is built for founders or senior-most leaders of post-pilot organisations with an annual budget of at least
               USD 100,000, basic financial systems, fluent English and seven days of full presence. We would love to hear from you in a future year.
@@ -100,7 +144,7 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
           </>
         ) : (
           <>
-            <h2 className={styles.form__title}>Seven quick questions.</h2>
+            <h2 className={styles.form__title} ref={headingRef} tabIndex={-1}>Seven quick questions.</h2>
             <p className={styles.form__intro}>These confirm the fellowship fits where you are. Your answers save automatically in this browser.</p>
             {SCREENER_QUESTIONS.map((q) => (
               <fieldset key={q.id} className={styles.form__field}>
@@ -143,30 +187,48 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
   if (typeof draft.step === 'number') {
     const index = draft.step;
     const section = SECTIONS[index];
-    const errorIds = Object.keys(errors);
+    const sectionErrorIds = section.questions.filter((q) => errors[q.id]).map((q) => q.id);
+    const otherFailing = failingSections(errors).filter((i) => i !== index);
+    const showSummary = sectionErrorIds.length > 0 || otherFailing.length > 0;
     return (
       <section className={`container container--narrow ${styles.form}`} ref={topRef}>
         <p className={styles.form__progress}>Section {section.id} of H · {section.title}</p>
         <div className={styles.form__bar} aria-hidden="true">
           <div className={styles.form__barFill} style={{ width: `${((index + 1) / (SECTIONS.length + 1)) * 100}%` }} />
         </div>
-        <h2 className={styles.form__title}>{section.title}</h2>
+        <h2 className={styles.form__title} ref={headingRef} tabIndex={-1}>{section.title}</h2>
         {section.intro && <p className={styles.form__intro}>{section.intro}</p>}
-        {errorIds.length > 0 && (
-          <div className={styles.form__summary} role="alert">
-            <strong>{errorIds.length === 1 ? 'One answer needs attention:' : `${errorIds.length} answers need attention:`}</strong>
-            <ul>
-              {errorIds.map((id) => {
-                const q = section.questions.find((x) => x.id === id);
-                return <li key={id}><a href={`#q-${id}`}>{q?.label ?? id}</a></li>;
-              })}
-            </ul>
+        {submitError && <p className={styles.form__error} role="alert">{submitError}</p>}
+        {showSummary && (
+          <div className={styles.form__summary} role="alert" ref={summaryRef} tabIndex={-1}>
+            {sectionErrorIds.length > 0 && (
+              <>
+                <strong>{sectionErrorIds.length === 1 ? 'One answer needs attention:' : `${sectionErrorIds.length} answers need attention:`}</strong>
+                <ul>
+                  {sectionErrorIds.map((id) => {
+                    const q = section.questions.find((x) => x.id === id);
+                    return <li key={id}><a href={`#q-${id}`}>{q?.label ?? id}</a></li>;
+                  })}
+                </ul>
+              </>
+            )}
+            {otherFailing.length > 0 && (
+              <p>
+                Other sections also need attention:{' '}
+                {otherFailing.map((i, n) => (
+                  <span key={SECTIONS[i].id}>
+                    {n > 0 && ', '}
+                    <button type="button" className={styles.form__linkButton} onClick={() => jump(i, errors, true)}>
+                      {SECTIONS[i].id}. {SECTIONS[i].title}
+                    </button>
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
         )}
         {section.questions.map((q) => (
-          <div key={q.id} id={`q-${q.id}-wrap`}>
-            <Field question={q} value={draft.answers[q.id]} onChange={(a) => setAnswer(q.id, a)} error={errors[q.id]} />
-          </div>
+          <Field key={q.id} question={q} value={draft.answers[q.id]} onChange={(a) => setAnswer(q.id, a)} error={errors[q.id]} />
         ))}
         <div className={styles.form__actions}>
           <button type="button" className="btn btn--ghost" onClick={() => goTo(index === 0 ? 'screener' : index - 1)}>Back</button>
@@ -175,16 +237,22 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
             className="btn btn--ochre"
             onClick={() => {
               const e = validateSection(section, draft.answers);
+              const rest = withoutSection(errors, index);
               if (Object.keys(e).length) {
-                setErrors(e);
-                topRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setErrors({ ...rest, ...e });
+                focusNext.current = 'summary';
                 return;
               }
+              const later = failingSections(rest).find((i) => i > index);
+              if (later !== undefined) return jump(later, rest, true);
               goTo(index === SECTIONS.length - 1 ? 'review' : index + 1);
             }}
           >
             {index === SECTIONS.length - 1 ? 'Review my answers' : 'Next section'} <span className="arrow">→</span>
           </button>
+          {reachedReview && (
+            <button type="button" className="btn btn--ghost" onClick={() => goTo('review')}>Back to review</button>
+          )}
           {savedLine}
         </div>
       </section>
@@ -194,9 +262,7 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
   const submit = async () => {
     const all = validateAll(draft.answers);
     if (Object.keys(all).length) {
-      const first = SECTIONS.findIndex((s) => s.questions.some((q) => all[q.id]));
-      setDraft((d) => ({ ...d, step: first }));
-      setErrors(all);
+      jump(failingSections(all)[0], all);
       return;
     }
     if (!confirmed) return setSubmitError('Please tick the confirmation before submitting.');
@@ -206,16 +272,14 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
     setSubmitting(false);
     if (result.ok) {
       clearDraft(safeStorage(), year);
+      focusNext.current = 'heading';
       setDone(true);
       return;
     }
     setSubmitError(result.error);
     if (result.fieldErrors) {
-      const first = SECTIONS.findIndex((s) => s.questions.some((q) => result.fieldErrors![q.id]));
-      if (first >= 0) {
-        setDraft((d) => ({ ...d, step: first }));
-        setErrors(result.fieldErrors);
-      }
+      const first = failingSections(result.fieldErrors)[0];
+      if (first !== undefined) jump(first, result.fieldErrors, true);
     }
   };
 
@@ -223,14 +287,14 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
     <section className={`container container--narrow ${styles.form}`} ref={topRef}>
       <p className={styles.form__progress}>Review · Last step</p>
       <div className={styles.form__bar} aria-hidden="true"><div className={styles.form__barFill} style={{ width: '100%' }} /></div>
-      <h2 className={styles.form__title}>Check your answers.</h2>
+      <h2 className={styles.form__title} ref={headingRef} tabIndex={-1}>Check your answers.</h2>
       <p className={styles.form__intro}>Nothing has been sent yet. Edit any section, then confirm and submit.</p>
       <div className={styles.form__review}>
         {SECTIONS.map((s, i) => (
           <div key={s.id} className={styles.form__reviewSection}>
             <h3>
               <span>{s.id}. {s.title}</span>
-              <button type="button" className={styles.form__linkButton} onClick={() => goTo(i)}>Edit</button>
+              <button type="button" className={styles.form__linkButton} disabled={submitting} onClick={() => goTo(i)}>Edit</button>
             </h3>
             <dl>
               {s.questions.map((q) => (
@@ -252,7 +316,7 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
       </label>
       {submitError && <p className={styles.form__error} role="alert">{submitError}</p>}
       <div className={styles.form__actions}>
-        <button type="button" className="btn btn--ghost" onClick={() => goTo(SECTIONS.length - 1)}>Back</button>
+        <button type="button" className="btn btn--ghost" disabled={submitting} onClick={() => goTo(SECTIONS.length - 1)}>Back</button>
         <button type="button" className="btn btn--ochre" disabled={submitting} onClick={submit}>
           {submitting ? 'Submitting…' : 'Submit application'} <span className="arrow">→</span>
         </button>
