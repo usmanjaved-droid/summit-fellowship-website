@@ -17,7 +17,7 @@
 - **Language:** TypeScript 5+ (strict mode)
 - **Styling:** Tailwind CSS 4 with custom CSS variables
 - **Icons:** Lucide React 1.16.0 (`import { ChevronRight } from 'lucide-react'`)
-- **Fonts:** Google Fonts via `next/font` (Crimson Pro, Source Sans 3), per the Friends of Pakistan design system
+- **Fonts:** Google Fonts via `next/font` (Crimson Pro, Source Sans 3 (variable)), per the Friends of Pakistan design system
 - **Images:** Next.js Image component with remote pattern validation
 - **Data:** JSON files in `data/` directory (no database)
 - **Linting:** ESLint 9 with Next.js Core Web Vitals + TypeScript configs
@@ -112,7 +112,7 @@ The site uses the **Friends of Pakistan design system** (restyle of 2026-10-19, 
 
 ### Typography
 
-- **Fonts** (`next/font/google` in `app/layout.tsx`): **Crimson Pro** (300, 400) as `--font-serif` for display; **Source Sans 3** (300–700) as `--font-sans` for everything else.
+- **Fonts** (`next/font/google` in `app/layout.tsx`): **Crimson Pro** (300, 400) as `--font-serif` for display; **Source Sans 3** (variable, so weight 350 renders) as `--font-sans` for everything else.
 - **Type classes** (generated in `fop-tokens.css`): `.t-heading-xl`, `.t-heading-1`, `.t-heading-2`, `.t-stat` (Crimson Pro 300, sentence case, `--ink-brand`); `.t-heading-3/4/5` (Source Sans 600; `.t-heading-4` is uppercase); `.t-body` (18/25, weight 350), `.t-body-light`, `.t-body-sm`, `.t-card-body`, `.t-legal`, `.t-status`; interface labels `.t-eyebrow`, `.t-badge`, `.t-button`, `.t-nav`, `.t-menu-link`, `.t-link-arrow(-lg)`, `.t-cta-square`, `.t-stat-caption`.
 - **Base elements:** `h1`–`h3` are Crimson Pro 300 in `--ink-brand`; `h4`/`h5` are Source Sans 600 in `--ink`; body is Source Sans 18/25 at 350.
 - **Uppercase** only on interface labels (buttons, nav, badges, arrow links, tabs, filter chips, `heading-4` titles, stat captions, eyebrows), never on body text, names, FAQ questions or form labels. Copy stays sentence case in code; CSS applies the transform.
@@ -203,7 +203,7 @@ Page: `app/cohorts/2026/fellows/[slug]/page.tsx`. Components and CSS: `app/cohor
 3. **Two-column body** (desktop) / single column (mobile):
    - Left: Three narrative sections (Mission, How It Works, Dream)
    - Right: Sticky sidebar with org metadata
-4. **FellowNavigation** — Prev/Next fellow links
+4. **FellowNavigation** — back control: a square white button with a left arrow at the top right of the hero content, linking to the cohort fellows grid (aria-label "Back to all <year> fellows")
 
 ### Data Schema (`data/cohorts/2026/fellows.json`)
 
@@ -398,7 +398,7 @@ Before pushing to `staging` (and before any merge to `master`):
 3. **Run `npx eslint --fix`** — Fix any linting errors. Then commit changes or run `npm run lint` to verify no violations remain.
 4. **Test responsive layout** — Resize browser to test viewports: 375px (mobile), 768px (tablet), 1440px (desktop). Verify:
    - Mobile stacking works (below 640px)
-   - Sidebar hidden below 1024px
+   - Sidebar stacks below the content under 1024px
    - Images load and maintain aspect ratio
    - Text scales smoothly across all widths
 5. **Verify fellow photos** — If adding/updating fellows with external photo URLs, ensure domains are whitelisted in `next.config.ts` remotePatterns.
@@ -482,7 +482,7 @@ Colours come from the design system: update `docs/design-system/friends-of-pakis
 
 Test at 375px (mobile), 768px (tablet), and 1440px (desktop). Verify:
 - Mobile stacking works (below 640px)
-- Sidebar hidden below 1024px
+- Sidebar stacks below the content under 1024px
 - Images load and maintain aspect ratio
 - Text scales smoothly and stays readable
 - Touch targets (buttons, links) are adequately sized on mobile
