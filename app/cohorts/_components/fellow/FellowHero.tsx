@@ -7,7 +7,7 @@ type FellowHeroProps = {
   fellow: Fellow;
   number: number;
   total: number;
-  /** Where the top-right close link goes (the cohort's fellows grid). */
+  /** Where the top-right back link goes (the cohort's fellows grid). */
   backHref: string;
   year: number;
 };

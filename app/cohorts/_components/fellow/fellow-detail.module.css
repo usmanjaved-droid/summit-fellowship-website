@@ -7,8 +7,8 @@
   position: relative;
   background: var(--brand-green-deep);
   color: var(--white);
-  /* Top padding leaves a clear lane for the back button (16px + 44px + 20px). */
-  padding: var(--space-20) var(--container-pad) var(--space-16);
+  /* The back button sits in normal flow at the top of the content container. */
+  padding: var(--space-4) var(--container-pad) var(--space-16);
 }
 
 .fellow-hero__inner {
@@ -71,7 +71,7 @@ p.fellow-hero__problem {
 }
 
 @media (max-width: 640px) {
-  .fellow-hero { padding: 76px var(--space-4) var(--space-13); }
+  .fellow-hero { padding: var(--space-4) var(--space-4) var(--space-13); }
   .fellow-hero__inner { grid-template-columns: 1fr; gap: var(--space-6); }
   .fellow-hero__media { order: -1; justify-content: flex-start; }
   .fellow-hero__photo,
@@ -153,12 +153,14 @@ a.fellow-sidebar__link:hover { text-decoration-line: none; }
   .fellow-sidebar { padding: var(--space-6); }
 }
 
-/* ===== 5. Back link (square white button, top-right of the hero) ===== */
+/* ===== 5. Back link (square white button with a left arrow, top-right of the hero content container) ===== */
 .fellow-navigation {
-  position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
+  position: relative;
   z-index: 2;
+  max-width: var(--container-max);
+  margin: 0 auto var(--space-5);
+  display: flex;
+  justify-content: flex-end;
 }
 
 a.fellow-navigation__close {
@@ -170,11 +172,13 @@ a.fellow-navigation__close {
   height: 44px;
   min-height: 44px;
   padding: 0;
-  font-size: 28px;
-  font-weight: 300;
   line-height: 1;
 }
 a.fellow-navigation__close:focus-visible { outline-color: var(--white); }
+
+@media (max-width: 640px) {
+  .fellow-navigation { margin-bottom: var(--space-4); }
+}
 
 /* ===== 6. Page layout ===== */
 .fellow-detail {
