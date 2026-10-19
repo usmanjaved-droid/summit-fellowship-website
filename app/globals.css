@@ -952,7 +952,7 @@ h1.page-hero__title {
 .tag-core { background: var(--brand-green-deep); color: var(--white); border-color: var(--brand-green-deep); }
 .tag-break { background: var(--white); color: var(--ink-soft); border-color: var(--line); }
 .tag-outdoor { background: var(--brand-green); color: var(--white); border-color: var(--brand-green); }
-.tag-eve { background: var(--brand-green); color: var(--white); border-color: var(--brand-green); }
+.tag-eve { background: transparent; color: var(--ink); border-color: var(--line-strong); }
 
 .tl-row--cutoff .tl-card { background: transparent; border: 1px dashed var(--line); text-align: center; color: var(--ink-soft); padding: 14px 16px; }
 .tl-row--cutoff .tl-card__title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
