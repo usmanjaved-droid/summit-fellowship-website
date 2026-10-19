@@ -89,7 +89,7 @@ p.hero__lead {
 .why__block--second { grid-row: 1; }
 .fellowship { margin-top: var(--space-24); }
 .why__body { margin: 0; color: var(--ink); }
-.fellowship__about { margin-top: var(--space-6); }
+.fellowship__about { margin: var(--space-4) 0 0; color: var(--ink-soft); }
 .fellowship__link { margin-top: var(--space-6); }
 .why__emphasis { font-weight: 600; color: var(--ink-brand); }
 .why__cta {

@@ -119,16 +119,13 @@ export default function HomePage() {
             <p className={`t-eyebrow ${styles.eyebrow}`}>The Fellowship</p>
             <h2 className={`t-heading-2 ${styles.heading}`}>Seven days to redesign for scale.</h2>
             <p className={`t-body ${styles.why__body}`}>
-              Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan working the
-              Mulago design discipline alongside Pakistani faculty — Big Idea, doer and payer at scale, the Four
-              Enoughs, the Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start
-              of a narrative funders trust.
+              Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan rebuilding their
+              model for scale. They leave with a sharper model, an honest evidence plan, and a story funders trust.
+              Fellows join the <strong className={styles.why__emphasis}>Friends of Pakistan</strong> network of
+              investors and philanthropists.
             </p>
-            <p className={`t-body ${styles.why__body} ${styles.fellowship__about}`}>
-              The Fellowship is a programme of Friends of Pakistan, the society and fund founded by Nadir Shams,
-              former director at the Skoll Foundation, run in partnership with Mulago Foundation and Taleemabad.
-              Fellows become <strong className={styles.why__emphasis}>Friends of Pakistan Fellows</strong>, part of
-              a network of investors, philanthropists and leaders scaling positive change in Pakistan.
+            <p className={`t-body-sm ${styles.fellowship__about}`}>
+              A Friends of Pakistan programme, with Mulago Foundation and Taleemabad.
             </p>
             <div className={styles.fellowship__link}>
               <ArrowLink href="https://www.friendsofpakistan.org/">About Friends of Pakistan</ArrowLink>
