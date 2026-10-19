@@ -157,18 +157,49 @@ p.hero__lead {
 .steps__title { margin: var(--space-2) 0 var(--space-3); color: var(--ink-brand); font-family: var(--font-sans); }
 .steps__desc { margin: 0; color: var(--ink); }
 
-/* ============ Fellows (yellow) ============ */
-.fellows__scroller { margin: 0 0 var(--space-10); }
-.fellows__scroller:focus-visible { outline: var(--border-2) solid var(--focus); outline-offset: 4px; }
-.fellows__grid {
+/* ============ Fellows (yellow): small round photo, name and org (the previous homepage style) ============ */
+.people__grid {
   list-style: none;
-  margin: 0;
+  margin: 0 0 var(--space-10);
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: var(--space-6);
 }
-.fellows__item { min-width: 0; }
+.people__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 44px;
+  color: var(--black);
+  text-decoration: none;
+}
+.people__item:hover { text-decoration: none; }
+.people__item:hover .people__name { text-decoration: underline; text-underline-offset: 3px; }
+.people__item:focus-visible { outline: var(--border-2) solid var(--black); outline-offset: 4px; }
+.people__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: var(--brand-green);
+  color: var(--white);
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 300;
+}
+.people__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.people__name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--black);
+}
+.people__org { color: var(--black); }
 
 /* ============ Faculty (white) ============ */
 .faculty__grid {
@@ -231,7 +262,6 @@ h2.closing__title {
   .scale { grid-template-columns: 1fr; gap: var(--space-10); margin-top: var(--space-16); }
   .steps__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .steps__rail { width: 100%; }
-  .fellows__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .faculty__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
@@ -262,22 +292,7 @@ h2.closing__title {
   .steps__list { grid-template-columns: 1fr; gap: var(--space-6); }
   .steps__rail { display: none; }
 
-  /* Fellows: a swipeable row instead of eleven stacked squares. */
-  .fellows__scroller {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
-    margin-right: calc(-1 * var(--container-pad));
-    padding-bottom: var(--space-2);
-  }
-  .fellows__grid {
-    grid-template-columns: none;
-    grid-auto-flow: column;
-    grid-auto-columns: 78%;
-    gap: var(--space-4);
-    padding-right: var(--container-pad);
-  }
-  .fellows__item { scroll-snap-align: start; }
+  .people__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-4); }
   .faculty__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-4); }
   .faculty__fallback { font-size: 44px; }
 }

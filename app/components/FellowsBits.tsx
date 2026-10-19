@@ -1,8 +1,9 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import type { FellowCard } from '@/lib/fellows';
-import { SolverCard } from './fop';
 import styles from './FellowsBits.module.css';
 
 const SECTORS = ['all', 'Health', 'Mental Health', 'Education', 'Special Ed', 'Disability', 'Legal', 'Livelihoods', 'Agriculture'];
@@ -34,19 +35,33 @@ export default function FellowsBits({ fellows, basePath }: { fellows: FellowCard
       <section className={styles['fellows-section']}>
         <div className="container">
           <ul className={styles['fellows-grid']}>
-            {visible.map((f) => (
-              <li key={f.slug} className={styles['fellow-card']}>
-                <SolverCard
-                  name={f.name}
-                  eyebrow={f.sector}
-                  description={f.org}
-                  image={f.photo_url}
-                  href={`${basePath}/${f.slug}`}
-                  fallback={f.init}
-                />
-                <p className={`t-card-body ${styles['fellow-card__summary']}`}>
-                  {f.summary.length > 140 ? f.summary.slice(0, 140) + '…' : f.summary}
-                </p>
+            {visible.map((f, i) => (
+              <li key={f.slug} className={styles['fellows-grid__item']}>
+                <Link href={`${basePath}/${f.slug}`} className={styles['fellow-card']}>
+                  <span className={styles['fellow-card__head']}>
+                    <span className={styles['fellow-card__avatar']}>
+                      {f.photo_url ? (
+                        <Image
+                          src={f.photo_url}
+                          alt={f.name}
+                          width={80}
+                          height={80}
+                          className={styles['fellow-card__avatar-image']}
+                        />
+                      ) : (
+                        f.init
+                      )}
+                    </span>
+                    <span className={styles['fellow-card__num']}>{`No. ${String(i + 1).padStart(2, '0')} / ${fellows.length}`}</span>
+                  </span>
+                  <h3 className={styles['fellow-card__name']}>{f.name}</h3>
+                  <span className={styles['fellow-card__org']}>{f.org}</span>
+                  <span className={`t-eyebrow ${styles['fellow-card__sector']}`}>{f.sector}</span>
+                  <span className={`t-card-body ${styles['fellow-card__model']}`}>
+                    {f.summary.length > 140 ? f.summary.slice(0, 140) + '…' : f.summary}
+                  </span>
+                  <span className={`t-eyebrow ${styles['fellow-card__expand']}`}>Read full profile →</span>
+                </Link>
               </li>
             ))}
           </ul>

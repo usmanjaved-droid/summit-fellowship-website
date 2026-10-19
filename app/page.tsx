@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import ExponentialChart from './components/ExponentialChart';
-import { ArrowLink, Button, Section, SolverCard, SquareCta, Timeline } from './components/fop';
+import { ArrowLink, Button, Section, SquareCta, Timeline } from './components/fop';
 import { FACULTY } from './faculty/people';
 import { getLatestCohort } from '@/lib/cohorts';
 import { getFellowCards } from '@/lib/fellows';
@@ -164,22 +165,19 @@ export default function HomePage() {
       <Section tone="yellow">
         <p className={`t-eyebrow ${styles.eyebrow}`}>{`Meet the ${latest.year} fellows`}</p>
         <h2 className={`t-heading-2 ${styles.heading}`}>{fellows.length} founders who have done the work.</h2>
-        {/* Grid from 640px; a swipeable row below it (the region is focusable so keyboards can scroll it). */}
-        <div className={styles.fellows__scroller} role="region" aria-label={`The ${latest.year} fellows`} tabIndex={0}>
-          <ul className={styles.fellows__grid}>
-            {fellows.map((f) => (
-              <li key={f.slug} className={styles.fellows__item}>
-                <SolverCard
-                  name={f.name}
-                  description={f.org}
-                  image={f.photo_url}
-                  href={`/cohorts/${latest.year}/fellows/${f.slug}`}
-                  fallback={f.init}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className={styles.people__grid}>
+          {fellows.map((f) => (
+            <li key={f.slug}>
+              <Link href={`/cohorts/${latest.year}/fellows/${f.slug}`} className={styles.people__item}>
+                <span className={styles.people__avatar}>
+                  {f.photo_url ? <Image src={f.photo_url} alt="" width={64} height={64} /> : f.init}
+                </span>
+                <span className={styles.people__name}>{f.name}</span>
+                <span className={`t-body-sm ${styles.people__org}`}>{f.org}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
         <ArrowLink href={`/cohorts/${latest.year}`}>The {latest.year} cohort</ArrowLink>
       </Section>
 

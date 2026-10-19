@@ -62,20 +62,123 @@
   padding: var(--space-20) 0 var(--space-30);
   background: var(--off-white);
 }
+/* The previous card design: white panel, small round avatar, counter, name, org, sector, summary, "Read full profile". */
 .fellows-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-10) var(--space-8);
+  gap: var(--space-8);
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.fellow-card { min-width: 0; }
-/* Fellows without a photo: SolverCard's deep-green fallback, with white initials. */
-.fellow-card div[aria-hidden="true"] { color: var(--white); }
-p.fellow-card__summary {
-  margin: var(--space-4) 0 0;
+.fellows-grid__item { display: flex; min-width: 0; }
+
+.fellow-card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 340px;
+  padding: var(--space-8);
+  background: var(--white);
+  border: var(--border-1) solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* A green rule grows across the top edge on hover (the old card's accent line). */
+.fellow-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: var(--border-2);
+  background: var(--brand-green);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fellow-card:hover {
+  border-color: var(--brand-green);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-3xl);
+  text-decoration: none;
+}
+.fellow-card:hover::before { width: 100%; }
+.fellow-card:focus-visible { outline: var(--border-2) solid var(--focus); outline-offset: 2px; }
+
+.fellow-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+/* Avatars stay small and round on purpose, so low-resolution photos stay sharp. */
+.fellow-card__avatar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: var(--brand-green);
+  color: var(--white);
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 300;
+}
+.fellow-card__avatar-image { width: 100%; height: 100%; object-fit: cover; }
+.fellow-card__num {
+  margin-left: auto;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   color: var(--ink-soft);
+}
+h3.fellow-card__name {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-serif);
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 300;
+  color: var(--ink);
+}
+.fellow-card__org {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.fellow-card__sector {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  color: var(--ink-brand);
+}
+.fellow-card__sector::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--brand-green);
+}
+.fellow-card__model {
+  flex: 1;
+  margin-bottom: var(--space-5);
+  color: var(--ink-soft);
+}
+.fellow-card__expand {
+  margin-top: auto;
+  color: var(--ink-brand);
 }
 
 .empty-state {
@@ -88,5 +191,10 @@ p.fellow-card__summary {
 @media (max-width: 640px) {
   .filter-bar { padding: var(--space-3) 0; }
   .fellows-section { padding: var(--space-10) 0 var(--space-20); }
-  .fellows-grid { grid-template-columns: 1fr; }
+  .fellows-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .fellow-card { min-height: 0; padding: var(--space-6); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fellow-card, .fellow-card::before { transition: none; }
+  .fellow-card:hover { transform: none; }
 }
