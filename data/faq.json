@@ -6,8 +6,8 @@
       { "q": "Who is the fellowship for?", "a": "Founders, or the senior-most leader with real decision-making power, of early- to mid-stage organisations that improve the lives of the poor or meet their basic needs — in health, education, livelihoods and beyond. Your organisation should be past the pilot stage, with real users today." },
       { "q": "Is there a minimum budget?", "a": "Yes. Your annual budget for the most recent complete financial year should be at least USD 100,000, and you should have basic financial systems in place (audited statements or equivalent)." },
       { "q": "We are still designing or piloting. Should we apply?", "a": "The fellowship is built for organisations past the pilot stage, with steady delivery and reach numbers from the last 12 months. If you are earlier than that, we would love to hear from you in a future year." },
-      { "q": "Does my organisation have to be registered in Pakistan?", "a": "Organisations registered in Pakistan or abroad (for example, a US 501(c)(3)) can apply. [TO CONFIRM: whether your programme must be delivered in Pakistan to be eligible.]" },
-      { "q": "Can someone other than the founder attend?", "a": "One leader attends per organisation, and it must be the person with real decision-making power. Founders are strongly preferred. [TO CONFIRM: whether a co-founder may attend in place of the CEO.]" },
+      { "q": "Does my organisation have to be registered in Pakistan?", "a": "Organisations registered in Pakistan or abroad (for example, a US 501(c)(3)) can apply. Your programme must serve people in Pakistan." },
+      { "q": "Can someone other than the founder attend?", "a": "One leader attends per organisation, and it must be the person with real decision-making power. Founders are strongly preferred. A co-founder may attend instead of the CEO if they have real decision-making power." },
       { "q": "Does the fellowship run in English?", "a": "Yes. The frameworks use terms that do not translate easily, so you need to be fluent in English to take full part." }
     ]
   },
@@ -24,7 +24,7 @@
   {
     "group": "The retreat",
     "items": [
-      { "q": "What does it cost?", "a": "The fellowship is fully funded: accommodation, meals and domestic travel are covered. [TO CONFIRM: whether international flights are covered for founders based outside Pakistan.]" },
+      { "q": "What does it cost?", "a": "The fellowship is fully funded: accommodation, meals and domestic travel are covered. International flights are not covered." },
       { "q": "When and where is it?", "a": "Seven days in Northern Pakistan. Dates and venue for the current cohort are listed under Key dates on the Apply page." },
       { "q": "Can I keep working during the week?", "a": "Not during sessions. The week only works if you are fully present, so we ask fellows not to check email or take calls during sessions, and to set an out-of-office. Plan for seven days, plus travel." }
     ]
@@ -32,7 +32,7 @@
   {
     "group": "After the fellowship",
     "items": [
-      { "q": "What happens after the week?", "a": "Fellows leave with a scale blueprint, connections to funders from Demo Day, and a peer network of Pakistan's most ambitious founders, with access to ongoing Mulago mentorship. [TO CONFIRM: the structured follow-up support offered to this cohort.]" }
+      { "q": "What happens after the week?", "a": "Fellows leave with a scale blueprint, connections to funders from Demo Day, and a peer network of Pakistan's most ambitious founders, with access to ongoing Mulago mentorship. Fellows become Friends of Pakistan Fellows and stay connected to its network of investors and philanthropists." }
     ]
   }
 ]
