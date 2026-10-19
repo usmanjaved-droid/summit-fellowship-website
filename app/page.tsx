@@ -164,7 +164,7 @@ export default function HomePage() {
             <li key={f.slug}>
               <div className={styles.people__item}>
                 <span className={styles.people__avatar}>
-                  {f.photo_url ? <Image src={f.photo_url} alt="" width={64} height={64} /> : f.init}
+                  {f.photo_url ? <Image src={f.photo_url} alt="" width={96} height={96} /> : f.init}
                 </span>
                 <span className={styles.people__name}>{f.name}</span>
                 <span className={`t-body-sm ${styles.people__org}`}>{f.org}</span>
