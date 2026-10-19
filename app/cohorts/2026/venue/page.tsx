@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'Venue — 2026 Cohort — Summit Fellowship',
+  title: 'Venue — 2026 Cohort — Friends of Pakistan Fellowship',
 };
 
 export default function VenuePage() {
@@ -416,7 +416,7 @@ export default function VenuePage() {
 
               <g transform="translate(60, 60)">
                 <text fontFamily="var(--font-serif)" fontSize="32" fill="var(--white)">Shigar Valley</text>
-                <text y="24" fontFamily="var(--font-sans)" fontSize="10" fill="var(--primary)" letterSpacing="2">SUMMIT FELLOWSHIP · 2026</text>
+                <text y="24" fontFamily="var(--font-sans)" fontSize="10" fill="var(--primary)" letterSpacing="2">FRIENDS OF PAKISTAN FELLOWSHIP · 2026</text>
               </g>
             </svg>
           </div>

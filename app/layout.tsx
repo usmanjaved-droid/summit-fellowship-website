@@ -21,7 +21,7 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: 'Summit Fellowship — Designed for Scale',
+  title: 'Friends of Pakistan Fellowship — Designed for Scale',
   description:
     "A seven-day intensive for Pakistan's most promising social enterprises, matching founders with strategy, mentoring and capital to scale.",
   robots: isProductionDeploy() ? undefined : { index: false, follow: false },

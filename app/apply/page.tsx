@@ -6,8 +6,8 @@ import { ArrowLink, Button, Prose, Section } from '../components/fop';
 import styles from './apply.module.css';
 
 export const metadata = {
-  title: 'Apply — Summit Fellowship',
-  description: 'Who should apply to the Summit Fellowship, what it covers, and how selection works.',
+  title: 'Apply — Friends of Pakistan Fellowship',
+  description: 'Who should apply to the Friends of Pakistan Fellowship, what it covers, and how selection works.',
 };
 
 const CRITERIA = [
@@ -27,7 +27,7 @@ const COVERS = [
 
 const STAGES = [
   { title: 'Written application', time: 'About 2 weeks', desc: 'We read every application.' },
-  { title: 'A 45-minute conversation', time: 'About 2 weeks', desc: 'Shortlisted founders talk with the Mulago and Taleemabad team, starting from your answers.' },
+  { title: 'A 45-minute conversation', time: 'About 2 weeks', desc: 'Shortlisted founders talk with the Friends of Pakistan Fellowship team, starting from your answers.' },
   { title: 'Final selection', time: 'About 1 week', desc: 'Twelve organisations are selected, plus three to four alternates.' },
 ];
 
@@ -76,7 +76,7 @@ export default function ApplyPage() {
                   <p>One answer — your path to a million users — is longer than the rest. Plan five to eight minutes for it.</p>
                 </Prose>
                 <div className={styles.pdf}>
-                  <ArrowLink href="/application/summit-fellowship-application.pdf" download>
+                  <ArrowLink href="/application/friends-of-pakistan-fellowship-application.pdf" download>
                     Download the application (PDF)
                   </ArrowLink>
                 </div>

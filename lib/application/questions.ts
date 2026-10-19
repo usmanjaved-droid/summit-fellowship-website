@@ -11,7 +11,7 @@ export const BEFORE_YOU_START: string[] = [
 ];
 
 export const CONFIRMATION_TEXT =
-  'Every number in this application is one I can show you the source for. I understand that shortlisted applicants have a 45-minute conversation with the Mulago and Taleemabad team, and that the conversation starts from these answers.';
+  'Every number in this application is one I can show you the source for. I understand that shortlisted applicants have a 45-minute conversation with the Friends of Pakistan Fellowship team, and that the conversation starts from these answers.';
 
 const PROVINCES = ['Punjab', 'Sindh', 'KP', 'Balochistan', 'ICT', 'AJK', 'GB', 'Outside Pakistan'];
 
@@ -233,7 +233,7 @@ export const SECTIONS: Section[] = [
     questions: [
       {
         id: 'H1', kind: 'select', label: 'How did you hear about the fellowship?', required: true,
-        options: ['Website', 'Social media', 'Referred by another organisation', 'Email from Taleemabad', 'A funder', 'A previous fellow', 'Other'],
+        options: ['Website', 'Social media', 'Referred by another organisation', 'Email from Taleemabad', 'Friends of Pakistan', 'A funder', 'A previous fellow', 'Other'],
         specify: { options: ['Referred by another organisation', 'Other'], maxChars: 80 },
       },
       {

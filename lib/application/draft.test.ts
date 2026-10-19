@@ -11,7 +11,7 @@ function memoryStorage(): Storage {
 
 describe('draft', () => {
   it('keys drafts by cohort year', () => {
-    expect(draftKey(2027)).toBe('summit-application-2027');
+    expect(draftKey(2027)).toBe('fop-fellowship-application-2027');
   });
   it('round-trips a draft', () => {
     const s = memoryStorage();

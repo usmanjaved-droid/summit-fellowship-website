@@ -5,7 +5,7 @@ import { ADVISORS, FACULTY, ORGANIZERS, type Person } from './people';
 import styles from './faculty.module.css';
 
 export const metadata = {
-  title: 'Faculty & Organizers — Summit Fellowship',
+  title: 'Faculty & Organizers — Friends of Pakistan Fellowship',
 };
 
 function PersonCard({ p }: { p: Person }) {

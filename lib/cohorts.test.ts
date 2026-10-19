@@ -5,7 +5,7 @@ import { getAllFellows } from './fellows';
 describe('cohort registry', () => {
   it('lists 2026', () => {
     expect(getCohorts().map((c) => c.year)).toContain(2026);
-    expect(getCohort(2026)?.label).toBe('2026 · Skardu');
+    expect(getCohort(2026)?.label).toBe('2026 · Inaugural cohort');
   });
   it('returns null for unknown years', () => {
     expect(getCohort(1999)).toBeNull();

@@ -5,7 +5,7 @@ import { Section } from '../components/fop';
 import styles from './faq.module.css';
 
 export const metadata = {
-  title: 'FAQ — Summit Fellowship',
+  title: 'FAQ — Friends of Pakistan Fellowship',
   description: 'Eligibility, the application, the retreat, and what happens afterwards.',
 };
 

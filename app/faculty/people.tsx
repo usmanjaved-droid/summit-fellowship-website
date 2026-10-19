@@ -87,6 +87,13 @@ export const ADVISORS: Person[] = [
 
 export const ORGANIZERS: Person[] = [
   {
+    init: 'NS', num: 'O.00', name: 'Nadir Shams', role: 'Founder, Friends of Pakistan',
+    photo_url: null,
+    org: <>Founded Friends of Pakistan, a society and fund for <strong>unlocking money to drive scalable positive change</strong> in Pakistan. Former director at the Skoll Foundation.</>,
+    relevance: <>What funders look for before they back a model at scale. <strong>Connecting fellows to investors and philanthropists</strong> through the Friends of Pakistan network. (The Fellowship is a Friends of Pakistan programme.)</>,
+    links: [{ label: 'Friends of Pakistan →', href: 'https://www.friendsofpakistan.org/' }],
+  },
+  {
     init: 'HY', num: 'O.01', name: 'Haroon Yasin', role: 'Founder & CEO, Taleemabad',
     photo_url: '/images/faculty/haroon-yasin.jpg',
     org: <>Dropped out at 18 to teach in Islamabad slums. Founded Taleemabad in 2015 to reach <strong>10M+ children</strong> through multimodal ed-tech when traditional schooling couldn&rsquo;t scale fast enough.</>,

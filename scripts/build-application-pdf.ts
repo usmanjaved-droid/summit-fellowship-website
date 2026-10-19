@@ -9,8 +9,8 @@ const year = site.currentCohort.year;
 const outDir = new URL('../public/application/', import.meta.url);
 mkdirSync(outDir, { recursive: true });
 
-const doc = new PDFDocument({ size: 'A4', margin: 56, info: { Title: `Summit Fellowship — ${year} application (offline copy)`, Subject: schemaHash() } });
-doc.pipe(createWriteStream(new URL('summit-fellowship-application.pdf', outDir)));
+const doc = new PDFDocument({ size: 'A4', margin: 56, info: { Title: `Friends of Pakistan Fellowship — ${year} application (offline copy)`, Subject: schemaHash() } });
+doc.pipe(createWriteStream(new URL('friends-of-pakistan-fellowship-application.pdf', outDir)));
 
 const h1 = (t: string) => doc.font('Times-Roman').fontSize(24).fillColor('#142734').text(t).moveDown(0.4);
 const h2 = (t: string) => doc.moveDown(0.8).font('Times-Roman').fontSize(18).fillColor('#142734').text(t).moveDown(0.3);
@@ -25,7 +25,7 @@ const lines = (n: number) => {
   doc.moveDown(0.6);
 };
 
-h1(`Summit Fellowship — ${year} application`);
+h1(`Friends of Pakistan Fellowship — ${year} application`);
 body('This is an offline copy of the online application, for drafting. Applications are only accepted through the online form at /apply/form — paste your answers in when you are ready. Character limits below are hard limits online.');
 h2('Before you start, gather:');
 BEFORE_YOU_START.forEach((b) => body(`•  ${b}`));
@@ -80,4 +80,4 @@ body(`[ ] ${CONFIRMATION_TEXT}`);
 doc.end();
 
 writeFileSync(new URL('../lib/application/pdf-manifest.json', import.meta.url), `${JSON.stringify({ schemaHash: schemaHash(), generatedAt: new Date().toISOString() }, null, 2)}\n`);
-console.log('Wrote public/application/summit-fellowship-application.pdf');
+console.log('Wrote public/application/friends-of-pakistan-fellowship-application.pdf');

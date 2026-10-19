@@ -5,8 +5,8 @@ import { ArrowLink, Section } from '../components/fop';
 import styles from './cohorts.module.css';
 
 export const metadata = {
-  title: 'Cohorts — Summit Fellowship',
-  description: 'Every Summit Fellowship cohort: the founders, the week, and where it happened.',
+  title: 'Cohorts — Friends of Pakistan Fellowship',
+  description: 'Every Friends of Pakistan Fellowship cohort: the founders, the week, and where it happened.',
 };
 
 export default function CohortsPage() {

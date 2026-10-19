@@ -2,6 +2,7 @@
   {
     "group": "Eligibility",
     "items": [
+      { "q": "Who runs the fellowship?", "a": "The Friends of Pakistan Fellowship is a programme of Friends of Pakistan, the society and fund founded by Nadir Shams, former director at the Skoll Foundation. It is run in partnership with Mulago Foundation, whose design-for-scale frameworks are at the heart of the curriculum, and Taleemabad. The first cohort, in 2026, was the inaugural cohort." },
       { "q": "Who is the fellowship for?", "a": "Founders, or the senior-most leader with real decision-making power, of early- to mid-stage organisations that improve the lives of the poor or meet their basic needs — in health, education, livelihoods and beyond. Your organisation should be past the pilot stage, with real users today." },
       { "q": "Is there a minimum budget?", "a": "Yes. Your annual budget for the most recent complete financial year should be at least USD 100,000, and you should have basic financial systems in place (audited statements or equivalent)." },
       { "q": "We are still designing or piloting. Should we apply?", "a": "The fellowship is built for organisations past the pilot stage, with steady delivery and reach numbers from the last 12 months. If you are earlier than that, we would love to hear from you in a future year." },
@@ -15,7 +16,7 @@
     "items": [
       { "q": "How long does the application take?", "a": "About 25 minutes of typing once you have gathered your numbers. Before you start, have ready: your active user count and how you define \"active\", the month your first outside user started, your three largest sites with users and start dates, your primary metric and how you measure it, and your single best outcome result." },
       { "q": "Can I save my answers and come back later?", "a": "Yes. Your answers are saved automatically in your browser as you type, so you can close the page and return on the same device and browser. To draft on paper or across devices, download the PDF version of the application from the Apply page and paste your answers in when you are ready." },
-      { "q": "What happens after I apply?", "a": "We read every application over about two weeks. Shortlisted founders are invited to a single 45-minute conversation with the Mulago and Taleemabad team, which starts from your answers. Final selection of twelve organisations follows." },
+      { "q": "What happens after I apply?", "a": "We read every application over about two weeks. Shortlisted founders are invited to a single 45-minute conversation with the Friends of Pakistan Fellowship team, which starts from your answers. Final selection of twelve organisations follows." },
       { "q": "When will I hear back?", "a": "Final decisions are made about five weeks after the application deadline. We write to every applicant by email." },
       { "q": "Is there an application fee?", "a": "No. Applying is free." }
     ]

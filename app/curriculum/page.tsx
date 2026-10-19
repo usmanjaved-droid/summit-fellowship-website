@@ -4,7 +4,7 @@ import { Arrow, Section, type SectionTone } from '../components/fop';
 import styles from './curriculum.module.css';
 
 export const metadata = {
-  title: 'Curriculum & Frameworks — Summit Fellowship',
+  title: 'Curriculum & Frameworks — Friends of Pakistan Fellowship',
 };
 
 type Concept = { num: string; title: string; desc: string };

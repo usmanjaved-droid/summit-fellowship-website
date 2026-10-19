@@ -3,8 +3,8 @@ import { getCurrentCohort, getSiteSettings, isApplicationLive } from '@/lib/site
 import FormLoader from './FormLoader';
 
 export const metadata = {
-  title: 'Application — Summit Fellowship',
-  description: 'Apply to the Summit Fellowship.',
+  title: 'Application — Friends of Pakistan Fellowship',
+  description: 'Apply to the Friends of Pakistan Fellowship.',
 };
 
 export default function ApplicationPage() {

@@ -5,7 +5,7 @@ import { getSiteSettings } from '@/lib/site';
 import styles from './contact.module.css';
 
 export const metadata = {
-  title: 'Contact — Summit Fellowship',
+  title: 'Contact — Friends of Pakistan Fellowship',
 };
 
 const CHANNELS = [
@@ -23,8 +23,16 @@ const CHANNELS = [
 
 const HOSTS = [
   {
+    name: 'Friends of Pakistan',
+    role: 'Host · Society and fund',
+    desc: <>A society and fund for unlocking money to drive scalable positive change in Pakistan, powered by a network of investors, philanthropists and proven leaders. Founded by Nadir Shams. The Fellowship is its programme.</>,
+    links: [
+      { label: 'friendsofpakistan.org', href: 'https://www.friendsofpakistan.org/', external: true },
+    ],
+  },
+  {
     name: 'Taleemabad',
-    role: 'Co-host · Organizer · Karachi, Pakistan',
+    role: 'Partner · Organizer · Karachi, Pakistan',
     desc: <>Pakistan&rsquo;s largest ed-tech organization. Transforms learning for millions of children through digital platforms, public school integrations, and engaging multimodal content in Urdu, Punjabi, and Pashto.</>,
     links: [
       { label: 'taleemabad.com', href: 'https://taleemabad.com/', external: true },
@@ -33,7 +41,7 @@ const HOSTS = [
   },
   {
     name: 'Mulago Foundation',
-    role: 'Co-host · Framework · San Francisco, CA',
+    role: 'Partner · Framework · San Francisco, CA',
     desc: <>A foundation that operates like a venture capital firm for impact — providing unrestricted funding and support to social entrepreneurs whose solutions are designed for massive scale.</>,
     links: [
       { label: 'mulagofoundation.org', href: 'https://www.mulagofoundation.org/', external: true },
@@ -86,9 +94,9 @@ export default function ContactPage() {
       </Section>
 
       <Section tone="white">
-        <p className={`t-eyebrow ${styles.eyebrow}`}>The co-hosts</p>
+        <p className={`t-eyebrow ${styles.eyebrow}`}>Who runs it</p>
         <h2 className={`t-heading-2 ${styles.heading}`}>
-          Two organizations. <em>One week.</em>
+          Three organizations. <em>One week.</em>
         </h2>
         <div className={styles.hosts}>
           {HOSTS.map((h) => (

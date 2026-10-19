@@ -2,7 +2,7 @@ import Link from 'next/link';
 import ItineraryBits, { type Day } from '@/app/components/ItineraryBits';
 
 export const metadata = {
-  title: 'The Week — 2026 Cohort — Summit Fellowship',
+  title: 'The Week — 2026 Cohort — Friends of Pakistan Fellowship',
 };
 
 const CUTOFF = { time: '23:00', title: '⚠️ Cut-off · 11 PM', cutoff: true };

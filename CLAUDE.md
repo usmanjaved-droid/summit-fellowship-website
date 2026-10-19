@@ -1,13 +1,13 @@
-# Claude.md — Summit Fellowship Website
+# Claude.md — Friends of Pakistan Fellowship Website
 
 ## Project Overview
 
-**Summit Fellowship** is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, cohorts, fellows, faculty, curriculum, and everything participants need.
+**Friends of Pakistan Fellowship** (formerly Summit Fellowship; rebranded 2026-10-19) is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, cohorts, fellows, faculty, curriculum, and everything participants need. It is a programme of Friends of Pakistan (the society and fund founded by Nadir Shams, https://www.friendsofpakistan.org/), run in partnership with Mulago Foundation and Taleemabad. The 2026 cohort is the inaugural cohort. Use the full name "Friends of Pakistan Fellowship" in titles, the wordmark and formal copy, "the Fellowship" in running text, and "Friends of Pakistan Fellows" for alumni; do not reintroduce "Summit". Internal names (repo folder, Vercel projects, Supabase projects, URLs) still say summit and are not visitor-facing.
 
 **Status:** The site is being converted from a 2026-only event site into a permanent, multi-year site. Phase 1 (permanent multi-year site), Phase 2 (application form) and the Friends of Pakistan restyle (2026-10-19) are built on the `staging` branch and reach production only when the owner approves go-live (see "Go-live runbook" below). Production serves whatever is on `master`.  
 **Audience:** Fellows, faculty, funders, potential applicants  
 **Latest cohort:** 2026 — June 7–14, 2026 at Khoj Resort, Skardu  
-**Organization:** Mulago Foundation + Taleemabad
+**Organization:** Friends of Pakistan (host), with Mulago Foundation + Taleemabad (partners)
 
 ---
 
@@ -170,7 +170,7 @@ The site uses the **Friends of Pakistan design system** (restyle of 2026-10-19, 
 
 ## Application form (Phase 2)
 
-- **Form:** `/apply/form` is a client form (loaded with `ssr:false`): screener, sections A–H, review, submit. Draft autosave lives in the visitor's browser (localStorage key `summit-application-<year>`, `lib/application/draft.ts`).
+- **Form:** `/apply/form` is a client form (loaded with `ssr:false`): screener, sections A–H, review, submit. Draft autosave lives in the visitor's browser (localStorage key `fop-fellowship-application-<year>`, `lib/application/draft.ts`).
 - **Schema:** `lib/application/questions.ts` is the single source for the form, the validator (`lib/application/validate.ts`), the server (`lib/application/handle.ts`) and the offline PDF (`scripts/build-application-pdf.ts`). After editing questions run `npm run pdf:application`; the test `lib/application/schemaHash.test.ts` fails until you do.
 - **Server normalisation:** `normalizeAnswers` (`lib/application/answers.ts`) coerces submitted answers to the schema shape before validation and storage (junk keys dropped, untracked numbers and stale "Please specify" text cleared, blank table rows removed). The browser gives up on a submit after 40 seconds and shows the retry message.
 - **Submit flow:** `POST /api/apply` (`app/api/apply/route.ts`) calls `handleSubmission`: honeypot field `nickname`, 403 when applications are not live, rate limit of 15 per 10 minutes per IP (per server instance), screener and full validation re-checked, then the Supabase RPC `public.submit_application`.
@@ -327,7 +327,7 @@ Other data files:
 
 ```typescript
 export const metadata = {
-  title: 'Page Title — Summit Fellowship 2026',
+  title: 'Page Title — Friends of Pakistan Fellowship',
   description: 'Page description.',
 };
 ```
@@ -338,7 +338,7 @@ Or dynamic for detail pages:
 export async function generateMetadata({ params }) {
   const fellow = getFellow(2026, slug);
   return {
-    title: `${fellow.name} — Summit Fellowship 2026`,
+    title: `${fellow.name} — Friends of Pakistan Fellowship`,
     description: fellow.tagline,
   };
 }

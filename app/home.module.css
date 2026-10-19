@@ -36,7 +36,8 @@ h2.heading {
 h1.hero__title {
   margin: 0 0 var(--space-6);
   color: var(--white);
-  font-size: clamp(56px, 8.4vw, 120px);
+  font-size: clamp(48px, 6.6vw, 104px);
+  text-wrap: balance;
   line-height: 1;
 }
 .hero__title span { display: inline-block; }
@@ -85,6 +86,8 @@ p.hero__lead {
 .why__block--second { grid-row: 1; }
 .fellowship { margin-top: var(--space-24); }
 .why__body { margin: 0; color: var(--ink); }
+.fellowship__about { margin-top: var(--space-6); }
+.fellowship__link { margin-top: var(--space-6); }
 .why__emphasis { font-weight: 600; color: var(--ink-brand); }
 .why__cta {
   grid-column: 2;

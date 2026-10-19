@@ -8,7 +8,7 @@ import { getApplyCta, getCurrentCohort, getDeadlineText } from '@/lib/site';
 import styles from './home.module.css';
 
 export const metadata = {
-  title: 'Summit Fellowship — Designed for Scale',
+  title: 'Friends of Pakistan Fellowship — Designed for Scale',
   description:
     "Curating Pakistan's finest impact organisations and matching them with strategy, mentoring, and capital to scale.",
 };
@@ -20,15 +20,16 @@ const OFFER = [
   { title: 'Demo Day', desc: 'Present your scale blueprint to funders actively investing in Pakistan.' },
 ];
 
-// Homepage faculty row: the faculty plus three organisers the owner asked to feature.
+// Homepage people row: the Friends of Pakistan founder, the faculty, and three organisers the owner asked to feature.
 const HOME_PEOPLE = [
+  ...ORGANIZERS.filter((p) => p.num === 'O.00'),
   ...FACULTY,
   ...ORGANIZERS.filter((p) => ['O.01', 'O.02', 'O.04'].includes(p.num)),
 ];
 
 const STEPS = [
   { num: '01', title: 'Apply', desc: 'A focused written application: numbers, names, dates — about 25 minutes once you have gathered them.' },
-  { num: '02', title: 'Conversation', desc: 'Shortlisted founders have one 45-minute conversation with the Mulago and Taleemabad team.' },
+  { num: '02', title: 'Conversation', desc: 'Shortlisted founders have one 45-minute conversation with the Friends of Pakistan Fellowship team.' },
   { num: '03', title: 'Selection', desc: 'Twelve organisations are selected, plus a small number of alternates.' },
   { num: '04', title: 'The retreat', desc: 'Seven days redesigning your model for scale, ending with Demo Day.' },
   { num: '05', title: 'After', desc: 'Ongoing mentorship and a peer network of Pakistan’s most ambitious founders.' },
@@ -50,7 +51,7 @@ export default function HomePage() {
           <div className={styles.hero__copy}>
             <p className={`t-eyebrow ${styles.hero__eyebrow}`}>For Pakistani social innovators designing for scale</p>
             <h1 className={`t-heading-xl ${styles.hero__title}`}>
-              <span>Summit</span> <span>Fellowship</span>
+              Friends of Pakistan <span>Fellowship</span>
             </h1>
             <p className={`t-body-light ${styles.hero__lead}`}>
               Curating Pakistan&apos;s finest impact companies and matching them with strategy, mentoring, and capital to scale.
@@ -115,6 +116,15 @@ export default function HomePage() {
               Enoughs, the Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start
               of a narrative funders trust.
             </p>
+            <p className={`t-body ${styles.why__body} ${styles.fellowship__about}`}>
+              The Fellowship is a programme of Friends of Pakistan, the society and fund founded by Nadir Shams,
+              former director at the Skoll Foundation, run in partnership with Mulago Foundation and Taleemabad.
+              Fellows become <strong className={styles.why__emphasis}>Friends of Pakistan Fellows</strong>, part of
+              a network of investors, philanthropists and leaders scaling positive change in Pakistan.
+            </p>
+            <div className={styles.fellowship__link}>
+              <ArrowLink href="https://www.friendsofpakistan.org/">About Friends of Pakistan</ArrowLink>
+            </div>
           </div>
           <div className={styles.why__cta}>
             <SquareCta href={cta.href}>{cta.label}</SquareCta>

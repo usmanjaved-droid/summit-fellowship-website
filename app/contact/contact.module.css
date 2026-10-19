@@ -47,7 +47,7 @@ h3.channelTitle { margin: 0 0 var(--space-1); color: var(--ink); }
 .action svg { flex-shrink: 0; transition: translate 0.15s cubic-bezier(0.4, 0, 1, 1); }
 .action:hover svg { translate: 8px 0; }
 
-.hosts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
+.hosts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); }
 .host { padding: var(--space-10); background: var(--off-white); }
 h3.hostName { margin: 0 0 var(--space-2); color: var(--ink-brand); }
 .hostRole { margin: 0 0 var(--space-6); color: var(--ink-soft); }

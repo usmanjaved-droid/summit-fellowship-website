@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps) {
   const fellow = getFellow(YEAR, slug);
   if (!fellow) return {};
   return {
-    title: `${fellow.name} — ${YEAR} Cohort — Summit Fellowship`,
+    title: `${fellow.name} — ${YEAR} Cohort — Friends of Pakistan Fellowship`,
     description: fellow.tagline,
   };
 }

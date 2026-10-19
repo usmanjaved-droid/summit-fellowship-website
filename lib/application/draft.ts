@@ -6,7 +6,7 @@ import type { Answers, ScreenerAnswers } from './types';
 export type Step = 'screener' | 'ineligible' | 'review' | number;
 export type Draft = { version: 1; year: number; step: Step; screener: ScreenerAnswers; answers: Answers };
 
-export const draftKey = (year: number) => `summit-application-${year}`;
+export const draftKey = (year: number) => `fop-fellowship-application-${year}`;
 
 export function newDraft(year: number): Draft {
   return { version: 1, year, step: 'screener', screener: emptyScreener(), answers: emptyAnswers() };

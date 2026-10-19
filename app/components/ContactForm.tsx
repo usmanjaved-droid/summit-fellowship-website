@@ -6,7 +6,7 @@ export function buildMailtoHref(
   to: string,
   fields: { name: string; email: string; topic: string; message: string },
 ): string {
-  const subject = `Summit Fellowship enquiry: ${fields.topic}`;
+  const subject = `Friends of Pakistan Fellowship enquiry: ${fields.topic}`;
   const body = `${fields.message}\n\n— ${fields.name} (${fields.email})`;
   return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
