@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import PageHero from '../components/PageHero';
 import { Arrow, Section, type SectionTone } from '../components/fop';
 import styles from './curriculum.module.css';
+import ClosingBand from '../components/ClosingBand';
 
 export const metadata = {
   title: 'Curriculum & Frameworks — Friends of Pakistan Fellowship',
@@ -209,6 +210,7 @@ export default function CurriculumPage() {
         </div>
         <p>By Day 6, the pitch has been rehearsed, critiqued, rebuilt, and delivered. The skill the cohort actually walks away with is not the pitch itself — it&rsquo;s the ability to rebuild it for any audience, in any room, for the next ten years.</p>
       </ModuleBand>
+      <ClosingBand />
     </>
   );
 }

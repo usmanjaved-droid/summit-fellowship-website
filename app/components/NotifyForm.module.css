@@ -1,0 +1,32 @@
+/* "Get notified" sign-up: label, one email field with the button beside it, and a one-line note. */
+.notify { margin-top: var(--space-6); }
+.label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.row { display: flex; gap: var(--space-3); }
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 48px;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-1) solid var(--field-border);
+  background: var(--white);
+  color: var(--black);
+  font: inherit;
+  font-size: 16px;
+}
+.input:focus-visible { outline: var(--border-2) solid var(--focus); outline-offset: 2px; }
+.input:user-invalid { border-color: var(--danger-400); }
+.note { margin: var(--space-2) 0 0; color: var(--ink-soft); }
+.done { margin: var(--space-6) 0 0; color: var(--ink); font-weight: 600; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+@media (max-width: 640px) {
+  .row { flex-direction: column; }
+}

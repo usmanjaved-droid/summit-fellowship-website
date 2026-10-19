@@ -1,12 +1,29 @@
-/* Cohorts index (Friends of Pakistan): white panels on the off-white band. */
+/* Cohorts index (Friends of Pakistan): white panels on the off-white band; a cohort with a photo is a two-column feature. */
 .list { display: grid; gap: var(--space-8); }
 .card {
-  padding: var(--space-10);
   background: var(--white);
   color: var(--ink);
+}
+.card--photo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.photo {
+  position: relative;
+  min-height: 360px;
+  background: var(--brand-green-deep);
+}
+.photo img { object-fit: cover; }
+.body {
+  padding: var(--space-10);
+  align-self: center;
 }
 .dates { margin: 0 0 var(--space-2); color: var(--ink-soft); }
 h2.title { margin: 0 0 var(--space-2); font-size: clamp(36px, 4.2vw, 55px); }
 .meta { margin: 0; color: var(--ink-soft); }
 .summary { max-width: 60ch; margin: var(--space-4) 0 var(--space-6); }
-@media (max-width: 640px) { .card { padding: var(--space-6); } }
+@media (max-width: 1023px) {
+  .card--photo { grid-template-columns: 1fr; }
+  .photo { min-height: 0; aspect-ratio: 16 / 9; }
+}
+@media (max-width: 640px) { .body { padding: var(--space-6); } }

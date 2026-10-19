@@ -5,6 +5,8 @@ export type Cohort = {
   label: string;
   dates: string;
   venue: string;
+  /** Optional photo for the cohorts index card (path under /public). */
+  image?: string;
   location: string;
   summary: string;
 };

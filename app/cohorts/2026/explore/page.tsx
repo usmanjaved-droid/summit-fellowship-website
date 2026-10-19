@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -16,15 +15,6 @@ export default function ExploreSkardu() {
       <section className={styles.hero} data-theme="dark">
         <div className={styles.heroBg}></div>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className={styles.breadcrumbs}>
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <Link href="/cohorts">Cohorts</Link>
-            <span>/</span>
-            <Link href="/cohorts/2026">2026</Link>
-            <span>/</span>
-            <span>Explore Skardu</span>
-          </div>
           <h1 className={styles.heroTitle}>
             A field guide to <em>Baltistan.</em>
           </h1>

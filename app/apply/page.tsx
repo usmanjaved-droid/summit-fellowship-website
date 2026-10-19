@@ -4,6 +4,7 @@ import { displayValue, getApplicationStatus, getCurrentCohort, isApplicationLive
 import PageHero from '../components/PageHero';
 import { ArrowLink, Button, Prose, Section } from '../components/fop';
 import styles from './apply.module.css';
+import NotifyForm from '../components/NotifyForm';
 
 export const metadata = {
   title: 'Apply — Friends of Pakistan Fellowship',
@@ -101,7 +102,10 @@ export default function ApplyPage() {
             {live ? (
               <Button href="/apply/form" size="lg" icon block className={styles.start}>Start your application</Button>
             ) : (
-              <p className={`t-body-sm ${styles.closed}`}>{getApplicationStatus(cohort)} Questions? <Link href="/faq">Read the FAQ</Link>.</p>
+              <div id="notify">
+                <p className={`t-body-sm ${styles.closed}`}>{getApplicationStatus(cohort)} Questions? <Link href="/faq">Read the FAQ</Link>.</p>
+                <NotifyForm year={cohort.year} />
+              </div>
             )}
           </aside>
         </div>

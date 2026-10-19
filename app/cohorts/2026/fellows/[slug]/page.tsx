@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
-import { getAllFellows, getFellow, getFellowNumber } from '@/lib/fellows';
+import { getAdjacentFellows, getAllFellows, getFellow, getFellowNumber } from '@/lib/fellows';
 import { FellowHero } from '../../../_components/fellow/FellowHero';
+import { FellowPager } from '../../../_components/fellow/FellowPager';
 import { IdeaBand } from '../../../_components/fellow/IdeaBand';
 import { FellowSection } from '../../../_components/fellow/FellowSection';
 import { FellowSidebar } from '../../../_components/fellow/FellowSidebar';
@@ -48,6 +49,7 @@ export default async function FellowDetailPage({ params }: PageProps) {
         </div>
         <FellowSidebar fellow={fellow} />
       </div>
+      <FellowPager {...getAdjacentFellows(YEAR, slug)} basePath={`/cohorts/${YEAR}/fellows`} />
     </div>
   );
 }
