@@ -1096,3 +1096,8 @@
 .n {
   display: inline;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .galCell:hover,
+  .fgCardLink:hover::after { transform: none; }
+}

@@ -47,14 +47,6 @@ a {
 }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 *, *::before, *::after { border-radius: 0; }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    transition: none !important;
-    animation: none !important;
-    transform: none !important;
-    scroll-behavior: auto !important;
-  }
-}
 input, textarea, select { font: inherit; color: inherit; }
 
 h1, h2, h3 {
@@ -442,14 +434,6 @@ h1.page-hero__title {
   .site-header, .site-footer { display: none; }
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
 
 /* =========================================================================
    ITINERARY PAGE
@@ -578,4 +562,17 @@ h1.page-hero__title {
   color: var(--white);
   text-align: center;
   padding: 8px 16px;
+}
+
+/* Reduced motion: kill transitions and animations everywhere, but keep
+   state transforms (centring, caret flips). Hover lifts and nudges that
+   are pure motion are switched off one by one. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+  .btn:hover .arrow { translate: none; }
+  .tl-row:hover .tl-dot { transform: none; }
 }
