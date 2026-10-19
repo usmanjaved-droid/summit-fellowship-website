@@ -4,7 +4,7 @@
 
 **Friends of Pakistan Fellowship** (formerly Summit Fellowship; rebranded 2026-10-19) is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, cohorts, fellows, faculty, curriculum, and everything participants need. It is a programme of Friends of Pakistan (the society and fund founded by Nadir Shams, https://www.friendsofpakistan.org/), run in partnership with Mulago Foundation and Taleemabad. The 2026 cohort is the inaugural cohort. Use the full name "Friends of Pakistan Fellowship" in titles, the wordmark and formal copy, "the Fellowship" in running text, and "Friends of Pakistan Fellows" for alumni; do not reintroduce "Summit". Internal names (repo folder, Vercel projects, Supabase projects, URLs) still say summit and are not visitor-facing.
 
-**Status:** LIVE since 2026-10-19 (merge 47d02e0): the permanent multi-year site, the application form, the Friends of Pakistan restyle and the rebrand are on `master` and in production. Applications are closed ("Applications opening soon") until `data/site.json` gets dates and `applicationsOpen: true`. Further changes go to `staging` first and reach `master` only with the owner's approval. `npm run smoke` expectations are written for staging (banner, noindex, open form); against production, failures on `/`, `/robots.txt`, `/apply` and `/apply/form` are expected.  
+**Status:** LIVE since 2026-10-19 (merge 47d02e0): the permanent multi-year site, the application form, the Friends of Pakistan restyle and the rebrand are on `master` and in production. Applications are closed ("Applications opening soon") until `data/site.json` gets dates and `applicationsOpen: true`. Since go-live the owner wants changes shipped straight to the live site: commit on `staging`, then merge `staging` → `master` right away (no approval step), and confirm the production build and the live page. `npm run smoke` expectations are written for staging (banner, noindex, open form); against production, failures on `/`, `/robots.txt`, `/apply` and `/apply/form` are expected.  
 **Audience:** Fellows, faculty, funders, potential applicants  
 **Latest cohort:** 2026 — June 7–14, 2026 at Khoj Resort, Skardu  
 **Organization:** Friends of Pakistan (host), with Mulago Foundation + Taleemabad (partners)
@@ -421,7 +421,7 @@ See **Production vs staging** below for how branches map to deployments.
 - **Auto-deploys:** GitHub → Vercel auto-deploys work again as of 2026-10-12 (verified on `staging` pushes). Both the `summit-fellowship-website` and `summit-fellowship-2026` Vercel projects build every push. The 2026-10-12 cleanup commit on `master` (6354918) was not auto-deployed, but it only removed unused files, so production output is unaffected. If a push ever fails to build, deploy manually from the branch ref (Vercel MCP `create_deployment` with `gitSource`, or `vercel deploy`).
 - **Pre-rebrand snapshot:** the production site as it stood before the Friends of Pakistan rebrand is tagged `summit-2026-final` (commit 6354918) with a GitHub Release "Summit Fellowship 2026 (before rebrand)". Compare or restore from that tag.
 - Never use Vercel 'Promote to Production' on a staging preview — staging flags are baked in at build time; production must be a fresh build from master.
-- **Go-live rule:** merge `staging` → `master` only with the owner's approval **and** `npm run check:golive` passing (it fails while any FAQ answer in `data/faq.json` is still marked [TO CONFIRM]).
+- **Release rule (since 2026-10-19):** changes go live directly — merge `staging` → `master` as soon as tests, lint and build pass, with `npm run check:golive` passing (it fails while any FAQ answer in `data/faq.json` is still marked [TO CONFIRM]).
 
 ### Yearly update
 
@@ -454,7 +454,7 @@ git checkout -b feature/new-feature
 git checkout -b fix/bug-name
 ```
 
-Work on `staging`; production (`master`) changes only through an approved staging → master merge.
+Work on `staging`, then merge `staging` → `master` straight away so the change goes live (owner's standing instruction since 2026-10-19).
 
 ---
 
@@ -566,4 +566,4 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 ---
 
 **Last Updated:** 2026-10-19 (Friends of Pakistan restyle)  
-**Status:** Live since 2026-10-19 (Friends of Pakistan Fellowship). Work on `staging`; merge to `master` only with owner approval.
+**Status:** Live since 2026-10-19 (Friends of Pakistan Fellowship). Work on `staging`, then merge to `master` straight away (owner's standing instruction).
