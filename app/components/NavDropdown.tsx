@@ -72,7 +72,7 @@ export default function NavDropdown({ group, onNavigate }: { group: NavGroup; on
       <button
         ref={triggerRef}
         type="button"
-        className="site-nav__link site-nav__group-trigger"
+        className="site-nav__link site-nav__group-trigger t-nav"
         aria-expanded={open}
         aria-controls={dropdownId}
         onClick={onClick}
@@ -89,7 +89,7 @@ export default function NavDropdown({ group, onNavigate }: { group: NavGroup; on
           <Link
             key={l.href}
             href={l.href}
-            className="site-nav__dropdown-item"
+            className="site-nav__dropdown-item t-menu-link"
             onClick={() => {
               hide();
               onNavigate();
