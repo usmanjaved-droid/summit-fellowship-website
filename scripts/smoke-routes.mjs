@@ -18,7 +18,7 @@ export const ROUTES = [
   { path: '/explore-skardu', status: 404 },
   { path: '/resources', status: 404 },
   { path: '/travel', status: 404 },
-  { path: '/curriculum', status: 200, contains: ['Apply →', 'Cohorts', '2026 · Inaugural cohort', 'FAQ'] },
+  { path: '/curriculum', status: 200, contains: ['nudge-arrow" aria-hidden="true">→', 'Cohorts', '2026 · Inaugural cohort', 'FAQ'] },
   { path: '/apply', status: 200, contains: ['Who should apply', 'USD 100,000', 'How selection works', 'Key dates', 'To be confirmed', 'Start your application', 'Before you start', 'Download the application (PDF)'], absent: ['Scale Screen'] },
   { path: '/application/friends-of-pakistan-fellowship-application.pdf', status: 200 },
   { path: '/apply/form', status: 200, contains: ['Loading the application'], absent: ['Scale Screen'] },

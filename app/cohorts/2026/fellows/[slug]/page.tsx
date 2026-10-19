@@ -24,6 +24,13 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: `${fellow.name} — ${YEAR} Cohort — Friends of Pakistan Fellowship`,
     description: fellow.tagline,
+    openGraph: {
+      siteName: 'Friends of Pakistan Fellowship',
+      type: 'profile',
+      locale: 'en_GB',
+      title: `${fellow.name} — Friends of Pakistan Fellow`,
+      description: `${fellow.tagline}. ${fellow.org}.`,
+    },
   };
 }
 

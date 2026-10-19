@@ -1,4 +1,5 @@
 export { Arrow } from './Arrow';
+export { nudgeClass } from './nudge';
 export { Button } from './Button';
 export { ArrowLink } from './ArrowLink';
 export { Section } from './Section';
