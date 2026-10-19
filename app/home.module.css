@@ -131,7 +131,6 @@ p.hero__lead {
 }
 .offer__title { margin: 0 0 var(--space-3); color: var(--ink-brand); font-family: var(--font-sans); }
 .offer__desc { margin: 0; max-width: 46ch; color: var(--ink); }
-.offer__note { margin: var(--space-10) 0 0; color: var(--ink-brand); }
 
 /* ============ How it works (green) ============ */
 .steps__list {

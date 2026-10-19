@@ -129,7 +129,6 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-        <p className={`t-heading-5 ${styles.offer__note}`}>Fully funded: accommodation, meals and domestic travel are covered.</p>
       </Section>
 
       {/* ============ HOW IT WORKS (green) ============ */}
