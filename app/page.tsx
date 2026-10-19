@@ -1,7 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import DeadlineBand from './components/DeadlineBand';
 import ExponentialChart from './components/ExponentialChart';
+import { ArrowLink, Button, Section, SolverCard, SquareCta, Timeline } from './components/fop';
 import { FACULTY } from './faculty/people';
 import { getLatestCohort } from '@/lib/cohorts';
 import { getFellowCards } from '@/lib/fellows';
@@ -32,195 +31,190 @@ const STEPS = [
 export default function HomePage() {
   const cohort = getCurrentCohort();
   const cta = getApplyCta(cohort);
+  // While applications are live the deadline sits in the hero's meta strip (no separate band).
   const deadline = getDeadlineText(cohort);
   const latest = getLatestCohort();
   const fellows = getFellowCards(latest.year);
 
   return (
     <>
-      {/* ============ HERO ============ */}
-      <section className="hero" data-screen-label="Home Hero">
-        <div className="hero__bg" aria-hidden="true" />
-        <div className="topo-bg" aria-hidden="true" />
-        <div className="hero__body">
-          <div className="hero__lockup">
-            <div className="hero__eyebrow">
-              <span className="line" />
-              <span>For Pakistani social innovators designing for scale</span>
-            </div>
-            <h1 className="hero__title">
-              <span className="stack">Summit</span>
-              <span className="stack">Fellowship</span>
+      {/* ============ HERO (green) ============ */}
+      <section className={styles.hero} data-theme="dark" data-screen-label="Home Hero">
+        <div className={styles.hero__inner}>
+          <div className={styles.hero__copy}>
+            <p className={`t-eyebrow ${styles.hero__eyebrow}`}>For Pakistani social innovators designing for scale</p>
+            <h1 className={`t-heading-xl ${styles.hero__title}`}>
+              <span>Summit</span> <span>Fellowship</span>
             </h1>
-            <p className="hero__sub">
+            <p className={`t-body-light ${styles.hero__lead}`}>
               Curating Pakistan&apos;s finest impact companies and matching them with strategy, mentoring, and capital to scale.
             </p>
-            <div className="hero__cta-row">
-              <Link className="btn btn--ochre" href={cta.href}>
-                {cta.label} <span className="arrow">→</span>
-              </Link>
-            </div>
+            <Button href={cta.href} size="xl" icon>
+              {cta.label}
+            </Button>
+          </div>
+          <div className={styles.hero__media}>
+            <Image
+              src="/images/skardu/Hero Home.jpg"
+              alt="Mountains above the Skardu valley"
+              fill
+              priority
+              sizes="(max-width: 1023px) 100vw, 45vw"
+            />
           </div>
         </div>
-        <div className="hero__meta-strip">
-          <div className="hero__meta-strip-inner">
-            {deadline && (
-              <div className="hero__meta-item">
-                <span className="label">Applications close</span>
-                <div className="value">{deadline}</div>
-              </div>
-            )}
-            <div className="hero__meta-item">
-              <span className="label">Next cohort</span>
-              <div className="value">{displayValue(cohort.retreatDates)}</div>
+        <dl className={styles.hero__meta}>
+          {deadline && (
+            <div className={styles.hero__metaItem}>
+              <dt className="t-stat-caption">Applications close</dt>
+              <dd className={styles.hero__metaValue}>{deadline}</dd>
             </div>
-            <div className="hero__meta-item">
-              <span className="label">Location</span>
-              <div className="value">{displayValue(cohort.location)}</div>
-            </div>
+          )}
+          <div className={styles.hero__metaItem}>
+            <dt className="t-stat-caption">Next cohort</dt>
+            <dd className={styles.hero__metaValue}>{displayValue(cohort.retreatDates)}</dd>
           </div>
-        </div>
+          <div className={styles.hero__metaItem}>
+            <dt className="t-stat-caption">Location</dt>
+            <dd className={styles.hero__metaValue}>{displayValue(cohort.location)}</dd>
+          </div>
+        </dl>
       </section>
 
-      <DeadlineBand />
-
-      {/* ============ WHY ============ */}
-      <section className="whatis section">
-        <div className="topo-bg topo-bg--subtle" aria-hidden="true" />
-        <div className="container">
-          <div className="whatis-block whatis-block--split">
-            <div className="whatis-block__kicker">
-              <div className="eyebrow whatis__label">Why this fellowship</div>
-              <h2 className="whatis-block__heading">Pakistan has extraordinary founders. Scale is the next frontier.</h2>
-            </div>
-            <div className="whatis-block__body">
-              <p className="whatis__body">
-                240 million people. A learning crisis. A hunger crisis. A mental health system that barely exists.
-                A generation of founders has decided not to wait - and they are building real solutions, with real
-                evidence, at real cost. But few reach national scale. Most stay caught in project-driven survival -
-                securing grants, reaching thousands, when their models could reach millions.{' '}
-                <strong className="whatis__emphasis">We are changing that.</strong>
-              </p>
-            </div>
+      {/* ============ WHY (off-white) ============ */}
+      <Section tone="offwhite">
+        <div className={styles.why}>
+          <div className={styles.why__block}>
+            <p className={`t-eyebrow ${styles.eyebrow}`}>Why this fellowship</p>
+            <h2 className={`t-heading-2 ${styles.heading}`}>Pakistan has extraordinary founders. Scale is the next frontier.</h2>
+            <p className={`t-body ${styles.why__body}`}>
+              240 million people. A learning crisis. A hunger crisis. A mental health system that barely exists.
+              A generation of founders has decided not to wait - and they are building real solutions, with real
+              evidence, at real cost. But few reach national scale. Most stay caught in project-driven survival -
+              securing grants, reaching thousands, when their models could reach millions.{' '}
+              <strong className={styles.why__emphasis}>We are changing that.</strong>
+            </p>
           </div>
-          <div className="whatis-block whatis-block--split">
-            <div className="whatis-block__kicker">
-              <div className="eyebrow whatis__label">The Fellowship</div>
-              <h2 className="whatis-block__heading">Seven days to redesign for scale.</h2>
-            </div>
-            <div className="whatis-block__body">
-              <p className="whatis__body">
-                Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan working the
-                Mulago design discipline alongside Pakistani faculty - Big Idea, doer and payer at scale, the Four
-                Enoughs, the Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start
-                of a narrative funders trust.
-              </p>
-            </div>
+          <div className={`${styles.why__block} ${styles['why__block--second']}`}>
+            <p className={`t-eyebrow ${styles.eyebrow}`}>The Fellowship</p>
+            <h2 className={`t-heading-2 ${styles.heading}`}>Seven days to redesign for scale.</h2>
+            <p className={`t-body ${styles.why__body}`}>
+              Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan working the
+              Mulago design discipline alongside Pakistani faculty - Big Idea, doer and payer at scale, the Four
+              Enoughs, the Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start
+              of a narrative funders trust.
+            </p>
           </div>
-          <div className="whatis-block whatis-scale">
-            <div className="whatis-scale__copy">
-              <div className="eyebrow whatis__label">What we mean by scale</div>
-              <p className="whatis__pull">A big idea is one that can scale. Scale means exponential impact.</p>
-              <div className="whatis__stack">
-                <span>From one village to a country.</span>
-                <span>From thousands to millions.</span>
-                <span>From a working pilot to a model the country runs on.</span>
-              </div>
-            </div>
-            <div className="whatis-scale__chart">
-              <ExponentialChart />
-            </div>
+          <div className={styles.why__cta}>
+            <SquareCta href={cta.href}>{cta.label}</SquareCta>
           </div>
         </div>
-      </section>
 
-      {/* ============ WHAT YOU GET ============ */}
-      <section className="section">
-        <div className="container">
-          <div className="eyebrow">What you get</div>
-          <h2 className={styles.home__heading}>A week that changes how you build.</h2>
-          <div className={styles.offer__grid}>
-            {OFFER.map((o) => (
-              <div key={o.title} className={styles.offer__tile}>
-                <h3 className={styles.offer__title}>{o.title}</h3>
-                <p className={styles.offer__desc}>{o.desc}</p>
-              </div>
-            ))}
+        <div className={styles.scale}>
+          <div className={styles.scale__copy}>
+            <p className={`t-eyebrow ${styles.eyebrow}`}>What we mean by scale</p>
+            <p className={styles.scale__pull}>A big idea is one that can scale. Scale means exponential impact.</p>
+            <div className={styles.scale__stack}>
+              <span className="t-body-light">From one village to a country.</span>
+              <span className="t-body-light">From thousands to millions.</span>
+              <span className="t-body-light">From a working pilot to a model the country runs on.</span>
+            </div>
           </div>
-          <p className={styles.offer__note}>Fully funded: accommodation, meals and domestic travel are covered.</p>
+          <div className={styles.scale__chart}>
+            <ExponentialChart />
+          </div>
         </div>
-      </section>
+      </Section>
 
-      {/* ============ HOW IT WORKS ============ */}
-      <section className="section section--paper-warm">
-        <div className="container">
-          <div className="eyebrow">How it works</div>
-          <h2 className={styles.home__heading}>From application to Demo Day.</h2>
-          <ol className={styles.steps__list}>
-            {STEPS.map((s) => (
-              <li key={s.num} className={styles.steps__item}>
-                <span className={styles.steps__num}>{s.num}</span>
-                <h3 className={styles.steps__title}>{s.title}</h3>
-                <p className={styles.steps__desc}>{s.desc}</p>
-              </li>
-            ))}
-          </ol>
-          <Link href="/apply" className="btn btn--ghost">Eligibility and timeline <span className="arrow">→</span></Link>
+      {/* ============ WHAT YOU GET (white) ============ */}
+      <Section tone="white">
+        <p className={`t-eyebrow ${styles.eyebrow}`}>What you get</p>
+        <h2 className={`t-heading-2 ${styles.heading}`}>A week that changes how you build.</h2>
+        <div className={styles.offer__grid}>
+          {OFFER.map((o) => (
+            <div key={o.title} className={styles.offer__tile}>
+              <h3 className={`t-heading-3 ${styles.offer__title}`}>{o.title}</h3>
+              <p className={`t-body ${styles.offer__desc}`}>{o.desc}</p>
+            </div>
+          ))}
         </div>
-      </section>
+        <p className={`t-heading-5 ${styles.offer__note}`}>Fully funded: accommodation, meals and domestic travel are covered.</p>
+      </Section>
 
-      {/* ============ PAST FELLOWS ============ */}
-      <section className="section">
-        <div className="container">
-          <div className="eyebrow">{`Meet the ${latest.year} fellows`}</div>
-          <h2 className={styles.home__heading}>{fellows.length} founders who have done the work.</h2>
-          <ul className={styles.people__grid}>
+      {/* ============ HOW IT WORKS (green) ============ */}
+      <Section tone="green">
+        <p className={`t-eyebrow ${styles.eyebrow}`}>How it works</p>
+        <h2 className={`t-heading-2 ${styles.heading}`}>From application to Demo Day.</h2>
+        <div className={styles.steps__rail}>
+          <Timeline stages={STEPS.map((s) => s.title)} current={-1} label="How it works" />
+        </div>
+        <ol className={styles.steps__list}>
+          {STEPS.map((s) => (
+            <li key={s.num} className={styles.steps__item}>
+              <span className={`t-eyebrow ${styles.steps__num}`}>{s.num}</span>
+              <h3 className={`t-heading-4 ${styles.steps__title}`}>{s.title}</h3>
+              <p className={`t-body-light ${styles.steps__desc}`}>{s.desc}</p>
+            </li>
+          ))}
+        </ol>
+        <ArrowLink href="/apply">Eligibility and timeline</ArrowLink>
+      </Section>
+
+      {/* ============ PAST FELLOWS (yellow) ============ */}
+      <Section tone="yellow">
+        <p className={`t-eyebrow ${styles.eyebrow}`}>{`Meet the ${latest.year} fellows`}</p>
+        <h2 className={`t-heading-2 ${styles.heading}`}>{fellows.length} founders who have done the work.</h2>
+        {/* Grid from 640px; a swipeable row below it (the region is focusable so keyboards can scroll it). */}
+        <div className={styles.fellows__scroller} role="region" aria-label={`The ${latest.year} fellows`} tabIndex={0}>
+          <ul className={styles.fellows__grid}>
             {fellows.map((f) => (
-              <li key={f.slug}>
-                <Link href={`/cohorts/${latest.year}/fellows/${f.slug}`} className={styles.people__item}>
-                  <span className={styles.people__avatar}>
-                    {f.photo_url ? <Image src={f.photo_url} alt="" width={64} height={64} /> : f.init}
-                  </span>
-                  <span className={styles.people__name}>{f.name}</span>
-                  <span className={styles.people__org}>{f.org}</span>
-                </Link>
+              <li key={f.slug} className={styles.fellows__item}>
+                <SolverCard
+                  name={f.name}
+                  description={f.org}
+                  image={f.photo_url}
+                  href={`/cohorts/${latest.year}/fellows/${f.slug}`}
+                  fallback={f.init}
+                />
               </li>
             ))}
           </ul>
-          <Link href={`/cohorts/${latest.year}`} className="btn btn--ghost">The {latest.year} cohort <span className="arrow">→</span></Link>
         </div>
-      </section>
+        <ArrowLink href={`/cohorts/${latest.year}`}>The {latest.year} cohort</ArrowLink>
+      </Section>
 
-      {/* ============ FACULTY ============ */}
-      <section className="section section--paper-warm">
-        <div className="container">
-          <div className="eyebrow">Faculty</div>
-          <h2 className={styles.home__heading}>Taught by people who have scaled.</h2>
-          <ul className={styles.people__grid}>
-            {FACULTY.map((p) => (
-              <li key={p.num} className={styles.people__item}>
-                <span className={styles.people__avatar}>
-                  {p.photo_url ? <Image src={p.photo_url} alt="" width={64} height={64} /> : p.init}
-                </span>
-                <span className={styles.people__name}>{p.name}</span>
-                <span className={styles.people__org}>{p.role}</span>
-              </li>
-            ))}
-          </ul>
-          <Link href="/faculty" className="btn btn--ghost">Faculty &amp; team <span className="arrow">→</span></Link>
-        </div>
-      </section>
+      {/* ============ FACULTY (white) ============ */}
+      <Section tone="white">
+        <p className={`t-eyebrow ${styles.eyebrow}`}>Faculty</p>
+        <h2 className={`t-heading-2 ${styles.heading}`}>Taught by people who have scaled.</h2>
+        <ul className={styles.faculty__grid}>
+          {FACULTY.map((p) => (
+            <li key={p.num} className={styles.faculty__item}>
+              <span className={styles.faculty__photo}>
+                {p.photo_url ? (
+                  <Image src={p.photo_url} alt="" fill sizes="(max-width: 639px) 50vw, 240px" />
+                ) : (
+                  <span className={styles.faculty__fallback} aria-hidden="true">{p.init}</span>
+                )}
+              </span>
+              <span className={`t-heading-5 ${styles.faculty__name}`}>{p.name}</span>
+              <span className={`t-body-sm ${styles.faculty__role}`}>{p.role}</span>
+            </li>
+          ))}
+        </ul>
+        <ArrowLink href="/faculty">Faculty &amp; team</ArrowLink>
+      </Section>
 
-      {/* ============ CLOSING CTA ============ */}
-      <section className={`section section--alpine ${styles.closing}`}>
-        <div className="container container--narrow">
-          <h2 className={styles.closing__title}>Ready to design for scale?</h2>
+      {/* ============ CLOSING CTA (green) ============ */}
+      <Section tone="green">
+        <div className={styles.closing}>
+          <h2 className={`t-heading-1 ${styles.closing__title}`}>Ready to design for scale?</h2>
           <div className={styles.closing__actions}>
-            <Link className="btn btn--ochre" href={cta.href}>{cta.label} <span className="arrow">→</span></Link>
-            <Link className="btn btn--ghost-light" href="/faq">Read the FAQ</Link>
+            <ArrowLink href={cta.href} size="lg">{cta.label}</ArrowLink>
+            <ArrowLink href="/faq" size="lg">Read the FAQ</ArrowLink>
           </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

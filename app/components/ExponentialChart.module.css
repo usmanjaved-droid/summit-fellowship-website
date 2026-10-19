@@ -1,0 +1,50 @@
+/* Hand-drawn exponential chart (Mulago paths). Marks in brand green; text in --ink-brand / --ink-soft. */
+.chart {
+  position: relative;
+  width: 100%;
+  color: var(--ink);
+}
+.chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Grey dashed line: idea → pretty good */
+.dashed {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+.is-visible .dashed { opacity: 1; }
+
+/* Curve + arrow are scroll-linked: stroke-dashoffset is set inline by JS */
+.curve {
+  stroke: var(--brand-green);
+  stroke-linejoin: round;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 58px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.label--brand { fill: var(--ink-brand); }
+.label--soft { fill: var(--ink-soft); }
+.is-visible .label--idea { transition-delay: 0.2s; opacity: 1; }
+.is-visible .label--good { transition-delay: 0.6s; opacity: 1; }
+.is-visible .label--awesome { transition-delay: 1s; opacity: 1; }
+
+@media (max-width: 1023px) {
+  .label { font-size: 44px; }
+}
+@media (max-width: 639px) {
+  .label { font-size: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashed,
+  .label { opacity: 1; transition: none; }
+}
