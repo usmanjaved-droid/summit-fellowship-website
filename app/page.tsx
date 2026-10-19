@@ -20,9 +20,8 @@ const OFFER = [
   { title: 'Demo Day', desc: 'Present your scale blueprint to funders actively investing in Pakistan.' },
 ];
 
-// Homepage people row: the Friends of Pakistan founder, the faculty, and three organisers the owner asked to feature.
+// Homepage faculty row: the faculty plus three organisers the owner asked to feature.
 const HOME_PEOPLE = [
-  ...ORGANIZERS.filter((p) => p.num === 'O.00'),
   ...FACULTY,
   ...ORGANIZERS.filter((p) => ['O.01', 'O.02', 'O.04'].includes(p.num)),
 ];
