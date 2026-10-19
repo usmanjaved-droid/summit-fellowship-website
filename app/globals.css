@@ -640,13 +640,11 @@ h1.page-hero__title {
 /* Gentle movement as you scroll (app/components/ScrollReveal.tsx). Only active once the script adds html.reveal-on. */
 /* --reveal-delay staggers cards in a row; the script sets it per card. */
 :root { --reveal-delay: 0ms; }
-.reveal-on main h2:not(.sr-only):not(.is-revealed),
-.reveal-on main [data-reveal]:not([data-reveal="line"]):not(.is-revealed) {
+.reveal-on main .reveal-pending:not([data-reveal="line"]):not(.is-revealed) {
   opacity: 0;
   translate: 0 16px;
 }
-.reveal-on main h2.is-revealed,
-.reveal-on main [data-reveal].is-revealed {
+.reveal-on main .reveal-pending.is-revealed {
   opacity: 1;
   translate: 0 0;
   transition: opacity 0.5s var(--ease), translate 0.5s var(--ease);
