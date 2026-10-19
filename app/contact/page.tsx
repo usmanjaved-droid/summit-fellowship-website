@@ -100,7 +100,7 @@ export default function ContactPage() {
         </h2>
         <div className={styles.hosts}>
           {HOSTS.map((h) => (
-            <article key={h.name} className={styles.host}>
+            <article key={h.name} className={styles.host} data-reveal>
               <h3 className={`t-heading-3 ${styles.hostName}`}>{h.name}</h3>
               <p className={`t-eyebrow ${styles.hostRole}`}>{h.role}</p>
               <p className={`t-body ${styles.hostDesc}`}>{h.desc}</p>

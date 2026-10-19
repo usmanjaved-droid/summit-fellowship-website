@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Arrow } from '@/app/components/fop';
+import { Arrow, nudgeClass } from '@/app/components/fop';
 import type { Fellow } from '@/lib/fellows';
 import styles from './fellow-detail.module.css';
 
@@ -15,7 +15,7 @@ export function FellowPager({ prev, next, basePath }: FellowPagerProps) {
     <nav className={styles['fellow-pager']} aria-label="More fellows">
       <div className={styles['fellow-pager__inner']}>
         {prev ? (
-          <Link className={styles['fellow-pager__link']} href={`${basePath}/${prev.id}`}>
+          <Link className={`${styles['fellow-pager__link']} ${nudgeClass}`} href={`${basePath}/${prev.id}`}>
             <span className={`t-eyebrow ${styles['fellow-pager__label']}`}>
               <Arrow length={32} direction="left" /> Previous fellow
             </span>
@@ -26,7 +26,7 @@ export function FellowPager({ prev, next, basePath }: FellowPagerProps) {
         )}
         {next && (
           <Link
-            className={`${styles['fellow-pager__link']} ${styles['fellow-pager__link--next']}`}
+            className={`${styles['fellow-pager__link']} ${styles['fellow-pager__link--next']} ${nudgeClass}`}
             href={`${basePath}/${next.id}`}
           >
             <span className={`t-eyebrow ${styles['fellow-pager__label']}`}>

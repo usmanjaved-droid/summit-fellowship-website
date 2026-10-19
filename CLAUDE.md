@@ -119,6 +119,10 @@ The site uses the **Friends of Pakistan design system** (restyle of 2026-10-19, 
 
 ### Shape, motion, rhythm
 
+- **Scroll reveal:** `app/components/ScrollReveal.tsx` (mounted in the layout) fades and lifts every `main h2` and anything marked `data-reveal` as it scrolls into view; `data-reveal="line"` draws the homepage timeline. Content is never hidden without JavaScript, and nothing moves under `prefers-reduced-motion`. Do not put `data-reveal` on elements a client component re-renders (e.g. the filtered fellows grid).
+- **Arrow nudge:** `<Arrow />` arrows nudge via `nudgeClass` (from `app/components/fop`; built into `ArrowLink`, `SquareCta`, `Button icon`); text arrows use `<span className="nudge-arrow">→</span>`.
+- **Link previews:** `app/opengraph-image.tsx` (site card) and `app/cohorts/2026/fellows/[slug]/opengraph-image.tsx` (fellow card) render 1200×630 images with the brand fonts in `app/_og/` and colours from `lib/og.ts` (read from tokens.json); `metadataBase` comes from `siteUrl()` in `lib/env.ts`.
+
 - Square corners everywhere (`--radius-none`) except radios and timeline dots. One shadow, `--shadow-3xl`. Borders: 1px controls, 2px checkboxes and radios, 4px yellow caption rule.
 - Colour transitions are 150ms `var(--ease)`; `prefers-reduced-motion` is respected.
 - **Bands:** full-width alternating bands in a 1440px container (`--container-max`) with 32px side padding (`--container-pad`). Off-white, white and yellow bands pad 64px (32px under 1024px); green bands pad 144px (96px under 1024px). Two yellow bands are never adjacent.

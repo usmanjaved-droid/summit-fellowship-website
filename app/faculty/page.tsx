@@ -11,7 +11,7 @@ export const metadata = {
 
 function PersonCard({ p }: { p: Person }) {
   return (
-    <article className={styles.person}>
+    <article className={styles.person} data-reveal>
       <div className={styles.person__photoCol}>
         {p.photo_url ? (
           <Image
@@ -40,7 +40,9 @@ function PersonCard({ p }: { p: Person }) {
         <p className={`t-body-sm ${styles.person__text}`}>{p.relevance}</p>
         <div className={styles.person__links}>
           {p.links.map((l) => (
-            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="t-eyebrow">{l.label}</a>
+            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="t-eyebrow">
+              {l.label.replace(/\s*→$/, '')} <span className="nudge-arrow" aria-hidden="true">→</span>
+            </a>
           ))}
         </div>
       </div>

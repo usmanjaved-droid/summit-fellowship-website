@@ -45,7 +45,7 @@ function ConceptList({ items }: { items: Concept[] }) {
   return (
     <ul className={styles.concepts}>
       {items.map((c) => (
-        <li key={c.num} className={styles.concept}>
+        <li key={c.num} className={styles.concept} data-reveal>
           <span className={`t-eyebrow ${styles.conceptNum}`}>{c.num}</span>
           <div>
             <h4 className={`t-heading-5 ${styles.conceptTitle}`}>{c.title}</h4>

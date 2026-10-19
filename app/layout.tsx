@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { Crimson_Pro, Source_Sans_3 } from 'next/font/google';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollReveal from './components/ScrollReveal';
 import StagingBanner from './components/StagingBanner';
-import { isProductionDeploy } from '@/lib/env';
+import { isProductionDeploy, siteUrl } from '@/lib/env';
 import './globals.css';
 
 const crimsonPro = Crimson_Pro({
@@ -28,6 +29,10 @@ export const metadata: Metadata = {
   description:
     "A seven-day intensive for Pakistan's most promising social enterprises, matching founders with strategy, mentoring and capital to scale.",
   robots: isProductionDeploy() ? undefined : { index: false, follow: false },
+  // Link previews (WhatsApp, LinkedIn, X): the preview images come from the opengraph-image files.
+  metadataBase: new URL(siteUrl()),
+  openGraph: { siteName: 'Friends of Pakistan Fellowship', type: 'website', locale: 'en_GB' },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({
@@ -45,6 +50,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <ScrollReveal />
       </body>
     </html>
   );

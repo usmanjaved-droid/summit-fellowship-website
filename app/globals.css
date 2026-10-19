@@ -394,6 +394,10 @@ p { text-wrap: pretty; margin: 0; }
 .btn--ghost { background: var(--white); color: var(--gray-800); border-color: var(--line); }
 .btn--ghost:hover { background: var(--gray-50); color: var(--gray-900); }
 .btn .arrow { display: inline-block; transition: translate .15s cubic-bezier(.4, 0, 1, 1); }
+/* Text arrows ("→") inside links and buttons nudge right on hover and keyboard focus, like the <Arrow /> ones. */
+.nudge-arrow { display: inline-block; transition: translate .15s cubic-bezier(.4, 0, 1, 1); }
+a:hover .nudge-arrow, a:focus-visible .nudge-arrow,
+button:hover .nudge-arrow, button:focus-visible .nudge-arrow { translate: 4px 0; }
 .btn:hover .arrow { translate: 8px 0; }
 
 /* === Tags (badges on the week timeline) === */
@@ -589,6 +593,8 @@ h1.page-hero__title {
     scroll-behavior: auto !important;
   }
   .btn:hover .arrow { translate: none; }
+  a:hover .nudge-arrow, a:focus-visible .nudge-arrow,
+  button:hover .nudge-arrow, button:focus-visible .nudge-arrow { translate: none; }
   .tl-row:hover .tl-dot { transform: none; }
 }
 
@@ -601,3 +607,19 @@ h1.page-hero__title {
   margin-top: var(--space-6);
 }
 
+
+/* Gentle movement as you scroll (app/components/ScrollReveal.tsx). Only active once the script adds html.reveal-on. */
+/* --reveal-delay staggers cards in a row; the script sets it per card. */
+:root { --reveal-delay: 0ms; }
+.reveal-on main h2:not(.sr-only):not(.is-revealed),
+.reveal-on main [data-reveal]:not([data-reveal="line"]):not(.is-revealed) {
+  opacity: 0;
+  translate: 0 16px;
+}
+.reveal-on main h2.is-revealed,
+.reveal-on main [data-reveal].is-revealed {
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity 0.5s var(--ease), translate 0.5s var(--ease);
+  transition-delay: var(--reveal-delay);
+}

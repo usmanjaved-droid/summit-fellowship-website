@@ -67,7 +67,7 @@ export default function FellowsBits({ fellows, basePath }: { fellows: FellowCard
                   <span className={`t-card-body ${styles['fellow-card__model']}`}>
                     {shorten(f.summary, 140)}
                   </span>
-                  <span className={`t-eyebrow ${styles['fellow-card__expand']}`}>Read full profile →</span>
+                  <span className={`t-eyebrow ${styles['fellow-card__expand']}`}>Read full profile <span className="nudge-arrow" aria-hidden="true">→</span></span>
                 </Link>
               </li>
             ))}

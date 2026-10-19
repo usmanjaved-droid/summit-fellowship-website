@@ -22,7 +22,7 @@ export default function CohortsPage() {
       <Section tone="offwhite">
         <div className={styles.list}>
           {getCohorts().map((c) => (
-            <article key={c.year} className={`${styles.card} ${c.image ? styles['card--photo'] : ''}`}>
+            <article key={c.year} className={`${styles.card} ${c.image ? styles['card--photo'] : ''}`} data-reveal>
               {c.image && (
                 <div className={styles.photo}>
                   <Image src={c.image} alt={`${c.venue}, ${c.location}`} fill sizes="(max-width: 1023px) 100vw, 50vw" />

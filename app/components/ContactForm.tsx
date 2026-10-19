@@ -55,7 +55,7 @@ export default function ContactForm({ contactEmail }: { contactEmail: string }) 
         <label htmlFor="cmsg">Your message</label>
         <textarea id="cmsg" name="message" rows={4} required />
       </div>
-      <button type="submit" className="btn btn--ochre form-submit">Send note →</button>
+      <button type="submit" className="btn btn--ochre form-submit">Send note <span className="nudge-arrow" aria-hidden="true">→</span></button>
       <div className="form-status" aria-live="polite">
         {submitted && `✓ Your email app should now be open with your message ready to send to ${contactEmail}.`}
       </div>

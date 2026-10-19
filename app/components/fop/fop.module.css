@@ -44,6 +44,11 @@
 .fop-nudge:focus-visible .fop-arrow {
   translate: 8px 0;
 }
+/* A left-pointing arrow nudges left (back / previous). */
+.fop-nudge:hover .fop-arrow--left,
+.fop-nudge:focus-visible .fop-arrow--left {
+  translate: -8px 0;
+}
 
 /* Button */
 .fop-btn {
@@ -257,6 +262,15 @@
   height: 2px;
   translate: 0 -50%;
   background: var(--gray-50);
+}
+/* Scroll reveal (app/components/ScrollReveal.tsx): inside data-reveal="line", the line draws left to right. */
+:global(.reveal-on) [data-reveal='line'] .fop-timeline::before {
+  scale: 0 1;
+  transform-origin: left center;
+}
+:global(.reveal-on) [data-reveal='line']:global(.is-revealed) .fop-timeline::before {
+  scale: 1 1;
+  transition: scale 1.1s var(--ease);
 }
 .fop-timeline__dot {
   position: relative;

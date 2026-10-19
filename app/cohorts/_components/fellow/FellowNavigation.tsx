@@ -1,4 +1,4 @@
-import { Arrow, Button } from '@/app/components/fop';
+import { Arrow, Button, nudgeClass } from '@/app/components/fop';
 import styles from './fellow-detail.module.css';
 
 type FellowNavigationProps = {
@@ -13,7 +13,7 @@ export function FellowNavigation({ backHref, year }: FellowNavigationProps) {
         href={backHref}
         variant="white"
         size="sm"
-        className={styles['fellow-navigation__close']}
+        className={`${styles['fellow-navigation__close']} ${nudgeClass}`}
         aria-label={`Back to all ${year} fellows`}
       >
         <Arrow length={32} direction="left" />

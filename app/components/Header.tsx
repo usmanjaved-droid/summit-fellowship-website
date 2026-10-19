@@ -51,7 +51,7 @@ export default function Header() {
         </nav>
         <div className="site-header__cta">
           <Button href="/apply" size="md" onClick={closeAllMenus}>
-            Apply →
+            Apply <span className="nudge-arrow" aria-hidden="true">→</span>
           </Button>
         </div>
         <button

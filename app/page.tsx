@@ -146,7 +146,7 @@ export default function HomePage() {
         <h2 className={`t-heading-2 ${styles.heading}`}>A week that changes how you build.</h2>
         <div className={styles.offer__grid}>
           {OFFER.map((o) => (
-            <div key={o.title} className={styles.offer__tile}>
+            <div key={o.title} className={styles.offer__tile} data-reveal>
               <h3 className={`t-heading-3 ${styles.offer__title}`}>{o.title}</h3>
               <p className={`t-body ${styles.offer__desc}`}>{o.desc}</p>
             </div>
@@ -158,12 +158,12 @@ export default function HomePage() {
       <Section tone="green">
         <p className={`t-eyebrow ${styles.eyebrow}`}>How it works</p>
         <h2 className={`t-heading-2 ${styles.heading}`}>From application to Demo Day.</h2>
-        <div className={styles.steps__rail}>
+        <div className={styles.steps__rail} data-reveal="line">
           <Timeline stages={STEPS.map((s) => s.title)} current={-1} label="How it works" />
         </div>
         <ol className={styles.steps__list}>
           {STEPS.map((s) => (
-            <li key={s.num} className={styles.steps__item}>
+            <li key={s.num} className={styles.steps__item} data-reveal>
               <span className={`t-eyebrow ${styles.steps__num}`}>{s.num}</span>
               <h3 className={`t-heading-5 ${styles.steps__title}`}>{s.title}</h3>
               <p className={`t-body-light ${styles.steps__desc}`}>{s.desc}</p>
@@ -179,7 +179,7 @@ export default function HomePage() {
         <h2 className={`t-heading-2 ${styles.heading}`}>{fellows.length} founders who have done the work.</h2>
         <ul className={styles.people__grid}>
           {fellows.map((f) => (
-            <li key={f.slug}>
+            <li key={f.slug} data-reveal>
               <div className={styles.people__item}>
                 <span className={styles.people__avatar}>
                   {f.photo_url ? <Image src={f.photo_url} alt="" width={116} height={116} /> : f.init}
@@ -199,7 +199,7 @@ export default function HomePage() {
         <h2 className={`t-heading-2 ${styles.heading}`}>Organised and taught by people who have scaled.</h2>
         <ul className={styles.faculty__grid}>
           {HOME_PEOPLE.map((p) => (
-            <li key={p.num} className={styles.faculty__item}>
+            <li key={p.num} className={styles.faculty__item} data-reveal>
               <span className={styles.faculty__photo}>
                 {p.photo_url ? (
                   <Image src={p.photo_url} alt="" fill sizes="(max-width: 639px) 50vw, 240px" />
