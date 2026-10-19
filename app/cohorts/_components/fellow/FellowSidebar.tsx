@@ -41,6 +41,11 @@ export function FellowSidebar({ fellow }: FellowSidebarProps) {
               Website
             </a>
           )}
+          {fellow.deck_url && (
+            <a href={fellow.deck_url} target="_blank" rel="noopener noreferrer" className={`t-link-arrow ${styles['fellow-sidebar__link']}`}>
+              Deck
+            </a>
+          )}
         </div>
       </div>
     </aside>

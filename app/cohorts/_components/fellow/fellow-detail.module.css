@@ -255,3 +255,45 @@ a.fellow-pager__link:focus-visible { outline: var(--border-2) solid var(--focus)
   .fellow-pager__inner { padding: var(--space-8) var(--space-4); gap: var(--space-4); }
   .fellow-pager__name { font-size: 20px; }
 }
+
+/* ===== 8. Pitch video, impact at scale, results ===== */
+.fellow-pitch { margin-bottom: var(--space-16); }
+h2.fellow-pitch__heading { margin: 0 0 var(--space-6); font-size: clamp(36px, 4.2vw, 55px); }
+.fellow-pitch__video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--black);
+}
+.fellow-pitch__video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.fellow-pitch__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-10);
+  margin-top: var(--space-6);
+}
+
+.fellow-scale__intro { color: var(--ink-soft); }
+/* Doubled class: beats the Prose list styles (bullets, indent) this list sits inside. */
+.fellow-scale__list.fellow-scale__list { list-style: none; margin: var(--space-6) 0 0; padding: 0; }
+.fellow-scale__item.fellow-scale__item { margin: 0; padding: var(--space-5) 0; border-top: var(--border-1) solid var(--line); }
+.fellow-scale__item:first-child { padding-top: 0; border-top: 0; }
+h3.fellow-scale__title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--ink-brand);
+}
+.fellow-scale__lead { font-weight: 400; color: var(--ink-soft); }
+.fellow-scale__item p { margin: 0; }
+
+@media (max-width: 640px) {
+  .fellow-pitch { margin-bottom: var(--space-10); }
+}
