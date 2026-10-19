@@ -10,7 +10,7 @@ export default function VenuePage() {
   return (
     <>
       {/* Hero */}
-      <section className={`page-hero ${styles.pageHero}`} style={{ backgroundImage: 'linear-gradient(to right, rgba(10, 15, 20, 0.7) 0%, rgba(10, 15, 20, 0.4) 50%, rgba(10, 15, 20, 0) 100%), url(/images/venue/Khoj%20Resort%20main%20page.jpg)' }} data-screen-label="Venue Hero">
+      <section className={`page-hero ${styles.pageHero}`} data-theme="dark" style={{ backgroundImage: 'linear-gradient(to right, var(--scrim-image) 0%, var(--scrim-header) 60%, var(--scrim-card) 100%), url(/images/venue/Khoj%20Resort%20main%20page.jpg)' }} data-screen-label="Venue Hero">
         <div className={`topo-bg topo-bg--on-dark ${styles.topoBg}`} aria-hidden="true"></div>
         <div className="container">
           <div className="page-hero__crumbs">
@@ -22,7 +22,7 @@ export default function VenuePage() {
             <span>/</span>
             <span>Venue</span>
           </div>
-          <h1 className="page-hero__title">Khoj Resort, <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>Skardu.</em></h1>
+          <h1 className="page-hero__title">Khoj Resort, <em style={{ color: 'var(--primary)', fontStyle: 'italic' }}>Skardu.</em></h1>
           <p className="page-hero__subtitle">Tucked into the Shigar valley with the Karakoram rising on every side. Deliberate retreat from city noise, signal, and obligation.</p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function VenuePage() {
 
           <div className={styles.fgGrid}>
             {/* 01 · Weather (featured) */}
-            <article className={`${styles.fgCard} ${styles.fgCardFeature}`} id="fg-weather">
+            <article className={`${styles.fgCard} ${styles.fgCardFeature}`} id="fg-weather" data-theme="dark">
               <div className="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
               <div className={styles.fgCardNum}>No. 01 · Weather in June</div>
               <h3 className={styles.fgCardTitle}>Warm sun, cool nights, clear sky.</h3>
@@ -128,23 +128,23 @@ export default function VenuePage() {
 
               <div className={styles.roomsDiagram} aria-hidden="true">
                 <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M 20 60 L 100 15 L 180 60 L 180 145 L 20 145 Z" fill="none" stroke="#142734" strokeWidth="1.5"/>
-                  <line x1="20" y1="85" x2="180" y2="85" stroke="#142734" strokeWidth="1" strokeDasharray="3 3"/>
-                  <rect x="38" y="68" width="46" height="14" fill="#d4a574" opacity="0.85"/>
-                  <rect x="116" y="68" width="46" height="14" fill="#d4a574" opacity="0.85"/>
-                  <text x="61" y="63" fontFamily="JetBrains Mono" fontSize="6" fill="#142734" textAnchor="middle" letterSpacing="1">LOFT 1</text>
-                  <text x="139" y="63" fontFamily="JetBrains Mono" fontSize="6" fill="#142734" textAnchor="middle" letterSpacing="1">LOFT 2</text>
-                  <line x1="100" y1="85" x2="100" y2="130" stroke="#8a4a3b" strokeWidth="1"/>
-                  <line x1="96" y1="92" x2="104" y2="92" stroke="#8a4a3b" strokeWidth="1"/>
-                  <line x1="96" y1="104" x2="104" y2="104" stroke="#8a4a3b" strokeWidth="1"/>
-                  <line x1="96" y1="116" x2="104" y2="116" stroke="#8a4a3b" strokeWidth="1"/>
-                  <rect x="35" y="120" width="55" height="16" fill="#8a4a3b" opacity="0.9"/>
-                  <text x="62" y="116" fontFamily="JetBrains Mono" fontSize="6" fill="#142734" textAnchor="middle" letterSpacing="1">GROUND</text>
-                  <rect x="140" y="118" width="20" height="27" fill="none" stroke="#142734" strokeWidth="1"/>
-                  <circle cx="156" cy="132" r="0.8" fill="#142734"/>
-                  <rect x="120" y="95" width="14" height="14" fill="none" stroke="#142734" strokeWidth="0.8"/>
-                  <line x1="127" y1="95" x2="127" y2="109" stroke="#142734" strokeWidth="0.5"/>
-                  <line x1="120" y1="102" x2="134" y2="102" stroke="#142734" strokeWidth="0.5"/>
+                  <path d="M 20 60 L 100 15 L 180 60 L 180 145 L 20 145 Z" fill="none" stroke="var(--brand-green-deep)" strokeWidth="1.5"/>
+                  <line x1="20" y1="85" x2="180" y2="85" stroke="var(--brand-green-deep)" strokeWidth="1" strokeDasharray="3 3"/>
+                  <rect x="38" y="68" width="46" height="14" fill="var(--primary)" opacity="0.85"/>
+                  <rect x="116" y="68" width="46" height="14" fill="var(--primary)" opacity="0.85"/>
+                  <text x="61" y="63" fontFamily="var(--font-sans)" fontSize="6" fill="var(--brand-green-deep)" textAnchor="middle" letterSpacing="1">LOFT 1</text>
+                  <text x="139" y="63" fontFamily="var(--font-sans)" fontSize="6" fill="var(--brand-green-deep)" textAnchor="middle" letterSpacing="1">LOFT 2</text>
+                  <line x1="100" y1="85" x2="100" y2="130" stroke="var(--brand-green)" strokeWidth="1"/>
+                  <line x1="96" y1="92" x2="104" y2="92" stroke="var(--brand-green)" strokeWidth="1"/>
+                  <line x1="96" y1="104" x2="104" y2="104" stroke="var(--brand-green)" strokeWidth="1"/>
+                  <line x1="96" y1="116" x2="104" y2="116" stroke="var(--brand-green)" strokeWidth="1"/>
+                  <rect x="35" y="120" width="55" height="16" fill="var(--brand-green)" opacity="0.9"/>
+                  <text x="62" y="116" fontFamily="var(--font-sans)" fontSize="6" fill="var(--brand-green-deep)" textAnchor="middle" letterSpacing="1">GROUND</text>
+                  <rect x="140" y="118" width="20" height="27" fill="none" stroke="var(--brand-green-deep)" strokeWidth="1"/>
+                  <circle cx="156" cy="132" r="0.8" fill="var(--brand-green-deep)"/>
+                  <rect x="120" y="95" width="14" height="14" fill="none" stroke="var(--brand-green-deep)" strokeWidth="0.8"/>
+                  <line x1="127" y1="95" x2="127" y2="109" stroke="var(--brand-green-deep)" strokeWidth="0.5"/>
+                  <line x1="120" y1="102" x2="134" y2="102" stroke="var(--brand-green-deep)" strokeWidth="0.5"/>
                 </svg>
               </div>
 
@@ -231,9 +231,9 @@ export default function VenuePage() {
             {/* 06 · Packing */}
             <article className={`${styles.fgCard} ${styles.fgCardPacking}`} id="fg-packing">
               <div className={styles.fgCardNum}>No. 06 · Packing list</div>
-              <h3 className={styles.fgCardTitle}>What to throw in <em style={{ fontStyle: 'italic', color: 'var(--clay)' }}>the bag.</em></h3>
+              <h3 className={styles.fgCardTitle}>What to throw in <em style={{ fontStyle: 'italic', color: 'var(--ink-brand)' }}>the bag.</em></h3>
               <div className={styles.fgCardBody} style={{ maxWidth: '60ch' }}>
-                <p>Pack for the weather in <a href="#fg-weather" style={{ color: 'var(--clay)', textDecoration: 'underline', textDecorationThickness: 1, textUnderlineOffset: 3 }}>Section 01</a>. Days are warm, evenings get chilly — at least one warm layer is non-negotiable. Sun protection during the day is the other non-negotiable.</p>
+                <p>Pack for the weather in <a href="#fg-weather" style={{ color: 'var(--link)', textDecoration: 'underline', textDecorationThickness: 1, textUnderlineOffset: 3 }}>Section 01</a>. Days are warm, evenings get chilly — at least one warm layer is non-negotiable. Sun protection during the day is the other non-negotiable.</p>
               </div>
 
               <div className={styles.packingGrid}>
@@ -284,7 +284,7 @@ export default function VenuePage() {
         <div className="container">
           <div className={styles.culturalEveningGrid}>
             <div className={styles.culturalEveningCopy}>
-              <div style={{ borderLeft: '4px solid var(--clay)', paddingLeft: '32px' }}>
+              <div style={{ borderLeft: '4px solid var(--brand-green)', paddingLeft: '32px' }}>
                 <h2 className={styles.culturalEveningTitle}>
                   Cultural Evening
                 </h2>
@@ -311,7 +311,7 @@ export default function VenuePage() {
       </section>
 
       {/* Map */}
-      <section className={styles.mapSection}>
+      <section className={styles.mapSection} data-theme="dark">
         <div className={`topo-bg topo-bg--on-dark ${styles.topoBg}`} aria-hidden="true"></div>
         <div className="container">
           <div className={styles.mapSectionHead}>
@@ -326,17 +326,17 @@ export default function VenuePage() {
             <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#0a1820"/>
-                  <stop offset="100%" stopColor="#142734"/>
+                  <stop offset="0%" stopColor="var(--brand-green-deep)"/>
+                  <stop offset="100%" stopColor="var(--brand-green-deep)"/>
                 </linearGradient>
                 <radialGradient id="khojGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#d4a574" stopOpacity="0.4"/>
-                  <stop offset="100%" stopColor="#d4a574" stopOpacity="0"/>
+                  <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.4"/>
+                  <stop offset="100%" stopColor="var(--primary)" stopOpacity="0"/>
                 </radialGradient>
               </defs>
               <rect width="1600" height="900" fill="url(#sky)"/>
 
-              <g fill="none" stroke="#2a4254" strokeWidth="0.8" opacity="0.7">
+              <g fill="none" stroke="var(--brand-green)" strokeWidth="0.8" opacity="0.7">
                 <path d="M 100 200 C 300 140, 600 160, 900 100 C 1100 80, 1300 120, 1500 80"/>
                 <path d="M 100 240 C 300 180, 600 200, 900 140 C 1100 120, 1300 160, 1500 120"/>
                 <path d="M 50 320 C 250 260, 550 290, 850 230 C 1080 210, 1280 250, 1480 210"/>
@@ -348,78 +348,78 @@ export default function VenuePage() {
               </g>
 
               <g opacity="0.35">
-                <polygon points="0,500 200,200 320,360 460,180 620,440 760,250 900,500" fill="#2a4254"/>
-                <polygon points="800,500 920,260 1020,400 1160,180 1320,340 1450,200 1600,500" fill="#1a2e3b"/>
+                <polygon points="0,500 200,200 320,360 460,180 620,440 760,250 900,500" fill="var(--brand-green)"/>
+                <polygon points="800,500 920,260 1020,400 1160,180 1320,340 1450,200 1600,500" fill="var(--charcoal)"/>
               </g>
 
-              <path className={styles.mapDash} d="M 0 580 C 200 560, 400 600, 600 580 C 800 560, 1000 600, 1200 580 C 1400 560, 1600 590, 1600 590" fill="none" stroke="#5b8baf" strokeWidth="3" strokeOpacity="0.6"/>
+              <path className={styles.mapDash} d="M 0 580 C 200 560, 400 600, 600 580 C 800 560, 1000 600, 1200 580 C 1400 560, 1600 590, 1600 590" fill="none" stroke="var(--white)" strokeWidth="3" strokeOpacity="0.6"/>
               <text x="20" y="630" className={styles.mapLabel} style={{ fontSize: 11 }}>Shigar River →</text>
 
-              <path className={styles.mapDash} d="M 750 580 Q 900 520, 1080 480" fill="none" stroke="#d4a574" strokeWidth="2" strokeOpacity="0.8"/>
-              <path className={styles.mapDash} d="M 750 580 Q 600 620, 420 660" fill="none" stroke="#d4a574" strokeWidth="2" strokeOpacity="0.8"/>
+              <path className={styles.mapDash} d="M 750 580 Q 900 520, 1080 480" fill="none" stroke="var(--primary)" strokeWidth="2" strokeOpacity="0.8"/>
+              <path className={styles.mapDash} d="M 750 580 Q 600 620, 420 660" fill="none" stroke="var(--primary)" strokeWidth="2" strokeOpacity="0.8"/>
 
               <g transform="translate(750, 580)">
                 <circle r="60" fill="url(#khojGlow)"/>
-                <circle className={styles.mapPulse} r="6" fill="#d4a574" stroke="#d4a574" strokeWidth="2"/>
-                <circle r="8" fill="#d4a574" stroke="#0a1820" strokeWidth="2"/>
+                <circle className={styles.mapPulse} r="6" fill="var(--primary)" stroke="var(--primary)" strokeWidth="2"/>
+                <circle r="8" fill="var(--primary)" stroke="var(--brand-green-deep)" strokeWidth="2"/>
                 <text x="16" y="6" className={`${styles.mapLabel} ${styles.mapLabelLg}`}>Khoj Resort</text>
                 <text x="16" y="26" className={styles.mapLabel}>★ Basecamp · 2,228 m</text>
               </g>
 
               <g transform="translate(1080, 480)">
                 <circle r="40" fill="url(#khojGlow)" opacity="0.5"/>
-                <circle r="6" fill="#142734" stroke="#d4a574" strokeWidth="2"/>
+                <circle r="6" fill="var(--brand-green-deep)" stroke="var(--primary)" strokeWidth="2"/>
                 <text x="14" y="2" className={`${styles.mapLabel} ${styles.mapLabelOchre}`}>Shigar Fort</text>
                 <text x="14" y="20" className={styles.mapLabel} style={{ opacity: 0.7 }}>Day 02 · Lightning Talks</text>
               </g>
 
               <g transform="translate(420, 660)">
                 <circle r="40" fill="url(#khojGlow)" opacity="0.5"/>
-                <circle r="6" fill="#142734" stroke="#d4a574" strokeWidth="2"/>
+                <circle r="6" fill="var(--brand-green-deep)" stroke="var(--primary)" strokeWidth="2"/>
                 <text x="-110" y="2" className={`${styles.mapLabel} ${styles.mapLabelOchre}`} textAnchor="start">Skardu Bazar</text>
                 <text x="-200" y="20" className={styles.mapLabel} style={{ opacity: 0.7 }}>Day 03 · Evening</text>
               </g>
 
               <g transform="translate(1300, 200)">
-                <circle r="5" fill="#8a4a3b"/>
-                <text x="12" y="4" className={styles.mapLabel} fill="#d4a574">K2 · ~150 km NE</text>
+                <circle r="5" fill="var(--white)"/>
+                <text x="12" y="4" className={styles.mapLabel} fill="var(--primary)">K2 · ~150 km NE</text>
                 <text x="12" y="22" className={styles.mapLabel} style={{ opacity: 0.6 }}>Karakoram Range</text>
               </g>
 
               <g transform="translate(220, 540)">
-                <circle r="5" fill="#8a4a3b"/>
-                <text x="-8" y="-12" className={styles.mapLabel} fill="#d4a574" textAnchor="end">Skardu Intl. Airport</text>
+                <circle r="5" fill="var(--white)"/>
+                <text x="-8" y="-12" className={styles.mapLabel} fill="var(--primary)" textAnchor="end">Skardu Intl. Airport</text>
                 <text x="-8" y="6" className={styles.mapLabel} style={{ opacity: 0.6 }} textAnchor="end">~30 min drive →</text>
               </g>
 
               <g transform="translate(900, 700)">
-                <circle r="4" fill="#142734" stroke="#d4a574" strokeWidth="2"/>
+                <circle r="4" fill="var(--brand-green-deep)" stroke="var(--primary)" strokeWidth="2"/>
                 <text x="12" y="4" className={`${styles.mapLabel} ${styles.mapLabelOchre}`}>Local Family Home</text>
                 <text x="12" y="22" className={styles.mapLabel} style={{ opacity: 0.7 }}>Day 03 · Dinner</text>
               </g>
 
-              <g transform="translate(1480, 80)" fill="#a39888">
-                <line x1="0" y1="-30" x2="0" y2="30" stroke="#a39888" strokeWidth="0.6"/>
-                <line x1="-30" y1="0" x2="30" y2="0" stroke="#a39888" strokeWidth="0.6"/>
-                <text x="0" y="-36" textAnchor="middle" fontSize="11" fill="#d4a574">N</text>
+              <g transform="translate(1480, 80)" fill="var(--gray-400)">
+                <line x1="0" y1="-30" x2="0" y2="30" stroke="var(--gray-400)" strokeWidth="0.6"/>
+                <line x1="-30" y1="0" x2="30" y2="0" stroke="var(--gray-400)" strokeWidth="0.6"/>
+                <text x="0" y="-36" textAnchor="middle" fontSize="11" fill="var(--primary)">N</text>
                 <text x="0" y="46" textAnchor="middle" fontSize="9">S</text>
                 <text x="40" y="4" fontSize="9">E</text>
                 <text x="-40" y="4" textAnchor="end" fontSize="9">W</text>
               </g>
 
               <g transform="translate(60, 820)">
-                <line x1="0" y1="0" x2="120" y2="0" stroke="#a39888" strokeWidth="1.5"/>
-                <line x1="0" y1="-4" x2="0" y2="4" stroke="#a39888" strokeWidth="1.5"/>
-                <line x1="60" y1="-4" x2="60" y2="4" stroke="#a39888" strokeWidth="1.5"/>
-                <line x1="120" y1="-4" x2="120" y2="4" stroke="#a39888" strokeWidth="1.5"/>
-                <text x="0" y="22" fontSize="9" fill="#a39888">0</text>
-                <text x="60" y="22" fontSize="9" fill="#a39888" textAnchor="middle">2.5 km</text>
-                <text x="120" y="22" fontSize="9" fill="#a39888" textAnchor="middle">5 km</text>
+                <line x1="0" y1="0" x2="120" y2="0" stroke="var(--gray-400)" strokeWidth="1.5"/>
+                <line x1="0" y1="-4" x2="0" y2="4" stroke="var(--gray-400)" strokeWidth="1.5"/>
+                <line x1="60" y1="-4" x2="60" y2="4" stroke="var(--gray-400)" strokeWidth="1.5"/>
+                <line x1="120" y1="-4" x2="120" y2="4" stroke="var(--gray-400)" strokeWidth="1.5"/>
+                <text x="0" y="22" fontSize="9" fill="var(--gray-400)">0</text>
+                <text x="60" y="22" fontSize="9" fill="var(--gray-400)" textAnchor="middle">2.5 km</text>
+                <text x="120" y="22" fontSize="9" fill="var(--gray-400)" textAnchor="middle">5 km</text>
               </g>
 
               <g transform="translate(60, 60)">
-                <text fontFamily="Instrument Serif" fontSize="32" fill="#f5efe3">Shigar Valley</text>
-                <text y="24" fontFamily="JetBrains Mono" fontSize="10" fill="#d4a574" letterSpacing="2">SUMMIT FELLOWSHIP · 2026</text>
+                <text fontFamily="var(--font-serif)" fontSize="32" fill="var(--white)">Shigar Valley</text>
+                <text y="24" fontFamily="var(--font-sans)" fontSize="10" fill="var(--primary)" letterSpacing="2">SUMMIT FELLOWSHIP · 2026</text>
               </g>
             </svg>
           </div>

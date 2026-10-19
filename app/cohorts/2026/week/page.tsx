@@ -156,12 +156,12 @@ const DAYS: Day[] = [
 export default function ItineraryPage() {
   return (
     <>
-      <section className="page-hero" data-screen-label="Itinerary Hero" style={{ padding: '100px 0 60px' }}>
+      <section className="page-hero" data-theme="dark" data-screen-label="Itinerary Hero" style={{ padding: '100px 0 60px' }}>
         <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
         <div className="container page-hero__inner">
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><Link href="/cohorts">Cohorts</Link><span>/</span><Link href="/cohorts/2026">2026</Link><span>/</span><span>The Week</span></div>
           <h1 className="page-hero__title" style={{ fontSize: 'clamp(48px, 7vw, 110px)', maxWidth: '22ch' }}>
-            The seven-day <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>expedition.</em>
+            The seven-day <em style={{ color: 'var(--primary)', fontStyle: 'italic' }}>expedition.</em>
           </h1>
           <p className="page-hero__subtitle">Click any day to expand its full hour-by-hour schedule. Times are local (PKT, UTC+5) and approximate — faculty may adjust on the ground.</p>
         </div>

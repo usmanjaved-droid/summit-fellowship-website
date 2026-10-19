@@ -7,8 +7,8 @@
    ========================================== */
 .hero {
   position: relative;
-  background: var(--alpine-deep);
-  color: var(--parchment);
+  background: var(--brand-green-deep);
+  color: var(--white);
   padding: 120px 0 80px;
   overflow: hidden;
 }
@@ -21,7 +21,7 @@
   height: 100%;
   background: radial-gradient(
     ellipse at 100% 50%,
-    rgba(212, 165, 116, 0.08) 0%,
+    var(--scrim-card) 0%,
     transparent 70%
   );
 }
@@ -30,16 +30,16 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ochre);
+  color: var(--primary);
   margin-bottom: 40px;
 }
 
 .breadcrumbs a {
-  color: var(--ochre);
+  color: var(--primary);
   text-decoration: none;
   transition: opacity 0.2s;
 }
@@ -51,20 +51,20 @@
 .heroTitle {
   font-family: var(--font-serif);
   font-size: clamp(48px, 6vw, 96px);
-  color: var(--paper);
+  color: var(--white);
   line-height: 0.95;
   letter-spacing: -0.025em;
   margin: 0 0 24px 0;
 }
 
 .heroTitle em {
-  color: var(--ochre);
+  color: var(--primary);
   font-style: italic;
 }
 
 .heroSubtitle {
   font-size: 18px;
-  color: var(--parchment);
+  color: var(--white);
   line-height: 1.55;
   max-width: 75ch;
   margin: 0 0 48px 0;
@@ -84,18 +84,18 @@
 }
 
 .heroMetaItem .label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ochre);
+  color: var(--primary);
   margin-bottom: 8px;
 }
 
 .heroMetaItem .value {
   font-family: var(--font-serif);
   font-size: 18px;
-  color: var(--paper);
+  color: var(--white);
   line-height: 1.2;
 }
 
@@ -120,7 +120,7 @@
    ========================================== */
 .aboutShigar {
   padding: 120px 0;
-  background: var(--paper);
+  background: var(--off-white);
 }
 
 .aboutShigarGrid {
@@ -137,7 +137,7 @@
 .aboutShigarHead h2 {
   font-family: var(--font-serif);
   font-size: clamp(48px, 6vw, 96px);
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 0.95;
   letter-spacing: -0.025em;
   margin-bottom: 32px;
@@ -145,7 +145,7 @@
 }
 
 .aboutShigarHead h2 em {
-  color: var(--clay);
+  color: var(--ink-brand);
   font-style: italic;
 }
 
@@ -153,7 +153,7 @@
   font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(22px, 2.2vw, 28px);
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 1.3;
   margin-bottom: 32px;
   max-width: 26ch;
@@ -176,7 +176,7 @@
 }
 
 .aboutShigarBody p strong {
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   font-weight: 500;
 }
 
@@ -186,7 +186,7 @@
   line-height: 0.85;
   float: left;
   margin: 6px 12px -4px 0;
-  color: var(--clay);
+  color: var(--ink-brand);
   font-weight: 400;
 }
 
@@ -202,7 +202,7 @@
   position: relative;
   margin: 0;
   overflow: hidden;
-  background: var(--paper-warm);
+  background: var(--white);
 }
 
 .imageWrapper {
@@ -221,18 +221,18 @@
   bottom: 12px;
   left: 12px;
   z-index: 2;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--paper);
-  background: rgba(20, 39, 52, 0.7);
+  color: var(--white);
+  background: var(--scrim-header);
   padding: 6px 10px;
   backdrop-filter: blur(4px);
 }
 
 .aboutShigarMedia figcaption .n {
-  color: var(--ochre);
+  color: var(--primary);
   margin-right: 8px;
 }
 
@@ -262,27 +262,27 @@
   display: block;
   width: 32px;
   height: 1px;
-  background: var(--clay);
+  background: var(--brand-green);
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--ink-brand);
 }
 
 .eyebrowDark {
-  color: var(--ochre);
+  color: var(--primary);
 }
 
 .metaItem .label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   margin-bottom: 4px;
   display: block;
 }
@@ -290,7 +290,7 @@
 .metaItem .v {
   font-family: var(--font-serif);
   font-size: 18px;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 1.2;
 }
 
@@ -309,8 +309,8 @@
    ========================================== */
 .keyFacts {
   padding: 120px 0;
-  background: var(--alpine-deep);
-  color: var(--parchment);
+  background: var(--brand-green-deep);
+  color: var(--white);
   position: relative;
   overflow: hidden;
 }
@@ -323,10 +323,10 @@
   height: 100%;
   opacity: 0.1;
   background-image:
-    linear-gradient(45deg, rgba(212, 165, 116, 0.1) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(212, 165, 116, 0.1) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgba(212, 165, 116, 0.1) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(212, 165, 116, 0.1) 75%);
+    linear-gradient(45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--line) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--line) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--line) 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
@@ -338,7 +338,7 @@
   align-items: end;
   margin-bottom: 64px;
   padding-bottom: 32px;
-  border-bottom: 1px solid rgba(232, 226, 213, 0.16);
+  border-bottom: 1px solid var(--line);
   position: relative;
   z-index: 1;
 }
@@ -350,13 +350,13 @@
 }
 
 .keyFactsHead h2 em {
-  color: var(--ochre);
+  color: var(--primary);
   font-style: italic;
 }
 
 .desc {
   font-size: 17px;
-  color: var(--parchment);
+  color: var(--white);
   opacity: 0.85;
   line-height: 1.55;
   max-width: 52ch;
@@ -372,7 +372,7 @@
 
 .fact {
   background: transparent;
-  border: 1px solid rgba(232, 226, 213, 0.16);
+  border: 1px solid var(--line);
   padding: 32px 28px;
   position: relative;
   display: flex;
@@ -381,11 +381,11 @@
 }
 
 .factNum {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ochre);
+  color: var(--primary);
   margin-bottom: 16px;
 }
 
@@ -393,14 +393,14 @@
   font-family: var(--font-serif);
   font-size: clamp(48px, 5.4vw, 88px);
   line-height: 0.92;
-  color: var(--paper);
+  color: var(--white);
   letter-spacing: -0.02em;
   margin-bottom: 4px;
 }
 
 .unit {
   font-size: 0.4em;
-  color: var(--ochre);
+  color: var(--primary);
   letter-spacing: 0;
   margin-left: 2px;
   vertical-align: 0.3em;
@@ -408,25 +408,25 @@
 
 .small {
   font-size: 0.45em;
-  color: var(--ochre);
+  color: var(--primary);
   display: block;
   margin-top: 4px;
   letter-spacing: 0;
 }
 
 .factLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ochre-pale);
+  color: var(--primary);
   margin-top: auto;
   padding-top: 16px;
 }
 
 .factBody {
   font-size: 14px;
-  color: var(--parchment);
+  color: var(--white);
   opacity: 0.78;
   line-height: 1.5;
   margin-top: 12px;
@@ -458,12 +458,12 @@
   min-height: 320px;
   position: relative;
   overflow: hidden;
-  background: var(--alpine-deep);
+  background: var(--brand-green-deep);
 }
 
 .factPhoto .imagePlaceholder {
-  background: var(--alpine-deep);
-  color: var(--parchment);
+  background: var(--brand-green-deep);
+  color: var(--white);
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -480,7 +480,7 @@
 .factOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 24, 32, 0.15) 0%, rgba(10, 24, 32, 0.85) 100%);
+  background: linear-gradient(180deg, var(--scrim-card) 0%, var(--scrim-image) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -496,9 +496,9 @@
 }
 
 .factQuote {
-  background: var(--clay);
-  border-color: var(--clay);
-  color: var(--paper);
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  color: var(--white);
   grid-column: span 8;
 }
 
@@ -507,7 +507,7 @@
   font-style: italic;
   font-size: clamp(24px, 2.8vw, 36px);
   line-height: 1.25;
-  color: var(--paper);
+  color: var(--white);
   margin-bottom: 24px;
   max-width: 24ch;
 }
@@ -547,7 +547,7 @@
   height: 60vh;
   min-height: 420px;
   overflow: hidden;
-  background: var(--alpine-deep);
+  background: var(--brand-green-deep);
 }
 
 .pullStripOverlay {
@@ -555,9 +555,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(10, 24, 32, 0.35) 0%,
-    rgba(10, 24, 32, 0.55) 50%,
-    rgba(10, 24, 32, 0.85) 100%
+    var(--scrim-header) 0%,
+    var(--scrim-header) 50%,
+    var(--scrim-image) 100%
   );
   z-index: 1;
   display: flex;
@@ -571,7 +571,7 @@
    ========================================== */
 .thingsSection {
   padding: 120px 0 80px;
-  background: var(--paper);
+  background: var(--off-white);
 }
 
 .thingsHead {
@@ -586,14 +586,14 @@
 .thingsHead h2 {
   font-family: var(--font-serif);
   font-size: clamp(44px, 5.6vw, 88px);
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 0.96;
   letter-spacing: -0.02em;
   margin: 0;
 }
 
 .thingsHead h2 em {
-  color: var(--clay);
+  color: var(--ink-brand);
   font-style: italic;
 }
 
@@ -622,16 +622,16 @@
   display: block;
   width: 32px;
   height: 1px;
-  background: var(--clay);
+  background: var(--brand-green);
   margin-bottom: 20px;
 }
 
 .activityNum {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--ink-brand);
   margin-bottom: 16px;
 }
 
@@ -639,14 +639,14 @@
   font-family: var(--font-serif);
   font-size: clamp(36px, 4vw, 60px);
   line-height: 1;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   letter-spacing: -0.02em;
   margin-bottom: 20px;
   margin-top: 0;
 }
 
 .activityTitle em {
-  color: var(--clay);
+  color: var(--ink-brand);
   font-style: italic;
 }
 
@@ -661,11 +661,11 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   padding-top: 12px;
 }
 
@@ -673,7 +673,7 @@
   content: "";
   width: 16px;
   height: 1px;
-  background: var(--clay);
+  background: var(--brand-green);
 }
 
 .activityItems {
@@ -699,7 +699,7 @@
 /* Cold Deserts - all cards equal width (no spanning) */
 
 .spot {
-  background: var(--paper-cool);
+  background: var(--white);
   border: 1px solid var(--line);
   overflow: hidden;
   display: flex;
@@ -709,13 +709,13 @@
 
 .spot:hover {
   transform: translateY(-3px);
-  border-color: var(--clay);
+  border-color: var(--brand-green);
 }
 
 .spotMedia {
   aspect-ratio: 4/3;
   position: relative;
-  background: var(--paper-warm);
+  background: var(--white);
   overflow: hidden;
 }
 
@@ -729,12 +729,12 @@
   top: 12px;
   left: 12px;
   z-index: 2;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--paper);
-  background: rgba(20, 39, 52, 0.72);
+  color: var(--white);
+  background: var(--scrim-header);
   padding: 6px 10px;
   backdrop-filter: blur(4px);
 }
@@ -749,7 +749,7 @@
 .spotName {
   font-family: var(--font-serif);
   font-size: 24px;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 1.1;
   letter-spacing: -0.005em;
   margin: 0 0 4px 0;
@@ -759,7 +759,7 @@
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 14px;
-  color: var(--clay);
+  color: var(--ink-brand);
   margin-bottom: 12px;
 }
 
@@ -783,16 +783,16 @@
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   padding: 4px 0;
 }
 
 .spotMetaValue {
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   font-family: var(--font-serif);
   font-size: 13px;
   text-transform: none;
@@ -837,16 +837,16 @@
 }
 
 .listItemNum {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.16em;
-  color: var(--clay);
+  color: var(--ink-brand);
 }
 
 .listItemTitle {
   font-family: var(--font-serif);
   font-size: 22px;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 1.2;
   margin: 0 0 6px 0;
 }
@@ -854,7 +854,7 @@
 .listItemLocal {
   font-style: italic;
   font-size: 14px;
-  color: var(--clay);
+  color: var(--ink-brand);
   margin-left: 8px;
 }
 
@@ -867,11 +867,11 @@
 }
 
 .listItemMeta {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   text-align: right;
   white-space: nowrap;
 }
@@ -892,7 +892,7 @@
    ========================================== */
 .cuisineSection {
   padding: 120px 0;
-  background: var(--paper-warm);
+  background: var(--white);
 }
 
 .cuisineHead {
@@ -906,7 +906,7 @@
 .cuisineHead h2 {
   font-family: var(--font-serif);
   font-size: clamp(44px, 5.6vw, 88px);
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 0.96;
   letter-spacing: -0.02em;
   margin-bottom: 24px;
@@ -914,13 +914,13 @@
 }
 
 .cuisineHead h2 em {
-  color: var(--clay);
+  color: var(--ink-brand);
   font-style: italic;
 }
 
 .cuisineHero {
   aspect-ratio: 21/8;
-  background: var(--paper);
+  background: var(--off-white);
   margin-bottom: 64px;
   position: relative;
   overflow: hidden;
@@ -931,12 +931,12 @@
   bottom: 16px;
   left: 16px;
   z-index: 2;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--paper);
-  background: rgba(20, 39, 52, 0.7);
+  color: var(--white);
+  background: var(--scrim-header);
   padding: 8px 12px;
   backdrop-filter: blur(4px);
 }
@@ -954,7 +954,7 @@
 
 .dishMedia {
   aspect-ratio: 5/4;
-  background: var(--paper-cool);
+  background: var(--white);
   border: 1px solid var(--line);
   margin-bottom: 16px;
   overflow: hidden;
@@ -971,11 +971,11 @@
   top: 12px;
   left: 12px;
   z-index: 2;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.16em;
-  color: var(--paper);
-  background: rgba(20, 39, 52, 0.7);
+  color: var(--white);
+  background: var(--scrim-header);
   padding: 6px 10px;
   backdrop-filter: blur(4px);
 }
@@ -993,7 +993,7 @@
 .dishName {
   font-family: var(--font-serif);
   font-size: 26px;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 1;
   letter-spacing: -0.005em;
   margin: 0;
@@ -1002,16 +1002,16 @@
 .dishName em {
   font-style: italic;
   font-size: 15px;
-  color: var(--clay);
+  color: var(--ink-brand);
   margin-left: 8px;
 }
 
 .dishCat {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
 }
 
 .dishDesc {
@@ -1041,8 +1041,8 @@
    CTA SECTION
    ========================================== */
 .ctaSection {
-  background: var(--clay);
-  color: var(--paper);
+  background: var(--brand-green);
+  color: var(--white);
   padding: 80px 0;
   position: relative;
   overflow: hidden;
@@ -1060,14 +1060,14 @@
 .ctaSection h2 {
   font-family: var(--font-serif);
   font-size: clamp(36px, 4.5vw, 64px);
-  color: var(--paper);
+  color: var(--white);
   line-height: 1.02;
   letter-spacing: -0.02em;
   margin: 0;
 }
 
 .ctaSection h2 em {
-  color: var(--ochre-pale);
+  color: var(--primary);
   font-style: italic;
 }
 
@@ -1084,12 +1084,12 @@
 .imagePlaceholder {
   width: 100%;
   height: 100%;
-  background: var(--paper-warm);
+  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ink-mute);
-  font-family: var(--font-mono);
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
   font-size: 12px;
   text-align: center;
   padding: 20px;

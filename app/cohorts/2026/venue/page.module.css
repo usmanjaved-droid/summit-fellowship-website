@@ -3,11 +3,11 @@
 /* === Page Hero === */
 .pageHero {
   padding: 100px 0;
-  background: var(--alpine-deep);
+  background: var(--brand-green-deep);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: var(--parchment);
+  color: var(--white);
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -23,17 +23,17 @@
 }
 
 .pageHero .page-hero__title {
-  color: #ffffff !important;
+  color: var(--white) !important;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .pageHero .page-hero__subtitle {
-  color: #f0f0f0 !important;
+  color: var(--white) !important;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .pageHero .page-hero__crumbs {
-  color: #e8e2d5 !important;
+  color: var(--white) !important;
 }
 
 .pageHeroMeta {
@@ -50,26 +50,26 @@
 }
 
 .label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ochre-pale);
+  color: var(--primary);
 }
 
 .pageHero .label {
-  color: #d4a574 !important;
+  color: var(--primary) !important;
 }
 
 .value {
   font-family: var(--font-serif);
   font-size: 20px;
-  color: var(--paper);
+  color: var(--white);
   line-height: 1.2;
 }
 
 .pageHero .value {
-  color: #ffffff !important;
+  color: var(--white) !important;
 }
 
 @media (max-width: 1023px) {
@@ -89,7 +89,7 @@
 /* === Venue Intro === */
 .venueIntro {
   padding: 120px 0;
-  background: var(--paper);
+  background: var(--off-white);
   position: relative;
 }
 
@@ -102,14 +102,14 @@
 
 .venueIntroCopy h2 {
   font-size: clamp(48px, 6vw, 96px);
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 0.95;
   letter-spacing: -0.025em;
   margin-bottom: 32px;
 }
 
 .venueIntroCopy h2 em {
-  color: var(--clay);
+  color: var(--ink-brand);
   font-style: italic;
 }
 
@@ -122,7 +122,7 @@
 
 .venueIntroImageSlot {
   aspect-ratio: 4/5;
-  background: var(--paper-warm);
+  background: var(--white);
   position: relative;
   margin: 0;
   overflow: hidden;
@@ -138,12 +138,12 @@
   bottom: 24px;
   left: 24px;
   z-index: 2;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--paper);
-  background: rgba(20, 39, 52, 0.6);
+  color: var(--white);
+  background: var(--scrim-header);
   padding: 8px 12px;
   backdrop-filter: blur(4px);
 }
@@ -158,8 +158,8 @@
 /* === Map Section === */
 .mapSection {
   padding: 100px 0;
-  background: var(--alpine-deep);
-  color: var(--parchment);
+  background: var(--brand-green-deep);
+  color: var(--white);
   position: relative;
   overflow: hidden;
 }
@@ -177,20 +177,20 @@
 
 .mapSectionHead h2 {
   font-size: clamp(40px, 5vw, 72px);
-  color: var(--paper);
+  color: var(--white);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
 .mapSectionHead h2 em {
-  color: var(--ochre);
+  color: var(--primary);
   font-style: italic;
 }
 
 .mapSectionHead p {
   font-size: 17px;
   line-height: 1.55;
-  color: var(--parchment);
+  color: var(--white);
   opacity: 0.85;
   max-width: 48ch;
 }
@@ -203,8 +203,8 @@
 }
 
 .mapFrame {
-  background: #0a1820;
-  border: 1px solid rgba(232, 226, 213, 0.16);
+  background: var(--brand-green-deep);
+  border: 1px solid var(--line);
   aspect-ratio: 16/9;
   position: relative;
   overflow: hidden;
@@ -221,11 +221,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--parchment);
+  color: var(--white);
 }
 
 .mapLegendItem {
@@ -237,20 +237,20 @@
 .legendDot {
   width: 12px;
   height: 12px;
-  border: 2px solid var(--ochre);
-  border-radius: 50%;
+  border: 2px solid var(--primary);
+  border-radius: 0;
   background: transparent;
 }
 
 .legendDotSolid {
-  background: var(--ochre);
+  background: var(--primary);
 }
 
 .legendLine {
   width: 24px;
   height: 2px;
-  background: var(--ochre);
-  background-image: linear-gradient(90deg, var(--ochre) 50%, transparent 50%);
+  background: var(--primary);
+  background-image: linear-gradient(90deg, var(--primary) 50%, transparent 50%);
   background-size: 8px 2px;
 }
 
@@ -283,15 +283,15 @@
 }
 
 .mapLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  fill: var(--parchment);
+  fill: var(--white);
 }
 
 .mapLabelOchre {
-  fill: var(--ochre);
+  fill: var(--primary);
 }
 
 .mapLabelLg {
@@ -299,13 +299,13 @@
   font-size: 18px;
   letter-spacing: -0.005em;
   text-transform: none;
-  fill: var(--paper);
+  fill: var(--off-white);
 }
 
 /* === Gallery: Khoj in pictures === */
 .gallery {
   padding: 120px 0 60px 0;
-  background: var(--paper);
+  background: var(--off-white);
   position: relative;
 }
 
@@ -321,14 +321,14 @@
 
 .galleryHead h2 {
   font-size: clamp(40px, 5vw, 72px);
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 1;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
 }
 
 .galleryHead h2 em {
-  color: var(--clay);
+  color: var(--ink-brand);
   font-style: italic;
 }
 
@@ -340,11 +340,11 @@
 }
 
 .galleryMeta {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   text-align: right;
 }
 
@@ -352,7 +352,7 @@
   display: block;
   font-family: var(--font-serif);
   font-size: 16px;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   text-transform: none;
   letter-spacing: 0;
   margin-top: 6px;
@@ -377,7 +377,7 @@
 
 .galCell {
   position: relative;
-  background: var(--paper-warm);
+  background: var(--white);
   margin: 0;
   overflow: hidden;
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
@@ -385,7 +385,7 @@
 
 .galCell:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px -20px rgba(20, 39, 52, 0.35);
+  box-shadow: var(--shadow-3xl);
 }
 
 .galCell figcaption {
@@ -393,19 +393,19 @@
   bottom: 12px;
   left: 12px;
   z-index: 2;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--paper);
-  background: rgba(20, 39, 52, 0.72);
+  color: var(--white);
+  background: var(--scrim-header);
   padding: 6px 10px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
 
 .galCell figcaption .n {
-  color: var(--ochre);
+  color: var(--primary);
   margin-right: 8px;
 }
 
@@ -435,8 +435,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ink-mute);
-  font-family: var(--font-mono);
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -476,11 +476,11 @@
 
 .galleryCredit {
   margin-top: 32px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -489,15 +489,15 @@
 }
 
 .galleryCredit a {
-  color: var(--clay);
-  border-bottom: 1px solid var(--clay);
+  color: var(--ink-brand);
+  border-bottom: 1px solid var(--brand-green);
   padding-bottom: 1px;
 }
 
 /* === Field Guide Section === */
 .fieldGuide {
   padding: 0 0 120px 0;
-  background: var(--paper);
+  background: var(--off-white);
   position: relative;
 }
 
@@ -513,22 +513,22 @@
 
 .fieldGuideHead h2 {
   font-size: clamp(40px, 5vw, 72px);
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
 .fieldGuideHead h2 em {
-  color: var(--clay);
+  color: var(--ink-brand);
   font-style: italic;
 }
 
 .fieldGuideHeadMeta {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -537,7 +537,7 @@
 }
 
 .fieldGuideHeadMeta .v {
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   font-family: var(--font-serif);
   font-size: 16px;
   text-transform: none;
@@ -564,7 +564,7 @@
 }
 
 .fgNav a {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -578,18 +578,18 @@
 }
 
 .fgNav a:hover {
-  border-color: var(--alpine-deep);
-  background: var(--alpine-deep);
-  color: var(--paper);
+  border-color: var(--line-strong);
+  background: var(--brand-green-deep);
+  color: var(--white);
 }
 
 .fgNav a .n {
-  color: var(--clay);
+  color: var(--ink-brand);
   font-weight: 500;
 }
 
 .fgNav a:hover .n {
-  color: var(--ochre);
+  color: var(--primary);
 }
 
 /* === Field Guide Card Grid === */
@@ -600,7 +600,7 @@
 }
 
 .fgCard {
-  background: var(--paper-cool);
+  background: var(--white);
   border: 1px solid var(--line);
   padding: 32px;
   position: relative;
@@ -610,9 +610,9 @@
 
 .fgCardFeature {
   grid-column: span 8;
-  background: var(--alpine-deep);
-  color: var(--parchment);
-  border-color: var(--alpine-deep);
+  background: var(--brand-green-deep);
+  color: var(--white);
+  border-color: var(--line-strong);
   overflow: hidden;
 }
 
@@ -634,7 +634,7 @@
 
 .fgCardPacking {
   grid-column: span 12;
-  background: var(--paper-warm);
+  background: var(--white);
 }
 
 @media (max-width: 1100px) {
@@ -656,33 +656,33 @@
 }
 
 .fgCardNum {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--ink-brand);
   margin-bottom: 12px;
 }
 
 .fgCardFeature .fgCardNum {
-  color: var(--ochre);
+  color: var(--primary);
 }
 
 .fgCardPacking .fgCardNum {
-  color: var(--clay);
+  color: var(--ink-brand);
 }
 
 .fgCardTitle {
   font-family: var(--font-serif);
   font-size: 32px;
   line-height: 1.05;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   letter-spacing: -0.01em;
   margin-bottom: 20px;
 }
 
 .fgCardFeature .fgCardTitle {
-  color: var(--paper);
+  color: var(--white);
   font-size: 40px;
 }
 
@@ -693,14 +693,14 @@
 }
 
 .fgCardFeature .fgCardBody {
-  color: var(--parchment);
+  color: var(--white);
   opacity: 0.85;
 }
 
 /* === Cultural Evening === */
 .culturalEvening {
   padding: 0 0 80px 0;
-  background: var(--paper);
+  background: var(--off-white);
 }
 
 .culturalEveningGrid {
@@ -720,7 +720,7 @@
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: -0.01em;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   margin-bottom: 24px;
 }
 
@@ -739,7 +739,7 @@
 
 .culturalEveningImageSlot {
   aspect-ratio: 16/9;
-  background: var(--paper-warm);
+  background: var(--white);
   position: relative;
   margin: 0;
   overflow: hidden;
@@ -755,12 +755,12 @@
   bottom: 24px;
   left: 24px;
   z-index: 2;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--paper);
-  background: rgba(20, 39, 52, 0.6);
+  color: var(--white);
+  background: var(--scrim-header);
   padding: 8px 12px;
   backdrop-filter: blur(4px);
 }
@@ -781,16 +781,16 @@
   align-items: center;
   gap: 8px;
   margin-top: 20px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--ink-brand);
   text-decoration: none;
 }
 
 .fgCardFeature .fgCardLink {
-  color: var(--ochre);
+  color: var(--primary);
 }
 
 .fgCardLink::after {
@@ -813,7 +813,7 @@
 }
 
 .weatherCell {
-  border: 1px solid rgba(232, 226, 213, 0.18);
+  border: 1px solid var(--line);
   padding: 20px 20px 24px;
   position: relative;
 }
@@ -822,11 +822,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ochre);
+  color: var(--primary);
   margin-bottom: 8px;
 }
 
@@ -834,19 +834,19 @@
   font-family: var(--font-serif);
   font-size: 48px;
   line-height: 1;
-  color: var(--paper);
+  color: var(--white);
   letter-spacing: -0.02em;
 }
 
 .unit {
   font-size: 22px;
-  color: var(--ochre-pale);
+  color: var(--primary);
   margin-left: 4px;
 }
 
 .weatherCellNote {
   font-size: 13px;
-  color: var(--parchment);
+  color: var(--white);
   opacity: 0.7;
   margin-top: 8px;
 }
@@ -869,8 +869,8 @@
   left: 0;
   right: 0;
   height: 8px;
-  background: rgba(232, 226, 213, 0.1);
-  border-radius: 4px;
+  background: var(--line);
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -880,8 +880,8 @@
   bottom: 0;
   left: 12.5%;
   right: 12.5%;
-  background: linear-gradient(90deg, #5b8baf 0%, #d4a574 50%, #b8895a 100%);
-  border-radius: 4px;
+  background: linear-gradient(90deg, var(--white) 0%, var(--primary) 50%, var(--primary-dark) 100%);
+  border-radius: 0;
 }
 
 .weatherBarTick {
@@ -889,16 +889,16 @@
   top: -4px;
   height: 14px;
   width: 2px;
-  background: var(--paper);
+  background: var(--off-white);
 }
 
 .weatherBarLabel {
   position: absolute;
   top: 26px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: var(--parchment);
+  color: var(--white);
   opacity: 0.6;
   transform: translateX(-50%);
 }
@@ -907,10 +907,10 @@
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: var(--parchment);
+  color: var(--white);
   opacity: 0.5;
 }
 
@@ -919,7 +919,7 @@
   margin-top: 20px;
   margin-bottom: 16px;
   border: 1px solid var(--line);
-  background: var(--paper);
+  background: var(--off-white);
   padding: 20px;
 }
 
@@ -934,7 +934,7 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 16px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.06em;
   color: var(--ink-soft);
@@ -952,7 +952,7 @@
 }
 
 .roomsListRow .v {
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   font-family: var(--font-serif);
   font-size: 14px;
 }
@@ -965,7 +965,7 @@
   gap: 0;
   align-items: stretch;
   border: 1px solid var(--line);
-  background: var(--paper);
+  background: var(--off-white);
 }
 
 .travelFlowStep {
@@ -979,25 +979,25 @@
 }
 
 .travelFlowStep .n {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--ink-brand);
   margin-bottom: 6px;
 }
 
 .travelFlowStep .t {
   font-family: var(--font-serif);
   font-size: 16px;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 1.15;
   margin-bottom: 4px;
 }
 
 .travelFlowStep .s {
   font-size: 11px;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   line-height: 1.35;
 }
 
@@ -1007,13 +1007,13 @@
   right: -8px;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--paper-cool);
+  background: var(--white);
   width: 16px;
   height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--clay);
+  color: var(--ink-brand);
   font-size: 12px;
   border: 1px solid var(--line);
 }
@@ -1041,7 +1041,7 @@
 .medCross {
   width: 48px;
   height: 48px;
-  color: var(--clay);
+  color: var(--ink-brand);
   margin: 20px 0 0;
 }
 
@@ -1058,15 +1058,15 @@
 .bar {
   flex: 1;
   background: var(--line);
-  border-radius: 2px 2px 0 0;
+  border-radius: 0;
 }
 
 .barOn {
-  background: var(--alpine-deep);
+  background: var(--brand-green-deep);
 }
 
 .barMid {
-  background: var(--clay);
+  background: var(--brand-green);
 }
 
 .signalViz .bar:nth-child(1) {
@@ -1097,10 +1097,10 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
   text-transform: uppercase;
 }
 
@@ -1110,7 +1110,7 @@
 }
 
 .fgCardSublist li .v {
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   font-family: var(--font-serif);
   font-size: 13px;
   text-transform: none;
@@ -1138,11 +1138,11 @@
 }
 
 .packingCol h4 {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--ink-brand);
   margin-bottom: 16px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
@@ -1153,7 +1153,7 @@
 .ct {
   font-family: var(--font-serif);
   font-size: 14px;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
   text-transform: none;
   letter-spacing: 0;
 }
@@ -1181,36 +1181,36 @@
   flex-shrink: 0;
   width: 14px;
   height: 14px;
-  border: 1.5px solid var(--ink-faint);
-  border-radius: 2px;
+  border: 1.5px solid var(--line);
+  border-radius: 0;
   margin-top: 2px;
 }
 
 .essential::before {
-  background: var(--clay);
-  border-color: var(--clay);
+  background: var(--brand-green);
+  border-color: var(--brand-green);
 }
 
 .packingNote {
   margin-top: 32px;
   padding: 20px 24px;
-  background: var(--paper-cool);
-  border-left: 3px solid var(--clay);
+  background: var(--white);
+  border-left: 3px solid var(--brand-green);
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 16px;
-  color: var(--alpine-deep);
+  color: var(--ink-brand);
   line-height: 1.5;
 }
 
 .l {
   display: block;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-style: normal;
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--ink-brand);
   margin-bottom: 6px;
 }
 

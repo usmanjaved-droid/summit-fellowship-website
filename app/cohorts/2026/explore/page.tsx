@@ -13,7 +13,7 @@ export default function ExploreSkardu() {
   return (
     <>
       {/* Hero */}
-      <section className={styles.hero}>
+      <section className={styles.hero} data-theme="dark">
         <div className={styles.heroBg}></div>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className={styles.breadcrumbs}>
@@ -149,7 +149,7 @@ export default function ExploreSkardu() {
       </section>
 
       {/* Key Facts */}
-      <section className={styles.keyFacts} id="key-facts">
+      <section className={styles.keyFacts} id="key-facts" data-theme="dark">
         <div className={styles.topoBg}></div>
         <div className="container">
           <div className={styles.keyFactsHead}>
@@ -157,7 +157,7 @@ export default function ExploreSkardu() {
               <div className={`${styles.eyebrow} ${styles.eyebrowDark}`} style={{ marginBottom: '16px' }}>
                 Section 03 · Key facts about Skardu
               </div>
-              <h2 style={{ color: 'var(--paper)', fontSize: 'clamp(40px, 5.2vw, 80px)' }}>
+              <h2 style={{ color: 'var(--white)', fontSize: 'clamp(40px, 5.2vw, 80px)' }}>
                 The numbers that<br />
                 make this place <em>unreasonable.</em>
               </h2>

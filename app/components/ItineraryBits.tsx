@@ -38,7 +38,7 @@ export default function ItineraryBits({ days }: { days: Day[] }) {
 
   return (
     <>
-      <div className="week-ribbon">
+      <div className="week-ribbon" data-theme="dark">
         <div className="container week-ribbon__inner">
           <span className="week-ribbon__label">Week of</span>
           <span className="week-ribbon__title">Sun 07 — Sun 14 June 2026</span>
