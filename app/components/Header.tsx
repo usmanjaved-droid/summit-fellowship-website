@@ -40,6 +40,12 @@ export default function Header() {
           </span>
         </Link>
         <nav className="site-nav" aria-label="Primary">
+          <Link className="site-nav__link site-nav__link--icon" href="/" aria-label="Home" onClick={closeAllMenus}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+              <path d="M3 11.5 12 4l9 7.5" />
+              <path d="M5 10v10h14V10" />
+            </svg>
+          </Link>
           {GROUPS.map((g) => (
             <NavDropdown key={g.label} group={g} onNavigate={closeAllMenus} />
           ))}
