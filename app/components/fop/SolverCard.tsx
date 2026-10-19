@@ -8,8 +8,11 @@ export function SolverCard({
   image,
   href,
   fallback,
+  eyebrow,
 }: {
   name: string;
+  /** Optional short label above the name (e.g. a sector). */
+  eyebrow?: string;
   description?: string;
   image?: string | null;
   href?: string;
@@ -27,6 +30,7 @@ export function SolverCard({
       <div className={styles['fop-tile__scrim']} />
       <div className={styles['fop-tile__cap']}>
         <div className={styles['fop-tile__rule']}>
+          {eyebrow && <p className={styles['fop-tile__eyebrow']}>{eyebrow}</p>}
           <h3>{name}</h3>
           {description && <p>{description}</p>}
         </div>

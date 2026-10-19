@@ -16,29 +16,29 @@ export function FellowHero({ fellow, number, total, backHref, year }: FellowHero
   const fellowInitials = initials(fellow.name);
 
   return (
-    <section className={styles['fellow-hero']}>
+    <section className={styles['fellow-hero']} data-theme="dark">
       <FellowNavigation backHref={backHref} year={year} />
       <div className={styles['fellow-hero__inner']}>
         <div className={styles['fellow-hero__content']}>
-          <p className={styles['fellow-hero__meta']}>
+          <p className={`t-eyebrow ${styles['fellow-hero__meta']}`}>
             FELLOW NO. {number.toString().padStart(2, '0')} / {total} / {fellow.sector.toUpperCase()}
           </p>
-          <h1 className={styles['fellow-hero__name']}>{fellow.name}</h1>
-          <p className={styles['fellow-hero__problem']}>{fellow.idea_context}</p>
+          <h1 className={`t-heading-1 ${styles['fellow-hero__name']}`}>{fellow.name}</h1>
+          <p className={`t-body-light ${styles['fellow-hero__problem']}`}>{fellow.idea_context}</p>
         </div>
         <div className={styles['fellow-hero__media']}>
           {fellow.photo_url ? (
             <Image
               src={fellow.photo_url}
               alt={fellow.name}
-              width={300}
-              height={300}
-              sizes="(max-width: 640px) 200px, 300px"
+              width={400}
+              height={400}
+              sizes="(max-width: 640px) 100vw, 400px"
               className={styles['fellow-hero__photo']}
               priority
             />
           ) : (
-            <div className={styles['fellow-hero__avatar']}>{fellowInitials}</div>
+            <div className={styles['fellow-hero__avatar']} aria-hidden="true">{fellowInitials}</div>
           )}
         </div>
       </div>

@@ -1,0 +1,92 @@
+/* Fellows grid + sector filter (Friends of Pakistan). Replaces the old global .filter-bar / .fellow-card classes. */
+
+/* The header is now in normal flow, so the bar sticks to the very top of the viewport. */
+.filter-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--off-white);
+  border-bottom: var(--border-1) solid var(--line);
+  padding: var(--space-4) 0;
+}
+.filter-bar__inner {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+.filter-bar__label {
+  margin-right: var(--space-2);
+  color: var(--ink-soft);
+}
+
+.filter-chip {
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: var(--border-1) solid var(--line-strong);
+  border-radius: var(--radius-none);
+  background: var(--off-white);
+  color: var(--black);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.filter-chip:hover { background: var(--white); }
+.filter-chip[aria-pressed="true"] { background: var(--primary); color: var(--black); }
+.filter-chip:focus-visible { outline: var(--border-2) solid var(--focus); outline-offset: 2px; }
+
+@media (max-width: 1200px) {
+  /* One scrollable row instead of a tall wrapped block. */
+  .filter-bar__inner {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 4px var(--space-4);
+    scrollbar-width: none;
+  }
+  .filter-bar__inner::-webkit-scrollbar { display: none; }
+  .filter-bar__label,
+  .filter-chip { flex-shrink: 0; }
+}
+
+.fellows-section {
+  padding: var(--space-20) 0 var(--space-30);
+  background: var(--off-white);
+}
+.fellows-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-10) var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.fellow-card { min-width: 0; }
+/* Fellows without a photo: SolverCard's deep-green fallback, with white initials. */
+.fellow-card div[aria-hidden="true"] { color: var(--white); }
+p.fellow-card__summary {
+  margin: var(--space-4) 0 0;
+  color: var(--ink-soft);
+}
+
+.empty-state {
+  padding: var(--space-20) 0;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 1023px) { .fellows-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .filter-bar { padding: var(--space-3) 0; }
+  .fellows-section { padding: var(--space-10) 0 var(--space-20); }
+  .fellows-grid { grid-template-columns: 1fr; }
+}

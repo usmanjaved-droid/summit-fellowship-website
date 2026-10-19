@@ -10,10 +10,9 @@ export function IdeaBand({ fellow }: IdeaBandProps) {
     <section className={styles['idea-band']}>
       <div className={styles['idea-band__inner']}>
         <div className={styles['idea-band__header']}>
-          <p className={styles['idea-band__label']}>BIG IDEA</p>
-          <span className={styles['idea-band__line']}></span>
+          <p className={`t-eyebrow ${styles['idea-band__label']}`}>BIG IDEA</p>
         </div>
-        <p className={styles['idea-band__tagline']}>{fellow.tagline}</p>
+        <p className={`t-heading-2 ${styles['idea-band__tagline']}`}>{fellow.tagline}</p>
       </div>
     </section>
   );

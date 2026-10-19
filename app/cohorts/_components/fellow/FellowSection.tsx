@@ -1,3 +1,4 @@
+import { Prose } from '@/app/components/fop';
 import styles from './fellow-detail.module.css';
 
 type FellowSectionProps = {
@@ -9,12 +10,10 @@ type FellowSectionProps = {
 export function FellowSection({ title, content, children }: FellowSectionProps) {
   return (
     <section className={styles['fellow-section']}>
-      <h2 className={styles['fellow-section__title']}>{title}</h2>
-      {children ? (
-        <div className={styles['fellow-section__content']}>{children}</div>
-      ) : (
-        <p className={styles['fellow-section__content']}>{content}</p>
-      )}
+      <Prose>
+        <h2>{title}</h2>
+        {children ?? <p>{content}</p>}
+      </Prose>
     </section>
   );
 }

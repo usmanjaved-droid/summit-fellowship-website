@@ -15,7 +15,7 @@ export default function CohortTabs({ year }: { year: number }) {
           <Link
             key={tab.href}
             href={tab.href}
-            className={`${styles['cohort-bar__tab']}${active ? ` ${styles['cohort-bar__tab--active']}` : ''}`}
+            className={`t-nav ${styles['cohort-bar__tab']}${active ? ` ${styles['cohort-bar__tab--active']}` : ''}`}
             aria-current={active ? 'page' : undefined}
           >
             {tab.label}

@@ -217,6 +217,15 @@
   border-left: var(--border-4) solid var(--primary);
   color: var(--white);
 }
+.fop-tile__rule p.fop-tile__eyebrow {
+  margin: 0 0 var(--space-2);
+  color: var(--primary);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: block;
+}
 .fop-tile__rule h3 { margin: 0; color: inherit; font-family: var(--font-sans); font-size: 18px; line-height: 1.2; font-weight: 600; }
 .fop-tile__rule p {
   margin: var(--space-2) 0 0;

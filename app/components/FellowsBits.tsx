@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import type { FellowCard } from '@/lib/fellows';
+import { SolverCard } from './fop';
+import styles from './FellowsBits.module.css';
 
 const SECTORS = ['all', 'Health', 'Mental Health', 'Education', 'Special Ed', 'Disability', 'Legal', 'Livelihoods', 'Agriculture'];
 
@@ -14,13 +14,15 @@ export default function FellowsBits({ fellows, basePath }: { fellows: FellowCard
 
   return (
     <>
-      <div className="filter-bar container">
-        <div className="filter-bar__inner">
-          <span className="filter-bar__label">Filter by sector</span>
+      <div className={styles['filter-bar']}>
+        <div className={styles['filter-bar__inner']} role="group" aria-labelledby="fellows-filter-label">
+          <span id="fellows-filter-label" className={`t-eyebrow ${styles['filter-bar__label']}`}>Filter by sector</span>
           {SECTORS.map((s) => (
             <button
               key={s}
-              className={`filter-chip${filter === s ? ' is-active' : ''}`}
+              type="button"
+              className={styles['filter-chip']}
+              aria-pressed={filter === s}
               onClick={() => setFilter(s)}
             >
               {s === 'all' ? 'All' : s}
@@ -29,40 +31,26 @@ export default function FellowsBits({ fellows, basePath }: { fellows: FellowCard
         </div>
       </div>
 
-      <section className="fellows-section">
+      <section className={styles['fellows-section']}>
         <div className="container">
-          <div className="fellows-grid">
-            {visible.map((f, i) => (
-              <Link
-                key={f.slug}
-                href={`${basePath}/${f.slug}`}
-                className="fellow-card fellow-card--link"
-              >
-                <div className="fellow-card__head">
-                  <div className="fellow-card__avatar">
-                    {f.photo_url ? (
-                      <Image
-                        src={f.photo_url}
-                        alt={f.name}
-                        width={80}
-                        height={80}
-                        className="fellow-card__avatar-image"
-                      />
-                    ) : (
-                      f.init
-                    )}
-                  </div>
-                  <div className="fellow-card__num">No. {String(i + 1).padStart(2, '0')} / {fellows.length}</div>
-                </div>
-                <h3 className="fellow-card__name">{f.name}</h3>
-                <div className="fellow-card__org"><strong>{f.org}</strong></div>
-                <div className="fellow-card__sector">{f.sector}</div>
-                <p className="fellow-card__model">{f.summary.length > 140 ? f.summary.slice(0, 140) + '…' : f.summary}</p>
-                <div className="fellow-card__expand">Read full profile →</div>
-              </Link>
+          <ul className={styles['fellows-grid']}>
+            {visible.map((f) => (
+              <li key={f.slug} className={styles['fellow-card']}>
+                <SolverCard
+                  name={f.name}
+                  eyebrow={f.sector}
+                  description={f.org}
+                  image={f.photo_url}
+                  href={`${basePath}/${f.slug}`}
+                  fallback={f.init}
+                />
+                <p className={`t-card-body ${styles['fellow-card__summary']}`}>
+                  {f.summary.length > 140 ? f.summary.slice(0, 140) + '…' : f.summary}
+                </p>
+              </li>
             ))}
-          </div>
-          {visible.length === 0 && <div className="empty-state is-visible">No fellows match this filter.</div>}
+          </ul>
+          {visible.length === 0 && <p className={styles['empty-state']}>No fellows match this filter.</p>}
         </div>
       </section>
     </>
