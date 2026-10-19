@@ -203,7 +203,7 @@ p.hero__lead {
 .faculty__name { color: var(--black); }
 .faculty__role { margin-top: var(--space-1); color: var(--black); }
 
-/* ============ Closing (green) ============ */
+/* ============ Closing (yellow): green title (4.6:1 at 40px+), black ArrowLinks ============ */
 .closing { text-align: center; }
 h2.closing__title {
   margin: 0 auto var(--space-10);

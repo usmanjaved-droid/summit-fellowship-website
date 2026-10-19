@@ -205,8 +205,8 @@ export default function HomePage() {
         <ArrowLink href="/faculty">Faculty &amp; team</ArrowLink>
       </Section>
 
-      {/* ============ CLOSING CTA (green) ============ */}
-      <Section tone="green">
+      {/* ============ CLOSING CTA (yellow) ============ */}
+      <Section tone="yellow">
         <div className={styles.closing}>
           <h2 className={`t-heading-1 ${styles.closing__title}`}>Ready to design for scale?</h2>
           <div className={styles.closing__actions}>
