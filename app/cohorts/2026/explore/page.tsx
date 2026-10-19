@@ -156,7 +156,7 @@ export default function ExploreSkardu() {
               <div className={`${styles.eyebrow} ${styles.eyebrowDark}`} style={{ marginBottom: '16px' }}>
                 Section 03 · Key facts about Skardu
               </div>
-              <h2 style={{ color: 'var(--white)', fontSize: 'clamp(40px, 5.2vw, 80px)' }}>
+              <h2 style={{ color: 'var(--white)', fontSize: 'clamp(36px, 4.2vw, 55px)' }}>
                 The numbers that<br />
                 make this place <em>unreasonable.</em>
               </h2>
@@ -255,10 +255,8 @@ export default function ExploreSkardu() {
                 <span className={styles.eyebrow}>Section 04 · Things to do in Skardu</span>
               </div>
               <h2>
-                what to <em>do</em> in Skardu
-                <br />— for those who have
-                <br />
-                extra days.
+                What to <em>do</em> in Skardu,
+                <br />if you have extra days.
               </h2>
             </div>
           </div>

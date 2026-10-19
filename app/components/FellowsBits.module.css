@@ -145,7 +145,8 @@ h3.fellow-card__name {
   font-family: var(--font-serif);
   font-size: 28px;
   line-height: 1.15;
-  font-weight: 300;
+  /* People's names are Crimson Pro regular everywhere on the site. */
+  font-weight: 400;
   color: var(--ink);
 }
 .fellow-card__org {

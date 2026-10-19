@@ -109,8 +109,10 @@ p { text-wrap: pretty; margin: 0; }
   line-height: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  /* Section labels: black on light and yellow grounds, yellow on green. */
+  color: var(--ink);
 }
+[data-theme="dark"] .eyebrow,
 .eyebrow--on-dark { color: var(--primary); }
 .eyebrow-line {
   display: flex;
@@ -483,7 +485,7 @@ h1.page-hero__title {
 
 .day-head { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.5fr; gap: 64px; padding-bottom: 48px; border-bottom: 1px solid var(--line); margin-bottom: 48px; align-items: end; }
 .day-head__left .meta { font-family: var(--sans); font-size: 12px; line-height: 18px; font-weight: 600; text-transform: uppercase; color: var(--ink-brand); margin-bottom: 16px; }
-.day-head__left h2 { font-family: var(--serif); font-size: clamp(56px, 8vw, 120px); color: var(--ink-brand); line-height: 0.92; letter-spacing: -0.025em; }
+.day-head__left h2 { font-family: var(--serif); font-size: clamp(36px, 4.2vw, 55px); color: var(--ink-brand); line-height: 1.15; }
 .day-head__left h2 em { font-style: italic; color: var(--ink-brand); }
 .day-head__right p { font-size: 19px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 24px; }
 .day-head__pill-row { display: flex; gap: 8px; flex-wrap: wrap; }

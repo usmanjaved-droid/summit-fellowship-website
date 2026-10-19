@@ -5,7 +5,7 @@ export const ROUTES = [
   { path: '/cohorts', status: 200, contains: ['2026 · Inaugural cohort'] },
   { path: '/cohorts/2026', status: 200, contains: ['Ten founders', 'The Week', 'Habiba Banu', 'Read full profile', 'No. 01 / 10'] },
   { path: '/cohorts/2026/fellows', status: 200, contains: ['Habiba Banu'] },
-  { path: '/cohorts/2026/fellows/habiba-banu', status: 200, contains: ['Habiba Banu', 'The Mission'] },
+  { path: '/cohorts/2026/fellows/habiba-banu', status: 200, contains: ['Habiba Banu', 'The mission'] },
   { path: '/cohorts/2026/fellows/nobody', status: 404 },
   { path: '/cohorts/1999', status: 404 },
   { path: '/fellows', status: 404 },

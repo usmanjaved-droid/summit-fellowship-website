@@ -1,10 +1,12 @@
 /* Homepage bands (Friends of Pakistan). Colours and spacing come from app/fop-tokens.css. */
 
 /* Shared band typography. Element-qualified selectors where a rule must beat a global .t-* type class. */
+/* Section labels: black on light and yellow bands, yellow on the green band. */
 .eyebrow {
   margin: 0 0 var(--space-3);
-  color: inherit;
+  color: var(--black);
 }
+:global([data-theme='dark']) .eyebrow { color: var(--primary); }
 h2.heading {
   margin: 0 0 var(--space-10);
   max-width: 20ch;
@@ -227,7 +229,14 @@ p.hero__lead {
   font-size: 64px;
   font-weight: 300;
 }
-.faculty__name { color: var(--black); }
+/* People's names are Crimson Pro regular everywhere on the site. */
+.faculty__name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--black);
+}
 .faculty__role { margin-top: var(--space-1); color: var(--black); }
 
 /* ============ Closing (yellow): green title (4.6:1 at 40px+), black ArrowLinks ============ */

@@ -132,7 +132,7 @@ span.fellow-sidebar__label {
   color: var(--ink-brand);
 }
 
-p.fellow-sidebar__value { margin: 0; color: var(--black); }
+p.fellow-sidebar__value { margin: 0; color: var(--black); font-size: 16px; line-height: 1.45; }
 
 .fellow-sidebar__links {
   display: flex;

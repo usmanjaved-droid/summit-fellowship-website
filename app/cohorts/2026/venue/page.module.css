@@ -70,10 +70,9 @@
 }
 
 .venueIntroCopy h2 {
-  font-size: clamp(48px, 6vw, 96px);
+  font-size: clamp(36px, 4.2vw, 55px);
   color: var(--ink-brand);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  line-height: 1.15;
   margin-bottom: 32px;
 }
 
@@ -141,10 +140,9 @@
 }
 
 .mapSectionHead h2 {
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: clamp(36px, 4.2vw, 55px);
   color: var(--white);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .mapSectionHead h2 em {
@@ -285,10 +283,9 @@
 }
 
 .galleryHead h2 {
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: clamp(36px, 4.2vw, 55px);
   color: var(--ink-brand);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
   margin-bottom: 16px;
 }
 
@@ -422,10 +419,9 @@
 }
 
 .fieldGuideHead h2 {
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: clamp(36px, 4.2vw, 55px);
   color: var(--ink-brand);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .fieldGuideHead h2 em {
@@ -602,10 +598,9 @@
 
 .culturalEveningTitle {
   font-family: var(--font-serif);
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  font-size: clamp(36px, 4.2vw, 55px);
+  font-weight: 300;
+  line-height: 1.15;
   color: var(--ink-brand);
   margin-bottom: 24px;
 }

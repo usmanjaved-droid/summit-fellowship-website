@@ -50,10 +50,9 @@
 
 .heroTitle {
   font-family: var(--font-serif);
-  font-size: clamp(48px, 6vw, 96px);
+  font-size: clamp(44px, 6vw, 72px);
   color: var(--white);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  line-height: 1.15;
   margin: 0 0 24px 0;
 }
 
@@ -136,10 +135,9 @@
 
 .aboutShigarHead h2 {
   font-family: var(--font-serif);
-  font-size: clamp(48px, 6vw, 96px);
+  font-size: clamp(36px, 4.2vw, 55px);
   color: var(--ink-brand);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  line-height: 1.15;
   margin-bottom: 32px;
   margin-top: 0;
 }
@@ -265,12 +263,14 @@
   background: var(--brand-green);
 }
 
+/* Same as the site-wide section label (t-eyebrow): 12px semibold uppercase, black on light grounds. */
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
   text-transform: uppercase;
-  color: var(--ink-brand);
+  color: var(--ink);
 }
 
 .eyebrowDark {
@@ -499,10 +499,9 @@
 
 .thingsHead h2 {
   font-family: var(--font-serif);
-  font-size: clamp(44px, 5.6vw, 88px);
+  font-size: clamp(36px, 4.2vw, 55px);
   color: var(--ink-brand);
-  line-height: 0.96;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
   margin: 0;
 }
 
@@ -542,19 +541,19 @@
 
 .activityNum {
   font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
   text-transform: uppercase;
-  color: var(--ink-brand);
+  color: var(--ink);
   margin-bottom: 16px;
 }
 
 .activityTitle {
   font-family: var(--font-serif);
-  font-size: clamp(36px, 4vw, 60px);
-  line-height: 1;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.15;
   color: var(--ink-brand);
-  letter-spacing: -0.02em;
   margin-bottom: 20px;
   margin-top: 0;
 }
@@ -752,10 +751,9 @@
 
 .cuisineHead h2 {
   font-family: var(--font-serif);
-  font-size: clamp(44px, 5.6vw, 88px);
+  font-size: clamp(36px, 4.2vw, 55px);
   color: var(--ink-brand);
-  line-height: 0.96;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
   margin-bottom: 24px;
   margin-top: 0;
 }
