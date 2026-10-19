@@ -10,7 +10,8 @@
     "test": "vitest run",
     "smoke": "node scripts/smoke.mjs",
     "check:golive": "node scripts/check-golive.mjs",
-    "pdf:application": "node scripts/build-application-pdf.ts"
+    "pdf:application": "node scripts/build-application-pdf.ts",
+    "tokens:fop": "node scripts/build-fop-tokens.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.16.0",
