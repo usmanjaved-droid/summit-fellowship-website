@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PRIMARY_LINKS, getNavGroups } from '@/lib/navigation';
+import { getApplicationStatus, getCurrentCohort, isApplicationLive } from '@/lib/site';
 import { ArrowLink } from './fop';
 
 const COLUMNS = [
@@ -8,6 +9,8 @@ const COLUMNS = [
 ];
 
 export default function Footer() {
+  const cohort = getCurrentCohort();
+  const live = isApplicationLive(cohort);
   return (
     <footer className="site-footer" data-theme="dark">
       <div className="site-footer__inner">
@@ -31,10 +34,11 @@ export default function Footer() {
             <p className="t-body">
               A seven-day intensive for Pakistan&apos;s most promising social enterprises. A Friends of
               Pakistan programme, in partnership with Mulago Foundation and Taleemabad.
+              {!live && <> {getApplicationStatus(cohort)}</>}
             </p>
             <div className="site-footer__go">
               <ArrowLink href="/apply" size="lg">
-                Apply
+                {live ? 'Apply' : 'How to apply'}
               </ArrowLink>
             </div>
           </div>

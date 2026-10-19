@@ -37,3 +37,9 @@ p.subtitle {
   margin-top: var(--space-10);
   color: var(--white);
 }
+
+/* Phones: 44px-tall tap areas on breadcrumb links without changing their look. */
+@media (max-width: 640px) {
+  .crumbs a { position: relative; }
+  .crumbs a::after { content: ''; position: absolute; inset: -13px -4px; }
+}

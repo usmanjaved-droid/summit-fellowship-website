@@ -4,7 +4,7 @@ import { ArrowLink, Button, Section, SquareCta, Timeline } from './components/fo
 import { FACULTY, ORGANIZERS } from './faculty/people';
 import { getLatestCohort } from '@/lib/cohorts';
 import { getFellowCards } from '@/lib/fellows';
-import { getApplyCta, getCurrentCohort, getDeadlineText } from '@/lib/site';
+import { getApplicationStatus, getApplyCta, getCurrentCohort } from '@/lib/site';
 import styles from './home.module.css';
 
 export const metadata = {
@@ -37,8 +37,8 @@ const STEPS = [
 export default function HomePage() {
   const cohort = getCurrentCohort();
   const cta = getApplyCta(cohort);
-  // While applications are live the deadline sits under the hero CTA (no separate band).
-  const deadline = getDeadlineText(cohort);
+  // Under the hero CTA: the deadline while applications are live, otherwise that they open soon.
+  const status = getApplicationStatus(cohort);
   const latest = getLatestCohort();
   const fellows = getFellowCards(latest.year);
 
@@ -58,7 +58,7 @@ export default function HomePage() {
             <Button href={cta.href} size="xl" icon>
               {cta.label}
             </Button>
-            {deadline && <p className={styles.hero__deadline}>Applications close: {deadline}</p>}
+            <p className={styles.hero__deadline}>{status}</p>
           </div>
           <div className={styles.hero__media}>
             <Image
@@ -82,8 +82,8 @@ export default function HomePage() {
           <div className={styles.split__body}>
             <p className={`t-body ${styles.why__body}`}>
               240 million people. A learning crisis. A hunger crisis. A mental health system that barely exists.
-              A generation of founders has decided not to wait - and they are building real solutions, with real
-              evidence, at real cost. But few reach national scale. Most stay caught in project-driven survival -
+              A generation of founders has decided not to wait — and they are building real solutions, with real
+              evidence, at real cost. But few reach national scale. Most stay caught in project-driven survival —
               securing grants, reaching thousands, when their models could reach millions.{' '}
               <strong className={styles.why__emphasis}>We are changing that.</strong>
             </p>
@@ -111,7 +111,7 @@ export default function HomePage() {
             <h2 className={`t-heading-2 ${styles.heading}`}>Seven days to redesign for scale.</h2>
             <p className={`t-body ${styles.why__body}`}>
               Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan working the
-              Mulago design discipline alongside Pakistani faculty - Big Idea, doer and payer at scale, the Four
+              Mulago design discipline alongside Pakistani faculty — Big Idea, doer and payer at scale, the Four
               Enoughs, the Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start
               of a narrative funders trust.
             </p>
@@ -187,7 +187,7 @@ export default function HomePage() {
       {/* ============ FACULTY (white) ============ */}
       <Section tone="white">
         <p className={`t-eyebrow ${styles.eyebrow}`}>People</p>
-        <h2 className={`t-heading-2 ${styles.heading}`}>Organized and taught by people who have scaled.</h2>
+        <h2 className={`t-heading-2 ${styles.heading}`}>Organised and taught by people who have scaled.</h2>
         <ul className={styles.faculty__grid}>
           {HOME_PEOPLE.map((p) => (
             <li key={p.num} className={styles.faculty__item}>

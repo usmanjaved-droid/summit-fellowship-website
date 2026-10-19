@@ -15,12 +15,6 @@ h2.title {
 }
 .title em { font-style: italic; }
 p.sub { color: var(--ink-soft); font-size: 20px; line-height: 1.4; }
-.when {
-  margin-top: var(--space-6);
-  padding-top: var(--space-4);
-  border-top: var(--border-1) solid var(--line);
-  color: var(--ink-soft);
-}
 
 .body { min-width: 0; }
 .body > p { margin: 0 0 var(--space-5); color: var(--ink-soft); }

@@ -3,7 +3,7 @@ import {
   TBC,
   displayValue,
   getApplyCta,
-  getDeadlineText,
+  getApplicationStatus,
   getCurrentCohort,
   getSiteSettings,
   isApplicationLive,
@@ -47,23 +47,25 @@ describe('getApplyCta', () => {
     expect(getApplyCta(base).href).toBe('/apply');
     expect(getApplyCta({ ...base, applicationsOpen: true }, true).href).toBe('/apply');
   });
-  it('says opening soon unless live', () => {
-    expect(getApplyCta({ ...base, applicationsOpen: true }, false).label).toBe('Applications opening soon');
+  it('says how to apply unless live', () => {
+    expect(getApplyCta({ ...base, applicationsOpen: true }, false).label).toBe('How to apply');
     expect(getApplyCta({ ...base, applicationsOpen: true }, true).label).toBe('Apply for the 2027 cohort');
   });
 });
 
-describe('getDeadlineText', () => {
-  it('is null when not live', () => {
-    expect(getDeadlineText({ ...base, applicationDeadline: '15 January 2027' }, false)).toBeNull();
+describe('getApplicationStatus', () => {
+  it('says applications open soon when not live', () => {
+    expect(getApplicationStatus({ ...base, applicationDeadline: '15 January 2027' }, false)).toBe(
+      'Applications for the 2027 cohort open soon.',
+    );
   });
-  it('is TBC when live without a deadline', () => {
-    expect(getDeadlineText({ ...base, applicationsOpen: true }, true)).toBe(TBC);
+  it('gives TBC when live without a deadline', () => {
+    expect(getApplicationStatus({ ...base, applicationsOpen: true }, true)).toBe(`Applications close: ${TBC}`);
   });
-  it('is the deadline when live with one', () => {
+  it('gives the deadline when live with one', () => {
     expect(
-      getDeadlineText({ ...base, applicationsOpen: true, applicationDeadline: '15 January 2027' }, true),
-    ).toBe('15 January 2027');
+      getApplicationStatus({ ...base, applicationsOpen: true, applicationDeadline: '15 January 2027' }, true),
+    ).toBe('Applications close: 15 January 2027');
   });
 });
 

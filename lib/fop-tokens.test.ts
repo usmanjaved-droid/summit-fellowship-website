@@ -18,7 +18,8 @@ function block(selector: string): string {
 
 describe('Friends of Pakistan tokens', () => {
   it('generated file is in sync', () => {
-    expect(readFileSync('app/fop-tokens.css', 'utf8')).toBe(css);
+    // Git on Windows may check the file out with CRLF line endings; compare content, not line endings.
+    expect(readFileSync('app/fop-tokens.css', 'utf8').replace(/\r\n/g, '\n')).toBe(css);
   });
 
   it('light values', () => {

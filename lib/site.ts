@@ -44,12 +44,15 @@ export function isApplicationLive(c: CohortSettings, formEnabled: boolean = FORM
 
 export function getApplyCta(c: CohortSettings, formEnabled: boolean = FORM_ENABLED) {
   return {
-    label: isApplicationLive(c, formEnabled) ? `Apply for the ${c.year} cohort` : 'Applications opening soon',
+    label: isApplicationLive(c, formEnabled) ? `Apply for the ${c.year} cohort` : 'How to apply',
     href: '/apply',
   };
 }
 
-export function getDeadlineText(c: CohortSettings, formEnabled: boolean = FORM_ENABLED): string | null {
-  if (!isApplicationLive(c, formEnabled)) return null;
-  return displayValue(c.applicationDeadline);
+/** One line on where applications stand: the deadline while live, otherwise that they open soon. */
+export function getApplicationStatus(c: CohortSettings, formEnabled: boolean = FORM_ENABLED): string {
+  return isApplicationLive(c, formEnabled)
+    ? `Applications close: ${displayValue(c.applicationDeadline)}`
+    : `Applications for the ${c.year} cohort open soon.`;
 }
+

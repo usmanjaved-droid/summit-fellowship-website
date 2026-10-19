@@ -36,7 +36,12 @@ body {
   background: var(--surface);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* Short pages: the footer sits at the bottom of the window, with no strip of page ground below it. */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+body > main { flex: 1 0 auto; }
 img, svg, video { display: block; max-width: 100%; }
 button { font: inherit; cursor: pointer; border: 0; background: 0; color: inherit; }
 a {
@@ -598,4 +603,22 @@ h1.page-hero__title {
   }
   .btn:hover .arrow { translate: none; }
   .tl-row:hover .tl-dot { transform: none; }
+}
+
+/* Closed application page: the links under the "open soon" line. */
+.closed-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-10);
+  margin-top: var(--space-6);
+}
+
+/* Phones: breadcrumb links in the older page heroes get a 44px-tall tap area without changing their look. */
+@media (max-width: 640px) {
+  .page-hero__crumbs a { position: relative; }
+  .page-hero__crumbs a::after {
+    content: '';
+    position: absolute;
+    inset: -12px -4px;
+  }
 }

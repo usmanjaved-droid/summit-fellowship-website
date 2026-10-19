@@ -5,7 +5,7 @@ import { ADVISORS, FACULTY, ORGANIZERS, type Person } from './people';
 import styles from './faculty.module.css';
 
 export const metadata = {
-  title: 'Faculty & Organizers — Friends of Pakistan Fellowship',
+  title: 'Faculty & Organisers — Friends of Pakistan Fellowship',
 };
 
 function PersonCard({ p }: { p: Person }) {
@@ -62,13 +62,13 @@ export default function FacultyPage() {
   return (
     <>
       <PageHero
-        crumb="Faculty & Organizers"
+        crumb="Faculty & Organisers"
         title={<>An ecosystem of <em>support.</em></>}
         subtitle="A curated group of founders, funders, and system-level operators bringing scale frameworks, patient capital, and the operational scars to make it real."
       />
       <PeopleBand id="faculty" tone="offwhite" title="Faculty" people={FACULTY} />
       <PeopleBand id="advisors" tone="white" title="Advisors" people={ADVISORS} />
-      <PeopleBand id="organizers" tone="offwhite" title="Organizers" people={ORGANIZERS} />
+      <PeopleBand id="organizers" tone="offwhite" title="Organisers" people={ORGANIZERS} />
     </>
   );
 }

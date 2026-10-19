@@ -359,3 +359,9 @@
     translate: none;
   }
 }
+
+/* Phones: a 44px-tall tap area around arrow links without changing their look. */
+@media (max-width: 640px) {
+  .fop-arrow-link { position: relative; }
+  .fop-arrow-link::after { content: ''; position: absolute; inset: -10px -4px; }
+}

@@ -9,7 +9,7 @@ export function FellowSidebar({ fellow }: FellowSidebarProps) {
   return (
     <aside className={styles['fellow-sidebar']}>
       <div className={styles['fellow-sidebar__section']}>
-        <span className={`t-eyebrow ${styles['fellow-sidebar__label']}`}>Organization</span>
+        <span className={`t-eyebrow ${styles['fellow-sidebar__label']}`}>Organisation</span>
         <p className={`t-body-sm ${styles['fellow-sidebar__value']}`}>{fellow.org}</p>
       </div>
 

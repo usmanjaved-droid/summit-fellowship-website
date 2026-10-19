@@ -40,8 +40,9 @@ a.cohort-bar__tab:focus-visible { outline: var(--border-2) solid var(--focus); o
 
 @media (max-width: 640px) {
   .cohort-bar__inner { flex-direction: column; align-items: flex-start; gap: 0; }
-  p.cohort-bar__label { padding-bottom: 0; }
-  /* All four tabs visible at once: wrap instead of a hidden horizontal swipe. */
-  .cohort-bar__tabs { width: 100%; flex-wrap: wrap; overflow-x: visible; gap: 0 var(--space-5); }
-  a.cohort-bar__tab { min-height: 44px; font-size: 15px; }
+  /* The page's own breadcrumb already says where you are; on phones the bar is just the tabs. */
+  p.cohort-bar__label { display: none; }
+  /* All four tabs visible at once (one line at 375px): wrap instead of a hidden horizontal swipe. */
+  .cohort-bar__tabs { width: 100%; flex-wrap: wrap; overflow-x: visible; gap: 0 var(--space-4); }
+  a.cohort-bar__tab { min-height: 44px; font-size: 14px; }
 }

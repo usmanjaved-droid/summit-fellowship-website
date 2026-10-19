@@ -32,8 +32,8 @@ const HOSTS = [
   },
   {
     name: 'Taleemabad',
-    role: 'Partner · Organizer · Karachi, Pakistan',
-    desc: <>Pakistan&rsquo;s largest ed-tech organization. Transforms learning for millions of children through digital platforms, public school integrations, and engaging multimodal content in Urdu, Punjabi, and Pashto.</>,
+    role: 'Partner · Organiser · Karachi, Pakistan',
+    desc: <>Pakistan&rsquo;s largest ed-tech organisation. Transforms learning for millions of children through digital platforms, public school integrations, and engaging multimodal content in Urdu, Punjabi, and Pashto.</>,
     links: [
       { label: 'taleemabad.com', href: 'https://taleemabad.com/', external: true },
       { label: 'Email', href: 'mailto:hello@taleemabad.com' },
@@ -96,7 +96,7 @@ export default function ContactPage() {
       <Section tone="white">
         <p className={`t-eyebrow ${styles.eyebrow}`}>Who runs it</p>
         <h2 className={`t-heading-2 ${styles.heading}`}>
-          Three organizations. <em>One week.</em>
+          Three organisations. <em>One week.</em>
         </h2>
         <div className={styles.hosts}>
           {HOSTS.map((h) => (
