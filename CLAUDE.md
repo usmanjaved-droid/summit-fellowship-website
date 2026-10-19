@@ -4,7 +4,7 @@
 
 **Summit Fellowship** is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, cohorts, fellows, faculty, curriculum, and everything participants need.
 
-**Status:** The site is being converted from a 2026-only event site into a permanent, multi-year site. Phase 1 (permanent multi-year site) and Phase 2 (application form) are built on the `staging` branch and reach production only when the owner approves go-live (see "Go-live runbook" below). Production serves whatever is on `master`.  
+**Status:** The site is being converted from a 2026-only event site into a permanent, multi-year site. Phase 1 (permanent multi-year site), Phase 2 (application form) and the Friends of Pakistan restyle (2026-10-19) are built on the `staging` branch and reach production only when the owner approves go-live (see "Go-live runbook" below). Production serves whatever is on `master`.  
 **Audience:** Fellows, faculty, funders, potential applicants  
 **Latest cohort:** 2026 — June 7–14, 2026 at Khoj Resort, Skardu  
 **Organization:** Mulago Foundation + Taleemabad
@@ -17,7 +17,7 @@
 - **Language:** TypeScript 5+ (strict mode)
 - **Styling:** Tailwind CSS 4 with custom CSS variables
 - **Icons:** Lucide React 1.16.0 (`import { ChevronRight } from 'lucide-react'`)
-- **Fonts:** Google Fonts (Instrument Serif, Geist, JetBrains Mono, Caveat)
+- **Fonts:** Google Fonts via `next/font` (Crimson Pro, Source Sans 3), per the Friends of Pakistan design system
 - **Images:** Next.js Image component with remote pattern validation
 - **Data:** JSON files in `data/` directory (no database)
 - **Linting:** ESLint 9 with Next.js Core Web Vitals + TypeScript configs
@@ -35,7 +35,8 @@ Summit Fellowship Website/
 │   ├── page.tsx                   # Homepage
 │   ├── not-found.tsx              # Helpful 404
 │   ├── robots.ts                  # Disallow: / on non-production
-│   ├── globals.css                # Global design system
+│   ├── globals.css                # Global styles (imports fop-tokens.css)
+│   ├── fop-tokens.css             # Generated design tokens (npm run tokens:fop)
 │   ├── apply/  faq/  curriculum/  contact/
 │   ├── faculty/
 │   │   ├── page.tsx
@@ -54,7 +55,8 @@ Summit Fellowship Website/
 │   └── components/                # Shared components
 │       ├── Header.tsx  NavDropdown.tsx   # Client: menus
 │       ├── Footer.tsx  StagingBanner.tsx
-│       ├── DeadlineBand.tsx       # Replaced EventDate.tsx
+│       ├── PageHero.tsx           # Shared green page hero
+│       ├── fop/                   # Friends of Pakistan primitives (Section, Button, ArrowLink, SolverCard, ...)
 │       ├── FellowsBits.tsx        # Fellows grid with filtering
 │       ├── ContactForm.tsx
 │       └── (other components)
@@ -75,7 +77,7 @@ Summit Fellowship Website/
 │       ├── index.json             # Cohort registry
 │       └── 2026/fellows.json      # All 11 fellows (authoritative source)
 │
-├── scripts/                       # smoke.mjs, check-golive.mjs
+├── scripts/                       # smoke.mjs, check-golive.mjs, build-fop-tokens.mjs
 ├── next.config.ts                 # Image domain + noindex header configuration
 ├── package.json
 ├── tsconfig.json
@@ -84,65 +86,51 @@ Summit Fellowship Website/
 
 ---
 
-## Global Design System (app/globals.css)
+## Global Design System — Friends of Pakistan
 
-### Color Palette
+The site uses the **Friends of Pakistan design system** (restyle of 2026-10-19, on `staging`). Spec: `docs/superpowers/specs/2026-10-19-friends-of-pakistan-restyle-design.md`. The system's reference files (README, `tokens.json`, `components/bundle.css`, one README per component) are copied, reference only, into `docs/design-system/friends-of-pakistan/project/`.
 
-All colors are CSS variables (never hardcode hex values):
+### Tokens
 
-**Alpine (Dark Blues)**
-- `--alpine-deep: #142734` — Primary dark background
-- `--alpine: #1a2e3b` 
-- `--alpine-soft: #2a4254`
-- `--night: #0c1a22`
+- **Source:** `docs/design-system/friends-of-pakistan/project/tokens.json`.
+- **Generated layer:** `app/fop-tokens.css`, built by `npm run tokens:fop` (`scripts/build-fop-tokens.mjs`). Never edit it by hand; `lib/fop-tokens.test.ts` fails if it drifts from `tokens.json`.
+- `app/globals.css` imports it and adds only the `--serif`/`--sans` font stacks, `--container-narrow` (920px) and `--ease` (`cubic-bezier(.4,0,.2,1)`).
+- **No hex colours** anywhere except `app/fop-tokens.css` (one exception: hex inside SVG `data:` URIs for the select carets, which CSS variables cannot reach). `lib/no-legacy-styles.test.ts` enforces this, bans the old Alpine/Ochre/Clay/Paper variables, and fails on any `var(--x)` that is not defined.
 
-**Ochre (Golden Accent)**
-- `--ochre: #d4a574` — Primary accent (buttons, highlights)
-- `--ochre-deep: #b8895a`
-- `--ochre-pale: #e8c89a`
+### Colour roles
 
-**Clay (Rust/Terracotta)**
-- `--clay: #8a4a3b` — Section labels, secondary accents
-- `--clay-deep: #6b3527`
+- **Brand:** `--primary` yellow `#ffc700` (hover `--primary-dark`), `--brand-green` `#006600` (headlines, links, field borders on light grounds), `--brand-green-deep` `#003800` (ground of the green bands), `--off-white` (default page ground), `--white`, `--charcoal` (secondary text), `--black` (body text). Greys (`--gray-*`) are for functional states only; danger reds are `--danger*`.
+- **Semantic (use these in components):** `--surface`, `--ink`, `--ink-brand`, `--ink-soft`, `--line` (decorative hairline), `--line-strong`, `--field-border`, `--link`, `--accent`, `--on-accent`, `--focus`, and the scrims `--scrim-image`, `--scrim-header`, `--scrim-band`, `--scrim-card`.
+- **Dark-theme flip:** any element with `data-theme="dark"` (green bands, header, footer, `Section tone="green"`) flips the semantic tokens: `--surface` becomes deep green, `--ink`/`--ink-brand` white, `--ink-soft` light grey, `--field-border`/`--link` yellow, `--focus` white. Yellow bands keep the light tokens on a `--primary` fill.
 
-**Parchment/Paper (Light)**
-- `--parchment: #e8e2d5` — Light text on dark
-- `--paper: #f5efe3` — Primary light background
-- `--paper-warm: #ede4d1`
-- `--paper-cool: #fbf8f1`
+### Contrast rules (from the system)
 
-**Ink (Text)**
-- `--ink: #1a1410` — Primary text
-- `--ink-soft: #3d3530`
-- `--ink-mute: #6b625b`
-- `--ink-faint: #a39888`
-
-**Lines (Borders)**
-- `--line: #d4cab5` — Primary border
-- `--line-soft: #e6dec9` — Softer border
+- Yellow is text only on deep green or black, never on off-white or white.
+- Text on yellow is black. Green headlines on yellow must be 24px or larger.
+- `--line` hairlines are decorative only. Danger text sits on white.
+- Text over photos sits on `--scrim-image` (or `--scrim-band`).
 
 ### Typography
 
-**Font Families** (Google Fonts via Next.js):
-- `--font-serif` (Instrument Serif) — Headlines
-- `--font-sans` (Geist) — Body text
-- `--font-mono` (JetBrains Mono) — Labels, code
-- `--font-handwriting` (Caveat) — Decorative
+- **Fonts** (`next/font/google` in `app/layout.tsx`): **Crimson Pro** (300, 400) as `--font-serif` for display; **Source Sans 3** (300–700) as `--font-sans` for everything else.
+- **Type classes** (generated in `fop-tokens.css`): `.t-heading-xl`, `.t-heading-1`, `.t-heading-2`, `.t-stat` (Crimson Pro 300, sentence case, `--ink-brand`); `.t-heading-3/4/5` (Source Sans 600; `.t-heading-4` is uppercase); `.t-body` (18/25, weight 350), `.t-body-light`, `.t-body-sm`, `.t-card-body`, `.t-legal`, `.t-status`; interface labels `.t-eyebrow`, `.t-badge`, `.t-button`, `.t-nav`, `.t-menu-link`, `.t-link-arrow(-lg)`, `.t-cta-square`, `.t-stat-caption`.
+- **Base elements:** `h1`–`h3` are Crimson Pro 300 in `--ink-brand`; `h4`/`h5` are Source Sans 600 in `--ink`; body is Source Sans 18/25 at 350.
+- **Uppercase** only on interface labels (buttons, nav, badges, arrow links, tabs, filter chips, `heading-4` titles, stat captions, eyebrows), never on body text, names, FAQ questions or form labels. Copy stays sentence case in code; CSS applies the transform.
 
-**Text Hierarchy:**
-- h1–h5: Serif, weight 400, line-height 1.05, letter-spacing -0.01em
-- p: Sans, 17px, line-height 1.55
-- .eyebrow: Mono, 11px, weight 500, letter-spacing +0.16em
+### Shape, motion, rhythm
 
-### Spacing Scale
+- Square corners everywhere (`--radius-none`) except radios and timeline dots. One shadow, `--shadow-3xl`. Borders: 1px controls, 2px checkboxes and radios, 4px yellow caption rule.
+- Colour transitions are 150ms `var(--ease)`; `prefers-reduced-motion` is respected.
+- **Bands:** full-width alternating bands in a 1440px container (`--container-max`) with 32px side padding (`--container-pad`). Off-white, white and yellow bands pad 64px (32px under 1024px); green bands pad 144px (96px under 1024px). Two yellow bands are never adjacent.
+- **Spacing:** `--space-1` (4px) to `--space-36` (144px). Only the steps in `tokens.json` exist (there is no `--space-7`, `--space-11` or `--space-12`).
 
-- `--space-1: 4px` through `--space-11: 160px`
+### Primitives (`app/components/fop/`, CSS in `fop.module.css`, prefix `fop-`)
 
-### Container Widths
+`Section` (band; `tone` offwhite | white | yellow | green, where green sets `data-theme="dark"`), `Button`, `ArrowLink`, `Arrow`, `SquareCta`, `Stat`, `Badge`, `SolverCard` (square photo tile with scrim), `Timeline`, `Prose`. Import from `@/app/components/fop`. `app/components/PageHero.tsx` is the shared green page hero. The header and footer use the global `.site-header` / `.site-footer` rules in `globals.css`. Form controls are styled in `app/apply/form/form.module.css` and by the `.form-group` rules in `globals.css`.
 
-- `--container: 1320px` (standard)
-- `--container-narrow: 920px` (narrow)
-- `--container-wide: 1560px` (wide)
+### Container widths
+
+- `.container` uses `--container-max` (1440px) with `--container-pad`; `.container--narrow` is 920px.
 
 ### Responsive Breakpoints
 
@@ -210,8 +198,8 @@ All colors are CSS variables (never hardcode hex values):
 
 Page: `app/cohorts/2026/fellows/[slug]/page.tsx`. Components and CSS: `app/cohorts/_components/fellow/*` (`fellow-detail.module.css`).
 
-1. **FellowHero** — Alpine background, name, problem statement, photo/avatar
-2. **IdeaBand** — Clay background tagline section
+1. **FellowHero** — Deep-green band, name, problem statement, photo/avatar
+2. **IdeaBand** — Yellow band with the tagline
 3. **Two-column body** (desktop) / single column (mobile):
    - Left: Three narrative sections (Mission, How It Works, Dream)
    - Right: Sticky sidebar with org metadata
@@ -265,7 +253,7 @@ Photos can be:
 
 ### Photo Fallback
 
-If `photo_url` is null, renders an 80px avatar circle with 2-letter initials (clay background, white serif text).
+If `photo_url` is null, the hero and the fellows-grid tile show a deep-green square with white initials.
 
 ---
 
@@ -273,7 +261,7 @@ If `photo_url` is null, renders an 80px avatar circle with 2-letter initials (cl
 
 ### CSS Modules + CSS Variables
 
-1. **Globals** — `app/globals.css` (colors, spacing, typography, resets)
+1. **Tokens + globals** — `app/fop-tokens.css` (generated colours, spacing, type classes) and `app/globals.css` (resets, header, footer, shared classes)
 2. **Components** — `*.module.css` files (BEM naming)
 
 ### BEM Convention
@@ -294,7 +282,7 @@ Always use CSS variables:
 
 ```css
 color: var(--ink);
-background: var(--alpine-deep);
+background: var(--brand-green-deep);
 border: 1px solid var(--line);
 ```
 
@@ -307,7 +295,7 @@ Never hardcode hex values.
 ### Server Components (Default)
 
 - FellowHero, IdeaBand, FellowSection, FellowSidebar, FellowNavigation
-- Footer, DeadlineBand, StagingBanner, etc.
+- Footer, PageHero, StagingBanner, the `fop/` primitives, etc.
 
 **Benefits:** No JavaScript, fast, can access databases/env vars
 
@@ -316,7 +304,6 @@ Never hardcode hex values.
 - Header, NavDropdown (menu state)
 - FellowsBits (sector filter with useState)
 - ContactForm (opens the visitor's email app via mailto:)
-- BeforeAfterSlider (interactive)
 
 **Use only for:** State, event listeners, hooks, real-time updates
 
@@ -386,6 +373,7 @@ npm run start            # Start production server
 npm test                 # Vitest unit tests (lib/**/*.test.ts)
 npm run smoke [baseUrl]  # Check every route responds (default http://localhost:3100; run against `npx next start -p 3100`)
 npm run pdf:application  # Rebuild the offline application PDF (required after editing questions or the year)
+npm run tokens:fop       # Regenerate app/fop-tokens.css from the design-system tokens.json
 npm run check:golive     # Fails while data/faq.json still has [TO CONFIRM] answers
 npm run lint             # Run ESLint on all files (checks Next.js Core Web Vitals + TypeScript)
 npx eslint --fix        # Auto-fix linting errors (eslint.config.mjs config)
@@ -488,7 +476,7 @@ Work on `staging`; production (`master`) changes only through an approved stagin
 
 ### Update Global Colors
 
-Edit `app/globals.css` `:root` CSS variables. All components inherit changes.
+Colours come from the design system: update `docs/design-system/friends-of-pakistan/project/tokens.json`, then run `npm run tokens:fop` to regenerate `app/fop-tokens.css`. All components inherit the change.
 
 ### Test Responsive Layout
 
@@ -560,7 +548,7 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 ## Quick Start for New Developers
 
 1. `git clone <repo>` → `npm install` → `npm run dev`
-2. Read `app/globals.css` (design system)
+2. Read the "Global Design System" section above, then `app/fop-tokens.css` and `app/globals.css`
 3. Check `app/page.tsx` (homepage structure)
 4. Review `app/cohorts/2026/fellows/[slug]/page.tsx` (dynamic page)
 5. Look at `app/components/Header.tsx` (client component)
@@ -576,5 +564,5 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 
 ---
 
-**Last Updated:** 2026-10-12 (application form, Phase 2)  
-**Status:** Phase 1 (permanent multi-year site) and Phase 2 (application form) built on `staging`; production serves whatever is on `master` (staging merges only with go-live approval)
+**Last Updated:** 2026-10-19 (Friends of Pakistan restyle)  
+**Status:** Phase 1 (permanent multi-year site), Phase 2 (application form) and the Friends of Pakistan restyle built on `staging`; production serves whatever is on `master` (staging merges only with go-live approval)
