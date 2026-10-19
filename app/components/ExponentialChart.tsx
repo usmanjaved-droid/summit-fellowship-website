@@ -1,7 +1,11 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Caveat } from 'next/font/google';
 import styles from './ExponentialChart.module.css';
+
+// Hand-drawn labels keep their handwriting font on purpose (owner's choice); used only by this chart.
+const caveat = Caveat({ subsets: ['latin'], weight: ['600'], display: 'swap', variable: '--font-chart-hand' });
 
 // Path data extracted from mulagofoundation.org chart
 const CURVE_D =
@@ -102,7 +106,7 @@ export default function ExponentialChart() {
   }, []);
 
   return (
-    <div ref={wrapRef} className={`${styles.chart}${visible ? ` ${styles['is-visible']}` : ''}`}>
+    <div ref={wrapRef} className={`${caveat.variable} ${styles.chart}${visible ? ` ${styles['is-visible']}` : ''}`}>
       <svg width="100%" style={{ height: 'auto' }} viewBox="0 0 1317 724" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         {/* Grey dashed line: idea → pretty good (linear-ish) */}
         <g opacity="0.5">

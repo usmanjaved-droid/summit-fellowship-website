@@ -57,6 +57,8 @@ describe('no legacy styles', () => {
     // next/font injects these through the `variable` option in app/layout.tsx.
     defined.add('--font-serif');
     defined.add('--font-sans');
+    // Handwriting font for the homepage chart labels, injected in app/components/ExponentialChart.tsx.
+    defined.add('--font-chart-hand');
     for (const m of all.matchAll(/['"](--[\w-]+)['"]\s*:/g)) defined.add(m[1]);
     const used = new Set<string>([...all.matchAll(/var\(\s*(--[\w-]+)/g)].map((m) => m[1]));
     expect([...used].filter((v) => !defined.has(v)).sort()).toEqual([]);
