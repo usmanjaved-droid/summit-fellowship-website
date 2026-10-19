@@ -7,7 +7,9 @@ import { useEffect } from 'react';
  * Gentle movement as you scroll: section headings (main h2) and anything marked data-reveal
  * rise slightly and fade in when they first come into view; data-reveal="line" draws a timeline line.
  * Content is only hidden once this script runs (html.reveal-on), so it is always visible without
- * JavaScript, and nothing moves for visitors who ask for reduced motion.
+ * JavaScript, and nothing moves for visitors who ask for reduced motion. Only elements found off-screen
+ * at scan time are hidden (class reveal-pending); anything rendered later (the application form's
+ * steps, a day panel) is never hidden.
  */
 const TARGETS = 'main h2:not(.sr-only), main [data-reveal]';
 const STAGGER_MS = 70;
@@ -35,6 +37,7 @@ export default function ScrollReveal() {
 
     // Cards in the same row or list come in one after another.
     for (const el of pending) {
+      el.classList.add('reveal-pending');
       const siblings = el.parentElement ? Array.from(el.parentElement.children) : [];
       const i = Math.min(siblings.indexOf(el), MAX_STAGGER);
       if (el.hasAttribute('data-reveal') && i > 0) el.style.setProperty('--reveal-delay', `${i * STAGGER_MS}ms`);

@@ -264,7 +264,7 @@
   background: var(--gray-50);
 }
 /* Scroll reveal (app/components/ScrollReveal.tsx): inside data-reveal="line", the line draws left to right. */
-:global(.reveal-on) [data-reveal='line'] .fop-timeline::before {
+:global(.reveal-on) [data-reveal='line']:global(.reveal-pending) .fop-timeline::before {
   scale: 0 1;
   transform-origin: left center;
 }
