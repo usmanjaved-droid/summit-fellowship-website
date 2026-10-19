@@ -1,7 +1,7 @@
 /* Application form (Friends of Pakistan). Controls follow the Input, Textarea, Select,
    Checkbox, Radio and Button components of the design system; native inputs stay native. */
 
-.form { padding-top: var(--space-12, 48px); padding-bottom: var(--space-24); color: var(--ink); }
+.form { padding-top: var(--space-13); padding-bottom: var(--space-24); color: var(--ink); }
 
 /* --- Chrome: progress, title, saved line, error summary --- */
 .form__progress {
@@ -14,7 +14,7 @@
   color: var(--ink-brand);
 }
 .form__bar { height: 4px; background: var(--line); margin-bottom: var(--space-8); }
-.form__barFill { height: 100%; background: var(--primary); transition: width .3s var(--ease-out); }
+.form__barFill { height: 100%; background: var(--primary); transition: width .3s var(--ease); }
 .form__title {
   margin: 0 0 var(--space-3);
   font-family: var(--serif);
@@ -155,6 +155,8 @@ select.form__input option { color: var(--black); background: var(--white); }
 .form__field[aria-invalid="true"] .form__option input { border-color: var(--danger-400); }
 @media (forced-colors: active) {
   .form__option input::before { background: CanvasText; }
+  /* High Contrast drops the SVG caret's colour; fall back to the native select. */
+  select.form__input { appearance: auto; background-image: none; padding-right: var(--space-3); }
 }
 
 .form__specify { display: block; margin-top: var(--space-3); max-width: 420px; }
@@ -285,7 +287,6 @@ select.form__input option { color: var(--black); background: var(--white); }
 }
 
 .form__honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
-.form__notice { border-left: var(--border-4) solid var(--primary); padding: var(--space-3) var(--space-4); background: var(--white); margin-bottom: var(--space-6); }
 
 @media (max-width: 640px) {
   .form { padding-top: var(--space-8); padding-bottom: var(--space-16); }

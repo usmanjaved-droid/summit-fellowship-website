@@ -41,7 +41,7 @@
 .breadcrumbs a {
   color: var(--primary);
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: opacity .15s cubic-bezier(.4, 0, .2, 1);
 }
 
 .breadcrumbs a:hover {
@@ -226,7 +226,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--white);
-  background: var(--scrim-header);
+  background: var(--scrim-image);
   padding: 6px 10px;
   backdrop-filter: blur(4px);
 }
@@ -436,22 +436,6 @@
   grid-column: span 4;
 }
 
-.factSpan3 {
-  grid-column: span 3;
-}
-
-.factSpan6 {
-  grid-column: span 6;
-}
-
-.factSpan8 {
-  grid-column: span 8;
-}
-
-.factSpan12 {
-  grid-column: span 12;
-}
-
 .factPhoto {
   padding: 0;
   border: 0;
@@ -495,75 +479,21 @@
   pointer-events: none;
 }
 
-.factQuote {
-  background: var(--brand-green);
-  border-color: var(--brand-green);
-  color: var(--white);
-  grid-column: span 8;
-}
-
-.factPull {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(24px, 2.8vw, 36px);
-  line-height: 1.25;
-  color: var(--white);
-  margin-bottom: 24px;
-  max-width: 24ch;
-}
-
 @media (max-width: 1100px) {
   .keyFactsHead {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .factSpan4,
-  .factSpan3 {
+  .factSpan4 {
     grid-column: span 6;
   }
-  .factSpan6 {
-    grid-column: span 6;
-  }
-  .factSpan8,
-  .factSpan12,
-  .factQuote {
-    grid-column: span 12;
-  }
+
 }
 
 @media (max-width: 600px) {
-  .factSpan4,
-  .factSpan3,
-  .factSpan6 {
+  .factSpan4 {
     grid-column: span 12;
   }
-}
-
-/* ==========================================
-   PULL STRIP
-   ========================================== */
-.pullStrip {
-  position: relative;
-  height: 60vh;
-  min-height: 420px;
-  overflow: hidden;
-  background: var(--brand-green-deep);
-}
-
-.pullStripOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    var(--scrim-header) 0%,
-    var(--scrim-header) 50%,
-    var(--scrim-image) 100%
-  );
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 64px 0;
 }
 
 /* ==========================================
@@ -704,7 +634,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s, border-color 0.3s;
+  transition: transform .15s cubic-bezier(.4, 0, .2, 1), border-color .15s cubic-bezier(.4, 0, .2, 1);
 }
 
 .spot:hover {
@@ -734,7 +664,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--white);
-  background: var(--scrim-header);
+  background: var(--scrim-image);
   padding: 6px 10px;
   backdrop-filter: blur(4px);
 }
@@ -817,75 +747,6 @@
 }
 
 /* Activity list variant */
-.activityList {
-  display: grid;
-  gap: 0;
-  grid-template-columns: 1fr;
-}
-
-.listItem {
-  padding: 20px 0;
-  display: grid;
-  grid-template-columns: 64px 1fr auto;
-  gap: 24px;
-  align-items: baseline;
-  border-bottom: 1px solid var(--line);
-}
-
-.listItem:last-child {
-  border-bottom: 0;
-}
-
-.listItemNum {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  color: var(--ink-brand);
-}
-
-.listItemTitle {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  color: var(--ink-brand);
-  line-height: 1.2;
-  margin: 0 0 6px 0;
-}
-
-.listItemLocal {
-  font-style: italic;
-  font-size: 14px;
-  color: var(--ink-brand);
-  margin-left: 8px;
-}
-
-.listItemDesc {
-  grid-column: 2;
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.5;
-  margin: 6px 0 0 0;
-}
-
-.listItemMeta {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  text-align: right;
-  white-space: nowrap;
-}
-
-@media (max-width: 700px) {
-  .listItem {
-    grid-template-columns: 36px 1fr;
-    gap: 12px;
-  }
-  .listItemMeta {
-    grid-column: 2;
-    text-align: left;
-  }
-}
 
 /* ==========================================
    CUISINE SECTION
@@ -916,29 +777,6 @@
 .cuisineHead h2 em {
   color: var(--ink-brand);
   font-style: italic;
-}
-
-.cuisineHero {
-  aspect-ratio: 21/8;
-  background: var(--off-white);
-  margin-bottom: 64px;
-  position: relative;
-  overflow: hidden;
-}
-
-.cuisineHero figcaption {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  z-index: 2;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: var(--scrim-header);
-  padding: 8px 12px;
-  backdrop-filter: blur(4px);
 }
 
 .dishGrid {
@@ -975,7 +813,7 @@
   font-size: 10px;
   letter-spacing: 0.16em;
   color: var(--white);
-  background: var(--scrim-header);
+  background: var(--scrim-image);
   padding: 6px 10px;
   backdrop-filter: blur(4px);
 }
@@ -1038,47 +876,6 @@
 }
 
 /* ==========================================
-   CTA SECTION
-   ========================================== */
-.ctaSection {
-  background: var(--brand-green-deep);
-  color: var(--white);
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.ctaGrid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.ctaSection h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(36px, 4.5vw, 64px);
-  color: var(--white);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-.ctaSection h2 em {
-  color: var(--primary);
-  font-style: italic;
-}
-
-.ctaActions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-self: end;
-}
-
-/* ==========================================
    IMAGE PLACEHOLDER
    ========================================== */
 .imagePlaceholder {
@@ -1095,15 +892,3 @@
   padding: 20px;
 }
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
-@media (max-width: 800px) {
-  .ctaGrid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .ctaActions {
-    justify-self: start;
-  }
-}

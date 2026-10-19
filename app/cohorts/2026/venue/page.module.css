@@ -36,19 +36,6 @@
   color: var(--white) !important;
 }
 
-.pageHeroMeta {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  margin-top: 64px;
-}
-
-.pageHeroMetaItem {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .label {
   font-family: var(--font-sans);
   font-size: 10px;
@@ -70,20 +57,6 @@
 
 .pageHero .value {
   color: var(--white) !important;
-}
-
-@media (max-width: 1023px) {
-  .pageHeroMeta {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-}
-
-@media (max-width: 640px) {
-  .pageHeroMeta {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
 }
 
 /* === Venue Intro === */
@@ -143,7 +116,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--white);
-  background: var(--scrim-header);
+  background: var(--scrim-image);
   padding: 8px 12px;
   backdrop-filter: blur(4px);
 }
@@ -339,32 +312,11 @@
   max-width: 56ch;
 }
 
-.galleryMeta {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  text-align: right;
-}
-
-.galleryMeta .v {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 16px;
-  color: var(--ink-brand);
-  text-transform: none;
-  letter-spacing: 0;
-  margin-top: 6px;
-}
-
 @media (max-width: 700px) {
   .galleryHead {
     grid-template-columns: 1fr;
   }
-  .galleryMeta {
-    text-align: left;
-  }
+
 }
 
 .galGrid {
@@ -380,7 +332,7 @@
   background: var(--white);
   margin: 0;
   overflow: hidden;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transition: transform .15s cubic-bezier(.4, 0, .2, 1), box-shadow .15s cubic-bezier(.4, 0, .2, 1);
 }
 
 .galCell:hover {
@@ -398,7 +350,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--white);
-  background: var(--scrim-header);
+  background: var(--scrim-image);
   padding: 6px 10px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -427,20 +379,6 @@
 .galPano {
   grid-column: span 12;
   grid-row: span 1;
-}
-
-.galPlaceholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink-soft);
-  font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.6;
 }
 
 @media (max-width: 900px) {
@@ -474,26 +412,6 @@
   }
 }
 
-.galleryCredit {
-  margin-top: 32px;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.galleryCredit a {
-  color: var(--ink-brand);
-  border-bottom: 1px solid var(--brand-green);
-  padding-bottom: 1px;
-}
-
 /* === Field Guide Section === */
 .fieldGuide {
   padding: 0 0 120px 0;
@@ -523,36 +441,12 @@
   font-style: italic;
 }
 
-.fieldGuideHeadMeta {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  text-align: right;
-  justify-self: end;
-}
-
-.fieldGuideHeadMeta .v {
-  color: var(--ink-brand);
-  font-family: var(--font-serif);
-  font-size: 16px;
-  text-transform: none;
-  letter-spacing: 0;
-}
-
 @media (max-width: 800px) {
   .fieldGuideHead {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .fieldGuideHeadMeta {
-    text-align: left;
-    justify-self: start;
-  }
+
 }
 
 /* === Field Guide Nav === */
@@ -571,7 +465,7 @@
   padding: 10px 14px;
   border: 1px solid var(--line);
   color: var(--ink-soft);
-  transition: all 0.2s ease-out;
+  transition: color .15s cubic-bezier(.4, 0, .2, 1), background-color .15s cubic-bezier(.4, 0, .2, 1), border-color .15s cubic-bezier(.4, 0, .2, 1);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -760,7 +654,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--white);
-  background: var(--scrim-header);
+  background: var(--scrim-image);
   padding: 8px 12px;
   backdrop-filter: blur(4px);
 }
@@ -795,7 +689,7 @@
 
 .fgCardLink::after {
   content: "↗";
-  transition: transform 0.2s;
+  transition: transform .15s cubic-bezier(.4, 0, .2, 1);
 }
 
 .fgCardLink:hover::after {
@@ -908,10 +802,10 @@
   justify-content: space-between;
   margin-top: 8px;
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--white);
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 /* === Rooms Diagram === */
@@ -1184,23 +1078,6 @@
   border: 1.5px solid var(--line);
   border-radius: 0;
   margin-top: 2px;
-}
-
-.essential::before {
-  background: var(--brand-green);
-  border-color: var(--brand-green);
-}
-
-.packingNote {
-  margin-top: 32px;
-  padding: 20px 24px;
-  background: var(--white);
-  border-left: 3px solid var(--brand-green);
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 16px;
-  color: var(--ink-brand);
-  line-height: 1.5;
 }
 
 .l {

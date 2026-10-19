@@ -1,6 +1,5 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-// @ts-expect-error plain ESM script without types
 import { buildTokensCss } from '../scripts/build-fop-tokens.mjs';
 
 const tokens = JSON.parse(

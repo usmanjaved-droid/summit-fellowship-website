@@ -71,7 +71,7 @@ p.fellow-hero__problem {
 }
 
 @media (max-width: 640px) {
-  .fellow-hero { padding: 76px var(--space-4) var(--space-12, 48px); }
+  .fellow-hero { padding: 76px var(--space-4) var(--space-13); }
   .fellow-hero__inner { grid-template-columns: 1fr; gap: var(--space-6); }
   .fellow-hero__media { order: -1; justify-content: flex-start; }
   .fellow-hero__photo,
@@ -199,7 +199,7 @@ a.fellow-navigation__close:focus-visible { outline-color: var(--white); }
 @media (max-width: 1023px) {
   .fellow-detail__body {
     grid-template-columns: 1fr;
-    padding: var(--space-12, 48px) var(--space-6);
+    padding: var(--space-13) var(--space-6);
     gap: var(--space-10);
   }
 }
