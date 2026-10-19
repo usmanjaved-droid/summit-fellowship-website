@@ -177,7 +177,7 @@ export default function HomePage() {
 
       {/* ============ FACULTY (white) ============ */}
       <Section tone="white">
-        <p className={`t-eyebrow ${styles.eyebrow}`}>Team and Faculty</p>
+        <p className={`t-eyebrow ${styles.eyebrow}`}>People</p>
         <h2 className={`t-heading-2 ${styles.heading}`}>Organized and taught by people who have scaled.</h2>
         <ul className={styles.faculty__grid}>
           {HOME_PEOPLE.map((p) => (
