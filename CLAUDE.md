@@ -75,7 +75,7 @@ Summit Fellowship Website/
 │   ├── faculty.json
 │   └── cohorts/
 │       ├── index.json             # Cohort registry
-│       └── 2026/fellows.json      # All 11 fellows (authoritative source)
+│       └── 2026/fellows.json      # All 10 fellows (authoritative source)
 │
 ├── scripts/                       # smoke.mjs, check-golive.mjs, build-fop-tokens.mjs
 ├── next.config.ts                 # Image domain + noindex header configuration
@@ -231,11 +231,11 @@ Page: `app/cohorts/2026/fellows/[slug]/page.tsx`. Components and CSS: `app/cohor
 }
 ```
 
-**Critical:** This is the SINGLE source of truth for fellow data. All 11 fellows have complete records. `email` and `phone` are kept in the data on purpose but must never appear on any page.
+**Critical:** This is the SINGLE source of truth for fellow data. All 10 fellows have complete records. `email` and `phone` are kept in the data on purpose but must never appear on any page.
 
 ### Static Generation
 
-`generateStaticParams()` pre-renders all 11 fellow pages at build time (zero runtime overhead).
+`generateStaticParams()` pre-renders all 10 fellow pages at build time (zero runtime overhead).
 
 ### Photo URLs
 
@@ -501,7 +501,7 @@ All data is static JSON. No runtime queries, zero latency, perfect for static ge
 
 ### Geography Field Required
 
-All 11 fellows have `geography` populated. Displayed in sidebar.
+All 10 fellows have `geography` populated. Displayed in sidebar.
 
 ### CSS Modules Over Tailwind for Layout
 

@@ -3,7 +3,7 @@ export const ROUTES = [
   { path: '/', status: 200, contains: ['Staging — not the live site', 'Apply for the 2027 cohort', 'What you get', 'How it works', 'Meet the 2026 fellows', 'Ready to design for scale?', 'noindex'], absent: ['Before you arrive', 'Fellowship 2026'] },
   { path: '/robots.txt', status: 200, contains: ['Disallow: /'] },
   { path: '/cohorts', status: 200, contains: ['2026 · Skardu'] },
-  { path: '/cohorts/2026', status: 200, contains: ['Eleven founders', 'The Week', 'Habiba Banu', 'Read full profile', 'No. 01 / 11'] },
+  { path: '/cohorts/2026', status: 200, contains: ['Ten founders', 'The Week', 'Habiba Banu', 'Read full profile', 'No. 01 / 10'] },
   { path: '/cohorts/2026/fellows', status: 200, contains: ['Habiba Banu'] },
   { path: '/cohorts/2026/fellows/habiba-banu', status: 200, contains: ['Habiba Banu', 'The Mission'] },
   { path: '/cohorts/2026/fellows/nobody', status: 404 },

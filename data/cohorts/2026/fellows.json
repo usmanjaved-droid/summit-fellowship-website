@@ -78,32 +78,6 @@
     "phone": "+44 7703 563 810"
   },
   {
-    "id": "saad-hussain",
-    "name": "Saad Hussain",
-    "org": "Awaaz-e-Sehat Foundation",
-    "sector": "Health",
-    "tagline": "Voice AI For Pakistani Maternal Care",
-    "idea_context": "Pakistan has one of the highest maternal mortality rates in South Asia, with most deaths occurring among rural and low-literacy women who never get continuous antenatal care. Frontline clinicians and lady health workers are overwhelmed, paper records are lost, and most patient communication tools assume English literacy and typed text. Roman Urdu and spoken Urdu, the languages people actually use, are unsupported by mainstream health software.",
-    "mission": "Cut maternal deaths in low-resource Pakistani clinics.",
-    "how_it_works": "Awaaz-e-Sehat is a speech-first AI platform built at LUMS that lets clinicians dictate consultations in Urdu and get structured electronic medical records, decision support, and clinical dashboards in return. The stack is built on fine-tuned Whisper for Urdu speech recognition and an LLM backend with medical dictionaries. A WhatsApp voice chatbot delivers antenatal guidance to pregnant women in Roman Urdu, and the platform supports traditional birth attendants in rural communities. Deployed at Shalamar Hospital in Lahore with rural rollouts underway. Saad Hussain is a co-founder leading ML/NLP, alongside Dr. Maryam Mustafa (LUMS) and Dr. Fozia Qureshi (Shalamar).",
-    "the_dream": "Become the voice and language layer for maternal and primary care across Pakistan: every clinician dictates in Urdu and gets a clean record, every pregnant woman has a WhatsApp companion that actually speaks her language, every lady health worker has decision support on her phone. Generate evidence that voice-first AI reduces missed antenatal visits and maternal deaths, then expand to other low-resource South Asian health systems.",
-    "structure": "Nonprofit",
-    "geography": "Punjab",
-    "org_url": "https://www.awaazesehat.com/",
-    "fellow_linkedin": "https://www.linkedin.com/in/saad-h",
-    "photo_url": "/images/fellows/Saad-Hussain.webp",
-    "photo_source": "https://summit-fellowship.vercel.app",
-    "sources": [
-      "https://www.awaazesehat.com/",
-      "https://gcgh.grandchallenges.org/grant/awaaz-e-sehat-empowering-maternal-healthcare-voice-enabled-electronic-record-management",
-      "https://borgenproject.org/health-care-in-pakistan/",
-      "https://www.linkedin.com/posts/saad-h_awaaz-e-sehat-mlnlp-expert-activity-7266769017091092480-ruis"
-    ],
-    "card_summary": "Uses AI-powered voice-activated technology in Urdu to help health workers detect maternal health risks early. Improved risk detection from 7% to 40% in pilot testing.",
-    "email": "saad.hussain@awaazesehat.com",
-    "phone": "+92 333 4217251"
-  },
-  {
     "id": "lala-rukh",
     "name": "Lala Rukh Fazal-Ur-Rahman",
     "org": "Science Fuse",

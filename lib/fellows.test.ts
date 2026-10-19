@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { getAllFellows, getFellow, getFellowCards, getFellowNumber, initials } from './fellows';
 
 describe('fellows', () => {
-  it('has 11 fellows in 2026', () => {
-    expect(getAllFellows(2026)).toHaveLength(11);
+  it('has 10 fellows in 2026', () => {
+    expect(getAllFellows(2026)).toHaveLength(10);
   });
   it('returns [] for an unknown cohort', () => {
     expect(getAllFellows(1999)).toEqual([]);
