@@ -69,7 +69,6 @@ export default function ItineraryBits({ days }: { days: Day[] }) {
 
       {days.map((d, i) => (
         <section key={i} className={`day-panel${active === i ? ' is-active' : ''}`}>
-          <div className="topo-bg" aria-hidden="true" />
           <div className="container">
             <div className="day-head">
               <div className="day-head__left">

@@ -111,19 +111,6 @@ p { text-wrap: pretty; margin: 0; }
 }
 .eyebrow-line__line { width: 32px; height: 1px; background: var(--ink-brand); }
 
-/* === Topo background === */
-.topo-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.22;
-  z-index: 0;
-  background-image: url("/images/topo.svg");
-  background-size: 1200px 1200px;
-  background-position: center;
-}
-.topo-bg--on-dark { opacity: 0.18; mix-blend-mode: screen; }
-
 /* === Header / Nav === */
 .site-header {
   position: relative;
@@ -481,7 +468,6 @@ h1.page-hero__title {
 
 .day-panel { padding: 80px 0 120px; background: var(--off-white); position: relative; overflow: hidden; display: none; }
 .day-panel.is-active { display: block; }
-.day-panel .topo-bg { opacity: 0.04; }
 
 .day-head { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.5fr; gap: 64px; padding-bottom: 48px; border-bottom: 1px solid var(--line); margin-bottom: 48px; align-items: end; }
 .day-head__left .meta { font-family: var(--sans); font-size: 12px; line-height: 18px; font-weight: 600; text-transform: uppercase; color: var(--ink-brand); margin-bottom: 16px; }

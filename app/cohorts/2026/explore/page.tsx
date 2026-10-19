@@ -150,7 +150,6 @@ export default function ExploreSkardu() {
 
       {/* Key Facts */}
       <section className={styles.keyFacts} id="key-facts" data-theme="dark">
-        <div className={styles.topoBg}></div>
         <div className="container">
           <div className={styles.keyFactsHead}>
             <div>

@@ -11,7 +11,6 @@ export default function VenuePage() {
     <>
       {/* Hero */}
       <section className={`page-hero ${styles.pageHero}`} data-theme="dark" style={{ backgroundImage: 'linear-gradient(to right, var(--scrim-image) 0%, var(--scrim-header) 60%, var(--scrim-card) 100%), url(/images/venue/Khoj%20Resort%20main%20page.jpg)' }} data-screen-label="Venue Hero">
-        <div className={`topo-bg topo-bg--on-dark ${styles.topoBg}`} aria-hidden="true"></div>
         <div className="container">
           <div className="page-hero__crumbs">
             <Link href="/">Home</Link>
@@ -74,7 +73,6 @@ export default function VenuePage() {
           <div className={styles.fgGrid}>
             {/* 01 · Weather (featured) */}
             <article className={`${styles.fgCard} ${styles.fgCardFeature}`} id="fg-weather" data-theme="dark">
-              <div className="topo-bg topo-bg--on-dark" aria-hidden="true"></div>
               <div className={styles.fgCardNum}>No. 01 · Weather in June</div>
               <h3 className={styles.fgCardTitle}>Warm sun, cool nights, clear sky.</h3>
               <div className={styles.fgCardBody}>
@@ -312,7 +310,6 @@ export default function VenuePage() {
 
       {/* Map */}
       <section className={styles.mapSection} data-theme="dark">
-        <div className={`topo-bg topo-bg--on-dark ${styles.topoBg}`} aria-hidden="true"></div>
         <div className="container">
           <div className={styles.mapSectionHead}>
             <div>

@@ -13,7 +13,6 @@ export default function ApplicationPage() {
   return (
     <>
       <section className="page-hero" data-screen-label="Application Hero">
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
         <div className="container page-hero__inner">
           <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><Link href="/apply">Apply</Link><span>/</span><span>Application</span></div>
           <h1 className="page-hero__title">The {cohort.year} application.</h1>

@@ -13,10 +13,6 @@
   min-height: 100vh;
 }
 
-.pageHero .topoBg {
-  opacity: 0.12;
-}
-
 .pageHero .container {
   position: relative;
   z-index: 2;
@@ -135,10 +131,6 @@
   color: var(--white);
   position: relative;
   overflow: hidden;
-}
-
-.mapSection .topoBg {
-  opacity: 0.10;
 }
 
 .mapSectionHead {
@@ -1091,23 +1083,12 @@
   margin-bottom: 6px;
 }
 
-/* === Decorative topo on feature card === */
-.fgCardFeature .topoBg {
-  opacity: 0.08;
-  mix-blend-mode: screen;
-}
-
 .fgCardFeature > * {
   position: relative;
   z-index: 1;
 }
 
 /* === Utility Classes === */
-.topoBg {
-  position: absolute;
-  inset: 0;
-}
-
 .v {
   display: block;
 }
