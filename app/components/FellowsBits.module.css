@@ -1,9 +1,10 @@
 /* Fellows grid + sector filter (Friends of Pakistan). Replaces the old global .filter-bar / .fellow-card classes. */
 
-/* The header is now in normal flow, so the bar sticks to the very top of the viewport. */
+/* The bar sticks just below the sticky header while it shows, and to the very top while it is slid away. */
 .filter-bar {
   position: sticky;
-  top: 0;
+  top: var(--header-offset);
+  transition: top .25s var(--ease);
   z-index: 20;
   background: var(--off-white);
   border-bottom: var(--border-1) solid var(--line);
