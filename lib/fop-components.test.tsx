@@ -40,7 +40,7 @@ describe('fop primitives', () => {
     expect(out).not.toContain('<img');
   });
 
-  it('Timeline marks reached stages and labels all stages', () => {
+  it('Timeline marks reached stages, names stages in sr-only text and labels the list Progress', () => {
     const out = html(<Timeline stages={['a', 'b', 'c']} current={1} />);
     expect(out.match(/--reached/g)).toHaveLength(2);
     expect(out).toContain('aria-label="Progress"');

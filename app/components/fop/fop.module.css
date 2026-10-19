@@ -20,7 +20,10 @@
 /* Focus */
 .fop-btn:focus-visible,
 .fop-arrow-link:focus-visible,
-.fop-square:focus-visible,
+.fop-square:focus-visible {
+  outline: var(--border-2) solid var(--focus);
+  outline-offset: 2px;
+}
 .fop-tile__link:focus-visible {
   outline: var(--border-2) solid var(--focus);
   outline-offset: -4px;
