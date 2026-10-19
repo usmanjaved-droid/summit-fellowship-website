@@ -2,12 +2,20 @@
 
 import Link from 'next/link';
 import { useEffect, useId, useRef, useState } from 'react';
-import type { NavGroup } from '@/lib/navigation';
+import { isCurrentGroup, isCurrentPath, type NavGroup } from '@/lib/navigation';
 
 // Read inside handlers only (never during render) so server and client markup match.
 const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-export default function NavDropdown({ group, onNavigate }: { group: NavGroup; onNavigate: () => void }) {
+export default function NavDropdown({
+  group,
+  pathname,
+  onNavigate,
+}: {
+  group: NavGroup;
+  pathname: string;
+  onNavigate: () => void;
+}) {
   const [open, setOpen] = useState(false);
   // How the current open state was reached: a hover-open must not be toggled shut by the click that follows it.
   const openedBy = useRef<'hover' | 'click' | null>(null);
@@ -72,7 +80,7 @@ export default function NavDropdown({ group, onNavigate }: { group: NavGroup; on
       <button
         ref={triggerRef}
         type="button"
-        className="site-nav__link site-nav__group-trigger t-nav"
+        className={`site-nav__link site-nav__group-trigger t-nav${isCurrentGroup(group, pathname) ? ' is-current' : ''}`}
         aria-expanded={open}
         aria-controls={dropdownId}
         onClick={onClick}
@@ -90,6 +98,7 @@ export default function NavDropdown({ group, onNavigate }: { group: NavGroup; on
             key={l.href}
             href={l.href}
             className="site-nav__dropdown-item t-menu-link"
+            aria-current={isCurrentPath(l.href, pathname) ? 'page' : undefined}
             onClick={() => {
               hide();
               onNavigate();

@@ -1,16 +1,44 @@
-/* 404 body: an off-white band after the green PageHero so the page does not run green into the green footer. */
+/* 404: a green band with the line and the ways back on the left, the Skardu photo on the right.
+   The photo keeps the band from reading as one block with the green footer below it. */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--space-16);
+  align-items: center;
+}
+.copy { min-width: 0; }
+.eyebrow { margin: 0 0 var(--space-6); color: var(--primary); }
+h1.title {
+  margin: 0 0 var(--space-6);
+  max-width: 14ch;
+  color: var(--white);
+  font-size: clamp(44px, 6vw, 72px);
+  line-height: 1.1;
+}
+.title em { color: var(--primary); font-style: italic; }
 p.lead {
-  max-width: 60ch;
+  max-width: 48ch;
   margin: 0;
-  color: var(--ink);
+  color: var(--white);
   font-size: clamp(18px, 1.6vw, 22px);
   line-height: 1.4;
 }
-
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-6) var(--space-10);
   margin-top: var(--space-10);
+}
+.photo {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--black);
+}
+.photo img { object-fit: cover; }
+
+@media (max-width: 1023px) {
+  .grid { grid-template-columns: 1fr; gap: var(--space-10); }
+  .photo { aspect-ratio: 16 / 9; }
 }

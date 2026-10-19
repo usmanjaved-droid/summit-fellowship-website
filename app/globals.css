@@ -25,7 +25,13 @@
 
 /* === Reset === */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  /* In-page links (e.g. /apply#notify) stop below the sticky header. */
+  scroll-padding-top: var(--nav-height);
+}
+/* Height of the sticky header while it shows (0 while it is slid away); set by Header.tsx. */
+:root { --header-offset: 0px; --header-h-slim: 52px; }
 body {
   margin: 0;
   font-family: var(--sans);
@@ -123,17 +129,24 @@ p { text-wrap: pretty; margin: 0; }
 .eyebrow-line__line { width: 32px; height: 1px; background: var(--ink-brand); }
 
 /* === Header / Nav === */
+/* Sticky header: slims once you scroll (is-slim), slides away while you scroll down (is-hidden), returns on scroll up. */
 .site-header {
-  position: relative;
+  --header-h: var(--nav-height);
+  position: sticky;
+  top: 0;
   z-index: 50;
-  min-height: var(--nav-height);
+  min-height: var(--header-h);
   background: var(--brand-green-deep);
   color: var(--white);
+  transition: transform .25s var(--ease), min-height .2s var(--ease);
 }
+.site-header.is-slim { --header-h: var(--header-h-slim); }
+.site-header.is-hidden { transform: translateY(-100%); }
 .site-header__inner {
   box-sizing: border-box;
   max-width: var(--container-max);
-  min-height: var(--nav-height);
+  min-height: var(--header-h);
+  transition: min-height .2s var(--ease);
   margin: 0 auto;
   padding: 0 var(--container-pad);
   display: flex;
@@ -158,7 +171,8 @@ p { text-wrap: pretty; margin: 0; }
   color: var(--white);
   white-space: nowrap;
 }
-.wordmark__name { font-size: 22px; font-weight: 600; }
+.wordmark__name { font-size: 22px; font-weight: 600; transition: font-size .2s var(--ease); }
+.site-header.is-slim .wordmark__name { font-size: 20px; }
 .wordmark__sub {
   font-size: 11px;
   font-weight: 600;
@@ -176,7 +190,7 @@ p { text-wrap: pretty; margin: 0; }
 .site-nav__link {
   display: inline-flex;
   align-items: center;
-  height: var(--nav-height);
+  height: var(--header-h);
   padding: 0;
   color: var(--white);
   background: transparent;
@@ -186,11 +200,23 @@ p { text-wrap: pretty; margin: 0; }
 }
 .site-nav__link:hover { color: var(--primary); }
 .site-nav__link--icon { min-width: 44px; justify-content: center; }
-.site-nav__link[aria-current="page"] {
-  color: var(--primary);
-  /* Not colour alone: an underline marks the current page. */
+/* The page you're on (or the menu group it belongs to) gets a yellow underline. */
+.site-nav__link[aria-current="page"],
+.site-nav__link.is-current { position: relative; }
+.site-nav__link[aria-current="page"]::after,
+.site-nav__link.is-current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--header-h) / 2 - 18px);
+  height: 3px;
+  background: var(--primary);
+}
+.site-nav__dropdown-item[aria-current="page"] {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 3px;
   text-underline-offset: 6px;
 }
 
@@ -257,7 +283,7 @@ p { text-wrap: pretty; margin: 0; }
 
 @media (max-width: 1024px) {
   .site-header__inner { padding: 0 var(--space-4); flex-wrap: wrap; }
-  .site-header__logo { min-height: var(--nav-height); }
+  .site-header__logo { min-height: var(--header-h); }
   .site-nav, .site-header__cta { display: none; }
   .menu-toggle { display: block; }
   .site-nav, .site-header__cta { order: 3; }
@@ -275,8 +301,11 @@ p { text-wrap: pretty; margin: 0; }
   body.menu-open .site-nav { padding-top: var(--space-2); border-top: 1px solid var(--line); }
   body.menu-open .site-header__cta { padding: var(--space-4) 0 var(--space-6); }
   body.menu-open .site-header__cta > * { width: 100%; box-sizing: border-box; text-align: center; }
+  body.menu-open .site-header { max-height: 100dvh; overflow-y: auto; }
   body.menu-open .site-nav__link { height: auto; padding: var(--space-3) 0; width: 100%; }
   body.menu-open .site-nav__link--icon { justify-content: flex-start; min-height: 44px; }
+  body.menu-open .site-nav__link[aria-current="page"]::after,
+  body.menu-open .site-nav__link.is-current::after { bottom: 6px; right: auto; width: 40px; }
   body.menu-open .site-nav__group { width: 100%; display: flex; flex-direction: column; }
   body.menu-open .site-nav__group-trigger { justify-content: space-between; }
   body.menu-open .site-nav__dropdown {
@@ -457,7 +486,7 @@ h1.page-hero__title {
 /* =========================================================================
    ITINERARY PAGE
    ========================================================================= */
-.day-selector { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+.day-selector { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: var(--header-offset); z-index: 20; transition: top .25s var(--ease); }
 .day-selector__inner { max-width: 1560px; margin: 0 auto; padding: 16px 32px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
 .day-selector__inner::-webkit-scrollbar { display: none; }
 .day-btn { flex-shrink: 0; text-align: left; padding: 14px 18px; border: 1px solid var(--line); background: var(--white); transition: color .15s var(--ease), background-color .15s var(--ease), border-color .15s var(--ease); min-width: 140px; cursor: pointer; border-radius: 0; color: var(--ink-soft); }
