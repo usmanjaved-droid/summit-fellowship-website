@@ -1,0 +1,87 @@
+{
+  "v": 3,
+  "assetGroups": {
+    "Icons": {
+      "files": {
+        "arrow-32.svg": {
+          "blob": "80e6e263aaa0c3f7652d3b5f7af3570f",
+          "name": "arrow-32.svg",
+          "size": 518,
+          "type": "image/svg+xml"
+        },
+        "arrow-45.svg": {
+          "blob": "bd819dc1246b697cfbc2df73b1b2a417",
+          "name": "arrow-45.svg",
+          "size": 493,
+          "type": "image/svg+xml"
+        },
+        "arrow-55.svg": {
+          "blob": "1ce45235d19905cad8c574d73a261be4",
+          "name": "arrow-55.svg",
+          "size": 491,
+          "type": "image/svg+xml"
+        },
+        "caret-green.svg": {
+          "blob": "72f58be61fe6b311bc80f600706974c9",
+          "name": "caret-green.svg",
+          "size": 181,
+          "type": "image/svg+xml"
+        },
+        "caret-yellow.svg": {
+          "blob": "ac9a70e272534a5ee01fac1fadf959e8",
+          "name": "caret-yellow.svg",
+          "size": 181,
+          "type": "image/svg+xml"
+        },
+        "chevron-down.svg": {
+          "blob": "1e1d68d1a08c3b1475a0a7a8377092d6",
+          "name": "chevron-down.svg",
+          "size": 294,
+          "type": "image/svg+xml"
+        }
+      },
+      "name": "Icons",
+      "order": [
+        "arrow-32.svg",
+        "arrow-45.svg",
+        "arrow-55.svg",
+        "caret-green.svg",
+        "caret-yellow.svg",
+        "chevron-down.svg"
+      ],
+      "tile": "s"
+    }
+  },
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-09-24T12:06:48Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "groups": [
+    "Icons"
+  ],
+  "lastChange": {
+    "by": "Usman",
+    "at": "2026-09-24T13:17:01Z",
+    "via": "Claude (Cowork)",
+    "note": "Fixed a script typo that kept the CarouselButton preview from rendering."
+  },
+  "layout": "files",
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18"
+    },
+    {
+      "name": "react-dom",
+      "version": "18"
+    }
+  ],
+  "namespace": "FriendsOfPakistan",
+  "sections": {},
+  "title": "Friends of Pakistan"
+}
