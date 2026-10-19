@@ -9,6 +9,8 @@ import './globals.css';
 const crimsonPro = Crimson_Pro({
   subsets: ['latin'],
   weight: ['300', '400'],
+  // Real italics for the accent words in headings (otherwise the browser slants the upright letters).
+  style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-serif',
 });
@@ -16,6 +18,7 @@ const crimsonPro = Crimson_Pro({
 const sourceSans = Source_Sans_3({
   subsets: ['latin'],
   weight: 'variable',
+  style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-sans',
 });

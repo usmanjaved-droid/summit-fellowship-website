@@ -663,6 +663,8 @@
 .spotName {
   font-family: var(--font-serif);
   font-size: 24px;
+  /* Crimson Pro ships 300/400 only; the h4 default of 600 would be a faked bold. */
+  font-weight: 400;
   color: var(--ink-brand);
   line-height: 1.1;
   letter-spacing: -0.005em;

@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { getCurrentCohort, getSiteSettings, isApplicationLive } from '@/lib/site';
+import { getApplicationStatus, getCurrentCohort, getSiteSettings, isApplicationLive } from '@/lib/site';
+import { ArrowLink, Section } from '../../components/fop';
+import PageHero from '../../components/PageHero';
 import FormLoader from './FormLoader';
 
 export const metadata = {
@@ -12,14 +14,28 @@ export default function ApplicationPage() {
   const live = isApplicationLive(cohort);
   return (
     <>
-      <section className="page-hero" data-screen-label="Application Hero">
-        <div className="container page-hero__inner">
-          <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><Link href="/apply">Apply</Link><span>/</span><span>Application</span></div>
-          <h1 className="page-hero__title">The {cohort.year} application.</h1>
-          {!live && <p className="page-hero__subtitle">Applications for the {cohort.year} cohort are closed. <Link href="/apply" className="page-hero__link">See how to apply</Link>.</p>}
-        </div>
-      </section>
-      {live && <FormLoader year={cohort.year} contactEmail={getSiteSettings().contactEmail} />}
+      <PageHero
+        crumb={
+          <>
+            <Link href="/apply">Apply</Link>
+            <span aria-hidden="true"> / </span>
+            Application
+          </>
+        }
+        title={<>The {cohort.year} application.</>}
+      />
+      {live ? (
+        <FormLoader year={cohort.year} contactEmail={getSiteSettings().contactEmail} />
+      ) : (
+        // Closed: a light band between the green hero and the green footer, so the page does not read as one block.
+        <Section tone="offwhite">
+          <p className="t-body">{getApplicationStatus(cohort)} The form opens here on the day applications do.</p>
+          <div className="closed-actions">
+            <ArrowLink href="/apply">How to apply</ArrowLink>
+            <ArrowLink href="/faq">Read the FAQ</ArrowLink>
+          </div>
+        </Section>
+      )}
     </>
   );
 }

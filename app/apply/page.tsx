@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { BEFORE_YOU_START } from '@/lib/application/questions';
-import { displayValue, getApplyCta, getCurrentCohort, isApplicationLive } from '@/lib/site';
+import { displayValue, getApplicationStatus, getCurrentCohort, isApplicationLive } from '@/lib/site';
 import PageHero from '../components/PageHero';
 import { ArrowLink, Button, Prose, Section } from '../components/fop';
 import styles from './apply.module.css';
@@ -34,14 +34,13 @@ const STAGES = [
 export default function ApplyPage() {
   const cohort = getCurrentCohort();
   const live = isApplicationLive(cohort);
-  const cta = getApplyCta(cohort);
 
   return (
     <>
       <PageHero
         crumb="Apply"
-        title={<>Apply for the {cohort.year} <em>cohort.</em></>}
-        subtitle="A fully funded, seven-day fellowship for Pakistani founders whose solutions are ready to reach millions."
+        title={live ? <>Apply for the {cohort.year} <em>cohort.</em></> : <>Applications open <em>soon.</em></>}
+        subtitle={`${live ? 'A' : `The ${cohort.year} cohort: a`} fully funded, seven-day fellowship for Pakistani founders whose solutions are ready to reach millions.`}
       />
 
       <Section tone="offwhite">
@@ -102,7 +101,7 @@ export default function ApplyPage() {
             {live ? (
               <Button href="/apply/form" size="lg" icon block className={styles.start}>Start your application</Button>
             ) : (
-              <p className={`t-body-sm ${styles.closed}`}>{cta.label}. Questions? <Link href="/faq">Read the FAQ</Link>.</p>
+              <p className={`t-body-sm ${styles.closed}`}>{getApplicationStatus(cohort)} Questions? <Link href="/faq">Read the FAQ</Link>.</p>
             )}
           </aside>
         </div>
