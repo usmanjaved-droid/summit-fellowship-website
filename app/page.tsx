@@ -16,10 +16,10 @@ export const metadata = {
 };
 
 const OFFER = [
-  { title: 'Seven days, fully present', desc: 'An immersive residential retreat in Northern Pakistan. No email, no calls during sessions — just the work.' },
-  { title: 'The Mulago scale framework', desc: 'Mission, Big Idea, doer and payer at scale, and the tests every scalable solution has to pass.' },
-  { title: 'Mentoring from people who have scaled', desc: 'Venture diagnostics and strategy clinics with Mulago Foundation and Pakistani faculty.' },
-  { title: 'Demo Day', desc: 'Present your scale blueprint to funders actively investing in Pakistan.' },
+  { title: 'Seven days, fully present', desc: 'A residential retreat in Northern Pakistan. No email, just the work.' },
+  { title: 'The Mulago scale framework', desc: 'The tests every scalable idea has to pass.' },
+  { title: 'Mentoring from people who have scaled', desc: 'Clinics with Mulago Foundation and Pakistani faculty.' },
+  { title: 'Demo Day', desc: 'Your scale blueprint, in front of funders investing in Pakistan.' },
 ];
 
 // Homepage faculty row: the faculty plus three organisers the owner asked to feature.
@@ -138,16 +138,21 @@ export default function HomePage() {
       </Section>
 
       {/* ============ WHAT YOU GET (white) ============ */}
+      {/* Heading left, a quiet list right (same two-column layout as "Why this fellowship"). */}
       <Section tone="white">
-        <p className={`t-eyebrow ${styles.eyebrow}`}>What you get</p>
-        <h2 className={`t-heading-2 ${styles.heading}`}>A week that changes how you build.</h2>
-        <div className={styles.offer__grid}>
-          {OFFER.map((o) => (
-            <div key={o.title} className={styles.offer__tile} data-reveal>
-              <h3 className={`t-heading-3 ${styles.offer__title}`}>{o.title}</h3>
-              <p className={`t-body ${styles.offer__desc}`}>{o.desc}</p>
-            </div>
-          ))}
+        <div className={styles.split}>
+          <div className={styles.split__kicker}>
+            <p className={`t-eyebrow ${styles.eyebrow}`}>What you get</p>
+            <h2 className={`t-heading-2 ${styles.heading}`}>A week that changes how you build.</h2>
+          </div>
+          <ul className={styles.offer__list}>
+            {OFFER.map((o) => (
+              <li key={o.title} className={styles.offer__item} data-reveal>
+                <h3 className={styles.offer__title}>{o.title}</h3>
+                <p className={`t-body ${styles.offer__desc}`}>{o.desc}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
 
