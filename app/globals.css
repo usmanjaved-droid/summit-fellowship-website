@@ -1124,23 +1124,49 @@ h1.page-hero__title {
    ========================================================================= */
 
 
-.contact-form { background: var(--alpine-deep); color: var(--parchment); padding: 48px; position: relative; overflow: hidden; }
-.contact-form .topo-bg { opacity: 0.10; }
+.contact-form { background: var(--surface); color: var(--ink); padding: var(--space-10); position: relative; overflow: hidden; }
 .contact-form__inner { position: relative; z-index: 1; }
-.contact-form h3 { font-family: var(--serif); font-size: 36px; color: var(--paper); line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 12px; }
-.contact-form h3 em { color: var(--ochre); font-style: italic; }
-.contact-form p { font-size: 15px; color: var(--parchment); opacity: 0.85; margin-bottom: 28px; line-height: 1.5; }
-.form-group { margin-bottom: 18px; }
-.form-group label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ochre); margin-bottom: 8px; }
-.form-group input, .form-group textarea, .form-group select { width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.3); padding: 10px 0; color: var(--paper); font-family: var(--sans); font-size: 16px; transition: border-color .2s; }
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-bottom-color: var(--ochre); }
-.form-group textarea { min-height: 100px; resize: vertical; border: 1px solid rgba(255, 255, 255, 0.3); padding: 12px; }
-.form-group select { appearance: none; cursor: pointer; }
-.form-group select option { background: var(--alpine-deep); color: var(--paper); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-@media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
-.form-submit { margin-top: 12px; }
-.form-status { margin-top: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.10em; color: var(--ochre); min-height: 16px; }
+.contact-form h3 { font-family: var(--serif); font-weight: 300; font-size: clamp(32px, 3.4vw, 40px); line-height: 1.15; color: var(--ink-brand); margin: 0 0 var(--space-3); }
+.contact-form h3 em { color: var(--primary); font-style: italic; }
+.contact-form p { font-size: 18px; line-height: 25px; color: var(--ink-soft); margin-bottom: var(--space-8); }
+.form-group { margin-bottom: var(--space-5); }
+.form-group label { display: inline-block; font-family: var(--sans); font-size: 18px; line-height: 25px; font-weight: 600; color: var(--ink); margin-bottom: var(--space-2); }
+.form-group input, .form-group textarea, .form-group select {
+  box-sizing: border-box; display: block; width: 100%; min-height: 44px; margin: 0;
+  padding: var(--space-2) var(--space-3); appearance: none;
+  border: var(--border-1) solid var(--field-border); border-radius: var(--radius-none);
+  background: transparent; color: var(--ink);
+  font-family: var(--sans); font-size: 18px; line-height: 25px; font-weight: 350;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { box-shadow: 0 0 0 1px var(--field-border); }
+.form-group input:focus-visible, .form-group textarea:focus-visible, .form-group select:focus-visible { outline: var(--border-2) solid var(--focus); outline-offset: 2px; }
+.form-group input:user-invalid, .form-group textarea:user-invalid, .form-group select:user-invalid { border-color: var(--danger-400); }
+.form-group textarea { min-height: 48px; max-height: 256px; resize: vertical; }
+.form-group select {
+  padding-right: var(--space-8); cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L0.803847 2.51244e-08L11.1962 -8.834e-07L6 9Z' fill='%23006600'/%3E%3C/svg%3E");
+  background-position: right 1rem center; background-repeat: no-repeat; background-size: 12px 9px;
+}
+[data-theme="dark"] .form-group select {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L0.803847 2.51244e-08L11.1962 -8.834e-07L6 9Z' fill='%23FFC700'/%3E%3C/svg%3E");
+}
+.form-group select option { color: var(--black); background: var(--white); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .contact-form { padding: var(--space-6); }
+}
+/* The send button is the system primary Button. */
+.contact-form .btn.form-submit {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: 44px; min-width: 96px; margin-top: var(--space-3); padding: 0 var(--space-4);
+  border: var(--border-1) solid transparent; border-radius: var(--radius-none);
+  background: var(--primary); color: var(--on-accent);
+  font-family: var(--sans); font-size: 16px; line-height: 42px; font-weight: 600; letter-spacing: 0; text-transform: uppercase; white-space: nowrap;
+  transition: background-color .15s cubic-bezier(.4, 0, .2, 1);
+}
+.contact-form .btn.form-submit:hover { background: var(--primary-dark); color: var(--on-accent); }
+.form-status { margin-top: var(--space-4); font-size: 14px; line-height: 18px; color: var(--ink); min-height: 18px; }
 
 
 /* === HOME: Meet the people === */
