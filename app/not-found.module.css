@@ -1,0 +1,16 @@
+/* 404 body: an off-white band after the green PageHero so the page does not run green into the green footer. */
+p.lead {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6) var(--space-10);
+  margin-top: var(--space-10);
+}
