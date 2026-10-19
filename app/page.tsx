@@ -198,7 +198,7 @@ export default function HomePage() {
                   <span className={styles.faculty__fallback} aria-hidden="true">{p.init}</span>
                 )}
               </span>
-              <span className={`t-heading-5 ${styles.faculty__name}`}>{p.name}</span>
+              <span className={styles.faculty__name}>{p.name}</span>
               <span className={`t-body-sm ${styles.faculty__role}`}>{p.role}</span>
             </li>
           ))}

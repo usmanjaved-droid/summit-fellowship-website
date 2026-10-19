@@ -284,7 +284,7 @@ export default function VenuePage() {
             <div className={styles.culturalEveningCopy}>
               <div style={{ borderLeft: '4px solid var(--brand-green)', paddingLeft: '32px' }}>
                 <h2 className={styles.culturalEveningTitle}>
-                  Cultural Evening
+                  Cultural evening
                 </h2>
                 <p className={styles.culturalEveningText}>
                   We have planned a special cultural evening for all fellows. Participants are encouraged to wear their traditional attire and, if possible, bring along a delicacy or snack representing their native culture or region.

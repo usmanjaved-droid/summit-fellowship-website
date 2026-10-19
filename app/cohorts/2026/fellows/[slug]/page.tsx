@@ -43,8 +43,8 @@ export default async function FellowDetailPage({ params }: PageProps) {
       <IdeaBand fellow={fellow} />
       <div className={styles['fellow-detail__body']}>
         <div className={styles['fellow-detail__content']}>
-          <FellowSection title="The Mission" content={fellow.mission} />
-          <FellowSection title="How It Works" content={fellow.how_it_works} />
+          <FellowSection title="The mission" content={fellow.mission} />
+          <FellowSection title="How it works" content={fellow.how_it_works} />
         </div>
         <FellowSidebar fellow={fellow} />
       </div>

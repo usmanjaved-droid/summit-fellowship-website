@@ -7,7 +7,7 @@
   align-items: start;
 }
 .head { position: sticky; top: calc(var(--nav-height) + var(--space-8)); min-width: 0; }
-.num { margin-bottom: var(--space-4); color: var(--ink-brand); }
+.num { margin-bottom: var(--space-4); color: var(--ink); }
 h2.title {
   margin: 0 0 var(--space-6);
   font-size: clamp(36px, 4.2vw, 55px);
@@ -58,7 +58,8 @@ p.sub { color: var(--ink-soft); font-size: 20px; line-height: 1.4; }
 }
 .conceptNum { color: var(--ink-brand); padding-top: 1px; }
 h4.conceptTitle { margin: 0 0 var(--space-1); color: var(--ink); }
-.conceptDesc { color: var(--ink-soft); }
+/* Readable size for the module topics (was 14px grey). */
+p.conceptDesc { font-size: 16px; line-height: 1.5; color: var(--ink); }
 
 .body > p.pullquote {
   margin-top: var(--space-8);

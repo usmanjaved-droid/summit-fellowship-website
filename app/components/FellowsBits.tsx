@@ -8,6 +8,13 @@ import styles from './FellowsBits.module.css';
 
 const SECTORS = ['all', 'Health', 'Mental Health', 'Education', 'Special Ed', 'Disability', 'Legal', 'Livelihoods', 'Agriculture'];
 
+/** Card blurb: whole text if short, otherwise cut at the last full word before `max`. */
+function shorten(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[\s,;:.—-]+$/, '') + '…';
+}
+
 export default function FellowsBits({ fellows, basePath }: { fellows: FellowCard[]; basePath: string }) {
   const [filter, setFilter] = useState<string>('all');
 
@@ -58,7 +65,7 @@ export default function FellowsBits({ fellows, basePath }: { fellows: FellowCard
                   <span className={styles['fellow-card__org']}>{f.org}</span>
                   <span className={`t-eyebrow ${styles['fellow-card__sector']}`}>{f.sector}</span>
                   <span className={`t-card-body ${styles['fellow-card__model']}`}>
-                    {f.summary.length > 140 ? f.summary.slice(0, 140) + '…' : f.summary}
+                    {shorten(f.summary, 140)}
                   </span>
                   <span className={`t-eyebrow ${styles['fellow-card__expand']}`}>Read full profile →</span>
                 </Link>

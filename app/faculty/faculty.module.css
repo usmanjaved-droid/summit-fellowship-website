@@ -49,9 +49,9 @@ h3.person__name {
   font-weight: 400;
   color: var(--ink);
 }
-p.person__role { margin: 0; color: var(--ink-soft); font-style: italic; }
+p.person__role { margin: 0; color: var(--ink-soft); }
 h4.person__label { margin: 0 0 var(--space-3); color: var(--ink-brand); }
-p.person__text { margin: 0; color: var(--ink-soft); font-size: 15px; line-height: 1.6; font-weight: 350; }
+p.person__text { margin: 0; color: var(--ink); font-size: 16px; line-height: 1.55; font-weight: 350; }
 .person__text strong { font-weight: 600; color: var(--ink); }
 
 .person__rightCol { min-width: 0; }
