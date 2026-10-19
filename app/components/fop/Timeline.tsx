@@ -9,11 +9,8 @@ export function Timeline({
   current?: number;
   label?: string;
 }) {
-  const summary = `${label}: ${stages
-    .map((s, i) => (i === current ? `${s} (current)` : s))
-    .join(', ')}`;
   return (
-    <ol className={styles['fop-timeline']} aria-label={summary}>
+    <ol className={styles['fop-timeline']} aria-label={label}>
       {stages.map((s, i) => (
         <li
           key={`${s}-${i}`}

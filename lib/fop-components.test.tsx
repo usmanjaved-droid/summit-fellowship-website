@@ -43,8 +43,8 @@ describe('fop primitives', () => {
   it('Timeline marks reached stages and labels all stages', () => {
     const out = html(<Timeline stages={['a', 'b', 'c']} current={1} />);
     expect(out.match(/--reached/g)).toHaveLength(2);
-    const label = out.match(/aria-label="([^"]*)"/)?.[1] ?? '';
-    for (const s of ['a', 'b', 'c']) expect(label).toContain(s);
+    expect(out).toContain('aria-label="Progress"');
+    for (const s of ['a', 'b', 'c']) expect(out).toContain(`>${s}</span>`);
   });
 
   it('respects reduced motion for the arrow nudge', () => {
