@@ -4,7 +4,7 @@
 
 **Friends of Pakistan Fellowship** (formerly Summit Fellowship; rebranded 2026-10-19) is a week-long intensive retreat for Pakistan's most promising social enterprises. The website showcases the program, cohorts, fellows, faculty, curriculum, and everything participants need. It is a programme of Friends of Pakistan (the society and fund founded by Nadir Shams, https://www.friendsofpakistan.org/), run in partnership with Mulago Foundation and Taleemabad. The 2026 cohort is the inaugural cohort. Use the full name "Friends of Pakistan Fellowship" in titles, the wordmark and formal copy, "the Fellowship" in running text, and "Friends of Pakistan Fellows" for alumni; do not reintroduce "Summit". Internal names (repo folder, Vercel projects, Supabase projects, URLs) still say summit and are not visitor-facing.
 
-**Status:** The site is being converted from a 2026-only event site into a permanent, multi-year site. Phase 1 (permanent multi-year site), Phase 2 (application form) and the Friends of Pakistan restyle (2026-10-19) are built on the `staging` branch and reach production only when the owner approves go-live (see "Go-live runbook" below). Production serves whatever is on `master`.  
+**Status:** LIVE since 2026-10-19 (merge 47d02e0): the permanent multi-year site, the application form, the Friends of Pakistan restyle and the rebrand are on `master` and in production. Applications are closed ("Applications opening soon") until `data/site.json` gets dates and `applicationsOpen: true`. Further changes go to `staging` first and reach `master` only with the owner's approval. `npm run smoke` expectations are written for staging (banner, noindex, open form); against production, failures on `/`, `/robots.txt`, `/apply` and `/apply/form` are expected.  
 **Audience:** Fellows, faculty, funders, potential applicants  
 **Latest cohort:** 2026 — June 7–14, 2026 at Khoj Resort, Skardu  
 **Organization:** Friends of Pakistan (host), with Mulago Foundation + Taleemabad (partners)
@@ -566,4 +566,4 @@ External photo domains must be in `next.config.ts` image.remotePatterns array.
 ---
 
 **Last Updated:** 2026-10-19 (Friends of Pakistan restyle)  
-**Status:** Phase 1 (permanent multi-year site), Phase 2 (application form) and the Friends of Pakistan restyle built on `staging`; production serves whatever is on `master` (staging merges only with go-live approval)
+**Status:** Live since 2026-10-19 (Friends of Pakistan Fellowship). Work on `staging`; merge to `master` only with owner approval.
