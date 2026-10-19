@@ -5,7 +5,7 @@ import { ArrowLink, Button, Section, SquareCta, Timeline } from './components/fo
 import { FACULTY } from './faculty/people';
 import { getLatestCohort } from '@/lib/cohorts';
 import { getFellowCards } from '@/lib/fellows';
-import { displayValue, getApplyCta, getCurrentCohort, getDeadlineText } from '@/lib/site';
+import { getApplyCta, getCurrentCohort, getDeadlineText } from '@/lib/site';
 import styles from './home.module.css';
 
 export const metadata = {
@@ -32,7 +32,7 @@ const STEPS = [
 export default function HomePage() {
   const cohort = getCurrentCohort();
   const cta = getApplyCta(cohort);
-  // While applications are live the deadline sits in the hero's meta strip (no separate band).
+  // While applications are live the deadline sits under the hero CTA (no separate band).
   const deadline = getDeadlineText(cohort);
   const latest = getLatestCohort();
   const fellows = getFellowCards(latest.year);
@@ -53,6 +53,7 @@ export default function HomePage() {
             <Button href={cta.href} size="xl" icon>
               {cta.label}
             </Button>
+            {deadline && <p className={styles.hero__deadline}>Applications close: {deadline}</p>}
           </div>
           <div className={styles.hero__media}>
             <Image
@@ -64,22 +65,6 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <dl className={styles.hero__meta}>
-          {deadline && (
-            <div className={styles.hero__metaItem}>
-              <dt className="t-stat-caption">Applications close</dt>
-              <dd className={styles.hero__metaValue}>{deadline}</dd>
-            </div>
-          )}
-          <div className={styles.hero__metaItem}>
-            <dt className="t-stat-caption">Next cohort</dt>
-            <dd className={styles.hero__metaValue}>{displayValue(cohort.retreatDates)}</dd>
-          </div>
-          <div className={styles.hero__metaItem}>
-            <dt className="t-stat-caption">Location</dt>
-            <dd className={styles.hero__metaValue}>{displayValue(cohort.location)}</dd>
-          </div>
-        </dl>
       </section>
 
       {/* ============ WHY (off-white) ============ */}
