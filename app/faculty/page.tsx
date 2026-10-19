@@ -11,28 +11,35 @@ export const metadata = {
 function PersonCard({ p }: { p: Person }) {
   return (
     <article className={styles.person}>
-      <div className={styles.photo}>
+      <div className={styles.person__photoCol}>
         {p.photo_url ? (
           <Image
             src={p.photo_url}
             alt={p.name}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1023px) 50vw, 440px"
+            width={200}
+            height={280}
+            className={styles.person__photo}
           />
         ) : (
-          <div className={styles.fallback} aria-hidden="true">{p.init}</div>
+          <div className={styles.person__avatarLarge} aria-hidden="true">{p.init}</div>
         )}
       </div>
-      <h3 className={`t-heading-5 ${styles.name}`}>{p.name}</h3>
-      <p className={`t-body-sm ${styles.role}`}>{p.role}</p>
-      <div className={styles.more}>
-        <h4 className={`t-eyebrow ${styles.label}`}>Their Story</h4>
-        <p className="t-body-sm">{p.org}</p>
-        <h4 className={`t-eyebrow ${styles.label}`}>Talk to them about</h4>
-        <p className="t-body-sm">{p.relevance}</p>
-        <div className={styles.links}>
+      <div className={styles.person__middleCol}>
+        <div className={styles.person__header}>
+          <h3 className={styles.person__name}>{p.name}</h3>
+          <p className={`t-body-sm ${styles.person__role}`}>{p.role}</p>
+        </div>
+        <div className={styles.person__story}>
+          <h4 className={`t-eyebrow ${styles.person__label}`}>Their Story</h4>
+          <p className={`t-body-sm ${styles.person__text}`}>{p.org}</p>
+        </div>
+      </div>
+      <div className={styles.person__rightCol}>
+        <h4 className={`t-eyebrow ${styles.person__label}`}>Talk to them about</h4>
+        <p className={`t-body-sm ${styles.person__text}`}>{p.relevance}</p>
+        <div className={styles.person__links}>
           {p.links.map((l) => (
-            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="t-body-sm">{l.label}</a>
+            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="t-eyebrow">{l.label}</a>
           ))}
         </div>
       </div>
