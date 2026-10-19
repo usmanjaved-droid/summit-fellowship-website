@@ -15,7 +15,7 @@ const crimsonPro = Crimson_Pro({
 
 const sourceSans = Source_Sans_3({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: 'variable',
   display: 'swap',
   variable: '--font-sans',
 });
