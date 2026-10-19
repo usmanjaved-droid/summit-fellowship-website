@@ -71,12 +71,13 @@ p.hero__lead {
   align-items: start;
 }
 .why__block { grid-column: 1; max-width: 860px; }
-.why__block--second { grid-row: 2; }
+.why__block--second { grid-row: 1; }
+.fellowship { margin-top: var(--space-24); }
 .why__body { margin: 0; color: var(--ink); }
 .why__emphasis { font-weight: 600; color: var(--ink-brand); }
 .why__cta {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 1;
   /* The CTA label ("Apply for the 2027 cohort") needs a little more room than the default 200px square. */
   --square-cta: 240px;
 }
@@ -244,6 +245,7 @@ h2.closing__title {
   .hero__media { aspect-ratio: 16 / 9; }
   h2.heading { line-height: 1.1; }
   .scale { grid-template-columns: 1fr; gap: var(--space-10); margin-top: var(--space-16); }
+  .fellowship { margin-top: var(--space-16); }
   .steps__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .steps__rail { width: 100%; }
   .faculty__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }

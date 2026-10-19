@@ -81,19 +81,6 @@ export default function HomePage() {
               <strong className={styles.why__emphasis}>We are changing that.</strong>
             </p>
           </div>
-          <div className={`${styles.why__block} ${styles['why__block--second']}`}>
-            <p className={`t-eyebrow ${styles.eyebrow}`}>The Fellowship</p>
-            <h2 className={`t-heading-2 ${styles.heading}`}>Seven days to redesign for scale.</h2>
-            <p className={`t-body ${styles.why__body}`}>
-              Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan working the
-              Mulago design discipline alongside Pakistani faculty - Big Idea, doer and payer at scale, the Four
-              Enoughs, the Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start
-              of a narrative funders trust.
-            </p>
-          </div>
-          <div className={styles.why__cta}>
-            <SquareCta href={cta.href}>{cta.label}</SquareCta>
-          </div>
         </div>
 
         <div className={styles.scale}>
@@ -108,6 +95,22 @@ export default function HomePage() {
           </div>
           <div className={styles.scale__chart}>
             <ExponentialChart />
+          </div>
+        </div>
+
+        <div className={`${styles.why} ${styles.fellowship}`}>
+          <div className={`${styles.why__block} ${styles['why__block--second']}`}>
+            <p className={`t-eyebrow ${styles.eyebrow}`}>The Fellowship</p>
+            <h2 className={`t-heading-2 ${styles.heading}`}>Seven days to redesign for scale.</h2>
+            <p className={`t-body ${styles.why__body}`}>
+              Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan working the
+              Mulago design discipline alongside Pakistani faculty - Big Idea, doer and payer at scale, the Four
+              Enoughs, the Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start
+              of a narrative funders trust.
+            </p>
+          </div>
+          <div className={styles.why__cta}>
+            <SquareCta href={cta.href}>{cta.label}</SquareCta>
           </div>
         </div>
       </Section>
