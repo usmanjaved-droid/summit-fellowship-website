@@ -20,6 +20,13 @@ export type Fellow = {
   card_summary: string;
   email: string;
   phone: string;
+  /** "Potential for impact at scale", from the fellow's one-page memo: the four Mulago "enough" questions. */
+  scale: { good: string; big: string; simple: string; cheap: string };
+  /** "So far": results to date, from the memo. */
+  so_far: string[];
+  /** Pitch deck and recorded pitch (Google Drive / Slides, shared publicly); null when there is none. */
+  deck_url: string | null;
+  pitch_url: string | null;
 };
 
 export type FellowCard = {
@@ -76,4 +83,10 @@ export function getFellowCards(year: number): FellowCard[] {
     summary: f.card_summary,
     photo_url: f.photo_url ?? undefined,
   }));
+}
+
+/** The embeddable player for a pitch video shared on Google Drive (…/file/d/<id>/view → …/preview); null otherwise. */
+export function pitchEmbedUrl(url: string | null): string | null {
+  const m = url?.match(/^https:\/\/drive\.google\.com\/file\/d\/([\w-]+)/);
+  return m ? `https://drive.google.com/file/d/${m[1]}/preview` : null;
 }

@@ -7,12 +7,15 @@ export function ArrowLink({
   href,
   size = 'md',
   download,
+  external,
   children,
 }: {
   href: string;
   size?: 'md' | 'lg';
   /** Render a plain anchor with the download attribute (for files in /public). */
   download?: boolean;
+  /** Open in a new tab (links to other sites, such as Google Drive). */
+  external?: boolean;
   children: ReactNode;
 }) {
   const cls = [
@@ -30,7 +33,12 @@ export function ArrowLink({
   );
   if (download || !href.startsWith('/') || href.startsWith('//')) {
     return (
-      <a href={href} className={cls} download={download || undefined}>
+      <a
+        href={href}
+        className={cls}
+        download={download || undefined}
+        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         {content}
       </a>
     );

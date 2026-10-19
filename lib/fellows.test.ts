@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getAdjacentFellows, getAllFellows, getFellow, getFellowCards, getFellowNumber, initials } from './fellows';
+import { getAdjacentFellows, getAllFellows, getFellow, getFellowCards, getFellowNumber, initials, pitchEmbedUrl } from './fellows';
 
 describe('fellows', () => {
   it('has 10 fellows in 2026', () => {
@@ -43,5 +43,33 @@ describe('initials', () => {
   it('takes the first two initials, uppercased', () => {
     expect(initials('Habiba Banu')).toBe('HB');
     expect(initials('Dr. Rubeena Kidwai')).toBe('DR');
+  });
+});
+
+describe('memo content', () => {
+  it('every fellow has the memo sections', () => {
+    for (const f of getAllFellows(2026)) {
+      expect(f.mission, f.id).toBeTruthy();
+      expect(f.the_dream, f.id).toBeTruthy();
+      expect(Object.values(f.scale).every(Boolean), f.id).toBe(true);
+      expect(f.so_far.length, f.id).toBeGreaterThan(0);
+    }
+  });
+  it('deck and pitch links are public Google links, or absent', () => {
+    for (const f of getAllFellows(2026)) {
+      for (const url of [f.deck_url, f.pitch_url]) {
+        if (url !== null) expect(url, f.id).toMatch(/^https:\/\/(drive|docs)\.google\.com\//);
+      }
+    }
+  });
+});
+
+describe('pitchEmbedUrl', () => {
+  it('turns a Drive file link into its player URL', () => {
+    expect(pitchEmbedUrl('https://drive.google.com/file/d/abc_123-x/view')).toBe('https://drive.google.com/file/d/abc_123-x/preview');
+  });
+  it('is null for anything else', () => {
+    expect(pitchEmbedUrl(null)).toBeNull();
+    expect(pitchEmbedUrl('https://docs.google.com/presentation/d/abc/edit')).toBeNull();
   });
 });

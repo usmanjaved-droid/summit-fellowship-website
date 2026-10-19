@@ -234,8 +234,14 @@ Page: `app/cohorts/2026/fellows/[slug]/page.tsx`. Components and CSS: `app/cohor
   sources: string[];
   email: string;           // Stored by owner decision; never rendered
   phone: string;           // Stored by owner decision; never rendered
+  scale: { good: string; big: string; simple: string; cheap: string }; // "Potential for impact at scale"
+  so_far: string[];        // "So far" results
+  deck_url: string | null; // Public Google Drive / Slides link
+  pitch_url: string | null; // Public Google Drive video; played in the page via its /preview player
 }
 ```
+
+**Content source (2026):** the fellows' one-page memos (August 2026) and the "Meet the Fellows" deck: tagline = The idea, idea_context = The problem, mission / how_it_works / the_dream / scale / so_far from the memo, card_summary = the deck's one-line "How it works". The memos' "What would accelerate the work" (funding asks) is deliberately not published. Page order: Watch the pitch (video + View the deck), The mission, How it works, The dream, Potential for impact at scale, So far.
 
 **Critical:** This is the SINGLE source of truth for fellow data. All 10 fellows have complete records. `email` and `phone` are kept in the data on purpose but must never appear on any page.
 
