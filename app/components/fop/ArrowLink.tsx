@@ -28,7 +28,7 @@ export function ArrowLink({
       <Arrow length={size === 'lg' ? 55 : 32} />
     </>
   );
-  if (download || !href.startsWith('/')) {
+  if (download || !href.startsWith('/') || href.startsWith('//')) {
     return (
       <a href={href} className={cls} download={download || undefined}>
         {content}

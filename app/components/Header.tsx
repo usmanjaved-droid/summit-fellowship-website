@@ -57,10 +57,9 @@ export default function Header() {
         <button
           className="menu-toggle t-button"
           aria-expanded={open}
-          aria-label="Menu"
           onClick={toggle}
         >
-          <span aria-hidden="true">{open ? 'Close' : 'Menu'}</span>
+          {open ? 'Close' : 'Menu'}
         </button>
       </div>
     </header>
