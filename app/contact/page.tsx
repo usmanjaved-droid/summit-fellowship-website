@@ -1,105 +1,125 @@
-import Link from 'next/link';
 import ContactForm from '../components/ContactForm';
+import PageHero from '../components/PageHero';
+import { Arrow, Section } from '../components/fop';
+import { getSiteSettings } from '@/lib/site';
+import styles from './contact.module.css';
 
 export const metadata = {
-  title: 'Contact — Summit Fellowship',
+  title: 'Contact — Friends of Pakistan Fellowship',
 };
 
 const CHANNELS = [
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" focusable="false">
         <path d="M3 7l9 6 9-6M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l2-2h14l2 2" />
       </svg>
     ),
     title: 'General queries',
-    detail: 'Program details, curriculum, faculty, pre-reads, mentor matching, capacity clinics, and anything else about the fellowship.',
+    detail: 'Eligibility, the application, the curriculum, faculty, and anything else about the fellowship.',
     email: 'usman.javed@taleemabad.com',
   },
+];
+
+const HOSTS = [
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="9" r="3" />
-        <path d="M12 2a7 7 0 017 7c0 4-7 13-7 13S5 13 5 9a7 7 0 017-7z" />
-      </svg>
-    ),
-    title: 'Logistics & travel',
-    detail: 'Flights, visas, transfers, dietary needs, room requests, and all arrival logistics.',
-    email: 'umair@ascenderadventures.com',
+    name: 'Friends of Pakistan',
+    role: 'Host · Society and fund',
+    desc: <>A society and fund for unlocking money to drive scalable positive change in Pakistan, powered by a network of investors, philanthropists and proven leaders. Founded by Nadir Shams. The Fellowship is its programme.</>,
+    links: [
+      { label: 'friendsofpakistan.org', href: 'https://www.friendsofpakistan.org/', external: true },
+    ],
+  },
+  {
+    name: 'Taleemabad',
+    role: 'Partner · Organizer · Karachi, Pakistan',
+    desc: <>Pakistan&rsquo;s largest ed-tech organization. Transforms learning for millions of children through digital platforms, public school integrations, and engaging multimodal content in Urdu, Punjabi, and Pashto.</>,
+    links: [
+      { label: 'taleemabad.com', href: 'https://taleemabad.com/', external: true },
+      { label: 'Email', href: 'mailto:hello@taleemabad.com' },
+    ],
+  },
+  {
+    name: 'Mulago Foundation',
+    role: 'Partner · Framework · San Francisco, CA',
+    desc: <>A foundation that operates like a venture capital firm for impact — providing unrestricted funding and support to social entrepreneurs whose solutions are designed for massive scale.</>,
+    links: [
+      { label: 'mulagofoundation.org', href: 'https://www.mulagofoundation.org/', external: true },
+      { label: 'Email', href: 'mailto:info@mulagofoundation.org' },
+    ],
   },
 ];
 
 export default function ContactPage() {
   return (
     <>
-      <section className="page-hero" data-screen-label="Contact Hero">
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
-        <div className="container page-hero__inner">
-          <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Contact</span></div>
-          <h1 className="page-hero__title">Get in <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>touch.</em></h1>
-          <p className="page-hero__subtitle">For fellows, faculty, partners, and the curious. The team replies within one working day — Pakistan Standard Time.</p>
-        </div>
-      </section>
+      <PageHero
+        crumb="Contact"
+        title={<>Get in <em>touch.</em></>}
+        subtitle="For fellows, faculty, partners, and the curious. The team replies within one working day — Pakistan Standard Time."
+      />
 
-      <section className="contact-section">
-        <div className="container contact-grid">
+      <Section tone="offwhite">
+        <div className={styles.grid}>
           <div>
-            <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">By channel</span></div>
-            <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--alpine-deep)', lineHeight: 1, letterSpacing: '-0.02em', marginBottom: 32 }}>
-              Pick a <em style={{ color: 'var(--clay)', fontStyle: 'italic' }}>door.</em>
+            <p className={`t-eyebrow ${styles.eyebrow}`}>By channel</p>
+            <h2 className={`t-heading-2 ${styles.heading}`}>
+              Pick a <em>door.</em>
             </h2>
-            <div className="channels">
+            <div className={styles.channels}>
               {CHANNELS.map((c) => (
-                <div key={c.email} className="channel">
-                  <div className="channel__icon">{c.icon}</div>
+                <div key={c.email} className={styles.channel}>
+                  <div className={styles.icon}>{c.icon}</div>
                   <div>
-                    <h3 className="channel__title">{c.title}</h3>
-                    <p className="channel__detail">{c.detail}</p>
-                    <div className="channel__action"><a href={`mailto:${c.email}`}>{c.email} →</a></div>
+                    <h3 className={`t-heading-5 ${styles.channelTitle}`}>{c.title}</h3>
+                    <p className={`t-body-sm ${styles.detail}`}>{c.detail}</p>
+                    <a className={styles.action} href={`mailto:${c.email}`}>
+                      {c.email} <Arrow length={32} />
+                    </a>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="contact-form">
+          {/* Form panel: the controls are restyled in Task 7. */}
+          <div className="contact-form" data-theme="dark">
             <div className="contact-form__inner">
               <h3>Or send a <em>note.</em></h3>
-              <p>Tell us a little about you and what you&rsquo;re after. The form lands in the right inbox automatically.</p>
-              <ContactForm />
+              <p>Tell us a little about you and what you&rsquo;re after. Sending opens your email app with the note ready to go.</p>
+              <ContactForm contactEmail={getSiteSettings().contactEmail} />
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="hosts-section">
-        <div className="container">
-          <div className="eyebrow-line"><span className="eyebrow-line__line" /><span className="eyebrow">The co-hosts</span></div>
-          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(40px, 5vw, 64px)', color: 'var(--alpine-deep)', lineHeight: 1, letterSpacing: '-0.02em', marginBottom: 48 }}>
-            Two organizations. <em style={{ color: 'var(--clay)', fontStyle: 'italic' }}>One week.</em>
-          </h2>
-          <div className="hosts-grid">
-            <article className="host-card">
-              <h3 className="host-card__name">Taleemabad</h3>
-              <div className="host-card__role">Co-host · Organizer · Karachi, Pakistan</div>
-              <p className="host-card__desc">Pakistan&rsquo;s largest ed-tech organization. Transforms learning for millions of children through digital platforms, public school integrations, and engaging multimodal content in Urdu, Punjabi, and Pashto.</p>
-              <div className="host-card__links">
-                <a href="https://taleemabad.com/" target="_blank" rel="noopener noreferrer">taleemabad.com →</a>
-                <a href="mailto:hello@taleemabad.com">Email →</a>
+      <Section tone="white">
+        <p className={`t-eyebrow ${styles.eyebrow}`}>Who runs it</p>
+        <h2 className={`t-heading-2 ${styles.heading}`}>
+          Three organizations. <em>One week.</em>
+        </h2>
+        <div className={styles.hosts}>
+          {HOSTS.map((h) => (
+            <article key={h.name} className={styles.host}>
+              <h3 className={`t-heading-3 ${styles.hostName}`}>{h.name}</h3>
+              <p className={`t-eyebrow ${styles.hostRole}`}>{h.role}</p>
+              <p className={`t-body ${styles.hostDesc}`}>{h.desc}</p>
+              <div className={styles.hostLinks}>
+                {h.links.map((l) => (
+                  <a
+                    key={l.href}
+                    className={styles.action}
+                    href={l.href}
+                    {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    {l.label} <Arrow length={32} />
+                  </a>
+                ))}
               </div>
             </article>
-            <article className="host-card">
-              <h3 className="host-card__name">Mulago Foundation</h3>
-              <div className="host-card__role">Co-host · Framework · San Francisco, CA</div>
-              <p className="host-card__desc">A foundation that operates like a venture capital firm for impact — providing unrestricted funding and support to social entrepreneurs whose solutions are designed for massive scale.</p>
-              <div className="host-card__links">
-                <a href="https://www.mulagofoundation.org/" target="_blank" rel="noopener noreferrer">mulagofoundation.org →</a>
-                <a href="mailto:info@mulagofoundation.org">Email →</a>
-              </div>
-            </article>
-          </div>
+          ))}
         </div>
-      </section>
+      </Section>
     </>
   );
 }

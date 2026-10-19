@@ -1,73 +1,51 @@
 import Link from 'next/link';
+import { PRIMARY_LINKS, getNavGroups } from '@/lib/navigation';
+import { ArrowLink } from './fop';
 
-const PROGRAM = [
-  { href: '/curriculum', label: 'Curriculum' },
-  { href: '/itinerary', label: 'Itinerary' },
-];
-
-const PEOPLE = [
-  { href: '/fellows', label: 'Fellows 2026' },
-  { href: '/faculty', label: 'Faculty' },
-  { href: '/faculty#organizers', label: 'Organizers' },
-];
-
-const EXPLORE = [
-  { href: '/venue', label: 'Khoj Resort, Skardu' },
-  { href: '/explore-skardu', label: 'Explore Skardu' },
-  { href: '/contact', label: 'Contact' },
+const COLUMNS = [
+  ...getNavGroups(),
+  { label: 'Apply', links: [{ href: '/apply', label: 'How to apply' }, ...PRIMARY_LINKS] },
 ];
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="topo-bg" aria-hidden="true" />
-      <div className="container">
+    <footer className="site-footer" data-theme="dark">
+      <div className="site-footer__inner">
         <div className="site-footer__grid">
-          <div className="site-footer__brand">
-            <h3>
-              Summit
-              <br />
-              Fellowship
-            </h3>
-            <p>
-              The Skardu Scale-Up Fellowship. A seven-day intensive for Pakistan&apos;s most
-              promising social enterprises, co-hosted by Taleemabad &amp; Mulago Foundation.
+          {COLUMNS.map((col) => (
+            <div key={col.label} className="site-footer__col">
+              <h2 className="t-heading-5">{col.label}</h2>
+              <ul>
+                {col.links.map((l) => (
+                  <li key={l.href}>
+                    <Link className="t-body" href={l.href}>
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div className="site-footer__box">
+            <h2 className="t-heading-4">Applications</h2>
+            <p className="t-body">
+              A seven-day intensive for Pakistan&apos;s most promising social enterprises. A Friends of
+              Pakistan programme, in partnership with Mulago Foundation and Taleemabad.
             </p>
-          </div>
-          <div className="site-footer__col">
-            <h4>The Program</h4>
-            <ul>
-              {PROGRAM.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href}>{l.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="site-footer__col">
-            <h4>The People</h4>
-            <ul>
-              {PEOPLE.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href}>{l.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="site-footer__col">
-            <h4>Explore</h4>
-            <ul>
-              {EXPLORE.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href}>{l.label}</Link>
-                </li>
-              ))}
-            </ul>
+            <div className="site-footer__go">
+              <ArrowLink href="/apply" size="lg">
+                Apply
+              </ArrowLink>
+            </div>
           </div>
         </div>
-        <div className="site-footer__bottom">
-          <span>© 2026 · Summit Fellowship · Vol. 01</span>
-          <span>Skardu · Gilgit-Baltistan · Pakistan</span>
+        <div className="site-footer__bottom t-legal">
+          <span className="site-footer__mark wordmark">
+            <span className="wordmark__name">Friends of Pakistan</span>
+            <span className="wordmark__sub">Fellowship</span>
+          </span>
+          <span className="site-footer__legal">© {new Date().getFullYear()} · Friends of Pakistan Fellowship</span>
+          <span className="site-footer__legal">Friends of Pakistan · Mulago Foundation · Taleemabad</span>
         </div>
       </div>
     </footer>

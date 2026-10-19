@@ -1,0 +1,213 @@
+/* ========== Fellow detail page (Friends of Pakistan) ==========
+   Green hero, yellow idea band, Prose body on off-white, white sidebar panel.
+   Element-qualified selectors where a rule must beat a global .t-* type class. */
+
+/* ===== 1. Fellow Hero ===== */
+.fellow-hero {
+  position: relative;
+  background: var(--brand-green-deep);
+  color: var(--white);
+  /* The back button sits in normal flow at the top of the content container. */
+  padding: var(--space-4) var(--container-pad) var(--space-16);
+}
+
+.fellow-hero__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.fellow-hero__content { max-width: 60ch; min-width: 0; }
+
+p.fellow-hero__meta {
+  margin: 0 0 var(--space-4);
+  color: var(--primary);
+}
+
+h1.fellow-hero__name {
+  margin: 0 0 var(--space-8);
+  color: var(--white);
+  font-size: clamp(44px, 5.5vw, 72px);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+p.fellow-hero__problem {
+  margin: 0;
+  color: var(--white);
+}
+
+.fellow-hero__media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fellow-hero__photo {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-none);
+}
+
+.fellow-hero__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  background: var(--brand-green);
+  color: var(--white);
+  font-family: var(--font-serif);
+  font-size: 96px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+@media (max-width: 640px) {
+  .fellow-hero { padding: var(--space-4) var(--space-4) var(--space-13); }
+  .fellow-hero__inner { grid-template-columns: 1fr; gap: var(--space-6); }
+  .fellow-hero__media { order: -1; justify-content: flex-start; }
+  .fellow-hero__photo,
+  .fellow-hero__avatar { max-width: 240px; }
+  .fellow-hero__avatar { font-size: 72px; }
+}
+
+/* ===== 2. Idea Band ===== */
+.idea-band {
+  background: var(--primary);
+  color: var(--black);
+  padding: var(--space-16) var(--container-pad);
+}
+
+.idea-band__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.idea-band__header { margin-bottom: var(--space-4); }
+
+p.idea-band__label { margin: 0; color: var(--black); }
+
+
+p.idea-band__tagline {
+  max-width: 28ch;
+  margin: 0;
+  color: var(--black);
+  font-size: clamp(32px, 4.2vw, 55px);
+  line-height: 1.15;
+}
+
+@media (max-width: 640px) {
+  .idea-band { padding: var(--space-10) var(--space-4); }
+}
+
+/* ===== 3. Narrative sections ===== */
+.fellow-section + .fellow-section { margin-top: var(--space-16); }
+
+@media (max-width: 640px) {
+  .fellow-section + .fellow-section { margin-top: var(--space-10); }
+}
+
+/* ===== 4. Sidebar ===== */
+.fellow-sidebar {
+  align-self: start;
+  background: var(--white);
+  border: var(--border-1) solid var(--line);
+  padding: var(--space-8);
+  min-width: 0;
+}
+
+.fellow-sidebar__section + .fellow-sidebar__section { margin-top: var(--space-6); }
+
+span.fellow-sidebar__label {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--ink-brand);
+}
+
+p.fellow-sidebar__value { margin: 0; color: var(--black); }
+
+.fellow-sidebar__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-6);
+}
+
+a.fellow-sidebar__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--black);
+  font-size: 16px;
+}
+a.fellow-sidebar__link:hover { text-decoration-line: none; }
+
+@media (max-width: 640px) {
+  .fellow-sidebar { padding: var(--space-6); }
+}
+
+/* ===== 5. Back link (square white button with a left arrow, top-right of the hero content container) ===== */
+.fellow-navigation {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max);
+  margin: 0 auto var(--space-5);
+  display: flex;
+  justify-content: flex-end;
+}
+
+a.fellow-navigation__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  line-height: 1;
+}
+a.fellow-navigation__close:focus-visible { outline-color: var(--white); }
+
+@media (max-width: 640px) {
+  .fellow-navigation { margin-bottom: var(--space-4); }
+}
+
+/* ===== 6. Page layout ===== */
+.fellow-detail {
+  display: flex;
+  flex-direction: column;
+  background: var(--off-white);
+}
+
+.fellow-detail__body {
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  padding: var(--space-20) var(--container-pad);
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--space-16);
+}
+
+.fellow-detail__content { min-width: 0; max-width: 75ch; }
+
+@media (max-width: 1023px) {
+  .fellow-detail__body {
+    grid-template-columns: 1fr;
+    padding: var(--space-13) var(--space-6);
+    gap: var(--space-10);
+  }
+}
+
+@media (max-width: 640px) {
+  .fellow-detail__body { padding: var(--space-8) var(--space-4); gap: var(--space-8); }
+}

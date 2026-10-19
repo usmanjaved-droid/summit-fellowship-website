@@ -1,39 +1,30 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif, Geist, JetBrains_Mono, Caveat } from 'next/font/google';
+import { Crimson_Pro, Source_Sans_3 } from 'next/font/google';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import StagingBanner from './components/StagingBanner';
+import { isProductionDeploy } from '@/lib/env';
 import './globals.css';
 
-const instrumentSerif = Instrument_Serif({
+const crimsonPro = Crimson_Pro({
   subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
+  weight: ['300', '400'],
   display: 'swap',
   variable: '--font-serif',
 });
 
-const geist = Geist({
+const sourceSans = Source_Sans_3({
   subsets: ['latin'],
+  weight: 'variable',
   display: 'swap',
   variable: '--font-sans',
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-mono',
-});
-
-const caveat = Caveat({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-handwriting',
-});
-
 export const metadata: Metadata = {
-  title: 'Summit Fellowship — Designed for Scale',
+  title: 'Friends of Pakistan Fellowship — Designed for Scale',
   description:
-    "The Skardu Scale-Up Fellowship. A 7-day intensive retreat for Pakistan's most promising social enterprises. June 7–14, 2026.",
+    "A seven-day intensive for Pakistan's most promising social enterprises, matching founders with strategy, mentoring and capital to scale.",
+  robots: isProductionDeploy() ? undefined : { index: false, follow: false },
 };
 
 export default function RootLayout({
@@ -44,9 +35,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${geist.variable} ${jetbrainsMono.variable} ${caveat.variable}`}
+      className={`${crimsonPro.variable} ${sourceSans.variable}`}
     >
       <body>
+        <StagingBanner />
         <Header />
         <main>{children}</main>
         <Footer />

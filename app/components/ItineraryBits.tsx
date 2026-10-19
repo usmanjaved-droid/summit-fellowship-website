@@ -28,6 +28,7 @@ export default function ItineraryBits({ days }: { days: Day[] }) {
 
   useEffect(() => {
     const m = location.hash.match(/^#day-(\d)$/);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hash only exists client-side; reading it in useState would cause a hydration mismatch
     if (m) setActive(Number(m[1]));
   }, []);
 
@@ -37,7 +38,7 @@ export default function ItineraryBits({ days }: { days: Day[] }) {
 
   return (
     <>
-      <div className="week-ribbon">
+      <div className="week-ribbon" data-theme="dark">
         <div className="container week-ribbon__inner">
           <span className="week-ribbon__label">Week of</span>
           <span className="week-ribbon__title">Sun 07 — Sun 14 June 2026</span>
@@ -68,7 +69,6 @@ export default function ItineraryBits({ days }: { days: Day[] }) {
 
       {days.map((d, i) => (
         <section key={i} className={`day-panel${active === i ? ' is-active' : ''}`}>
-          <div className="topo-bg" aria-hidden="true" />
           <div className="container">
             <div className="day-head">
               <div className="day-head__left">

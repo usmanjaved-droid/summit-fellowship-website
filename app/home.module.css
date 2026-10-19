@@ -1,0 +1,295 @@
+/* Homepage bands (Friends of Pakistan). Colours and spacing come from app/fop-tokens.css. */
+
+/* Shared band typography. Element-qualified selectors where a rule must beat a global .t-* type class. */
+.eyebrow {
+  margin: 0 0 var(--space-3);
+  color: inherit;
+}
+h2.heading {
+  margin: 0 0 var(--space-10);
+  max-width: 20ch;
+  font-size: clamp(36px, 4.2vw, 55px);
+  text-wrap: balance;
+}
+
+/* ============ Hero (green) ============ */
+.hero {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+.hero__inner {
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-24) var(--container-pad) var(--space-16);
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--space-16);
+  align-items: center;
+}
+.hero__copy { min-width: 0; }
+.hero__eyebrow {
+  margin: 0 0 var(--space-6);
+  color: var(--primary);
+}
+h1.hero__title {
+  margin: 0 0 var(--space-6);
+  color: var(--white);
+  font-size: clamp(48px, 6.6vw, 104px);
+  text-wrap: balance;
+  line-height: 1;
+}
+.hero__title span { display: inline-block; }
+p.hero__lead {
+  margin: 0 0 var(--space-10);
+  max-width: 44ch;
+  color: var(--white);
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.4;
+}
+.hero__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--black);
+}
+.hero__media img { object-fit: cover; }
+
+.hero__deadline {
+  margin: var(--space-4) 0 0;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ============ Why (off-white) ============ */
+/* "Why this fellowship": heading on the left, paragraph on the right (as in the previous site). */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  column-gap: var(--space-16);
+  align-items: start;
+}
+.split__kicker,
+.split__body { min-width: 0; }
+.split__kicker h2.heading { margin-bottom: 0; }
+.split__body { padding-top: var(--space-9); }
+.why {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--space-16);
+  row-gap: var(--space-16);
+  align-items: start;
+}
+.why__block { grid-column: 1; max-width: 860px; }
+.why__block--second { grid-row: 1; }
+.fellowship { margin-top: var(--space-24); }
+.why__body { margin: 0; color: var(--ink); }
+.fellowship__about { margin-top: var(--space-6); }
+.fellowship__link { margin-top: var(--space-6); }
+.why__emphasis { font-weight: 600; color: var(--ink-brand); }
+.why__cta {
+  grid-column: 2;
+  grid-row: 1;
+  /* The CTA label ("Apply for the 2027 cohort") needs a little more room than the default 200px square. */
+  --square-cta: 240px;
+}
+
+.scale {
+  margin-top: var(--space-24);
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-16);
+  align-items: center;
+}
+.scale__copy,
+.scale__chart { min-width: 0; }
+.scale__pull {
+  margin: 0 0 var(--space-6);
+  max-width: 22ch;
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.25;
+  font-weight: 300;
+  color: var(--ink-brand);
+  text-wrap: balance;
+}
+.scale__stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  color: var(--ink-soft);
+}
+
+/* ============ What you get (white) ============ */
+.offer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-10) var(--space-16);
+}
+.offer__tile {
+  padding-left: var(--space-6);
+  border-left: var(--border-4) solid var(--primary);
+}
+.offer__title { margin: 0 0 var(--space-3); color: var(--ink-brand); font-family: var(--font-sans); }
+.offer__desc { margin: 0; max-width: 46ch; color: var(--ink); }
+
+/* ============ How it works (green) ============ */
+.steps__list {
+  --steps-gap: var(--space-8);
+  list-style: none;
+  margin: var(--space-6) 0 var(--space-10);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--steps-gap);
+}
+/* The rail runs from the first column's start to the last column's start, so each dot sits above its step. */
+.steps__rail {
+  --steps-gap: var(--space-8);
+  width: calc((100% + var(--steps-gap)) * 0.8 + 12px);
+}
+.steps__item { min-width: 0; }
+.steps__num { display: block; color: var(--primary); }
+.steps__title { margin: var(--space-2) 0 var(--space-3); color: var(--ink-brand); font-family: var(--font-sans); }
+.steps__desc { margin: 0; color: var(--ink); }
+
+/* ============ Fellows (yellow): round photo, name and org (the previous homepage style) ============ */
+.people__grid {
+  list-style: none;
+  margin: 0 0 var(--space-10);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-6);
+}
+.people__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 44px;
+  color: var(--black);
+  text-decoration: none;
+}
+.people__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 116px;
+  height: 116px;
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: var(--brand-green);
+  color: var(--white);
+  font-family: var(--font-serif);
+  font-size: 38px;
+  font-weight: 300;
+}
+.people__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.people__name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--black);
+}
+.people__org { color: var(--black); }
+
+/* ============ Faculty (white) ============ */
+.faculty__grid {
+  list-style: none;
+  margin: 0 0 var(--space-10);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-8) var(--space-6);
+}
+.faculty__item { display: flex; flex-direction: column; min-width: 0; color: var(--black); }
+.faculty__photo {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+  background: var(--brand-green-deep);
+}
+.faculty__photo img { object-fit: cover; }
+.faculty__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-family: var(--font-serif);
+  font-size: 64px;
+  font-weight: 300;
+}
+.faculty__name { color: var(--black); }
+.faculty__role { margin-top: var(--space-1); color: var(--black); }
+
+/* ============ Closing (yellow): green title (4.6:1 at 40px+), black ArrowLinks ============ */
+.closing { text-align: center; }
+h2.closing__title {
+  margin: 0 auto var(--space-10);
+  max-width: 18ch;
+  color: var(--ink-brand);
+  font-size: clamp(40px, 5.4vw, 72px);
+}
+.closing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-6) var(--space-16);
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1023px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-10);
+  }
+  .hero__media { aspect-ratio: 16 / 9; }
+  h2.heading { line-height: 1.1; }
+  .scale { grid-template-columns: 1fr; gap: var(--space-10); margin-top: var(--space-16); }
+  .fellowship { margin-top: var(--space-16); }
+  .split { grid-template-columns: 1fr; row-gap: var(--space-6); }
+  .split__body { padding-top: 0; }
+  .steps__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps__rail { width: 100%; }
+  .faculty__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .why { grid-template-columns: 1fr; row-gap: var(--space-10); }
+  .why__block,
+  .why__block--second { grid-column: 1; grid-row: auto; }
+  .why__cta { grid-column: 1; grid-row: auto; }
+  /* The design system's small-screen SquareCta: a full-width yellow bar, label and arrow in a row. */
+  .why__cta > a {
+    width: 100%;
+    height: auto;
+    min-height: 72px;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--space-5) var(--space-6);
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .why__cta > a > svg { align-self: center; }
+  .offer__grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  h3.offer__title { font-size: 24px; }
+}
+
+@media (max-width: 639px) {
+  .steps__list { grid-template-columns: 1fr; gap: var(--space-6); }
+  .steps__rail { display: none; }
+
+  .people__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-4); }
+  .faculty__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-4); }
+  .faculty__fallback { font-size: 44px; }
+}

@@ -1,0 +1,47 @@
+/* Cohort bar (Friends of Pakistan): off-white strip with uppercase black tabs; the active tab carries a 4px black rule. */
+.cohort-bar {
+  background: var(--off-white);
+  color: var(--black);
+  border-bottom: var(--border-1) solid var(--line);
+}
+.cohort-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+p.cohort-bar__label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-3) 0;
+  color: var(--ink-soft);
+}
+.cohort-bar__label a { color: var(--black); }
+.cohort-bar__label a:hover { text-decoration-line: none; }
+.cohort-bar__tabs { display: flex; gap: var(--space-6); overflow-x: auto; }
+a.cohort-bar__tab {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 4px 0 0;
+  border-bottom: var(--border-4) solid transparent;
+  color: var(--black);
+  text-decoration: none;
+  white-space: nowrap;
+}
+a.cohort-bar__tab:hover { border-bottom-color: var(--line); }
+a.cohort-bar__tab--active,
+a.cohort-bar__tab--active:hover { border-bottom-color: var(--black); }
+a.cohort-bar__tab:focus-visible { outline: var(--border-2) solid var(--focus); outline-offset: -2px; }
+
+@media (max-width: 640px) {
+  .cohort-bar__inner { flex-direction: column; align-items: flex-start; gap: 0; }
+  p.cohort-bar__label { padding-bottom: 0; }
+  /* All four tabs visible at once: wrap instead of a hidden horizontal swipe. */
+  .cohort-bar__tabs { width: 100%; flex-wrap: wrap; overflow-x: visible; gap: 0 var(--space-5); }
+  a.cohort-bar__tab { min-height: 44px; font-size: 15px; }
+}

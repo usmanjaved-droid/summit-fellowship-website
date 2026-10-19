@@ -1,6 +1,11 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Caveat } from 'next/font/google';
+import styles from './ExponentialChart.module.css';
+
+// Hand-drawn labels keep their handwriting font on purpose (owner's choice); used only by this chart.
+const caveat = Caveat({ subsets: ['latin'], weight: ['600'], display: 'swap', variable: '--font-chart-hand' });
 
 // Path data extracted from mulagofoundation.org chart
 const CURVE_D =
@@ -14,8 +19,6 @@ const DASHED_D =
 
 const DASHED_ARROW_D =
   'M1297.21 333.643C1293.83 334.987 1300.29 346.17 1301.17 348.881C1303.18 355.099 1308.3 343.879 1309.86 342.514C1313.84 339.042 1318.54 335.496 1310.09 337.691C1305.1 338.986 1303.42 335.618 1298.95 334.668';
-
-const CURVE_COLOR = '#ED7933';
 
 export default function ExponentialChart() {
   const wrapRef = useRef<HTMLDivElement | null>(null);
@@ -45,7 +48,7 @@ export default function ExponentialChart() {
     return () => obs.disconnect();
   }, []);
 
-  // Scroll-linked progress for the orange curve + its arrow.
+  // Scroll-linked progress for the curve + its arrow.
   // Maps progress from 0 (chart top at viewport bottom) to 1 (chart top at 30% of viewport).
   // After 1, stays drawn even as the chart continues to scroll out.
   useEffect(() => {
@@ -103,12 +106,12 @@ export default function ExponentialChart() {
   }, []);
 
   return (
-    <div ref={wrapRef} className={`exp-chart${visible ? ' is-visible' : ''}`}>
-      <svg width="100%" height="auto" viewBox="0 0 1317 724" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <div ref={wrapRef} className={`${caveat.variable} ${styles.chart}${visible ? ` ${styles['is-visible']}` : ''}`}>
+      <svg width="100%" style={{ height: 'auto' }} viewBox="0 0 1317 724" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         {/* Grey dashed line: idea → pretty good (linear-ish) */}
         <g opacity="0.5">
           <path
-            className="exp-chart__dashed"
+            className={styles.dashed}
             d={DASHED_D}
             fill="none"
             stroke="currentColor"
@@ -117,7 +120,7 @@ export default function ExponentialChart() {
             strokeLinecap="round"
           />
           <path
-            className="exp-chart__dashed-arrow"
+            className={styles.dashed}
             d={DASHED_ARROW_D}
             fill="none"
             stroke="currentColor"
@@ -126,34 +129,32 @@ export default function ExponentialChart() {
           />
         </g>
 
-        {/* Orange exponential curve: scroll-linked */}
+        {/* Brand-green exponential curve: scroll-linked */}
         <path
           ref={curveRef}
-          className="exp-chart__curve"
+          className={styles.curve}
           d={CURVE_D}
           fill="none"
-          stroke={CURVE_COLOR}
           strokeWidth="5"
           strokeLinecap="round"
         />
         <path
           ref={arrowRef}
-          className="exp-chart__arrow"
+          className={styles.curve}
           d={CURVE_ARROW_D}
           fill="none"
-          stroke={CURVE_COLOR}
           strokeWidth="5"
           strokeLinecap="round"
         />
 
-        {/* Labels (Caveat handwriting font) */}
-        <text x="18" y="710" className="exp-chart__label exp-chart__label--ochre exp-chart__label--idea">
+        {/* Labels: text stays in --ink-brand / --ink-soft, never yellow on a light ground */}
+        <text x="18" y="710" className={`${styles.label} ${styles['label--brand']} ${styles['label--idea']}`}>
           idea
         </text>
-        <text x="1300" y="335" textAnchor="end" className="exp-chart__label exp-chart__label--grey">
+        <text x="1300" y="335" textAnchor="end" className={`${styles.label} ${styles['label--soft']} ${styles['label--good']}`}>
           pretty good
         </text>
-        <text x="1180" y="38" textAnchor="end" className="exp-chart__label exp-chart__label--ochre exp-chart__label--awesome">
+        <text x="1180" y="38" textAnchor="end" className={`${styles.label} ${styles['label--brand']} ${styles['label--awesome']}`}>
           awesome
         </text>
       </svg>

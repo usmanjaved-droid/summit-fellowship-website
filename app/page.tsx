@@ -1,195 +1,221 @@
-import Link from 'next/link';
-import EventDate from './components/EventDate';
+import Image from 'next/image';
 import ExponentialChart from './components/ExponentialChart';
+import { ArrowLink, Button, Section, SquareCta, Timeline } from './components/fop';
+import { FACULTY, ORGANIZERS } from './faculty/people';
+import { getLatestCohort } from '@/lib/cohorts';
+import { getFellowCards } from '@/lib/fellows';
+import { getApplyCta, getCurrentCohort, getDeadlineText } from '@/lib/site';
+import styles from './home.module.css';
 
 export const metadata = {
-  title: 'Summit Fellowship 2026 - Design for Scale',
-  description: 'A seven-day intensive for Pakistan\'s most promising social enterprises. Curating Pakistan\'s finest impact companies and matching them with strategy, mentoring, and capital to scale.',
+  title: 'Friends of Pakistan Fellowship — Designed for Scale',
+  description:
+    "Curating Pakistan's finest impact organisations and matching them with strategy, mentoring, and capital to scale.",
 };
 
-interface Action {
-  num: string;
-  title: string;
-  desc: string;
-  href: string;
-}
+const OFFER = [
+  { title: 'Seven days, fully present', desc: 'An immersive residential retreat in Northern Pakistan. No email, no calls during sessions — just the work.' },
+  { title: 'The Mulago scale framework', desc: 'Mission, Big Idea, doer and payer at scale, and the tests every scalable solution has to pass.' },
+  { title: 'Mentoring from people who have scaled', desc: 'Venture diagnostics and strategy clinics with Mulago Foundation and Pakistani faculty.' },
+  { title: 'Demo Day', desc: 'Present your scale blueprint to funders actively investing in Pakistan.' },
+];
 
-const ACTIONS: Action[] = [
-  {
-    num: '01',
-    title: 'Submit your pre work',
-    desc: 'Complete the pre-work assignments to prepare intellectually for the fellowship. Due before 31 May 2026.',
-    href: 'https://skardu-taleemabad.vercel.app/skardu-prework.html',
-  },
-  {
-    num: '02',
-    title: 'Review the curriculum & itinerary',
-    desc: "Understand the week's rhythm, the Mulago design discipline you'll be working through, and what each day requires.",
-    href: '/itinerary',
-  },
-  {
-    num: '03',
-    title: 'Meet the people',
-    desc: 'Get to know the fellows and the faculty and advisors and the organizing team who would be there with us during the fellowship.',
-    href: '/fellows',
-  },
-  {
-    num: '04',
-    title: 'Explore the venue',
-    desc: 'Learn about Khoj Resort, review the packing essentials list, and understand the logistics of arrival.',
-    href: '/venue',
-  },
-  {
-    num: '05',
-    title: 'Explore Skardu',
-    desc: "Get to know the region - the history, geography, culture, food, and activities around where you'll be.",
-    href: '/explore-skardu',
-  },
+// Homepage faculty row: the faculty plus three organisers the owner asked to feature.
+const HOME_PEOPLE = [
+  ...FACULTY,
+  ...ORGANIZERS.filter((p) => ['O.01', 'O.02', 'O.04'].includes(p.num)),
+];
+
+const STEPS = [
+  { num: '01', title: 'Apply', desc: 'A focused written application: numbers, names, dates — about 25 minutes once you have gathered them.' },
+  { num: '02', title: 'Conversation', desc: 'Shortlisted founders have one 45-minute conversation with the Friends of Pakistan Fellowship team.' },
+  { num: '03', title: 'Selection', desc: 'Twelve organisations are selected, plus a small number of alternates.' },
+  { num: '04', title: 'The retreat', desc: 'Seven days redesigning your model for scale, ending with Demo Day.' },
+  { num: '05', title: 'After', desc: 'Ongoing mentorship and a peer network of Pakistan’s most ambitious founders.' },
 ];
 
 export default function HomePage() {
+  const cohort = getCurrentCohort();
+  const cta = getApplyCta(cohort);
+  // While applications are live the deadline sits under the hero CTA (no separate band).
+  const deadline = getDeadlineText(cohort);
+  const latest = getLatestCohort();
+  const fellows = getFellowCards(latest.year);
+
   return (
     <>
-      {/* ============ HERO ============ */}
-      <section className="hero" data-screen-label="Home Hero">
-        <div className="hero__bg" aria-hidden="true" />
-        <div className="topo-bg" aria-hidden="true" />
-
-        <div className="hero__body">
-          <div className="hero__lockup">
-            <div className="hero__eyebrow">
-              <span className="line" />
-              <span>For Pakistani social innovators designing for scale</span>
-            </div>
-            <h1 className="hero__title">
-              <span className="stack">Summit</span>
-              <span className="stack">Fellowship 2026</span>
+      {/* ============ HERO (green) ============ */}
+      <section className={styles.hero} data-theme="dark" data-screen-label="Home Hero">
+        <div className={styles.hero__inner}>
+          <div className={styles.hero__copy}>
+            <p className={`t-eyebrow ${styles.hero__eyebrow}`}>For Pakistani social innovators designing for scale</p>
+            <h1 className={`t-heading-xl ${styles.hero__title}`}>
+              Friends of Pakistan <span>Fellowship</span>
             </h1>
-            <p className="hero__sub">
+            <p className={`t-body-light ${styles.hero__lead}`}>
               Curating Pakistan&apos;s finest impact companies and matching them with strategy, mentoring, and capital to scale.
             </p>
-            <div className="hero__cta-row">
-              <Link className="btn btn--ochre" href="/fellows">
-                Meet the Fellows <span className="arrow">→</span>
-              </Link>
-            </div>
+            <Button href={cta.href} size="xl" icon>
+              {cta.label}
+            </Button>
+            {deadline && <p className={styles.hero__deadline}>Applications close: {deadline}</p>}
           </div>
-        </div>
-
-        <div className="hero__meta-strip">
-          <div className="hero__meta-strip-inner">
-            <div className="hero__meta-item">
-              <span className="label">Dates</span>
-              <div className="value">07 - 14 June 2026</div>
-            </div>
-            <div className="hero__meta-item">
-              <span className="label">Venue</span>
-              <div className="value">Khoj Resort, Skardu</div>
-            </div>
+          <div className={styles.hero__media}>
+            <Image
+              src="/images/skardu/Hero Home.jpg"
+              alt="Mountains above the Skardu valley"
+              fill
+              priority
+              sizes="(max-width: 1023px) 100vw, 45vw"
+            />
           </div>
         </div>
       </section>
 
-      {/* ============ EVENT DATE ============ */}
-      <EventDate />
+      {/* ============ WHY (off-white) ============ */}
+      <Section tone="offwhite">
+        <div className={styles.split}>
+          <div className={styles.split__kicker}>
+            <p className={`t-eyebrow ${styles.eyebrow}`}>Why this fellowship</p>
+            <h2 className={`t-heading-2 ${styles.heading}`}>Pakistan has extraordinary founders. Scale is the next frontier.</h2>
+          </div>
+          <div className={styles.split__body}>
+            <p className={`t-body ${styles.why__body}`}>
+              240 million people. A learning crisis. A hunger crisis. A mental health system that barely exists.
+              A generation of founders has decided not to wait - and they are building real solutions, with real
+              evidence, at real cost. But few reach national scale. Most stay caught in project-driven survival -
+              securing grants, reaching thousands, when their models could reach millions.{' '}
+              <strong className={styles.why__emphasis}>We are changing that.</strong>
+            </p>
+          </div>
+        </div>
 
-      {/* ============ WHAT THIS IS ============ */}
-      <section className="whatis section">
-        <div className="topo-bg topo-bg--subtle" aria-hidden="true" />
-        <div className="container">
-          {/* Block 1 - Why this fellowship */}
-          <div className="whatis-block whatis-block--split">
-            <div className="whatis-block__kicker">
-              <div className="eyebrow whatis__label">Why this fellowship</div>
-              <h2 className="whatis-block__heading">
-                Pakistan has extraordinary founders. Scale is the next frontier.
-              </h2>
-            </div>
-            <div className="whatis-block__body">
-              <p className="whatis__body">
-                240 million people. A learning crisis. A hunger crisis. A mental health system that barely exists.
-                A generation of founders has decided not to wait - and they are building real solutions, with real
-                evidence, at real cost. But few reach national scale. Most stay caught in project-driven survival -
-                securing grants, reaching thousands, when their models could reach millions.{' '}
-                <strong className="whatis__emphasis">We are changing that.</strong>
-              </p>
+        <div className={styles.scale}>
+          <div className={styles.scale__copy}>
+            <p className={`t-eyebrow ${styles.eyebrow}`}>What we mean by scale</p>
+            <p className={styles.scale__pull}>A big idea is one that can scale. Scale means exponential impact.</p>
+            <div className={styles.scale__stack}>
+              <span className="t-body-light">From one village to a country.</span>
+              <span className="t-body-light">From thousands to millions.</span>
+              <span className="t-body-light">From a working pilot to a model the country runs on.</span>
             </div>
           </div>
+          <div className={styles.scale__chart}>
+            <ExponentialChart />
+          </div>
+        </div>
 
-          {/* Block 2 - The Fellowship */}
-          <div className="whatis-block whatis-block--split">
-            <div className="whatis-block__kicker">
-              <div className="eyebrow whatis__label">The Fellowship</div>
-              <h2 className="whatis-block__heading">
-                Seven days to redesign for scale.
-              </h2>
-            </div>
-            <div className="whatis-block__body">
-              <p className="whatis__body">
-                Summit Fellowship is seven days at Khoj Resort, Skardu, where eleven Pakistani founders work the Mulago
-                design discipline alongside Pakistani faculty - Big Idea, doer and payer at scale, the Four Enoughs, the
-                Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start of a narrative
-                funders trust.
-              </p>
+        <div className={`${styles.why} ${styles.fellowship}`}>
+          <div className={`${styles.why__block} ${styles['why__block--second']}`}>
+            <p className={`t-eyebrow ${styles.eyebrow}`}>The Fellowship</p>
+            <h2 className={`t-heading-2 ${styles.heading}`}>Seven days to redesign for scale.</h2>
+            <p className={`t-body ${styles.why__body}`}>
+              Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan working the
+              Mulago design discipline alongside Pakistani faculty - Big Idea, doer and payer at scale, the Four
+              Enoughs, the Scale Screen. Fellows leave with a sharper model, an honest evidence plan, and the start
+              of a narrative funders trust.
+            </p>
+            <p className={`t-body ${styles.why__body} ${styles.fellowship__about}`}>
+              The Fellowship is a programme of Friends of Pakistan, the society and fund founded by Nadir Shams,
+              former director at the Skoll Foundation, run in partnership with Mulago Foundation and Taleemabad.
+              Fellows become <strong className={styles.why__emphasis}>Friends of Pakistan Fellows</strong>, part of
+              a network of investors, philanthropists and leaders scaling positive change in Pakistan.
+            </p>
+            <div className={styles.fellowship__link}>
+              <ArrowLink href="https://www.friendsofpakistan.org/">About Friends of Pakistan</ArrowLink>
             </div>
           </div>
+          <div className={styles.why__cta}>
+            <SquareCta href={cta.href}>{cta.label}</SquareCta>
+          </div>
+        </div>
+      </Section>
 
-          {/* Block 3 - What we mean by scale (two-column with chart) */}
-          <div className="whatis-block whatis-scale">
-            <div className="whatis-scale__copy">
-              <div className="eyebrow whatis__label">What we mean by scale</div>
-              <p className="whatis__pull">
-                A big idea is one that can scale. Scale means exponential impact.
-              </p>
-              <div className="whatis__stack">
-                <span>From one village to a country.</span>
-                <span>From thousands to millions.</span>
-                <span>From a working pilot to a model the country runs on.</span>
+      {/* ============ WHAT YOU GET (white) ============ */}
+      <Section tone="white">
+        <p className={`t-eyebrow ${styles.eyebrow}`}>What you get</p>
+        <h2 className={`t-heading-2 ${styles.heading}`}>A week that changes how you build.</h2>
+        <div className={styles.offer__grid}>
+          {OFFER.map((o) => (
+            <div key={o.title} className={styles.offer__tile}>
+              <h3 className={`t-heading-3 ${styles.offer__title}`}>{o.title}</h3>
+              <p className={`t-body ${styles.offer__desc}`}>{o.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ============ HOW IT WORKS (green) ============ */}
+      <Section tone="green">
+        <p className={`t-eyebrow ${styles.eyebrow}`}>How it works</p>
+        <h2 className={`t-heading-2 ${styles.heading}`}>From application to Demo Day.</h2>
+        <div className={styles.steps__rail}>
+          <Timeline stages={STEPS.map((s) => s.title)} current={-1} label="How it works" />
+        </div>
+        <ol className={styles.steps__list}>
+          {STEPS.map((s) => (
+            <li key={s.num} className={styles.steps__item}>
+              <span className={`t-eyebrow ${styles.steps__num}`}>{s.num}</span>
+              <h3 className={`t-heading-5 ${styles.steps__title}`}>{s.title}</h3>
+              <p className={`t-body-light ${styles.steps__desc}`}>{s.desc}</p>
+            </li>
+          ))}
+        </ol>
+        <ArrowLink href="/apply">Eligibility and timeline</ArrowLink>
+      </Section>
+
+      {/* ============ PAST FELLOWS (yellow) ============ */}
+      <Section tone="yellow">
+        <p className={`t-eyebrow ${styles.eyebrow}`}>{`Meet the ${latest.year} fellows`}</p>
+        <h2 className={`t-heading-2 ${styles.heading}`}>{fellows.length} founders who have done the work.</h2>
+        <ul className={styles.people__grid}>
+          {fellows.map((f) => (
+            <li key={f.slug}>
+              <div className={styles.people__item}>
+                <span className={styles.people__avatar}>
+                  {f.photo_url ? <Image src={f.photo_url} alt="" width={116} height={116} /> : f.init}
+                </span>
+                <span className={styles.people__name}>{f.name}</span>
+                <span className={`t-body-sm ${styles.people__org}`}>{f.org}</span>
               </div>
-            </div>
-            <div className="whatis-scale__chart">
-              <ExponentialChart />
-            </div>
+            </li>
+          ))}
+        </ul>
+        <ArrowLink href={`/cohorts/${latest.year}`}>The {latest.year} cohort</ArrowLink>
+      </Section>
+
+      {/* ============ FACULTY (white) ============ */}
+      <Section tone="white">
+        <p className={`t-eyebrow ${styles.eyebrow}`}>People</p>
+        <h2 className={`t-heading-2 ${styles.heading}`}>Organized and taught by people who have scaled.</h2>
+        <ul className={styles.faculty__grid}>
+          {HOME_PEOPLE.map((p) => (
+            <li key={p.num} className={styles.faculty__item}>
+              <span className={styles.faculty__photo}>
+                {p.photo_url ? (
+                  <Image src={p.photo_url} alt="" fill sizes="(max-width: 639px) 50vw, 240px" />
+                ) : (
+                  <span className={styles.faculty__fallback} aria-hidden="true">{p.init}</span>
+                )}
+              </span>
+              <span className={`t-heading-5 ${styles.faculty__name}`}>{p.name}</span>
+              <span className={`t-body-sm ${styles.faculty__role}`}>{p.role}</span>
+            </li>
+          ))}
+        </ul>
+        <ArrowLink href="/faculty">Faculty &amp; team</ArrowLink>
+      </Section>
+
+      {/* ============ CLOSING CTA (yellow) ============ */}
+      <Section tone="yellow">
+        <div className={styles.closing}>
+          <h2 className={`t-heading-1 ${styles.closing__title}`}>Ready to design for scale?</h2>
+          <div className={styles.closing__actions}>
+            <ArrowLink href={cta.href} size="lg">{cta.label}</ArrowLink>
+            <ArrowLink href="/faq" size="lg">Read the FAQ</ArrowLink>
           </div>
         </div>
-      </section>
-
-
-      {/* ============ BEFORE YOU ARRIVE ============ */}
-      <section className="actions section">
-        <div className="container container--narrow">
-          <div className="actions__head">
-            <div className="eyebrow" style={{ marginBottom: 16 }}>What to do</div>
-            <h2 className="actions__title">Before you arrive.</h2>
-          </div>
-
-          <div className="covered-callout">
-            <p>
-              <strong>Fellows</strong> - flights, accommodation, meals, ground transport, and airport transfers are all
-              covered.
-            </p>
-            <p>
-              <strong>Faculty</strong> - accommodation, meals, ground transport, and airport transfers covered; flights
-              coordinated separately.
-            </p>
-          </div>
-
-          <ol className="actions__list">
-            {ACTIONS.map((a) => (
-              <li key={a.num} className="action-item">
-                <Link href={a.href} className="action-item__link">
-                  <span className="action-item__num">{a.num}</span>
-                  <div className="action-item__body">
-                    <h3 className="action-item__title">{a.title}</h3>
-                    <p className="action-item__desc">{a.desc}</p>
-                  </div>
-                  <span className="action-item__arrow" aria-hidden="true">→</span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      </Section>
     </>
   );
 }
