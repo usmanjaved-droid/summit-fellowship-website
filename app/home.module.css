@@ -169,9 +169,6 @@ p.hero__lead {
   color: var(--black);
   text-decoration: none;
 }
-.people__item:hover { text-decoration: none; }
-.people__item:hover .people__name { text-decoration: underline; text-underline-offset: 3px; }
-.people__item:focus-visible { outline: var(--border-2) solid var(--black); outline-offset: 4px; }
 .people__avatar {
   display: flex;
   align-items: center;

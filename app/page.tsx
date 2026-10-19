@@ -1,8 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import ExponentialChart from './components/ExponentialChart';
 import { ArrowLink, Button, Section, SquareCta, Timeline } from './components/fop';
-import { FACULTY } from './faculty/people';
+import { FACULTY, ORGANIZERS } from './faculty/people';
 import { getLatestCohort } from '@/lib/cohorts';
 import { getFellowCards } from '@/lib/fellows';
 import { getApplyCta, getCurrentCohort, getDeadlineText } from '@/lib/site';
@@ -19,6 +18,12 @@ const OFFER = [
   { title: 'The Mulago scale framework', desc: 'Mission, Big Idea, doer and payer at scale, and the tests every scalable solution has to pass.' },
   { title: 'Mentoring from people who have scaled', desc: 'Venture diagnostics and strategy clinics with Mulago Foundation and Pakistani faculty.' },
   { title: 'Demo Day', desc: 'Present your scale blueprint to funders actively investing in Pakistan.' },
+];
+
+// Homepage faculty row: the faculty plus three organisers the owner asked to feature.
+const HOME_PEOPLE = [
+  ...FACULTY,
+  ...ORGANIZERS.filter((p) => ['O.01', 'O.02', 'O.04'].includes(p.num)),
 ];
 
 const STEPS = [
@@ -157,13 +162,13 @@ export default function HomePage() {
         <ul className={styles.people__grid}>
           {fellows.map((f) => (
             <li key={f.slug}>
-              <Link href={`/cohorts/${latest.year}/fellows/${f.slug}`} className={styles.people__item}>
+              <div className={styles.people__item}>
                 <span className={styles.people__avatar}>
                   {f.photo_url ? <Image src={f.photo_url} alt="" width={64} height={64} /> : f.init}
                 </span>
                 <span className={styles.people__name}>{f.name}</span>
                 <span className={`t-body-sm ${styles.people__org}`}>{f.org}</span>
-              </Link>
+              </div>
             </li>
           ))}
         </ul>
@@ -175,7 +180,7 @@ export default function HomePage() {
         <p className={`t-eyebrow ${styles.eyebrow}`}>Faculty</p>
         <h2 className={`t-heading-2 ${styles.heading}`}>Taught by people who have scaled.</h2>
         <ul className={styles.faculty__grid}>
-          {FACULTY.map((p) => (
+          {HOME_PEOPLE.map((p) => (
             <li key={p.num} className={styles.faculty__item}>
               <span className={styles.faculty__photo}>
                 {p.photo_url ? (
