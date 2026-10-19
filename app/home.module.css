@@ -126,17 +126,28 @@ p.hero__lead {
 }
 
 /* ============ What you get (white) ============ */
-.offer__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-10) var(--space-16);
+/* A calm list beside the heading: one title and one line each, separated by hairlines. */
+.offer__list {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-9) 0 0;
+  min-width: 0;
 }
-.offer__tile {
-  padding-left: var(--space-6);
-  border-left: var(--border-4) solid var(--primary);
+.offer__item {
+  padding: var(--space-6) 0;
+  border-top: var(--border-1) solid var(--line);
 }
-.offer__title { margin: 0 0 var(--space-3); color: var(--ink-brand); font-family: var(--font-sans); }
-.offer__desc { margin: 0; max-width: 46ch; color: var(--ink); }
+.offer__item:first-child { padding-top: 0; border-top: 0; }
+.offer__item:last-child { padding-bottom: 0; }
+h3.offer__title {
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--ink-brand);
+}
+.offer__desc { margin: 0; color: var(--ink-soft); }
 
 /* ============ How it works (green) ============ */
 .steps__list {
@@ -255,6 +266,7 @@ p.hero__lead {
   .fellowship { margin-top: var(--space-16); }
   .split { grid-template-columns: 1fr; row-gap: var(--space-6); }
   .split__body { padding-top: 0; }
+  .offer__list { padding-top: 0; }
   .steps__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .steps__rail { width: 100%; }
   .faculty__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -277,8 +289,6 @@ p.hero__lead {
     line-height: 22px;
   }
   .why__cta > a > svg { align-self: center; }
-  .offer__grid { grid-template-columns: 1fr; gap: var(--space-8); }
-  h3.offer__title { font-size: 24px; }
 }
 
 @media (max-width: 639px) {
