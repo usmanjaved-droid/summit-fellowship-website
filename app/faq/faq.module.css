@@ -1,18 +1,33 @@
-.faq__group { margin-bottom: 56px; }
-.faq__heading { font-size: clamp(28px, 3vw, 40px); color: var(--alpine-deep); margin-bottom: 16px; }
-.faq__item { border-bottom: 1px solid var(--line); }
-.faq__question {
+/* FAQ (Friends of Pakistan): uppercase group titles, sentence-case questions, rotating green caret. */
+.faq { max-width: var(--container-narrow); margin: 0 auto; }
+.group + .group { margin-top: var(--space-16); }
+h2.heading {
+  margin: 0 0 var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--border-1) solid var(--line-strong);
+}
+.item { border-bottom: var(--border-1) solid var(--line); }
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  min-height: 44px;
+  padding: var(--space-5) 0;
   cursor: pointer;
   list-style: none;
-  padding: 20px 32px 20px 0;
-  position: relative;
-  font-family: var(--serif);
-  font-size: 22px;
   color: var(--ink);
+  text-transform: none;
 }
-.faq__question::-webkit-details-marker { display: none; }
-.faq__question::after { content: '+'; position: absolute; right: 0; top: 18px; font-family: var(--mono); color: var(--clay); }
-.faq__item[open] .faq__question::after { content: '−'; }
-.faq__question:focus-visible { outline: 2px solid var(--ochre); outline-offset: 4px; }
-.faq__answer { padding: 0 0 24px; color: var(--ink-soft); max-width: 65ch; }
-@media (max-width: 640px) { .faq__question { font-size: 19px; } }
+.question::-webkit-details-marker { display: none; }
+.question::marker { content: ''; }
+.question:hover { color: var(--ink-brand); }
+.question:focus-visible { outline: var(--border-2) solid var(--focus); outline-offset: 2px; }
+.caret {
+  flex-shrink: 0;
+  color: var(--brand-green);
+  transition: rotate 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.item[open] .caret { rotate: 180deg; }
+.answer { max-width: 65ch; margin: 0; padding: 0 0 var(--space-6); color: var(--ink-soft); }
+@media (prefers-reduced-motion: reduce) { .caret { transition: none; } }

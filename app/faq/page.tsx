@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import faq from '@/data/faq.json';
+import PageHero from '../components/PageHero';
+import { Section } from '../components/fop';
 import styles from './faq.module.css';
 
 export const metadata = {
@@ -9,32 +11,40 @@ export const metadata = {
 
 type FaqGroup = { group: string; items: { q: string; a: string }[] };
 
+function Caret() {
+  return (
+    <svg className={styles.caret} width="12" height="9" viewBox="0 0 12 9" aria-hidden="true" focusable="false">
+      <path d="M0 0h12L6 9z" fill="currentColor" />
+    </svg>
+  );
+}
+
 export default function FaqPage() {
   return (
     <>
-      <section className="page-hero" data-screen-label="FAQ Hero">
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
-        <div className="container page-hero__inner">
-          <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>FAQ</span></div>
-          <h1 className="page-hero__title">Questions, <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>answered.</em></h1>
-          <p className="page-hero__subtitle">Still unsure? <Link href="/contact" style={{ color: 'var(--ochre)' }}>Get in touch</Link>.</p>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container container--narrow">
+      <PageHero
+        crumb="FAQ"
+        title={<>Questions, <em>answered.</em></>}
+        subtitle={<>Still unsure? <Link href="/contact">Get in touch</Link>.</>}
+      />
+      <Section tone="offwhite">
+        <div className={styles.faq}>
           {(faq as FaqGroup[]).map((g) => (
-            <div key={g.group} className={styles.faq__group}>
-              <h2 className={styles.faq__heading}>{g.group}</h2>
+            <div key={g.group} className={styles.group}>
+              <h2 className={`t-heading-4 ${styles.heading}`}>{g.group}</h2>
               {g.items.map((item) => (
-                <details key={item.q} className={styles.faq__item}>
-                  <summary className={styles.faq__question}>{item.q}</summary>
-                  <p className={styles.faq__answer}>{item.a}</p>
+                <details key={item.q} className={styles.item}>
+                  <summary className={`t-heading-5 ${styles.question}`}>
+                    <span>{item.q}</span>
+                    <Caret />
+                  </summary>
+                  <p className={`t-body ${styles.answer}`}>{item.a}</p>
                 </details>
               ))}
             </div>
           ))}
         </div>
-      </section>
+      </Section>
     </>
   );
 }

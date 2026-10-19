@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { BEFORE_YOU_START } from '@/lib/application/questions';
 import { displayValue, getApplyCta, getCurrentCohort, isApplicationLive } from '@/lib/site';
+import PageHero from '../components/PageHero';
+import { ArrowLink, Button, Prose, Section } from '../components/fop';
 import styles from './apply.module.css';
 
 export const metadata = {
@@ -36,70 +38,75 @@ export default function ApplyPage() {
 
   return (
     <>
-      <section className="page-hero" data-screen-label="Apply Hero">
-        <div className="topo-bg topo-bg--on-dark" aria-hidden="true" />
-        <div className="container page-hero__inner">
-          <div className="page-hero__crumbs"><Link href="/">Home</Link><span>/</span><span>Apply</span></div>
-          <h1 className="page-hero__title">Apply for the {cohort.year} <em style={{ color: 'var(--ochre)', fontStyle: 'italic' }}>cohort.</em></h1>
-          <p className="page-hero__subtitle">A fully funded, seven-day fellowship for Pakistani founders whose solutions are ready to reach millions.</p>
-        </div>
-      </section>
+      <PageHero
+        crumb="Apply"
+        title={<>Apply for the {cohort.year} <em>cohort.</em></>}
+        subtitle="A fully funded, seven-day fellowship for Pakistani founders whose solutions are ready to reach millions."
+      />
 
-      <section className="section">
-        <div className={`container ${styles.apply__grid}`}>
-          <div>
-            <h2 className={styles.apply__heading}>Who should apply</h2>
-            <ul className={styles.apply__list}>
-              {CRITERIA.map((c) => <li key={c}>{c}</li>)}
-            </ul>
+      <Section tone="offwhite">
+        <div className={styles.grid}>
+          <div className={styles.main}>
+            <Prose>
+              <h2>Who should apply</h2>
+              <ul>
+                {CRITERIA.map((c) => <li key={c}>{c}</li>)}
+              </ul>
 
-            <h2 className={styles.apply__heading}>How selection works</h2>
-            <ol className={styles.apply__stages}>
-              {STAGES.map((s) => (
-                <li key={s.title}>
-                  <h3 className={styles.apply__stageTitle}>{s.title}</h3>
-                  <span className={styles.apply__stageTime}>{s.time}</span>
-                  <p>{s.desc}</p>
-                </li>
-              ))}
-            </ol>
+              <h2>How selection works</h2>
+              <ol className={styles.stages}>
+                {STAGES.map((s) => (
+                  <li key={s.title}>
+                    <h3 className="t-heading-5">{s.title}</h3>
+                    <span className={`t-eyebrow ${styles.stageTime}`}>{s.time}</span>
+                    <p>{s.desc}</p>
+                  </li>
+                ))}
+              </ol>
+            </Prose>
 
             {live && (
-              <>
-                <h2 className={styles.apply__heading}>Before you start</h2>
-                <p className={styles.apply__intro}>About 25 minutes of typing once you have gathered your numbers. Your answers save automatically in this browser. Have these ready:</p>
-                <ul className={styles.apply__list}>
-                  {BEFORE_YOU_START.map((b) => <li key={b}>{b}</li>)}
-                </ul>
-                <p className={styles.apply__intro}>One answer — your path to a million users — is longer than the rest. Plan five to eight minutes for it.</p>
-                <a className="btn btn--ghost" href="/application/summit-fellowship-application.pdf" download>
-                  Download the application (PDF)
-                </a>
-              </>
+              <div className={styles.before}>
+                <h2 className={`t-heading-4 ${styles.beforeHeading}`}>Before you start</h2>
+                <Prose>
+                  <p>About 25 minutes of typing once you have gathered your numbers. Your answers save automatically in this browser. Have these ready:</p>
+                  <ul>
+                    {BEFORE_YOU_START.map((b) => <li key={b}>{b}</li>)}
+                  </ul>
+                  <p>One answer — your path to a million users — is longer than the rest. Plan five to eight minutes for it.</p>
+                </Prose>
+                <div className={styles.pdf}>
+                  <ArrowLink href="/application/summit-fellowship-application.pdf" download>
+                    Download the application (PDF)
+                  </ArrowLink>
+                </div>
+              </div>
             )}
           </div>
 
-          <aside className={styles.apply__aside}>
-            <h2 className={styles.apply__asideHeading}>Key dates</h2>
-            <dl className={styles.apply__dates}>
-              <dt>Applications close</dt><dd>{displayValue(cohort.applicationDeadline)}</dd>
-              <dt>Retreat</dt><dd>{displayValue(cohort.retreatDates)}</dd>
-              <dt>Location</dt><dd>{displayValue(cohort.location)}</dd>
+          <aside className={styles.aside}>
+            <h2 className={`t-heading-4 ${styles.asideHeading}`}>Key dates</h2>
+            <dl className={styles.dates}>
+              <dt className="t-eyebrow">Applications close</dt><dd>{displayValue(cohort.applicationDeadline)}</dd>
+              <dt className="t-eyebrow">Retreat</dt><dd>{displayValue(cohort.retreatDates)}</dd>
+              <dt className="t-eyebrow">Location</dt><dd>{displayValue(cohort.location)}</dd>
             </dl>
 
-            <h2 className={styles.apply__asideHeading}>What the fellowship covers</h2>
-            <ul className={styles.apply__list}>
-              {COVERS.map((c) => <li key={c}>{c}</li>)}
-            </ul>
+            <h2 className={`t-heading-4 ${styles.asideHeading}`}>What the fellowship covers</h2>
+            <Prose size="sm">
+              <ul>
+                {COVERS.map((c) => <li key={c}>{c}</li>)}
+              </ul>
+            </Prose>
 
             {live ? (
-              <Link className="btn btn--ochre" href="/apply/form">Start your application <span className="arrow">→</span></Link>
+              <Button href="/apply/form" size="lg" icon block className={styles.start}>Start your application</Button>
             ) : (
-              <p className={styles.apply__closed}>{cta.label}. Questions? <Link href="/faq">Read the FAQ</Link>.</p>
+              <p className={`t-body-sm ${styles.closed}`}>{cta.label}. Questions? <Link href="/faq">Read the FAQ</Link>.</p>
             )}
           </aside>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

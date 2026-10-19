@@ -1,0 +1,44 @@
+/* Faculty & Organizers (Friends of Pakistan): square photo tiles with name, role and story. */
+h2.heading { margin: 0 0 var(--space-10); font-size: clamp(36px, 4.2vw, 55px); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-10) var(--space-8);
+}
+.person { min-width: 0; }
+.photo {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--black);
+  margin-bottom: var(--space-4);
+}
+.photo img { object-fit: cover; }
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-green-deep);
+  color: var(--primary);
+  font-family: var(--font-serif);
+  font-size: 96px;
+  font-weight: 300;
+}
+h3.name { margin: 0 0 var(--space-1); color: var(--ink); }
+.role { margin: 0; color: var(--ink-soft); }
+.more {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: var(--border-1) solid var(--line);
+  color: var(--ink-soft);
+}
+h4.label { margin: var(--space-4) 0 var(--space-1); color: var(--ink-brand); }
+.more h4.label:first-child { margin-top: 0; }
+.more strong { font-weight: 600; color: var(--ink); }
+.links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-4); }
+.links a { color: var(--ink); font-weight: 600; }
+.links a:hover { text-decoration-line: none; }
+@media (max-width: 1023px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }

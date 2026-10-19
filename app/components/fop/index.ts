@@ -2,6 +2,7 @@ export { Arrow } from './Arrow';
 export { Button } from './Button';
 export { ArrowLink } from './ArrowLink';
 export { Section } from './Section';
+export type { SectionTone } from './Section';
 export { SquareCta } from './SquareCta';
 export { Stat } from './Stat';
 export { Badge } from './Badge';

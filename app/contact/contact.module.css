@@ -1,0 +1,73 @@
+/* Contact page shell (Friends of Pakistan). The form panel and its controls stay in globals.css until Task 7. */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--space-16);
+  align-items: start;
+}
+.eyebrow { margin: 0 0 var(--space-3); color: var(--ink-brand); }
+h2.heading {
+  margin: 0 0 var(--space-8);
+  font-size: clamp(36px, 4.2vw, 55px);
+  line-height: 1.1;
+}
+.heading em { font-style: italic; }
+
+.channels { display: grid; gap: var(--space-5); }
+.channel {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: var(--space-5);
+  padding: var(--space-6);
+  background: var(--white);
+}
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: var(--border-1) solid var(--brand-green);
+  color: var(--brand-green);
+}
+h3.channelTitle { margin: 0 0 var(--space-1); color: var(--ink); }
+.detail { margin: 0 0 var(--space-3); color: var(--ink-soft); }
+
+/* Underlined text link with the system arrow (emails and URLs stay in their own case). */
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  color: var(--ink);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.action:hover { text-decoration-line: none; }
+.action svg { flex-shrink: 0; transition: translate 0.15s cubic-bezier(0.4, 0, 1, 1); }
+.action:hover svg { translate: 8px 0; }
+
+.hosts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
+.host { padding: var(--space-10); background: var(--off-white); }
+h3.hostName { margin: 0 0 var(--space-2); color: var(--ink-brand); }
+.hostRole { margin: 0 0 var(--space-6); color: var(--ink-soft); }
+.hostDesc { margin: 0 0 var(--space-6); color: var(--ink-soft); }
+.hostLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-8);
+  padding-top: var(--space-4);
+  border-top: var(--border-1) solid var(--line);
+}
+
+@media (max-width: 1023px) {
+  .grid, .hosts { grid-template-columns: 1fr; gap: var(--space-10); }
+}
+@media (max-width: 640px) {
+  .channel { grid-template-columns: 1fr; padding: var(--space-5); }
+  .host { padding: var(--space-6); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .action svg { transition: none; }
+  .action:hover svg { translate: none; }
+}

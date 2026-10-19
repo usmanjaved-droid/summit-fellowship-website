@@ -1,20 +1,71 @@
-.apply__grid { display: grid; grid-template-columns: 2fr 1fr; gap: 64px; align-items: start; }
-.apply__heading { font-size: clamp(28px, 3vw, 40px); color: var(--alpine-deep); margin: 0 0 24px; }
-.apply__heading:not(:first-child) { margin-top: 56px; }
-.apply__intro { color: var(--ink-soft); margin: 0 0 16px; max-width: 65ch; }
-.apply__list { padding-left: 20px; display: grid; gap: 12px; color: var(--ink-soft); }
-.apply__stages { list-style: none; padding: 0; display: grid; gap: 24px; counter-reset: stage; }
-.apply__stages li { border-left: 2px solid var(--ochre); padding-left: 20px; }
-.apply__stageTitle { font-size: 24px; color: var(--alpine-deep); }
-.apply__stageTime { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); }
-.apply__aside { background: var(--paper-cool); border: 1px solid var(--line); padding: 32px; position: sticky; top: 96px; display: grid; gap: 20px; }
-.apply__asideHeading { font-size: 22px; color: var(--alpine-deep); }
-.apply__dates { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; }
-.apply__dates dt { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); }
-.apply__dates dd { margin: 0; color: var(--ink); }
-.apply__closed { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--clay); }
-@media (max-width: 1024px) {
-  .apply__grid { grid-template-columns: 1fr; gap: 40px; }
-  .apply__aside { position: static; }
+/* Apply page (Friends of Pakistan). Element-qualified or nested selectors beat the global .t-* and Prose rules. */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: var(--space-16);
+  align-items: start;
 }
-@media (max-width: 640px) { .apply__aside { padding: 24px; } }
+.main { min-width: 0; }
+.main h2 { font-size: clamp(36px, 4.2vw, 55px); }
+.main > div > h2:first-child { margin-top: 0; }
+
+/* Selection stages */
+.main ol.stages { list-style: none; margin-left: 0; display: grid; gap: var(--space-6); }
+.main ol.stages li {
+  padding: 0 0 0 var(--space-6);
+  border-left: var(--border-4) solid var(--primary);
+}
+.main ol.stages li + li { margin-top: 0; }
+.main ol.stages h3 {
+  margin: 0 0 var(--space-1);
+  font-size: 18px;
+  line-height: 1.2;
+  text-transform: none;
+  color: var(--ink-brand);
+}
+.stageTime { display: block; color: var(--ink-soft); }
+.main ol.stages p { margin: var(--space-2) 0 0; }
+
+/* Before you start */
+.before { margin-top: var(--space-16); }
+h2.beforeHeading { margin: 0 0 var(--space-4); font-size: 24px; }
+.pdf { margin-top: var(--space-6); color: var(--ink-brand); }
+
+/* Key dates aside: white panel */
+.aside {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-8));
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  background: var(--white);
+}
+h2.asideHeading { margin: 0; }
+.dates {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3) var(--space-4);
+  margin: 0;
+  align-items: baseline;
+}
+.dates dt { color: var(--ink-soft); }
+.dates dd { margin: 0; }
+.aside ul { margin-top: 0; margin-bottom: 0; }
+.closed { color: var(--ink-soft); }
+
+@media (max-width: 1023px) {
+  .grid { grid-template-columns: 1fr; gap: var(--space-10); }
+  .aside { position: static; }
+}
+@media (max-width: 640px) {
+  .aside { padding: var(--space-6); }
+  .aside .start {
+    height: auto;
+    min-height: 48px;
+    padding-block: var(--space-3);
+    line-height: 1.2;
+    white-space: normal;
+  }
+  .dates { grid-template-columns: 1fr; gap: var(--space-1); }
+  .dates dd + dt { margin-top: var(--space-3); }
+}

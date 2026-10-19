@@ -1,15 +1,12 @@
-.cohorts__list { display: grid; gap: 24px; }
-.cohorts__card {
-  display: block;
-  background: var(--paper-cool);
-  border: 1px solid var(--line);
-  padding: 32px;
+/* Cohorts index (Friends of Pakistan): white panels on the off-white band. */
+.list { display: grid; gap: var(--space-8); }
+.card {
+  padding: var(--space-10);
+  background: var(--white);
   color: var(--ink);
-  transition: border-color .2s var(--ease-out);
 }
-.cohorts__card:hover { border-color: var(--ochre); }
-.cohorts__title { font-size: clamp(32px, 4vw, 48px); color: var(--alpine-deep); margin: 8px 0; }
-.cohorts__meta { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.08em; }
-.cohorts__summary { margin: 16px 0; color: var(--ink-soft); max-width: 60ch; }
-.cohorts__more { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); }
-@media (max-width: 640px) { .cohorts__card { padding: 24px; } }
+.dates { margin: 0 0 var(--space-2); color: var(--ink-soft); }
+h2.title { margin: 0 0 var(--space-2); font-size: clamp(36px, 4.2vw, 55px); }
+.meta { margin: 0; color: var(--ink-soft); }
+.summary { max-width: 60ch; margin: var(--space-4) 0 var(--space-6); }
+@media (max-width: 640px) { .card { padding: var(--space-6); } }

@@ -6,10 +6,13 @@ import styles from './fop.module.css';
 export function ArrowLink({
   href,
   size = 'md',
+  download,
   children,
 }: {
   href: string;
   size?: 'md' | 'lg';
+  /** Render a plain anchor with the download attribute (for files in /public). */
+  download?: boolean;
   children: ReactNode;
 }) {
   const cls = [
@@ -19,10 +22,22 @@ export function ArrowLink({
   ]
     .filter(Boolean)
     .join(' ');
-  return (
-    <Link href={href} className={cls}>
+  const content = (
+    <>
       {children}
       <Arrow length={size === 'lg' ? 55 : 32} />
+    </>
+  );
+  if (download || !href.startsWith('/')) {
+    return (
+      <a href={href} className={cls} download={download || undefined}>
+        {content}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={cls}>
+      {content}
     </Link>
   );
 }
