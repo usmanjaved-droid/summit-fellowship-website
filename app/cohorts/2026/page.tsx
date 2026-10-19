@@ -22,6 +22,7 @@ export default function Cohort2026FellowsPage() {
         title={<>Eleven founders.<br /><em>One ascent.</em></>}
         subtitle="The 2026 fellows span mental health to special education, AI-powered legal aid to gamified curriculum. Each leader passed a rigorous selection — then redesigned for millions."
       />
+      <h2 className="sr-only">The fellows</h2>
       <FellowsBits fellows={getFellowCards(2026)} basePath="/cohorts/2026/fellows" />
     </>
   );

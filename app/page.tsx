@@ -152,7 +152,7 @@ export default function HomePage() {
           {STEPS.map((s) => (
             <li key={s.num} className={styles.steps__item}>
               <span className={`t-eyebrow ${styles.steps__num}`}>{s.num}</span>
-              <h3 className={`t-heading-4 ${styles.steps__title}`}>{s.title}</h3>
+              <h3 className={`t-heading-5 ${styles.steps__title}`}>{s.title}</h3>
               <p className={`t-body-light ${styles.steps__desc}`}>{s.desc}</p>
             </li>
           ))}
