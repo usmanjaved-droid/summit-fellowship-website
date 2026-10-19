@@ -63,6 +63,17 @@ p.hero__lead {
 }
 
 /* ============ Why (off-white) ============ */
+/* "Why this fellowship": heading on the left, paragraph on the right (as in the previous site). */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  column-gap: var(--space-16);
+  align-items: start;
+}
+.split__kicker,
+.split__body { min-width: 0; }
+.split__kicker h2.heading { margin-bottom: 0; }
+.split__body { padding-top: var(--space-9); }
 .why {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -246,6 +257,8 @@ h2.closing__title {
   h2.heading { line-height: 1.1; }
   .scale { grid-template-columns: 1fr; gap: var(--space-10); margin-top: var(--space-16); }
   .fellowship { margin-top: var(--space-16); }
+  .split { grid-template-columns: 1fr; row-gap: var(--space-6); }
+  .split__body { padding-top: 0; }
   .steps__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .steps__rail { width: 100%; }
   .faculty__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }

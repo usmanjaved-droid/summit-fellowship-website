@@ -69,10 +69,12 @@ export default function HomePage() {
 
       {/* ============ WHY (off-white) ============ */}
       <Section tone="offwhite">
-        <div className={styles.why}>
-          <div className={styles.why__block}>
+        <div className={styles.split}>
+          <div className={styles.split__kicker}>
             <p className={`t-eyebrow ${styles.eyebrow}`}>Why this fellowship</p>
             <h2 className={`t-heading-2 ${styles.heading}`}>Pakistan has extraordinary founders. Scale is the next frontier.</h2>
+          </div>
+          <div className={styles.split__body}>
             <p className={`t-body ${styles.why__body}`}>
               240 million people. A learning crisis. A hunger crisis. A mental health system that barely exists.
               A generation of founders has decided not to wait - and they are building real solutions, with real
