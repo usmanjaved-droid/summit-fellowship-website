@@ -1,10 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import ClosingBand from './components/ClosingBand';
 import ExponentialChart from './components/ExponentialChart';
 import { ArrowLink, Button, Section, SquareCta, Timeline } from './components/fop';
 import { FACULTY, ORGANIZERS } from './faculty/people';
 import { getLatestCohort } from '@/lib/cohorts';
 import { getFellowCards } from '@/lib/fellows';
-import { getApplicationStatus, getApplyCta, getCurrentCohort } from '@/lib/site';
+import { getApplicationStatus, getApplyCta, getCurrentCohort, isApplicationLive } from '@/lib/site';
 import styles from './home.module.css';
 
 export const metadata = {
@@ -58,7 +60,14 @@ export default function HomePage() {
             <Button href={cta.href} size="xl" icon>
               {cta.label}
             </Button>
-            <p className={styles.hero__deadline}>{status}</p>
+            <p className={styles.hero__deadline}>
+              {status}
+              {!isApplicationLive(cohort) && (
+                <>
+                  {' '}<Link href="/apply#notify" className={styles.hero__notify}>Get notified</Link>
+                </>
+              )}
+            </p>
           </div>
           <div className={styles.hero__media}>
             <Image
@@ -207,15 +216,7 @@ export default function HomePage() {
       </Section>
 
       {/* ============ CLOSING CTA (yellow) ============ */}
-      <Section tone="yellow">
-        <div className={styles.closing}>
-          <h2 className={`t-heading-1 ${styles.closing__title}`}>Ready to design for scale?</h2>
-          <div className={styles.closing__actions}>
-            <ArrowLink href={cta.href} size="lg">{cta.label}</ArrowLink>
-            <ArrowLink href="/faq" size="lg">Read the FAQ</ArrowLink>
-          </div>
-        </div>
-      </Section>
+      <ClosingBand />
     </>
   );
 }

@@ -3,6 +3,7 @@ import PageHero from '../components/PageHero';
 import { Section, type SectionTone } from '../components/fop';
 import { ADVISORS, FACULTY, ORGANIZERS, type Person } from './people';
 import styles from './faculty.module.css';
+import ClosingBand from '../components/ClosingBand';
 
 export const metadata = {
   title: 'Faculty & Organisers — Friends of Pakistan Fellowship',
@@ -69,6 +70,7 @@ export default function FacultyPage() {
       <PeopleBand id="faculty" tone="offwhite" title="Faculty" people={FACULTY} />
       <PeopleBand id="advisors" tone="white" title="Advisors" people={ADVISORS} />
       <PeopleBand id="organizers" tone="offwhite" title="Organisers" people={ORGANIZERS} />
+      <ClosingBand />
     </>
   );
 }

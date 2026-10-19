@@ -49,6 +49,14 @@ export function getFellowNumber(year: number, slug: string): number {
   return getAllFellows(year).findIndex((f) => f.id === slug) + 1;
 }
 
+/** The fellows before and after this one in the cohort's order (null at either end). */
+export function getAdjacentFellows(year: number, slug: string): { prev: Fellow | null; next: Fellow | null } {
+  const all = getAllFellows(year);
+  const i = all.findIndex((f) => f.id === slug);
+  if (i === -1) return { prev: null, next: null };
+  return { prev: all[i - 1] ?? null, next: all[i + 1] ?? null };
+}
+
 export function initials(name: string): string {
   return name
     .split(' ')

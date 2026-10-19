@@ -11,7 +11,10 @@ export default function CohortBar({ cohort }: { cohort: Cohort }) {
           <Link href="/cohorts">Cohorts</Link>
           <span aria-hidden="true">/</span>
           <span>
-            {cohort.year} · {cohort.venue}, {cohort.location} · {cohort.dates}
+            {cohort.year}
+            <span className={styles['cohort-bar__details']}>
+              {' '}· {cohort.venue}, {cohort.location} · {cohort.dates}
+            </span>
           </span>
         </p>
         <CohortTabs year={cohort.year} />

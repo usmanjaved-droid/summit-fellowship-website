@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import styles from './page.module.css';
 
@@ -12,15 +11,6 @@ export default function VenuePage() {
       {/* Hero */}
       <section className={`page-hero ${styles.pageHero}`} data-theme="dark" style={{ backgroundImage: 'linear-gradient(to right, var(--scrim-image) 0%, var(--scrim-header) 60%, var(--scrim-card) 100%), url(/images/venue/Khoj%20Resort%20main%20page.jpg)' }} data-screen-label="Venue Hero">
         <div className="container">
-          <div className="page-hero__crumbs">
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <Link href="/cohorts">Cohorts</Link>
-            <span>/</span>
-            <Link href="/cohorts/2026">2026</Link>
-            <span>/</span>
-            <span>Venue</span>
-          </div>
           <h1 className="page-hero__title">Khoj Resort, <em style={{ color: 'var(--primary)', fontStyle: 'italic' }}>Skardu.</em></h1>
           <p className="page-hero__subtitle">Tucked into the Shigar valley with the Karakoram rising on every side. Deliberate retreat from city noise, signal, and obligation.</p>
         </div>

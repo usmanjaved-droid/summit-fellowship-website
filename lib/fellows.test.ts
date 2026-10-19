@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getAllFellows, getFellow, getFellowCards, getFellowNumber, initials } from './fellows';
+import { getAdjacentFellows, getAllFellows, getFellow, getFellowCards, getFellowNumber, initials } from './fellows';
 
 describe('fellows', () => {
   it('has 10 fellows in 2026', () => {
@@ -24,6 +24,18 @@ describe('fellows', () => {
     expect(getFellow(2026, 'habiba-banu')?.email).toBe('habiba.banu@spiro.ngo');
     const card = getFellowCards(2026)[0];
     expect(Object.keys(card).sort()).toEqual(['init', 'name', 'org', 'photo_url', 'sector', 'slug', 'summary'].sort());
+  });
+});
+
+describe('getAdjacentFellows', () => {
+  it('links neighbours in cohort order, with nothing past either end', () => {
+    const all = getAllFellows(2026);
+    expect(getAdjacentFellows(2026, all[0].id)).toEqual({ prev: null, next: all[1] });
+    expect(getAdjacentFellows(2026, all[4].id)).toEqual({ prev: all[3], next: all[5] });
+    expect(getAdjacentFellows(2026, all[9].id)).toEqual({ prev: all[8], next: null });
+  });
+  it('returns nothing for an unknown slug', () => {
+    expect(getAdjacentFellows(2026, 'nobody')).toEqual({ prev: null, next: null });
   });
 });
 

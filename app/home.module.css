@@ -58,6 +58,7 @@ p.hero__lead {
 }
 .hero__media img { object-fit: cover; }
 
+.hero__notify { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
 .hero__deadline {
   margin: var(--space-4) 0 0;
   color: var(--white);
@@ -239,20 +240,6 @@ p.hero__lead {
 }
 .faculty__role { margin-top: var(--space-1); color: var(--black); }
 
-/* ============ Closing (yellow): green title (4.6:1 at 40px+), black ArrowLinks ============ */
-.closing { text-align: center; }
-h2.closing__title {
-  margin: 0 auto var(--space-10);
-  max-width: 18ch;
-  color: var(--ink-brand);
-  font-size: clamp(40px, 5.4vw, 72px);
-}
-.closing__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-6) var(--space-16);
-}
 
 /* ============ Responsive ============ */
 @media (max-width: 1023px) {

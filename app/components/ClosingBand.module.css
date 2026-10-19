@@ -1,0 +1,14 @@
+/* Same as the homepage closing band: green title (4.6:1 on yellow at 40px+), black ArrowLinks. */
+.closing { text-align: center; }
+h2.closing__title {
+  margin: 0 auto var(--space-10);
+  max-width: 18ch;
+  color: var(--ink-brand);
+  font-size: clamp(40px, 5.4vw, 72px);
+}
+.closing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-6) var(--space-16);
+}
