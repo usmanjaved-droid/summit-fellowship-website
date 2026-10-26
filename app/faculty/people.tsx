@@ -39,9 +39,9 @@ export const FACULTY: Person[] = [
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/sarahfarooq/' }, { label: 'Acumen →', href: 'https://acumen.org/' }],
   },
   {
-    init: 'NS', num: 'F.05', name: 'Nadir Shams', role: 'Founder, Friends of Pakistan Society & Fund',
+    init: 'NS', num: 'F.05', name: 'Nadir Shams', role: 'Co-Founder, Friends of Pakistan Society and Fund',
     photo_url: '/images/faculty/Nadir Shams.webp',
-    org: <>Built impact evaluation systems and led strategy at One Acre Fund and Skoll Foundation. Founded Friends of Pakistan, a <strong>$100M+ intermediary</strong> deploying patient capital to Pakistani social enterprises and building ecosystems for systems-level change.</>,
+    org: <>Leadership experience from impact evaluation and learning systems at the <strong>MIT Poverty Action Lab / Innovations for Poverty Action</strong> to strategy at the <strong>Skoll Foundation</strong>. Co-founded Friends of Pakistan, an intermediary deploying patient capital to scalable Pakistani non-profits and social businesses, and building ecosystems for systems-level change.</>,
     relevance: <>What <strong>diaspora and global capital</strong> actually fund and why. How narratives around Pakistan shape entrepreneurship, philanthropy, and investment flows. <strong>Ecosystem building and systems change</strong> — positioning your work for long-term structural impact.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/nadirshams/' }, { label: 'Friends of Pakistan →', href: 'https://www.friendsofpakistan.org/' }],
   },

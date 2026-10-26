@@ -2,7 +2,7 @@
   {
     "group": "Eligibility",
     "items": [
-      { "q": "Who runs the fellowship?", "a": "The Friends of Pakistan Fellowship is a programme of Friends of Pakistan, the society and fund founded by Nadir Shams, former director at the Skoll Foundation. It is run in partnership with Mulago Foundation, whose design-for-scale frameworks are at the heart of the curriculum, and Taleemabad. The first cohort, in 2026, was the inaugural cohort." },
+      { "q": "Who runs the fellowship?", "a": "The Fellowship is a programme of Friends of Pakistan — Society and Fund, which closes the capital gap between global funders and scalable non-profits and social businesses. It is run in close partnership with Mulago Foundation, whose design-for-scale frameworks are at the heart of the curriculum, and Taleemabad, which provides execution support and practitioner experience. The first cohort, in 2026, was the inaugural cohort, sponsored by Mulago Foundation." },
       { "q": "Who is the fellowship for?", "a": "Founders, or the senior-most leader with real decision-making power, of early- to mid-stage organisations that improve the lives of the poor or meet their basic needs — in health, education, livelihoods and beyond. Your organisation should be past the pilot stage, with real users today." },
       { "q": "Is there a minimum budget?", "a": "Yes. Your annual budget for the most recent complete financial year should be at least USD 100,000, and you should have basic financial systems in place (audited statements or equivalent)." },
       { "q": "We are still designing or piloting. Should we apply?", "a": "The fellowship is built for organisations past the pilot stage, with steady delivery and reach numbers from the last 12 months. If you are earlier than that, we would love to hear from you in a future year." },
@@ -32,7 +32,7 @@
   {
     "group": "After the fellowship",
     "items": [
-      { "q": "What happens after the week?", "a": "Fellows leave with a scale blueprint, connections to funders from Demo Day, and a peer network of Pakistan's most ambitious founders, with access to ongoing Mulago mentorship. Fellows become Friends of Pakistan Fellows and stay connected to its network of investors and philanthropists." }
+      { "q": "What happens after the week?", "a": "Fellows leave with a scale blueprint, connections to funders from Demo Day, a peer network of Pakistan's most ambitious founders, and access to ongoing mentorship from the faculty. Fellows become Friends of Pakistan members and stay connected to its network of investors and philanthropists." }
     ]
   }
 ]
