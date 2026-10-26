@@ -12,13 +12,13 @@ import styles from './home.module.css';
 export const metadata = {
   title: 'Friends of Pakistan Fellowship — Designed for Scale',
   description:
-    "Curating Pakistan's finest impact organisations and matching them with strategy, mentoring, and capital to scale.",
+    "Curating Pakistan's most promising non-profits and social businesses, and matching them with world-class strategy, mentoring, and capital to scale.",
 };
 
 const OFFER = [
   { title: 'Seven days, fully present', desc: 'A residential retreat in Northern Pakistan. No email, just the work.' },
-  { title: 'The Mulago scale framework', desc: 'The tests every scalable idea has to pass.' },
-  { title: 'Mentoring from people who have scaled', desc: 'Clinics with Mulago Foundation and Pakistani faculty.' },
+  { title: 'The Mulago scale framework', desc: 'A global, best-in-class framework for scale, built on the Mulago Foundation’s approach.' },
+  { title: 'Mentoring from proven leaders who have scaled', desc: 'Clinics with foundations, academic experts, and practitioner faculty.' },
   { title: 'Demo Day', desc: 'Your scale blueprint, in front of funders investing in Pakistan.' },
 ];
 
@@ -50,12 +50,13 @@ export default function HomePage() {
       <section className={styles.hero} data-theme="dark" data-screen-label="Home Hero">
         <div className={styles.hero__inner}>
           <div className={styles.hero__copy}>
-            <p className={`t-eyebrow ${styles.hero__eyebrow}`}>For Pakistani social innovators designing for scale</p>
+            <p className={`t-eyebrow ${styles.hero__eyebrow}`}>For Pakistan-focused non-profits and social businesses designing for scale</p>
             <h1 className={`t-heading-xl ${styles.hero__title}`}>
               Friends of Pakistan <span>Fellowship</span>
             </h1>
             <p className={`t-body-light ${styles.hero__lead}`}>
-              Curating Pakistan&apos;s finest impact companies and matching them with strategy, mentoring, and capital to scale.
+              Curating Pakistan&apos;s most promising non-profits and social businesses, and matching them with world-class
+              strategy, mentoring, and capital to scale.
             </p>
             <Button href={cta.href} size="xl" icon>
               {cta.label}
@@ -86,14 +87,16 @@ export default function HomePage() {
         <div className={styles.split}>
           <div className={styles.split__kicker}>
             <p className={`t-eyebrow ${styles.eyebrow}`}>Why this fellowship</p>
-            <h2 className={`t-heading-2 ${styles.heading}`}>Pakistan has extraordinary founders. Scale is the next frontier.</h2>
+            <h2 className={`t-heading-2 ${styles.heading}`}>Pakistan has extraordinary leaders working on big social problems. Scale is the next frontier.</h2>
           </div>
           <div className={styles.split__body}>
             <p className={`t-body ${styles.why__body}`}>
-              240 million people. A learning crisis. A hunger crisis. A mental health system that barely exists.
-              A generation of founders has decided not to wait — and they are building real solutions, with real
-              evidence, at real cost. But few reach national scale. Most stay caught in project-driven survival —
-              securing grants, reaching thousands, when their models could reach millions.{' '}
+              240 million people, 221 million of them living on less than $8 (PKR 2,200) a day. 26 million children
+              out of school, the second most in the world. 1,000 children under five dying every day. 256,000 lives
+              lost to air pollution each year, in the country with the world&rsquo;s worst air. A generation of leaders
+              has decided not to wait — and they are building real solutions, with real evidence, at real cost. But
+              few reach national scale. Most stay caught in project-driven survival — securing grants, reaching
+              thousands, when their models could reach millions.{' '}
               <strong className={styles.why__emphasis}>We are changing that.</strong>
             </p>
           </div>
@@ -102,7 +105,7 @@ export default function HomePage() {
         <div className={styles.scale}>
           <div className={styles.scale__copy}>
             <p className={`t-eyebrow ${styles.eyebrow}`}>What we mean by scale</p>
-            <p className={styles.scale__pull}>A big idea is one that can scale. Scale means exponential impact.</p>
+            <p className={styles.scale__pull}>A big idea is one that can scale. Scale means achieving exponential impact over and above the resources you put in.</p>
             <div className={styles.scale__stack}>
               <span className="t-body-light">From one village to a country.</span>
               <span className="t-body-light">From thousands to millions.</span>
@@ -119,10 +122,10 @@ export default function HomePage() {
             <p className={`t-eyebrow ${styles.eyebrow}`}>The Fellowship</p>
             <h2 className={`t-heading-2 ${styles.heading}`}>Seven days to redesign for scale.</h2>
             <p className={`t-body ${styles.why__body}`}>
-              Each year, a small cohort of Pakistani founders spends seven days in Northern Pakistan rebuilding their
-              model for scale. They leave with a sharper model, an honest evidence plan, and a story funders trust.
-              Fellows join the <strong className={styles.why__emphasis}>Friends of Pakistan</strong> network of
-              investors and philanthropists.
+              Each year, a small cohort of Pakistani leaders spends seven days in Northern Pakistan refining their model
+              for scale. They leave with a sharper operating approach, an honest evidence plan, and a story funders
+              trust. Fellows join the global <strong className={styles.why__emphasis}>Friends of Pakistan</strong>{' '}
+              network of investors, philanthropists, and scaling non-profits and social businesses.
             </p>
             <p className={`t-body-sm ${styles.fellowship__about}`}>
               A Friends of Pakistan programme, with Mulago Foundation and Taleemabad.
