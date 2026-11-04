@@ -8,7 +8,6 @@ export const BEFORE_YOU_START: string[] = [
   'Your three largest delivery sites or partners, with people reached in the last 12 months and start dates.',
   'Your total programme cost for the last 12 months (to work out the cost per person).',
   'Your primary outcome metric and how you measure it.',
-  'Your single best outcome result: the number, the sample, who measured it and when.',
 ];
 
 export const CONFIRMATION_TEXT =
@@ -169,19 +168,6 @@ export const SECTIONS: Section[] = [
           'An independent third-party evaluation, completed — not an RCT',
           'An RCT by an independent third party, in progress',
           'An RCT by an independent third party, completed, results in hand',
-        ],
-      },
-      {
-        id: 'F2', kind: 'table', label: 'Your single best outcome result', help: 'One row. Every cell is required.',
-        required: true, minRows: 1, maxRows: 1,
-        columns: [
-          { id: 'measured', label: 'What was measured', kind: 'text', maxChars: 120 },
-          { id: 'result', label: 'The result (number and unit)', kind: 'text', maxChars: 60 },
-          { id: 'sample', label: 'Sample size', kind: 'number' },
-          { id: 'compared', label: 'What it was compared against', kind: 'text', maxChars: 120 },
-          { id: 'who', label: 'Who measured it (organisation or person, by name)', kind: 'text', maxChars: 80 },
-          { id: 'when', label: 'When (MM/YYYY)', kind: 'monthYear' },
-          { id: 'link', label: 'Public link, or "not public"', kind: 'url', acceptWords: ['not public'] },
         ],
       },
       {
