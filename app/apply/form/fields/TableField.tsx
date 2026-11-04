@@ -50,7 +50,7 @@ export default function TableField({ question: q, value, onChange }: { question:
                     className={styles.form__input}
                     inputMode={c.kind === 'monthYear' ? 'numeric' : c.kind === 'url' ? 'url' : undefined}
                     placeholder={c.kind === 'monthYear' ? 'MM/YYYY' : undefined}
-                    maxLength={c.kind === 'monthYear' ? 7 : c.kind === 'url' ? 300 : c.maxChars}
+                    maxLength={c.kind === 'monthYear' ? 7 : c.kind === 'url' ? 300 : (c.maxChars ?? 300)}
                     value={cell as string}
                     onChange={(e) => setCell(r, c.id, c.kind === 'monthYear' ? formatMonthYear(e.target.value) : e.target.value)}
                   />

@@ -12,7 +12,8 @@ export type Column = {
 type Base = { id: string; label: string; help?: string; required: boolean };
 
 export type Question =
-  | (Base & { kind: 'text'; maxChars: number; multiline?: boolean; placeholder?: string })
+  /** maxChars is a quiet safety cap; maxWords, when set, is the limit applicants see. */
+  | (Base & { kind: 'text'; maxChars: number; maxWords?: number; multiline?: boolean; placeholder?: string })
   | (Base & { kind: 'email' })
   | (Base & { kind: 'phone' })
   | (Base & { kind: 'url'; acceptWords: string[] })

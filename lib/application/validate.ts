@@ -5,6 +5,7 @@ export const MSG = {
   required: 'This question is required.',
   invalid: 'This answer could not be read. Please re-enter it.',
   tooLong: (n: number) => `Keep this under ${n} characters.`,
+  tooManyWords: (n: number) => `Keep this to ${n} words or fewer.`,
   email: 'Enter a valid email address.',
   phone: 'Include the country code, e.g. +92 300 1234567.',
   url: (words: string) => `Enter a full link starting with https://, or type "${words}".`,
@@ -21,6 +22,10 @@ export const MSG = {
 
 export function digitsOnly(s: string): string {
   return s.replace(/\D+/g, '');
+}
+
+export function countWords(s: string): number {
+  return s.split(/\s+/).filter(Boolean).length;
 }
 
 export function formatMonthYear(raw: string): string {
@@ -75,7 +80,10 @@ export function validateQuestion(q: Question, a: Answer | undefined): string | n
       const v = a ?? '';
       if (!isStr(v)) return MSG.invalid;
       if (v.trim() === '') return q.required ? MSG.required : null;
-      if (q.kind === 'text') return v.length > q.maxChars ? MSG.tooLong(q.maxChars) : null;
+      if (q.kind === 'text') {
+        if (q.maxWords && countWords(v) > q.maxWords) return MSG.tooManyWords(q.maxWords);
+        return v.length > q.maxChars ? MSG.tooLong(q.maxChars) : null;
+      }
       if (q.kind === 'email') return EMAIL.test(v.trim()) && v.length <= 254 ? null : MSG.email;
       if (q.kind === 'phone') return PHONE.test(v.trim()) ? null : MSG.phone;
       if (q.kind === 'url') return v.length > 300 ? MSG.tooLong(300) : checkUrl(v, q.acceptWords);
