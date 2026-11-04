@@ -114,8 +114,8 @@ export const SECTIONS: Section[] = [
     title: 'The problem',
     questions: [
       {
-        id: 'D1', kind: 'text', multiline: true, label: 'Who are your users?',
-        help: 'Demographics only — do not describe the problems they face here. Cover age range, gender split, income level, rural/peri-urban/urban, occupation, education, language.',
+        id: 'D1', kind: 'text', multiline: true, label: 'Who are the people you serve?',
+        help: 'Demographics only — do not describe the problems they face here. Cover age range, gender split, income level, rural/peri-urban/urban, occupation, education, language. If you serve organisations rather than individuals, describe those organisations and the people they serve.',
         placeholder: 'e.g. Government primary-school teachers, 70% women, aged 25–45, in peri-urban Rawalpindi; most hold a BA; Urdu-speaking; earn PKR 45,000–70,000 a month.',
         required: true, maxChars: 500,
       },
@@ -125,7 +125,7 @@ export const SECTIONS: Section[] = [
         required: true, minRows: 1, maxRows: 3,
         columns: [
           { id: 'problem', label: 'The problem, as something a person experiences', kind: 'text', maxChars: 150 },
-          { id: 'count', label: 'How many people in your country face it', kind: 'number', allowUntracked: true },
+          { id: 'count', label: 'How many people in Pakistan face it', kind: 'number', allowUntracked: true },
           { id: 'source', label: 'Where that number comes from', kind: 'text', maxChars: 80 },
         ],
       },
