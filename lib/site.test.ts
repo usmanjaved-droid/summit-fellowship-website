@@ -83,11 +83,11 @@ describe('getCurrentCohort', () => {
 });
 
 describe('getSiteSettings', () => {
-  it('loads the 2027 cohort: open 6 Nov 2026 00:00 PKT to 11 Dec 2026 11:59 pm PKT', () => {
+  it('loads the 2027 cohort: open 5 Nov 2026 00:00 PKT to 11 Dec 2026 11:59 pm PKT', () => {
     const s = getSiteSettings();
     expect(s.currentCohort.year).toBe(2027);
     expect(s.currentCohort.applicationsOpen).toBe(true);
-    expect(Date.parse(s.currentCohort.applicationsOpenAt!)).toBe(Date.parse('2026-11-05T19:00:00Z'));
+    expect(Date.parse(s.currentCohort.applicationsOpenAt!)).toBe(Date.parse('2026-11-04T19:00:00Z'));
     expect(Date.parse(s.currentCohort.applicationsCloseAt!)).toBe(Date.parse('2026-12-11T18:59:59Z'));
     expect(s.contactEmail).toBe('usman.javed@taleemabad.com');
   });

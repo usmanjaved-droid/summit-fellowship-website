@@ -50,7 +50,9 @@ export default function ApplyPage() {
       <PageHero
         crumb="Apply"
         title={title}
-        subtitle={`${live ? 'A' : `The ${cohort.year} cohort: a`} fully funded, seven-day fellowship for Pakistani founders whose solutions are ready to reach millions.`}
+        subtitle={live
+          ? `A fully funded, seven-day fellowship for Pakistani founders whose solutions are ready to reach millions. Applications close ${displayValue(cohort.applicationDeadline)}.`
+          : `The ${cohort.year} cohort: a fully funded, seven-day fellowship for Pakistani founders whose solutions are ready to reach millions.`}
       />
 
       <Section tone="offwhite">
@@ -96,7 +98,7 @@ export default function ApplyPage() {
           <aside className={styles.aside}>
             <h2 className={`t-heading-4 ${styles.asideHeading}`}>Key dates</h2>
             <dl className={styles.dates}>
-              <dt className="t-eyebrow">Applications open</dt><dd>{displayValue(opening)}</dd>
+              {phase === 'upcoming' && <><dt className="t-eyebrow">Applications open</dt><dd>{displayValue(opening)}</dd></>}
               <dt className="t-eyebrow">Applications close</dt><dd>{displayValue(cohort.applicationDeadline)}</dd>
               <dt className="t-eyebrow">Retreat</dt><dd>{displayValue(cohort.retreatDates)}</dd>
               <dt className="t-eyebrow">Location</dt><dd>{displayValue(cohort.location)}</dd>
