@@ -48,7 +48,7 @@ describe('handleSubmission', () => {
     const { c, saved } = ctx();
     const res = await handleSubmission(body(), c);
     expect(res.status).toBe(201);
-    expect(saved[0]).toMatchObject({ cohortYear: 2027, applicantName: 'Ayesha Khan', applicantEmail: 'Ayesha@Example.org', orgName: 'Org', schemaVersion: 'v4' });
+    expect(saved[0]).toMatchObject({ cohortYear: 2027, applicantName: 'Ayesha Khan', applicantEmail: 'Ayesha@Example.org', orgName: 'Org', schemaVersion: 'v5' });
   });
   it('rejects when applications are closed (403), even if valid', async () => {
     const { c, saved } = ctx({ live: false });

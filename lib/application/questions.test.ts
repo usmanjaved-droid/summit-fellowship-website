@@ -4,7 +4,7 @@ import { ALL_QUESTIONS, SCHEMA_VERSION, SECTIONS } from './questions';
 describe('question schema', () => {
   it('has sections A to H in order', () => {
     expect(SECTIONS.map((s) => s.id)).toEqual(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']);
-    expect(SCHEMA_VERSION).toBe('v4');
+    expect(SCHEMA_VERSION).toBe('v5');
   });
   it('has unique question ids', () => {
     const ids = ALL_QUESTIONS.map((q) => q.id);

@@ -1,6 +1,6 @@
 import type { Question, Section } from './types';
 
-export const SCHEMA_VERSION = 'v4';
+export const SCHEMA_VERSION = 'v5';
 
 export const BEFORE_YOU_START: string[] = [
   'Your active user count today, and your own definition of "active".',
@@ -50,7 +50,7 @@ export const SECTIONS: Section[] = [
     title: 'Applicant',
     questions: [
       { id: 'B1', kind: 'text', label: 'Full name', required: true, maxChars: 80 },
-      { id: 'B2', kind: 'text', label: 'Role title', required: true, maxChars: 60 },
+      { id: 'B2', kind: 'text', label: 'Role title (and whether you founded or co-founded the organisation)', help: 'For example, "Co-founder & CEO".', required: true, maxChars: 60 },
       { id: 'B3', kind: 'email', label: 'Email', required: true },
       { id: 'B4', kind: 'phone', label: 'Phone, with country code', required: true },
       { id: 'B5', kind: 'url', label: 'LinkedIn', help: 'Enter "none" if you do not have one.', required: true, acceptWords: ['none'] },
