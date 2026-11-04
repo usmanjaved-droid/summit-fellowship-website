@@ -60,7 +60,7 @@ describe('validateQuestion', () => {
   it('multiselect needs at least one valid choice', () => {
     expect(validateQuestion(q('A7'), { choices: [], specify: '' })).toBe(MSG.required);
     expect(validateQuestion(q('A7'), { choices: ['Mars'], specify: '' })).toBe(MSG.choose);
-    expect(validateQuestion(q('A7'), { choices: ['Outside Pakistan'], specify: '' })).toBe(MSG.specify);
+    expect(validateQuestion(q('A7'), { choices: ['Punjab', 'Outside Pakistan'], specify: '' })).toBe(MSG.specify);
     expect(validateQuestion(q('A7'), { choices: ['Punjab', 'Sindh'], specify: '' })).toBeNull();
   });
   it('sentences need every blank, numeric blanks digits only', () => {
@@ -104,5 +104,16 @@ describe('validateSection / validateAll', () => {
   });
   it('treats a missing answer like an empty one', () => {
     expect(validateAll({}).A1).toBe(MSG.required);
+  });
+});
+
+describe('A7 needs a place in Pakistan', () => {
+  const a7 = ALL_QUESTIONS.find((q) => q.id === 'A7')!;
+  it('rejects "Outside Pakistan" on its own', () => {
+    expect(validateQuestion(a7, { choices: ['Outside Pakistan'], specify: 'Kenya' })).toMatch(/at least one place in Pakistan/);
+  });
+  it('accepts a Pakistan region, with or without Outside Pakistan', () => {
+    expect(validateQuestion(a7, { choices: ['Sindh'], specify: '' })).toBeNull();
+    expect(validateQuestion(a7, { choices: ['Sindh', 'Outside Pakistan'], specify: 'Kenya' })).toBeNull();
   });
 });

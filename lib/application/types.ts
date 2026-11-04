@@ -21,7 +21,13 @@ export type Question =
   | (Base & { kind: 'monthYear' })
   | (Base & { kind: 'radio'; options: string[]; numbered?: boolean })
   | (Base & { kind: 'select'; options: string[]; specify?: { options: string[]; maxChars: number } })
-  | (Base & { kind: 'multiselect'; options: string[]; specify?: { options: string[]; maxChars: number } })
+  | (Base & {
+      kind: 'multiselect';
+      options: string[];
+      specify?: { options: string[]; maxChars: number };
+      /** Options that cannot be the only ones chosen (e.g. "Outside Pakistan" without a Pakistan region). */
+      notAlone?: { options: string[]; message: string };
+    })
   | (Base & { kind: 'sentence'; parts: (string | Blank)[] })
   | (Base & { kind: 'table'; columns: Column[]; minRows: number; maxRows: number });
 
