@@ -20,7 +20,7 @@ export function validAnswers(): Answers {
     C4: [{ name: 'Rawalpindi', users: { value: '900', untracked: false }, since: '01/2023' }],
     C6: '$18',
     D1: 'Teachers', D2: [{ problem: 'Teachers lack plans', count: { value: '', untracked: true }, source: 'n/a' }],
-    E1: 'We train', E2a: 'Referral', E2b: 'Weekly use', E2c: 'Better lessons',
+    E2a: 'Referral', E2b: 'Weekly use', E2c: 'Better lessons',
     E3: { action: 'train', user: 'teachers', behaviour: 'plan', outcome: 'learning', measure: 'scores' },
     F1: 'User testimonials and anecdotes',
     F2: [{ measured: 'Reading', result: '+12 pts', sample: { value: '300', untracked: false }, compared: 'Baseline', who: 'Us', when: '05/2024', link: 'not public' }],
