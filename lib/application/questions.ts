@@ -188,15 +188,6 @@ export const SECTIONS: Section[] = [
     title: 'Scale: who does it, who pays for it',
     questions: [
       {
-        id: 'G1', kind: 'sentence', label: 'Complete this sentence',
-        help: 'The two blanks can be the same, and they can both be you — legitimate if you are a business. What they cannot be is "partners" or "the ecosystem".',
-        required: true,
-        parts: [
-          'At scale,', { id: 'doer', hint: 'named entity or type of entity', maxChars: 80 },
-          'delivers this, and', { id: 'payer', hint: 'named entity or type of entity', maxChars: 80 }, 'pays for it.',
-        ],
-      },
-      {
         id: 'G2', kind: 'text', label: 'What will be your primary mechanism for reaching 1M+ users by 2030?',
         help: 'Examples: Digital Platform (App/SMS/Voice), Government Partnership/Adoption, Training of Trainers, Human Delivery, B2B Partnerships, Enterprise Sales.',
         required: true, maxChars: 40,
