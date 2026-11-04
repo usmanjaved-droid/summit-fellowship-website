@@ -24,6 +24,10 @@ const sourceSans = Source_Sans_3({
   variable: '--font-sans',
 });
 
+// Re-render pages every 5 minutes so the application status flips on time (opening day, deadline).
+// The form's server (/api/apply) checks the exact time on every submission.
+export const revalidate = 300;
+
 export const metadata: Metadata = {
   title: 'Friends of Pakistan Fellowship — Designed for Scale',
   description:

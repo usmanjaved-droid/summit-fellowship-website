@@ -182,7 +182,7 @@ The site uses the **Friends of Pakistan design system** (restyle of 2026-10-19, 
 - **Supabase** (org free plan, region ap-south-1): staging `summit-fellowship-staging` (ref `wagaimviefobclwhaboa`), production `summit-fellowship-production` (ref `sfkmvxewojvstmincdzw`). Migration: `supabase/migrations/20261012000000_applications.sql`, applied to both. Table `public.applications` has RLS on with no policies and no anon/authenticated grants; only the SECURITY DEFINER function (EXECUTE for anon only) can insert. Read applications in the Supabase dashboard → Table editor → `applications` (filter `is_latest = true`; Export CSV). The old paused project "Summit Fellowship App reviewer" is unrelated (last year's reviewer page). The staging database holds test rows (e.g. smoke@example.com); that is expected.
 - **Notify sign-ups:** table `public.notify_signups` (migration `supabase/migrations/20261019000000_notify_signups.sql`, applied to both projects; same access model, insert-only RPC `public.submit_notify_signup`). When applications open, export the emails for the cohort year (Table editor → `notify_signups` → filter `cohort_year`, Export CSV) and email them.
 - **Env vars (server-only, never `NEXT_PUBLIC_`):** `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`. In Vercel, Preview and Development use staging values; Production uses production values. Local `.env.local` (git-ignored) holds staging values.
-- **Open/closed:** non-production deployments always treat applications as open (`getCurrentCohort` in `lib/site.ts`); production follows `data/site.json`.
+- **Open/closed:** non-production deployments always treat applications as open, ignoring dates (`getCurrentCohort` in `lib/site.ts`); production follows `data/site.json`. With `applicationsOpen: true`, the form is live between `applicationsOpenAt` and `applicationsCloseAt` (ISO times with `+05:00`); `getApplicationPhase` gives unscheduled / upcoming / live / closed. Pages re-render every 5 minutes (`revalidate = 300` in `app/layout.tsx`) so the status flips on time; `/api/apply` checks the exact time on every submission. 2027 window: 6 Nov 2026 00:00 PKT to 11 Dec 2026 23:59:59 PKT.
 - **Each year:** in `data/site.json` set `currentCohort.year`, dates, deadline and `applicationsOpen`, then run `npm run pdf:application` (the year is printed in the PDF).
 - **Free-plan caveat:** Supabase pauses free projects after about 7 days without activity. Check the production project is active before opening applications and during the window (dashboard → Restore if paused).
 
@@ -192,7 +192,7 @@ The site uses the **Friends of Pakistan design system** (restyle of 2026-10-19, 
 2. In `data/site.json` set the cohort dates, the deadline and `applicationsOpen: true` (then `npm run pdf:application` if the year changed).
 3. Merge `staging` → `master` so Vercel makes a fresh production build.
 4. Make one test submission on the production site, then delete that row in the Supabase dashboard (Table editor → `applications`).
-5. On deadline day set `applicationsOpen: false` in `data/site.json` and deploy — this is what closes the API (`/api/apply` returns 403).
+5. Closing is automatic at `applicationsCloseAt` (the API returns 403 after it). Setting `applicationsOpen: false` and deploying closes it immediately.
 
 ---
 

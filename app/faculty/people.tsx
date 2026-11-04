@@ -52,32 +52,32 @@ export const FACULTY: Person[] = [
     relevance: <>Decentralized operations at massive scale. <strong>Building sustainable models in resource-constrained environments</strong> where communities own and manage the outcomes. Turning cost into competitive advantage.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/riaz-ahmed-kamlani-38b1a04/' }, { label: 'The Citizens Foundation →', href: 'https://www.tcf.org.pk/' }],
   },
-];
-
-export const ADVISORS: Person[] = [
   {
-    init: 'AK', num: 'A.01', name: 'Dr. Asyia Kazmi', role: 'CEO, WISE (World Innovation Summit for Education)',
+    init: 'AK', num: 'F.07', name: 'Dr. Asyia Kazmi', role: 'CEO, WISE (World Innovation Summit for Education)',
     photo_url: '/images/faculty/dr.-asyia-kazmi.jpg',
     org: <>Over 30 years transforming education globally. At the Gates Foundation, improved literacy outcomes by <strong>16% for 8 million children</strong> in Uttar Pradesh and established an EdTech and AI portfolio reaching 2.5 million learners. Led PwC&apos;s Girls&apos; Education Challenge, a <strong>$1 billion fund supporting 1.5 million girls</strong> across 17 countries. OBE recipient for services to education. PhD in Education from UCL, Master&apos;s in Applied Mathematics from Imperial College.</>,
     relevance: <>Education policy and innovation at scale. <strong>EdTech and AI integration</strong> that improves learning outcomes. Building government partnerships for systemic education reform. How to design and test interventions before scaling to millions. The evidence and rigor needed to prove what works.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/dr-asyia-k-08495055' }, { label: 'WISE →', href: 'https://www.wise-qatar.org/' }],
   },
   {
-    init: 'MI', num: 'A.02', name: 'Mubarik Imam', role: 'Former Head of Growth, Analytics & Strategy, WhatsApp',
+    init: 'MI', num: 'F.08', name: 'Mubarik Imam', role: 'Former Head of Growth, Analytics & Strategy, WhatsApp',
     photo_url: '/images/faculty/Mubarik Imam.jpeg',
     org: <>Pakistan-born, first 25 employees at WhatsApp. Built and led product, growth, integrity, analytics, and strategy teams scaling WhatsApp from <strong>200M to 1.9B+ users</strong> over seven years. Founder of the Association for the Development of Pakistan. Granddaughter of the founder of LUMS. MIT (Electrical Engineering), Harvard Kennedy School (MPA/ID), Stanford GSB (MBA).</>,
     relevance: <>Scaling globally without losing focus. <strong>Product discipline and strategic focus</strong>—how to say no to 99 good ideas to execute one great idea. Building platforms that reach billions. Pakistani diaspora networks and home-country connections. How founders think at billion-user scale.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/mubarik-imam-a914842' }],
   },
+];
+
+export const ADVISORS: Person[] = [
   {
-    init: 'AW', num: 'A.03', name: 'Aleem Walji', role: 'Founder & CEO, 5in5 Impact Alliance',
+    init: 'AW', num: 'A.01', name: 'Aleem Walji', role: 'Founder & CEO, 5in5 Impact Alliance',
     photo_url: '/images/faculty/Aleem Walji.jpg',
     org: <>Former Chief Innovation Advisor at the World Bank Group, CEO of Aga Khan Foundation in Syria, and Head of Global Development Initiatives at Google.org. Leading 5in5 Impact Alliance to improve <strong>literacy and numeracy for 5 million children in 5 years</strong>. Focuses on identifying and scaling proven, cost-effective education solutions through government partnerships.</>,
     relevance: <>Innovation in last-mile delivery and government scaling. How to identify and test solutions before taking them to scale. <strong>Working with governments as the primary customer</strong> for scaling education. Measuring cost-effectiveness and impact rigor. Surfacing and scaling innovations that actually move the needle on learning outcomes.</>,
     links: [{ label: 'LinkedIn →', href: 'https://www.linkedin.com/in/aleem-walji-73403b7/' }, { label: '5in5 →', href: 'https://5in5.education/' }],
   },
   {
-    init: 'SG', num: 'A.04', name: 'Shikha Goyal', role: 'CEO, Vitol Foundation',
+    init: 'SG', num: 'A.02', name: 'Shikha Goyal', role: 'CEO, Vitol Foundation',
     photo_url: '/images/faculty/Shikha Goyal.jpeg',
     org: <>Over 18 years working across development and private sectors. At CIFF (Children&apos;s Investment Fund Foundation), managed a portfolio of <strong>over $60 million</strong> improving literacy and numeracy for children in India and Sub-Saharan Africa. Invested in Educate Girls India (world&apos;s first education development impact bond), Tayari (serving 1,500+ schools in Kenya), and Early Learning Partnership with the World Bank. Venture Partner at Imaginable Futures leading strategy and investments across Africa. Kauffman Fellow and board member of Innovation Edge and SPARK Schools.</>,
     relevance: <>Venture capital and impact investing in education. Building <strong>development impact bonds</strong> that align financial returns with social outcomes. Identifying and scaling education innovations across Africa. How to structure investments that blend commercial and development thinking. Board governance and scaling impact through venture models.</>,
