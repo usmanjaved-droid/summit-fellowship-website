@@ -108,6 +108,7 @@ export function validateQuestion(q: Question, a: Answer | undefined): string | n
       if (!v || typeof v !== 'object' || !Array.isArray(v.choices) || !isStr(v.specify)) return MSG.invalid;
       if (v.choices.length === 0) return q.required ? MSG.required : null;
       if (!v.choices.every((c) => isStr(c) && q.options.includes(c))) return MSG.choose;
+      if (q.notAlone && v.choices.every((c) => q.notAlone!.options.includes(c as string))) return q.notAlone.message;
       if (q.specify && v.choices.some((c) => q.specify!.options.includes(c as string))) {
         if (v.specify.trim() === '') return MSG.specify;
         if (v.specify.length > q.specify.maxChars) return MSG.tooLong(q.specify.maxChars);
