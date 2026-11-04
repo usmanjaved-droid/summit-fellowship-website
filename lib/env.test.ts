@@ -12,7 +12,7 @@ describe('isProductionDeploy', () => {
 
 describe('siteUrl', () => {
   it('uses the production domain in production, the deployment URL elsewhere, localhost locally', () => {
-    expect(siteUrl({ VERCEL_ENV: 'production', VERCEL_PROJECT_PRODUCTION_URL: 'site.example', VERCEL_URL: 'x.vercel.app' })).toBe('https://site.example');
+    expect(siteUrl({ VERCEL_ENV: 'production', VERCEL_PROJECT_PRODUCTION_URL: 'summit-fellowship-website.vercel.app', VERCEL_URL: 'x.vercel.app' })).toBe('https://friendsofpakistan-fellowship.vercel.app');
     expect(siteUrl({ VERCEL_ENV: 'preview', VERCEL_URL: 'x.vercel.app' })).toBe('https://x.vercel.app');
     expect(siteUrl({})).toBe('http://localhost:3000');
   });
