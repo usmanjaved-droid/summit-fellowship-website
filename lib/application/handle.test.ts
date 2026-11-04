@@ -24,7 +24,7 @@ export function validAnswers(): Answers {
     E3: { action: 'train', user: 'teachers', behaviour: 'plan', outcome: 'learning', measure: 'scores' },
     F1: 'User testimonials and anecdotes',
     F3: '% reading at grade level', F4: 'ASER test twice a year',
-    G1: { doer: 'Punjab SED', payer: 'Punjab SED' }, G2: 'Government Partnership', G3: 'Path to scale',
+    G2: 'Government Partnership', G3: 'Path to scale',
     H1: { choice: 'Website', specify: '' }, H2: '',
   });
   return a;
