@@ -14,9 +14,9 @@ describe('question schema', () => {
     const caps = ALL_QUESTIONS.flatMap((q) => (q.kind === 'text' ? [q.maxChars] : []));
     expect(Math.max(...caps)).toBe(1100);
   });
-  it('has exactly four required free-text boxes over 250 characters (D1, E1, F4, G3)', () => {
+  it('has exactly three required free-text boxes over 250 characters (D1, F4, G3)', () => {
     const long = ALL_QUESTIONS.filter((q) => q.kind === 'text' && q.required && q.maxChars > 250).map((q) => q.id);
-    expect(long.sort()).toEqual(['D1', 'E1', 'F4', 'G3']);
+    expect(long.sort()).toEqual(['D1', 'F4', 'G3']);
   });
   it('contains the identity fields the server needs', () => {
     const ids = ALL_QUESTIONS.map((q) => q.id);

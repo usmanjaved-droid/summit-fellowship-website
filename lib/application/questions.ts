@@ -135,11 +135,6 @@ export const SECTIONS: Section[] = [
     id: 'E',
     title: 'The intervention and how it works',
     questions: [
-      {
-        id: 'E1', kind: 'text', multiline: true, label: 'Describe the intervention. What happens, in the order it happens.',
-        help: 'Describe only what happens. If a sentence does not describe an action someone takes, delete it.',
-        required: true, maxChars: 600,
-      },
       { id: 'E2a', kind: 'text', multiline: true, label: 'Walk one user through it — first contact', help: 'How does a user find out about you and get started?', required: true, maxChars: 200 },
       { id: 'E2b', kind: 'text', multiline: true, label: 'Walk one user through it — the core interaction', help: 'What does the user do, how often, for how long each time?', required: true, maxChars: 200 },
       { id: 'E2c', kind: 'text', multiline: true, label: 'Walk one user through it — the end', help: 'What is different for that user when they are done?', required: true, maxChars: 200 },
