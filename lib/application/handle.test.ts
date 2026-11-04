@@ -23,7 +23,6 @@ export function validAnswers(): Answers {
     E2a: 'Referral', E2b: 'Weekly use', E2c: 'Better lessons',
     E3: { action: 'train', user: 'teachers', behaviour: 'plan', outcome: 'learning', measure: 'scores' },
     F1: 'User testimonials and anecdotes',
-    F2: [{ measured: 'Reading', result: '+12 pts', sample: { value: '300', untracked: false }, compared: 'Baseline', who: 'Us', when: '05/2024', link: 'not public' }],
     F3: '% reading at grade level', F4: 'ASER test twice a year',
     G1: { doer: 'Punjab SED', payer: 'Punjab SED' }, G2: 'Government Partnership', G3: 'Path to scale',
     H1: { choice: 'Website', specify: '' }, H2: '',

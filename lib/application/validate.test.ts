@@ -82,9 +82,12 @@ describe('validateQuestion', () => {
     const row = { name: 'Rawalpindi', users: { value: '9'.repeat(100_000), untracked: false }, since: '01/2023' };
     expect(validateQuestion(q('C4'), [row])).toBe(MSG.rowIncomplete(1));
     expect(validateQuestion(q('C4'), [{ ...row, users: { value: '9'.repeat(15), untracked: false } }])).toBeNull();
-    const f2 = { measured: 'Reading', result: '+12', sample: { value: '300', untracked: false }, compared: 'Baseline', who: 'Us', when: '05/2024' };
-    expect(validateQuestion(q('F2'), [{ ...f2, link: `https://example.org/${'a'.repeat(300)}` }])).toBe(MSG.rowIncomplete(1));
-    expect(validateQuestion(q('F2'), [{ ...f2, link: 'https://example.org/report' }])).toBeNull();
+    const links = {
+      id: 'T1', kind: 'table', label: 'Links', required: true, minRows: 1, maxRows: 1,
+      columns: [{ id: 'link', label: 'Public link, or "not public"', kind: 'url', acceptWords: ['not public'] }],
+    } as Question;
+    expect(validateQuestion(links, [{ link: `https://example.org/${'a'.repeat(300)}` }])).toBe(MSG.rowIncomplete(1));
+    expect(validateQuestion(links, [{ link: 'https://example.org/report' }])).toBeNull();
   });
   it('rejects wrong shapes instead of crashing', () => {
     expect(validateQuestion(q('A1'), { value: 'x', untracked: false })).toBe(MSG.invalid);
