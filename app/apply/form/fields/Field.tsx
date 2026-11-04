@@ -1,7 +1,7 @@
 'use client';
 
 import type { Answer, ChoiceAnswer, MultiAnswer, NumberAnswer, Question } from '@/lib/application/types';
-import { digitsOnly, formatMonthYear } from '@/lib/application/validate';
+import { countWords, digitsOnly, formatMonthYear } from '@/lib/application/validate';
 import styles from '../form.module.css';
 import SentenceField from './SentenceField';
 import TableField from './TableField';
@@ -13,10 +13,11 @@ export function describedBy(id: string, hasHelp: boolean, hasError: boolean, ext
 }
 
 function Counter({ id, value, max }: { id: string; value: string; max: number }) {
-  const near = value.length >= max * 0.9;
+  const used = countWords(value);
+  const near = used >= max * 0.9;
   return (
     <span id={`q-${id}-count`} className={`${styles.form__counter}${near ? ` ${styles['form__counter--near']}` : ''}`}>
-      {max - value.length} characters left (max {max})
+      {used} of {max} words
     </span>
   );
 }
@@ -97,7 +98,7 @@ export function Field({ question: q, value, onChange, error }: Props) {
   let input: React.ReactNode;
   const common = {
     id,
-    'aria-describedby': describedBy(q.id, !!q.help, !!error, q.kind === 'text' ? `${id}-count` : undefined),
+    'aria-describedby': describedBy(q.id, !!q.help, !!error, q.kind === 'text' && q.maxWords ? `${id}-count` : undefined),
     'aria-invalid': !!error,
     className: styles.form__input,
   };
@@ -107,11 +108,11 @@ export function Field({ question: q, value, onChange, error }: Props) {
     input = (
       <>
         {q.multiline ? (
-          <textarea {...common} rows={q.maxChars > 300 ? 8 : 4} maxLength={q.maxChars} placeholder={q.placeholder} value={v} onChange={(e) => onChange(e.target.value)} />
+          <textarea {...common} rows={(q.maxWords ?? 0) > 150 ? 8 : 5} maxLength={q.maxChars} placeholder={q.placeholder} value={v} onChange={(e) => onChange(e.target.value)} />
         ) : (
           <input {...common} type="text" maxLength={q.maxChars} placeholder={q.placeholder} value={v} onChange={(e) => onChange(e.target.value)} />
         )}
-        <Counter id={q.id} value={v} max={q.maxChars} />
+        {q.maxWords && <Counter id={q.id} value={v} max={q.maxWords} />}
       </>
     );
   } else if (q.kind === 'email' || q.kind === 'phone' || q.kind === 'url') {

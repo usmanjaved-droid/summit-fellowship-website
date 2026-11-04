@@ -16,7 +16,7 @@ export default function SentenceField({ question, value, onChange }: { question:
           <input
             key={part.id}
             className={styles.form__blank}
-            aria-label={`${part.hint} (max ${part.maxChars} characters)`}
+            aria-label={part.hint}
             placeholder={part.hint}
             inputMode={part.numeric ? 'numeric' : undefined}
             maxLength={part.maxChars}

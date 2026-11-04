@@ -43,8 +43,8 @@ for (const section of SECTIONS) {
     if (q.help) note(q.help);
     switch (q.kind) {
       case 'text':
-        note(`Max ${q.maxChars} characters.`);
-        lines(Math.min(12, Math.max(1, Math.ceil(q.maxChars / 90))));
+        if (q.maxWords) note(`Max ${q.maxWords} words.`);
+        lines(q.maxWords ? Math.min(12, Math.ceil(q.maxWords / 15)) : q.multiline ? 3 : 1);
         break;
       case 'radio':
         q.options.forEach((o, i) => body(`[ ] ${q.numbered ? `${i + 1}. ` : ''}${o}`));
@@ -54,10 +54,10 @@ for (const section of SECTIONS) {
       case 'multiselect':
         q.options.forEach((o) => body(`[ ] ${o}`));
         note(q.kind === 'select' ? 'Choose one.' : 'Choose all that apply.');
-        if (q.specify) note(`If ${q.specify.options.join(' / ')}: please specify (max ${q.specify.maxChars} characters).`);
+        if (q.specify) note(`If ${q.specify.options.join(' / ')}: please specify.`);
         break;
       case 'sentence':
-        body(q.parts.map((p) => (typeof p === 'string' ? p : `[${p.hint} — max ${p.maxChars}]`)).join(' '));
+        body(q.parts.map((p) => (typeof p === 'string' ? p : `[${p.hint}]`)).join(' '));
         lines(2);
         break;
       case 'table':

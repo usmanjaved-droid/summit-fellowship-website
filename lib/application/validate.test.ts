@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { emptyAnswer, emptyAnswers } from './answers';
 import { ALL_QUESTIONS, SECTIONS } from './questions';
 import type { Question } from './types';
-import { MSG, digitsOnly, formatMonthYear, validateAll, validateQuestion, validateSection } from './validate';
+import { MSG, countWords, digitsOnly, formatMonthYear, validateAll, validateQuestion, validateSection } from './validate';
 
 const q = (id: string) => ALL_QUESTIONS.find((x) => x.id === id) as Question;
 
@@ -28,6 +28,11 @@ describe('validateQuestion', () => {
   it('rejects text over the cap (server-side tamper guard)', () => {
     expect(validateQuestion(q('A1'), 'x'.repeat(101))).toBe(MSG.tooLong(100));
     expect(validateQuestion(q('A1'), 'x'.repeat(100))).toBeNull();
+  });
+  it('applies word limits, counting words however they are spaced', () => {
+    expect(countWords('  one two\n\nthree  ')).toBe(3);
+    expect(validateQuestion(q('D1'), Array(120).fill('word').join(' '))).toBeNull();
+    expect(validateQuestion(q('D1'), Array(121).fill('word').join(' '))).toBe(MSG.tooManyWords(120));
   });
   it('validates email, phone, url', () => {
     expect(validateQuestion(q('B3'), 'nope')).toBe(MSG.email);
