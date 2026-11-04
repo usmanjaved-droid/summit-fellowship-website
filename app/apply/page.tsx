@@ -12,9 +12,10 @@ export const metadata = {
 };
 
 const CRITERIA = [
-  'You are the founder, or the senior-most leader with real decision-making power. Founders are strongly preferred.',
+  'You are the founder, a co-founder, or the senior-most leader with real decision-making power. Founders are strongly preferred.',
   'Your organisation is past the pilot stage, with strong delivery or reach numbers in the last 12 months.',
-  'Your annual budget is at least USD 100,000, with basic financial systems in place (audited statements or equivalent).',
+  'Your work serves people in Pakistan.',
+  'You keep basic financial records, such as annual accounts.',
   'Your work improves the lives of the poor or meets their basic needs — health, education, livelihoods and beyond.',
   'You are fluent in English.',
   'You can spend seven consecutive days fully present: no email or calls during sessions.',

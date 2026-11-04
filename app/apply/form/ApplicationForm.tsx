@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { clearDraft, loadDraft, safeStorage, saveDraft, type Draft, type Step } from '@/lib/application/draft';
 import { HONEYPOT_FIELD } from '@/lib/application/handle';
 import { CONFIRMATION_TEXT, SECTIONS } from '@/lib/application/questions';
-import { SCREENER_QUESTIONS, isEligible, isScreenerComplete } from '@/lib/application/screener';
+import { SCREENER_QUESTIONS, isEligible, isScreenerComplete, unmetRequirements } from '@/lib/application/screener';
 import { submitApplication } from '@/lib/application/submit';
 import type { Answer, Question } from '@/lib/application/types';
 import { validateAll, validateSection } from '@/lib/application/validate';
@@ -133,10 +133,11 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
         {draft.step === 'ineligible' ? (
           <>
             <h2 className={styles.form__title} ref={headingRef} tabIndex={-1}>This fellowship isn&apos;t the right fit this year.</h2>
-            <p className={styles.form__intro}>
-              The fellowship is built for founders or senior-most leaders of post-pilot organisations with an annual budget of at least
-              USD 100,000, basic financial systems, fluent English and seven days of full presence. We would love to hear from you in a future year.
-            </p>
+            {/* Only the requirement(s) this applicant answered "no" to. */}
+            {unmetRequirements(s).map((q) => (
+              <p key={q.id} className={styles.form__intro}>{q.notFit}</p>
+            ))}
+            <p className={styles.form__intro}>We would love to hear from you in a future year.</p>
             <div className={styles.form__actions}>
               <button type="button" className="btn btn--ghost" onClick={() => goTo('screener')}>Change my answers</button>
               <Link href="/faq" className="btn btn--ghost">Read the FAQ</Link>
@@ -144,7 +145,7 @@ export default function ApplicationForm({ year, contactEmail }: Props) {
           </>
         ) : (
           <>
-            <h2 className={styles.form__title} ref={headingRef} tabIndex={-1}>Seven quick questions.</h2>
+            <h2 className={styles.form__title} ref={headingRef} tabIndex={-1}>Six quick questions.</h2>
             <p className={styles.form__intro}>These confirm the fellowship fits where you are. Your answers save automatically in this browser.</p>
             {SCREENER_QUESTIONS.map((q) => (
               <fieldset key={q.id} className={styles.form__field}>
