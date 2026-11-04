@@ -18,7 +18,7 @@ export function validAnswers(): Answers {
     C1: 'It runs at steady state in one geography, without the founder involved day to day.', C2: '03/2020',
     C3: { count: '1200', category: 'teachers', what: 'our app', definition: 'used it in the last 7 days' },
     C4: [{ name: 'Rawalpindi', users: { value: '900', untracked: false }, since: '01/2023' }],
-    C5: { choices: ['A mobile app'], specify: '' },
+    C6: '$18',
     D1: 'Teachers', D2: [{ problem: 'Teachers lack plans', count: { value: '', untracked: true }, source: 'n/a' }],
     E1: 'We train', E2a: 'Referral', E2b: 'Weekly use', E2c: 'Better lessons',
     E3: { action: 'train', user: 'teachers', behaviour: 'plan', outcome: 'learning', measure: 'scores' },

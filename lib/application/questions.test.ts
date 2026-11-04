@@ -25,10 +25,10 @@ describe('question schema', () => {
   it('never names the Scale Screen', () => {
     expect(JSON.stringify(SECTIONS)).not.toMatch(/scale screen/i);
   });
-  it('C1 has six stage rungs and F1 nine evidence rungs', () => {
+  it('C1 has four stage rungs (post-pilot only) and F1 nine evidence rungs', () => {
     const c1 = ALL_QUESTIONS.find((q) => q.id === 'C1');
     const f1 = ALL_QUESTIONS.find((q) => q.id === 'F1');
-    expect(c1?.kind === 'radio' && c1.options.length).toBe(6);
+    expect(c1?.kind === 'radio' && c1.options.length).toBe(4);
     expect(f1?.kind === 'radio' && f1.options.length).toBe(9);
   });
 });
