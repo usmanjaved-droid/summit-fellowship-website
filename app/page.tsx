@@ -54,6 +54,7 @@ export default function HomePage() {
             <h1 className={`t-heading-xl ${styles.hero__title}`}>
               Friends of Pakistan <span>Fellowship</span>
             </h1>
+            <p className={styles.hero__inspired}>Inspired by Mulago Foundation</p>
             <p className={`t-body-light ${styles.hero__lead}`}>
               Curating Pakistan&apos;s most promising non-profits and social businesses, and matching them with world-class
               strategy, mentoring, and capital to scale.

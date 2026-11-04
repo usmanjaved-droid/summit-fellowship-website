@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { BEFORE_YOU_START } from '@/lib/application/questions';
-import { displayValue, getApplicationStatus, getCurrentCohort, isApplicationLive } from '@/lib/site';
+import { displayValue, formatOpeningDay, getApplicationPhase, getApplicationStatus, getCurrentCohort } from '@/lib/site';
 import PageHero from '../components/PageHero';
 import { ArrowLink, Button, Prose, Section } from '../components/fop';
 import styles from './apply.module.css';
@@ -34,13 +34,21 @@ const STAGES = [
 
 export default function ApplyPage() {
   const cohort = getCurrentCohort();
-  const live = isApplicationLive(cohort);
+  const phase = getApplicationPhase(cohort);
+  const live = phase === 'live';
+  const opening = formatOpeningDay(cohort);
+  const title = {
+    live: <>Apply for the {cohort.year} <em>cohort.</em></>,
+    upcoming: <>Applications open <em>{opening?.replace(/ \d{4}$/, '')}.</em></>,
+    closed: <>Applications are <em>closed.</em></>,
+    unscheduled: <>Applications open <em>soon.</em></>,
+  }[phase];
 
   return (
     <>
       <PageHero
         crumb="Apply"
-        title={live ? <>Apply for the {cohort.year} <em>cohort.</em></> : <>Applications open <em>soon.</em></>}
+        title={title}
         subtitle={`${live ? 'A' : `The ${cohort.year} cohort: a`} fully funded, seven-day fellowship for Pakistani founders whose solutions are ready to reach millions.`}
       />
 
@@ -87,6 +95,7 @@ export default function ApplyPage() {
           <aside className={styles.aside}>
             <h2 className={`t-heading-4 ${styles.asideHeading}`}>Key dates</h2>
             <dl className={styles.dates}>
+              <dt className="t-eyebrow">Applications open</dt><dd>{displayValue(opening)}</dd>
               <dt className="t-eyebrow">Applications close</dt><dd>{displayValue(cohort.applicationDeadline)}</dd>
               <dt className="t-eyebrow">Retreat</dt><dd>{displayValue(cohort.retreatDates)}</dd>
               <dt className="t-eyebrow">Location</dt><dd>{displayValue(cohort.location)}</dd>

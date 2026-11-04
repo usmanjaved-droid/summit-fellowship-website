@@ -5,9 +5,18 @@ export type CohortSettings = {
   year: number;
   retreatDates: string | null;
   location: string | null;
+  /** Deadline as shown to visitors, e.g. "11 December 2026, 11:59 pm PKT". */
   applicationDeadline: string | null;
+  /** Master switch. With it on, the form is live between applicationsOpenAt and applicationsCloseAt. */
   applicationsOpen: boolean;
+  /** ISO time the form opens (e.g. "2026-11-06T00:00:00+05:00"); null = open as soon as the switch is on. */
+  applicationsOpenAt?: string | null;
+  /** ISO time the form closes (e.g. "2026-12-11T23:59:59+05:00"); null = no automatic close. */
+  applicationsCloseAt?: string | null;
 };
+
+/** Where applications stand: switched off (no date yet), scheduled to open, open, or past the deadline. */
+export type ApplicationPhase = 'unscheduled' | 'upcoming' | 'live' | 'closed';
 
 export type SiteSettings = {
   currentCohort: CohortSettings;
@@ -30,7 +39,30 @@ export function getSiteSettings(): SiteSettings {
  */
 export function getCurrentCohort(env: Record<string, string | undefined> = process.env): CohortSettings {
   const c = getSiteSettings().currentCohort;
-  return isProductionDeploy(env) ? c : { ...c, applicationsOpen: true };
+  // Outside production the form is always open, ignoring the dates, so it can be tested at any time.
+  return isProductionDeploy(env)
+    ? c
+    : { ...c, applicationsOpen: true, applicationsOpenAt: null, applicationsCloseAt: null };
+}
+
+const time = (iso: string | null | undefined) => (iso ? Date.parse(iso) : NaN);
+
+export function getApplicationPhase(
+  c: CohortSettings,
+  formEnabled: boolean = FORM_ENABLED,
+  now: number = Date.now(),
+): ApplicationPhase {
+  if (!c.applicationsOpen || !formEnabled) return 'unscheduled';
+  if (now < time(c.applicationsOpenAt)) return 'upcoming';
+  if (now > time(c.applicationsCloseAt)) return 'closed';
+  return 'live';
+}
+
+/** The day applications open, in Pakistan time, e.g. "6 November 2026"; null when no date is set. */
+export function formatOpeningDay(c: CohortSettings): string | null {
+  const t = time(c.applicationsOpenAt);
+  if (Number.isNaN(t)) return null;
+  return new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Karachi' }).format(t);
 }
 
 export function displayValue(v: string | null | undefined): string {
@@ -38,21 +70,28 @@ export function displayValue(v: string | null | undefined): string {
   return trimmed === '' ? TBC : trimmed;
 }
 
-export function isApplicationLive(c: CohortSettings, formEnabled: boolean = FORM_ENABLED): boolean {
-  return c.applicationsOpen && formEnabled;
+export function isApplicationLive(c: CohortSettings, formEnabled: boolean = FORM_ENABLED, now: number = Date.now()): boolean {
+  return getApplicationPhase(c, formEnabled, now) === 'live';
 }
 
-export function getApplyCta(c: CohortSettings, formEnabled: boolean = FORM_ENABLED) {
+export function getApplyCta(c: CohortSettings, formEnabled: boolean = FORM_ENABLED, now: number = Date.now()) {
   return {
-    label: isApplicationLive(c, formEnabled) ? `Apply for the ${c.year} cohort` : 'How to apply',
+    label: isApplicationLive(c, formEnabled, now) ? `Apply for the ${c.year} cohort` : 'How to apply',
     href: '/apply',
   };
 }
 
-/** One line on where applications stand: the deadline while live, otherwise that they open soon. */
-export function getApplicationStatus(c: CohortSettings, formEnabled: boolean = FORM_ENABLED): string {
-  return isApplicationLive(c, formEnabled)
-    ? `Applications close: ${displayValue(c.applicationDeadline)}`
-    : `Applications for the ${c.year} cohort open soon.`;
+/** One line on where applications stand: the deadline while live, the opening day before, closed after. */
+export function getApplicationStatus(c: CohortSettings, formEnabled: boolean = FORM_ENABLED, now: number = Date.now()): string {
+  switch (getApplicationPhase(c, formEnabled, now)) {
+    case 'live':
+      return `Applications close: ${displayValue(c.applicationDeadline)}`;
+    case 'upcoming':
+      return `Applications for the ${c.year} cohort open on ${formatOpeningDay(c)}.`;
+    case 'closed':
+      return `Applications for the ${c.year} cohort are now closed.`;
+    default:
+      return `Applications for the ${c.year} cohort open soon.`;
+  }
 }
 
