@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { OLD_PRODUCTION_HOST, PRODUCTION_HOST } from "./lib/env";
+import { OLD_PRODUCTION_HOSTS, PRODUCTION_HOST } from "./lib/env";
 
 const nextConfig: NextConfig = {
   images: {
@@ -14,14 +14,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // The old production address forwards every page to the new one.
+  // The old production addresses forward every page to the current one.
   async redirects() {
-    return [{
+    return OLD_PRODUCTION_HOSTS.map((host) => ({
       source: '/:path*',
-      has: [{ type: 'host', value: OLD_PRODUCTION_HOST }],
+      has: [{ type: 'host' as const, value: host }],
       destination: `https://${PRODUCTION_HOST}/:path*`,
       permanent: true,
-    }];
+    }));
   },
   async headers() {
     if (process.env.VERCEL_ENV === 'production') return [];
