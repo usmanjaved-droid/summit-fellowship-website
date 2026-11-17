@@ -1,8 +1,5 @@
 /* Faculty & Organizers: the previous horizontal person card (photo, name/role/story, talk-to-them-about + links). */
 h2.heading { margin: 0 0 var(--space-10); font-size: clamp(36px, 4.2vw, 55px); }
-/* A short line under a band heading (e.g. "2026 Faculty"); the heading gives up its gap to it. */
-h2.heading:has(+ .subhead) { margin-bottom: var(--space-3); }
-.subhead { margin: 0 0 var(--space-10); }
 .grid {
   display: grid;
   grid-template-columns: 1fr;

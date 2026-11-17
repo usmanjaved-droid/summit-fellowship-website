@@ -14,9 +14,6 @@ h2.heading {
   text-wrap: balance;
 }
 
-/* A short line under a band heading (e.g. "2026 Faculty"); the heading gives up its gap to it. */
-h2.heading:has(+ .subhead) { margin-bottom: var(--space-3); }
-.subhead { margin: 0 0 var(--space-10); }
 
 /* ============ Hero (green) ============ */
 .hero {

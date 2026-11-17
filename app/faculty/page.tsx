@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import PageHero from '../components/PageHero';
-import { Section, type SectionTone } from '../components/fop';
+import { HeadRow, Section, type SectionTone } from '../components/fop';
 import { ADVISORS, FACULTY, ORGANIZERS, type Person } from './people';
 import styles from './faculty.module.css';
 import ClosingBand from '../components/ClosingBand';
@@ -53,8 +53,11 @@ function PersonCard({ p }: { p: Person }) {
 function PeopleBand({ id, tone, title, subtitle, people }: { id: string; tone: SectionTone; title: string; subtitle?: string; people: Person[] }) {
   return (
     <Section tone={tone} id={id}>
-      <h2 className={`t-heading-2 ${styles.heading}`}>{title}</h2>
-      {subtitle && <p className={`t-heading-5 ${styles.subhead}`}>{subtitle}</p>}
+      {subtitle ? (
+        <HeadRow meta={subtitle}><h2 className={`t-heading-2 ${styles.heading}`}>{title}</h2></HeadRow>
+      ) : (
+        <h2 className={`t-heading-2 ${styles.heading}`}>{title}</h2>
+      )}
       <div className={styles.grid}>
         {people.map((p) => <PersonCard key={p.num} p={p} />)}
       </div>

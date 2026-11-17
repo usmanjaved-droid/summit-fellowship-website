@@ -10,3 +10,4 @@ export { Badge } from './Badge';
 export { SolverCard } from './SolverCard';
 export { Timeline } from './Timeline';
 export { Prose } from './Prose';
+export { HeadRow } from './HeadRow';
