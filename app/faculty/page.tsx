@@ -50,10 +50,11 @@ function PersonCard({ p }: { p: Person }) {
   );
 }
 
-function PeopleBand({ id, tone, title, people }: { id: string; tone: SectionTone; title: string; people: Person[] }) {
+function PeopleBand({ id, tone, title, subtitle, people }: { id: string; tone: SectionTone; title: string; subtitle?: string; people: Person[] }) {
   return (
     <Section tone={tone} id={id}>
       <h2 className={`t-heading-2 ${styles.heading}`}>{title}</h2>
+      {subtitle && <p className={`t-heading-5 ${styles.subhead}`}>{subtitle}</p>}
       <div className={styles.grid}>
         {people.map((p) => <PersonCard key={p.num} p={p} />)}
       </div>
@@ -69,7 +70,7 @@ export default function FacultyPage() {
         title={<>An ecosystem of <em>support.</em></>}
         subtitle="A curated group of founders, funders, and system-level operators bringing scale frameworks, patient capital, and the operational scars to make it real."
       />
-      <PeopleBand id="faculty" tone="offwhite" title="Faculty" people={FACULTY} />
+      <PeopleBand id="faculty" tone="offwhite" title="Faculty" subtitle="2026 Faculty" people={FACULTY} />
       <PeopleBand id="advisors" tone="white" title="Advisors" people={ADVISORS} />
       <PeopleBand id="organizers" tone="offwhite" title="Organisers" people={ORGANIZERS} />
       <ClosingBand />

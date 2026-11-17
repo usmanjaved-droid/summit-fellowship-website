@@ -164,6 +164,7 @@ export default function HomePage() {
       <Section tone="green">
         <p className={`t-eyebrow ${styles.eyebrow}`}>How it works</p>
         <h2 className={`t-heading-2 ${styles.heading}`}>From application to Demo Day.</h2>
+        <p className={`t-heading-5 ${styles.subhead}`}>Late Spring Through Summer</p>
         <div className={styles.steps__rail} data-reveal="line">
           <Timeline stages={STEPS.map((s) => s.title)} current={-1} label="How it works" />
         </div>
@@ -203,6 +204,7 @@ export default function HomePage() {
       <Section tone="white">
         <p className={`t-eyebrow ${styles.eyebrow}`}>People</p>
         <h2 className={`t-heading-2 ${styles.heading}`}>Organised and taught by people who have scaled.</h2>
+        <p className={`t-heading-5 ${styles.subhead}`}>2026 Faculty</p>
         <ul className={styles.faculty__grid}>
           {HOME_PEOPLE.map((p) => (
             <li key={p.num} className={styles.faculty__item} data-reveal>
