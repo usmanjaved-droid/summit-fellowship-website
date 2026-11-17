@@ -361,6 +361,31 @@
   .fop-stat__value { font-size: 64px; }
 }
 
+/* HeadRow: band heading on the left, a short fact on the right under the 4px yellow caption rule */
+.fop-headrow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-10);
+  margin: 0 0 var(--space-10);
+}
+.fop-headrow__main { min-width: 0; }
+.fop-headrow__main > :last-child { margin-bottom: 0; }
+.fop-headrow__meta {
+  flex: 0 0 auto;
+  margin: 0;
+  padding-top: var(--space-4);
+  border-top: var(--border-4) solid var(--primary);
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.15;
+  font-weight: 300;
+  color: var(--ink-brand);
+}
+@media (max-width: 640px) {
+  .fop-headrow { flex-direction: column; align-items: flex-start; gap: var(--space-6); }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .fop-arrow,
